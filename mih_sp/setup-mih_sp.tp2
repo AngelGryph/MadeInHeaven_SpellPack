@@ -1,0 +1,71 @@
+// Made in Heaven - Item Pack
+//
+// WeiDU installer
+
+BACKUP "mih_sp/backup"
+
+AUTHOR "angel@pearlgates.net"
+VERSION 1
+
+MODDER missing_eval none
+ASK_EVERY_COMPONENT
+NO_IF_EVAL_BUG
+AUTO_EVAL_STRINGS
+AUTO_TRA "mih_sp/tra/%s"
+
+ALWAYS
+  // Do the following only once per install
+  ACTION_IF NOT VARIABLE_IS_SET done_init
+  BEGIN
+    OUTER_SET done_init = 1
+
+    // We no longer support vanilla BG1, it's too much of a hassle.
+    ACTION_IF GAME_IS "bg1 totsc"
+    BEGIN
+      FAIL ~This mod no longer supports vanilla BG1/TotSC~
+    END
+
+    // Load compatibility variables for various implementations of BG1.
+    INCLUDE "%MOD_FOLDER%/lib/g3_tutu_cpmvars.tpa"
+    INCLUDE "%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa"
+    INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
+    INCLUDE "%MOD_FOLDER%/lib/g3_eet_cpmvars.tpa"
+
+    // BG(2)EE compat: handle charsets
+    ACTION_DEFINE_ARRAY mh#reload BEGIN "setup-%MOD_FOLDER%" END
+    ACTION_DEFINE_ARRAY mh#noconvert BEGIN END
+
+    LAUNCH_ACTION_FUNCTION HANDLE_CHARSETS
+      INT_VAR
+      infer_charset	= 1
+      STR_VAR
+      tra_path		= "%MOD_FOLDER%/tra"
+      iconv_path	= "%MOD_FOLDER/bin/win32/iconv"
+      noconvert_array	= "mh#noconvert"
+      reload_array	= "mh#reload"
+    END
+
+    // Load macro/function libraries
+    INCLUDE ~%MOD_FOLDER%/lib/mh_functions.tph~
+
+    // Read the .ini file for this mod
+    LAUNCH_ACTION_MACRO mh_process_ini_file
+  END	// done_init block
+END	// ALWAYS block
+
+
+LANGUAGE ~English~
+         ~english~
+	 ~%MOD_FOLDER%/tra/english/setup-%MOD_FOLDER%.tra~
+
+
+// Additional Paladin Powers
+
+BEGIN "Additional Paladin Powers"
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "install_paladin_powers"
+END
+
+

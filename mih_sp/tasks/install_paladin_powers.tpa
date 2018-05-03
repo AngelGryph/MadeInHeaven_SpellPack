@@ -1,0 +1,65 @@
+// Additional Paladin Powers
+
+
+COPY_LARGE "%MOD_FOLDER%/bams" "override"
+
+
+// Magic damage Xd6
+
+OUTER_FOR (SET i = 1; i <= 11; ++i)
+BEGIN
+  CREATE EFF "mh#m%i%d6"
+    WRITE_LONG	0x0010 12	// HP: Damage
+    WRITE_LONG	0x0020 4194304	// Magic
+    WRITE_SHORT	0x0024 1
+    WRITE_LONG	0x002c 100
+    WRITE_LONG	0x0038 i
+    WRITE_LONG	0x003c 6
+END
+
+
+// Smite Evil, Smite Good & Smite Undead
+
+COPY "%MOD_FOLDER%/spells/innate/mh#smtev.spl" "override"
+  SAY NAME1 ~Smite Evil~
+
+COPY "%MOD_FOLDER%/spells/innate/mh#smtgd.spl" "override"
+  SAY NAME1 ~Smite Good~
+
+COPY "%MOD_FOLDER%/spells/innate/mh#smtud.spl" "override"
+  SAY NAME1 ~Smite Undead~
+
+
+// True Paladin
+
+APPEND "clabpa01.2da"
+  ~mh#palex    GA_mh#smtev ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+
+
+// Cavalier
+
+APPEND "clabpa02.2da"
+  ~mh#palex    GA_mh#smtev ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+
+
+// Inquisitor
+
+APPEND "clabpa03.2da"
+  ~mh#palex    GA_mh#smtev ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+
+// Undead Hunter
+
+APPEND "clabpa04.2da"
+  ~mh#palex    GA_mh#smtud ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+
+// Blackguard (EE only)
+
+ACTION_IF FILE_EXISTS_IN_GAME "clabpa06.2da"
+BEGIN
+  APPEND "clabpa06.2da"
+    ~mh#palex    GA_mh#smtgd ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+END
+
+
