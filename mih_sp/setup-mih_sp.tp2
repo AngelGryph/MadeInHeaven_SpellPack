@@ -39,6 +39,7 @@ ALWAYS
       INT_VAR
       infer_charset	= 1
       STR_VAR
+      default_language	= "english"
       tra_path		= "%MOD_FOLDER%/tra"
       iconv_path	= "%MOD_FOLDER/bin/win32/iconv"
       noconvert_array	= "mh#noconvert"
@@ -47,6 +48,8 @@ ALWAYS
 
     // Load macro/function libraries
     INCLUDE ~%MOD_FOLDER%/lib/mh_functions.tph~
+    INCLUDE ~%MOD_FOLDER%/lib/cd_functions.tph~
+    INCLUDE ~%MOD_FOLDER%/lib/cd_effect_batches.tph~
 
     // Read the .ini file for this mod
     LAUNCH_ACTION_MACRO mh_process_ini_file
@@ -61,11 +64,22 @@ LANGUAGE ~English~
 
 // Additional Paladin Powers
 
-BEGIN "Additional Paladin Powers"
+BEGIN ~Additional Paladin Powers~
 
 LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
   task		= "install_paladin_powers"
+END
+
+
+// 3.5e Healing Spells
+
+BEGIN ~3.5e Healing Spells~
+GROUP ~Optional Spell Tweaks~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "tweak_healing_spells"
 END
 
 
