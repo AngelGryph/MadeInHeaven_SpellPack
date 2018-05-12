@@ -72,14 +72,36 @@ LAUNCH_ACTION_FUNCTION mh_run_task
 END
 
 
-// 3.5e Healing Spells
+// Improved Healing Spells
 
-BEGIN ~3.5e Healing Spells~
+BEGIN ~Improved Healing Spells~
 GROUP ~Optional Spell Tweaks~
 
 LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
   task		= "tweak_healing_spells"
+END
+
+
+// Improved Flame Blade
+
+BEGIN ~Improved Flame Blade~
+GROUP ~Optional Spell Tweaks~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "tweak_flame_blade"
+END
+
+
+// Flame Strike Burns Hotter
+
+BEGIN ~Flame Strike Burns Hotter~
+GROUP ~Optional Spell Tweaks~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "tweak_flame_strike"
 END
 
 

@@ -192,3 +192,22 @@ BEGIN
 END
 
 
+DEFINE_PATCH_FUNCTION mh_make_magical
+  INT_VAR
+  enchantment   = "-1"
+  lore          = "-1"
+BEGIN
+  WRITE_LONG    0x0018 (THIS | BIT6)
+
+  PATCH_IF enchantment >= 0
+  BEGIN
+    WRITE_LONG  0x0060 enchantment
+  END
+
+  PATCH_IF lore >= 0
+  BEGIN
+    WRITE_SHORT 0x0042 lore
+  END
+END
+
+

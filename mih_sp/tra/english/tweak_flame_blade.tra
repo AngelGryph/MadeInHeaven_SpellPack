@@ -1,0 +1,14 @@
+@0 = ~Flame Blade
+(Evocation)
+
+Level: 2
+Sphere: Elemental (Fire) 
+Range: 0 
+Duration: 4 rounds + 1 round/2 levels 
+Casting Time: 4 
+Area of Effect: Special
+Saving Throw: None 
+
+With this spell, the caster causes a blazing ray of red-hot fire to spring forth from <PRO_HISHER> hand. This blade-like ray is wielded as a scimitar, but there is no penalty for non-proficiency.  Since the blade is insubstantial, strength does not apply, but because the caster only needs to touch <PRO_HISHER> foe with the blade to deal damage, <PRO_HESHE> gets a +4 to hit.  The touch of the blade deals 1d8 points of fire damage, +1 for every two levels of the caster (max. +10).  It pierces magical defenses as if it were a weapon with a +2 enchantment.~
+
+

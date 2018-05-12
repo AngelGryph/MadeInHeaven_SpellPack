@@ -1,0 +1,14 @@
+@0 = ~Flame Strike
+(Evocation)
+
+Level: 5
+Sphere: Combat
+Range: 40 ft.
+Duration: Instant
+Casting Time: 8
+Area of Effect: 1 creature
+Saving Throw: 1/2 
+
+When the priest calls down a Flame Strike spell, a vertical column of fire roars downward in the exact location called for by the caster. The target must roll a Saving Throw vs. Spell. Failure means the creature sustains 1d8 points of damage per level of the caster; otherwise, the damage is halved.  Only half of the damage done is fire damage, the other half is raw holy power which is not affected by fire resistance.~
+
+
