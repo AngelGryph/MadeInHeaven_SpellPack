@@ -1,0 +1,20 @@
+// Alaghar of Clangeddin kit for Yeslick
+
+
+COPY_KIT "mh#clangeddin" "mh#yeslick"
+( dualclas "mh#yeslick	1	0	0	0	0	0"
+  clab "%MOD_FOLDER%/tables/mh#yesli.2da"
+  luabbr "FC0" )
+
+
+LAUNCH_ACTION_FUNCTION fl#add_kit_ee
+  STR_VAR
+  kit_name	= "mh#yeslick"
+END
+
+
+COPY_EXISTING_REGEXP "yesli.*\.cre" "override"
+  WRITE_SHORT 0x0244 (IDS_OF_SYMBOL("kit" "mh#yeslick") >> 16)
+  WRITE_SHORT 0x0246 (IDS_OF_SYMBOL("kit" "mh#yeslick") & 0xFFFF)
+
+

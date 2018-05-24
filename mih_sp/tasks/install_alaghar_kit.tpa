@@ -1,0 +1,129 @@
+// Alaghar of Clangeddin kit
+
+
+// BAM files
+
+COPY_LARGE "%MOD_FOLDER%/bams" "override"
+
+
+// Pseudo-spells
+
+COPY "%MOD_FOLDER%/spells/mh#att20.spl" "override"
+     "%MOD_FOLDER%/spells/mh#att32.spl" "override"
+     "%MOD_FOLDER%/spells/mh#csund.spl" "override"
+     "%MOD_FOLDER%/spells/mh#cssym.spl" "override"
+
+
+// ===========
+// Silverbeard
+// ===========
+
+COPY "%MOD_FOLDER%/spells/mh#silbd.spl" "override"
+  SAY NAME1 @0
+  SAY UNIDENTIFIED_DESC @1
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+  PATCH_IF FILE_EXISTS_IN_GAME "icarmor.vvc"
+  BEGIN
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 142	// Graphics: Display SFX Icon
+      opcode		= 215	// Graphics: Play 3D Effect
+      parameter1	= 0
+      parameter2	= 1
+      duration		= 2
+      STR_VAR
+      resource		= "icarmor"
+      insert		= "below"
+    END
+  END
+
+
+// =========
+// Rockburst
+// =========
+
+COPY "%MOD_FOLDER%/spells/mh#rockb.spl" "override"
+  SAY NAME1 @2
+  SAY UNIDENTIFIED_DESC @3
+
+
+// =======================
+// Axe Storm of Clangeddin
+// =======================
+
+
+COPY "%MOD_FOLDER%/spells/mh#axest.spl" "override"
+  SAY NAME1 @4
+  SAY UNIDENTIFIED_DESC @5
+
+
+// =====================================
+// Holy Symbol of Clangeddin Silverbeard
+// =====================================
+
+COPY "%MOD_FOLDER%/items/mh#cssym.itm" "override"
+  SAY NAME2 @6
+  SAY IDENTIFIED_DESC @7
+
+
+// =====================
+// Alaghar of Clangeddin
+// =====================
+
+ADD_KIT "mh#clangeddin"
+  // clasweap.2da (BG1-style proficiencies)
+  "mh#clangeddin	0	0	1	1	0	1	0	0"
+
+  // weapprof.2da (BG2-style proficiencies)
+  "mh#clangeddin	0 0 0 0 2 2 0 2 0 0 0 0 0 0 0 0 2 2 0 0 2 2 2 0 0 0 0 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+
+  // abclasrq.2da (minimum stat requirements)
+  "mh#clangeddin	15	0	0	0	9	0"
+
+  // abclsmod.2da (stat modifications)
+  "mh#clangeddin	0	0	0	0	0	0"
+
+  // abdcdsrq.2da (stat requirements to dual-class to this kit)
+  "mh#clangeddin	15	0	0	0	17	0"
+
+  // abdcscrq.2da (stat requirements to dual-class from this kit)
+  "mh#clangeddin	15	0	0	0	15	0"
+
+  // alignmnt.2da (allowed aligments for this kit)
+  "mh#clangeddin	1	1	0	0	0	0	0	0	0"
+
+  // dualclas.2da (allowed classes to dual-class with)
+  "mh#clangeddin	1	0	0	0	0	0"
+
+  // path to class abilities table
+  "%MOD_FOLDER%/tables/mh#clang.2da"
+
+  // allowed PC races and classes
+  "K_C_D"
+
+  // item usability flags
+  "0x00004000	3"
+
+  // luabbr.2da (ToB HLA table)
+  "Cl0"
+
+  // 25stweap.2da (ToB starting equipment)
+  "CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08"
+
+  // kit name/description strings
+  SAY @8
+  SAY @9
+  SAY @10
+
+
+INCLUDE "%MOD_FOLDER%/lib/fl#add_kit_ee.tpa"
+
+LAUNCH_ACTION_FUNCTION fl#add_kit_ee
+  STR_VAR
+  kit_name	= "mh#clangeddin"
+  hpclass	= "hpwar"
+END
+
+

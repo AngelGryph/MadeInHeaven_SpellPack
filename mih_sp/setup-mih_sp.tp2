@@ -72,6 +72,22 @@ LAUNCH_ACTION_FUNCTION mh_run_task
 END
 
 
+BEGIN ~Alaghar of Clangeddin Kit~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "install_alaghar_kit"
+END
+
+ACTION_IF GAME_INCLUDES "bg1" && $ini_hash("make_yeslick_alaghar")
+BEGIN
+  LAUNCH_ACTION_FUNCTION mh_run_task
+    STR_VAR
+    task		= "make_yeslick_alaghar"
+  END
+END
+
+
 // Improved Healing Spells
 
 BEGIN ~Improved Healing Spells~
