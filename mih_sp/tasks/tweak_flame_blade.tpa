@@ -6,6 +6,8 @@ BEGIN
     LAUNCH_PATCH_FUNCTION mh_make_magical
       INT_VAR
       enchantment	= 2
+      flag_silver	= 1
+      flag_ion		= 1
     END
 
     WRITE_BYTE 0x0031 0x5f	// Scimitar

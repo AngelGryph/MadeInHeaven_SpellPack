@@ -39,9 +39,9 @@ END
 
 DEFINE_ACTION_MACRO mh_process_ini_file
 BEGIN
-  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%MOD_FOLDER%.ini"
+  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/setup-%MOD_FOLDER%.ini"
   BEGIN
-    COPY - "%MOD_FOLDER%/%MOD_FOLDER%.ini" "override"
+    COPY - "%MOD_FOLDER%/setup-%MOD_FOLDER%.ini" "override"
       READ_2DA_ENTRIES_NOW ini_array 2
       FOR (i = 0; i < ini_array; ++i) BEGIN
         READ_2DA_ENTRY_FORMER ini_array i 0 key
@@ -196,8 +196,21 @@ DEFINE_PATCH_FUNCTION mh_make_magical
   INT_VAR
   enchantment   = "-1"
   lore          = "-1"
+  flag_silver	= 0
+  flag_iron	= 0
 BEGIN
   WRITE_LONG    0x0018 (THIS | BIT6)
+
+  PATCH_IF flag_silver
+  BEGIN
+    WRITE_LONG    0x0018 (THIS | BIT8)
+  END
+
+  PATCH_IF flag_iron
+  BEGIN
+    WRITE_LONG    0x0018 (THIS | BIT9)
+  END
+
 
   PATCH_IF enchantment >= 0
   BEGIN
