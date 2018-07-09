@@ -5,7 +5,7 @@ DEFINE_ACTION_FUNCTION mh_run_task
   STR_VAR
   task		= "???"
 BEGIN
-  ACTION_IF NOT FILE_EXISTS "override/%task%.mih"
+  ACTION_IF NOT FILE_EXISTS "%MOD_FOLDER%/run/%task%.mih"
   BEGIN
     PRINT ~Running task %task%...~
 
@@ -14,7 +14,7 @@ BEGIN
       FAIL ~Command file "%task%.tpa" not found!~
     END
 
-    COPY "%MOD_FOLDER%/dummy.mih" "override/%task%.mih"
+    COPY "%MOD_FOLDER%/dummy.mih" "%MOD_FOLDER%/run/%task%.mih"
 
     ACTION_IF FILE_EXISTS "%MOD_FOLDER%/tra/%LANGUAGE%/%task%.tra"
     BEGIN
