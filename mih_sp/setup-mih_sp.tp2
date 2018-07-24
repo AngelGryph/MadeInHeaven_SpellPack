@@ -109,6 +109,20 @@ LAUNCH_ACTION_FUNCTION mh_run_task
 END
 
 
+// Restore Cure Blindness/Deafness
+
+BEGIN ~Restore Cure Blindness/Deafness~
+GROUP ~Optional Spell Tweaks~
+
+FORBID_FILE "sppr316.spl" ~Some other mod already provides or supercedes this.~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "restore_cure_blind_deaf"
+END
+
+
+
 // Flame Strike Burns Hotter
 
 BEGIN ~Flame Strike Burns Hotter~

@@ -1,0 +1,124 @@
+// Restore Cure Blindness & Deafness
+
+COPY_EXISTING "sppr317.spl" "override/sppr316.spl"
+  SAY NAME1 ~Cure Blindness/Deafness~
+  SAY UNIDENTIFIED_DESC ~Cure Blindness/Deafness (Abjuration)
+Sphere: Necromantic
+Range: Touch
+Duration: Permanent
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+By laying hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
+
+  WRITE_ASCII 0x003a "sppr316c"
+
+  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+    STR_VAR
+    icon	= "sppr316b"
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 79	// Cure: Disease
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 139	// Text: Display String
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 240	// Graphics: Remove Special Effect Icon
+    match_parameter2	= 7	// Disease
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 77	// Cure: Feeblemindedness
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 240	// Graphics: Remove Special Effect Icon
+    match_parameter2	= 48	// Feebleminded
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 321	// Removal: Effects specified by Resource
+  END
+
+
+COPY_EXISTING "sppr317.spl" "override"
+              "k0pa001.spl" "override"	// ???
+              "rr#palcd.spl" "override"	// aTweaks
+  SAY UNIDENTIFIED_DESC ~Cure Disease (Abjuration)
+Sphere: Necromantic
+Range: Touch
+Duration: Permanent
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+By laying her hands upon a sickly person, the caster can cure almost any disease with this spell and restore 5 lost hit points.  The cure is permanent, but this does not grant the recipient of the spell immunity from further afflictions.  Feeblemind is also cured with this spell.  Some magically created diseases may not be curable by this spell.~
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 75	// Cure: Blindness
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 240	// Graphics: Remove Special Effect Icon
+    match_parameter2	= 8	// Blind
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 81	// Cure: Deafness
+  END
+
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 240	// Graphics: Remove Special Effect Icon
+    match_parameter2	= 112	// Deaf
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+    INT_VAR
+    opcode		= 17	// HP: Current HP Modifier
+    target		= 2	// Pre-Target
+    timing		= 1	// Permanent
+    parameter1		= 5
+    power		= 3
+    resist_dispel	= 3
+  END
+
+  IF_EXISTS
+
+
+COPY_EXISTING_REGEXP ".+\.cre" "override"
+  SET has_cure_disease = 0
+
+  GET_OFFSET_ARRAY ks_array CRE_V10_KNOWN_SPELLS
+  PHP_EACH ks_array AS int => ks_offset
+  BEGIN
+    READ_ASCII ks_offset spell_res
+
+    PATCH_IF "%spell_res%" STRING_EQUAL_CASE "sppr317"
+    BEGIN
+      SET has_cure_disease = 1
+    END
+  END
+
+  PATCH_IF has_cure_disease
+  BEGIN
+    ADD_KNOWN_SPELL "sppr316" #2 "priest"
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
