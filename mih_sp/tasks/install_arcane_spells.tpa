@@ -1,0 +1,126 @@
+// Arcane Spells
+
+COPY_LARGE "%MOD_FOLDER%/bams" "override"
+
+
+// mh#wiz21 - Spark Shower
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz21.spl" 2 2 WIZARD_SPARK_SHOWER
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Spark Shower~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz21.itm" "override"
+  SAY NAME2 ~Spark Shower~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "mh#wiz21"
+    resource		= spell_res
+  END
+
+
+// mh#wiz31 - Improved Magic Missile
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz31.spl" 2 3 WIZARD_IMPROVED_MAGIC_MISSILE
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Improved Magic Missile~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz31.itm" "override"
+  SAY NAME2 ~Improved Magic Missile~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz32 - Heroism
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz32.spl" 2 3 WIZARD_HEROISM
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Heroism~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz32.itm" "override"
+  SAY NAME2 ~Heroism~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz41 - Iron Maiden
+
+COPY "%MOD_FOLDER%/actors/mh#irnmd.itm" "override"
+
+
+COPY "%MOD_FOLDER%/actors/mh#irnmd.cre" "override"
+  SAY NAME1 ~Iron Maiden~
+  SAY NAME2 ~Iron Maiden~
+
+
+CREATE EFF "mh#irnmd"
+  WRITE_LONG	0x0010 67	// Summon: Creature Summoning
+  WRITE_LONG	0x001c 5
+  WRITE_SHORT	0x0024 1
+  WRITE_LONG	0x002c 100
+  WRITE_ASCII	0x0030 "mh#irnmd" #8
+  WRITE_ASCII	0x0070 "spcrtwpn" #8
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz41.spl" 2 4 WIZARD_IRON_MAIDEN
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Iron Maiden~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz41.itm" "override"
+  SAY NAME2 ~Iron Maiden~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz51 - Superheroism
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Superheroism~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz51.itm" "override"
+  SAY NAME2 ~Superheroism~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+

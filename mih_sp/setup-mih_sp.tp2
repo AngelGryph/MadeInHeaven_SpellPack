@@ -61,6 +61,36 @@ LANGUAGE ~English~
 	 ~%MOD_FOLDER%/tra/english/setup-%MOD_FOLDER%.tra~
 
 
+// Arcane Spell Pack
+
+BEGIN ~MiH Arcane Spell Pack~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "install_arcane_spells"
+END
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "place_spell_scrolls_in_bg1"
+END
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "place_spell_scrolls_in_sod"
+END
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "place_spell_scrolls_in_bg2"
+END
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "place_spell_scrolls_in_tob"
+END
+
+
 // Additional Paladin Powers
 
 BEGIN ~Additional Paladin Powers~
@@ -119,18 +149,6 @@ FORBID_FILE "sppr316.spl" ~Some other mod already provides or supercedes this.~
 LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
   task		= "restore_cure_blind_deaf"
-END
-
-
-
-// Flame Strike Burns Hotter
-
-BEGIN ~Flame Strike Burns Hotter~
-GROUP ~Optional Spell Tweaks~
-
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "tweak_flame_strike"
 END
 
 

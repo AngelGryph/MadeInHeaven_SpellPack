@@ -8,17 +8,17 @@ COPY_LARGE "%MOD_FOLDER%/bams" "override"
 
 // Pseudo-spells
 
-COPY "%MOD_FOLDER%/spells/mh#att20.spl" "override"
-     "%MOD_FOLDER%/spells/mh#att32.spl" "override"
-     "%MOD_FOLDER%/spells/mh#csund.spl" "override"
-     "%MOD_FOLDER%/spells/mh#cssym.spl" "override"
+COPY "%MOD_FOLDER%/spells/pseudo/mh#att20.spl" "override"
+     "%MOD_FOLDER%/spells/pseudo/mh#att32.spl" "override"
+     "%MOD_FOLDER%/spells/pseudo/mh#csund.spl" "override"
+     "%MOD_FOLDER%/spells/pseudo/mh#cssym.spl" "override"
 
 
 // ===========
 // Silverbeard
 // ===========
 
-COPY "%MOD_FOLDER%/spells/mh#silbd.spl" "override"
+COPY "%MOD_FOLDER%/spells/alaghar/mh#silbd.spl" "override"
   SAY NAME1 @0
   SAY UNIDENTIFIED_DESC @1
 
@@ -44,7 +44,7 @@ COPY "%MOD_FOLDER%/spells/mh#silbd.spl" "override"
 // Rockburst
 // =========
 
-COPY "%MOD_FOLDER%/spells/mh#rockb.spl" "override"
+COPY "%MOD_FOLDER%/spells/alaghar/mh#rockb.spl" "override"
   SAY NAME1 @2
   SAY UNIDENTIFIED_DESC @3
 
@@ -54,7 +54,7 @@ COPY "%MOD_FOLDER%/spells/mh#rockb.spl" "override"
 // =======================
 
 
-COPY "%MOD_FOLDER%/spells/mh#axest.spl" "override"
+COPY "%MOD_FOLDER%/spells/alaghar/mh#axest.spl" "override"
   SAY NAME1 @4
   SAY UNIDENTIFIED_DESC @5
 
