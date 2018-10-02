@@ -67,7 +67,7 @@ COPY "%MOD_FOLDER%/items/mh#wiz32.itm" "override"
 
 // mh#wiz41 - Iron Maiden
 
-COPY "%MOD_FOLDER%/actors/mh#irnmd.itm" "override"
+COPY "%MOD_FOLDER%/items/mh#irnmd.itm" "override"
 
 
 COPY "%MOD_FOLDER%/actors/mh#irnmd.cre" "override"
@@ -115,6 +115,26 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
 
 COPY "%MOD_FOLDER%/items/mh#wiz51.itm" "override"
   SAY NAME2 ~Superheroism~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz61 - Mordenkainen's Lucubration
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 5 WIZARD_LUCUBRATION
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Mordenkainen's Lucubration~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz61.itm" "override"
+  SAY NAME2 ~Mordenkainen's Lucubration~
   //SAY IDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
