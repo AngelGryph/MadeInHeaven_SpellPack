@@ -2,6 +2,8 @@
 
 
 DEFINE_ACTION_FUNCTION mh_run_task
+  INT_VAR
+  no_log	= 0
   STR_VAR
   task		= "???"
 BEGIN
@@ -14,7 +16,10 @@ BEGIN
       FAIL ~Command file "%task%.tpa" not found!~
     END
 
-    COPY "%MOD_FOLDER%/dummy.mih" "%MOD_FOLDER%/run/%task%.mih"
+    ACTION_IF !no_log
+    BEGIN
+      COPY "%MOD_FOLDER%/dummy.mih" "%MOD_FOLDER%/run/%task%.mih"
+    END
 
     ACTION_IF FILE_EXISTS "%MOD_FOLDER%/tra/%LANGUAGE%/%task%.tra"
     BEGIN
@@ -220,6 +225,65 @@ BEGIN
   PATCH_IF lore >= 0
   BEGIN
     WRITE_SHORT 0x0042 lore
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION mh_make_summon
+  INT_VAR
+  power_level	= "-1"
+BEGIN
+  WRITE_LONG	0x0010 (THIS | BIT1)	// No corpse
+  WRITE_LONG	0x0014 0		// XP
+  WRITE_LONG	0x001c 0		// Gold
+  WRITE_BYTE	0x0270 IDS_OF_SYMBOL("ea" "neutral")
+
+  // Play nice with Remove Summoning Cap from D0Tweak
+  PATCH_IF FILE_EXISTS "override/no_summoning_cap.d0"
+  BEGIN
+    WRITE_BYTE	0x0275 20	// D0Tweak alt. value
+  END
+  ELSE
+  BEGIN
+    WRITE_BYTE	0x0275 IDS_OF_SYMBOL("gender" "summoned")
+  END
+
+  // Add unstealable&undroppable flags to carried items
+  GET_OFFSET_ARRAY itm_array CRE_V10_ITEMS
+  PHP_EACH itm_array AS int => itm_offset
+  BEGIN
+    WRITE_LONG (itm_offset + 0x0010) (THIS | (BIT1 | BIT3))
+  END
+
+  // Handle power level if specified
+  PATCH_IF (power_level >= 0)
+  BEGIN
+    WRITE_LONG	0x0018 power_level
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION mh_make_illusion
+  INT_VAR
+  power_level	= "-1"
+BEGIN
+  WRITE_LONG	0x0010 (THIS | BIT1)	// No corpse
+  WRITE_LONG	0x0014 0		// XP
+  WRITE_LONG	0x001c 0		// Gold
+  WRITE_BYTE	0x0270 IDS_OF_SYMBOL("ea" "neutral")
+  WRITE_BYTE	0x0275 IDS_OF_SYMBOL("gender" "illusionary")
+
+  // Add unstealable&undroppable flags to carried items
+  GET_OFFSET_ARRAY itm_array CRE_V10_ITEMS
+  PHP_EACH itm_array AS int => itm_offset
+  BEGIN
+    WRITE_LONG (itm_offset + 0x0010) (THIS | (BIT1 | BIT3))
+  END
+
+  // Handle power level if specified
+  PATCH_IF (power_level >= 0)
+  BEGIN
+    WRITE_LONG	0x0018 power_level
   END
 END
 

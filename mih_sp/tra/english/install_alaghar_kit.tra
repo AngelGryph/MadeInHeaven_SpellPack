@@ -8,7 +8,7 @@ Casting Time: 4
 Area of Effect: Caster
 Saving Throw: None
 
-By means of this spell, the priest temporarily transforms his or her beard into refined silver.  In addition to the stunning visual impact (charisma +2) of this spell effect, a Silverbeard serves as an unusual shield in combat situations.
+By means of this spell, the priest temporarily transforms <PRO_HISHER> beard into refined silver.  In addition to the stunning visual impact (charisma +2) of this spell effect, a Silverbeard serves as an unusual shield in combat situations.
 
 If the priest is unarmored, Silverbeard confers a base AC of 8.  If armor of any sort is worn, this spell confers a +1 AC bonus for the duration of the spell.  This bonus improves by +1 for every 5 levels of the caster, up to a bonus of +5 at level 20.
 
@@ -50,8 +50,8 @@ Equipped effects:
 - Grants an additional 6th and 7th level spell slot
 - +5% Magic Resistance
 - +1 to Strength~
-@8    = ~Alaghar of Clangeddin~
-@9    = ~alaghar of clangeddin~
+@8    = ~alaghar of clangeddin~
+@9    = ~Alaghar of Clangeddin~
 @10   = ~ALAGHAR OF CLANGEDDIN: Clangeddin Silverbeard (CLAN-gehd-din SIHL-vur-beerd) is the Father of Battle and the primary dwarven war god.  All dwarves who must fight, especially dwarves who are warriors by profession, worship Clangeddin, their patron and exultant leader in war.
 
 Clangeddin encourages valor in battle, weapon-mastery and training, and wisdom in war.  He especially hates giants and has taught the dwarves special ways to fight giant-type creatures.  Clangeddin is a resolute warrior who never backs down from danger and who refuses to surrender even when all seems lost.  He is a strict and ethical deity who brooks no treachery or deceit.

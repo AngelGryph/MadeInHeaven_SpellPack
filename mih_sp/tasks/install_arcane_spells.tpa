@@ -19,7 +19,7 @@ COPY "%MOD_FOLDER%/items/mh#wiz21.itm" "override"
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
     match_resource	= "mh#wiz21"
-    resource		= spell_res
+    resource		= "%spell_res%"
   END
 
 
