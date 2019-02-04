@@ -58,6 +58,18 @@ BEGIN
 END
 
 
-ACTION_CLEAR_ARRAY spell_array
+ACTION_IF FILE_EXISTS_IN_GAME "mh#scclw.itm"
+BEGIN
+  COPY_EXISTING "mh#scclw.itm" "override"
+    SAY IDENTIFIED_DESC @0
+END
+
+
+COPY_EXISTING "scrl56.itm" "override"
+  SAY IDENTIFIED_DESC @3
+
+
+COPY_EXISTING "scrl61.itm" "override"
+  SAY IDENTIFIED_DESC @4
 
 

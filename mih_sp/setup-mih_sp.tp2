@@ -40,7 +40,7 @@ ALWAYS
       STR_VAR
       default_language	= "english"
       tra_path		= "%MOD_FOLDER%/tra"
-      iconv_path	= "%MOD_FOLDER/bin/win32/iconv"
+      iconv_path	= "%MOD_FOLDER%/bin/win32/iconv"
       noconvert_array	= "mh#noconvert"
       reload_array	= "mh#reload"
     END
