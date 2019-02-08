@@ -11,7 +11,7 @@ MODDER missing_eval none
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
-AUTO_TRA "mih_sp/tra/%s"
+AUTO_TRA "mih_sp/language/%s"
 
 ALWAYS
   // Do the following only once per install
@@ -39,16 +39,16 @@ ALWAYS
       infer_charset	= 1
       STR_VAR
       default_language	= "english"
-      tra_path		= "%MOD_FOLDER%/tra"
+      tra_path		= "%MOD_FOLDER%/language"
       iconv_path	= "%MOD_FOLDER%/bin/win32/iconv"
       noconvert_array	= "mh#noconvert"
       reload_array	= "mh#reload"
     END
 
     // Load macro/function libraries
-    INCLUDE ~%MOD_FOLDER%/lib/mh_functions.tph~
-    INCLUDE ~%MOD_FOLDER%/lib/cd_functions.tph~
-    INCLUDE ~%MOD_FOLDER%/lib/cd_effect_batches.tph~
+    INCLUDE "%MOD_FOLDER%/lib/mh_functions.tph"
+    INCLUDE "%MOD_FOLDER%/lib/cd_functions.tph"
+    INCLUDE "%MOD_FOLDER%/lib/cd_effect_batches.tph"
 
     // Read the .ini file for this mod
     LAUNCH_ACTION_MACRO mh_process_ini_file
@@ -56,9 +56,9 @@ ALWAYS
 END	// ALWAYS block
 
 
-LANGUAGE ~English~
-         ~english~
-	 ~%MOD_FOLDER%/tra/english/setup-%MOD_FOLDER%.tra~
+LANGUAGE "English"
+         "english"
+	 "%MOD_FOLDER%/language/english/setup-%MOD_FOLDER%.tra"
 
 
 // Arcane Spell Pack

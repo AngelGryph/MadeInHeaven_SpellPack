@@ -21,11 +21,11 @@ BEGIN
       COPY "%MOD_FOLDER%/dummy.mih" "%MOD_FOLDER%/run/%task%.mih"
     END
 
-    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/tra/%LANGUAGE%/%task%.tra"
+    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/language/%LANGUAGE%/%task%.tra"
     BEGIN
-      WITH_TRA "%MOD_FOLDER%/tra/%LANGUAGE%/%task%.tra"
+      WITH_TRA "%MOD_FOLDER%/language/%LANGUAGE%/%task%.tra"
       BEGIN
-        PRINT "Using tra file %MOD_FOLDER%/tra/%LANGUAGE%/%task%.tra..."
+        PRINT "Using tra file %MOD_FOLDER%/language/%LANGUAGE%/%task%.tra..."
 
         INCLUDE "%MOD_FOLDER%/tasks/%task%.tpa"
       END
