@@ -1,0 +1,21 @@
+// Protection from Evil blocks Charm/Domination
+
+COPY_EXISTING_REGEXP ".*\.spl" "override"
+                     ".*\.itm" "override"
+  LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+    INT_VAR
+    match_opcode	= 142	// Graphics: Display Special Effect Icon
+    match_parameter2	= 9	// Protection from Evil
+    opcode		= 101	// 
+    parameter2		= 5	// Charm: Charm Specific Creature
+    silent		= 1
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_charm_arrays"
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
