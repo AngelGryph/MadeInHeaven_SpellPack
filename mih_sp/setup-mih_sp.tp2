@@ -152,9 +152,9 @@ LAUNCH_ACTION_FUNCTION mh_run_task
 END
 
 
-// Protection from Evil blocks Charm/Domination
+// Protection from Evil blocks Domination
 
-BEGIN ~Protection from Evil blocks Charm/Domination~
+BEGIN ~Protection from Evil blocks Domination~
 GROUP ~Optional Spell Tweaks~
 
 LAUNCH_ACTION_FUNCTION mh_run_task
