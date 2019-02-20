@@ -1,0 +1,77 @@
+// mh#prs11 - Striking
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs11.spl" 1 1 CLERIC_STRIKING
+  SAY NAME1 ~Striking~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+// mh#prs41 - Sticks to Snakes
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.cre"
+BEGIN
+  COPY "%MOD_FOLDER%/actors/snakegsu.cre" "override"
+    SAY NAME1 ~Giant Snake~
+    SAY NAME2 ~Giant Snake~
+END
+
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.eff"
+BEGIN
+  CREATE EFF "snakegsu"
+    WRITE_LONG		0x0010 67	// Summon: Creature Summoning
+    WRITE_LONG		0x001c 5
+    WRITE_SHORT		0x0024 1
+    WRITE_LONG		0x002c 100
+    WRITE_ASCIIE	0x0030 "snakegsu" #8
+    WRITE_ASCII		0x0070 "spmonsum" #8
+END
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs41.spl" 1 4 CLERIC_STICKS_TO_SNAKES
+  SAY NAME1 ~Sticks to Snakes~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+// mh#prs42 - Heroism
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs42.spl" 1 4 CLERIC_HEROISM
+  SAY NAME1 ~Heroism~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+// mh#prs61 - Superheroism
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs61.spl" 1 6 CLERIC_SUPERHEROISM
+  SAY NAME1 ~Superheroism~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+// mh#prs62 - Celestial Protection
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs61.spl" 1 6 CLERIC_CELESTIAL_PROTECTION
+  SAY NAME1 ~Celestial Protection~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_poison_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_disease_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_poison_resistance_arrays"
+    all_or		= "all"
+  END
+
+

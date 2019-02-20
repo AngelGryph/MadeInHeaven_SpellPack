@@ -91,6 +91,16 @@ LAUNCH_ACTION_FUNCTION mh_run_task
 END
 
 
+// Divine Spell Pack
+
+BEGIN ~MiH Divine Spell Pack~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "install_divine_spells"
+END
+
+
 // Additional Paladin Powers
 
 BEGIN ~Additional Paladin Powers~
