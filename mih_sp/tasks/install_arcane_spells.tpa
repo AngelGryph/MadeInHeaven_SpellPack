@@ -102,6 +102,43 @@ COPY "%MOD_FOLDER%/items/mh#wiz41.itm" "override"
   END
 
 
+// mh#wiz42 - Destroy Undead
+
+CREATE EFF "mh#wz42a"
+  WRITE_LONG	0x0010 12	// HP: Damage
+  WRITE_LONG	0x0020 4194304	// Magic
+  WRITE_SHORT	0x0024 1
+  WRITE_LONG	0x002c 100
+  WRITE_LONG	0x0038 4
+  WRITE_LONG	0x003c 10
+
+CREATE EFF "mh#wz42b"
+  WRITE_LONG	0x0010 12	// HP: Damage
+  WRITE_LONG	0x0020 4194304	// Magic
+  WRITE_SHORT	0x0024 1
+  WRITE_LONG	0x002c 100
+  WRITE_LONG	0x0038 1
+  WRITE_LONG	0x003c 10
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz42.spl" 2 4 WIZARD_DESTROY_UNDEAD
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Destroy Undead~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz42.itm" "override"
+  SAY NAME2 ~Destroy Undead~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz51 - Superheroism
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
@@ -155,6 +192,51 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz81.spl" 2 8 WIZARD_DEATHBOLT
 
 COPY "%MOD_FOLDER%/items/mh#wiz81.itm" "override"
   SAY NAME2 ~Deathbolt~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz82 - Major Globe of Invulnerability
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz82.spl" 2 8 WIZARD_MAJOR_GLOBE
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Major Globe of Invulnerability~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_spell_level_1_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_spell_level_2_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_spell_level_3_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_spell_level_4_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_spell_level_5_arrays"
+  END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz82.itm" "override"
+  SAY NAME2 ~Major Globe of Invulnerability~
   //SAY IDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
