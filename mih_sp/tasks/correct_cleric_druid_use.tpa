@@ -1,0 +1,55 @@
+// Druid-only spells
+
+COPY_EXISTING "sppr110.spl" "override"
+              "sppr202.spl" "override"
+              "sppr206.spl" "override"
+              "sppr306.spl" "override"
+              "sppr407.spl" "override"
+  WRITE_LONG 0x001e (THIS | BIT30)
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Cleric-only spells
+
+COPY_EXISTING "sppr113.spl" "override"
+              "sppr210.spl" "override"
+              "sppr413.spl" "override"
+  WRITE_LONG 0x001e (THIS | BIT31)
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// General priest spells
+
+COPY_EXISTING "sppr307.spl" "override"
+  WRITE_LONG 0x001e (THIS & `BIT30 & `BIT31)
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+// Forget forbidden spells
+
+COPY_EXISTING_REGEXP ".+\.cre" "override"
+  READ_BYTE 0x0273 class
+
+  PATCH_IF class == IDS_OF_SYMBOL("class" "cleric")
+        OR class == IDS_OF_SYMBOL("class" "fighter_cleric")
+        OR class == IDS_OF_SYMBOL("class" "cleric_mage")
+        OR class == IDS_OF_SYMBOL("class" "cleric_thief")
+        OR class == IDS_OF_SYMBOL("class" "fighter_mage_cleric")
+        OR class == IDS_OF_SYMBOL("class" "paladin")
+  BEGIN
+    REMOVE_KNOWN_SPELL 	"sppr110" "sppr206" "sppr306" "sppr407"
+  END
+
+  PATCH_IF class == IDS_OF_SYMBOL("class" "druid")
+        OR class == IDS_OF_SYMBOL("class" "fighter_druid")
+        OR class == IDS_OF_SYMBOL("class" "ranger")
+  BEGIN
+    REMOVE_KNOWN_SPELL 	"sppr113" "sppr210" "sppr413"
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
