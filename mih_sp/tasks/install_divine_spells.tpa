@@ -7,6 +7,43 @@ ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs11.spl" 1 1 CLERIC_STRIKING
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
+// mh#prs12 - Faerie Fire
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs12.spl" 1 1 CLERIC_FAERIE_FIRE
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Faerie Fire~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+// Workaround for disabled Faerie Fire in BG1EE.
+ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
+BEGIN
+  COPY_EXISTING "hidespl.2da" "override"
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+    READ_2DA_ENTRIES_NOW __read_hidespl cols
+
+    FOR (i = 0; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __read_hidespl i 0 hide_res
+
+      PATCH_IF "%spell_res%" STRING_EQUAL_CASE "%hide_res%"
+      BEGIN
+        SET_2DA_ENTRY_LATER __write_hidespl i 1 0
+        SET_2DA_ENTRY_LATER __write_hidespl i 2 0
+        SET_2DA_ENTRY_LATER __write_hidespl i 3 0
+      END
+    END
+
+    SET_2DA_ENTRIES_NOW __write_hidespl cols
+
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+
 // mh#prs41 - Sticks to Snakes
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.cre"

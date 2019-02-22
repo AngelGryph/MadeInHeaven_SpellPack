@@ -157,7 +157,7 @@ BEGIN
       parameter2	= 0
       STR_VAR
       insert		= "first"
-      resource		= "%SOURCE_RES%"
+      resource		= "%DEST_RES%"
     END
   END
 
@@ -175,7 +175,7 @@ BEGIN
       parameter2	= 0
       STR_VAR
       insert		= "first"
-      resource		= "%SOURCE_RES%"
+      resource		= "%DEST_RES%"
     END
   END
 
@@ -191,7 +191,7 @@ BEGIN
       parameter2	= 0	// Default (IWD1)
       STR_VAR
       insert		= "last"
-      resource		= "%SOURCE_RES%"
+      resource		= "%DEST_RES%"
     END
   END
 END
