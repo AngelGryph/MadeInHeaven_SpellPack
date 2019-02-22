@@ -1,4 +1,4 @@
-// Made in Heaven - Item Pack
+// Made in Heaven - Spell Pack
 //
 // WeiDU installer
 
@@ -146,7 +146,7 @@ GROUP ~Optional Spell Tweaks~
 
 LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
-  task		= "tweak_flame_blade"
+  task		= "improve_flame_blade"
 END
 
 
@@ -160,17 +160,6 @@ FORBID_FILE "sppr316.spl" ~Some other mod already provides or supercedes this.~
 LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
   task		= "restore_cure_blind_deaf"
-END
-
-
-// Protection from Evil blocks Domination
-
-BEGIN ~Protection from Evil blocks Domination~
-GROUP ~Optional Spell Tweaks~
-
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "tweak_protection_from_evil"
 END
 
 
