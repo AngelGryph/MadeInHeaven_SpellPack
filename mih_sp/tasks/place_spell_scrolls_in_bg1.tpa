@@ -1,0 +1,56 @@
+// High Hedge (Thalantyr)
+
+COPY_EXISTING "highhedg.sto" "override"
+  // Spark Shower
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #0 #0 "identified" #2
+
+  // Heroism
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #0 #0 "identified" #1
+
+
+// Sorcerous Sundries
+
+COPY_EXISTING "sto0703.sto" "override"
+  // Spark Shower
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #0 #0 "identified" #2
+
+  // Heroism
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #0 #0 "identified" #2
+
+  // Destroy Undead
+  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl2a" #1 #0 #0 "identified" #2
+
+  // Superheroism
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl5k" #1 #0 #0 "identified" #1
+
+
+// Candlekeep
+
+COPY_EXISTING "%Candlekeep_Library_L5%.are" "override"
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 6
+    charges1		= 1
+    STR_VAR
+    item_to_add		= "mh#wiz41"
+  END
+
+
+COPY_EXISTING "%Candlekeep_Catacombs_L1Antechamber%.are" "override"
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 1
+    charges1		= 1
+    STR_VAR
+    item_to_add		= "mh#wiz42"
+  END
+
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 2
+    charges1		= 1
+    STR_VAR
+    item_to_add		= "mh#wiz51"
+  END
+
+

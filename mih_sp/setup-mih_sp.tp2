@@ -70,24 +70,36 @@ LAUNCH_ACTION_FUNCTION mh_run_task
   task		= "install_arcane_spells"
 END
 
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "place_spell_scrolls_in_bg1"
+ACTION_IF GAME_INCLUDES "bg1" AND $ini_hash("place_spell_scrolls_in_bg1")
+BEGIN
+  LAUNCH_ACTION_FUNCTION mh_run_task
+    STR_VAR
+    task		= "place_spell_scrolls_in_bg1"
+  END
 END
 
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "place_spell_scrolls_in_sod"
+ACTION_IF GAME_INCLUDES "sod" AND $ini_hash("place_spell_scrolls_in_sod")
+BEGIN
+  LAUNCH_ACTION_FUNCTION mh_run_task
+    STR_VAR
+    task		= "place_spell_scrolls_in_sod"
+  END
 END
 
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "place_spell_scrolls_in_bg2"
+ACTION_IF GAME_INCLUDES "bg2" AND $ini_hash("place_spell_scrolls_in_bg2")
+BEGIN
+  LAUNCH_ACTION_FUNCTION mh_run_task
+    STR_VAR
+    task		= "place_spell_scrolls_in_bg2"
+  END
 END
 
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "place_spell_scrolls_in_tob"
+ACTION_IF GAME_INCLUDES "tob" AND $ini_hash("place_spell_scrolls_in_tob")
+BEGIN
+  LAUNCH_ACTION_FUNCTION mh_run_task
+    STR_VAR
+    task		= "place_spell_scrolls_in_tob"
+  END
 END
 
 

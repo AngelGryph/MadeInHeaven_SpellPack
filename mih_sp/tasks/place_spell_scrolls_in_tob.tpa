@@ -1,0 +1,50 @@
+// Sister Garlena
+
+COPY_EXISTING "garlena.sto" "override"
+  // Spark Shower
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl96" #1 #0 #0 "identified" #3
+
+  // Heroism
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
+
+  // Destroy Undead
+  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl1u" #1 #0 #0 "identified" #2
+
+  // Superheroism
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl6u" #1 #0 #0 "identified" #2
+
+  // Mordenkainen's Lucubration
+  ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7l" #1 #0 #0 "identified" #1
+
+
+// Arcana Archives
+
+COPY_EXISTING "25spell.sto" "override"
+  // Spark Shower
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl93" #1 #0 #0 "identified" #2
+
+  // Improved Magic Missile
+  ADD_STORE_ITEM "mh#wiz31" AFTER "scrl1e" #1 #0 #0 "identified" #2
+
+  // Heroism
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1i" #1 #0 #0 "identified" #2
+
+  // Iron Maiden
+  ADD_STORE_ITEM "mh#wiz41" AFTER "scrl1z" #1 #0 #0 "identified" #2
+
+  // Destroy Undead
+  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl6m" #1 #0 #0 "identified" #2
+
+  // Superheroism
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl8x" #1 #0 #0 "identified" #2
+
+  // Mordenkainen's Lucubration
+  ADD_STORE_ITEM "mh#wiz61" AFTER "scrl8c" #1 #0 #0 "identified" #2
+
+  // Deathbolt
+  ADD_STORE_ITEM "mh#wiz81" AFTER "scrlb1" #1 #0 #0 "identified" #2
+
+  // Major Globe of Invulnerability
+  ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #0 #0 "identified" #2
+
+

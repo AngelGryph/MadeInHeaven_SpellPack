@@ -1,0 +1,27 @@
+// Sorcerous Sundries & Quartermaster Belegarm
+
+COPY_EXISTING "bdsorcsc.sto" "override"
+              "bdbeleg3.sto" "override"
+  // Spark Shower
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #0 #0 "identified" #4
+
+  // Heroism
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
+
+  // Destroy Undead
+  ADD_STORE_ITEM "mh#wiz42" AFTER "scrla8" #1 #0 #0 "identified" #2
+
+  // Superheroism
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1
+
+
+// Nazramu
+
+COPY_EXISTING "bdnazram.sto" "override"
+  // Iron Maiden
+  ADD_STORE_ITEM "mh#wiz41" FIRST #1 #0 #0 "identified" #1
+
+  // Improved Magic Missile
+  ADD_STORE_ITEM "mh#wiz31" FIRST #1 #0 #0 "identified" #1
+
+
