@@ -101,6 +101,43 @@ BEGIN
 END
 
 
+DEFINE_PATCH_FUNCTION mh_add_area_actors_from_2da
+  STR_VAR
+  path_to_2da           = "none"
+BEGIN
+  PATCH_IF FILE_EXISTS "%path_to_2da%"
+  BEGIN
+    INNER_PATCH_FILE "%path_to_2da%"
+    BEGIN
+      COUNT_2DA_COLS cols
+      COUNT_2DA_ROWS cols rows
+      READ_2DA_ENTRIES_NOW __actor_data cols
+    END
+
+    FOR (i = 0; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __actor_data i 0 cre_resref
+      READ_2DA_ENTRY_FORMER __actor_data i 1 x_position
+      READ_2DA_ENTRY_FORMER __actor_data i 2 y_position
+      READ_2DA_ENTRY_FORMER __actor_data i 3 orientation
+
+      LAUNCH_PATCH_FUNCTION mh_add_area_actor
+        INT_VAR
+        x_position
+        y_position
+        orientation
+        STR_VAR
+        cre_resref
+      END
+    END
+  END
+  ELSE
+  BEGIN
+    PATCH_FAIL "mh_add_area_actors_from_2da called with invalid path %path_to_2da%!"
+  END
+END
+
+
 DEFINE_ACTION_FUNCTION mh_erase_journal_entries_on_bg2_transition
   STR_VAR
   dialog    = "dummy"
