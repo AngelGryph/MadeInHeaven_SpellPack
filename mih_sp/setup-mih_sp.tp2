@@ -14,44 +14,41 @@ AUTO_EVAL_STRINGS
 AUTO_TRA "mih_sp/language/%s"
 
 ALWAYS
-  // Do the following only once per install
-  ACTION_IF NOT VARIABLE_IS_SET done_init
+  // We no longer support vanilla BG1 or Tutu, it's too much of a hassle.
+  ACTION_IF GAME_IS "bg1 totsc"
   BEGIN
-    OUTER_SET done_init = 1
+    FAIL ~This mod no longer supports this version of BG1.~
+  END
 
-    // We no longer support vanilla BG1 or Tutu, it's too much of a hassle.
-    ACTION_IF GAME_IS "bg1 totsc"
-    BEGIN
-      FAIL ~This mod no longer supports this version of BG1.~
-    END
 
-    // Load compatibility variables for various implementations of BG1.
-    INCLUDE "%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa"
-    INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
-    INCLUDE "%MOD_FOLDER%/lib/g3_eet_cpmvars.tpa"
+  // Load compatibility variables for various implementations of BG1.
+  INCLUDE "%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa"
+  INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
+  INCLUDE "%MOD_FOLDER%/lib/g3_eet_cpmvars.tpa"
 
-    // BG(2)EE compat: handle charsets
-    ACTION_DEFINE_ARRAY mh#reload BEGIN "setup-%MOD_FOLDER%" END
-    ACTION_DEFINE_ARRAY mh#noconvert BEGIN END
 
-    LAUNCH_ACTION_FUNCTION HANDLE_CHARSETS
-      INT_VAR
-      infer_charset	= 1
-      STR_VAR
-      default_language	= "english"
-      tra_path		= "%MOD_FOLDER%/language"
-      iconv_path	= "%MOD_FOLDER%/bin/win32/iconv"
-      noconvert_array	= "mh#noconvert"
-      reload_array	= "mh#reload"
-    END
+  // BG(2)EE compat: handle charsets
+  ACTION_DEFINE_ARRAY mh#reload BEGIN "setup-%MOD_FOLDER%" END
+  ACTION_DEFINE_ARRAY mh#noconvert BEGIN END
 
-    // Load macro/function libraries
-    INCLUDE "%MOD_FOLDER%/lib/mh_functions.tph"
-    INCLUDE "%MOD_FOLDER%/lib/cd_functions.tph"
+  LAUNCH_ACTION_FUNCTION HANDLE_CHARSETS
+    INT_VAR
+    infer_charset	= 1
+    STR_VAR
+    default_language	= "english"
+    tra_path		= "%MOD_FOLDER%/language"
+    iconv_path	= "%MOD_FOLDER%/bin/win32/iconv"
+    noconvert_array	= "mh#noconvert"
+    reload_array	= "mh#reload"
+  END
 
-    // Read the .ini file for this mod
-    LAUNCH_ACTION_MACRO mh_process_ini_file
-  END	// done_init block
+  // Load macro/function libraries
+  INCLUDE "%MOD_FOLDER%/lib/mh_functions.tph"
+  INCLUDE "%MOD_FOLDER%/lib/cd_functions.tph"
+
+
+  // Read the .ini file for this mod
+  LAUNCH_ACTION_MACRO mh_process_ini_file
 END	// ALWAYS block
 
 

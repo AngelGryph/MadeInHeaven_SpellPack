@@ -16,9 +16,40 @@ ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs12.spl" 1 1 CLERIC_FAERIE_FIRE
   //SAY UNIDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+    
+  IF_EXISTING
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode	= 7	// Color: Set by Palette
+      parameter1	= 73	// Christmas Green
+    END
+
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      INT_VAR
+      match_opcode	= 9	// Color: Glow Pulse
+      parameter1	= 1433287680
+    END
+
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 0	// Stat: AC versus Damage Type
+      opcode		= 47	// Cure: Invisibility
+      timing		= 1	// Permanent
+      duration		= 0
+      parameter1	= 0
+      parameter2	= 0
+    END
+
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 0	// Stat: AC versus Damage Type
+      opcode		= 101	// Protection: from Opcode
+      parameter1	= 0
+      parameter2	= 20
+    END
+  END
 
 
-// Workaround for disabled Faerie Fire in BG1EE.
 ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
 BEGIN
   COPY_EXISTING "hidespl.2da" "override"
