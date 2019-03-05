@@ -14,6 +14,8 @@ Heroism
 
 Iron Maiden
 *Destroy Undead
+*Rary's Mnenemonic Enhancer
+*Evard's Black Tentacles
 
 
 === 5th Circle ===
@@ -24,6 +26,11 @@ Superheroism
 === 6th Circle ===
 
 Mordenkainen's Lucubration
+
+
+=== 7th Circle ===
+
+*Faerie Sword
 
 
 === 8th Circle ===

@@ -10,6 +10,12 @@ COPY_EXISTING "garlena.sto" "override"
   // Destroy Undead
   ADD_STORE_ITEM "mh#wiz42" AFTER "scrl1u" #1 #0 #0 "identified" #2
 
+  // Rary's Mnemonic Enhancer
+  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #0 #0 "identified" #2
+
+  // Evard's Black Tentacles
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
+
   // Superheroism
   ADD_STORE_ITEM "mh#wiz51" AFTER "scrl6u" #1 #0 #0 "identified" #2
 
@@ -35,11 +41,20 @@ COPY_EXISTING "25spell.sto" "override"
   // Destroy Undead
   ADD_STORE_ITEM "mh#wiz42" AFTER "scrl6m" #1 #0 #0 "identified" #2
 
+  // Rary's Mnemonic Enhancer
+  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #0 #0 "identified" #2
+
+  // Evard's Black Tentacles
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
+
   // Superheroism
   ADD_STORE_ITEM "mh#wiz51" AFTER "scrl8x" #1 #0 #0 "identified" #2
 
   // Mordenkainen's Lucubration
   ADD_STORE_ITEM "mh#wiz61" AFTER "scrl8c" #1 #0 #0 "identified" #2
+
+  // Faerie Sword
+  ADD_STORE_ITEM "mh#wiz71" AFTER "scrl8n" #1 #0 #0 "identified" #2
 
   // Deathbolt
   ADD_STORE_ITEM "mh#wiz81" AFTER "scrlb1" #1 #0 #0 "identified" #2

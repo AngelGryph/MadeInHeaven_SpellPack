@@ -17,16 +17,17 @@ COPY_EXISTING "sto0703.sto" "override"
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #0 #0 "identified" #2
 
-  // Destroy Undead
-  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl2a" #1 #0 #0 "identified" #2
+  // Rary's Mnemonic Enhancer
+  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #0 #0 "identified" #2
 
-  // Superheroism
-  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl5k" #1 #0 #0 "identified" #1
+  // Evard's Black Tentacles
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
 
 
 // Candlekeep
 
 COPY_EXISTING "%Candlekeep_Library_L5%.are" "override"
+  // Iron Maiden
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
     INT_VAR
     container_to_add_to	= 6
@@ -37,6 +38,7 @@ COPY_EXISTING "%Candlekeep_Library_L5%.are" "override"
 
 
 COPY_EXISTING "%Candlekeep_Catacombs_L1Antechamber%.are" "override"
+  // Destroy Undead
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
     INT_VAR
     container_to_add_to	= 1

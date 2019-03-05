@@ -139,6 +139,46 @@ COPY "%MOD_FOLDER%/items/mh#wiz42.itm" "override"
   END
 
 
+// mh#wiz43 - Rary's Mnemonic Enhancer
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz43.spl" 2 4 WIZARD_MNEMONIC_ENHANCER
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Rary's Mnemonic Enhancer~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz43.itm" "override"
+  SAY NAME2 ~Rary's Mnemonic Enhancer~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz44 - Evard's Black Tentacles
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_BLACK_TENTACLES
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Evard's Black Tentacles~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz44.itm" "override"
+  SAY NAME2 ~Evard's Black Tentacles~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz51 - Superheroism
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
@@ -172,6 +212,30 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_LUCUBRATION
 
 COPY "%MOD_FOLDER%/items/mh#wiz61.itm" "override"
   SAY NAME2 ~Mordenkainen's Lucubration~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz71 - Faerie Sword
+
+COPY "%MOD_FOLDER%/items/mh#faesd.itm" "override"
+  SAY NAME2 ~Faerie Sword~
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz71.spl" 2 7 WIZARD_FAERIE_SWORD
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Faerie Sword~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz71.itm" "override"
+  SAY NAME2 ~Faerie Sword~
   //SAY IDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT

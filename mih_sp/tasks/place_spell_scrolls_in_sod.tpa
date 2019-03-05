@@ -11,6 +11,12 @@ COPY_EXISTING "bdsorcsc.sto" "override"
   // Destroy Undead
   ADD_STORE_ITEM "mh#wiz42" AFTER "scrla8" #1 #0 #0 "identified" #2
 
+  // Rary's Mnemonic Enhancer
+  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #0 #0 "identified" #2
+
+  // Evard's Black Tentacles
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl6f" #1 #0 #0 "identified" #2
+
   // Superheroism
   ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1
 
