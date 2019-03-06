@@ -8,14 +8,15 @@ Spark Shower
 
 Improved Magic Missile
 Heroism
+Blink
 
 
 === 4th Circle ===
 
 Iron Maiden
-*Destroy Undead
-*Rary's Mnenemonic Enhancer
-*Evard's Black Tentacles
+Destroy Undead
+Rary's Mnenemonic Enhancer
+Evard's Black Tentacles
 
 
 === 5th Circle ===
@@ -30,12 +31,12 @@ Mordenkainen's Lucubration
 
 === 7th Circle ===
 
-*Faerie Sword
+Faerie Sword
 
 
 === 8th Circle ===
 
 Deathbolt
-*Major Globe of Invulnerability
+Major Globe of Invulnerability
 
 

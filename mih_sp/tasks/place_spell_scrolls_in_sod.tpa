@@ -8,6 +8,9 @@ COPY_EXISTING "bdsorcsc.sto" "override"
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
 
+  // Blink
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #0 #0 "identified" #3
+
   // Destroy Undead
   ADD_STORE_ITEM "mh#wiz42" AFTER "scrla8" #1 #0 #0 "identified" #2
 
@@ -15,7 +18,7 @@ COPY_EXISTING "bdsorcsc.sto" "override"
   ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #0 #0 "identified" #2
 
   // Evard's Black Tentacles
-  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl6f" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrlaj" #1 #0 #0 "identified" #2
 
   // Superheroism
   ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1

@@ -7,6 +7,9 @@ COPY_EXISTING "garlena.sto" "override"
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
 
+  // Blink
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #0 #0 "identified" #3
+
   // Destroy Undead
   ADD_STORE_ITEM "mh#wiz42" AFTER "scrl1u" #1 #0 #0 "identified" #2
 
@@ -34,6 +37,9 @@ COPY_EXISTING "25spell.sto" "override"
 
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1i" #1 #0 #0 "identified" #2
+
+  // Blink
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #0 #0 "identified" #2
 
   // Iron Maiden
   ADD_STORE_ITEM "mh#wiz41" AFTER "scrl1z" #1 #0 #0 "identified" #2

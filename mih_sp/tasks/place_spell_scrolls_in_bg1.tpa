@@ -7,6 +7,10 @@ COPY_EXISTING "highhedg.sto" "override"
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #0 #0 "identified" #1
 
+  // Blink
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #0 #0 "identified" #1
+
+
 
 // Sorcerous Sundries
 
@@ -16,6 +20,9 @@ COPY_EXISTING "sto0703.sto" "override"
 
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #0 #0 "identified" #2
+
+  // Blink
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #0 #0 "identified" #2
 
   // Rary's Mnemonic Enhancer
   ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #0 #0 "identified" #2

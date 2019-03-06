@@ -65,6 +65,33 @@ COPY "%MOD_FOLDER%/items/mh#wiz32.itm" "override"
   END
 
 
+// mh#wiz33 - Blink
+
+CREATE EFF "mh#blink"
+  WRITE_LONG	0x0010 222	// Effect: Teleport Field
+  WRITE_LONG	0x001c 120
+  WRITE_SHORT	0x0024 1
+  WRITE_LONG	0x002c 100
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz33.spl" 2 3 WIZARD_BLINK
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Blink~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz33.itm" "override"
+  SAY NAME2 ~Blink~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz41 - Iron Maiden
 
 COPY "%MOD_FOLDER%/items/mh#irnmd.itm" "override"
