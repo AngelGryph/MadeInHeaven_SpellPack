@@ -4,6 +4,9 @@ COPY_EXISTING "highhedg.sto" "override"
   // Spark Shower
   ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #0 #0 "identified" #2
 
+  // Seeking
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #0 #0 "identified" #2
+
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #0 #0 "identified" #1
 
@@ -17,6 +20,9 @@ COPY_EXISTING "highhedg.sto" "override"
 COPY_EXISTING "sto0703.sto" "override"
   // Spark Shower
   ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #0 #0 "identified" #2
+
+  // Seeking
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #0 #0 "identified" #2
 
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #0 #0 "identified" #2

@@ -23,6 +23,28 @@ COPY "%MOD_FOLDER%/items/mh#wiz21.itm" "override"
   END
 
 
+// mh#wiz22 - Seeking
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz22.spl" 2 2 WIZARD_SEEKING
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Seeking~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz22.itm" "override"
+  SAY NAME2 ~Seeking~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "mh#wiz22"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz31 - Improved Magic Missile
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz31.spl" 2 3 WIZARD_IMPROVED_MAGIC_MISSILE

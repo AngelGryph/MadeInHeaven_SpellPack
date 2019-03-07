@@ -4,6 +4,9 @@ COPY_EXISTING "garlena.sto" "override"
   // Spark Shower
   ADD_STORE_ITEM "mh#wiz21" AFTER "scrl96" #1 #0 #0 "identified" #3
 
+  // Seeking
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl96" #1 #0 #0 "identified" #3
+
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
 
@@ -31,6 +34,9 @@ COPY_EXISTING "garlena.sto" "override"
 COPY_EXISTING "25spell.sto" "override"
   // Spark Shower
   ADD_STORE_ITEM "mh#wiz21" AFTER "scrl93" #1 #0 #0 "identified" #2
+
+  // Seeking
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl93" #1 #0 #0 "identified" #2
 
   // Improved Magic Missile
   ADD_STORE_ITEM "mh#wiz31" AFTER "scrl1e" #1 #0 #0 "identified" #2

@@ -75,6 +75,15 @@ BEGIN
 END
 
 
+// mh#prs22 - Seeking
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs22.spl" 2 2 CLERIC_SEEKING
+  SAY NAME1 ~Seeking~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+
+
 // mh#prs41 - Sticks to Snakes
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.cre"

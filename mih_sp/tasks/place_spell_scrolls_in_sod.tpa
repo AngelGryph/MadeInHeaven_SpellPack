@@ -5,6 +5,9 @@ COPY_EXISTING "bdsorcsc.sto" "override"
   // Spark Shower
   ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #0 #0 "identified" #4
 
+  // Seeking
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl94" #1 #0 #0 "identified" #4
+
   // Heroism
   ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
 
