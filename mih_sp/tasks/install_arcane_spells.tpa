@@ -359,3 +359,15 @@ COPY "%MOD_FOLDER%/items/mh#wiz82.itm" "override"
   END
 
 
+// Required adjustments to existing stuff
+
+COPY_EXISTING_REGEXP ".+\.\(cre\|itm\|spl\)" "override"
+  // Adjust Magic Missile immunity
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "mh_immunity_magic_missile_arrays"
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
