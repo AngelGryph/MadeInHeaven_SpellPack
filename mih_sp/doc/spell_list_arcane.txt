@@ -9,6 +9,7 @@ Spark Shower
 Improved Magic Missile
 Heroism
 Blink
+*Otiluke's Acid Cloud
 
 
 === 4th Circle ===
@@ -17,16 +18,19 @@ Iron Maiden
 Destroy Undead
 Rary's Mnenemonic Enhancer
 Evard's Black Tentacles
+*Isaac's Lesser Missile Storm
 
 
 === 5th Circle ===
 
 Superheroism
+*Spell Matrix
 
 
 === 6th Circle ===
 
 Mordenkainen's Lucubration
+*Isaac's Greater Missile Storm
 
 
 === 7th Circle ===
@@ -38,5 +42,6 @@ Faerie Sword
 
 Deathbolt
 Major Globe of Invulnerability
+*Polar Ray
 
 

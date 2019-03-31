@@ -3,6 +3,9 @@
 COPY_LARGE "%MOD_FOLDER%/bams" "override"
 
 
+OUTER_SPRINT append_contingx "mh#wiz  ****     ****     ****     mh#wiz43 mh#wiz52 mh#wiz61 ****     ****     ****"
+
+
 // mh#wiz21 - Spark Shower
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz21.spl" 2 2 WIZARD_SPARK_SHOWER
@@ -114,6 +117,34 @@ COPY "%MOD_FOLDER%/items/mh#wiz33.itm" "override"
   END
 
 
+// mh#wiz34 - Otiluke's Acid Cloud
+
+ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz34.pro"
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz34.spl" 2 3 WIZARD_ACID_CLOUD
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Otiluke's Acid Cloud~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+    INT_VAR
+    projectile	= %mh#wiz34%
+  END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz34.itm" "override"
+  SAY NAME2 ~Otiluke's Acid Cloud~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz41 - Iron Maiden
 
 COPY "%MOD_FOLDER%/items/mh#irnmd.itm" "override"
@@ -208,6 +239,12 @@ COPY "%MOD_FOLDER%/items/mh#wiz43.itm" "override"
   END
 
 
+OUTER_PATCH_SAVE append_contingx "%append_contingx%"
+BEGIN
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz43" "%spell_res% "
+END
+
+
 // mh#wiz44 - Evard's Black Tentacles
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_BLACK_TENTACLES
@@ -219,6 +256,30 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_BLACK_TENTACLES
 
 COPY "%MOD_FOLDER%/items/mh#wiz44.itm" "override"
   SAY NAME2 ~Evard's Black Tentacles~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz45 - Isaac's Lesser Missile Storm
+
+COPY "%MOD_FOLDER%/spells/arcane/mh#wz45a.spl" "override"
+     "%MOD_FOLDER%/spells/arcane/mh#wz45b.spl" "override"
+     "%MOD_FOLDER%/spells/arcane/mh#wz45c.spl" "override"
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz45.spl" 2 4 WIZARD_LESSER_STORM
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Isaac's Lesser Missile Storm~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz45.itm" "override"
+  SAY NAME2 ~Isaac's Lesser Missile Storm~
   //SAY IDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
@@ -250,6 +311,76 @@ COPY "%MOD_FOLDER%/items/mh#wiz51.itm" "override"
   END
 
 
+// mh#wiz52 - Spell Matrix
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz52.spl" 2 5 WIZARD_SPELL_MATRIX
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Spell Matrix~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
+  SAY NAME1 ~Spell Matrix~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "mh#wiz52"
+    resource		= "%spell_res%"
+  END
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "mh#wz52d"
+    resource		= "%spell_res%d"
+  END
+
+
+ACTION_IF ENGINE_IS "bgee bg2ee"
+BEGIN
+  COPY "%MOD_FOLDER%/spells/arcane/mh#wz52p.spl" "override/%spell_res%p.spl"
+    SAY NAME1 ~Spell Matrix~
+
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      STR_VAR
+      match_resource	= "mh#wiz52"
+      resource		= "%spell_res%"
+    END
+
+    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+      STR_VAR
+      match_resource	= "mh#wz52p"
+      resource		= "%spell_res%p"
+    END
+
+
+  OUTER_SPRINT spell_res_upper "%spell_res%"
+  ACTION_TO_UPPER spell_res_upper
+
+  COPY_EXISTING "bgee.lua" "override"
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~mageBookStrings = {~
+    ~mageBookStrings = {
+	%spell_res_upper% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
+END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz52.itm" "override"
+  SAY NAME2 ~Spell Matrix~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+OUTER_PATCH_SAVE append_contingx "%append_contingx%"
+BEGIN
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz52" "%spell_res% "
+END
+
+
 // mh#wiz61 - Mordenkainen's Lucubration
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_LUCUBRATION
@@ -261,6 +392,36 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_LUCUBRATION
 
 COPY "%MOD_FOLDER%/items/mh#wiz61.itm" "override"
   SAY NAME2 ~Mordenkainen's Lucubration~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+OUTER_PATCH_SAVE append_contingx "%append_contingx%"
+BEGIN
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz61" "%spell_res% "
+END
+
+
+// mh#wiz62 - Isaac's Greater Missile Storm
+
+COPY "%MOD_FOLDER%/spells/arcane/mh#wz62a.spl" "override"
+     "%MOD_FOLDER%/spells/arcane/mh#wz62b.spl" "override"
+     "%MOD_FOLDER%/spells/arcane/mh#wz62c.spl" "override"
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 4 WIZARD_GREATER_STORM
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Isaac's Greater Missile Storm~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz62.itm" "override"
+  SAY NAME2 ~Isaac's Greater Missile Storm~
   //SAY IDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
@@ -359,6 +520,26 @@ COPY "%MOD_FOLDER%/items/mh#wiz82.itm" "override"
   END
 
 
+// mh#wiz83 - Polar Ray
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz83.spl" 2 8 WIZARD_POLAR_RAY
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Polar Ray~
+  //SAY UNIDENTIFIED_DESC ~~
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz83.itm" "override"
+  SAY NAME2 ~Polar Ray~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // Required adjustments to existing stuff
 
 COPY_EXISTING_REGEXP ".+\.\(cre\|itm\|spl\)" "override"
@@ -369,5 +550,8 @@ COPY_EXISTING_REGEXP ".+\.\(cre\|itm\|spl\)" "override"
   END
 
   BUT_ONLY_IF_IT_CHANGES
+
+
+APPEND "contingx.2da" "%append_contingx%"
 
 

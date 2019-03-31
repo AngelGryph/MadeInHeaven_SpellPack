@@ -21,9 +21,15 @@ COPY_EXISTING "bdsorcsc.sto" "override"
   ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #0 #0 "identified" #2
 
   // Evard's Black Tentacles
-  ADD_STORE_ITEM "mh#wiz44" AFTER "scrlaj" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz44" BEFORE "scrlaj" #1 #0 #0 "identified" #2
+
+  // Isaac's Lesser Missile Storm
+  ADD_STORE_ITEM "mh#wiz45" AFTER "scrlaj" #1 #0 #0 "identified" #2
 
   // Superheroism
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1
+
+  // Spell Matrix
   ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1
 
 
@@ -35,5 +41,8 @@ COPY_EXISTING "bdnazram.sto" "override"
 
   // Improved Magic Missile
   ADD_STORE_ITEM "mh#wiz31" FIRST #1 #0 #0 "identified" #1
+
+  // Otiluke's Acid Cloud
+  ADD_STORE_ITEM "mh#wiz34" FIRST #1 #0 #0 "identified" #1
 
 

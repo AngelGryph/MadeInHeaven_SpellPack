@@ -60,9 +60,19 @@ COPY_EXISTING "%Candlekeep_Catacombs_L1Antechamber%.are" "override"
     item_to_add		= "mh#wiz42"
   END
 
+  // Isaac's Lesser Missile Storm
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
     INT_VAR
     container_to_add_to	= 2
+    charges1		= 1
+    STR_VAR
+    item_to_add		= "mh#wiz45"
+  END
+
+  // Superheroism
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 3
     charges1		= 1
     STR_VAR
     item_to_add		= "mh#wiz51"
