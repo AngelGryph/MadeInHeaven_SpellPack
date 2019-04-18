@@ -122,7 +122,7 @@ COPY "%MOD_FOLDER%/items/mh#wiz33.itm" "override"
 ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz34.pro"
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz34.spl" 2 3 WIZARD_ACID_CLOUD
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz34.spl" 2 3 WIZARD_OTILUKES_ACID_CLOUD
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Otiluke's Acid Cloud~
@@ -221,7 +221,7 @@ COPY "%MOD_FOLDER%/items/mh#wiz42.itm" "override"
 
 // mh#wiz43 - Rary's Mnemonic Enhancer
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz43.spl" 2 4 WIZARD_MNEMONIC_ENHANCER
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz43.spl" 2 4 WIZARD_RARYS_MNEMONIC_ENHANCER
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Rary's Mnemonic Enhancer~
@@ -247,7 +247,7 @@ END
 
 // mh#wiz44 - Evard's Black Tentacles
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_BLACK_TENTACLES
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_EVARDS_BLACK_TENTACLES
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Evard's Black Tentacles~
@@ -272,7 +272,7 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz45a.spl" "override"
      "%MOD_FOLDER%/spells/arcane/mh#wz45c.spl" "override"
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz45.spl" 2 4 WIZARD_LESSER_STORM
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz45.spl" 2 4 WIZARD_ISAACS_LESSER_MISSILE_STORM
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Isaac's Lesser Missile Storm~
@@ -383,7 +383,7 @@ END
 
 // mh#wiz61 - Mordenkainen's Lucubration
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_LUCUBRATION
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_MORDENKAINENS_LUCUBRATION
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Mordenkainen's Lucubration~
@@ -414,7 +414,7 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz62a.spl" "override"
      "%MOD_FOLDER%/spells/arcane/mh#wz62c.spl" "override"
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 4 WIZARD_GREATER_STORM
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 4 WIZARD_ISAACS_GREATER_MISSILE_STORM
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Isaac's Greater Missile Storm~
@@ -461,7 +461,16 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz81.spl" 2 8 WIZARD_DEATHBOLT
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Deathbolt~
-  //SAY UNIDENTIFIED_DESC ~~
+  SAY UNIDENTIFIED_DESC ~Deathbolt (necromancy)
+Range: 100 feet
+Duration: Instant
+Speed: 8
+Area of Effect: 1 creature
+Saving Throw: Special
+
+Death comes in many forms, but none so painful as this. For even if you evade Death's Touch, it will always leave a mark. 
+
+This spell calls forth a magical bolt of death energy that kills a specified target, unless it makes a successful saving throw vs. spell. Even on a successful saving throw, the victim suffers 10-60 (10d6) pts. of damage.~
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz81.itm" "override"
@@ -477,7 +486,7 @@ COPY "%MOD_FOLDER%/items/mh#wiz81.itm" "override"
 
 // mh#wiz82 - Major Globe of Invulnerability
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz82.spl" 2 8 WIZARD_MAJOR_GLOBE
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz82.spl" 2 8 WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Major Globe of Invulnerability~
@@ -531,6 +540,43 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz83.spl" 2 8 WIZARD_POLAR_RAY
 
 COPY "%MOD_FOLDER%/items/mh#wiz83.itm" "override"
   SAY NAME2 ~Polar Ray~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
+// mh#wiz84 - Meteor Storm Bombardment
+
+ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz84.pro"
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz84.spl" 2 8 WIZARD_METEOR_STORM_BOMBARDMENT
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Meteor Storm Bombardment~
+  SAY UNIDENTIFIED_DESC ~Meteor Storm Bombardment (invocation)
+Range: 50
+Duration: Instant
+Speed: 8
+Area of Effect: 50 ft X 50 ft area
+Saving Throw: 1/2
+
+Meteors from across the multiverse are called to rain destruction upon all who oppose the caster. 
+
+This spell calls forth a great shower of meteors to bombard all enemies within sight for 10-120 (10d12) pts. of damage, or half the damage with a successful saving throw vs. spell.~
+
+  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+    INT_VAR
+    projectile	= %mh#wiz84%
+  END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz84.itm" "override"
+  SAY NAME2 ~Meteor Storm Bombardment~
   //SAY IDENTIFIED_DESC ~~
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
