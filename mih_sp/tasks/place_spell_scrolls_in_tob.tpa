@@ -50,6 +50,9 @@ COPY_EXISTING "25spell.sto" "override"
   // Otilkuke's Acid Cloud
   ADD_STORE_ITEM "mh#wiz34" AFTER "scrl1t" #1 #0 #0 "identified" #2
 
+  // Minor Malison
+  ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #0 #0 "identified" #2
+
   // Iron Maiden
   ADD_STORE_ITEM "mh#wiz41" AFTER "scrl1z" #1 #0 #0 "identified" #2
 

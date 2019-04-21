@@ -37,6 +37,26 @@ COPY_EXISTING "sto0703.sto" "override"
   ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
 
 
+// Firewine Ruins
+
+COPY_EXISTING "lendar.cre" "override"
+  // Minor Malison
+  ADD_CRE_ITEM "mh#wiz35" #1 #0 #0 "none" "qitem"
+
+
+// Ulcaster Ruins
+
+COPY_EXISTING "%UlcasterRuins%.are" "override"
+  // Minor Malison
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 7
+    charges1		= 1
+    STR_VAR
+    item_to_add		= "mh#wiz35"
+  END
+
+
 // Candlekeep
 
 COPY_EXISTING "%Candlekeep_Library_L5%.are" "override"
