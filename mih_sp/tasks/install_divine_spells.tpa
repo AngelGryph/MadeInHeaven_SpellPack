@@ -120,6 +120,21 @@ ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs42.spl" 1 4 CLERIC_HEROISM
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
+// mh#prs51 - Call Lightning Storm
+
+ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#prs51.pro"
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs51.spl" 1 5 CLERIC_CALL_LIGHTNING_STORM
+  SAY NAME1 ~Call Lightning Storm~
+  //SAY UNIDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+    INT_VAR
+    projectile	= %mh#prs51%
+  END
+
+
 // mh#prs61 - Superheroism
 
 ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs61.spl" 1 6 CLERIC_SUPERHEROISM

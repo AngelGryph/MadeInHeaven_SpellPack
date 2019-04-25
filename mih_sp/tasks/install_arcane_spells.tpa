@@ -662,16 +662,57 @@ COPY "%MOD_FOLDER%/items/mh#wiz71.itm" "override"
   END
 
 
+// mh#wiz72 - Stygian Ice Storm
+
+ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz72.pro"
+
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz72.spl" 2 8 WIZARD_STYGIAN_ICE_STORM
+  SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Stygian Ice Storm~
+  SAY UNIDENTIFIED_DESC ~Stygian Ice Storm
+(Invocation/Evocation)
+
+Level: 7
+Range: Visual range of the caster
+Duration: Special
+Casting Time: 7
+Area of Effect: 30' radius
+Saving Throw: Special
+
+Few know the true terror of Baator, let alone the gruesome Fifth Layer. This devastating spell summons the harshest cold and bitter ice of the Fifth Layer of Baator, Stygia, to annihilate all enemies within range. As the River Styx flows through the Stygian Ice, so it does in this spell as well. Perhaps if the victims are strong enough to survive this devastation they may live to tell others about the true terror... but the River Styx has a tendency to make people forget.
+
+Ice from Stygia is summoned to crush all creatures within sight for 8d8 points of cold damage, with no saving throw.  Finally, all creatures must save vs. spell or suffer confusion for five rounds due to the immediate contact with the frozen, forgetful waters of the River Styx.~
+
+  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+    INT_VAR
+    projectile	= %mh#wiz72%
+  END
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz72.itm" "override"
+  SAY NAME2 ~Stygian Ice Storm~
+  //SAY IDENTIFIED_DESC ~~
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz81 - Deathbolt
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz81.spl" 2 8 WIZARD_DEATHBOLT
   SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 ~Deathbolt~
-  SAY UNIDENTIFIED_DESC ~Deathbolt (necromancy)
+  SAY UNIDENTIFIED_DESC ~Deathbolt
+(necromancy)
 Range: 100 feet
 Duration: Instant
-Speed: 8
+Casting Time: 8
 Area of Effect: 1 creature
 Saving Throw: Special
 
@@ -786,10 +827,10 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz84.spl" 2 8 WIZARD_METEOR_STORM_BOMB
 
   SAY NAME1 ~Meteor Storm Bombardment~
   SAY UNIDENTIFIED_DESC ~Meteor Storm Bombardment (invocation)
-Range: 50
+Range: Visual range of the caster
 Duration: Instant
-Speed: 8
-Area of Effect: 50 ft X 50 ft area
+Casting Time: 8
+Area of Effect: 50' radius
 Saving Throw: 1/2
 
 Meteors from across the multiverse are called to rain destruction upon all who oppose the caster. 
