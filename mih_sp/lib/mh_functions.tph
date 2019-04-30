@@ -52,7 +52,7 @@ BEGIN
         READ_2DA_ENTRY_FORMER ini_array i 0 key
         READ_2DA_ENTRY_FORMER ini_array i 1 value
         TO_LOWER key
-        SPRINT $ini_hash(~%key%~) ~%value%~
+        TEXT_SPRINT $ini_hash("%key%") "%value%"
       END
   END
 END

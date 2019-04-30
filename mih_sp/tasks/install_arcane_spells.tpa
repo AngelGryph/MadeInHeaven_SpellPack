@@ -3,31 +3,21 @@
 COPY_LARGE "%MOD_FOLDER%/bams" "override"
 
 
-OUTER_SPRINT append_contingx "mh#wiz  ****     ****     ****     mh#wiz43 mh#wiz52 mh#wiz61 ****     ****     ****"
+OUTER_TEXT_SPRINT append_contingx "mh#wiz  ****     ****     ****     mh#wiz43 mh#wiz52 mh#wiz61 ****     ****     ****"
 
 
 // mh#wiz21 - Spark Shower
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz21.spl" 2 2 WIZARD_SPARK_SHOWER
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Spark Shower~
-  SAY UNIDENTIFIED_DESC ~Spark Shower
-(Invocation/Evocation)
-
-Level: 2
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 2
-Area of Effect: 15' radius
-Saving Throw: 1/2
-
-This spell creates a shower of purple sparks at the point designated by the caster.  Every creature caught within will be shocked for 4d4 points of electrical damage unless they save versus spell, in which case they will take half damage.~
+  SAY NAME1 @0
+  SAY UNIDENTIFIED_DESC @1
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz21.itm" "override"
-  SAY NAME2 ~Spark Shower~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @0
+  SAY IDENTIFIED_DESC @1
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -39,27 +29,17 @@ COPY "%MOD_FOLDER%/items/mh#wiz21.itm" "override"
 // mh#wiz22 - Seeking
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz22.spl" 2 2 WIZARD_SEEKING
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Seeking~
-  SAY UNIDENTIFIED_DESC ~Seeking
-(Enchantment/Charm)
-
-Level: 2
-Range: Touch
-Duration: 2 rounds + 1 round/3 levels
-Casting Time: 2
-Area of Effect: 1 creature
-Saving Throw: None
-
-This spell slightly twists the normal laws of momentum and gravity in the recipient's favor, making <PRO_HISHER> arrows, bolts or other projectiles veer towards their intended target, even dodging around obstacles if needed.  For the duration, the recipient has a +4 bonus on all to-hit rolls with ranged weapons.~
+  SAY NAME1 @2
+  SAY UNIDENTIFIED_DESC @3
 
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz22.itm" "override"
-  SAY NAME2 ~Seeking~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @2
+  SAY IDENTIFIED_DESC @3
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -71,25 +51,15 @@ COPY "%MOD_FOLDER%/items/mh#wiz22.itm" "override"
 // mh#wiz31 - Improved Magic Missile
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz31.spl" 2 3 WIZARD_IMPROVED_MAGIC_MISSILE
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Improved Magic Missile~
-  SAY UNIDENTIFIED_DESC ~Improved Magic Missile
-(Invocation/Evocation)
-
-Level: 3
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 3
-Area of Effect: 1 creature
-Saving Throw: None 
-
-Like the 1st-level spell Magic Missile, Improved Magic Missile creates missiles of magical energy that dart from the wizard's fingertips and unerringly strike their target, which must be a creature of some sort.  However, this spell creates up to eleven such missiles instead of only five.  The damage is still the same, 1d4+1 per missile.  For a caster below 11th level this spell works just like Magic Missile, but at 11th level <PRO_HESHE> gets 6 missiles, then 7 at 13th level and so on up to 11 missiles at 21th level.  The Shield spell and other effects that specifically counter Magic Missile will also block the missiles created by this spell.~
+  SAY NAME1 @4
+  SAY UNIDENTIFIED_DESC @5
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz31.itm" "override"
-  SAY NAME2 ~Improved Magic Missile~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @4
+  SAY IDENTIFIED_DESC @5
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -101,27 +71,17 @@ COPY "%MOD_FOLDER%/items/mh#wiz31.itm" "override"
 // mh#wiz32 - Heroism
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz32.spl" 2 3 WIZARD_HEROISM
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Heroism~
-  SAY UNIDENTIFIED_DESC ~Heroism
-(Alteration)
-
-Level: 3
-Range: Touch
-Duration: 1 round/level
-Casting Time: 4
-Area of Effect: 1 creature
-Saving Throw: None
-
-This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 10%, and the recipient's hit points are raised by 10%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.~
+  SAY NAME1 @6
+  SAY UNIDENTIFIED_DESC @7
 
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz32.itm" "override"
-  SAY NAME2 ~Heroism~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @6
+  SAY IDENTIFIED_DESC @7
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -140,25 +100,15 @@ CREATE EFF "mh#blink"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz33.spl" 2 3 WIZARD_BLINK
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Blink~
-  SAY UNIDENTIFIED_DESC ~Blink
-(Alteration)
-
-Level: 3
-Range: 0
-Duration: 1 round/level
-Casting Time: 1
-Area of Effect: The caster
-Saving Throw: None
-
-Upon casting this spell, the caster starts rapidly winking in- and out of existence, making it difficult to strike <PRO_HIMHER> with any weapons.  However, the caster has no control over where and when <PRO_HESHE> winks into existence, making it more difficult to strike opponents and possibly placing <PRO_HIMHER> in a dangerous situation.  For the duration of the spell, the caster's AC is improved by 4 and all physical attacks deal half their normal damage, but the caster has a -4 penalty to hit.~
+  SAY NAME1 @8
+  SAY UNIDENTIFIED_DESC @9
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz33.itm" "override"
-  SAY NAME2 ~Blink~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @8
+  SAY IDENTIFIED_DESC @9
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -173,20 +123,10 @@ ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz34.pro"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz34.spl" 2 3 WIZARD_OTILUKES_ACID_CLOUD
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Otiluke's Acid Cloud~
-  SAY UNIDENTIFIED_DESC ~Otiluke's Acid Cloud
-(Invocation/Evocation)
-
-Level: 3
-Range: Visual range of the caster
-Duration: 1 round/level
-Casting Time: 3
-Area of Effect: 15' radius
-Saving Throw: 1/2
-
-This spell creates a purple cloud of acid at the spot designated by the caster.  All creatures caught within takes 4d4 points of acid damage per round.~
+  SAY NAME1 @10
+  SAY UNIDENTIFIED_DESC @11
 
   LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
     INT_VAR
@@ -195,8 +135,8 @@ This spell creates a purple cloud of acid at the spot designated by the caster. 
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz34.itm" "override"
-  SAY NAME2 ~Otiluke's Acid Cloud~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @10
+  SAY IDENTIFIED_DESC @11
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -208,27 +148,17 @@ COPY "%MOD_FOLDER%/items/mh#wiz34.itm" "override"
 // mh#wiz35 - Minor Malison
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz35.spl" 2 3 WIZARD_MINOR_MALISON
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Minor Malison~
-  SAY UNIDENTIFIED_DESC ~Minor Malison
-(Enchantment/Charm)
-
-Level: 3
-Range: 50 ft.
-Duration: 2 rounds/level
-Casting Time: 3
-Area of Effect: 30-ft. radius
-Saving Throw: None
-
-The spell allows the caster to adversely affect all the Saving Throws of <PRO_HISHER> enemies. The effect is applied to all hostile creatures within the area of effect. Opponents under the influence of this spell make all Saving Throws at a penalty of -2.~
+  SAY NAME1 @12
+  SAY UNIDENTIFIED_DESC @13
 
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz35.itm" "override"
-  SAY NAME2 ~Minor Malison~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @12
+  SAY IDENTIFIED_DESC @13
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -243,8 +173,8 @@ COPY "%MOD_FOLDER%/items/mh#irnmd.itm" "override"
 
 
 COPY "%MOD_FOLDER%/actors/mh#irnmd.cre" "override"
-  SAY NAME1 ~Iron Maiden~
-  SAY NAME2 ~Iron Maiden~
+  SAY NAME1 @14
+  SAY NAME2 @14
 
 
 CREATE EFF "mh#irnmd"
@@ -257,25 +187,15 @@ CREATE EFF "mh#irnmd"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz41.spl" 2 4 WIZARD_IRON_MAIDEN
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Iron Maiden~
-  SAY UNIDENTIFIED_DESC ~Iron Maiden
-(Invocation/Evocation)
-
-Level: 4
-Range: Visual range of the caster
-Duration: 1 round/level
-Casting Time: 4
-Area of Effect: Special
-Saving Throw: None
-
-This secret spell of the Harpers creates a construct known as a "helmed horror" which appears as an animated suit of armor wielding a flaming long sword.  The creature will fight as directed by the caster for the duration of the spell, after which it falls apart into worthless junk.  Because this is a construct created on the spot and not a creature conjured from elsewhere, the iron maiden is not vulnerable to effects that specifically target summoned creatures.~
+  SAY NAME1 @14
+  SAY UNIDENTIFIED_DESC @15
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz41.itm" "override"
-  SAY NAME2 ~Iron Maiden~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @14
+  SAY IDENTIFIED_DESC @15
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -304,27 +224,15 @@ CREATE EFF "mh#wz42b"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz42.spl" 2 4 WIZARD_DESTROY_UNDEAD
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Destroy Undead~
-  SAY UNIDENTIFIED_DESC ~Destroy Undead
-(Necromancy)
-
-Level: 4
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 4
-Area of Effect: 20' radius
-Saving Throw: Partial
-
-This necromantic spell disrupts the negative energy that animates undead.  There is a 10% chance this instantly destroys an undead creature unless it saves versus spell.  Surviving undead still take 5d10 points of damage, or 1d10 if they save versus spell.  The spell has no effect on creatures that aren't undead.
-
-This spell was apparently created in a dreadful dark realm overrun by many undead horrors, but the exact details are shrouded in mist...~
+  SAY NAME1 @16
+  SAY UNIDENTIFIED_DESC @17
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz42.itm" "override"
-  SAY NAME2 ~Destroy Undead~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @16
+  SAY IDENTIFIED_DESC @17
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -336,25 +244,15 @@ COPY "%MOD_FOLDER%/items/mh#wiz42.itm" "override"
 // mh#wiz43 - Rary's Mnemonic Enhancer
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz43.spl" 2 4 WIZARD_RARYS_MNEMONIC_ENHANCER
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Rary's Mnemonic Enhancer~
-  SAY UNIDENTIFIED_DESC ~Rary's Mnemonic Enhancer
-(Alteration)
-
-Level: 4
-Range: 0
-Duration: Instant
-Casting Time: 9
-Area of Effect: The caster
-Saving Throw: None
-
-This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to third level, one up to second, and the final one of first level.  Only arcane spells can be restored.~
+  SAY NAME1 @18
+  SAY UNIDENTIFIED_DESC @19
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz43.itm" "override"
-  SAY NAME2 ~Rary's Mnemonic Enhancer~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @18
+  SAY IDENTIFIED_DESC @19
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -372,25 +270,15 @@ END
 // mh#wiz44 - Evard's Black Tentacles
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_EVARDS_BLACK_TENTACLES
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Evard's Black Tentacles~
-  SAY UNIDENTIFIED_DESC ~Evard's Black Tentacles
-(Conjuration/Summoning)
-
-Level: 4
-Range: Visual range of caster
-Duration: 1 turn
-Casting Time: 4
-Area of Effect: 40' radius
-Saving Throw: Neg.
-
-By means of this spell, the wizard calls forth a mass of writhing tentacles that grab on to any creature in the area, holding them in place and dealing 1d6+4 crushing damage per round.  A succesful save versus spell allows a victim to escape, but as long as they remain in the area they may be grabbed again.~
+  SAY NAME1 @20
+  SAY UNIDENTIFIED_DESC @21
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz44.itm" "override"
-  SAY NAME2 ~Evard's Black Tentacles~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @20
+  SAY IDENTIFIED_DESC @21
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -407,27 +295,15 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz45a.spl" "override"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz45.spl" 2 4 WIZARD_ISAACS_LESSER_MISSILE_STORM
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Isaac's Lesser Missile Storm~
-  SAY UNIDENTIFIED_DESC ~Isaac's Lesser Missile Storm
-(Invocation/Evocation)
-
-Level: 4
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 4
-Area of Effect: 30' radius
-Saving Throw: None
-
-This spell bombards all hostile creatures in the designated area with magic missiles similar to that of the Magic Missile spell.  Each hostile creature will be randomly targetted by 1d3 missiles, each of which deals 1d6 damage with no saving throw.  This spell will not harm party members.  The missiles can be stopped by anything that also stops the Magic Missile spell, such as the Shield spell.
-
-This spell was developed in the city of Neverwinter.~
+  SAY NAME1 @22
+  SAY UNIDENTIFIED_DESC @23
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz45.itm" "override"
-  SAY NAME2 ~Isaac's Lesser Missile Storm~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @22
+  SAY IDENTIFIED_DESC @23
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -439,27 +315,17 @@ COPY "%MOD_FOLDER%/items/mh#wiz45.itm" "override"
 // mh#wiz51 - Superheroism
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Superheroism~
-  SAY UNIDENTIFIED_DESC ~Superheroism
-(Alteration)
-
-Level: 5
-Range: Touch
-Duration: 2 rounds/level
-Casting Time: 5
-Area of Effect: 1 creature
-Saving Throw: None
-
-This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 20%, and the recipient's hit points are raised by 20%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.  In addition to this, the spike of positive energy will render the recipient immune to fear and energy drain for the duration of the spell.~
+  SAY NAME1 @24
+  SAY UNIDENTIFIED_DESC @25
 
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz51.itm" "override"
-  SAY NAME2 ~Superheroism~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @24
+  SAY IDENTIFIED_DESC @25
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -471,26 +337,14 @@ COPY "%MOD_FOLDER%/items/mh#wiz51.itm" "override"
 // mh#wiz52 - Spell Matrix
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz52.spl" 2 5 WIZARD_SPELL_MATRIX
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Spell Matrix~
-  SAY UNIDENTIFIED_DESC ~Spell Matrix
-(Invocation/Evocation)
-
-Level: 4
-Range: 0
-Duration: Permanent
-Casting Time: 9
-Area of Effect: Special
-Saving Throw: None
-
-This spell allows a wizard to store two spells and activate them both at the same time from <PRO_HISHER> Special Ability button. Both spells must be of 3rd level or lower. To create a matrix, a Mage must memorize not only Spell Matrix but also the spells <PRO_HESHE> intends to store in it (a Sorcerer can store spells of any level for which <PRO_HESHE> still has spell slots). After casting Spell Matrix, the player will be prompted to choose the sequenced spells from those <PRO_HESHE> has memorized.
-
-A matrix lasts until activated and, once used, releases its spells immediately (no casting time). The Special Ability icon also disappears until the next time a matrix is formed. A wizard can possess only one Spell Matrix at a time, and it may not be given to other characters.~
+  SAY NAME1 @26
+  SAY UNIDENTIFIED_DESC @27
 
 
 COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
-  SAY NAME1 ~Spell Matrix~
+  SAY NAME1 @26
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -508,7 +362,7 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
 ACTION_IF ENGINE_IS "bgee bg2ee"
 BEGIN
   COPY "%MOD_FOLDER%/spells/arcane/mh#wz52p.spl" "override/%spell_res%p.spl"
-    SAY NAME1 ~Spell Matrix~
+    SAY NAME1 @26
 
     LAUNCH_PATCH_FUNCTION ALTER_EFFECT
       STR_VAR
@@ -523,7 +377,7 @@ BEGIN
     END
 
 
-  OUTER_SPRINT spell_res_upper "%spell_res%"
+  OUTER_TEXT_SPRINT spell_res_upper "%spell_res%"
   ACTION_TO_UPPER spell_res_upper
 
   COPY_EXISTING "bgee.lua" "override"
@@ -534,8 +388,8 @@ END
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz52.itm" "override"
-  SAY NAME2 ~Spell Matrix~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @26
+  SAY IDENTIFIED_DESC @27
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -553,25 +407,15 @@ END
 // mh#wiz61 - Mordenkainen's Lucubration
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_MORDENKAINENS_LUCUBRATION
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Mordenkainen's Lucubration~
-  SAY UNIDENTIFIED_DESC ~Mordenkainen's Lucubration
-(Alteration)
-
-Level: 6
-Range: 0
-Duration: Instant
-Casting Time: 9
-Area of Effect: The caster
-Saving Throw: None
-
-This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to fifth level, one up to fourth, and the final one up to third level.  Only arcane spells can be restored.~
+  SAY NAME1 @28
+  SAY UNIDENTIFIED_DESC @29
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz61.itm" "override"
-  SAY NAME2 ~Mordenkainen's Lucubration~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @28
+  SAY IDENTIFIED_DESC @29
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -594,27 +438,15 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz62a.spl" "override"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 4 WIZARD_ISAACS_GREATER_MISSILE_STORM
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Isaac's Greater Missile Storm~
-  SAY UNIDENTIFIED_DESC ~Isaac's Greater Missile Storm
-(Invocation/Evocation)
-
-Level: 6
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 4
-Area of Effect: 30' radius
-Saving Throw: None
-
-This spell bombards all hostile creatures in the designated area with magic missiles similar to that of the Magic Missile spell.  Each hostile creature will be randomly targetted by 1d3+1 missiles, each of which deals 1d6 damage with no saving throw.  This spell will not harm party members.  The missiles can be stopped by anything that also stops the Magic Missile spell, such as the Shield spell.
-
-This spell was developed in the city of Neverwinter.~
+  SAY NAME1 @30
+  SAY UNIDENTIFIED_DESC @31
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz62.itm" "override"
-  SAY NAME2 ~Isaac's Greater Missile Storm~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @30
+  SAY IDENTIFIED_DESC @31
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -626,34 +458,19 @@ COPY "%MOD_FOLDER%/items/mh#wiz62.itm" "override"
 // mh#wiz71 - Faerie Sword
 
 COPY "%MOD_FOLDER%/items/mh#faesd.itm" "override"
-  SAY NAME2 ~Faerie Sword~
+  SAY NAME2 @32
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz71.spl" 2 7 WIZARD_FAERIE_SWORD
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Faerie Sword~
-  SAY UNIDENTIFIED_DESC ~Faerie Sword
-(Invocation/Evocation)
-
-Level: 7
-Range: 0
-Duration: 1 round/2 levels
-Casting Time: 7
-Area of Effect: Special
-Saving Throw: Special
-
-This spell creates a slender, shimmering sword in the caster's hands.  Although it functions as a long sword, there is no penalty for non-proficiency and the sword functions as a +4 weapon, including a to-hit bonus.  50% of the time, the sword inflicts 5d4 slashing damage on the enemy.  The other 50%, it randomly inflicts one of the following effects:
-- 8d4 fire damage
-- 10d4 acid damage
-- turned to stone (allows save vs. petrification)
-- mazed
-- disintegrated (allows save vs. death)~
+  SAY NAME1 @32
+  SAY UNIDENTIFIED_DESC @33
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz71.itm" "override"
-  SAY NAME2 ~Faerie Sword~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @32
+  SAY IDENTIFIED_DESC @33
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -668,22 +485,10 @@ ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz72.pro"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz72.spl" 2 8 WIZARD_STYGIAN_ICE_STORM
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Stygian Ice Storm~
-  SAY UNIDENTIFIED_DESC ~Stygian Ice Storm
-(Invocation/Evocation)
-
-Level: 7
-Range: Visual range of the caster
-Duration: Special
-Casting Time: 7
-Area of Effect: 30' radius
-Saving Throw: Special
-
-Few know the true terror of Baator, let alone the gruesome Fifth Layer. This devastating spell summons the harshest cold and bitter ice of the Fifth Layer of Baator, Stygia, to annihilate all enemies within range. As the River Styx flows through the Stygian Ice, so it does in this spell as well. Perhaps if the victims are strong enough to survive this devastation they may live to tell others about the true terror... but the River Styx has a tendency to make people forget.
-
-Ice from Stygia is summoned to crush all creatures within sight for 8d8 points of cold damage, with no saving throw.  Finally, all creatures must save vs. spell or suffer confusion for five rounds due to the immediate contact with the frozen, forgetful waters of the River Styx.~
+  SAY NAME1 @34
+  SAY UNIDENTIFIED_DESC @35
 
   LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
     INT_VAR
@@ -692,8 +497,8 @@ Ice from Stygia is summoned to crush all creatures within sight for 8d8 points o
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz72.itm" "override"
-  SAY NAME2 ~Stygian Ice Storm~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @34
+  SAY IDENTIFIED_DESC @35
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -705,25 +510,15 @@ COPY "%MOD_FOLDER%/items/mh#wiz72.itm" "override"
 // mh#wiz81 - Deathbolt
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz81.spl" 2 8 WIZARD_DEATHBOLT
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Deathbolt~
-  SAY UNIDENTIFIED_DESC ~Deathbolt
-(necromancy)
-Range: 100 feet
-Duration: Instant
-Casting Time: 8
-Area of Effect: 1 creature
-Saving Throw: Special
-
-Death comes in many forms, but none so painful as this. For even if you evade Death's Touch, it will always leave a mark. 
-
-This spell calls forth a magical bolt of death energy that kills a specified target, unless it makes a successful saving throw vs. spell. Even on a successful saving throw, the victim suffers 10d6 points of electrical damage.~
+  SAY NAME1 @36
+  SAY UNIDENTIFIED_DESC @37
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz81.itm" "override"
-  SAY NAME2 ~Deathbolt~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @36
+  SAY IDENTIFIED_DESC @37
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -735,20 +530,10 @@ COPY "%MOD_FOLDER%/items/mh#wiz81.itm" "override"
 // mh#wiz82 - Major Globe of Invulnerability
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz82.spl" 2 8 WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Major Globe of Invulnerability~
-  SAY UNIDENTIFIED_DESC ~Major Globe of Invulnerability
-(Abjuration)
-
-Level: 8
-Range: 0
-Duration: 1 round/level
-Casting Time: 8
-Area of Effect: 5-ft. radius sphere
-Saving Throw: None
-
-This spell creates an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd-, 4th-, or 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the Major Globe of Invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. 6th- and higher level spells are not affected by the globe, and magical attacks of 6th-level or higher, such as Spellstrike and Pierce Magic, can bring it down.~
+  SAY NAME1 @38
+  SAY UNIDENTIFIED_DESC @39
 
   LAUNCH_PATCH_FUNCTION cd_apply_batch
     STR_VAR
@@ -777,8 +562,8 @@ This spell creates an immobile, faintly shimmering magical sphere around the cas
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz82.itm" "override"
-  SAY NAME2 ~Major Globe of Invulnerability~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @38
+  SAY IDENTIFIED_DESC @39
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -790,25 +575,15 @@ COPY "%MOD_FOLDER%/items/mh#wiz82.itm" "override"
 // mh#wiz83 - Polar Ray
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz83.spl" 2 8 WIZARD_POLAR_RAY
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Polar Ray~
-  SAY UNIDENTIFIED_DESC ~Polar Ray
-(Invocation/Evocation)
-
-Level: 8
-Range: 15 ft.
-Duration: 1 round
-Casting Time: 8
-Area of Effect: 2-ft. by 15-ft. jet
-Saving Throw: None
-
-Upon casting this spell, the mage projects a ray of intense cold that freezes everything in its path.  Everyone and everything crossing the ray will take 1d6 points of cold damage per caster level (max. 25d6).~
+  SAY NAME1 @40
+  SAY UNIDENTIFIED_DESC @41
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz83.itm" "override"
-  SAY NAME2 ~Polar Ray~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @40
+  SAY IDENTIFIED_DESC @41
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
@@ -823,19 +598,10 @@ ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz84.pro"
 
 
 ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz84.spl" 2 8 WIZARD_METEOR_STORM_BOMBARDMENT
-  SPRINT spell_res "%DEST_RES%"
+  TEXT_SPRINT spell_res "%DEST_RES%"
 
-  SAY NAME1 ~Meteor Storm Bombardment~
-  SAY UNIDENTIFIED_DESC ~Meteor Storm Bombardment (invocation)
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 8
-Area of Effect: 50' radius
-Saving Throw: 1/2
-
-Meteors from across the multiverse are called to rain destruction upon all who oppose the caster. 
-
-This spell calls forth a great shower of meteors to bombard all enemies within sight for 10d12 points of crushing damage, or half the damage with a successful saving throw vs. spell.~
+  SAY NAME1 @42
+  SAY UNIDENTIFIED_DESC @43
 
   LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
     INT_VAR
@@ -844,8 +610,8 @@ This spell calls forth a great shower of meteors to bombard all enemies within s
 
 
 COPY "%MOD_FOLDER%/items/mh#wiz84.itm" "override"
-  SAY NAME2 ~Meteor Storm Bombardment~
-  //SAY IDENTIFIED_DESC ~~
+  SAY NAME2 @42
+  SAY IDENTIFIED_DESC @43
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
