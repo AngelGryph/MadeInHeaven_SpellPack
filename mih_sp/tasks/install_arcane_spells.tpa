@@ -8,86 +8,60 @@ OUTER_TEXT_SPRINT append_contingx "mh#wiz  ****     ****     ****     mh#wiz43 m
 
 // mh#wiz21 - Spark Shower
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz21.spl" 2 2 WIZARD_SPARK_SHOWER
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @0
-  SAY UNIDENTIFIED_DESC @1
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz21.itm" "override"
-  SAY NAME2 @0
-  SAY IDENTIFIED_DESC @1
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "mh#wiz21"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@0)
+  spell_desc_strref	= RESOLVE_STR_REF(@1)
+  spell_level		= 2
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_SPARK_SHOWER"
+  spell_res		= "mh#wiz21"
+END
 
 
 // mh#wiz22 - Seeking
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz22.spl" 2 2 WIZARD_SEEKING
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @2
-  SAY UNIDENTIFIED_DESC @3
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz22.itm" "override"
-  SAY NAME2 @2
-  SAY IDENTIFIED_DESC @3
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "mh#wiz22"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@2)
+  spell_desc_strref	= RESOLVE_STR_REF(@3)
+  spell_level		= 2
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_SEEKING"
+  spell_res		= "mh#wiz22"
+END
 
 
 // mh#wiz31 - Improved Magic Missile
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz31.spl" 2 3 WIZARD_IMPROVED_MAGIC_MISSILE
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @4
-  SAY UNIDENTIFIED_DESC @5
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz31.itm" "override"
-  SAY NAME2 @4
-  SAY IDENTIFIED_DESC @5
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@4)
+  spell_desc_strref	= RESOLVE_STR_REF(@5)
+  spell_level		= 3
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_IMPROVED_MAGIC_MISSILE"
+  spell_res		= "mh#wiz31"
+END
 
 
 // mh#wiz32 - Heroism
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz32.spl" 2 3 WIZARD_HEROISM
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @6
-  SAY UNIDENTIFIED_DESC @7
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz32.itm" "override"
-  SAY NAME2 @6
-  SAY IDENTIFIED_DESC @7
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@6)
+  spell_desc_strref	= RESOLVE_STR_REF(@7)
+  spell_level		= 3
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_HEROISM"
+  spell_res		= "mh#wiz32"
+END
 
 
 // mh#wiz33 - Blink
@@ -99,92 +73,59 @@ CREATE EFF "mh#blink"
   WRITE_LONG	0x002c 100
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz33.spl" 2 3 WIZARD_BLINK
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @8
-  SAY UNIDENTIFIED_DESC @9
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz33.itm" "override"
-  SAY NAME2 @8
-  SAY IDENTIFIED_DESC @9
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@8)
+  spell_desc_strref	= RESOLVE_STR_REF(@9)
+  spell_level		= 3
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_BLINK"
+  spell_res		= "mh#wiz33"
+END
 
 
 // mh#wiz34 - Otiluke's Acid Cloud
 
-ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz34.pro"
-
-
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz34.spl" 2 3 WIZARD_OTILUKES_ACID_CLOUD
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @10
-  SAY UNIDENTIFIED_DESC @11
-
-  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
-    INT_VAR
-    projectile	= %mh#wiz34%
-  END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz34.itm" "override"
-  SAY NAME2 @10
-  SAY IDENTIFIED_DESC @11
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@10)
+  spell_desc_strref	= RESOLVE_STR_REF(@11)
+  spell_level		= 3
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_OTILUKES_ACID_CLOUD"
+  spell_res		= "mh#wiz34"
+END
 
 
 // mh#wiz35 - Minor Malison
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz35.spl" 2 3 WIZARD_MINOR_MALISON
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @12
-  SAY UNIDENTIFIED_DESC @13
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz35.itm" "override"
-  SAY NAME2 @12
-  SAY IDENTIFIED_DESC @13
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@12)
+  spell_desc_strref	= RESOLVE_STR_REF(@13)
+  spell_level		= 3
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_MINOR_MALISON"
+  spell_res		= "mh#wiz35"
+END
 
 
 // mh#wiz36 - Ball Lightning
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz35.spl" 2 3 WIZARD_BALL_LIGHTNING
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 ~Ball Lightning~
-  //SAY UNIDENTIFIED_DESC @??
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz36.itm" "override"
-  SAY NAME2 ~Ball Lightning~
-  //SAY IDENTIFIED_DESC @??
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(~Ball Lightning~)
+  spell_level		= 3
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_BALL_LIGHTNING"
+  spell_res		= "mh#wiz36"
+END
 
 
 // mh#wiz41 - Iron Maiden
@@ -206,22 +147,16 @@ CREATE EFF "mh#irnmd"
   WRITE_ASCII	0x0070 "spcrtwpn" #8
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz41.spl" 2 4 WIZARD_IRON_MAIDEN
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @14
-  SAY UNIDENTIFIED_DESC @15
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz41.itm" "override"
-  SAY NAME2 @14
-  SAY IDENTIFIED_DESC @15
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@14)
+  spell_desc_strref	= RESOLVE_STR_REF(@15)
+  spell_level		= 4
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_IRON_MAIDEN"
+  spell_res		= "mh#wiz41"
+END
 
 
 // mh#wiz42 - Destroy Undead
@@ -243,68 +178,52 @@ CREATE EFF "mh#wz42b"
   WRITE_LONG	0x003c 10
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz42.spl" 2 4 WIZARD_DESTROY_UNDEAD
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @16
-  SAY UNIDENTIFIED_DESC @17
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz42.itm" "override"
-  SAY NAME2 @16
-  SAY IDENTIFIED_DESC @17
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@16)
+  spell_desc_strref	= RESOLVE_STR_REF(@17)
+  spell_level		= 4
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_DESTROY_UNDEAD"
+  spell_res		= "mh#wiz42"
+END
 
 
 // mh#wiz43 - Rary's Mnemonic Enhancer
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz43.spl" 2 4 WIZARD_RARYS_MNEMONIC_ENHANCER
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @18
-  SAY UNIDENTIFIED_DESC @19
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz43.itm" "override"
-  SAY NAME2 @18
-  SAY IDENTIFIED_DESC @19
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@18)
+  spell_desc_strref	= RESOLVE_STR_REF(@19)
+  spell_level		= 4
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_RARYS_MNEMONIC_ENHANCER"
+  spell_res		= "mh#wiz43"
+  RET
+  ingame_res
+END
 
 
 OUTER_PATCH_SAVE append_contingx "%append_contingx%"
 BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz43" "%spell_res% "
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz43" "%ingame_res% "
 END
 
 
 // mh#wiz44 - Evard's Black Tentacles
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz44.spl" 2 4 WIZARD_EVARDS_BLACK_TENTACLES
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @20
-  SAY UNIDENTIFIED_DESC @21
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz44.itm" "override"
-  SAY NAME2 @20
-  SAY IDENTIFIED_DESC @21
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@20)
+  spell_desc_strref	= RESOLVE_STR_REF(@21)
+  spell_level		= 4
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_EVARDS_BLACK_TENTACLES"
+  spell_res		= "mh#wiz44"
+END
 
 
 // mh#wiz45 - Isaac's Lesser Missile Storm
@@ -314,32 +233,36 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz45a.spl" "override"
      "%MOD_FOLDER%/spells/arcane/mh#wz45c.spl" "override"
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz45.spl" 2 4 WIZARD_ISAACS_LESSER_MISSILE_STORM
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @22
-  SAY UNIDENTIFIED_DESC @23
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz45.itm" "override"
-  SAY NAME2 @22
-  SAY IDENTIFIED_DESC @23
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@22)
+  spell_desc_strref	= RESOLVE_STR_REF(@23)
+  spell_level		= 4
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_ISAACS_LESSER_MISSILE_STORM"
+  spell_res		= "mh#wiz45"
+END
 
 
 // mh#wiz51 - Superheroism
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
-  TEXT_SPRINT spell_res "%DEST_RES%"
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@24)
+  spell_desc_strref	= RESOLVE_STR_REF(@25)
+  spell_level		= 5
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_SUPERHEROISM"
+  spell_res		= "mh#wiz51"
+  RET
+  ingame_res
+END
 
-  SAY NAME1 @24
-  SAY UNIDENTIFIED_DESC @25
 
+COPY_EXISTING "%ingame_res%.spl" "override"
   LAUNCH_PATCH_FUNCTION cd_apply_batch
     STR_VAR
     array_name		= "cd_immunity_fear_arrays"
@@ -350,27 +273,21 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
     array_name		= "cd_immunity_level_drain_arrays"
   END
 
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz51.itm" "override"
-  SAY NAME2 @24
-  SAY IDENTIFIED_DESC @25
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
-
 
 // mh#wiz52 - Spell Matrix
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz52.spl" 2 5 WIZARD_SPELL_MATRIX
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @26
-  SAY UNIDENTIFIED_DESC @27
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@26)
+  spell_desc_strref	= RESOLVE_STR_REF(@27)
+  spell_level		= 5
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_SPELL_MATRIX"
+  spell_res		= "mh#wiz52"
+  RET
+  ingame_res
+END
 
 
 COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
@@ -379,13 +296,13 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
     match_resource	= "mh#wiz52"
-    resource		= "%spell_res%"
+    resource		= "%ingame_res%"
   END
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     STR_VAR
     match_resource	= "mh#wz52d"
-    resource		= "%spell_res%d"
+    resource		= "%ingame_res%d"
   END
 
 
@@ -397,66 +314,51 @@ BEGIN
     LAUNCH_PATCH_FUNCTION ALTER_EFFECT
       STR_VAR
       match_resource	= "mh#wiz52"
-      resource		= "%spell_res%"
+      resource		= "%ingame_res%"
     END
 
     LAUNCH_PATCH_FUNCTION ALTER_EFFECT
       STR_VAR
       match_resource	= "mh#wz52p"
-      resource		= "%spell_res%p"
+      resource		= "%ingame_res%p"
     END
 
 
-  OUTER_TEXT_SPRINT spell_res_upper "%spell_res%"
-  ACTION_TO_UPPER spell_res_upper
+  OUTER_TEXT_SPRINT ingame_res_upper "%ingame_res%"
+  ACTION_TO_UPPER ingame_res_upper
 
   COPY_EXISTING "bgee.lua" "override"
     REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~mageBookStrings = {~
     ~mageBookStrings = {
-	%spell_res_upper% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
+	%ingame_res_upper% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
 END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz52.itm" "override"
-  SAY NAME2 @26
-  SAY IDENTIFIED_DESC @27
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
 
 
 OUTER_PATCH_SAVE append_contingx "%append_contingx%"
 BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz52" "%spell_res% "
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz52" "%ingame_res% "
 END
 
 
 // mh#wiz61 - Mordenkainen's Lucubration
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz61.spl" 2 6 WIZARD_MORDENKAINENS_LUCUBRATION
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @28
-  SAY UNIDENTIFIED_DESC @29
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz61.itm" "override"
-  SAY NAME2 @28
-  SAY IDENTIFIED_DESC @29
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@28)
+  spell_desc_strref	= RESOLVE_STR_REF(@29)
+  spell_level		= 6
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_MORDENKAINENS_LUCUBRATION"
+  spell_res		= "mh#wiz61"
+  RET
+  ingame_res
+END
 
 
 OUTER_PATCH_SAVE append_contingx "%append_contingx%"
 BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz61" "%spell_res% "
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz61" "%ingame_res% "
 END
 
 
@@ -467,22 +369,16 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz62a.spl" "override"
      "%MOD_FOLDER%/spells/arcane/mh#wz62c.spl" "override"
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 6 WIZARD_ISAACS_GREATER_MISSILE_STORM
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @30
-  SAY UNIDENTIFIED_DESC @31
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz62.itm" "override"
-  SAY NAME2 @30
-  SAY IDENTIFIED_DESC @31
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@30)
+  spell_desc_strref	= RESOLVE_STR_REF(@31)
+  spell_level		= 6
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_ISAACS_GREATER_MISSILE_STORM"
+  spell_res		= "mh#wiz62"
+END
 
 
 // mh#wiz71 - Faerie Sword
@@ -491,80 +387,60 @@ COPY "%MOD_FOLDER%/items/mh#faesd.itm" "override"
   SAY NAME2 @32
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz71.spl" 2 7 WIZARD_FAERIE_SWORD
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @32
-  SAY UNIDENTIFIED_DESC @33
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz71.itm" "override"
-  SAY NAME2 @32
-  SAY IDENTIFIED_DESC @33
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@32)
+  spell_desc_strref	= RESOLVE_STR_REF(@33)
+  spell_level		= 6
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_FAERIE_SWORD"
+  spell_res		= "mh#wiz71"
+END
 
 
 // mh#wiz72 - Stygian Ice Storm
 
-ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz72.pro"
-
-
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz72.spl" 2 8 WIZARD_STYGIAN_ICE_STORM
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @34
-  SAY UNIDENTIFIED_DESC @35
-
-  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
-    INT_VAR
-    projectile	= %mh#wiz72%
-  END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz72.itm" "override"
-  SAY NAME2 @34
-  SAY IDENTIFIED_DESC @35
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@34)
+  spell_desc_strref	= RESOLVE_STR_REF(@35)
+  spell_level		= 7
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_STYGIAN_ICE_STORM"
+  spell_res		= "mh#wiz72"
+END
 
 
 // mh#wiz81 - Deathbolt
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz81.spl" 2 8 WIZARD_DEATHBOLT
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @36
-  SAY UNIDENTIFIED_DESC @37
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz81.itm" "override"
-  SAY NAME2 @36
-  SAY IDENTIFIED_DESC @37
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@36)
+  spell_desc_strref	= RESOLVE_STR_REF(@37)
+  spell_level		= 8
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_DEATHBOLT"
+  spell_res		= "mh#wiz81"
+END
 
 
 // mh#wiz82 - Major Globe of Invulnerability
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz82.spl" 2 8 WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY
-  TEXT_SPRINT spell_res "%DEST_RES%"
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@38)
+  spell_desc_strref	= RESOLVE_STR_REF(@39)
+  spell_level		= 8
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY"
+  spell_res		= "mh#wiz82"
+END
 
-  SAY NAME1 @38
-  SAY UNIDENTIFIED_DESC @39
-
+COPY_EXISTING "%ingame_res%.spl" "override"
   LAUNCH_PATCH_FUNCTION cd_apply_batch
     STR_VAR
     array_name		= "cd_immunity_spell_level_1_arrays"
@@ -591,63 +467,32 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz82.spl" 2 8 WIZARD_MAJOR_GLOBE_OF_IN
   END
 
 
-COPY "%MOD_FOLDER%/items/mh#wiz82.itm" "override"
-  SAY NAME2 @38
-  SAY IDENTIFIED_DESC @39
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
-
-
 // mh#wiz83 - Polar Ray
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz83.spl" 2 8 WIZARD_POLAR_RAY
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @40
-  SAY UNIDENTIFIED_DESC @41
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz83.itm" "override"
-  SAY NAME2 @40
-  SAY IDENTIFIED_DESC @41
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@40)
+  spell_desc_strref	= RESOLVE_STR_REF(@41)
+  spell_level		= 8
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_POLAR_RAY"
+  spell_res		= "mh#wiz83"
+END
 
 
 // mh#wiz84 - Meteor Storm Bombardment
 
-ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#wiz84.pro"
-
-
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz84.spl" 2 8 WIZARD_METEOR_STORM_BOMBARDMENT
-  TEXT_SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 @42
-  SAY UNIDENTIFIED_DESC @43
-
-  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
-    INT_VAR
-    projectile	= %mh#wiz84%
-  END
-
-
-COPY "%MOD_FOLDER%/items/mh#wiz84.itm" "override"
-  SAY NAME2 @42
-  SAY IDENTIFIED_DESC @43
-
-  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-    STR_VAR
-    match_resource	= "%SOURCE_RES%"
-    resource		= "%spell_res%"
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@42)
+  spell_desc_strref	= RESOLVE_STR_REF(@43)
+  spell_level		= 8
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_METEOR_STORM_BOMBARDMENT"
+  spell_res		= "mh#wiz84"
+END
 
 
 // Required adjustments to existing stuff

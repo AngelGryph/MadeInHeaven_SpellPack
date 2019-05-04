@@ -340,3 +340,85 @@ DEFINE_PATCH_MACRO mh_immunity_magic_missile_arrays BEGIN
 END
 
 
+DEFINE_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= "-1"
+  spell_desc_strref	= "-1"
+  prevent_stacking	= "-1"
+  STR_VAR
+  spell_dir		= "spells/%spell_type%"
+  item_dir		= "items"
+  proj_dir		= "projectiles"
+  RET
+  ingame_res
+BEGIN
+  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
+  BEGIN
+    ADD_PROJECTILE "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
+    OUTER_SET spell_pro	= IDS_OF_SYMBOL("projectl" "%spell_res%")
+  END
+  ELSE
+  BEGIN
+    OUTER_SET spell_pro	= "-1"
+  END
+
+
+  ACTION_MATCH "%spell_type%"
+  WITH
+  "arcane"
+  BEGIN
+    OUTER_SET spell_type_num	= 2
+  END
+  "divine"
+  BEGIN
+    OUTER_SET spell_type_num	= 1
+  END
+  "innate"
+  BEGIN
+    OUTER_SET spell_type_num	= 3
+  END
+  DEFAULT
+    FAIL ~mh_install_spell: Unknown spell type "%spell_type%"!~
+  END
+
+
+  ADD_SPELL "%MOD_FOLDER%/%spell_dir%/%spell_res%.spl" "%spell_type_num%" "%spell_level%" "%spell_ids%"
+    TEXT_SPRINT ingame_res "%DEST_RES%"
+
+    WRITE_LONG NAME1 spell_name_strref
+    WRITE_LONG UNIDENTIFIED_DESC spell_desc_strref
+    
+    PATCH_IF spell_pro != "-1"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
+        INT_VAR
+        projectile	= spell_pro
+      END
+    END
+
+    PATCH_IF prevent_stacking != "-1"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking
+        INT_VAR
+	match_opcode	= prevent_stacking
+      END
+    END
+
+    PATCH_IF FILE_EXISTS "%MOD_FOLDER%/%item_dir%/%spell_res%.itm"
+    BEGIN
+      INNER_ACTION
+      BEGIN
+        COPY "%MOD_FOLDER%/%item_dir%/%spell_res%.itm" "override"
+          WRITE_LONG NAME2 spell_name_strref
+          WRITE_LONG IDENTIFIED_DESC spell_desc_strref
+
+          LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+            STR_VAR
+	    match_resource	= "%spell_res%"
+	    resource		= "%ingame_res%"
+          END
+      END
+    END
+END
+
+
