@@ -167,6 +167,26 @@ COPY "%MOD_FOLDER%/items/mh#wiz35.itm" "override"
   END
 
 
+// mh#wiz36 - Ball Lightning
+
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz35.spl" 2 3 WIZARD_BALL_LIGHTNING
+  TEXT_SPRINT spell_res "%DEST_RES%"
+
+  SAY NAME1 ~Ball Lightning~
+  //SAY UNIDENTIFIED_DESC @??
+
+
+COPY "%MOD_FOLDER%/items/mh#wiz36.itm" "override"
+  SAY NAME2 ~Ball Lightning~
+  //SAY IDENTIFIED_DESC @??
+
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
+    STR_VAR
+    match_resource	= "%SOURCE_RES%"
+    resource		= "%spell_res%"
+  END
+
+
 // mh#wiz41 - Iron Maiden
 
 COPY "%MOD_FOLDER%/items/mh#irnmd.itm" "override"

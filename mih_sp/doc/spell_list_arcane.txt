@@ -10,6 +10,8 @@ Improved Magic Missile
 Heroism
 Blink
 *Otiluke's Acid Cloud
+*Minor Malison
+*Ball Lightning
 
 
 === 4th Circle ===
