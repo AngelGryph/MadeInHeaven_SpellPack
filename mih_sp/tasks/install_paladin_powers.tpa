@@ -20,38 +20,67 @@ END
 
 // Smite Evil, Smite Good & Smite Undead
 
-COPY "%MOD_FOLDER%/spells/innate/mh#smtev.spl" "override"
-  SAY NAME1 ~Smite Evil~
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@0)
+  spell_level		= 1
+  STR_VAR
+  spell_type		= "innate"
+  spell_ids		= "PALADIN_SMITE_EVIL"
+  spell_res		= "mh#smtev"
+  RET
+  smite_evil		= ingame_res
+END
 
-COPY "%MOD_FOLDER%/spells/innate/mh#smtgd.spl" "override"
-  SAY NAME1 ~Smite Good~
 
-COPY "%MOD_FOLDER%/spells/innate/mh#smtud.spl" "override"
-  SAY NAME1 ~Smite Undead~
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@1)
+  spell_level		= 1
+  STR_VAR
+  spell_type		= "innate"
+  spell_ids		= "BLACKGUARD_SMITE_GOOD"
+  spell_res		= "mh#smtgd"
+  RET
+  smite_good		= ingame_res
+END
+
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@2)
+  spell_level		= 1
+  STR_VAR
+  spell_type		= "innate"
+  spell_ids		= "PALADIN_SMITE_UNDEAD"
+  spell_res		= "mh#smtud"
+  RET
+  smite_undead		= ingame_res
+END
 
 
 // True Paladin
 
 APPEND "clabpa01.2da"
-  ~mh#palex    GA_mh#smtev ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+  ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
 
 
 // Cavalier
 
 APPEND "clabpa02.2da"
-  ~mh#palex    GA_mh#smtev ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+  ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
 
 
 // Inquisitor
 
 APPEND "clabpa03.2da"
-  ~mh#palex    GA_mh#smtev ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+  ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
 // Undead Hunter
 
 APPEND "clabpa04.2da"
-  ~mh#palex    GA_mh#smtud ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+  ~mh#palex    GA_%smite_undead%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
 // Blackguard (EE only)
@@ -59,7 +88,7 @@ APPEND "clabpa04.2da"
 ACTION_IF FILE_EXISTS_IN_GAME "clabpa06.2da"
 BEGIN
   APPEND "clabpa06.2da"
-    ~mh#palex    GA_mh#smtgd ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palex    GA_%smite_good%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 END
 
 
