@@ -30,7 +30,7 @@ COPY_EXISTING "bdsorcsc.sto" "override"
   ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1
 
   // Spell Matrix
-  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "mh#wiz52" AFTER "scrl2h" #1 #0 #0 "identified" #1
 
 
 // Nazramu

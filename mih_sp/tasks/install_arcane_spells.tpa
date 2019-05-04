@@ -320,6 +320,16 @@ ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz51.spl" 2 5 WIZARD_SUPERHEROISM
   SAY NAME1 @24
   SAY UNIDENTIFIED_DESC @25
 
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_fear_arrays"
+  END
+
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_level_drain_arrays"
+  END
+
   LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
 
@@ -437,7 +447,7 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz62a.spl" "override"
      "%MOD_FOLDER%/spells/arcane/mh#wz62c.spl" "override"
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 4 WIZARD_ISAACS_GREATER_MISSILE_STORM
+ADD_SPELL "%MOD_FOLDER%/spells/arcane/mh#wiz62.spl" 2 6 WIZARD_ISAACS_GREATER_MISSILE_STORM
   TEXT_SPRINT spell_res "%DEST_RES%"
 
   SAY NAME1 @30
