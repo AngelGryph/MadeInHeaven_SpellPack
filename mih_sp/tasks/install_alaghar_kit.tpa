@@ -14,63 +14,73 @@ COPY "%MOD_FOLDER%/spells/pseudo/mh#att20.spl" "override"
      "%MOD_FOLDER%/spells/pseudo/mh#cssym.spl" "override"
 
 
-// ===========
 // Silverbeard
-// ===========
 
-COPY "%MOD_FOLDER%/spells/alaghar/mh#silbd.spl" "override"
-  SAY NAME1 @0
-  SAY UNIDENTIFIED_DESC @1
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
-
-  PATCH_IF FILE_EXISTS_IN_GAME "icarmor.vvc"
-  BEGIN
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
-      INT_VAR
-      match_opcode	= 142	// Graphics: Display SFX Icon
-      opcode		= 215	// Graphics: Play 3D Effect
-      parameter1	= 0
-      parameter2	= 1
-      duration		= 2
-      STR_VAR
-      resource		= "icarmor"
-      insert		= "below"
-    END
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@0)
+  spell_desc_strref	= RESOLVE_STR_REF(@1)
+  spell_level		= 1
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "ALAGHAR_SILVERBEARD"
+  spell_res		= "mh#silbd"
+  spell_dir		= "spells/alaghar"
+  RET
+  silverbeard		= ingame_res
+END
 
 
-// =========
 // Rockburst
-// =========
 
-COPY "%MOD_FOLDER%/spells/alaghar/mh#rockb.spl" "override"
-  SAY NAME1 @2
-  SAY UNIDENTIFIED_DESC @3
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@2)
+  spell_desc_strref	= RESOLVE_STR_REF(@3)
+  spell_level		= 2
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "ALAGHAR_ROCKBURST"
+  spell_res		= "mh#rockb"
+  spell_dir		= "spells/alaghar"
+  RET
+  rockburst		= ingame_res
+END
 
 
-// =======================
 // Axe Storm of Clangeddin
-// =======================
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@4)
+  spell_desc_strref	= RESOLVE_STR_REF(@5)
+  spell_level		= 4
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "ALAGHAR_AXE_STORM_OF_CLANGEDDIN"
+  spell_res		= "mh#axest"
+  spell_dir		= "spells/alaghar"
+  RET
+  axe_storm		= ingame_res
+END
 
 
-COPY "%MOD_FOLDER%/spells/alaghar/mh#axest.spl" "override"
-  SAY NAME1 @4
-  SAY UNIDENTIFIED_DESC @5
-
-
-// =====================================
 // Holy Symbol of Clangeddin Silverbeard
-// =====================================
 
 COPY "%MOD_FOLDER%/items/mh#cssym.itm" "override"
   SAY NAME2 @6
   SAY IDENTIFIED_DESC @7
 
 
-// =====================
 // Alaghar of Clangeddin
-// =====================
+
+COPY - "%MOD_FOLDER%/tables/mh#clang.2da" "inline/mh#clang.2da"
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#silbd" "%silverbeard% "
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#rockb" "%rockburst% "
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#axest" "%axe_storm% "
+
 
 ADD_KIT "mh#clangeddin"
   // clasweap.2da (BG1-style proficiencies)
@@ -98,7 +108,7 @@ ADD_KIT "mh#clangeddin"
   "mh#clangeddin	1	0	0	0	0	0"
 
   // path to class abilities table
-  "%MOD_FOLDER%/tables/mh#clang.2da"
+  "inline/mh#clang.2da"
 
   // allowed PC races and classes
   "K_C_D"
