@@ -1,0 +1,110 @@
+@0    = ~Striking~
+@1    = ~Striking
+(Alteration)
+
+Level: 1
+Sphere: Combat
+Range: Touch
+Duration: 2 rounds 1 round/level
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+By touching the recipient's weapon, the priest bestows a combat blessing which increases melee damage dealt by +4.  It has no effect on ranged attacks or spells.~
+@2    = ~Faerie Fire~
+@3    = ~Faerie Fire 
+(Alteration)
+
+Level: 1
+Sphere: Weather
+Range: Sight
+Duration: 4 rounds/level
+Casting Time: 4
+Area of Effect: 10-ft. radius
+Saving Throw: None
+
+This spell outlines one or more creatures with a pale violet glow, making positions and movements easily visible. Outlined creatures are easier to strike, giving them an Armor Class penalty of -2.~
+@4    = ~Seeking~
+@5    = ~Seeking
+(Enchantment/Charm)
+
+Level: 2
+Sphere: Combat
+Range: Touch
+Duration: 2 rounds + 1 round/3 levels
+Casting Time: 2
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell slightly twists the normal laws of momentum and gravity in the recipient's favor, making <PRO_HISHER> arrows, bolts or other projectiles veer towards their intended target, even dodging around obstacles if needed.  For the duration, the recipient has a +4 bonus on all to-hit rolls with ranged weapons.~
+@6    = ~Giant Snake~
+@7    = ~Sticks to Snakes~
+@8    = ~Sticks to Snakes
+(Alteration)
+
+Level: 4
+Sphere: Creation, Plant
+Range: 30 yds.
+Duration: 2 rounds/level
+Casting Time: 7
+Area of Effect: 1d4 snakes
+Saving Throw: None
+
+After casting this spell, the priest tosses a handful of sticks on the ground.  1d4 of these sticks will then transform into giant snakes.  The snakes remain and fight for the caster until they are slain or the duration expires.~
+@9    = ~Heroism~
+@10   = ~Heroism
+(Alteration)
+
+Level: 4
+Sphere: Combat
+Range: Touch
+Duration: 1 round/level
+Casting Time: 6
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 10%, and the recipient's hit points are raised by 10%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.~
+@11   = ~Lightning Storm~
+@12   = ~Lightning Storm
+(Alteration)
+
+Level: 5
+Sphere: Weather
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 9
+Area of Effect: All enemies in sight
+Saving Throw: 1/2
+
+Lightning Storm must be cast outside; otherwise, it will not work, and the spell is wasted.  Upon completion, all creatures within visual range that are hostile to the caster are simultaneously struck by lightning for 4d12 points of electrical damage, even if they are hidden or invisible.~
+@13   = ~Superheroism~
+@14   = ~Superheroism
+(Alteration)
+
+Level: 6
+Sphere: Combat
+Range: Touch
+Duration: 2 rounds/level
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 20%, and the recipient's hit points are raised by 20%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.  In addition to this, the spike of positive energy will render the recipient immune to fear and energy drain for the duration of the spell.~
+@15   = ~Celestial Protection~
+@16   = ~Celestial Protection
+(Abjuration)
+
+Level: 6
+Sphere: Protection
+Range: Touch
+Duration: 1 turn/level
+Casting Time: 8
+Area of Effect: 1 creature
+Saving Throw: None
+
+Upon casting this spell, the priest bestows a powerful protection on the recipient.  For the duration of the spell, <PRO_HESHE> will have all the immunities and resistances of a celestial creature such as a deva or planetar.  These are:
+- 50% resistance to acid, cold and electricity.
+- Immunity to all kinds of poison and disease.
+- Immunity to normal weapons.
+
+This spell can only be cast by priests of good or neutral alignment.~

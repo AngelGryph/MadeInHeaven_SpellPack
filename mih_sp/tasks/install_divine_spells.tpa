@@ -1,53 +1,31 @@
 // mh#prs11 - Striking
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs11.spl" 1 1 CLERIC_STRIKING
-  SAY NAME1 ~Striking~
-  //SAY UNIDENTIFIED_DESC ~~
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@0)
+  spell_desc_strref	= RESOLVE_STR_REF(@1)
+  spell_level		= 1
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_STRIKING"
+  spell_res		= "mh#prs11"
+END
 
 
 // mh#prs12 - Faerie Fire
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs12.spl" 1 1 CLERIC_FAERIE_FIRE
-  SPRINT spell_res "%DEST_RES%"
-
-  SAY NAME1 ~Faerie Fire~
-  //SAY UNIDENTIFIED_DESC ~~
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
-    
-  IF_EXISTING
-    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-      INT_VAR
-      match_opcode	= 7	// Color: Set by Palette
-      parameter1	= 73	// Christmas Green
-    END
-
-    LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-      INT_VAR
-      match_opcode	= 9	// Color: Glow Pulse
-      parameter1	= 1433287680
-    END
-
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
-      INT_VAR
-      match_opcode	= 0	// Stat: AC versus Damage Type
-      opcode		= 47	// Cure: Invisibility
-      timing		= 1	// Permanent
-      duration		= 0
-      parameter1	= 0
-      parameter2	= 0
-    END
-
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
-      INT_VAR
-      match_opcode	= 0	// Stat: AC versus Damage Type
-      opcode		= 101	// Protection: from Opcode
-      parameter1	= 0
-      parameter2	= 20
-    END
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@2)
+  spell_desc_strref	= RESOLVE_STR_REF(@3)
+  spell_level		= 1
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_FAERIE_FIRE"
+  spell_res		= "mh#prs12"
+END
 
 
 ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
@@ -77,11 +55,17 @@ END
 
 // mh#prs22 - Seeking
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs22.spl" 2 2 CLERIC_SEEKING
-  SAY NAME1 ~Seeking~
-  //SAY UNIDENTIFIED_DESC ~~
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@4)
+  spell_desc_strref	= RESOLVE_STR_REF(@5)
+  spell_level		= 2
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_SEEKING"
+  spell_res		= "mh#prs22"
+END
 
 
 // mh#prs41 - Sticks to Snakes
@@ -89,8 +73,8 @@ ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs22.spl" 2 2 CLERIC_SEEKING
 ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.cre"
 BEGIN
   COPY "%MOD_FOLDER%/actors/snakegsu.cre" "override"
-    SAY NAME1 ~Giant Snake~
-    SAY NAME2 ~Giant Snake~
+    SAY NAME1 @6
+    SAY NAME2 @6
 END
 
 
@@ -106,50 +90,79 @@ BEGIN
 END
 
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs41.spl" 1 4 CLERIC_STICKS_TO_SNAKES
-  SAY NAME1 ~Sticks to Snakes~
-  //SAY UNIDENTIFIED_DESC ~~
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@7)
+  spell_desc_strref	= RESOLVE_STR_REF(@8)
+  spell_level		= 4
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_STICKS_TO_SNAKES"
+  spell_res		= "mh#prs41"
+END
 
 
 // mh#prs42 - Heroism
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs42.spl" 1 4 CLERIC_HEROISM
-  SAY NAME1 ~Heroism~
-  //SAY UNIDENTIFIED_DESC ~~
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@9)
+  spell_desc_strref	= RESOLVE_STR_REF(@10)
+  spell_level		= 4
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_HEROISM"
+  spell_res		= "mh#prs42"
+END
 
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
 
+// mh#prs51 - Lightning Storm
 
-// mh#prs51 - Call Lightning Storm
-
-ADD_PROJECTILE "%MOD_FOLDER%/projectiles/mh#prs51.pro"
-
-
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs51.spl" 1 5 CLERIC_CALL_LIGHTNING_STORM
-  SAY NAME1 ~Call Lightning Storm~
-  //SAY UNIDENTIFIED_DESC ~~
-
-  LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
-    INT_VAR
-    projectile	= %mh#prs51%
-  END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@11)
+  spell_desc_strref	= RESOLVE_STR_REF(@12)
+  spell_level		= 5
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_LIGHTNING_STORM"
+  spell_res		= "mh#prs51"
+END
 
 
 // mh#prs61 - Superheroism
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs61.spl" 1 6 CLERIC_SUPERHEROISM
-  SAY NAME1 ~Superheroism~
-  //SAY UNIDENTIFIED_DESC ~~
-
-  LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking END
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@13)
+  spell_desc_strref	= RESOLVE_STR_REF(@14)
+  spell_level		= 6
+  prevent_stacking	= 142
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_SUPERHEROISM"
+  spell_res		= "mh#prs61"
+END
 
 
 // mh#prs62 - Celestial Protection
 
-ADD_SPELL "%MOD_FOLDER%/spells/divine/mh#prs61.spl" 1 6 CLERIC_CELESTIAL_PROTECTION
-  SAY NAME1 ~Celestial Protection~
-  //SAY UNIDENTIFIED_DESC ~~
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@15)
+  spell_desc_strref	= RESOLVE_STR_REF(@16)
+  spell_level		= 6
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_CELESTIAL_PROTECTION"
+  spell_res		= "mh#prs61"
+  RET
+  ingame_res
+END
 
+
+COPY_EXISTING "%ingame_res%.spl" "override"
   LAUNCH_PATCH_FUNCTION cd_apply_batch
     STR_VAR
     array_name		= "cd_immunity_poison_arrays"
