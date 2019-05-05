@@ -131,6 +131,27 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
+// mh#prs52 - Inferno
+
+COPY "%MOD_FOLDER%/spells/divine/mh#pr52a.spl" "override"
+     "%MOD_FOLDER%/spells/divine/mh#pr52b.spl" "override"
+     "%MOD_FOLDER%/spells/divine/mh#pr52c.spl" "override"
+     "%MOD_FOLDER%/spells/divine/mh#pr52d.spl" "override"
+     "%MOD_FOLDER%/spells/divine/mh#pr52e.spl" "override"
+
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@17)
+  spell_desc_strref	= RESOLVE_STR_REF(@18)
+  spell_level		= 5
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_INFERNO"
+  spell_res		= "mh#prs52"
+END
+
+
 // mh#prs61 - Superheroism
 
 LAUNCH_ACTION_FUNCTION mh_install_spell

@@ -108,3 +108,16 @@ Upon casting this spell, the priest bestows a powerful protection on the recipie
 - Immunity to normal weapons.
 
 This spell can only be cast by priests of good or neutral alignment.~
+@17   = ~Inferno~
+@18   = ~Inferno
+(Alteration)
+
+Level: 5
+Sphere: Elemental (Fire)
+Range: 80 yards
+Duration: Special
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: Special
+
+Upon completion of this spell, the target bursts into flames, taking 6d6 points of fire damage with no save.  Each round thereafter, the flames continue to burn, dealing one die less of additional fire damage. Thus, the victim takes 5d6 fire damage on the second round, 4d6 on the third and so on, until the victim makes a succesful save versus spell or the spell burns out after six rounds.~
