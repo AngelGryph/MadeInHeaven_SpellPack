@@ -3,6 +3,19 @@
 COPY_LARGE "%MOD_FOLDER%/bams" "override"
 
 
+ACTION_IF ENGINE_IS "bgee bg2ee"
+BEGIN
+  COPY_LARGE "%MOD_FOLDER%/movies/ee" "movies"
+END
+ELSE
+BEGIN
+  MAKE_BIFF "mh#spell"
+  BEGIN
+    "%MOD_FOLDER%/movies/old" ".*\.mve"
+  END
+END
+
+
 OUTER_TEXT_SPRINT append_contingx "mh#wiz  ****     ****     ****     mh#wiz43 mh#wiz52 mh#wiz61 ****     ****     ****"
 
 
@@ -391,7 +404,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
   spell_name_strref	= RESOLVE_STR_REF(@32)
   spell_desc_strref	= RESOLVE_STR_REF(@33)
-  spell_level		= 6
+  spell_level		= 7
   STR_VAR
   spell_type		= "arcane"
   spell_ids		= "WIZARD_FAERIE_SWORD"
