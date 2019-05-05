@@ -355,7 +355,7 @@ BEGIN
   ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
   BEGIN
     ADD_PROJECTILE "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
-    OUTER_SET spell_pro	= IDS_OF_SYMBOL("projectl" "%spell_res%")
+    OUTER_SET spell_pro	= EVALUATE_BUFFER "%%spell_res%%"
   END
   ELSE
   BEGIN
