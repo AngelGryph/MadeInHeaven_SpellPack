@@ -39,10 +39,13 @@ COPY_EXISTING "bdnazram.sto" "override"
   // Iron Maiden
   ADD_STORE_ITEM "mh#wiz41" FIRST #1 #0 #0 "identified" #1
 
-  // Improved Magic Missile
-  ADD_STORE_ITEM "mh#wiz31" FIRST #1 #0 #0 "identified" #1
+  // Ball Lightning
+  ADD_STORE_ITEM "mh#wiz36" FIRST #1 #0 #0 "identified" #1
 
   // Otiluke's Acid Cloud
   ADD_STORE_ITEM "mh#wiz34" FIRST #1 #0 #0 "identified" #1
+
+  // Improved Magic Missile
+  ADD_STORE_ITEM "mh#wiz31" FIRST #1 #0 #0 "identified" #1
 
 

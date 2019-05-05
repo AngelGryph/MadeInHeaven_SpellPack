@@ -53,6 +53,9 @@ COPY_EXISTING "25spell.sto" "override"
   // Minor Malison
   ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #0 #0 "identified" #2
 
+  // Ball Lightning
+  ADD_STORE_ITEM "mh#wiz36" AFTER "scrl6h" #1 #0 #0 "identified" #2
+
   // Iron Maiden
   ADD_STORE_ITEM "mh#wiz41" AFTER "scrl1z" #1 #0 #0 "identified" #2
 
