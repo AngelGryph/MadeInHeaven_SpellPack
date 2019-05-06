@@ -70,6 +70,29 @@ END
 
 // mh#prs41 - Sticks to Snakes
 
+ACTION_IF NOT FILE_EXISTS_IN_GAME "p1-3p.itm"
+BEGIN
+  COPY_EXISTING "p1-3.itm" "override/p1-3p.itm"
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type		= 1	// Melee
+      opcode		= 25	// State: Poison
+      target		= 2	// Pre-target
+      duration		= 24
+      parameter1	= 2
+      parameter2	= 2
+    END
+
+    LAUNCH_PATCH_FUNCTION ADD_ITEM_EFFECT
+      INT_VAR
+      type		= 1	// Melee
+      opcode		= 142	// Graphics: Display Icon
+      target		= 2	// Pre-target
+      duration		= 24
+      parameter2	= 6
+    END
+END
+
 ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.cre"
 BEGIN
   COPY "%MOD_FOLDER%/actors/snakegsu.cre" "override"
