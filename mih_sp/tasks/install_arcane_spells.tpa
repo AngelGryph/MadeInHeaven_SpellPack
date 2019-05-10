@@ -494,7 +494,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
-// mh#wiz84 - Meteor Storm Bombardment
+// mh#wiz84 - Mechanus' Cannon
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
@@ -503,7 +503,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_level		= 8
   STR_VAR
   spell_type		= "arcane"
-  spell_ids		= "WIZARD_METEOR_STORM_BOMBARDMENT"
+  spell_ids		= "WIZARD_MECHANUS_CANNON"
   spell_res		= "mh#wiz84"
 END
 

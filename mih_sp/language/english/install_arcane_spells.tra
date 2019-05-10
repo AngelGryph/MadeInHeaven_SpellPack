@@ -265,14 +265,19 @@ Area of Effect: 2-ft. by 15-ft. jet
 Saving Throw: None
 
 Upon casting this spell, the mage projects a ray of intense cold that freezes everything in its path.  Everyone and everything crossing the ray will take 1d6 points of cold damage per caster level (max. 25d6).~
-@42   = ~Meteor Storm Bombardment~
-@43   = ~Meteor Storm Bombardment (invocation)
-Range: Visual range of the caster
+@42   = ~Mechanus' Cannon~
+@43   = ~Mechanus' Cannon
+(Conjuration/Summoning)
+
+Level: 8
+Range: 50 ft.
 Duration: Instant
-Casting Time: 8
-Area of Effect: 50' radius
-Saving Throw: 1/2
+Speed: 8
+Area of Effect: 1 creature
+Saving Throw: None
 
-Meteors from across the multiverse are called to rain destruction upon all who oppose the caster. 
+The true, logical justice of Primus shall be delivered unto the illogical, as pure energy descends from Mechanus.
 
-This spell calls forth a great shower of meteors to bombard all enemies within sight for 10d12 points of crushing damage, or half the damage with a successful saving throw vs. spell.~
+This spell summons the ultimate form of 'equalization' from Primus: A huge energy blast that comes from the very heart of Mechanus and fires toward the target specified by the caster, via a portal. A temporary portal will appear 10 ft. from the target and Mechanus' Logical Justice will be handed down, inflicting 20d4+10 points of magical damage, with no saving throw.~
+
+
