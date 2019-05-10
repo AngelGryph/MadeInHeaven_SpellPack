@@ -14,6 +14,25 @@ COPY_EXISTING "highhedg.sto" "override"
   ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #0 #0 "identified" #1
 
 
+// Firewine Ruins
+
+COPY_EXISTING "lendar.cre" "override"
+  // Minor Malison
+  ADD_CRE_ITEM "mh#wiz35" #1 #0 #0 "none" "qitem"
+
+
+// Ulcaster Ruins
+
+COPY_EXISTING "%UlcasterRuins%.are" "override"
+  // Minor Malison
+  LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+    INT_VAR
+    container_to_add_to	= 7
+    charges1		= 1
+    STR_VAR
+    item_to_add		= "mh#wiz35"
+  END
+
 
 // Sorcerous Sundries
 
@@ -37,23 +56,16 @@ COPY_EXISTING "sto0703.sto" "override"
   ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
 
 
-// Firewine Ruins
+// Ramazith's Tower
 
-COPY_EXISTING "lendar.cre" "override"
-  // Minor Malison
-  ADD_CRE_ITEM "mh#wiz35" #1 #0 #0 "none" "qitem"
-
-
-// Ulcaster Ruins
-
-COPY_EXISTING "%UlcasterRuins%.are" "override"
-  // Minor Malison
+COPY_EXISTING "%NBaldursGate_RamazithsTower_L6%.are" "override"
+  // Iron Maiden
   LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
     INT_VAR
-    container_to_add_to	= 7
-    charges1		= 1
+    container_to_add_to	= 9
+    charges1		= 2
     STR_VAR
-    item_to_add		= "mh#wiz35"
+    item_to_add		= "mh#wiz53"
   END
 
 

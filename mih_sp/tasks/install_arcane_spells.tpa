@@ -132,7 +132,7 @@ END
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
-  spell_name_strref	= RESOLVE_STR_REF(~Ball Lightning~)
+  spell_name_strref	= RESOLVE_STR_REF(@44)
   spell_level		= 3
   STR_VAR
   spell_type		= "arcane"
@@ -350,6 +350,35 @@ END
 OUTER_PATCH_SAVE append_contingx "%append_contingx%"
 BEGIN
   REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz52" "%ingame_res% "
+END
+
+
+// mh#wiz53 - Ramazith's Slime Summons
+
+COPY_EXISTING "jellmusu.cre" "override"
+  LAUNCH_PATCH_FUNCTION mh_make_summon END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
+CREATE EFF "jellmusu"
+  WRITE_LONG	0x0010 67	// Summon: Creature Summoning
+  WRITE_LONG	0x001c 5
+  WRITE_SHORT	0x0024 1
+  WRITE_LONG	0x002c 100
+  WRITE_ASCII	0x0030 "jellmusu" #8
+  WRITE_ASCII	0x0070 "trbloba" #8
+
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@45)
+  spell_desc_strref	= RESOLVE_STR_REF(@46)
+  spell_level		= 5
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_RAMAZITHS_SLIME_SUMMONS"
+  spell_res		= "mh#wiz53"
 END
 
 
