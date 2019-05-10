@@ -23,7 +23,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_level		= 1
   prevent_stacking	= 142
   STR_VAR
-  spell_type		= "divine"
+  spell_type		= "class"
   spell_ids		= "ALAGHAR_SILVERBEARD"
   spell_res		= "mh#silbd"
   spell_dir		= "spells/alaghar"
@@ -40,7 +40,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_desc_strref	= RESOLVE_STR_REF(@3)
   spell_level		= 2
   STR_VAR
-  spell_type		= "divine"
+  spell_type		= "class"
   spell_ids		= "ALAGHAR_ROCKBURST"
   spell_res		= "mh#rockb"
   spell_dir		= "spells/alaghar"
@@ -58,7 +58,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_level		= 4
   prevent_stacking	= 142
   STR_VAR
-  spell_type		= "divine"
+  spell_type		= "class"
   spell_ids		= "ALAGHAR_AXE_STORM_OF_CLANGEDDIN"
   spell_res		= "mh#axest"
   spell_dir		= "spells/alaghar"

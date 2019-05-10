@@ -355,7 +355,7 @@ BEGIN
   ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
   BEGIN
     ADD_PROJECTILE "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
-    OUTER_SET spell_pro	= EVALUATE_BUFFER "%%spell_res%%"
+    OUTER_SET spell_pro	= IDS_OF_SYMBOL("projectl" "%spell_res%")
   END
   ELSE
   BEGIN
@@ -373,9 +373,13 @@ BEGIN
   BEGIN
     OUTER_SET spell_type_num	= 1
   END
-  "innate"
+  "psionic" "innate"
   BEGIN
     OUTER_SET spell_type_num	= 3
+  END
+  "special" "class"
+  BEGIN
+    OUTER_SET spell_type_num	= 4
   END
   DEFAULT
     FAIL ~mh_install_spell: Unknown spell type "%spell_type%"!~

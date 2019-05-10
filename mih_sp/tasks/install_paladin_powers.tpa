@@ -25,9 +25,11 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_name_strref	= RESOLVE_STR_REF(@0)
   spell_level		= 1
   STR_VAR
-  spell_type		= "innate"
+  spell_type		= "class"
   spell_ids		= "PALADIN_SMITE_EVIL"
   spell_res		= "mh#smtev"
+  spell_dir		= "spells/paladin"
+  item_dir		= "none"
   RET
   smite_evil		= ingame_res
 END
@@ -38,9 +40,11 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_name_strref	= RESOLVE_STR_REF(@1)
   spell_level		= 1
   STR_VAR
-  spell_type		= "innate"
+  spell_type		= "class"
   spell_ids		= "BLACKGUARD_SMITE_GOOD"
   spell_res		= "mh#smtgd"
+  spell_dir		= "spells/paladin"
+  item_dir		= "none"
   RET
   smite_good		= ingame_res
 END
@@ -51,9 +55,11 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_name_strref	= RESOLVE_STR_REF(@2)
   spell_level		= 1
   STR_VAR
-  spell_type		= "innate"
+  spell_type		= "class"
   spell_ids		= "PALADIN_SMITE_UNDEAD"
   spell_res		= "mh#smtud"
+  spell_dir		= "spells/paladin"
+  item_dir		= "none"
   RET
   smite_undead		= ingame_res
 END
