@@ -89,7 +89,7 @@ COPY_EXISTING "%Candlekeep_Catacombs_L1Antechamber%.are" "override"
     container_to_add_to	= 3
     charges1		= 1
     STR_VAR
-    item_to_add		= "mh#wiz42"
+    item_to_add		= "mh#wiz36"
   END
 
   // Destroy Undead
