@@ -121,3 +121,16 @@ Area of Effect: 1 creature
 Saving Throw: Special
 
 Upon completion of this spell, the target bursts into flames, taking 6d6 points of fire damage with no save.  Each round thereafter, the flames continue to burn, dealing one die less of additional fire damage. Thus, the victim takes 5d6 fire damage on the second round, 4d6 on the third and so on, until the victim makes a succesful save versus spell or the spell burns out after six rounds.~
+@19   = ~Mass Negative Plane Protection~
+@20   = ~Mass Negative Plane Protection
+(Abjuration)
+
+Level: 7
+Sphere: Protection, Necromantic
+Range: 0
+Duration: 10 rounds
+Casting Time: 7
+Area of Effect: 30-ft. radius
+Saving Throw: None
+
+This spell affords the caster's entire party partial protection from undead monsters with Negative Energy Plane connections (such as vampires), and certain weapons and spells that drain energy levels. The Negative Plane Protection spell opens a channel to the Positive Energy Plane, possibly offsetting the effects of the negative energy attack. A protected creature struck by a negative energy attack is protected against any form of level draining for the duration of the spell. The protected creature suffers only normal Hit Point damage from the attack and does not suffer any drain of experience. This spell cannot be cast on the Negative Energy Plane.~

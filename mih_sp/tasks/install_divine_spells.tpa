@@ -224,3 +224,25 @@ COPY_EXISTING "%ingame_res%.spl" "override"
   END
 
 
+// mh#prs71 - Mass Negative Plane Protection
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@19)
+  spell_desc_strref	= RESOLVE_STR_REF(@20)
+  spell_level		= 7
+  STR_VAR
+  spell_type		= "divine"
+  spell_ids		= "CLERIC_MASS_NEGATIVE_PLANE_PROTECTION"
+  spell_res		= "mh#prs71"
+  RET
+  ingame_res
+END
+
+COPY_EXISTING "%ingame_res%.spl" "override"
+  LAUNCH_PATCH_FUNCTION cd_apply_batch
+    STR_VAR
+    array_name		= "cd_immunity_level_drain_arrays"
+  END
+
+
