@@ -539,7 +539,7 @@ END
 
 // Required adjustments to existing stuff
 
-COPY_EXISTING_REGEXP ".+\.\(cre\|itm\|spl\)" "override"
+COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
   // Adjust Magic Missile immunity
   LAUNCH_PATCH_FUNCTION cd_apply_batch
     STR_VAR

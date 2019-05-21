@@ -5,7 +5,7 @@
 BACKUP "mih_sp/backup"
 
 AUTHOR "angel@pearlgates.net"
-VERSION v1
+VERSION v1beta
 
 MODDER missing_eval none
 ASK_EVERY_COMPONENT
