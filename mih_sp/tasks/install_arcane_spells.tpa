@@ -537,6 +537,20 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
+// mh#wiz91 - Rune of Torment
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(@47)
+  spell_desc_strref	= RESOLVE_STR_REF(@48)
+  spell_level		= 9
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_RUNE_OF_TORMENT"
+  spell_res		= "mh#wiz91"
+END
+
+
 // Required adjustments to existing stuff
 
 COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"

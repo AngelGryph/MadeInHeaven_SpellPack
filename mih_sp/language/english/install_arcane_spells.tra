@@ -292,3 +292,17 @@ Area of Effect: Special
 Saving Throw: None
 
 This spell was developed by the evil mage Ramazith of Baldur's Gate.  The mage casts this spell at a specially prepared foul brew which then comes to life as a mustard jelly under <PRO_HISHER> control.  There is a 50% chance that the mustard jelly splits in two immediately after forming.  All jellies created by this spell will fight for the mage until slain or the duration elapses.~
+@47   = ~Rune of Torment~
+@48   = ~Rune of Torment
+(Invocation/Evocation)
+
+Level: 9
+Range: 0
+Duration: Instant
+Casting Time: 9
+Area of Effect: 50-ft. radius
+Saving Throw: None
+
+Pain, Agony, Suffering, Torment. When the Rune is invoked, even the earth shall resonate its anguish. Torment of the mind. Torment of the body. Torment of the soul. All will be made clear when the Circle is drawn.
+
+After the Ultimate Circle is inscribed on the ground, and the Rune explodes, all creatures in a 50' radius around the caster that are hostile take 14d6+16 points of damage. There is no Saving Throw.~
