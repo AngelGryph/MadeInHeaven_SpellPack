@@ -303,7 +303,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
-COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
+COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%ingame_res%d.spl"
   SAY NAME1 @26
 
   LAUNCH_PATCH_FUNCTION ALTER_EFFECT
@@ -321,7 +321,7 @@ COPY "%MOD_FOLDER%/spells/arcane/mh#wz52d.spl" "override/%spell_res%d.spl"
 
 ACTION_IF ENGINE_IS "bgee bg2ee"
 BEGIN
-  COPY "%MOD_FOLDER%/spells/arcane/mh#wz52p.spl" "override/%spell_res%p.spl"
+  COPY "%MOD_FOLDER%/spells/arcane/mh#wz52p.spl" "override/%ingame_res%p.spl"
     SAY NAME1 @26
 
     LAUNCH_PATCH_FUNCTION ALTER_EFFECT
@@ -382,6 +382,22 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
+/*
+// mh#wiz54 - Dismissal
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(~Dismissal~)
+  //spell_desc_strref	= RESOLVE_STR_REF(~~)
+  spell_level		= 5
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_DISMISSAL"
+  spell_res		= "mh#wiz54"
+END
+*/
+
+
 // mh#wiz61 - Mordenkainen's Lucubration
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
@@ -400,7 +416,7 @@ END
 
 OUTER_PATCH_SAVE append_contingx "%append_contingx%"
 BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz61" "%ingame_res% "
+  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz61" "%ingame_res%"
 END
 
 
@@ -453,6 +469,22 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_ids		= "WIZARD_STYGIAN_ICE_STORM"
   spell_res		= "mh#wiz72"
 END
+
+
+/*
+// mh#wiz73 - Banishment
+
+LAUNCH_ACTION_FUNCTION mh_install_spell
+  INT_VAR
+  spell_name_strref	= RESOLVE_STR_REF(~Banishment~)
+  //spell_desc_strref	= RESOLVE_STR_REF(~~)
+  spell_level		= 7
+  STR_VAR
+  spell_type		= "arcane"
+  spell_ids		= "WIZARD_BANISHMENT"
+  spell_res		= "mh#wiz73"
+END
+*/
 
 
 // mh#wiz81 - Deathbolt
