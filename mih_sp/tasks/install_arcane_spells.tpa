@@ -382,7 +382,6 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
-/*
 // mh#wiz54 - Dismissal
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
@@ -395,7 +394,6 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_ids		= "WIZARD_DISMISSAL"
   spell_res		= "mh#wiz54"
 END
-*/
 
 
 // mh#wiz61 - Mordenkainen's Lucubration
@@ -471,7 +469,6 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
-/*
 // mh#wiz73 - Banishment
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
@@ -484,7 +481,6 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   spell_ids		= "WIZARD_BANISHMENT"
   spell_res		= "mh#wiz73"
 END
-*/
 
 
 // mh#wiz81 - Deathbolt
