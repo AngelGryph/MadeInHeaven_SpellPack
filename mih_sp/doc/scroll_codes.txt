@@ -1,0 +1,36 @@
+mh#wiz21	Spark Shower
+mh#wiz22	Seeking
+
+mh#wiz31	Improved Magic Missile
+mh#wiz32	Heroism
+mh#wiz33	Blink
+mh#wiz34	Otiluke's Acid Cloud
+mh#wiz35	Minor Malison
+mh#wiz36	Ball Lightning
+
+mh#wiz41	Iron Maiden
+mh#wiz42	Destroy Undead
+mh#wiz43	Rary's Mnemonic Enhancer
+mh#wiz44	Evard's Black Tentacles
+mh#wiz45	Isaac's Lesser Missile Storm
+
+mh#wiz51	Superheroism
+mh#wiz52	Spell Matrix
+mh#wiz53	Ramazith's Slime Summons
+mh#wiz54	Dismissal
+
+mh#wiz61	Mordenkainen's Lucubration
+mh#wiz62	Isaac's Greater Missile Storm
+
+mh#wiz71	Faerie Sword
+mh#wiz72	Stygian Ice Storm
+mh#wiz73	Banishment
+
+mh#wiz81	Deathbolt
+mh#wiz82	Major Globe of Invulnerability
+mh#wiz83	Polar Ray
+mh#wiz84	Mechanus' Cannon
+
+mh#wiz91	Rune of Torment
+
+

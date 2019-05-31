@@ -133,6 +133,7 @@ END
 LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
   spell_name_strref	= RESOLVE_STR_REF(@44)
+  spell_desc_strref	= RESOLVE_STR_REF(@51)
   spell_level		= 3
   STR_VAR
   spell_type		= "arcane"
@@ -386,7 +387,7 @@ END
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
-  spell_name_strref	= RESOLVE_STR_REF(~Dismissal~)
+  spell_name_strref	= RESOLVE_STR_REF(@49)
   //spell_desc_strref	= RESOLVE_STR_REF(~~)
   spell_level		= 5
   STR_VAR
@@ -473,7 +474,7 @@ END
 
 LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
-  spell_name_strref	= RESOLVE_STR_REF(~Banishment~)
+  spell_name_strref	= RESOLVE_STR_REF(@50)
   //spell_desc_strref	= RESOLVE_STR_REF(~~)
   spell_level		= 7
   STR_VAR

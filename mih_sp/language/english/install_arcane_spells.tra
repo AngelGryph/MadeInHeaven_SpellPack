@@ -232,6 +232,8 @@ Ice from Stygia is summoned to crush all creatures within sight for 8d8 points o
 @36   = ~Deathbolt~
 @37   = ~Deathbolt
 (necromancy)
+
+Level: 8
 Range: 100 feet
 Duration: Instant
 Casting Time: 8
@@ -306,3 +308,18 @@ Saving Throw: None
 Pain, Agony, Suffering, Torment. When the Rune is invoked, even the earth shall resonate its anguish. Torment of the mind. Torment of the body. Torment of the soul. All will be made clear when the Circle is drawn.
 
 After the Ultimate Circle is inscribed on the ground, and the Rune explodes, all creatures in a 50' radius around the caster that are hostile take 14d6+16 points of damage. There is no Saving Throw.~
+@49   = ~Dismissal~
+@50   = ~Banishment~
+@51   = ~Ball Lightning
+(Invocation/Evocation)
+
+Level: 3
+Range: 50 yds.
+Duration: Instant
+Casting Time: 3
+Area of Effect: 1-4 creatures
+Saving Throw: 1/2
+
+This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  Upon contact, the floating orb shocks the victim for 4d12 points of electrical damage.  The caster gains one orb for every five levels, up to four.  Each orb can be targetted at a different creature.~
+
+
