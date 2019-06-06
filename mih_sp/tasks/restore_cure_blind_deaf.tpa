@@ -84,3 +84,53 @@ COPY_EXISTING "sppr317.spl" "override"
   IF_EXISTS
 
 
+<<<<<<<< inline/append_cure_bd.2da
+sppr316	mh#cure_bd
+>>>>>>>>
+
+COPY_EXISTING "speldesc.2da" "override"
+  APPEND_FILE TEXT "inline/append_cure_bd.2da"
+  REPLACE "mh#cure_bd" @3
+
+
+COPY_EXISTING_REGEXP "^.+\.sto$" "override"
+  SET new_offset = 0
+  GET_OFFSET_ARRAY cures_array STO_V10_CURES
+  PHP_EACH cures_array AS int => cures_offset
+  BEGIN
+    READ_ASCII cures_offset cure_res
+
+    PATCH_IF "%cure_res%" STRING_EQUAL_CASE "sppr307"
+    BEGIN
+      SET new_offset = cures_offset + 0x0c
+      READ_LONG (cures_offset + 0x0008) new_price
+    END
+  END
+
+  PATCH_IF new_offset > 0
+  BEGIN
+    INSERT_BYTES new_offset 0x0c
+    WRITE_ASCII new_offset "sppr316"
+    WRITE_LONG (new_offset + 0x0008) new_price
+
+    PATCH_IF LONG_AT (0x002c) >= new_offset
+    BEGIN
+      WRITE_LONG 0x002c (THIS + 0x0c)
+    END
+
+    PATCH_IF LONG_AT (0x0034) >= new_offset
+    BEGIN
+      WRITE_LONG 0x0034 (THIS + 0x0c)
+    END
+
+    PATCH_IF LONG_AT (0x004c) >= new_offset
+    BEGIN
+      WRITE_LONG 0x004c (THIS + 0x0c)
+    END
+
+    WRITE_LONG 0x0074 (THIS + 1)
+  END
+
+  BUT_ONLY_IF_IT_CHANGES
+
+
