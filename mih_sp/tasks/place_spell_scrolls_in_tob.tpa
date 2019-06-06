@@ -2,94 +2,94 @@
 
 COPY_EXISTING "garlena.sto" "override"
   // Spark Shower
-  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl96" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl96" #1 #1 #0 "identified" #3
 
   // Seeking
-  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl96" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl96" #1 #1 #0 "identified" #3
 
   // Heroism
-  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #3
 
   // Blink
-  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #0 #0 "identified" #3
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #3
 
   // Destroy Undead
-  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl1u" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl1u" #1 #1 #0 "identified" #2
 
   // Rary's Mnemonic Enhancer
-  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #1 #0 "identified" #2
 
   // Evard's Black Tentacles
-  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2
 
   // Superheroism
-  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl6u" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl6u" #1 #1 #0 "identified" #2
 
   // Mordenkainen's Lucubration
-  ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7l" #1 #0 #0 "identified" #1
+  ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7l" #1 #1 #0 "identified" #1
 
 
 // Arcana Archives
 
 COPY_EXISTING "25spell.sto" "override"
   // Spark Shower
-  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl93" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz21" AFTER "scrl93" #1 #1 #0 "identified" #2
 
   // Seeking
-  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl93" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz22" AFTER "scrl93" #1 #1 #0 "identified" #2
 
   // Improved Magic Missile
-  ADD_STORE_ITEM "mh#wiz31" AFTER "scrl1e" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz31" AFTER "scrl1e" #1 #1 #0 "identified" #2
 
   // Heroism
-  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1i" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1i" #1 #1 #0 "identified" #2
 
   // Blink
-  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2
 
   // Otilkuke's Acid Cloud
-  ADD_STORE_ITEM "mh#wiz34" AFTER "scrl1t" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz34" AFTER "scrl1t" #1 #1 #0 "identified" #2
 
   // Minor Malison
-  ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #2
 
   // Ball Lightning
-  ADD_STORE_ITEM "mh#wiz36" AFTER "scrl6h" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz36" AFTER "scrl6h" #1 #1 #0 "identified" #2
 
   // Iron Maiden
-  ADD_STORE_ITEM "mh#wiz41" AFTER "scrl1z" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz41" AFTER "scrl1z" #1 #1 #0 "identified" #2
 
   // Destroy Undead
-  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl6m" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz42" AFTER "scrl6m" #1 #1 #0 "identified" #2
 
   // Rary's Mnemonic Enhancer
-  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #1 #0 "identified" #2
 
   // Evard's Black Tentacles
-  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2
 
   // Isaac's Lesser Missile Storm
-  ADD_STORE_ITEM "mh#wiz45" AFTER "scrl6p" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz45" AFTER "scrl6p" #1 #1 #0 "identified" #2
 
   // Superheroism
-  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl8x" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz51" AFTER "scrl8x" #1 #1 #0 "identified" #2
 
   // Mordenkainen's Lucubration
-  ADD_STORE_ITEM "mh#wiz61" AFTER "scrl8c" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz61" AFTER "scrl8c" #1 #1 #0 "identified" #2
 
   // Isaac's Greater Missile Storm
-  ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7q" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7q" #1 #1 #0 "identified" #2
 
   // Faerie Sword
-  ADD_STORE_ITEM "mh#wiz71" AFTER "scrl8n" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz71" AFTER "scrl8n" #1 #1 #0 "identified" #2
 
   // Deathbolt
-  ADD_STORE_ITEM "mh#wiz81" AFTER "scrlb1" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz81" AFTER "scrlb1" #1 #1 #0 "identified" #2
 
   // Major Globe of Invulnerability
-  ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #1 #0 "identified" #2
 
   // Polar Ray
-  ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9g" #1 #0 #0 "identified" #2
+  ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9g" #1 #1 #0 "identified" #2
 
 
