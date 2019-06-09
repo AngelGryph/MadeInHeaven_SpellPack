@@ -200,7 +200,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
   STR_VAR
   spell_type		= "divine"
   spell_ids		= "CLERIC_CELESTIAL_PROTECTION"
-  spell_res		= "mh#prs61"
+  spell_res		= "mh#prs62"
   RET
   ingame_res
 END
