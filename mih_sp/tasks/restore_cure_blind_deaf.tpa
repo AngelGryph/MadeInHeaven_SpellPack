@@ -11,14 +11,15 @@ COPY_EXISTING "sppr317.spl" "override/sppr316.spl"
     icon	= "sppr316b"
   END
 
-  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+  LAUNCH_PATCH_FUNCTION ALTER_EFFECT
     INT_VAR
-    match_opcode	= 79	// Cure: Disease
+    match_opcode	= 139	// Text: Display String
+    parameter1		= RESOLVE_STR_REF(@4)
   END
 
   LAUNCH_PATCH_FUNCTION DELETE_EFFECT
     INT_VAR
-    match_opcode	= 139	// Text: Display String
+    match_opcode	= 79	// Cure: Disease
   END
 
   LAUNCH_PATCH_FUNCTION DELETE_EFFECT
@@ -100,7 +101,7 @@ COPY_EXISTING_REGEXP "^.+\.sto$" "override"
   BEGIN
     READ_ASCII cures_offset cure_res
 
-    PATCH_IF "%cure_res%" STRING_EQUAL_CASE "sppr307"
+    PATCH_IF "%cure_res%" STRING_EQUAL_CASE "sppr303"
     BEGIN
       SET new_offset = cures_offset + 0x0c
       READ_LONG (cures_offset + 0x0008) new_price
@@ -132,5 +133,18 @@ COPY_EXISTING_REGEXP "^.+\.sto$" "override"
   END
 
   BUT_ONLY_IF_IT_CHANGES
+
+
+ACTION_IF FILE_EXISTS_IN_GAME "mh#potn3.itm"
+BEGIN
+  COPY_EXISTING "mh#potn3.itm" "override"
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      match_opcode	= 146
+      STR_VAR
+      match_resource	= "sppr317"
+      resource		= "sppr316"
+    END
+END
 
 
