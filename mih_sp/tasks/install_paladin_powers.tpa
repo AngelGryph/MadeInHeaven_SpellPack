@@ -1,7 +1,10 @@
 // Additional Paladin Powers
 
 
-COPY_LARGE "%MOD_FOLDER%/bams" "override"
+LAUNCH_ACTION_FUNCTION mh_batch_install_files
+  STR_VAR
+  dir_path	= "%MOD_FOLDER%/bams/paladin"
+END
 
 
 // Magic damage Xd6

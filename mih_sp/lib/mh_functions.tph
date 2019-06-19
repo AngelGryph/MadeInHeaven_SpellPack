@@ -426,3 +426,18 @@ BEGIN
 END
 
 
+DEFINE_ACTION_FUNCTION mh_batch_install_files
+  STR_VAR
+  dir_path	= "%MOD_FOLDER%/bams"
+  file_ext	= "bam"
+BEGIN
+  ACTION_BASH_FOR "%dir_path%" EVALUATE_REGEXP "^.+\.%file_ext%$"
+  BEGIN
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%BASH_FOR_FILE%"
+    BEGIN
+      COPY_LARGE "%BASH_FOR_FILESPEC%" "override/%BASH_FOR_FILE%"
+    END
+  END
+END
+
+
