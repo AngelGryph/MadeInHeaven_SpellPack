@@ -1,0 +1,54 @@
+// Nerf Time Stop
+
+COPY_EXISTING "spwi909.spl" "override"
+              "spwish17.spl" "override"
+  PATCH_FOR_EACH opcode IN 33 34 35 36 37
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode
+      duration		= 18
+      target		= 8	// All except caster
+      power		= 9
+      parameter1	= 20
+    END
+  END
+
+  PATCH_FOR_EACH opcode IN 27 28 29 30 31 84 85 86 87 88 89 166 173
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode
+      duration		= 18
+      target		= 8	// All except caster
+      power		= 9
+      parameter1	= 100
+      parameter2	= 1
+    END
+  END
+
+  PATCH_FOR_EACH parameter2 IN 13 55 134 209 238
+  BEGIN
+    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
+      INT_VAR
+      opcode		= 101	// Protection: from Opcode
+      duration		= 18
+      target		= 8	// All except caster
+      power		= 9
+      parameter2
+    END
+  END
+
+
+COPY_EXISTING "finmel01.itm" "override"
+              "demogorg.itm" "override"
+	      "balth02.spl" "override"
+	      "dragblue.cre" "override"
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 310	// Protection: from Time Stop
+  END
+  
+  BUT_ONLY_IF_IT_CHANGES
+
+
