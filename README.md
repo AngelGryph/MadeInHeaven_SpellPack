@@ -8,5 +8,7 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 
 ## Version History
 
+Version 2 - ???
+
 Version 1 - 2 May 2018
 - Initial version
