@@ -26,11 +26,6 @@ BEGIN
 END
 
 
-OUTER_TEXT_SPRINT append_contingx "mh#wiz  ****     ****     ****     mh#wiz43 mh#wiz52 mh#wiz61 ****     ****     ****"
-
-
-// mh#wiz21 - Spark Shower
-
 LAUNCH_ACTION_FUNCTION mh_install_spell
   INT_VAR
   spell_name_strref	= RESOLVE_STR_REF(@0)
@@ -230,10 +225,7 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
-OUTER_PATCH_SAVE append_contingx "%append_contingx%"
-BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz43" "%ingame_res% "
-END
+OUTER_TEXT_SPRINT $contingx("mh#wiz43") "%ingame_res%"
 
 
 // mh#wiz44 - Evard's Black Tentacles
@@ -358,10 +350,7 @@ BEGIN
 END
 
 
-OUTER_PATCH_SAVE append_contingx "%append_contingx%"
-BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz52" "%ingame_res% "
-END
+OUTER_TEXT_SPRINT $contingx("mh#wiz52") "%ingame_res%"
 
 
 // mh#wiz53 - Ramazith's Slime Summons
@@ -423,10 +412,8 @@ LAUNCH_ACTION_FUNCTION mh_install_spell
 END
 
 
-OUTER_PATCH_SAVE append_contingx "%append_contingx%"
-BEGIN
-  REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#wiz61" "%ingame_res%"
-END
+OUTER_TEXT_SPRINT $contingx("mh#wiz61") "%ingame_res%"
+
 
 
 // mh#wiz62 - Isaac's Greater Missile Storm
@@ -602,6 +589,11 @@ COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
   BUT_ONLY_IF_IT_CHANGES
 
 
-APPEND "contingx.2da" "%append_contingx%"
+COPY_EXISTING "contingx.2da" "override"
+  SET_2DA_ENTRY 2 4 9 $contingx("mh#wiz43")
+  SET_2DA_ENTRY 1 5 9 $contingx("mh#wiz52")
+  SET_2DA_ENTRY 3 6 9 $contingx("mh#wiz61")
+
+  PRETTY_PRINT_2DA
 
 
