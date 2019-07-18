@@ -170,14 +170,29 @@ LAUNCH_ACTION_FUNCTION mh_run_task
 END
 
 
-// Prevent damage during Time Stop
+// Prevent damage during Timestop
 
-BEGIN ~Prevent damage during Time Stop~
+BEGIN ~Prevent damage during Timestop~
 GROUP ~Optional Spell Tweaks~
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
 
 LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
-  task		= "tweak_time_stop"
+  task		= "prevent_timestop_damage"
+END
+
+
+// Remove all Timestop immunity
+
+BEGIN ~Remove all Timestop immunity~
+GROUP ~Optional Spell Tweaks~
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
+
+LAUNCH_ACTION_FUNCTION mh_run_task
+  STR_VAR
+  task		= "remove_timestop_immunity"
 END
 
 

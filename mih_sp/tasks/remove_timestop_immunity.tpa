@@ -1,0 +1,14 @@
+// Remove all Timestop immunity
+
+COPY_EXISTING "finmel01.itm" "override"
+              "demogorg.itm" "override"
+	      "balth02.spl" "override"
+	      "dragblue.cre" "override"
+  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+    INT_VAR
+    match_opcode	= 310	// Protection: from Time Stop
+  END
+  
+  BUT_ONLY_IF_IT_CHANGES
+
+

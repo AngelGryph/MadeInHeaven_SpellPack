@@ -1,4 +1,4 @@
-// Nerf Time Stop
+// Prevent damage during Timestop
 
 COPY_EXISTING "spwi909.spl" "override"
               "spwish17.spl" "override"
@@ -38,17 +38,5 @@ COPY_EXISTING "spwi909.spl" "override"
       parameter2
     END
   END
-
-
-COPY_EXISTING "finmel01.itm" "override"
-              "demogorg.itm" "override"
-	      "balth02.spl" "override"
-	      "dragblue.cre" "override"
-  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
-    INT_VAR
-    match_opcode	= 310	// Protection: from Time Stop
-  END
-  
-  BUT_ONLY_IF_IT_CHANGES
 
 
