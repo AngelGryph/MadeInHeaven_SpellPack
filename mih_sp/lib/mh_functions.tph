@@ -73,6 +73,13 @@ END
 
 
 DEFINE_PATCH_FUNCTION mh_add_area_actor
+  STR_VAR
+  script_override	= ""
+  script_general	= ""
+  script_class		= ""
+  script_race		= ""
+  script_default	= ""
+  script_specific	= ""
 BEGIN
   PATCH_IF FILE_EXISTS_IN_GAME "%cre_resref%.cre"
   BEGIN
@@ -97,6 +104,12 @@ BEGIN
     fj_structure_type           = "actor"
     fj_name                     = "%cre_name%"
     fj_cre_resref               = "%cre_resref%"
+    fj_bcs_override		= "%script_override%"
+    fj_bcs_general		= "%script_general%"
+    fj_bcs_class		= "%script_class%"
+    fj_bcs_race			= "%script_race%"
+    fj_bcs_default		= "%script_default%"
+    fj_bcs_specific		= "%script_specific%"
   END
 END
 
@@ -104,6 +117,12 @@ END
 DEFINE_PATCH_FUNCTION mh_add_area_actors_from_2da
   STR_VAR
   path_to_2da           = "none"
+  script_override	= ""
+  script_general	= ""
+  script_class		= ""
+  script_race		= ""
+  script_default	= ""
+  script_specific	= ""
 BEGIN
   PATCH_IF FILE_EXISTS "%path_to_2da%"
   BEGIN
@@ -128,6 +147,12 @@ BEGIN
         orientation
         STR_VAR
         cre_resref
+  	script_override
+  	script_general
+  	script_class
+  	script_race
+  	script_default
+  	script_specific
       END
     END
   END

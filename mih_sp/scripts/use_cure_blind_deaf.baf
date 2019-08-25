@@ -1,0 +1,154 @@
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  OR(2)
+    StateCheck(Myself, STATE_BLIND)
+    CheckSpellState(Myself, DEAFENED)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(Myself, CLERIC_CURE_BLIND_DEAF)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  See([GOODCUTOFF])
+  OR(2)
+    StateCheck(LastSeenBy(Myself), STATE_BLIND)
+    CheckSpellState(LastSeenBy(Myself), DEAFENED)
+  !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastSeenBy(Myself), STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself), STATE_CHARMED)
+  !CheckStatGT(LastSeenBy(Myself), 0, WIZARD_SPELL_DEFLECTION)
+  CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_CURE_BLIND_DEAF)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  See(SecondNearest([GOODCUTOFF]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself), STATE_BLIND)
+    CheckSpellState(LastSeenBy(Myself), DEAFENED)
+  !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastSeenBy(Myself), STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself), STATE_CHARMED)
+  CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself), 0, WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_CURE_BLIND_DEAF)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  See(ThirdNearest([GOODCUTOFF]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself), STATE_BLIND)
+    CheckSpellState(LastSeenBy(Myself), DEAFENED)
+  !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastSeenBy(Myself), STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself), STATE_CHARMED)
+  CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself), 0, WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_CURE_BLIND_DEAF)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  See(FourthNearest([GOODCUTOFF]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself), STATE_BLIND)
+    CheckSpellState(LastSeenBy(Myself), DEAFENED)
+  !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastSeenBy(Myself), STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself), STATE_CHARMED)
+  CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself), 0, WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_CURE_BLIND_DEAF)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  See(FifthNearest([GOODCUTOFF]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself), STATE_BLIND)
+    CheckSpellState(LastSeenBy(Myself), DEAFENED)
+  !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastSeenBy(Myself), STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself), STATE_CHARMED)
+  CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself), 0, WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_CURE_BLIND_DEAF)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+  See(SixthNearest([GOODCUTOFF]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself), STATE_BLIND)
+    CheckSpellState(LastSeenBy(Myself), DEAFENED)
+  !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+  !StateCheck(LastSeenBy(Myself), STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself), STATE_CHARMED)
+  CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself), 0, WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_CURE_BLIND_DEAF)
+  CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+  !StateCheck(Myself, STATE_SILENCED)
+  !CheckStatGT(Myself, 0, CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+    Spell(LastSeenBy(Myself), CLERIC_CURE_BLIND_DEAF)
+    SetInterrupt(TRUE)
+END
+
+

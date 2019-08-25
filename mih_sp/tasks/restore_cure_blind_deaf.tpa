@@ -148,3 +148,26 @@ BEGIN
 END
 
 
+ACTION_IF GAME_INCLUDES "sod"
+BEGIN
+  COPY_EXISTING "bdff1000.cre" "override"
+    ADD_KNOWN_SPELL "sppr316" #2 "priest"
+
+    REMOVE_MEMORIZED_SPELL "sppr317"
+    ADD_MEMORIZED_SPELL "sppr316" #2 "priest"
+    ADD_MEMORIZED_SPELL "sppr317" #2 "priest"
+    
+
+  COPY_EXISTING "bdshffis.bcs" "override"
+    DECOMPILE_AND_PATCH
+    BEGIN
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP
+       ~StateCheck(.*,STATE_BLIND)~ ~False()~
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP
+       ~CheckSpellState(.*,DEAFENED)~ ~False()~
+
+      APPEND_FILE TEXT "%MOD_FOLDER%/scripts/use_cure_blind_deaf.baf"
+    END
+END
+
+
