@@ -1,0 +1,52 @@
+DEFINE_ACTION_FUNCTION alaghar_yeslick
+BEGIN
+  // Alaghar of Clangeddin kit for Yeslick
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "ALAGHAR_SILVERBEARD"
+    RET
+    silverbeard	= spell_res
+  END
+
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "ALAGHAR_ROCKBURST"
+    RET
+    rockburst	= spell_res
+  END
+
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "ALAGHAR_AXE_STORM_OF_CLANGEDDIN"
+    RET
+    axe_storm	= spell_res
+  END
+
+
+  COPY - "%mod_root%/alaghar/tables/mh#yesli.2da" "inline/mh#yesli.2da"
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#silbd" "%silverbeard% "
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#rockb" "%rockburst% "
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#axest" "%axe_storm% "
+
+
+  COPY_KIT "mh#clangeddin" "mh#yeslick"
+  ( dualclas "mh#yeslick	1	0	0	0	0	0"
+    clab "inline/mh#yesli.2da"
+    luabbr "FC0" )
+
+
+  LAUNCH_ACTION_FUNCTION fl#add_kit_ee
+    STR_VAR
+    kit_name	= "mh#yeslick"
+  END
+
+
+  COPY_EXISTING_REGEXP "^yesli.*\.cre$" "override"
+    WRITE_SHORT 0x0244 (IDS_OF_SYMBOL("kit" "mh#yeslick") >> 16)
+    WRITE_SHORT 0x0246 (IDS_OF_SYMBOL("kit" "mh#yeslick") & 0xFFFF)
+END	// alaghar_yeslick
+
+

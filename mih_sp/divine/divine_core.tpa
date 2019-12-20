@@ -1,0 +1,129 @@
+DEFINE_ACTION_FUNCTION divine_core
+BEGIN
+  // Run definalise_hidespl if needed
+
+  ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION definalise_hidespl END
+  END
+
+
+  // mh#prs11 - Striking
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs11"
+    location	= "spells"
+    idsname	= "CLERIC_STRIKING"
+    editstring	= "say_name=>0 say_description=>1"
+  END
+
+
+  // mh#prs12 - Faerie Fire
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs12"
+    idsname	= "CLERIC_FAERIE_FIRE"
+    location	= "spells"
+    editstring	= "say_name=>2 say_description=>3"
+  END
+
+
+  // mh#prs22 - Seeking
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs22"
+    idsname	= "CLERIC_SEEKING"
+    location	= "spells"
+    editstring	= "say_name=>4 say_description=>5"
+  END
+
+
+  // mh#prs41 - Sticks to Snakes
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs41"
+    idsname	= "CLERIC_STICKS_TO_SNAKES"
+    location	= "spells"
+    editstring	= "say_name=>7 say_description=>8"
+  END
+
+
+  // mh#prs42 - Heroism
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs42"
+    idsname	= "CLERIC_HEROISM"
+    location	= "spells"
+    editstring	= "say_name=>9 say_description=>10"
+  END
+
+
+  // mh#prs51 - Lightning Storm
+
+  ADD_PROJECTILE "%mod_root%/divine/projectiles/mh#prs51.pro"
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs51"
+    idsname	= "CLERIC_LIGHTNING_STORM"
+    location	= "spells"
+    editstring	= ~say_name=>11 say_description=>12 patch_ability_inline=>"projectile=>%mh#prs51%"~
+  END
+
+
+  // mh#prs52 - Inferno
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#pr52a mh#pr52b mh#pr52c mh#pr52d mh#pr52e"
+    location	= "spells"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs52"
+    idsname	= "CLERIC_INFERNO"
+    location	= "spells"
+    editstring	= "say_name=>17 say_description=>18"
+  END
+
+
+  // mh#prs61 - Superheroism
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs61"
+    idsname	= "CLERIC_SUPERHEROISM"
+    location	= "spells"
+    editstring	= "say_name=>13 say_description=>14"
+  END
+
+
+  // mh#prs62 - Celestial Protection
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs62"
+    idsname	= "CLERIC_CELESTIAL_PROTECTION"
+    location	= "spells"
+    editstring	= "say_name=>15 say_description=>16"
+  END
+
+
+  // mh#prs71 - Mass Negative Plane Protection
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs71"
+    idsname	= "CLERIC_MASS_NEGATIVE_PLANE_PROTECTION"
+    location	= "spells"
+    editstring	= "say_name=>19 say_description=>20"
+  END
+END	// divine_core
+
+

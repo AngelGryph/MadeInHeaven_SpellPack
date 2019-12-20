@@ -1,0 +1,42 @@
+Table functions
+
+WEIDU's native tools for editing 2DA files basically assume that they are an unlabelled and irregular grid; many are, and on those assumptions the relatively low-level WEIDU approach can't readily be improved on. 
+However, a large fraction of 2da files instead have a standard form: the columns are labelled by headers (in the first row after the "2da v1.0 ****") bit, and the rows likewise (usually but not always in the first column), and the engine cares about entries according to what their row and column headers are, not their physical position in the file.
+For an example, look at ABCLASRQ (which determines the class requirements). The rows are labelled by kit/class names; the columns are labelled by ability scores. In editing this file, you don't care per se about editing row 5, column 2; you care about editing the "BARD, MIN_DEX" entry. 
+The functions in lib_table address 2da files on this basis. (Note that they have no way of checking whether a given 2da file does have this format; that's down to you!) They also deal with tables (like the luaXX.2da files) where the rows each have a unique number.
+The innards of the clone_row function is shamelessly stolen from CamDawg's cd_ee_kit_appends function.
+Patch functions
+append_numbered_row (str arguments -> int value)
+Inserts [arguments] as a new 2da row, at the bottom, with a number header equal to the lowest unused such header. (If the row headers in the file are not all integers, fails.) Returns the number header.
+delete_table_column (int colnum, str column -> null)
+Deletes the column with "column" as a header, or the column with number "colnum" (counting from zero) if "column" is unspecified. Undefined if the column does not exist or occurs more than once.
+delete_table_row (str row, [int lookup_column] -> null)
+Deletes any rows in the table with [row] as a header. If lookup_column is set to a nonzero integer, the "row" label is looked up in that column rather than the zeroth column. (See KITLIST for an example of where this is useful).
+get_table_column_coordinate (str column -> int colnum)
+Returns the number (counting from one) of the column with header "colnum", or -1 if it does not exist.
+get_table_row (str row -> int rownum)
+Returns the number (counting from zero) of the row with header "row", or -1 if it does not exist.
+read_table_entry (str row, column, [int lookup_column, bool dont_complain] -> str value)
+Returns the (row, column) entry in the current  file, or -1 if it isn't present. If "row" is unspecified, use the row with number "rownum" (counting from zero); likewise for "column" and "colnum" (the latter counts from one).  lookup_column functions as for delete_table_row. Unless dont_complain is set to 1, prints a warning if the entry is not found.
+renumber_rows ([int start_at] -> null)
+Renumbers the rows of the file from top to bottom, starting from 1 (or from [start_at], if set).
+write_table_entry (int rownum, colnum, str row, column, arguments, [int lookup_column, bool do_not_insert, str default_fill]->null)
+Writes "arguments" to the (row,column) slot in the current file. If "row" is unspecified, use the row with number "rownum" (counting from zero); likewise for "column" and "colnum". The lookup_column variable functions as for delete_table_row.
+If the column entry is not present, the install fails. If the row entry is not present, then a new row is added at the bottom with that entry, and the row is filled in with zeroes, or with [default_fill] if set. This automatic insertion can be disabled if do_not_insert is set to 1, and does not work anyway if lookup_column is nonzero; in these cases, the install fails.
+Action functions
+clone_column (str clone_from, clone_to, file, [bool dont_complain] -> null)
+Finds the file [file], or [file].2da if that does not exist. (Fail if neither exist.) If [clone_from] is a column header and [clone_to] is not, copies the entire column (or the last such column if more than one exists) and inserts it at the right as a new column, with [clone_to] as a header. If it isn't a column header, or if [clone_to] is already a header, does nothing and prints a warning (suppresses the warning if dont_complain is set).
+clone_row (str clone_from, clone_to,  file, [bool dont_complain] -> null)
+Finds the file [file], or [file].2da if that does not exist. (Fail if neither exist.) If [clone_from] is a row header and [clone_to] is not, copies the entire row (or the last such row if more than one exists) and insert it at the bottom as a new row, with [clone_to] as a header. If it isn't a row header, or if [clone_to] is already a header, does nothing and prints a warning (suppresses the warning if dont_complain is set).
+delete_table_column (str file, column -> null)
+Finds the file [file], or [file].2da if that does not exist. (Fails if neither exist.) Deletes the [column] column as per the patch function of the same name.
+delete_table_row (str file, row -> null)
+Finds the file [file], or [file].2da if that does not exist. (Fails if neither exist.) Deletes the [row] row as per the patch function of the same name.
+read_table_entry (str row, column, file, [int lookup_column, bool dont_complain] -> str value)
+Returns the (row,column) entry in [file], or [file].2da if that does not exist. (Fails if neither exist.) Other behaviour, and optional arguments, work as for the patch function of the same name.
+
+write_table_entry (str row, column, arguments, file, [int lookup_column, bool do_not_insert, str default_fill]-> null)
+
+Writes "arguments" to the (row,column) slot of [file].2da, or [file] if file.2da doesn't exist. (Fails if neither exists.) Other behaviour, and optional arguments, work as for the patch function of the same name.
+
+

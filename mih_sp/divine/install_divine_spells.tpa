@@ -1,0 +1,27 @@
+DEFINE_ACTION_FUNCTION install_divine_spells
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "divine_resources"
+  END
+ 
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "summoned_monsters"
+    locbase	= "shared"
+    tra		= "summoned_monsters"
+  END
+ 
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "divine_core"
+    tra		= "divine_core"
+  END
+ 
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "divine_aftercare"
+  END
+END	// install_divine_spells
+
+

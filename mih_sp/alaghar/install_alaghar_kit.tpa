@@ -1,0 +1,28 @@
+DEFINE_ACTION_FUNCTION install_alaghar_kit
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "alaghar_resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "alaghar_core"
+    tra		= "alaghar_core"
+  END
+
+  ACTION_IF GAME_INCLUDES "bg1" && $SFO_reserved_ini_hash("make_yeslick_alaghar")
+  BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "alaghar_yeslick"
+    END
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "alaghar_aftercare"
+  END
+END	// install_alaghar_kit
+
+

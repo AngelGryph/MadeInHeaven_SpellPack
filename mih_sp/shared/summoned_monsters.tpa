@@ -1,0 +1,86 @@
+DEFINE_ACTION_FUNCTION summoned_monsters
+BEGIN
+  // snakegsu - Giant Snake
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "p1-3p.itm"
+  BEGIN
+    MAKE_PATCH
+      add_effect_inline'1=>~match=>parent_type=1 opcode=>25 target=>2 duration=>24 parameter1=>2 parameter2=>2~
+      add_effect_inline'2=>~match=>parent_type=1 opcode=>142 target=>2 duration=>24 parameter2=>6~
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_item
+      STR_VAR
+      item	= "p1-3=>p1-3p"
+      edits	= "patch_data"
+    END
+  END
+
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "snakegsu.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      INT_VAR
+      allow_missing	= 1
+      STR_VAR
+      creature		= "bdsnak01=>snakegsu snakeg01=>snakegsu"
+      editstring	= "xp_value=>0 gold=>0 allegiance=>neutral gender=>summoned thac0=>16 replace_items=>p1-3p(weapon1)"
+    END
+  END
+
+
+  // sumelwat - Lesser Water Elemental
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "sumelwat.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "sumelfir=>sumelwat"
+      editstring	= "say_name=>0 say_unidentified_name=>0 animation=>water_weird resist_fire=>-10 resist_magic_fire=>0 resist_cold=>10 class=>elemental_water replace_items=>b1-8m2(weapon1)"
+    END
+  END
+
+
+  // jellmusu - Mustard Jelly
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "jellmusu"
+    editstring	= "xp_value=>0 gold=>0 allegiance=>neutral gender=>summoned"
+  END
+
+
+  // create summoning effects
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_effect
+  BEGIN
+    "bearcasu"	=> "spanisum"
+    "bearbrsu"	=> "spanisum"
+    "bearposu"	=> "spanisum"
+    "catjagsu"	=> "spanisum"
+    "catliosu"	=> "spanisum"
+    "jellmusu"	=> "trbloba"
+    "ogresu"	=> "spmonsum"
+    "snakegsu"	=> "spanisum"
+    "spidphsu"	=> "spmonsum"
+    "spidswsu"	=> "spmonsum"
+    "wolfdisu"	=> "spanisum"
+    "wolfwisu"	=> "spanisum"
+  END
+
+  ACTION_PHP_EACH summon_effect AS summon => effect
+  BEGIN
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%summon%.eff"
+    BEGIN
+      CREATE EFF "%summon%"
+        WRITE_LONG	0x0010 67	// Summon: Creature Summoning
+        WRITE_LONG	0x001c 5
+        WRITE_SHORT	0x0024 1
+        WRITE_LONG	0x002c 100
+        WRITE_ASCIIE	0x0030 "%summon%" #8
+        WRITE_ASCII	0x0070 "%effect%" #8
+    END
+  END
+END	// summoned_monsters
+
+

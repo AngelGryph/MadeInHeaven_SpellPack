@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION arcane_resources
+BEGIN
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    files	= "all"
+    location	= "graphics"
+    postfix	= "bam"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    files	= "all"
+    location	= "graphics"
+    postfix	= "vvc"
+  END
+
+  ACTION_IF ENGINE_IS "bgee bg2ee"
+  BEGIN
+    COPY_LARGE "%mod_root%/arcane/movies/ee" "movies"
+  END
+  ELSE
+  BEGIN
+    MAKE_BIFF "mh#spell"
+    BEGIN
+      "%mod_root%/arcane/movies/old" ".*\.mve"
+    END
+  END
+END	// arcane_resources
+
+

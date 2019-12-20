@@ -1,0 +1,29 @@
+DEFINE_ACTION_FUNCTION alaghar_aftercare
+BEGIN
+  // Make alaghar specialty spells unselectable.
+
+  ACTION_FOR_EACH spell_name IN "ALAGHAR_SilVERBEARD" "ALAGHAR_ROCKBURST" "ALAGHAR_AXE_STORM_OF_CLANGEDDIN"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+      STR_VAR
+      spell_name
+      RET
+      spell_res
+    END
+
+    ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
+    BEGIN
+      APPEND "hidespl.2da" "%spell_res% 1           0          0"
+    END
+    ELSE
+    BEGIN
+      LAUNCH_ACTION_FUNCTION edit_spell
+        STR_VAR
+	spell		= "%spell_res%"
+	editstring	= "priest_type=>0xc000"
+      END
+    END
+  END
+END
+
+

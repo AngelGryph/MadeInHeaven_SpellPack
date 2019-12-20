@@ -1,0 +1,123 @@
+DEFINE_ACTION_FUNCTION alaghar_core
+BEGIN
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#att20 mh#att32 mh#csund mh#cssym"
+    location	= "spells"
+  END
+
+
+  // Silverbeard
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#silbd"
+    idsname	= "ALAGHAR_SILVERBEARD"
+    location	= "spells"
+    editstring	= "say_name=>0 say_description=>1"
+    RET
+    silverbeard	= newname
+  END
+
+
+  // Rockburst
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#rockb"
+    idsname	= "ALAGHAR_ROCKBURST"
+    location	= "spells"
+    editstring	= "say_name=>2 say_description=>3"
+    RET
+    rockburst	= newname
+  END
+
+
+  // Axe Storm of Clangeddin
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#axest"
+    idsname	= "ALAGHAR_AXE_STORM_OF_CLANGEDDIN"
+    location	= "spells"
+    editstring	= "say_name=>4 say_description=>5"
+    RET
+    axe_storm	= newname
+  END
+
+
+  // Holy Symbol of Clangeddin Silverbeard
+
+  LAUNCH_ACTION_FUNCTION install_item
+    STR_VAR
+    item	= "mh#cssym"
+    location	= "items"
+    editstring	= "say_name=>6 say_description=>7"
+  END
+
+
+  // Alaghar of Clangeddin
+
+  COPY - "%mod_root%/alaghar/tables/mh#clang.2da" "inline/mh#clang.2da"
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#silbd" "%silverbeard% "
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#rockb" "%rockburst% "
+    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "mh#axest" "%axe_storm% "
+
+
+  ADD_KIT "mh#clangeddin"
+    // clasweap.2da (BG1-style proficiencies)
+    "mh#clangeddin	0	0	1	1	0	1	0	0"
+
+    // weapprof.2da (BG2-style proficiencies)
+    "mh#clangeddin	0 0 0 0 2 2 0 2 0 0 0 0 0 0 0 0 2 2 0 0 2 2 2 0 0 0 0 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+
+    // abclasrq.2da (minimum stat requirements)
+    "mh#clangeddin	15	0	0	0	9	0"
+
+    // abclsmod.2da (stat modifications)
+    "mh#clangeddin	0	0	0	0	0	0"
+
+    // abdcdsrq.2da (stat requirements to dual-class to this kit)
+    "mh#clangeddin	15	0	0	0	17	0"
+
+    // abdcscrq.2da (stat requirements to dual-class from this kit)
+    "mh#clangeddin	15	0	0	0	15	0"
+
+    // alignmnt.2da (allowed aligments for this kit)
+    "mh#clangeddin	1	1	0	0	0	0	0	0	0"
+
+    // dualclas.2da (allowed classes to dual-class with)
+    "mh#clangeddin	1	0	0	0	0	0"
+
+    // path to class abilities table
+    "inline/mh#clang.2da"
+
+    // allowed PC races and classes
+    "K_C_D"
+
+    // item usability flags
+    "0x00004000	3"
+
+    // luabbr.2da (ToB HLA table)
+    "Cl0"
+
+    // 25stweap.2da (ToB starting equipment)
+    "CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN4,2 POTN14,5 HAM07 SW1H27 STAF08"
+
+    // kit name/description strings
+    SAY @8
+    SAY @9
+    SAY @10
+
+
+  INCLUDE "%mod_root%/lib/fl#add_kit_ee.tpa"
+
+  LAUNCH_ACTION_FUNCTION fl#add_kit_ee
+    STR_VAR
+    kit_name	= "mh#clangeddin"
+    hpclass	= "hpwar"
+  END
+END	// alaghar_core
+
+
+

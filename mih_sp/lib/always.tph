@@ -1,0 +1,65 @@
+// =============================
+// Test for unsupported versions
+// =============================
+
+ACTION_IF GAME_IS "bg1 totsc tutu tutu_totsc"
+BEGIN
+  FAIL ~Sorry, this mod does not support this version of BG1.  The use of BGEE is highly recommended.~
+END
+
+ACTION_IF FILE_EXISTS "dlc/sod-dlc.zip" OR FILE_EXISTS "sod-dlc.zip"
+BEGIN
+  FAIL ~You need to run modmerge or install A7-DlcMerger before installing this mod.~
+END
+
+
+// ========================================
+// Stuff that is done only once per install
+// ========================================
+
+ACTION_IF NOT VARIABLE_IS_SET initialise  
+BEGIN
+  // Set variables
+
+  OUTER_SET initialise = 1
+
+  OUTER_SPRINT modder_prefix "mh#"
+  OUTER_SPRINT mod_root "%MOD_NAME%"
+
+
+  // Include and initialize libraries
+
+  INCLUDE "%mod_root%/sfo/install_sfo.tpa"
+
+  INCLUDE "%mod_root%/lib/g3_bgt_cpmvars.tpa"
+  INCLUDE "%mod_root%/lib/g3_bgee_cpmvars.tpa"
+  INCLUDE "%mod_root%/lib/g3_eet_cpmvars.tpa"
+
+  INCLUDE "%mod_root%/lib/cd_functions.tph"
+  INCLUDE "%mod_root%/lib/mh_functions.tph"
+
+
+  // Add ids entries missing in some games
+
+  INCLUDE "%mod_root%/lib/missing_ids.tpa"
+
+
+  // Read the .ini file
+  OUTER_SPRINT ini_to_read "%mod_root%/setup-%mod_root%.ini"
+
+  LAUNCH_ACTION_MACRO SFO_read_ini_file
+END	// done_init
+
+
+// ==================
+// Handle EE charsets
+// ==================
+
+LAUNCH_ACTION_FUNCTION handle_charsets_immutably
+  STR_VAR
+  tra_base	= "language"
+  RET
+  scs_tra_loc
+END
+
+

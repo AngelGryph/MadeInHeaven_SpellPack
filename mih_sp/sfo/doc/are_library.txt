@@ -1,0 +1,127 @@
+Action functions
+
+clone_area (arrow area, str edits, arrowlist editstring, [bool allow_missing] -> null)
+
+edit_all_areas (str edits, arrowlist editstring -> null )
+
+edit_area (str area, edits, arrowlist editstring, [bool allow_missing] -> null)
+
+install_area (str area, edits, arrowlist editstring, [str location, locbase, bool allow_missing]->null)
+
+Standard editors, no special features. (There is no make_area at present).
+
+
+
+Standard-form patch functions
+
+Basic patch functions (absolute)
+
+wed (0x8,ASCII)
+
+to_north (0x18,ASCII)
+
+to_east (0x24,ASCII)
+
+to_south (0x30,ASCII)
+
+to_west (0x3c,ASCII)
+
+rain_probability (0x4a,SHORT)
+
+snow_probability (0x4c,SHORT)
+
+lightning_probability (0x50,SHORT)
+
+area_script (0x94,ASCII)
+
+restmovie_day (0xd4,ASCII)
+
+restmovie_night (0xdc,ASCII)
+
+
+
+Basic patch functions (relative to entry offset)
+
+
+
+For actors:
+
+actor_name (0x0,ASCII20)  -  synonym, actorname
+
+script_override (0x50,ASCII)
+
+script_class (0x60,ASCII)
+
+script_race (0x68,ASCII)
+
+script_general (0x58,ASCII)
+
+script_default (0x70,ASCII)
+
+script_specifics (0x78,ASCII)
+
+actor_resource (0x80,ASCII)  -  synonym, crefile
+
+actor_x_coord_start (0x20,SHORT)
+
+actor_y_coord_start (0x22,SHORT)
+
+actor_x_coord_dest (0x24,SHORT)
+
+actor_y_coord_dest (0x26,SHORT)
+
+actor_orientation (0x34,SHORT)
+
+dialog (0x48,ASCII)
+
+
+
+For triggers:
+
+trigger_name (0x0,ASCII20)
+
+trigger_type (0x20,SHORT)
+
+trigger_dest (0x38,ASCII)  -  synonym destination
+
+trigger_info (0x64,LONG)
+
+is_trapped (0x6c,SHORT)
+
+trap_detected (0x6e,SHORT)
+
+trigger_script (0x7c,ASCII)
+
+
+
+For doors:
+
+door_name (0x0,ASCII20)
+
+door_id (0x0,ASCII)
+
+door_icon (0x7c,LONG)
+
+door_script (0x80,ASCII)
+
+door_dialog (0xb8,ASCII)
+
+
+
+For containers:
+
+container_script (0x48,ASCII)
+
+
+
+For items:
+
+item_resource (0x0,ASCII)
+
+item_charges_1 (0xa,SHORT)
+
+item_charges_2 (0xc,SHORT)
+
+item_charges_3 (0xe,SHORT)
+
+

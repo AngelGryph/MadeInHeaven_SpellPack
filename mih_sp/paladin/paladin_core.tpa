@@ -1,0 +1,75 @@
+DEFINE_ACTION_FUNCTION paladin_core
+BEGIN
+  // Smite Evil
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell		= "mh#smtev"
+    idsname		= "PALADIN_SMITE_EVIL"
+    location		= "spells"
+    editstring		= "say_name=>0"
+    RET
+    smite_evil		= newname
+  END
+
+
+  // Smite Good
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell		= "mh#smtgd"
+    idsname		= "BLACKGUARD_SMITE_GOOD"
+    location		= "spells"
+    editstring		= "say_name=>1"
+    RET
+    smite_good		= newname
+  END
+
+
+  // Smite Undead
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell		= "mh#smtud"
+    idsname		= "PALADIN_SMITE_UNDEAD"
+    location		= "spells"
+    editstring		= "say_name=>2"
+    RET
+    smite_undead	= newname
+  END
+
+
+  // True Paladin
+
+  APPEND "clabpa01.2da"
+    ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+
+
+  // Cavalier
+
+  APPEND "clabpa02.2da"
+    ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+
+
+  // Inquisitor
+
+  APPEND "clabpa03.2da"
+    ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+
+  // Undead Hunter
+
+  APPEND "clabpa04.2da"
+    ~mh#palex    GA_%smite_undead%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+
+  // Blackguard (EE only)
+
+  ACTION_IF FILE_EXISTS_IN_GAME "clabpa06.2da"
+  BEGIN
+    APPEND "clabpa06.2da"
+      ~mh#palex    GA_%smite_good%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+  END
+END	// paladin_core
+
+

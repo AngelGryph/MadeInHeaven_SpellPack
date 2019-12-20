@@ -2,129 +2,73 @@
 //
 // WeiDU installer
 
-BACKUP "mih_sp/backup"
+BACKUP "weidu_external/backup/mih_sp"
 
 AUTHOR "angel@pearlgates.net"
 VERSION v2
 
-MODDER missing_eval none
+//MODDER missing_eval none
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
-AUTO_TRA "mih_sp/language/%s"
 
 ALWAYS
-  // We no longer support vanilla BG1 or Tutu, it's too much of a hassle.
-  ACTION_IF GAME_IS "bg1 totsc"
-  BEGIN
-    FAIL ~This mod no longer supports this version of BG1.~
-  END
+  OUTER_SPRINT MOD_NAME "mih_sp"
+  OUTER_SPRINT MOD_VERSION "v2"
 
-
-  // Load compatibility variables for various implementations of BG1.
-  INCLUDE "%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa"
-  INCLUDE "%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa"
-  INCLUDE "%MOD_FOLDER%/lib/g3_eet_cpmvars.tpa"
-
-
-  // BG(2)EE compat: handle charsets
-  ACTION_DEFINE_ARRAY mh#reload BEGIN "setup-%MOD_FOLDER%" END
-  ACTION_DEFINE_ARRAY mh#noconvert BEGIN END
-
-  LAUNCH_ACTION_FUNCTION HANDLE_CHARSETS
-    INT_VAR
-    infer_charset	= 1
-    STR_VAR
-    default_language	= "english"
-    tra_path		= "%MOD_FOLDER%/language"
-    iconv_path	= "%MOD_FOLDER%/bin/win32/iconv"
-    noconvert_array	= "mh#noconvert"
-    reload_array	= "mh#reload"
-  END
-
-  // Load macro/function libraries
-  INCLUDE "%MOD_FOLDER%/lib/mh_functions.tph"
-  INCLUDE "%MOD_FOLDER%/lib/cd_functions.tph"
-
-
-  // Read the .ini file for this mod
-  LAUNCH_ACTION_MACRO mh_process_ini_file
+  INCLUDE "mih_sp/lib/always.tph"
 END	// ALWAYS block
 
 
 LANGUAGE "English"
          "english"
-	 "%MOD_FOLDER%/language/english/setup-%MOD_FOLDER%.tra"
+	 "mih_sp/language/english/setup-mih_sp.tra"
 
 
 // Arcane Spell Pack
 
-BEGIN ~MiH Arcane Spell Pack~
+BEGIN ~Arcane Spell Pack~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "install_arcane_spells"
-END
-
-ACTION_IF GAME_INCLUDES "bg1" AND $ini_hash("place_spell_scrolls_in_bg1")
-BEGIN
-  LAUNCH_ACTION_FUNCTION mh_run_task
-    STR_VAR
-    task		= "place_spell_scrolls_in_bg1"
-  END
-END
-
-ACTION_IF GAME_INCLUDES "sod" AND $ini_hash("place_spell_scrolls_in_sod")
-BEGIN
-  LAUNCH_ACTION_FUNCTION mh_run_task
-    STR_VAR
-    task		= "place_spell_scrolls_in_sod"
-  END
-END
-
-ACTION_IF GAME_INCLUDES "bg2" AND $ini_hash("place_spell_scrolls_in_bg2")
-BEGIN
-  LAUNCH_ACTION_FUNCTION mh_run_task
-    STR_VAR
-    task		= "place_spell_scrolls_in_bg2"
-  END
-END
-
-ACTION_IF GAME_INCLUDES "tob" AND $ini_hash("place_spell_scrolls_in_tob")
-BEGIN
-  LAUNCH_ACTION_FUNCTION mh_run_task
-    STR_VAR
-    task		= "place_spell_scrolls_in_tob"
-  END
+  file		= "install_arcane_spells"
+  location	= "arcane"
 END
 
 
 // Divine Spell Pack
 
-BEGIN ~MiH Divine Spell Pack~
+BEGIN ~Divine Spell Pack~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "install_divine_spells"
+  file		= "install_divine_spells"
+  location	= "divine"
 END
 
 
-// Additional Paladin Powers
+// New Paladin Powers
 
-BEGIN ~Additional Paladin Powers~
+BEGIN ~New Paladin Powers~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "install_paladin_powers"
+  file		= "install_paladin_powers"
+  location	= "paladin"
 END
 
+
+// Alaghar of Clangeddin Kit
 
 BEGIN ~Alaghar of Clangeddin Kit~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "install_alaghar_kit"
+  file		= "install_alaghar_kit"
+  location	= "alaghar"
 END
+
+/*
 
 ACTION_IF GAME_INCLUDES "bg1" && $ini_hash("make_yeslick_alaghar")
 BEGIN
@@ -194,5 +138,6 @@ LAUNCH_ACTION_FUNCTION mh_run_task
   STR_VAR
   task		= "remove_timestop_immunity"
 END
+*/
 
 

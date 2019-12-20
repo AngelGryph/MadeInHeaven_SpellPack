@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION divine_resources
+BEGIN
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    files	= "all"
+    location	= "graphics"
+    postfix	= "bam"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    files	= "all"
+    location	= "graphics"
+    postfix	= "vvc"
+  END
+END	// divine_resources
+
+

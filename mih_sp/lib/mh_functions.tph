@@ -1,62 +1,6 @@
+// IDS additions
+
 // Made in Heaven function library
-
-
-DEFINE_ACTION_FUNCTION mh_run_task
-  INT_VAR
-  no_log	= 0
-  STR_VAR
-  task		= "???"
-BEGIN
-  ACTION_IF NOT FILE_EXISTS "%MOD_FOLDER%/run/%task%.mih"
-  BEGIN
-    PRINT ~Running task %task%...~
-
-    ACTION_IF NOT FILE_EXISTS "%MOD_FOLDER%/tasks/%task%.tpa"
-    BEGIN
-      FAIL ~Command file "%task%.tpa" not found!~
-    END
-
-    ACTION_IF !no_log
-    BEGIN
-      COPY "%MOD_FOLDER%/dummy.mih" "%MOD_FOLDER%/run/%task%.mih"
-    END
-
-    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/language/%LANGUAGE%/%task%.tra"
-    BEGIN
-      WITH_TRA "%MOD_FOLDER%/language/%LANGUAGE%/%task%.tra"
-      BEGIN
-        PRINT "Using tra file %MOD_FOLDER%/language/%LANGUAGE%/%task%.tra..."
-
-        INCLUDE "%MOD_FOLDER%/tasks/%task%.tpa"
-      END
-    END
-    ELSE
-    BEGIN
-      INCLUDE "%MOD_FOLDER%/tasks/%task%.tpa"
-    END
-  END
-  ELSE
-  BEGIN
-    PRINT ~Skipping task %task%...~
-  END
-END
-
-
-DEFINE_ACTION_MACRO mh_process_ini_file
-BEGIN
-  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/setup-%MOD_FOLDER%.ini"
-  BEGIN
-    COPY - "%MOD_FOLDER%/setup-%MOD_FOLDER%.ini" "override"
-      READ_2DA_ENTRIES_NOW ini_array 2
-      FOR (i = 0; i < ini_array; ++i) BEGIN
-        READ_2DA_ENTRY_FORMER ini_array i 0 key
-        READ_2DA_ENTRY_FORMER ini_array i 1 value
-        TO_LOWER key
-        TEXT_SPRINT $ini_hash("%key%") "%value%"
-      END
-  END
-END
-
 
 DEFINE_PATCH_MACRO mh_remove_all_area_actors
 BEGIN
@@ -169,7 +113,7 @@ DEFINE_ACTION_FUNCTION mh_erase_journal_entries_on_bg2_transition
 BEGIN
   ACTION_IF GAME_IS "bgt" AND FILE_EXISTS_IN_GAME "aram00.bcs"
   BEGIN
-    COPY_EXISTING - "%dialog%.dlg" "%MOD_FOLDER%/work"
+    COPY_EXISTING - "%dialog%.dlg" "%mod_name%/work"
       GET_OFFSET_ARRAY trans_array 0x0014 4 0x0010 4 0 0 0x0020
       PHP_EACH trans_array AS int => trans_offset
       BEGIN
@@ -201,155 +145,6 @@ BEGIN
 END
 
 
-DEFINE_PATCH_FUNCTION mh_prevent_spell_effect_stacking
-  INT_VAR
-  match_opcode        = 142
-BEGIN
-  PATCH_IF ENGINE_IS "iwd1 how totlm"
-  BEGIN
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
-      INT_VAR
-      match_opcode
-      multi_match	= 1
-      silent		= 1	// Don't care about warnings
-      opcode		= 254	// Remove effects by resource
-      timing		= 0	// Duration
-      duration		= 0
-      parameter1	= 0
-      parameter2	= 0
-      STR_VAR
-      insert		= "first"
-      resource		= "%DEST_RES%"
-    END
-  END
-
-  PATCH_IF ENGINE_IS "bgee bg2ee"
-  BEGIN
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
-      INT_VAR
-      match_opcode
-      multi_match	= 1
-      silent		= 1	// Don't care about warnings
-      opcode		= 321	// Remove effects by resource
-      timing		= 0	// Duration
-      duration		= 0
-      parameter1	= 0
-      parameter2	= 0
-      STR_VAR
-      insert		= "first"
-      resource		= "%DEST_RES%"
-    END
-  END
-
-  PATCH_IF ENGINE_IS "bg2 tob"
-  BEGIN
-    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
-      INT_VAR
-      match_opcode
-      multi_match	= 1
-      silent		= 1	// Don't care about warnings
-      opcode		= 206	// Spell Effect: Immunity Spell
-      parameter1	= RESOLVE_STR_REF ("Multiple castings of this spell have no effect.")
-      parameter2	= 0	// Default (IWD1)
-      STR_VAR
-      insert		= "last"
-      resource		= "%DEST_RES%"
-    END
-  END
-END
-
-
-DEFINE_PATCH_FUNCTION mh_make_magical
-  INT_VAR
-  enchantment   = "-1"
-  lore          = "-1"
-  flag_silver	= 0
-  flag_iron	= 0
-BEGIN
-  WRITE_LONG    0x0018 (THIS | BIT6)
-
-  PATCH_IF flag_silver
-  BEGIN
-    WRITE_LONG    0x0018 (THIS | BIT8)
-  END
-
-  PATCH_IF flag_iron
-  BEGIN
-    WRITE_LONG    0x0018 (THIS | BIT9)
-  END
-
-
-  PATCH_IF enchantment >= 0
-  BEGIN
-    WRITE_LONG  0x0060 enchantment
-  END
-
-  PATCH_IF lore >= 0
-  BEGIN
-    WRITE_SHORT 0x0042 lore
-  END
-END
-
-
-DEFINE_PATCH_FUNCTION mh_make_summon
-  INT_VAR
-  power_level	= "-1"
-BEGIN
-  WRITE_LONG	0x0010 (THIS | BIT1)	// No corpse
-  WRITE_LONG	0x0014 0		// XP
-  WRITE_LONG	0x001c 0		// Gold
-  WRITE_BYTE	0x0270 IDS_OF_SYMBOL("ea" "neutral")
-
-  // Play nice with Remove Summoning Cap from D0Tweak
-  PATCH_IF FILE_EXISTS "override/no_summoning_cap.d0"
-  BEGIN
-    WRITE_BYTE	0x0275 20	// D0Tweak alt. value
-  END
-  ELSE
-  BEGIN
-    WRITE_BYTE	0x0275 IDS_OF_SYMBOL("gender" "summoned")
-  END
-
-  // Add unstealable&undroppable flags to carried items
-  GET_OFFSET_ARRAY itm_array CRE_V10_ITEMS
-  PHP_EACH itm_array AS int => itm_offset
-  BEGIN
-    WRITE_LONG (itm_offset + 0x0010) (THIS | (BIT1 | BIT3))
-  END
-
-  // Handle power level if specified
-  PATCH_IF (power_level >= 0)
-  BEGIN
-    WRITE_LONG	0x0018 power_level
-  END
-END
-
-
-DEFINE_PATCH_FUNCTION mh_make_illusion
-  INT_VAR
-  power_level	= "-1"
-BEGIN
-  WRITE_LONG	0x0010 (THIS | BIT1)	// No corpse
-  WRITE_LONG	0x0014 0		// XP
-  WRITE_LONG	0x001c 0		// Gold
-  WRITE_BYTE	0x0270 IDS_OF_SYMBOL("ea" "neutral")
-  WRITE_BYTE	0x0275 IDS_OF_SYMBOL("gender" "illusionary")
-
-  // Add unstealable&undroppable flags to carried items
-  GET_OFFSET_ARRAY itm_array CRE_V10_ITEMS
-  PHP_EACH itm_array AS int => itm_offset
-  BEGIN
-    WRITE_LONG (itm_offset + 0x0010) (THIS | (BIT1 | BIT3))
-  END
-
-  // Handle power level if specified
-  PATCH_IF (power_level >= 0)
-  BEGIN
-    WRITE_LONG	0x0018 power_level
-  END
-END
-
-
 // turns magic missile immunity into full immunity
 DEFINE_PATCH_MACRO mh_immunity_magic_missile_arrays BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -365,104 +160,120 @@ DEFINE_PATCH_MACRO mh_immunity_magic_missile_arrays BEGIN
 END
 
 
-DEFINE_ACTION_FUNCTION mh_install_spell
+DEFINE_PATCH_FUNCTION mh_easy_alter_monster
   INT_VAR
-  spell_name_strref	= "-1"
-  spell_desc_strref	= "-1"
-  prevent_stacking	= "-1"
-  STR_VAR
-  spell_dir		= "spells/%spell_type%"
-  item_dir		= "items"
-  proj_dir		= "projectiles"
-  RET
-  ingame_res
+  modifier	= 1
 BEGIN
-  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
-  BEGIN
-    ADD_PROJECTILE "%MOD_FOLDER%/%proj_dir%/%spell_res%.pro"
-    OUTER_SET spell_pro	= EVALUATE_BUFFER "%%spell_res%%"
-  END
-  ELSE
-  BEGIN
-    OUTER_SET spell_pro	= "-1"
-  END
+  READ_BYTE 0x0234 hd
 
+  WRITE_SHORT 0x0024 THIS + modifier * hd	// current HP
+  WRITE_SHORT 0x0026 THIS + modifier * hd	// maximum HP
 
-  ACTION_MATCH "%spell_type%"
-  WITH
-  "arcane"
-  BEGIN
-    OUTER_SET spell_type_num	= 2
-  END
-  "divine"
-  BEGIN
-    OUTER_SET spell_type_num	= 1
-  END
-  "psionic" "innate"
-  BEGIN
-    OUTER_SET spell_type_num	= 3
-  END
-  "special" "class"
-  BEGIN
-    OUTER_SET spell_type_num	= 4
-  END
-  DEFAULT
-    FAIL ~mh_install_spell: Unknown spell type "%spell_type%"!~
-  END
+  WRITE_SHORT 0x0046 THIS - modifier		// base AC
+  WRITE_SHORT 0x0048 THIS - modifier		// eff. AC
 
-
-  ADD_SPELL "%MOD_FOLDER%/%spell_dir%/%spell_res%.spl" "%spell_type_num%" "%spell_level%" "%spell_ids%"
-    TEXT_SPRINT ingame_res "%DEST_RES%"
-
-    WRITE_LONG NAME1 spell_name_strref
-    WRITE_LONG UNIDENTIFIED_DESC spell_desc_strref
-    
-    PATCH_IF spell_pro != "-1"
-    BEGIN
-      LAUNCH_PATCH_FUNCTION ALTER_SPELL_HEADER
-        INT_VAR
-        projectile	= spell_pro
-      END
-    END
-
-    PATCH_IF prevent_stacking != "-1"
-    BEGIN
-      LAUNCH_PATCH_FUNCTION mh_prevent_spell_effect_stacking
-        INT_VAR
-	match_opcode	= prevent_stacking
-      END
-    END
-
-    PATCH_IF FILE_EXISTS "%MOD_FOLDER%/%item_dir%/%spell_res%.itm"
-    BEGIN
-      INNER_ACTION
-      BEGIN
-        COPY "%MOD_FOLDER%/%item_dir%/%spell_res%.itm" "override"
-          WRITE_LONG NAME2 spell_name_strref
-          WRITE_LONG IDENTIFIED_DESC spell_desc_strref
-
-          LAUNCH_PATCH_FUNCTION ALTER_EFFECT
-            STR_VAR
-	    match_resource	= "%spell_res%"
-	    resource		= "%ingame_res%"
-          END
-      END
-    END
+  WRITE_BYTE 0x0052 THIS - modifier		// THAC0
+  WRITE_BYTE 0x0054 THIS - modifier		// save vs. death
+  WRITE_BYTE 0x0055 THIS - modifier		// save vs. wand
+  WRITE_BYTE 0x0056 THIS - modifier		// save vs. poly
+  WRITE_BYTE 0x0057 THIS - modifier		// save vs. breath
+  WRITE_BYTE 0x0058 THIS - modifier		// save vs. spell
 END
 
 
-DEFINE_ACTION_FUNCTION mh_batch_install_files
+DEFINE_PATCH_FUNCTION mh_change_monster_hd
+  INT_VAR
+  hd_min	= 0
+  hd_bonus	= 0
+  hp_per_hd	= 8
+  thac0_bonus	= 0
+  save_bonus	= 0
+  thac0_line	= IDS_OF_SYMBOL("class" "cleric")
   STR_VAR
-  dir_path	= "%MOD_FOLDER%/bams"
-  file_ext	= "bam"
+  save_table	= "saveprs"
 BEGIN
-  ACTION_BASH_FOR "%dir_path%" EVALUATE_REGEXP "^.+\.%file_ext%$"
+  READ_SHORT 0x0026 hp_max
+  READ_SBYTE 0x0052 thac0
+  READ_SBYTE 0x0054 save_death
+  READ_SBYTE 0x0055 save_wands
+  READ_SBYTE 0x0056 save_poly
+  READ_SBYTE 0x0057 save_breath
+  READ_SBYTE 0x0058 save_spell
+  READ_BYTE 0x0234 hd
+
+  PATCH_IF hd_min > hd
   BEGIN
-    ACTION_IF NOT FILE_EXISTS_IN_GAME "%BASH_FOR_FILE%"
-    BEGIN
-      COPY_LARGE "%BASH_FOR_FILESPEC%" "override/%BASH_FOR_FILE%"
-    END
+    SET hd = hd_min
   END
+
+  SET hd = hd + hd_bonus
+  
+  INNER_PATCH_FILE "thac0.2da"
+  BEGIN
+    READ_2DA_ENTRY thac0_line hd 9 thac0_min
+  END
+
+  PATCH_IF thac0_min < thac0
+  BEGIN
+    SET thac0 = thac0_min
+  END
+
+  SET thac0 -= thac0_bonus
+
+  INNER_PATCH_FILE "%save_table%.2da"
+  BEGIN
+    READ_2DA_ENTRY 1 hd 9 save_death_min
+    READ_2DA_ENTRY 2 hd 9 save_wands_min
+    READ_2DA_ENTRY 3 hd 9 save_poly_min
+    READ_2DA_ENTRY 4 hd 9 save_breath_min
+    READ_2DA_ENTRY 5 hd 9 save_spell_min
+  END
+
+  PATCH_IF save_death_min < save_death
+  BEGIN
+    SET save_death = save_death_min
+  END
+
+  PATCH_IF save_wands_min < save_wands
+  BEGIN
+    SET save_wands = save_wands_min
+  END
+
+  PATCH_IF save_poly_min < save_poly
+  BEGIN
+    SET save_poly = save_poly_min
+  END
+
+  PATCH_IF save_breath_min < save_breath
+  BEGIN
+    SET save_breath = save_breath_min
+  END
+
+  PATCH_IF save_spell_min < save_spell
+  BEGIN
+    SET save_spell = save_spell_min
+  END
+
+  SET save_death -= save_bonus
+  SET save_wands -= save_bonus
+  SET save_poly -= save_bonus
+  SET save_breath -= save_bonus
+  SET save_spell -= save_bonus
+
+  PATCH_IF hp_max < (hd * hp_per_hd)
+  BEGIN
+    SET hp_max = hd * hp_per_hd
+  END
+
+  WRITE_SHORT 0x0024 hp_max
+  WRITE_SHORT 0x0026 hp_max
+  WRITE_BYTE 0x0052 thac0
+  WRITE_BYTE 0x0054 save_death
+  WRITE_BYTE 0x0055 save_wands
+  WRITE_BYTE 0x0056 save_poly
+  WRITE_BYTE 0x0057 save_breath
+  WRITE_BYTE 0x0058 save_spell
+  WRITE_BYTE 0x0234 hd
 END
 
 

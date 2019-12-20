@@ -1,0 +1,132 @@
+DEFINE_ACTION_FUNCTION place_spell_scrolls_in_bg1
+BEGIN
+  // High Hedge (Thalantyr)
+
+  COPY_EXISTING "highhedg.sto" "override"
+    // Spark Shower
+    ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2
+
+    // Seeking
+    ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2
+
+    // Heroism
+    ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1
+
+    // Blink
+    ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1
+
+
+  // Firewine Ruins
+
+  COPY_EXISTING "lendar.cre" "override"
+    // Minor Malison
+    ADD_CRE_ITEM "mh#wiz35" #1 #1 #0 "none" "qitem"
+
+
+  // Ulcaster Ruins
+
+  COPY_EXISTING "%UlcasterRuins%.are" "override"
+    // Minor Malison
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 7
+      charges1			= 1
+      charges2			= 1
+      STR_VAR
+      item_to_add		= "mh#wiz35"
+    END
+
+
+  // Sorcerous Sundries
+
+  COPY_EXISTING "sto0703.sto" "override"
+    // Spark Shower
+    ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2
+
+    // Seeking
+    ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2
+
+    // Heroism
+    ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2
+
+    // Blink
+    ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2
+
+    // Rary's Mnemonic Enhancer
+    ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2
+
+    // Evard's Black Tentacles
+    ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2
+
+
+  // Ramazith's Tower
+
+  COPY_EXISTING "%NBaldursGate_RamazithsTower_L6%.are" "override"
+    // Ramazith's Slime Summons
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 9
+      charges1			= 2
+      charges2			= 2
+      STR_VAR
+      item_to_add		= "mh#wiz53"
+    END
+
+
+  // Candlekeep
+
+  COPY_EXISTING "%Candlekeep_Library_L5%.are" "override"
+    // Iron Maiden
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 6
+      charges1			= 1
+      charges2			= 1
+      STR_VAR
+      item_to_add		= "mh#wiz41"
+    END
+
+
+  COPY_EXISTING "%Candlekeep_Catacombs_L1Antechamber%.are" "override"
+    // Ball Lightning
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 3
+      charges1			= 1
+      charges2			= 1
+      STR_VAR
+      item_to_add		= "mh#wiz36"
+    END
+
+    // Destroy Undead
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 2
+      charges1			= 1
+      charges2			= 1
+      STR_VAR
+      item_to_add		= "mh#wiz42"
+    END
+
+    // Isaac's Lesser Missile Storm
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 2
+      charges1			= 1
+      charges2			= 1
+      STR_VAR
+      item_to_add		= "mh#wiz45"
+    END
+
+    // Superheroism
+    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
+      INT_VAR
+      container_to_add_to	= 1
+      charges1			= 1
+      charges2			= 1
+      STR_VAR
+      item_to_add		= "mh#wiz51"
+    END
+END	// place_spell_scrolls_in_bg1
+
+

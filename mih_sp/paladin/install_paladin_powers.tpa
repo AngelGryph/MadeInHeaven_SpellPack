@@ -1,0 +1,15 @@
+DEFINE_ACTION_FUNCTION install_paladin_powers
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "paladin_resources"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "paladin_core"
+    tra		= "paladin_core"
+  END
+END	// install_paladin_powers
+
+
