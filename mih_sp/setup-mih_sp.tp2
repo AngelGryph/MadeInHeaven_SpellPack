@@ -25,9 +25,9 @@ LANGUAGE "English"
 	 "mih_sp/language/english/setup-mih_sp.tra"
 
 
-// Arcane Spell Pack
+// Made in Heaven: Arcane Spells
 
-BEGIN ~Arcane Spell Pack~
+BEGIN ~Made in Heaven: Arcane Spells~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -36,9 +36,9 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Divine Spell Pack
+// Made in Heaven: Divine Spell Pack
 
-BEGIN ~Divine Spell Pack~
+BEGIN ~Made in Heaven: Divine Spells~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -47,9 +47,9 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// New Paladin Powers
+// Made in Heaven: Paladin Powers
 
-BEGIN ~New Paladin Powers~
+BEGIN ~Made in Heaven: Paladin Powers~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -68,28 +68,21 @@ LAUNCH_ACTION_FUNCTION run
   location	= "alaghar"
 END
 
-/*
 
-ACTION_IF GAME_INCLUDES "bg1" && $ini_hash("make_yeslick_alaghar")
-BEGIN
-  LAUNCH_ACTION_FUNCTION mh_run_task
-    STR_VAR
-    task		= "make_yeslick_alaghar"
-  END
-END
+// Spell Improvements
 
-
-// Improved Flame Blade
-
-BEGIN ~Improved Flame Blade~
+BEGIN ~Spell Improvements (see readme)~
 GROUP ~Optional Spell Tweaks~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "improve_flame_blade"
+  file		= "spell_improvements"
+  tra		= "spell_improvements"
+  location	= "tweaks"
 END
 
 
+/*
 // Restore Cure Blindness/Deafness
 
 BEGIN ~Restore Cure Blindness/Deafness~
