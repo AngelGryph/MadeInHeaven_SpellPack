@@ -97,6 +97,41 @@ BEGIN
     END
 
     BUT_ONLY_IF_IT_CHANGES
+
+
+  // Update contingx.2da
+
+  COPY_EXISTING "contingx.2da" "override"
+    COUNT_2DA_COLS col_count
+    COUNT_2DA_ROWS col_count row_count
+
+    PATCH_FOR_EACH spell_name IN "WIZARD_RARYS_MNEMONIC_ENHANCER" "WIZARD_SPELL_MATRIX" "WIZARD_MORDENKAINENS_LUCUBRATION"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION RES_NUM_OF_SPELL_NAME
+        STR_VAR
+        spell_name
+        RET
+        spell_res
+      END
+
+      INNER_PATCH_FILE "%spell_res%.spl"
+      BEGIN
+        READ_LONG 0x0034 spell_level
+      END
+
+      LAUNCH_PATCH_FUNCTION get_table_row_coordinate
+        INT_VAR
+	lookup_column	= spell_level
+	STR_VAR
+	row		= "****"
+	RET
+	rownum
+      END
+
+      SET_2DA_ENTRY rownum spell_level col_count "%spell_res%"
+    END
+
+    PRETTY_PRINT_2DA
 END	// arcane_aftercare
 
 
