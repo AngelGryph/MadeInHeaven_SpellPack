@@ -139,29 +139,12 @@ BEGIN
   END
 
 
-  // mh#wiz42 - Destroy Undead
-
-  CREATE EFF "mh#wz42a"
-    WRITE_LONG	0x0010 12	// HP: Damage
-    WRITE_LONG	0x0020 4194304	// Magic
-    WRITE_SHORT	0x0024 1
-    WRITE_LONG	0x002c 100
-    WRITE_LONG	0x0038 4
-    WRITE_LONG	0x003c 10
-
-  CREATE EFF "mh#wz42b"
-    WRITE_LONG	0x0010 12	// HP: Damage
-    WRITE_LONG	0x0020 4194304	// Magic
-    WRITE_SHORT	0x0024 1
-    WRITE_LONG	0x002c 100
-    WRITE_LONG	0x0038 1
-    WRITE_LONG	0x003c 10
-
+  // mh#wiz42 - Charm Elemental
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz42"
-    idsname	= "WIZARD_DESTROY_UNDEAD"
+    idsname	= "WIZARD_CHARM_ELEMENTAL"
     location	= "spells"
     editstring	= "say_name=>16 say_description=>17"
   END
@@ -285,7 +268,6 @@ BEGIN
   END
 
 
-/*
   // mh#wiz54 - Dismissal
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -293,9 +275,21 @@ BEGIN
     spell	= "mh#wiz54"
     idsname	= "WIZARD_DISMISSAL"
     location	= "spells"
-    editstring	= "say_name=>49 say_description=>0"
+    editstring	= "say_name=>49"
   END
-*/
+
+
+  // mh#wiz55 - Starfire
+
+  ADD_PROJECTILE "%mod_root%/arcane/projectiles/mh#wiz55.pro"
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wiz55"
+    idsname	= "WIZARD_STARFIRE"
+    location	= "spells"
+    editstring	= ~say_name=>52 say_description=>53 patch_ability_inline=>"projectile=>%mh#wiz55%"~
+  END
 
 
   // mh#wiz61 - Mordenkainen's Lucubration
@@ -358,7 +352,6 @@ BEGIN
   END
 
 
-/*
   // mh#wiz73 - Banishment
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -366,9 +359,8 @@ BEGIN
     spell	= "mh#wiz73"
     idsname	= "WIZARD_BANISHMENT"
     location	= "spells"
-    editstring	= "say_name=>50 say_description=>0"
+    editstring	= "say_name=>50"
   END
-*/
 
 
   // mh#wiz81 - Deathbolt

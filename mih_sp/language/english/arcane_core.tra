@@ -94,20 +94,19 @@ Area of Effect: Special
 Saving Throw: None
 
 This secret spell of the Harpers creates a construct known as a "helmed horror" which appears as an animated suit of armor wielding a flaming long sword.  The creature will fight as directed by the caster for the duration of the spell, after which it falls apart into worthless junk.  Because this is a construct created on the spot and not a creature conjured from elsewhere, the iron maiden is not vulnerable to effects that specifically target summoned creatures.~
-@16   = ~Destroy Undead~
-@17   = ~Destroy Undead
-(Necromancy)
+@16   = ~Command Elemental~
+@17   = ~Command Elemental
+(Enchantment/Charm)
 
 Level: 4
 Range: Visual range of the caster
-Duration: Instant
+Duration: 5 rounds
 Casting Time: 4
-Area of Effect: 20' radius
-Saving Throw: Partial
+Area of Effect: 1 elemental
+Saving Throw: Neg.
 
-This necromantic spell disrupts the negative energy that animates undead.  There is a 10% chance this instantly destroys an undead creature unless it saves versus spell.  Surviving undead still take 5d10 points of damage, or 1d10 if they save versus spell.  The spell has no effect on creatures that aren't undead.
-
-This spell was apparently created in a dreadful dark realm overrun by many undead horrors, but the exact details are shrouded in mist...~
+This spell enables the caster to command (or wrest command of) a single elemental creature.  The elemental can attempt a saving throw vs. spell to avoid the effect, but with a -4 penalty to the roll.
+For the duration of the spell the elemental will obey the caster, overriding all other controls.  If the caster or <PRO_HISHER> allies attack the creature, the spell is broken and the elemental immediately becomes hostile.~
 @18   = ~Rary's Mnemonic Enhancer~
 @19   = ~Rary's Mnemonic Enhancer
 (Alteration)
@@ -321,5 +320,19 @@ Area of Effect: 1-4 creatures
 Saving Throw: 1/2
 
 This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  Upon contact, the floating orb shocks the victim for 4d12 points of electrical damage.  The caster gains one orb for every five levels, up to four.  Each orb can be targetted at a different creature.~
+@52   = ~Starfire~
+@53   = ~Starfire
+(Invocation/Evocation)
+
+Level: 5
+Range: 90 yards
+Duration: 3 rounds
+Casting Time: 3
+Area of Effect: 15-foot radius
+Saving Throw: 1/2
+
+Upon casting this spell, the mage causes a rain of golden fire to descend into the area of effect.  The fire deals 5d6 points of damage to anyone caught in the area, with a save versus spell allowed for half damage.
+
+This spell is rumored to have been first developed on the Upper Planes.~
 
 
