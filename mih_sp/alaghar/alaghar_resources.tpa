@@ -2,7 +2,7 @@ DEFINE_ACTION_FUNCTION alaghar_resources
 BEGIN
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
-    file		= "all"
+    file	= "all"
     location	= "bams"
     postfix	= "bam"
   END

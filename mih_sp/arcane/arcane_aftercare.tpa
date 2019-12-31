@@ -94,7 +94,7 @@ BEGIN
   COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
-      array_name		= "mh_immunity_magic_missile_arrays"
+      array_name	= "mh_immunity_magic_missile_arrays"
     END
 
     BUT_ONLY_IF_IT_CHANGES

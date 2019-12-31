@@ -39,9 +39,10 @@ DEFINE_ACTION_FUNCTION edit_store
            external_file=""
     BEGIN
          LAUNCH_ACTION_FUNCTION edit_template
+	          INT_VAR allow_missing tv 
                   STR_VAR file_list=~%store%~
                           file_ext=~STO~
-                          edits editstring allow_missing tv external_file
+                          edits editstring external_file
 
          END
 END
@@ -53,6 +54,9 @@ END
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 DEFINE_ACTION_FUNCTION install_store
+    INT_VAR
+           allow_missing=0
+	   tv=0
     STR_VAR
            store=""
            edits=""
@@ -62,9 +66,10 @@ DEFINE_ACTION_FUNCTION install_store
            locbase=""
     BEGIN
          LAUNCH_ACTION_FUNCTION install_template
+	          INT_VAR allow_missing tv
                   STR_VAR file_list= ~%store%~
                           file_ext=~STO~
-                          edits editstring allow_missing tv external_file location locbase 
+                          edits editstring external_file location locbase 
 
          END
 END

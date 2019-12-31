@@ -1,32 +1,42 @@
 DEFINE_ACTION_FUNCTION place_spell_scrolls_in_bg1
 BEGIN
   // High Hedge (Thalantyr)
+  //
+  // mh#wiz21 - Spark Shower
+  // mh#wiz22 - Seeking
+  // mh#wiz32 - Heroism
+  // mh#wiz33 - Blink
 
-  COPY_EXISTING "highhedg.sto" "override"
-    // Spark Shower
-    ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
+  END
 
-    // Seeking
-    ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2
-
-    // Heroism
-    ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1
-
-    // Blink
-    ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "highhedg"
+    edits	= "patch_data"
+  END
 
 
   // Firewine Ruins
+  //
+  // mh#wiz35 - Minor Malison (on Lendar)
 
-  COPY_EXISTING "lendar.cre" "override"
-    // Minor Malison
-    ADD_CRE_ITEM "mh#wiz35" #1 #1 #0 "none" "qitem"
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "lendar"
+    editstring	= ~add_items=>"mhwiz35(qitem,x1.1)"~
+  END
 
 
   // Ulcaster Ruins
+  //
+  // mh#wiz35 - Minor Malison
 
   COPY_EXISTING "%UlcasterRuins%.are" "override"
-    // Minor Malison
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 7
@@ -38,31 +48,35 @@ BEGIN
 
 
   // Sorcerous Sundries
+  //
+  // mh#wiz21 - Spark Shower
+  // mh#wiz22 - Seeking
+  // mh#wiz32 - Heroism
+  // mh#wiz33 - Blink
+  // mh#wiz43 - Rary's Mnemonic Enhancer
+  // mh#wiz44 - Evard's Black Tentacles
 
-  COPY_EXISTING "sto0703.sto" "override"
-    // Spark Shower
-    ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
+    literal'6=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
+  END
 
-    // Seeking
-    ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2
-
-    // Heroism
-    ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2
-
-    // Blink
-    ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2
-
-    // Rary's Mnemonic Enhancer
-    ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2
-
-    // Evard's Black Tentacles
-    ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "sto0703"
+    edits	= "patch_data"
+  END
 
 
   // Ramazith's Tower
+  //
+  // mh#wiz53 - Ramazith's Slime Summons
 
   COPY_EXISTING "%NBaldursGate_RamazithsTower_L6%.are" "override"
-    // Ramazith's Slime Summons
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 9
@@ -74,9 +88,14 @@ BEGIN
 
 
   // Candlekeep
+  //
+  // mh#wiz36 - Ball Lightning
+  // mh#wiz41 - Iron Maiden
+  // mh#wiz42 - Control Elemental
+  // mh#wiz45 - Isaac's Lesser Missile Storm
+  // mh#wiz51 - Superheroism
 
   COPY_EXISTING "%Candlekeep_Library_L5%.are" "override"
-    // Iron Maiden
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 6
@@ -88,7 +107,6 @@ BEGIN
 
 
   COPY_EXISTING "%Candlekeep_Catacombs_L1Antechamber%.are" "override"
-    // Ball Lightning
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 3
@@ -98,7 +116,6 @@ BEGIN
       item_to_add		= "mh#wiz36"
     END
 
-    // Destroy Undead
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 2
@@ -108,7 +125,6 @@ BEGIN
       item_to_add		= "mh#wiz42"
     END
 
-    // Isaac's Lesser Missile Storm
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 2
@@ -118,7 +134,6 @@ BEGIN
       item_to_add		= "mh#wiz45"
     END
 
-    // Superheroism
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 1

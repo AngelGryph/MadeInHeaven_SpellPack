@@ -12,12 +12,11 @@ DEFINE_ACTION_FUNCTION clone_item
            editstring=""
     BEGIN
          LAUNCH_ACTION_FUNCTION clone_template
+	          INT_VAR allow_missing
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
                           edits
                           editstring
-                          allow_missing
-
          END
 END
 
@@ -42,10 +41,10 @@ DEFINE_ACTION_FUNCTION edit_item
            locabs=""
     BEGIN
          LAUNCH_ACTION_FUNCTION edit_template
+	          INT_VAR allow_missing silent tv
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
-                          edits editstring allow_missing
-                          tv silent location locbase locabs
+                          edits editstring location locbase locabs
 
          END
 END
@@ -67,10 +66,10 @@ DEFINE_ACTION_FUNCTION install_item
            locbase=""
     BEGIN
          LAUNCH_ACTION_FUNCTION install_template
+	          INT_VAR allow_missing tv
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
-                          edits editstring allow_missing
-                          tv silent location locbase
+                          edits editstring silent location locbase
 
          END
 END
@@ -607,7 +606,6 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_description") ""
 DEFINE_PATCH_FUNCTION ITM_set_unidentified_description
    STR_VAR arguments=""
 BEGIN
-   SAY 0x50 (AT "%arguments%")
    LPF patch_text_entry STR_VAR function=set_string loc=0x50 arguments END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_unidentified_description") ""

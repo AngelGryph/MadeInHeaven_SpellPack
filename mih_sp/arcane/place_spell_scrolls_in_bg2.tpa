@@ -1,24 +1,26 @@
 DEFINE_ACTION_FUNCTION place_spell_scrolls_in_bg2
 BEGIN
   // Chateau Irenicus
+  //
+  // mh#wiz21 - Spark Shower
+  // mh#wiz32 - Heroism
+  // mh#wiz35 - Minor Malison
 
   COPY_EXISTING "ar0602.are" "override"
-    // Spark Shower
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 9
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz21"
     END
 
-    // Heroism
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 14
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz32"
     END
@@ -27,193 +29,231 @@ BEGIN
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 37
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz35"
     END
 
 
   // Waukeen's Promenade / Adventurer's Market
+  //
+  // mh#wiz21 - Spark Shower
+  // mh#wiz22 - Seeking
+  // mh#wiz32 - Heroism
+  // mh#wiz33 - Blink
+  // mh#wiz35 - Minor Malison
+  // mh#wiz43 - Rary's Mnemonic Enhancer
+  // mh#wiz44 - Evard's Black Tentacles
+  // mh#wiz45 - Isaac's Lesser Missile Storm
+  // mh#wiz52 - Spell Matrix
+  //
+  // mh#wiz81 - Deathbolt
+  // mh#wiz82 - Major Globe of Invulnerability
+  // mh#wiz83 - Polar Ray
 
-  COPY_EXISTING "scrolls.sto" "override"
-    // Spark Shower
-    ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #4~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz33" AFTER "scrl1t" #1 #1 #0 "identified" #4~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #4~
+    literal'6=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3~
+    literal'7=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3~
+    literal'8=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl1y" #1 #1 #0 "identified" #2~
+    literal'9=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1~
+  END
 
-    // Seeking
-    ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "scrolls"
+    edits	= "patch_data"
+  END
 
-    // Heroism
-    ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #4
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz81" AFTER "scrl9v" #1 #1 #0 "identified" #1~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #1 #0 "identified" #1~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9a" #1 #1 #0 "identified" #1~
+  END
 
-    // Blink
-    ADD_STORE_ITEM "mh#wiz33" AFTER "scrl1t" #1 #1 #0 "identified" #4
-
-    // Minor Malison
-    ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #4
-
-    // Rary's Mnemonic Enhancer
-    ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3
-
-    // Evard's Black Tentacles
-    ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3
-
-    // Isaac's Lesser Missile Storm
-    ADD_STORE_ITEM "mh#wiz45" AFTER "scrl1y" #1 #1 #0 "identified" #2
-
-    // Spell Matrix
-    ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1
-
-
-  COPY_EXISTING "ribald3.sto" "override"
-    // Deathbolt
-    ADD_STORE_ITEM "mh#wiz81" AFTER "scrl9v" #1 #1 #0 "identified" #1
-
-    // Major Globe of Invulnerability
-    ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #1 #0 "identified" #1
-
-    // Polar Ray
-    ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9a" #1 #1 #0 "identified" #1
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "ribald3"
+    edits	= "patch_data"
+  END
 
 
   // Docks District / Harper Hold
+  //
+  // mh#wiz41 - Iron Maiden
 
-  COPY_EXISTING "jaga1.cre" "override"
-    // Iron Maiden
-    ADD_CRE_ITEM "mh#wiz41" #1 #1 #0 "none" "inv"
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "jaga1"
+    editstring	= ~add_items=>"mhwiz41(qitem,x1.1)"~
+  END
 
 
   // Trademeet
+  //
+  // mh#wiz52 - Spell Matrix
+  // mh#wiz61 - Mordenkainen's Lucubration
+  // mh#wiz62 - Isaac's Greater Missile Storm
 
-  COPY_EXISTING "trthf02.sto" "override"
-    // Spell Matrix
-    ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #3
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #3~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7t" #1 #1 #0 "identified" #1~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7u" #1 #1 #0 "identified" #1~
+  END
+    
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "trthf02"
+    edits	= "patch_data"
+  END
 
-    // Mordenkainen's Lucubration
-    ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7t" #1 #1 #0 "identified" #1
-    
-    // Isaac's Greater Missile Storm
-    ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7u" #1 #1 #0 "identified" #1
-    
 
   // Planar Sphere
+  //
+  // mh#wiz34 - Otiluke's Gas Cloud
+  // mh#wiz36 - Ball Lightning
+  // mh#wiz42 - Control Elemental
+  // mh#wiz61 - Mordenkainen's Lucubration
 
   COPY_EXISTING "ar0410.are" "override"
-    // Mordenkainen's Lucubration
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 1
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz61"
     END
 
-
   COPY_EXISTING "ar0411.are" "override"
-    // Otiluke's Gas Cloud
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 8
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz34"
     END
 
-    // Ball Lightning
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 2
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz36"
     END
 
-    // Destroy Undead
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 4
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz42"
     END
 
 
   // Spellhold
+  //
+  // mh#wiz31 - Improved Magic Missile
+  // mh#wiz53 - Ramazith's Slime Summons
 
   COPY_EXISTING "ar1515.are" "override"
-    // Improved Magic Missile
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 5
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz31"
     END
 
-    // Ramazith's Slime Summons
     LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
       INT_VAR
       container_to_add_to	= 5
-      charges1		= 1
-      charges2		= 1
+      charges1			= 1
+      charges2			= 1
       STR_VAR
       item_to_add		= "mh#wiz53"
     END
 
 
   // Underdark
+  //
+  // mh#wiz51 - Superheroism
+  // mh#wiz61 - Mordenkainen's Lucubration
+  // mh#wiz62 - Isaac's Greater Missile Storm
+  // mh#wiz83 - Polar Ray
 
-  COPY_EXISTING "uddrow25.sto" "override"
-    // Superheroism
-    ADD_STORE_ITEM "mh#wiz51" AFTER "scrl6s" #1 #1 #0 "identified" #1
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz51" AFTER "scrl6s" #1 #1 #0 "identified" #1~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7s" #1 #1 #0 "identified" #1~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz83" AFTER "scrl8w" #1 #1 #0 "identified" #1~
+  END
 
-    // Mordenkainen's Lucubration
-    ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7s" #1 #1 #0 "identified" #1
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "uddrow25"
+    edits	= "patch_data"
+  END
 
-    // Polar Ray
-    ADD_STORE_ITEM "mh#wiz83" AFTER "scrl8w" #1 #1 #0 "identified" #1
-
-
-  COPY_EXISTING "udduer01.sto" "override"
-    // Mordenkainen's Lucubration
-    ADD_STORE_ITEM "mh#wiz61" AFTER "scrl8w" #1 #1 #0 "identified" #1
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrl8w" #1 #1 #0 "identified" #1~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7q" #1 #1 #0 "identified" #2~
+  END
     
-    // Isaac's Greater Missile Storm
-    ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7q" #1 #1 #0 "identified" #2
-    
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "udduer01"
+    edits	= "patch_data"
+  END
 
-  COPY_EXISTING "udduer02.sto" "override"
-    // Mordenkainen's Lucubration
-    ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7f" #1 #1 #0 "identified" #3
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7f" #1 #1 #0 "identified" #3~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7h" #1 #1 #0 "identified" #2~
+  END
     
-    // Isaac's Greater Missile Storm
-    ADD_STORE_ITEM "mh#wiz62" AFTER "scrl7h" #1 #1 #0 "identified" #2
-    
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "udduer02"
+    edits	= "patch_data"
+  END
+
 
   // Suldanessenar
+  //
+  // mh#wiz22 - Seeking
+  // mh#wiz32 - Heroism
+  // mh#wiz51 - Superheroism
+  // mh#wiz71 - Faerie Sword
 
-  COPY_EXISTING "suelf10.sto" "override"
-    // Seeking
-    ADD_STORE_ITEM "mh#wiz22" AFTER "scrl94" #1 #1 #0 "identified" #3
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl94" #1 #1 #0 "identified" #3~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #3~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #1 #0 "identified" #3~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz71" AFTER "scrl2h" #1 #1 #0 "identified" #1~
+  END
 
-    // Heroism
-    ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #3
-
-    // Superheroism
-    ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #1 #0 "identified" #3
-
-    // Faerie Sword
-    ADD_STORE_ITEM "mh#wiz71" AFTER "scrl2h" #1 #1 #0 "identified" #1
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "suelf10"
+    edits	= "patch_data"
+  END
 
 
   // Limited Wish
+  //
+  // mh#wiz72 - Stygian Ice Storm
+  // mh#wiz84 - Mechanus' Cannon
+  // mh#wiz91 - Rune of Torment
 
-  COMPILE "%mod_root%/arcane/dialog/limited_wish.d" USING "%scs_tra_loc%/%LANGUAGE%/limited_wish.tra"
+  COMPILE "%mod_root%/%component_loc%/dialog/limited_wish.d" USING "%scs_tra_loc%/%LANGUAGE%/limited_wish.tra"
 END	// place_spell_scrolls_in_bg2
 
 
