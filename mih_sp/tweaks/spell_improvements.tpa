@@ -1,5 +1,16 @@
 DEFINE_ACTION_FUNCTION spell_improvements
 BEGIN
+  // ==========
+  // Shillelagh
+  // ==========
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "shille"
+    editstring	= "magical=>1 enchantment=>1"
+  END
+
+
   // ===========
   // Flame Blade
   // ===========
@@ -8,12 +19,11 @@ BEGIN
   BEGIN
     MAKE_PATCH
       magical=>1
-      enchantment=>2
+      enchantment=>5
       silver=>1
       cold_iron=>1
-      strength_bonus=>0
       add_effect_global_inline=>~opcode=>233 target=>1 timing=>2 parameter1=>1 parameter2=>0x5f~
-      patch_ability_inline=>~to_hit=>4 ability_dicesize=>0 ability_numdice=>0 damage_bonus=>0 damage_type=>0~
+      patch_ability_inline=>~to_hit=>4 ability_dicesize=>0 ability_numdice=>0 damage_bonus=>0 damage_type=>0 strength_bonus=>0~
       patch_effect_inline=>~match=>opcode=12 parameter1=>%i% dicenum=>1 dicesize=>8~
     END
 
@@ -26,7 +36,7 @@ BEGIN
 
   MAKE_PATCH
     patch_effect_inline'1=>~match=>"opcode=111 and ability_min_level<20" resource=>"ability_min_level from [mh#flm1 mh#flm1 mh#flm1 mh#flm2 mh#flm2 mh#flm3 mh#flm3 mh#flm4 mh#flm4 mh#flm5 mh#flm5 mh#flm6 mh#flm6 mh#flm7 mh#flm7 mh#flm8 mh#flm8 mh#flm9 mh#flm9]"~
-    patch_effect_inline'2=>~match=>"opcode=111 and ability_true_level>19" resource=>"mh#flm10"~
+    patch_effect_inline'2=>~match=>"opcode=111 and ability_min_level>19" resource=>"mh#flm10"~
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell

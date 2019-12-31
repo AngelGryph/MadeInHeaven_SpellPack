@@ -1,0 +1,55 @@
+DEFINE_ACTION_FUNCTION cleric_druid_spell_restrictions
+BEGIN
+  // Druid-only spells
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "sppr110 sppr202 sppr206 sppr306 sppr407"
+    editstring	= "unusable_cleric=>1 unusable_druid=>0"
+  END
+
+
+  // Cleric-only spells
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "sppr113 sppr210 sppr413"
+    editstring	= "unusable_cleric=>0 unusable_druid=>1"
+  END
+
+
+  // General priest spells
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "sppr307"
+    editstring	= "unusable_cleric=>0 unusable_druid=>0"
+  END
+
+
+  // Forget forbidden spells
+
+  COPY_EXISTING_REGEXP ".+\.cre" "override"
+    READ_BYTE 0x0273 class
+
+    PATCH_IF class == IDS_OF_SYMBOL("class" "cleric")
+          OR class == IDS_OF_SYMBOL("class" "fighter_cleric")
+          OR class == IDS_OF_SYMBOL("class" "cleric_mage")
+          OR class == IDS_OF_SYMBOL("class" "cleric_thief")
+          OR class == IDS_OF_SYMBOL("class" "fighter_mage_cleric")
+          OR class == IDS_OF_SYMBOL("class" "paladin")
+    BEGIN
+      REMOVE_KNOWN_SPELL 	"sppr110" "sppr206" "sppr306" "sppr407"
+    END
+
+    PATCH_IF class == IDS_OF_SYMBOL("class" "druid")
+          OR class == IDS_OF_SYMBOL("class" "fighter_druid")
+          OR class == IDS_OF_SYMBOL("class" "ranger")
+    BEGIN
+      REMOVE_KNOWN_SPELL 	"sppr113" "sppr210" "sppr413"
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// correct_cleric_druid_use
+
+
