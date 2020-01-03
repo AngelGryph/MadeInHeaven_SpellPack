@@ -57,17 +57,6 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Alaghar of Clangeddin Kit
-
-BEGIN ~Alaghar of Clangeddin Kit~
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "install_alaghar_kit"
-  location	= "alaghar"
-END
-
-
 // Restore Cure Blindness & Deafness
 
 BEGIN ~Restore Cure Blindness/Deafness~
