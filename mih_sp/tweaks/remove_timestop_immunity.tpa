@@ -1,14 +1,19 @@
-// Remove all Timestop immunity
-
-COPY_EXISTING "finmel01.itm" "override"
-              "demogorg.itm" "override"
-	      "balth02.spl" "override"
-	      "dragblue.cre" "override"
-  LAUNCH_PATCH_FUNCTION DELETE_EFFECT
-    INT_VAR
-    match_opcode	= 310	// Protection: from Time Stop
+DEFINE_ACTION_FUNCTION remove_timestop_immunity
+BEGIN
+  LAUNCH_ACTION_FUNCTION edit_all_items
+    STR_VAR
+    editstring	=~delete_opcodes=>"310"~
   END
-  
-  BUT_ONLY_IF_IT_CHANGES
+
+  LAUNCH_ACTION_FUNCTION edit_all_spells
+    STR_VAR
+    editstring	=~delete_opcodes=>"310"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_all_creatures
+    STR_VAR
+    editstring	=~delete_opcodes=>"310"~
+  END
+END	// remove_timestop_immunity
 
 

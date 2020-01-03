@@ -1,0 +1,21 @@
+DEFINE_ACTION_FUNCTION thalantyr_the_conjurer
+BEGIN
+  MAKE_PATCH
+    remove_items=>"scrl75 scrl76 scrl87"
+    literal'1=>~ADD_STORE_ITEM "scrl95" AFTER "scrl94" #1 #0 #0 "identified" #3~
+    literal'2=>~ADD_STORE_ITEM "scrla3" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3~
+    literal'3=>~ADD_STORE_ITEM "scrl6e" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3~
+    literal'4=>~ADD_STORE_ITEM "scrl1l" AFTER "scrl1i" #1 #0 #0 "identified" #3~
+    literal'5=>~ADD_STORE_ITEM "scrl1t" AFTER "scrl1q" #1 #0 #0 "identified" #3~
+    literal'6=>~ADD_STORE_ITEM "scrl2a" BEFORE "wand08" #1 #0 #0 "identified" #1~
+    literal'7=>~ADD_STORE_ITEM "scrl6r" BEFORE "wand08" #1 #0 #0 "identified" #1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store		= "highhedg"
+    edits		= "patch_data"
+  END
+END	// thalantyr_the_conjurer
+
+

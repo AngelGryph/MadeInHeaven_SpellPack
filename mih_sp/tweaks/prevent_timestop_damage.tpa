@@ -1,42 +1,37 @@
-// Prevent damage during Timestop
-
-COPY_EXISTING "spwi909.spl" "override"
-              "spwish17.spl" "override"
-  PATCH_FOR_EACH opcode IN 33 34 35 36 37
-  BEGIN
-    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
-      INT_VAR
-      opcode
-      duration		= 18
-      target		= 8	// All except caster
-      power		= 9
-      parameter1	= 20
-    END
+DEFINE_ACTION_FUNCTION prevent_timestop_damage
+BEGIN
+  MAKE_PATCH
+    clone_effect_inline'01=>~match=>"opcode=231" opcode=>33 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
+    clone_effect_inline'02=>~match=>"opcode=231" opcode=>34 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
+    clone_effect_inline'03=>~match=>"opcode=231" opcode=>35 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
+    clone_effect_inline'04=>~match=>"opcode=231" opcode=>36 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
+    clone_effect_inline'05=>~match=>"opcode=231" opcode=>37 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
+    clone_effect_inline'06=>~match=>"opcode=231" opcode=>27 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'07=>~match=>"opcode=231" opcode=>27 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'08=>~match=>"opcode=231" opcode=>28 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'09=>~match=>"opcode=231" opcode=>29 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'10=>~match=>"opcode=231" opcode=>30 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'11=>~match=>"opcode=231" opcode=>31 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'12=>~match=>"opcode=231" opcode=>84 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'13=>~match=>"opcode=231" opcode=>85 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'14=>~match=>"opcode=231" opcode=>86 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'15=>~match=>"opcode=231" opcode=>87 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'16=>~match=>"opcode=231" opcode=>88 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'17=>~match=>"opcode=231" opcode=>89 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'18=>~match=>"opcode=231" opcode=>166 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'19=>~match=>"opcode=231" opcode=>173 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
+    clone_effect_inline'20=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>13~
+    clone_effect_inline'21=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>55~
+    clone_effect_inline'22=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>134~
+    clone_effect_inline'23=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>209~
+    clone_effect_inline'24=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>238~
   END
 
-  PATCH_FOR_EACH opcode IN 27 28 29 30 31 84 85 86 87 88 89 166 173
-  BEGIN
-    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
-      INT_VAR
-      opcode
-      duration		= 18
-      target		= 8	// All except caster
-      power		= 9
-      parameter1	= 100
-      parameter2	= 1
-    END
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell		= "spwi909 spwish17"
+    edits		= "patch_data"
   END
-
-  PATCH_FOR_EACH parameter2 IN 13 55 134 209 238
-  BEGIN
-    LAUNCH_PATCH_FUNCTION ADD_SPELL_EFFECT
-      INT_VAR
-      opcode		= 101	// Protection: from Opcode
-      duration		= 18
-      target		= 8	// All except caster
-      power		= 9
-      parameter2
-    END
-  END
+END	// prevent_timestop_damage
 
 

@@ -1,0 +1,60 @@
+DEFINE_ACTION_FUNCTION temples_sell_scrolls
+BEGIN
+  // Add scrolls of Cure Light Wounds and Slow Poison
+
+  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+    STR_VAR
+    resref	= "sppr103"
+    scrollname	= "mh#prclw"
+  END
+
+  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+    STR_VAR
+    resref	= "sppr212"
+    scrollname	= "mh#prslp"
+  END
+
+
+  // Edit BG1 temples
+
+  ACTION_IF GAME_INCLUDES "bg1"
+  BEGIN
+    MAKE_PATCH
+      literal'1=>~ADD_STORE_ITEM + "mh#prclw" BEFORE "scrlpet" #1 #0 #0 "identified" #5~
+      literal'2=>~ADD_STORE_ITEM + "mh#prslp" BEFORE "scrlpet" #1 #0 #0 "identified" #5~
+      literal'3=>~ADD_STORE_ITEM + "scrl56" BEFORE "scrlpet" #1 #0 #0 "identified" #2~
+      literal'4=>~ADD_STORE_ITEM + "scrl58" BEFORE "scrlpet" #1 #0 #0 "identified" #2~
+      literal'5=>~ADD_STORE_ITEM + "scrl59" BEFORE "scrlpet" #1 #0 #0 "identified" #2~
+      literal'6=>~ADD_STORE_ITEM + "restore" BEFORE "scrlpet" #1 #0 #0 "identified" #1~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "tem0002 tem0131 tem0132 tem2304 tem2601 tem3402 tem4003 tem4802"
+      edits	= "patch_data"
+    END
+  END
+
+
+  // Edit BG2/ToB temples
+
+  ACTION_IF GAME_INCLUDES "tob"
+  BEGIN
+    MAKE_PATCH
+      literal'1=>~ADD_STORE_ITEM + "mh#prclw" BEFORE "scrlpet restore" #1 #0 #0 "identified" #10~
+      literal'2=>~ADD_STORE_ITEM + "mh#prslp" BEFORE "scrlpet restore" #1 #0 #0 "identified" #10~
+      literal'3=>~ADD_STORE_ITEM + "scrl56" BEFORE "scrlpet restore" #1 #0 #0 "identified" #5~
+      literal'4=>~ADD_STORE_ITEM + "scrl58" BEFORE "scrlpet restore" #1 #0 #0 "identified" #5~
+      literal'5=>~ADD_STORE_ITEM + "scrl59" BEFORE "scrlpet restore" #1 #0 #0 "identified" #5~
+      literal'6=>~ADD_STORE_ITEM + "scrl61" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_store
+      STR_VAR
+      store	= "amcler02 bhelm dawnmas doghma garlena govwau01 helmpr kpchap01 ppumb01 sahpr1 sartem01 suelf10 talmiss temhelm temlath temple temsup temtalos wilmat"
+      edits	= "patch_data"
+    END
+  END
+END	// temples_sell_scrolls
+
+

@@ -7,7 +7,6 @@ BACKUP "weidu_external/backup/mih_sp"
 AUTHOR "angel@pearlgates.net"
 VERSION v2
 
-//MODDER missing_eval none
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
@@ -72,7 +71,7 @@ END
 // Restore Cure Blindness & Deafness
 
 BEGIN ~Restore Cure Blindness/Deafness~
-GROUP ~Optional Spell Tweaks~
+GROUP ~Spell Effect Tweaks~
 
 FORBID_FILE "sppr316.spl" ~Some other mod already provides or supercedes this component.~
 
@@ -87,7 +86,7 @@ END
 // P&P Cleric/Druid Spell Restrictions
 
 BEGIN ~P&P Cleric/Druid Spell Restrictions~
-GROUP ~Optional Spell Tweaks~
+GROUP ~Spell Effect Tweaks~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -96,10 +95,10 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Spell Improvements
+// Level 4 Animate Dead
 
 BEGIN ~Level 4 Animate Dead (for wizards)~
-GROUP ~Optional Spell Tweaks~
+GROUP ~Spell Effect Tweaks~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -108,10 +107,51 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Protection from Evil blocks Domination
+
+BEGIN ~Protection from Evil blocks Domination~
+GROUP ~Spell Effect Tweaks~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "pfe_blocks_domination"
+  tra		= "pfe_blocks_domination"
+  location	= "tweaks"
+END
+
+
+// Prevent damage during Timestop
+
+BEGIN ~Prevent damage during Timestop~
+GROUP ~Spell Effect Tweaks~
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "prevent_timestop_damage"
+  location	= "tweaks"
+END
+
+
+// Remove all Timestop immunity
+
+BEGIN ~Remove all Timestop immunity~
+GROUP ~Spell Effect Tweaks~
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "remove_timestop_immunity"
+  location	= "tweaks"
+END
+
+
 // Spell Improvements
 
 BEGIN ~Spell Improvements (see readme)~
-GROUP ~Optional Spell Tweaks~
+GROUP ~Spell Effect Tweaks~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -121,42 +161,29 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-/*
-// Correct Cleric/Druid Spell Use
+// Temples sell Priest Scrolls
 
-BEGIN ~Correct Cleric/Druid Spell Use~
-GROUP ~Optional Spell Tweaks~
+BEGIN ~Temples sell Priest Scrolls~
+GROUP ~Spell Availability Tweaks~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "correct_cleric_druid_use"
+  file		= "temples_sell_scrolls"
+  location	= "tweaks"
 END
 
 
-// Prevent damage during Timestop
+// Thalantyr the *Conjurer*
 
-BEGIN ~Prevent damage during Timestop~
-GROUP ~Optional Spell Tweaks~
+BEGIN ~Thalantyr the *Conjurer*~
+GROUP ~Spell Availability Tweaks~
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" ~This component is not applicable to your game.~
 
-LAUNCH_ACTION_FUNCTION mh_run_task
+LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  task		= "prevent_timestop_damage"
+  file		= "thalantyr_the_conjurer"
+  location	= "tweaks"
 END
-
-
-// Remove all Timestop immunity
-
-BEGIN ~Remove all Timestop immunity~
-GROUP ~Optional Spell Tweaks~
-
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
-
-LAUNCH_ACTION_FUNCTION mh_run_task
-  STR_VAR
-  task		= "remove_timestop_immunity"
-END
-*/
 
 

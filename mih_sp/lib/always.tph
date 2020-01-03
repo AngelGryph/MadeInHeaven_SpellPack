@@ -19,6 +19,11 @@ END
 
 ACTION_IF NOT VARIABLE_IS_SET initialise  
 BEGIN
+  // Seed random number generator
+
+  RANDOM_SEED "null"
+
+
   // Set variables
 
   OUTER_SET initialise = 1
