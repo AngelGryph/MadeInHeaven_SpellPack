@@ -1492,6 +1492,9 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("CRE_immunity_to_icon") ""
 DEFINE_PATCH_FUNCTION CRE_enforce_saves
        STR_VAR arguments=""
 BEGIN
+       INNER_ACTION BEGIN
+         LAM read_in_saving_throws
+       END
        // initialise the enforced values
        PATCH_FOR_EACH save IN death wand polymorph breath spell BEGIN
           SET  ~enforced_%save%~ = 20

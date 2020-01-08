@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION install_divine_spells
+DEFINE_ACTION_FUNCTION setup_divine_spells
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
@@ -8,8 +8,8 @@ BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
     file	= "summoned_monsters"
-    locbase	= "shared"
     tra		= "summoned_monsters"
+    locbase	= "shared"
   END
  
   LAUNCH_ACTION_FUNCTION run
@@ -22,6 +22,6 @@ BEGIN
     STR_VAR
     file	= "divine_aftercare"
   END
-END	// install_divine_spells
+END	// setup_divine_spells
 
 

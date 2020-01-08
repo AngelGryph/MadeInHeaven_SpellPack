@@ -30,7 +30,7 @@ BEGIN ~Made in Heaven: Arcane Spells~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "install_arcane_spells"
+  file		= "setup_arcane_spells"
   location	= "arcane"
 END
 
@@ -41,7 +41,7 @@ BEGIN ~Made in Heaven: Divine Spells~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "install_divine_spells"
+  file		= "setup_divine_spells"
   location	= "divine"
 END
 
@@ -52,7 +52,7 @@ BEGIN ~Made in Heaven: Paladin Powers~
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "install_paladin_powers"
+  file		= "setup_paladin_powers"
   location	= "paladin"
 END
 

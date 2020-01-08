@@ -253,7 +253,7 @@ BEGIN
   // mh#wiz84 - Mechanus' Cannon
   // mh#wiz91 - Rune of Torment
 
-  COMPILE "%mod_root%/%component_loc%/dialog/limited_wish.d" USING "%scs_tra_loc%/%LANGUAGE%/limited_wish.tra"
+  COMPILE "%mod_root%/%component_loc%/dialog/limited_wish.d"
 END	// place_spell_scrolls_in_bg2
 
 

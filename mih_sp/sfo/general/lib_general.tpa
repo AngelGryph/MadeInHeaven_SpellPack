@@ -276,7 +276,7 @@ BEGIN
         OUTER_SPRINT file_loc ~%workspace%\ssl_out~
        END ELSE BEGIN
            ACTION_IF ~%inline%~ STRING_EQUAL_CASE yes BEGIN
-               OUTER_SPRINT file_loc ~.../stratagems-inline~
+               OUTER_SPRINT file_loc ~.../%mod_root%-inline~
            END ELSE BEGIN
                LAF get_directory STR_VAR location locbase locabs RET file_loc=directory END
            END

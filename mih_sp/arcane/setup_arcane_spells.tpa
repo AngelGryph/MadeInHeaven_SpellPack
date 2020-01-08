@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION install_arcane_spells
+DEFINE_ACTION_FUNCTION setup_arcane_spells
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
@@ -44,6 +44,7 @@ BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "place_spell_scrolls_in_bg2"
+      tra	= "place_spell_scrolls_in_bg2"
     END
   END
 
@@ -54,6 +55,6 @@ BEGIN
       file	= "place_spell_scrolls_in_tob"
     END
   END
-END	// install_arcane_spells
+END	// setup_arcane_spells
 
 

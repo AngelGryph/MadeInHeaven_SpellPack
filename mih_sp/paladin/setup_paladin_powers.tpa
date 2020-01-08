@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION install_paladin_powers
+DEFINE_ACTION_FUNCTION setup_paladin_powers
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
@@ -10,6 +10,6 @@ BEGIN
     file	= "paladin_core"
     tra		= "paladin_core"
   END
-END	// install_paladin_powers
+END	// setup_paladin_powers
 
 
