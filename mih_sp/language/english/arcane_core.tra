@@ -94,8 +94,8 @@ Area of Effect: Special
 Saving Throw: None
 
 This secret spell of the Harpers creates a construct known as a "helmed horror" which appears as an animated suit of armor wielding a flaming long sword.  The creature will fight as directed by the caster for the duration of the spell, after which it falls apart into worthless junk.  Because this is a construct created on the spot and not a creature conjured from elsewhere, the iron maiden is not vulnerable to effects that specifically target summoned creatures.~
-@16   = ~Command Elemental~
-@17   = ~Command Elemental
+@16   = ~Command Elementals~
+@17   = ~Command Elementals
 (Enchantment/Charm)
 
 Level: 4
@@ -319,7 +319,11 @@ Casting Time: 3
 Area of Effect: 1-4 creatures
 Saving Throw: 1/2
 
-This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  Upon contact, the floating orb shocks the victim for 4d12 points of electrical damage.  The caster gains one orb for every five levels, up to four.  Each orb can be targetted at a different creature.~
+This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20, but when more orbs are created, the damage per orb is slightly less.  Each orb can be targetted at a different creature.  Upon contact with the target, it takes electrical damage as follows:
+  1 orb: 4d12
+  2 orbs: 4d10 per orb (total 8d10)
+  3 orbs: 4d8 per orb (total 12d8)
+  4 orbs: 5d6 per orb (total 20d6)~
 @52   = ~Starfire~
 @53   = ~Starfire
 (Invocation/Evocation)

@@ -16,7 +16,7 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION make_effect
       STR_VAR
-      effect		= "mh#m%i%"
+      effect		= "mh#m%i%d6"
       editstring	= "opcode=>12 target=>2 timing=>1 parameter2=>4194304 dicenum=>%i% dicesize=>6"
     END
   END

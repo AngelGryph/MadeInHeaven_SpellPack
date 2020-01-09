@@ -72,7 +72,7 @@ BEGIN
 
   // mh#wiz34 - Otiluke's Acid Cloud
 
-  ADD_PROJECTILE "%mod_root%/arcane/projectiles/mh#wiz34.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#wiz34.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -96,14 +96,14 @@ BEGIN
 
   // mh#wiz36 - Ball Lightning
 
-  ADD_PROJECTILE "%mod_root%/arcane/projectiles/mh#wiz36.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#blght.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz36"
     idsname	= "WIZARD_BALL_LIGHTNING"
     location	= "spells"
-    editstring	= ~say_name=>44 say_description=>51 patch_ability_inline=>"projectile=>%mh#wiz36%"~
+    editstring	= ~say_name=>44 say_description=>51 patch_ability_inline=>"projectile=>%mh#blght%"~
   END
 
 
@@ -139,12 +139,12 @@ BEGIN
   END
 
 
-  // mh#wiz42 - Charm Elemental
+  // mh#wiz42 - Command Elementals
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz42"
-    idsname	= "WIZARD_CHARM_ELEMENTAL"
+    idsname	= "WIZARD_COMMAND_ELEMENTALS"
     location	= "spells"
     editstring	= "say_name=>16 say_description=>17"
   END
@@ -204,56 +204,44 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
-    idsname	= "WIZARD_SPELL_MATRIX"
     spell	= "mh#wiz52"
+    idsname	= "WIZARD_SPELL_MATRIX"
     location	= "spells"
     editstring	= "say_name=>26 say_description=>27"
     RET
-    newname
+    spell_matrix	= newname
   END
 
   MAKE_PATCH
-    say_name=>26
-    patch_effect_inline'1=>~match=>resource=mh#wiz52 resource=>%newname%~
-    patch_effect_inline'2=>~match=>resource=mh#wiz52d resource=>%newname%d~
+    patch_effect_inline'1=>~match=>"opcode=258" resource=>"%spell_matrix%"~
+    patch_effect_inline'2=>~match=>"opcode=172" resource=>"%spell_matrix%d"~
   END
 
-  COPY + "%mod_root%/arcane/spells/mh#wz52d.spl" "%workspace%/%newname%d.spl"
-
-  LAUNCH_ACTION_FUNCTION install_spell
+  LAUNCH_ACTION_FUNCTION clone_spell
     STR_VAR
-    spell	= "%newname%d"
-    locabs	= "%workspace%"
+    spell	= "spwi420d=>%spell_matrix%d"
     edits	= "patch_data"
   END
-
-  DELETE + "%workspace%/%newname%d.spl"
 
   ACTION_IF ENGINE_IS "bgee bg2ee"
   BEGIN
     MAKE_PATCH
-      say_name=>26
-      patch_effect_inline'1=>~match=>resource=mh#wiz52 resource=>%newname%~
-      patch_effect_inline'2=>~match=>resource=mh#wiz52d resource=>%newname%p~
+      patch_effect_inline'1=>~match=>"opcode=258" resource=>"%spell_matrix%"~
+      patch_effect_inline'2=>~match=>"opcode=172" resource=>"%spell_matrix%p"~
     END
 
-    COPY + "%mod_root%/arcane/spells/mh#wz52p.spl" "%workspace%/%newname%p.spl"
-
-    LAUNCH_ACTION_FUNCTION install_spell
+    LAUNCH_ACTION_FUNCTION clone_spell
       STR_VAR
-      spell	= "%newname%p"
-      locabs	= "%workspace%"
+      spell	= "spwi420p=>%spell_matrix%p"
       edits	= "patch_data"
     END
 
-    DELETE + "%workspace%/%newname%p.spl"
-
-    ACTION_TO_UPPER newname
+    ACTION_TO_UPPER spell_matrix
 
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~mageBookStrings = {~
       ~mageBookStrings = {
-  	%newname% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
+  	%spell_matrix% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
   END
 
 
@@ -281,14 +269,14 @@ BEGIN
 
   // mh#wiz55 - Starfire
 
-  ADD_PROJECTILE "%mod_root%/arcane/projectiles/mh#wiz55.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#starf.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz55"
     idsname	= "WIZARD_STARFIRE"
     location	= "spells"
-    editstring	= ~say_name=>52 say_description=>53 patch_ability_inline=>"projectile=>%mh#wiz55%"~
+    editstring	= ~say_name=>52 say_description=>53 patch_ability_inline=>"projectile=>%mh#starf%"~
   END
 
 
@@ -341,14 +329,14 @@ BEGIN
 
   // mh#wiz72 - Stygian Ice Storm
 
-  ADD_PROJECTILE "%mod_root%/arcane/projectiles/mh#wiz72.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#stygi.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz72"
     idsname	= "WIZARD_STYGIAN_ICE_STORM"
     location	= "spells"
-    editstring	= ~say_name=>34 say_description=>35 patch_ability_inline=>"projectile=>%mh#wiz72%"~
+    editstring	= ~say_name=>34 say_description=>35 patch_ability_inline=>"projectile=>%mh#stygi%"~
   END
 
 
@@ -365,14 +353,14 @@ BEGIN
 
   // mh#wiz81 - Deathbolt
 
-  ADD_PROJECTILE "%mod_root%/arcane/projectiles/mh#wiz81.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#dbolt.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz81"
     idsname	= "WIZARD_DEATHBOLT"
     location	= "spells"
-    editstring	= ~say_name=>36 say_description=>37 patch_ability_inline=>"projectile=>%mh#wiz81%"~
+    editstring	= ~say_name=>36 say_description=>37 patch_ability_inline=>"projectile=>%mh#dbolt%"~
   END
 
 
@@ -411,12 +399,14 @@ BEGIN
 
   // mh#wiz91 - Rune of Torment
 
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#runet.pro"
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz91"
     idsname	= "WIZARD_RUNE_OF_TORMENT"
     location	= "spells"
-    editstring	= ~say_name=>47 say_description=>48 patch_ability_inline=>"projectile=>%mh#wiz81%"~
+    editstring	= ~say_name=>47 say_description=>48 patch_ability_inline=>"projectile=>%mh#runet%"~
   END
 END	// arcane_core
 

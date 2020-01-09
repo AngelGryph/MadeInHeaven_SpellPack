@@ -65,14 +65,14 @@ BEGIN
 
   // mh#prs51 - Lightning Storm
 
-  ADD_PROJECTILE "%mod_root%/divine/projectiles/mh#prs51.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#lstrm.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs51"
     idsname	= "CLERIC_LIGHTNING_STORM"
     location	= "spells"
-    editstring	= ~say_name=>11 say_description=>12 patch_ability_inline=>"projectile=>%mh#prs51%"~
+    editstring	= ~say_name=>11 say_description=>12 patch_ability_inline=>"projectile=>%mh#lstrm%"~
   END
 
 
