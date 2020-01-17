@@ -70,16 +70,24 @@ BEGIN
   END
 
 
-  // mh#wiz34 - Otiluke's Acid Cloud
+  // mh#wiz34 - Scintillating Sphere
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#wiz34.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#scnt1.pro"
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#scnt2.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz34"
-    idsname	= "WIZARD_OTILUKES_ACID_CLOUD"
+    idsname	= "WIZARD_SCINTILLATING_SPHERE"
     location	= "spells"
-    editstring	= ~say_name=>10 say_description=>11 patch_ability_inline=>"projectile=>%mh#wiz34%"~
+    editstring	= ~say_name=>10 say_description=>11 patch_ability_inline=>"projectile=>%mh#scnt1%"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wz34a"
+    location	= "spells"
+    editstring	= ~patch_ability_inline=>"projectile=>%mh#scnt2%"~
   END
 
 

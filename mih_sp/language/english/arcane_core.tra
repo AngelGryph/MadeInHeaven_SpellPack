@@ -58,18 +58,18 @@ Area of Effect: The caster
 Saving Throw: None
 
 Upon casting this spell, the caster starts rapidly winking in- and out of existence, making it difficult to strike <PRO_HIMHER> with any weapons.  However, the caster has no control over where and when <PRO_HESHE> winks into existence, making it more difficult to strike opponents and possibly placing <PRO_HIMHER> in a dangerous situation.  For the duration of the spell, the caster's AC is improved by 4 and all physical attacks deal half their normal damage, but the caster has a -4 penalty to hit.~
-@10   = ~Otiluke's Acid Cloud~
-@11   = ~Otiluke's Acid Cloud
+@10   = ~Scintillating Sphere~
+@11   = ~Scintillating Sphere
 (Invocation/Evocation)
 
 Level: 3
-Range: Visual range of the caster
-Duration: 1 round/level
+Range: 40 ft.
+Duration: Instant
 Casting Time: 3
-Area of Effect: 15' radius
+Area of Effect: 30-ft. radius
 Saving Throw: 1/2
 
-This spell creates a purple cloud of acid at the spot designated by the caster.  All creatures caught within takes 4d4 points of acid damage per round.~
+This spell creates a burst of electricity, shocking anyone unfortunate enough to be in the area for 1d6 damage per level of the caster (up to a maximum of 10d6).  A grape-sized sphere appears near the caster and travels to the designated point at a high velocity, where it bursts into the scintillating sphere.  Creatures failing their Saves vs. Spell take full damage from the shock.  Those who roll succesful Saving Throws have managed to partially evade the blast and receive half damage.~
 @12   = ~Minor Malison~
 @13   = ~Minor Malison
 (Enchantment/Charm)
@@ -161,7 +161,7 @@ This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perf
 @27   = ~Spell Matrix
 (Invocation/Evocation)
 
-Level: 4
+Level: 5
 Range: 0
 Duration: Permanent
 Casting Time: 9

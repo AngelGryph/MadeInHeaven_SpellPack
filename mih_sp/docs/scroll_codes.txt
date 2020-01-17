@@ -4,7 +4,7 @@ mh#wiz22	Seeking
 mh#wiz31	Improved Magic Missile
 mh#wiz32	Heroism
 mh#wiz33	Blink
-mh#wiz34	Otiluke's Acid Cloud
+mh#wiz34	Scintillating Sphere
 mh#wiz35	Minor Malison
 mh#wiz36	Ball Lightning
 
