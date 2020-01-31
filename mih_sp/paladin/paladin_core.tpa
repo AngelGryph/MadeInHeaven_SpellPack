@@ -4,7 +4,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
-    spell		= "mh#smtev"
+    spell		= "smite_evil"
     idsname		= "PALADIN_SMITE_EVIL"
     location		= "spells"
     editstring		= "say_name=>0"
@@ -17,7 +17,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
-    spell		= "mh#smtgd"
+    spell		= "smite_good"
     idsname		= "BLACKGUARD_SMITE_GOOD"
     location		= "spells"
     editstring		= "say_name=>1"
@@ -30,7 +30,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
-    spell		= "mh#smtud"
+    spell		= "smite_undead"
     idsname		= "PALADIN_SMITE_UNDEAD"
     location		= "spells"
     editstring		= "say_name=>2"
@@ -39,28 +39,41 @@ BEGIN
   END
 
 
+  // Divine Favor
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell		= "divine_favor"
+    idsname		= "PALADIN_DIVINE_FAVOR"
+    location		= "spells"
+    editstring		= "say_name=>3"
+    RET
+    divine_favor	= newname
+  END
+
+
   // True Paladin
 
   APPEND "clabpa01.2da"
-    ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+    ~mh#palex    GA_%smite_evil%  ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
 
 
   // Cavalier
 
   APPEND "clabpa02.2da"
-    ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
+    ~mh#palex    GA_%smite_evil%  ****         GA_%divine_favor% ****        ****        ****        GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****~
 
 
   // Inquisitor
 
   APPEND "clabpa03.2da"
-    ~mh#palex    GA_%smite_evil%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palex    GA_%smite_evil%  ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
   // Undead Hunter
 
   APPEND "clabpa04.2da"
-    ~mh#palex    GA_%smite_undead%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palex    GA_%smite_undead%  ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
   // Blackguard (EE only)
