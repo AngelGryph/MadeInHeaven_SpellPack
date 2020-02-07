@@ -100,7 +100,7 @@ BEGIN
     spell	= "mh#prs61"
     idsname	= "CLERIC_SUPERHEROISM"
     location	= "spells"
-    editstring	= "say_name=>13 say_description=>14"
+    editstring	= ~say_name=>13 say_description=>14 cd_immunity=>"fear level_drain"~
   END
 
 
@@ -111,7 +111,7 @@ BEGIN
     spell	= "mh#prs62"
     idsname	= "CLERIC_CELESTIAL_PROTECTION"
     location	= "spells"
-    editstring	= "say_name=>15 say_description=>16"
+    editstring	= ~say_name=>15 say_description=>16 cd_immunity=>"poison disease poison_resistance"~
   END
 
 
@@ -122,7 +122,7 @@ BEGIN
     spell	= "mh#prs71"
     idsname	= "CLERIC_MASS_NEGATIVE_PLANE_PROTECTION"
     location	= "spells"
-    editstring	= "say_name=>19 say_description=>20"
+    editstring	= ~say_name=>19 say_description=>20 cd_immunity=>"level_drain"~
   END
 END	// divine_core
 

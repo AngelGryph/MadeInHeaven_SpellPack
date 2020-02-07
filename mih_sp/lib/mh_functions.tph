@@ -41,7 +41,7 @@ END
 
 
 // turns magic missile immunity into full immunity
-DEFINE_PATCH_MACRO mh_immunity_magic_missile_arrays BEGIN
+DEFINE_PATCH_MACRO cd_immunity_magic_missile_arrays BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     206,  "-10",  "-10", "spwi112",  "-10",  "-10", "same" => 1 // immunity to Magic Missile spell
   END

@@ -1767,3 +1767,28 @@ BEGIN
 END
 
 
+// Apply CamDawg's immunity arrays
+
+DEFINE_PATCH_FUNCTION SPL_cd_immunity
+  STR_VAR
+  arguments	= ""
+BEGIN
+  WHILE "%arguments%" STRING_COMPARE ""
+  BEGIN
+    LAUNCH_PATCH_FUNCTION return_first_entry
+      STR_VAR
+      list	= "%arguments%"
+      RET
+      arguments	= list
+      entry
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_%entry%_arrays"
+    END
+  END
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_cd_immunity") ""
+
+

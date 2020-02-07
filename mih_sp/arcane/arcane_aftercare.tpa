@@ -52,49 +52,14 @@ BEGIN
   END
 
 
-  // Apply CamDawg's immunity arrays
-
-  COPY_EXISTING_REGEXP "spwi.*\.spl" "override"
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_spell_level_1_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_spell_level_2_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_spell_level_3_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_spell_level_4_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_spell_level_5_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_level_drain_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_fear_arrays"
-    END
-
+  // Fix/extend Magic Missile immunity
+  //
+  // NB: Keep this as is for speed, SFO has horrible performance.
 
   COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
     LAUNCH_PATCH_FUNCTION cd_apply_batch
       STR_VAR
-      array_name	= "mh_immunity_magic_missile_arrays"
+      array_name	= "cd_immunity_magic_missile_arrays"
     END
 
     BUT_ONLY_IF_IT_CHANGES

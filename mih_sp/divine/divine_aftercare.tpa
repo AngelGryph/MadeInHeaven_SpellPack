@@ -1,31 +1,5 @@
 DEFINE_ACTION_FUNCTION divine_aftercare
 BEGIN
-  // Apply CamDawg's immunity arrays
-
-  COPY_EXISTING_REGEXP "sppr.*\.spl" "override"
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_disease_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_level_drain_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_poison_arrays"
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_poison_resistance_arrays"
-    END
-
-    BUT_ONLY_IF_IT_CHANGES
-
-
   // Edit hidespl.2da (EE)
 
   ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"

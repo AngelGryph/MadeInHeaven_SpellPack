@@ -204,7 +204,7 @@ BEGIN
     spell	= "mh#wiz51"
     idsname	= "WIZARD_SUPERHEROISM"
     location	= "spells"
-    editstring	= "say_name=>24 say_description=>25"
+    editstring	= ~say_name=>24 say_description=>25 cd_immunity=>"fear level_drain"~
   END
 
 
@@ -379,7 +379,7 @@ BEGIN
     spell	= "mh#wiz82"
     idsname	= "WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY"
     location	= "spells"
-    editstring	= "say_name=>38 say_description=>39"
+    editstring	= ~say_name=>38 say_description=>39 cd_immunity=>"spell_level_1 spell_level_2 spell_level_3 spell_level_4 spell_level_5~
   END
 
 
