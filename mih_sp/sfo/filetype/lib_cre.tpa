@@ -153,7 +153,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY cre_fields BEGIN
    name2_string=> ~0xc,LONG~
    xp_value=> ~0x14,LONG~
    xp_total=> ~0x18,LONG~
-   gold => ~0x1d,LONG~
+   gold => ~0x1c,LONG~
    color_metal => ~0x2c,BYTE~
    color_minor => ~0x2d,BYTE~
    color_major => ~0x2e,BYTE~

@@ -281,6 +281,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY are_fields BEGIN
    trigger_bbbottom=>~0x28,SHORT~
    is_trapped=>~0x6c,SHORT~
    trap_detected=>~0x6e,SHORT~
+   launch_xloc=>~0x70,SHORT~
+   launch_yloc=>~0x72,SHORT~
    spawn_name=>~0x0,ASCII20~
    spawn_xloc=>~0x20,SHORT~
    spawn_yloc=>~0x22,SHORT~
@@ -297,7 +299,18 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY are_fields BEGIN
    spawn_count=>~0x74,SHORT~
    spawn_base_number=>~0x76,SHORT~
    spawn_frequency=>~0x78,SHORT~
+   spawn_method=>~0x7a,SHORT~
    spawn_maximum=>~0x84,SHORT~
+   spawn_ee_weight1=>~0x98,BYTE~
+   spawn_ee_weight2=>~0x99,BYTE~
+   spawn_ee_weight3=>~0x9a,BYTE~
+   spawn_ee_weight4=>~0x9b,BYTE~
+   spawn_ee_weight5=>~0x9c,BYTE~
+   spawn_ee_weight6=>~0x9d,BYTE~
+   spawn_ee_weight7=>~0x9e,BYTE~
+   spawn_ee_weight8=>~0x9f,BYTE~
+   spawn_ee_weight9=>~0xa0,BYTE~
+   spawn_ee_weight10=>~0xa1,BYTE~
    restspawn_creature1=>~0x48,ASCII~
    restspawn_creature2=>~0x50,ASCII~
    restspawn_creature3=>~0x58,ASCII~

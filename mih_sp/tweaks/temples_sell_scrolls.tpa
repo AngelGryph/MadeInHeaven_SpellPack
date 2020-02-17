@@ -1,6 +1,31 @@
 DEFINE_ACTION_FUNCTION temples_sell_scrolls
 BEGIN
-  // Add scrolls of Cure Light Wounds and Slow Poison
+  // Change restore.itm to Lesser Restoration in BGEE
+  // (is Greater Restoration in BGEE for some reason)
+  
+  ACTION_IF GAME_IS "bgee"
+  BEGIN
+    MAKE_PATCH
+      name2_string=>26226
+      description2_string=>26227
+      icon=>"sppr417a"
+      patch_ability_inline=>~ability_icon=>"sppr417a"~
+      patch_effect_inline=>~match=>"opcode=146" resource=>"sppr417"~
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_item
+      STR_VAR
+      item	= "restore"
+      edits	= "patch_data"
+    END
+  END
+  
+
+  // Add scrolls for the following spells:
+  // - Cure Light Wounds
+  // - Slow Poison
+  // - Heal
+  // - Resurrection
 
   LAUNCH_ACTION_FUNCTION make_scroll_of_spell
     STR_VAR
@@ -14,6 +39,18 @@ BEGIN
     scrollname	= "mh#prslp"
   END
 
+  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+    STR_VAR
+    resref	= "sppr607"
+    scrollname	= "mh#pheal"
+  END
+
+  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+    STR_VAR
+    resref	= "sppr712"
+    scrollname	= "mh#prsct"
+  END
+
 
   // Edit BG1 temples
 
@@ -24,7 +61,7 @@ BEGIN
       literal'2=>~ADD_STORE_ITEM + "mh#prslp" BEFORE "scrlpet" #1 #0 #0 "identified" #5~
       literal'3=>~ADD_STORE_ITEM + "scrl56" BEFORE "scrlpet" #1 #0 #0 "identified" #2~
       literal'4=>~ADD_STORE_ITEM + "scrl58" BEFORE "scrlpet" #1 #0 #0 "identified" #2~
-      literal'5=>~ADD_STORE_ITEM + "scrl59" BEFORE "scrlpet" #1 #0 #0 "identified" #2~
+      literal'5=>~ADD_STORE_ITEM + "scrl59" BEFORE "scrlpet" #1 #0 #0 "identified" #1~
       literal'6=>~ADD_STORE_ITEM + "restore" BEFORE "scrlpet" #1 #0 #0 "identified" #1~
     END
 
@@ -46,7 +83,10 @@ BEGIN
       literal'3=>~ADD_STORE_ITEM + "scrl56" BEFORE "scrlpet restore" #1 #0 #0 "identified" #5~
       literal'4=>~ADD_STORE_ITEM + "scrl58" BEFORE "scrlpet restore" #1 #0 #0 "identified" #5~
       literal'5=>~ADD_STORE_ITEM + "scrl59" BEFORE "scrlpet restore" #1 #0 #0 "identified" #5~
-      literal'6=>~ADD_STORE_ITEM + "scrl61" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+      literal'6=>~ADD_STORE_ITEM + "scrl5f" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+      literal'7=>~ADD_STORE_ITEM + "scrl61" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+      literal'8=>~ADD_STORE_ITEM + "mh#pheal" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
+      literal'9=>~ADD_STORE_ITEM + "mh#prsct" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
     END
 
     LAUNCH_ACTION_FUNCTION edit_store
