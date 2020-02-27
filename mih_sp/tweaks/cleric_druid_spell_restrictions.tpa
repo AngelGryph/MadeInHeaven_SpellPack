@@ -39,6 +39,7 @@ BEGIN
           OR class == IDS_OF_SYMBOL("class" "fighter_mage_cleric")
           OR class == IDS_OF_SYMBOL("class" "paladin")
     BEGIN
+      REMOVE_MEMORIZED_SPELL 	"sppr110" "sppr206" "sppr306" "sppr407"
       REMOVE_KNOWN_SPELL 	"sppr110" "sppr206" "sppr306" "sppr407"
     END
 
@@ -46,6 +47,7 @@ BEGIN
           OR class == IDS_OF_SYMBOL("class" "fighter_druid")
           OR class == IDS_OF_SYMBOL("class" "ranger")
     BEGIN
+      REMOVE_MEMORIZED_SPELL 	"sppr113" "sppr210" "sppr413"
       REMOVE_KNOWN_SPELL 	"sppr113" "sppr210" "sppr413"
     END
 

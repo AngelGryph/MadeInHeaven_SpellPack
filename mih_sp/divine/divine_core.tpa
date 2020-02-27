@@ -41,6 +41,17 @@ BEGIN
   END
 
 
+  // mh#prs23 - Resist Acid/Corrosion
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs23"
+    idsname	= "CLERIC_RESIST_ACID_CORROSION"
+    location	= "spells"
+    editstring	= "say_name=>21 say_description=>22"
+  END
+
+
   // mh#prs41 - Sticks to Snakes
 
   LAUNCH_ACTION_FUNCTION install_spell
