@@ -83,6 +83,20 @@ BEGIN
     APPEND "clabpa06.2da"
       ~mh#palex    GA_%smite_good%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
   END
+
+
+  // Extend cavalier's bonus to dragons also to wyverns
+
+  MAKE_PATCH
+    clone_effect_inline'1=>~match=>"opcode = 177 and resource = draghit" resource=>"mh#wyvh3"~
+    clone_effect_inline'2=>~match=>"opcode = 177 and resource = dragdam3" resource=>"mh#wyvd3"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spcl221"
+    edits	= "patch_data"
+  END
 END	// paladin_core
 
 

@@ -20,6 +20,23 @@ BEGIN
       editstring	= "opcode=>12 target=>2 timing=>1 parameter2=>4194304 dicenum=>%i% dicesize=>6"
     END
   END
+
+
+  // +3 bonus vs. Wyverns effects
+
+  OUTER_SET race_wyvern	= IDS_OF_SYMBOL("race" "wyvern")
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect		= "mh#wyvh3"
+    editstring		= "opcode=>178 timing=>1 parameter1=>%race_wyvern% parameter2=>4 parameter3=>3"
+  END
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect		= "mh#wyvd3"
+    editstring		= "opcode=>179 timing=>1 parameter1=>%race_wyvern% parameter2=>4 parameter3=>3"
+  END
 END	// paladin_resources
 
 
