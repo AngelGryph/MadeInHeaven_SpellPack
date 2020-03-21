@@ -137,6 +137,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// No Elemental Mind Battle
+
+BEGIN ~No Elemental Mind Battle~
+GROUP ~Spell Effect Tweaks~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "no_elemental_mind_battle"
+  location	= "tweaks"
+END
+
+
 // Spell Improvements
 
 BEGIN ~Spell Improvements (see readme)~
