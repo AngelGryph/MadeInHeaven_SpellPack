@@ -188,3 +188,39 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Revised Strength Table
+
+BEGIN ~Revised Strength Table~
+GROUP ~Game Rule Tweaks~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "revised_strength_table"
+  location	= "tweaks"
+END
+
+
+// Revised Dexterity Table
+
+BEGIN ~Revised Dexterity Table~
+GROUP ~Game Rule Tweaks~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "revised_dexterity_table"
+  location	= "tweaks"
+END
+
+
+// Revised Constitution Table
+
+BEGIN ~Revised Constitution Table~
+GROUP ~Game Rule Tweaks~
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "revised_constitution_table"
+  location	= "tweaks"
+END
+
+

@@ -1,0 +1,74 @@
+DEFINE_ACTION_FUNCTION revised_strength_table
+BEGIN
+  COPY_EXISTING "strmod.2da" "override"
+    FOR (i = 12; i <= 18; ++i)
+    BEGIN
+      SET to_hit = (i - 11) / 2
+      SET damage = (i - 10) / 2
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "TO_HIT"
+	row		= "%i%"
+	arguments	= "%to_hit%"
+      END
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "DAMAGE"
+	row		= "%i%"
+	arguments	= "%damage%"
+      END
+    END
+
+    FOR (i = 19; i <= 25; ++i)
+    BEGIN
+      SET to_hit = (i - 7) / 2
+      SET damage = (i - 6) / 2
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "TO_HIT"
+	row		= "%i%"
+	arguments	= "%to_hit%"
+      END
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "DAMAGE"
+	row		= "%i%"
+	arguments	= "%damage%"
+      END
+    END
+
+    PRETTY_PRINT_2DA
+    BUT_ONLY_IF_IT_CHANGES
+
+
+
+  COPY_EXISTING "strmodex.2da" "override"
+    FOR (i = 0; i <= 100; ++i)
+    BEGIN
+      SET to_hit = (i + 25) / 50
+      SET damage = (i - 00) / 50
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "TO_HIT"
+	row		= "%i%"
+	arguments	= "%to_hit%"
+      END
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "DAMAGE"
+	row		= "%i%"
+	arguments	= "%damage%"
+      END
+    END
+
+    PRETTY_PRINT_2DA
+    BUT_ONLY_IF_IT_CHANGES
+END	// revised_strength_table
+
+

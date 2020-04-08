@@ -1,0 +1,36 @@
+DEFINE_ACTION_FUNCTION revised_dexterity_table
+BEGIN
+  COPY_EXISTING "dexmod.2da" "override"
+    FOR (i = 12; i <= 25; ++i)
+    BEGIN
+      SET reaction = (i - 9) / 3
+      SET missile = (i - 10) / 3
+      SET ac = 0 - ((i - 11) / 3)
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "REACTION"
+	row		= "%i%"
+	arguments	= "%reaction%"
+      END
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "MISSILE"
+	row		= "%i%"
+	arguments	= "%missile%"
+      END
+
+      LAUNCH_PATCH_FUNCTION write_table_entry
+        STR_VAR
+	column		= "AC"
+	row		= "%i%"
+	arguments	= "%ac%"
+      END
+    END
+
+    PRETTY_PRINT_2DA
+    BUT_ONLY_IF_IT_CHANGES
+END	// revised_dexterity_table
+
+
