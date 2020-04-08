@@ -134,6 +134,32 @@ Saving Throw: None
 
 This spell affords the caster's entire party partial protection from undead monsters with Negative Energy Plane connections (such as vampires), and certain weapons and spells that drain energy levels. The Negative Plane Protection spell opens a channel to the Positive Energy Plane, possibly offsetting the effects of the negative energy attack. A protected creature struck by a negative energy attack is protected against any form of level draining for the duration of the spell. The protected creature suffers only normal Hit Point damage from the attack and does not suffer any drain of experience. This spell cannot be cast on the Negative Energy Plane.~
 @21   = ~Resist Acid/Corrosion~
-@22   = ~When this spell is placed upon a creature by a priest, the creature's body is toughened to withstand acidic and corrosive fluids and gasses. Mild corrosives cannot harm the subject at all. The recipient can somewhat resist intense acids and corrosives (whether natural or magical in origin), such as: Melf's Acid Arrow, Vitriolic Sphere, Death Fog, Acid Storm, the touch of various slimes and puddings, ankheg spittle and the breath of black- or green dragons.  In all of these cases, the corrosive agent affects the creature to some extent. The recipient has all damage sustained by acid or poison reduced by 50%.  Note that they can however still be poisoned, although the spell does grant a +3 bonus to the saving throw.~
+@22   = ~Resist Acid/Corrosion
+(Alteration)
+
+Level: 2
+Sphere: Protection
+Range: Touch
+Duration: 1 round/level
+Casting Time: 5
+Area of Effect: Creature touched
+Saving Throw: None
+
+When this spell is placed upon a creature by a priest, the creature's body is toughened to withstand acidic and corrosive fluids and gasses. Mild corrosives cannot harm the subject at all. The recipient can somewhat resist intense acids and corrosives (whether natural or magical in origin), such as: Melf's Acid Arrow, Vitriolic Sphere, Death Fog, Acid Storm, the touch of various slimes and puddings, ankheg spittle and the breath of black- or green dragons.  In all of these cases, the corrosive agent affects the creature to some extent. The recipient has all damage sustained by acid or poison reduced by 50%.  Note that they can however still be poisoned, although the spell does grant a +3 bonus to the saving throw.~
+@23   = ~Break Enchantment~
+@24   = ~Break Enchantment
+(Abjuration)
+
+Level: 5
+Sphere: Protection
+Range: Touch
+Duration: Permanent
+Casting Time: 6
+Area of Effect: Special
+Saving Throw: Special
+
+This powerful abjuration frees the recipient of many unwanted enchantments, curses and other negative effects.  It releases victims of paralysation and petrification, allows cursed items to be dropped, dispels magical blindness, deafness and silence, removes magically induced fear and insanity, and dispels spells of the Enchantment school up to 6th level.
+
+Certain powerful or unusual effects may not be cured by this spell, and it has no effect on poison, disease or level drain.~
 
 

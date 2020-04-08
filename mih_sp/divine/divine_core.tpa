@@ -104,6 +104,17 @@ BEGIN
   END
 
 
+  // mh#prs53 - Break Enchantment
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs53"
+    idsname	= "CLERIC_BREAK_ENCHANTMENT"
+    location	= "spells"
+    editstring	= "say_name=>23 say_description=>24"
+  END
+
+
   // mh#prs61 - Superheroism
 
   LAUNCH_ACTION_FUNCTION install_spell
