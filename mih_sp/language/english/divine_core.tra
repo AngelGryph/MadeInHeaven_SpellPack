@@ -161,5 +161,20 @@ Saving Throw: Special
 This powerful abjuration frees the recipient of many unwanted enchantments, curses and other negative effects.  It releases victims of paralysation and petrification, allows cursed items to be dropped, dispels magical blindness, deafness and silence, removes magically induced fear and insanity, and dispels spells of the Enchantment school up to 6th level.
 
 Certain powerful or unusual effects may not be cured by this spell, and it has no effect on poison, disease or level drain.~
+@25   = ~Repel Insects~
+@26   = ~Repel Insects
+(Abjuration)
+
+Level: 4
+Sphere: Animal
+Range: Caster
+Duration: 1 turn
+Casting Time: 1
+Area of Effect: 15-foot radius
+Saving Throw: None
+
+With this spell the druid can keep normal insects and arachnids away from the caster and <PRO_HISHER> party.  This includes insects summoned by the spells Summon Insects, Insect Plague and Creeping Doom.  Any insects currently in the area will be driven off immediately and no more can be summoned until the duration of this spell expires.
+
+This spell has no effect on giant insects and arachnids, such as ankhegs and phase spiders.~
 
 

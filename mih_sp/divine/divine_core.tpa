@@ -74,6 +74,17 @@ BEGIN
   END
 
 
+  // mh#prs43 - Repel Insects
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs43"
+    idsname	= "CLERIC_REPEL_INSECTS"
+    location	= "spells"
+    editstring	= "say_name=>25 say_description=>26"
+  END
+
+
   // mh#prs51 - Lightning Storm
 
   ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#lstrm.pro"
