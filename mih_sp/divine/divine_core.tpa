@@ -148,6 +148,17 @@ BEGIN
   END
 
 
+  // mh#prs63 - Conjure Water Elemental
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs63"
+    idsname	= "CLERIC_CONJURE_WATER_ELEMENTAL"
+    location	= "spells"
+    editstring	= "say_name=>27 say_description=>28"
+  END
+
+
   // mh#prs71 - Mass Negative Plane Protection
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -156,6 +167,17 @@ BEGIN
     idsname	= "CLERIC_MASS_NEGATIVE_PLANE_PROTECTION"
     location	= "spells"
     editstring	= ~say_name=>19 say_description=>20 cd_immunity=>"level_drain"~
+  END
+
+
+  // mh#prs72 - Conjure Air Elemental
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs72"
+    idsname	= "CLERIC_CONJURE_AIR_ELEMENTAL"
+    location	= "spells"
+    editstring	= "name1_string=>24839 say_description=>29"
   END
 END	// divine_core
 

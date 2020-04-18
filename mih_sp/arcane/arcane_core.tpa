@@ -197,6 +197,17 @@ BEGIN
   END
 
 
+  // mh#wiz46 - Tenser's Giant Strength
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wiz46"
+    idsname	= "WIZARD_TENSERS_GIANT_STRENGTH"
+    location	= "spells"
+    editstring	= "say_name=>54 say_description=>55"
+  END
+
+
   // mh#wiz51 - Superheroism
 
   LAUNCH_ACTION_FUNCTION install_spell

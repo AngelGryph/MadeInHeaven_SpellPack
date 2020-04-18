@@ -530,9 +530,6 @@ BEGIN
          LAF read_in_list STR_VAR file=~%external_file%~ RET extra=list END
          OUTER_SPRINT ~file_list~ ~%file_list% %extra%~
       END
-      ACTION_IF (~%edits%~ STRING_EQUAL_CASE ~~ && ~%editstring%~ STRING_EQUAL_CASE ~~) BEGIN
-         OUTER_SPRINT edits patch_data
-      END
       ACTION_IF !silent BEGIN
          PRINT ~SFO: Applying patch(es) to %file_ext% file(s) %file_list%... ~
       END
@@ -631,9 +628,6 @@ BEGIN
       ACTION_IF ~%external_file%~ STRING_COMPARE_CASE ~~ BEGIN
          LAF read_in_list STR_VAR file=~%external_file%~ RET extra=list END
          OUTER_SPRINT ~file_list~ ~%file_list% %extra%~
-      END
-      ACTION_IF (~%edits%~ STRING_EQUAL_CASE ~~ && ~%editstring%~ STRING_EQUAL_CASE ~~) BEGIN
-         OUTER_SPRINT edits patch_data
       END
       PRINT ~SFO: Installing and patching %file_ext% file(s) %file_list%... ~
       SILENT

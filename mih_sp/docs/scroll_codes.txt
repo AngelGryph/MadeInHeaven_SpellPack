@@ -13,6 +13,7 @@ mh#wiz42	Command Elementals
 mh#wiz43	Rary's Mnemonic Enhancer
 mh#wiz44	Evard's Black Tentacles
 mh#wiz45	Isaac's Lesser Missile Storm
+mh#wiz46	Tenser's Giant Strength
 
 mh#wiz51	Superheroism
 mh#wiz52	Spell Matrix

@@ -50,7 +50,53 @@ BEGIN
   END
 
 
-  // create summoning effects
+  // Priestly Water Elementals
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "elwatpr.cre"
+         OR NOT FILE_EXISTS_IN_GAME "elwatpr2.cre"
+         OR NOT FILE_EXISTS_IN_GAME "elwatpr3.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "elwatg01=>elwatpr elwatg01=>elwatpr2 elwatg01=>elwatpr3"
+      editstring	= ~no_corpse=>1 xp_value=>0 allegiance=>controlled gender=>summoned level1=>"object_index from [12 16 24]" hitpoints=>"object_index from [96 128 192]" thac0=>"object_index from [9 5 0]" strength=>"object_index from [18 19 22]" say_both_names=>1~
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_effect
+      STR_VAR
+      effect		= "speart1p=>spwat1p speart2p=>spwat2p speart3p=>spwat3p"
+      editstring	= ~resource=>"object_index from [elwatpr elwatpr2 elwatpr3]"~
+    END
+  END
+
+
+  // Priestly Air Elementals
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "elairpr.cre"
+         OR NOT FILE_EXISTS_IN_GAME "elairpr2.cre"
+         OR NOT FILE_EXISTS_IN_GAME "elairpr3.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "elair01=>elairpr elairg01=>elairpr2"
+      editstring	= "no_corpse=>1 xp_value=>0 allegiance=>controlled gender=>summoned"
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "elairpr2=>elairpr3"
+      editstring	= "level1=>24 hitpoints=>192 thac0=>0 strength=>22"
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_effect
+      STR_VAR
+      effect		= "spair1=>spair1p spair2=>spair2p spair3=>spair3p"
+      editstring	= ~resource=>"object_index from [elairpr elairpr2 elairpr3]"~
+    END
+  END
+
+
+  // Batch-create missing summoning effects
 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_effect
   BEGIN

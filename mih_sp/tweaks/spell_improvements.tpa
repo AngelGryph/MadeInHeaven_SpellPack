@@ -11,6 +11,23 @@ BEGIN
   END
 
 
+  // ========
+  // Barkskin
+  // ========
+
+  MAKE_PATCH
+    patch_effect_inline=>~match=>"opcode = 0" parameter1=>"6 - parameter1" parameter2=>0~
+    clone_effect_inline=>~match=>"opcode = 0" parameter1=>6 parameter2=>1~
+    say_description=>0
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "CLERIC_BARKSKIN"
+    edits	= "patch_data"
+  END
+
+
   // ===========
   // Flame Blade
   // ===========
@@ -19,7 +36,7 @@ BEGIN
   BEGIN
     MAKE_PATCH
       magical=>1
-      enchantment=>5
+      enchantment=>6
       silver=>1
       cold_iron=>1
       add_effect_global_inline=>~opcode=>233 target=>1 timing=>2 parameter1=>1 parameter2=>0x5f~
@@ -37,11 +54,12 @@ BEGIN
   MAKE_PATCH
     patch_effect_inline'1=>~match=>"opcode=111 and ability_min_level<20" resource=>"ability_min_level from [mh#flm1 mh#flm1 mh#flm1 mh#flm2 mh#flm2 mh#flm3 mh#flm3 mh#flm4 mh#flm4 mh#flm5 mh#flm5 mh#flm6 mh#flm6 mh#flm7 mh#flm7 mh#flm8 mh#flm8 mh#flm9 mh#flm9]"~
     patch_effect_inline'2=>~match=>"opcode=111 and ability_min_level>19" resource=>"mh#flm10"~
+    say_description=>1
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "sppr206"
+    spell	= "CLERIC_FLAME_BLADE"
     edits	= "patch_data"
   END
 END	// spell_improvements

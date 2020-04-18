@@ -1,0 +1,26 @@
+@0   = ~Barkskin
+(Alteration) 
+
+Level: 2
+Sphere: Protection, Plant 
+Range: Touch 
+Duration: 4 rounds + 1 round/level 
+Casting Time: 5 
+Area of Effect: Creature touched 
+Saving Throw: None 
+
+When a priest casts the barkskin spell upon a creature, its skin becomes as tough as bark, increasing its base Armor Class to AC 6, plus 1 AC for every four levels of the priest: Armor Class 5 at 4th level, Armor Class 4 at 8th, and so on.  If the creature already has an Armor Class better than AC 6 they still get a +1 AC bonus for every four levels of the caster.  In addition, saving throw rolls vs. all attack forms except magic gain a + 1 bonus. This spell can be placed on the caster or on any other creature he touches.~
+@1   = ~Flame Blade
+(Evocation) 
+
+Level: 2
+Sphere: Elemental (Fire) 
+Range: 0 
+Duration: 4 rounds + 1 round/2 levels 
+Casting Time: 4
+Area of Effect: Special
+Saving Throw: None 
+
+With this spell, the caster causes a blazing ray of red-hot fire to spring forth from <PRO_HISHER> hand. This blade-like ray is wielded as if it were a scimitar, although there is no penalty if the caster does not know how to use a scimitar.  The blade is insubstantial and only deals damage by its flame, therefor strength has no effect on either its chance to hit or the damage it deals.  However, because only a touch is required the wielder gets a +4 bonus to their roll to hit.  The flame blade inflicts 1d8 points of fire damage, +1 for every two levels of the caster (max. +10).  It can damage anything that is vulnerable to fire, regardless of weapon immunities.~
+
+

@@ -338,5 +338,24 @@ Saving Throw: 1/2
 Upon casting this spell, the mage causes a rain of golden fire to descend into the area of effect.  The fire deals 5d6 points of damage to anyone caught in the area, with a save versus spell allowed for half damage.
 
 This spell is rumored to have been first developed on the Upper Planes.~
+@54   = ~Tenser's Giant Strength~
+@55   = ~Tenser's Giant Strength
+(Alteration)
+
+Level: 4
+Range: Touch
+Duration: 1 round/level
+Casting Time: 1 round
+Area of Effect: Target creature
+Saving Throw: None
+
+This variation of the Strength spell gives the recipient the strength of one of the true giant races.  The exact strength given depends on the caster's level:
+-  7- 9: Hill Giant Strength (19)
+- 10-12: Stone Giant Strength (20)
+- 13-15: Frost Giant Strength (21)
+- 16-18: Fire Giant Strength (22)
+- 19-21: Cloud Giant Strength (23)
+- 22-24: Storm Giant Strength (24)
+- 25+  : Titanic Strength (25)~
 
 
