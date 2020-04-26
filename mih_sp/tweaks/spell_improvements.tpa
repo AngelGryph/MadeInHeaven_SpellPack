@@ -1,5 +1,22 @@
 DEFINE_ACTION_FUNCTION spell_improvements
 BEGIN
+  // =====================
+  // Larloch's Minor Drain
+  // =====================
+
+  MAKE_PATCH
+    level_based_blocks=>"if this=10 then -1 else this+1"
+    patch_effect_inline'1=>~match=>"opcode = 12" duration=>60 parameter1=>ability_true_level dicenum=>1 dicesize=>4 mode=>BIT3~
+    patch_effect_inline'2=>~match=>"opcode = 18" duration=>60 parameter1=>ability_true_level dicenum=>1 dicesize=>4~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spwi119a spin104a"
+    edits	= "patch_data"
+  END
+
+
   // ==========
   // Shillelagh
   // ==========

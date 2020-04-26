@@ -29,18 +29,6 @@ BEGIN
   END
 
 
-  // sumelwat - Lesser Water Elemental
-
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "sumelwat.cre"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION clone_creature
-      STR_VAR
-      creature		= "sumelfir=>sumelwat"
-      editstring	= "say_name=>0 say_unidentified_name=>0 animation=>water_weird resist_fire=>-10 resist_magic_fire=>0 resist_cold=>10 class=>elemental_water replace_items=>b1-8m2(weapon1)"
-    END
-  END
-
-
   // jellmusu - Mustard Jelly
 
   LAUNCH_ACTION_FUNCTION edit_creature
@@ -50,7 +38,16 @@ BEGIN
   END
 
 
-  // Priestly Water Elementals
+  // Water Elementals
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "sumelwat.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "sumelfir=>sumelwat"
+      editstring	= "say_both_names=>0 animation=>water_weird resist_fire=>-10 resist_magic_fire=>0 resist_cold=>10 class=>elemental_water replace_items=>b1-8m2(weapon1)"
+    END
+  END
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "elwatpr.cre"
          OR NOT FILE_EXISTS_IN_GAME "elwatpr2.cre"
@@ -58,8 +55,8 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION clone_creature
       STR_VAR
-      creature		= "elwatg01=>elwatpr elwatg01=>elwatpr2 elwatg01=>elwatpr3"
-      editstring	= ~no_corpse=>1 xp_value=>0 allegiance=>controlled gender=>summoned level1=>"object_index from [12 16 24]" hitpoints=>"object_index from [96 128 192]" thac0=>"object_index from [9 5 0]" strength=>"object_index from [18 19 22]" say_both_names=>1~
+      creature		= "elfirpr=>elwatpr elfirpr2=>elwatpr2 elfirpr3=>elwatpr3"
+      editstring	= "say_both_names=>0 animation=>water_weird resist_fire=>-10 resist_magic_fire=>0 resist_cold=>10 class=>elemental_water replace_items=>b1-8m2(weapon1)"
     END
 
     LAUNCH_ACTION_FUNCTION clone_effect
@@ -70,7 +67,7 @@ BEGIN
   END
 
 
-  // Priestly Air Elementals
+  // Missing Air Elementals
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "elairpr.cre"
          OR NOT FILE_EXISTS_IN_GAME "elairpr2.cre"
@@ -78,14 +75,8 @@ BEGIN
   BEGIN
     LAUNCH_ACTION_FUNCTION clone_creature
       STR_VAR
-      creature		= "elair01=>elairpr elairg01=>elairpr2"
-      editstring	= "no_corpse=>1 xp_value=>0 allegiance=>controlled gender=>summoned"
-    END
-
-    LAUNCH_ACTION_FUNCTION clone_creature
-      STR_VAR
-      creature		= "elairpr2=>elairpr3"
-      editstring	= "level1=>24 hitpoints=>192 thac0=>0 strength=>22"
+      creature		= "elearpr=>elairpr elearpr2=>elairpr2 elearpr3=>elairpr3"
+      editstring	= "animation=>elemental_air class=>elemental_air replace_items=>b1-20m4(weapon1)"
     END
 
     LAUNCH_ACTION_FUNCTION clone_effect
