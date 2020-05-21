@@ -46,7 +46,7 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Made in Heaven: Paladin Powers
+// Made in Heaven: Paladin Powers Pack
 
 BEGIN ~Made in Heaven: Paladin Powers~
 
@@ -59,7 +59,7 @@ END
 
 // Restore Cure Blindness & Deafness
 
-BEGIN ~Restore Cure Blindness/Deafness~
+BEGIN ~Restore Cure Blindness/Deafness (EXPERIMENTAL)~
 GROUP ~Spell Effect Tweaks~
 
 FORBID_FILE "sppr316.spl" ~Some other mod already provides or supercedes this component.~
@@ -72,21 +72,9 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// P&P Cleric/Druid Spell Restrictions
-
-BEGIN ~P&P Cleric/Druid Spell Restrictions~
-GROUP ~Spell Effect Tweaks~
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "cleric_druid_spell_restrictions"
-  location	= "tweaks"
-END
-
-
 // Level 4 Animate Dead
 
-BEGIN ~Level 4 Animate Dead (for wizards)~
+BEGIN ~Level 4 Animate Dead for Wizards (EXPERIMENTAL)~
 GROUP ~Spell Effect Tweaks~
 
 LAUNCH_ACTION_FUNCTION run
@@ -123,9 +111,9 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Remove all Timestop immunity
+// Remove All Time Stop Immunity
 
-BEGIN ~Remove all Timestop immunity~
+BEGIN ~Remove All Time Stop Immunity~
 GROUP ~Spell Effect Tweaks~
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~

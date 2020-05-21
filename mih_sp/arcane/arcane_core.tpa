@@ -275,6 +275,7 @@ BEGIN
   END
 
 
+  /*
   // mh#wiz54 - Dismissal
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -284,6 +285,7 @@ BEGIN
     location	= "spells"
     editstring	= "say_name=>49"
   END
+  */
 
 
   // mh#wiz55 - Starfire
@@ -359,6 +361,7 @@ BEGIN
   END
 
 
+  /*
   // mh#wiz73 - Banishment
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -368,6 +371,7 @@ BEGIN
     location	= "spells"
     editstring	= "say_name=>50"
   END
+  */
 
 
   // mh#wiz81 - Deathbolt

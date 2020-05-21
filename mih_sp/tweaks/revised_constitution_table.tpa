@@ -7,6 +7,11 @@ BEGIN
       SET other = (i - 9) / 3
       SET min_roll = (i - 17) / 2
 
+      PATCH_IF min_roll < 1
+      BEGIN
+        SET min_roll = 1
+      END
+
       LAUNCH_PATCH_FUNCTION write_table_entry
         STR_VAR
 	column		= "WARRIOR"

@@ -18,7 +18,6 @@ mh#wiz46	Tenser's Giant Strength
 mh#wiz51	Superheroism
 mh#wiz52	Spell Matrix
 mh#wiz53	Ramazith's Slime Summons
-mh#wiz54	Dismissal
 mh#wiz55	Starfire
 
 mh#wiz61	Mordenkainen's Lucubration
@@ -26,7 +25,6 @@ mh#wiz62	Isaac's Greater Missile Storm
 
 mh#wiz71	Faerie Sword
 mh#wiz72	Stygian Ice Storm
-mh#wiz73	Banishment
 
 mh#wiz81	Deathbolt
 mh#wiz82	Major Globe of Invulnerability

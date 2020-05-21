@@ -8,7 +8,8 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 
 ## Version History
 
-Version 2 - ???
+Version 2 - 21 May 2020
+- Almost complete rewrite using the SFO library
 
-Version 1 - 2 May 2018
+Version 1 - 1 June 2019
 - Initial version

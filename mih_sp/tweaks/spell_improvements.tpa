@@ -21,10 +21,18 @@ BEGIN
   // Shillelagh
   // ==========
 
+  MAKE_PATCH
+    magical=>1
+    enchantment=>1
+    proficiency=>PROFICIENCYCLUB
+    add_effect_global_inline=>"opcode=>233 target=>1 timing=>2 parameter1=>1 parameter2=>115"
+    patch_ability_inline=>"to_hit=>1 damage_bonus=>1"
+  END
+
   LAUNCH_ACTION_FUNCTION edit_item
     STR_VAR
     item	= "shille"
-    editstring	= "magical=>1 enchantment=>1"
+    edits	= "patch_data"
   END
 
 

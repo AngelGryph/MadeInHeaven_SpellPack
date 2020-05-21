@@ -62,7 +62,7 @@ BEGIN
 
   // Read the .ini file
 
-  OUTER_SPRINT ini_to_read "%mod_root%/setup-%mod_root%.ini"
+  OUTER_SPRINT ini_to_read "%mod_root%/%mod_root%.ini"
   LAUNCH_ACTION_MACRO SFO_read_ini_file
 END	// done_init
 

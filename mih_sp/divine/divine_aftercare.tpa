@@ -50,7 +50,7 @@ BEGIN
     END
 
     MAKE_PATCH
-      clone_effect_inline=>~match=>"opcode = 83 and parameter2 = 227" number_to_add=>2 opcode=>"entry_index from [205 221] parameter1=>0 parameter2=>%sectype%~
+      clone_effect_inline=>~match=>"opcode = 83 and parameter2 = 227" number_to_add=>2 opcode=>"entry_index from [205 221]" parameter1=>0 parameter2=>%sectype_value%~
     END
   END
 

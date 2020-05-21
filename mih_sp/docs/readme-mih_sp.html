@@ -13,7 +13,7 @@
   <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a></strong> <br />
     <strong>Author</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6180">Angel</a> </p>
 <!--  <p><strong>On the web: </strong><a href="http://www.gibberlings3.net/npcstrongholds/"><strong>Home page</strong></a> and <a href="http://gibberlings3.net/forums/index.php?showforum=77"><strong>discussion forum</strong></a></p> -->
-  <p><strong> Version 1 - <a href="http://www.gibberlings3.net/downloads/#mih_sp">Check for the most recent version</a></strong> <br />
+  <p><strong> Version 2 - <a href="https://github.com/AngelGryph/MadeInHeaven_SpellPack/releases/">Check for the most recent version</a></strong> <br />
     <strong>Languages: </strong>English <br />
     <strong>Platforms: </strong>Windows, Mac OS X, and Linux </p>
 </div>
@@ -24,7 +24,7 @@
 <h2>Compatibility</h2>
 <div class="section">
   <p>This mod has been designed to work with <acronym title="Baldur's Gate Enhanced Edition">BGEE</acronym>, <acronym title="Baldur's Gate 2 Enhanced Edition">BG2EE</acronym> and should be backwards compatible with <acronym title="Baldur's Gate 2: Throne of Bhaal">BG2: ToB</acronym>.  The mega-mods <acronym title="Enhanced Edition Trilogy">EET</acronym> and <acronym title="Baldur's Gate Trilogy">BGT</acronym> are also supported.  This mod is not compatible with older versions of the games.
-  <p>As a WeiDU mod, this mod should be compatible with all other WeiDU mods.  There are currently no known conflicts with other mods.  As for installation order, you should install the item pack fairly early, before any 'tweak' mods.</p>
+  <p>As a WeiDU mod, this mod should be compatible with all other WeiDU mods.  The core components have no known compatibility issues with any mods.  The tweaks might conflict with other mods that do similar things, like Spell Revisions.  As a spell pack, this mod should be installed fairly early, before any 'tweak' mods.</p>
 </div>
 <h2>Installation</h2>
 <div class="section">
@@ -33,7 +33,7 @@
   <p><strong>Vanilla BG2 and Baldur's Gate Trilogy</strong><br />
   Before installing this mod, you must install the latest official patch, and you must also install the Throne of Bhaal Extender (ToBEx) and the G3 Fixpack version 11 or higher.  This mod will not work correctly without those two installed!</p>
   <p><strong>BG1EE and Siege of Dragonspear</strong><br />
-  If you obtained your version of the game through Steam or GoG, you must run a program called 'modmerge' before installing any WeiDU mods like this one.  If you obtained your game from Beamdog, this is not required.</p>
+  If you obtained your version of the game through Steam or GoG, you must either run a 'modmerge' or install 'A7-DlcMerger' before installing this mod (or any WeiDU-based mods, really).  If you obtained your game from Beamdog, this is not required.</p>
   <p><strong>BG2EE and Extended Edition Trilogy</strong><br />
   There are no requirements at this time.  For EET, install this mod after EET has been installed but before the EET installation is finalized.</p>
   <p><strong>Windows</strong><br />
@@ -53,38 +53,122 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 </div>
 <h2>Component Descriptions</h2>
 <div class="section">
+  <h3>Core Components</h3>
   <p>This mod consists of several components, each of which can be installed or removed independently from the others.<p>
-  <p><strong>MiH Arcane Spell Pack</strong><br/>
+  <p><strong>Arcane Spell Pack</strong><br/>
   This installs new spells for wizards and bards.  The spells will be available on the selection screen when creating a new character, and spell scrolls are distributed throughout the environment.</p>
   <p><a href="arcane_spell_list.html">Arcane Spell List</a></p>
-  <p><strong>MiH Divine Spell Pack</strong><br/>
+
+  <p><strong>Divine Spell Pack</strong><br/>
   This installs new spells for clerics and druids.  The new spells will be added to the spell list as the characters level up, just like other spells for these classes.</p>
   <p><a href="divine_spell_list.html">Divine Spell List</a></p>
-  <p><strong>Additional Paladin Powers</strong><br/>
+
+  <p><strong>Paladin Powers Pack</strong><br/>
   This gives paladins a few additional powers.  Most paladins can now use Smite Evil once per day (as in Icewind Dale), dealing 1d6 points of magical damage for every three levels of the paladin.  Undead Hunters instead gain Smite Undead, and Blackguards (EE only) gain Smite Good.  In addition to these, all paladins cwwho can Lay on Hands (true paladin and cavalier) will gain an extra use of this ability every seven levels.</p>
-  <p><strong>Alaghar of Clangeddin Kit</strong><br/>
-  This introduces a new priest kit, the Alaghar of Clangeddin, for dwarven priests.  When installed on BG1, Yeslick will recieve a modified version of this kit as well.</p>
-  <p><strong>Improved Flame Blade</strong><br/>
-  This component improves the Flame Blade spell, giving it roughly its 3.5e stats.  The Flame Blade is now wielded as a scimitar and deals 1d10 points of fire damage, +1 per level (max. +10).  It has +4 to hit, and counts as a +2 weapon for purposes of what it can hit.</p>
-  <p><strong>Restored Cure Blindness/Deafness</strong><br/>
+
+  <h3>Spell Effect Tweaks</h3>
+  <p><strong>Restore Cure Blindness/Deafness <i>(EXPERIMENTAL)</i></strong><br/>
   This component restores the dummied out Cure Blindness/Deafness spell, separating this function from the Cure Disease spell.  The stronger Neutralize Poison will still retain its ability to cure blindness and deafness.</p>
-  <p><strong>Correct Cleric/Druid Spell Use</strong><br/>
-  This alters a few spells that clerics or druids should not have according to P&amp;P rules.  The current list of modified spells is as follows:</p>
+
+  <p><strong>Level 4 Animate Dead for Wizards <i>(EXPERIMENTAL)</i></strong><br />
+  This makes Animate Dead a fourth level spell for wizards.  This only works if the character hasn't learned Animate Dead yet.  The fifth level version remains available and enemy spell lists are not affected.</p>
+
+  <p><strong>Protection from Evil Block Domination</strong><br />
+  Per P&amp;P rules, the various Protection from Alignment spells should block domination effects, but in Baldur's Gate, Protection from evil doesn't do this.  This tweak makes it so.  Note that it does <i>not</i> prevent charm effects.</p>
+
+  <p><strong>Prevent Damage during Time Stop</strong><br/>
+  This tweak makes it impossible to deal damage to time-stopped creatures, they will be 100% resistant to everything.  This is mostly to prevent the incredibly cheap Time Stop melee tactic.</p>
+
+  <p><strong>Remove All Time Stop Immunity</strong><br />
+  This tweak will remove immunity to Time Stop from all creatures.  Casters remain of course immune to their own Time Stop spells.</p>
+
+  <p><strong>No Elemental Mind Battle</strong><br />
+  This removes the three-round "mind battle" from the arcane versions of the Conjure Elemental spells., making these spells actually useful.</p>
+
+  <p><strong>Spell Improvements</strong><br />
+  This is a collection of minor tweaks to various spells.</p>
+  <ul>
+  <li>Larloch's Minor Drain: This spell will now slightly scale with level, draining 1d4 +1/level hit points from the target (+10 maximum).</li>
+  <li>Shillelagh: The Shillelagh is treated as a magical club with a +1 enhancement bonus and no penalty for non-proficiency.</li>
+  <li>Barkskin: If the recipient already has a better armor class than what the spell gives, they will still get an AC bonus of +1 to +5.</li>
+  <li>Flame Blade: The flaming sword is treated as a magical scimitar with no penalty for non-proficiency.  It can strike any target not immune to fire with a +4 to hit and deals 1d8 points of fire damage, +1 for every two levels.  Strength does not apply.</li>
+  </ul>
+
+  <h3>Spell Availability Tweaks</h3>
+  <p><strong>Temples sell Priest Scrolls</strong><br />
+  Temples in the game will now sell a selection of priest scrolls.  Available are Cure Light/Serious/Critical Wounds, Slow Poison, Neutralize Poison, Free Action, Chaotic Commands, Heal and Resurrection (the last two only in BG2)</p>
+
+  <p><strong>Thalantyr the *Conjurer*</strong><br />
+  Thalantyr of Beregost is both canonically and in-game a Conjurer, but you cannot tell by his selection of spells for sale.  This component actually gives him a couple of scrolls from the conjuration school, and removes scrolls he wouldn't be able to make due to his barred school of divination.</p>
+  <p>TODO: Give him more appropriate guardians than flesh golems.</p>
+
+  <h3>Game Rule Tweaks</h3>
+  <p><strong>Revised Strength Table</strong><br />
+  This patches the tables associated with strength to be more like 3.5e.  Bonuses start at 12 instead of 16 and the effects of exceptional strength are towned down a notch.</p>
   <table>
-  <tr><th>Spell</th><th>Cleric?</th><th>Druid?</th></tr>
-  <tr><td>Barkskin</td><td>no</td><td>yes</td></tr>
-  <tr><td>Doom</td><td>yes</td><td>no</td></tr>
-  <tr><td>Flame Blade</td><td>no</td><td>yes</td></tr>
-  <tr><td>Negative Plane Protection</td><td>yes</td><td>no</td></tr>
-  <tr><td>Protection from Fire</td><td>no</td><td>yes</td></tr>
-  <tr><td>Protection from Lightning</td><td>no</td><td>yes</td></tr>
-  <tr><td>Remove Curse</td><td>yes</td><td>yes</td></tr>
-  <tr><td>Resist Fire and Cold</td><td>yes</td><td>no</td></tr>
-  <tr><td>Shillelagh</td><td>no</td><td>yes</td></tr>
+  <tr><th></th><th>TO_HIT</th><th>DAMAGE</th></tr>
+  <tr><td>12</td><td>0</td><td>1</td></tr>
+  <tr><td>13</td><td>1</td><td>1</td></tr>
+  <tr><td>14</td><td>1</td><td>2</td></tr>
+  <tr><td>15</td><td>2</td><td>2</td></tr>
+  <tr><td>16</td><td>2</td><td>3</td></tr>
+  <tr><td>17</td><td>3</td><td>3</td></tr>
+  <tr><td>18/01</td><td>3</td><td>4</td></tr>
+  <tr><td>18/25</td><td>4</td><td>4</td></tr>
+  <tr><td>18/50</td><td>4</td><td>5</td></tr>
+  <tr><td>18/75</td><td>5</td><td>5</td></tr>
+  <tr><td>18/00</td><td>5</td><td>6</td></tr>
+  <tr><td>19</td><td>6</td><td>6</td></tr>
+  <tr><td>10</td><td>6</td><td>7</td></tr>
+  <tr><td>21</td><td>7</td><td>7</td></tr>
+  <tr><td>22</td><td>7</td><td>8</td></tr>
+  <tr><td>23</td><td>8</td><td>8</td></tr>
+  <tr><td>24</td><td>8</td><td>9</td></tr>
+  <tr><td>25</td><td>9</td><td>9</td></tr>
   </table>
-  <p>This list is based on spell lists in the Priests' Spell Compendium (2E).  Others may be added later</p>
-  <p><string>Prevent damage during Time Stop</strong><br/>
-  This tweak makes it impossible to deal damage to time-stopped creatures, they will be 100% resistant to everything.  This is mostly to prevent the Time Stop melee cheese tactic.  Use that time for healing and buffing already!  To balance things out, all immunities to Time Stop will be removed.</p>
+  <p>BEND_BARS_LIFT_GATES and WEIGHT_ALLOWANCE remain as is, as do stats for strength below 12.</p>
+
+  <p><strong>Revised Dexterity Table</strong><br />
+  This installs a revised dexterity table.  Bonus start at 12 and the effects of very high dexterity are toned down somewhat.</p>
+  <table>
+  <tr><th></th><th>REACTION</th><th>MISSILE</th><th>AC</th></tr>
+  <tr><td>12</td><td>1</td><td>0</td><td>0</td></tr>
+  <tr><td>13</td><td>1</td><td>1</td><td>0</td></tr>
+  <tr><td>14</td><td>1</td><td>1</td><td>-1</td></tr>
+  <tr><td>15</td><td>2</td><td>1</td><td>-1</td></tr>
+  <tr><td>16</td><td>2</td><td>2</td><td>-1</td></tr>
+  <tr><td>17</td><td>2</td><td>2</td><td>-2</td></tr>
+  <tr><td>18</td><td>3</td><td>2</td><td>-2</td></tr>
+  <tr><td>19</td><td>3</td><td>3</td><td>-2</td></tr>
+  <tr><td>20</td><td>3</td><td>3</td><td>-3</td></tr>
+  <tr><td>21</td><td>4</td><td>3</td><td>-3</td></tr>
+  <tr><td>22</td><td>4</td><td>4</td><td>-3</td></tr>
+  <tr><td>23</td><td>4</td><td>4</td><td>-4</td></tr>
+  <tr><td>24</td><td>5</td><td>4</td><td>-4</td></tr>
+  <tr><td>25</td><td>5</td><td>5</td><td>-4</td></tr>
+  </table>
+  <p>Effects of dexterity below 12 remain unchanged.  Note: REACTION is displayed on your character sheet but has no effect in-game.</p>
+
+  <p><strong>Revised Constitution Table</strong><br />
+  This installs a revised constitution table.  Bonus start at 12 and the effects of very high constitution are toned down somewhat.</p>
+  <table>
+  <tr><th></th><th>OTHER</th><th>WARRIOR</th><th>MIN_ROLL</th></tr>
+  <tr><td>12</td><td>1</td><td>1</td><td>1</td></tr>
+  <tr><td>13</td><td>1</td><td>1</td><td>1</td></tr>
+  <tr><td>14</td><td>1</td><td>2</td><td>1</td></tr>
+  <tr><td>15</td><td>2</td><td>2</td><td>1</td></tr>
+  <tr><td>16</td><td>2</td><td>3</td><td>1</td></tr>
+  <tr><td>17</td><td>2</td><td>3</td><td>1</td></tr>
+  <tr><td>18</td><td>3</td><td>4</td><td>1</td></tr>
+  <tr><td>19</td><td>3</td><td>4</td><td>1</td></tr>
+  <tr><td>20</td><td>3</td><td>5</td><td>1</td></tr>
+  <tr><td>21</td><td>4</td><td>5</td><td>2</td></tr>
+  <tr><td>22</td><td>4</td><td>6</td><td>2</td></tr>
+  <tr><td>23</td><td>4</td><td>6</td><td>3</td></tr>
+  <tr><td>24</td><td>5</td><td>7</td><td>3</td></tr>
+  <tr><td>25</td><td>5</td><td>7</td><td>4</td></tr>
+  </table>
+  <p>REGENERATION_RATE and FATIGUE_BONUS remain unchanged, as do the effects of constitution below 12.</p>
 </div>
 <h2>The .ini File</h2>
 <div class="section">
@@ -95,8 +179,6 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
     <tr><td>place_spell_scrolls_in_sod</td><td>Set to zero if you don't want new spell scrolls to show up in Siege of Dragonspear.</td></tr>
     <tr><td>place_spell_scrolls_in_bg2</td><td>Set to zero if you don't want new spell scrolls to show up in Shadows of Amn.</td></tr>
     <tr><td>place_spell_scrolls_in_tob</td><td>Set to zero if you don't want new spell scrolls to show up in Throne of Bhaal.</td></tr>
-    <tr><th colspan=2>Alaghar of Clangeddin Kit</th></tr>
-    <tr><td>make_yeslick_alaghar</td><td>Set to zero if you don't want Yeslick to get the Alaghar of Clangeddin kit.</td></tr>
   </table>
 </div>
 <h2>Contact Information</h2>
@@ -110,6 +192,8 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
     <a href="https://www.gibberlings3.net/mods/tools/dltcep/"><acronym title="DragonLance Total Converter Editor Pro">DLTCEP</acronym></a> by Avenger</p>
     <a href="http://www.shsforums.net/files/file/837-bam-batcher/">BAM Batcher</a> by Miloch</p>
   <p><strong>People who Contributed in some way</strong><br />
+    DavidW, for writing the SFO library that this mod uses.<br />
+    kjeron, who provided the projectile for Scintilliating Sphere.<br />
     All people brave enough to try and install my early beta versions...<br />
     The people at Bioware and Beamdog, for creating respectively the original games and the Enhanced Editions in the first place.<br />
     Anyone else I forgot?  (Please let me know!)</p>
@@ -121,8 +205,11 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 </div>
 <h2>Version History</h2>
 <div class="section">
-  <p><strong>Version 2 - ???</strong></p>
+  <p><strong>Version 2 - May 2020</strong></p>
   <ul>
+    <li>Almost complete rewrite using DavidW's SFO library.</li>
+    <li>Added some new spells and a couple of tweaks.</li>
+    <li>Some bug fixes and balancing tweaks.</li>
   </ul>
   <p><strong>Version 1 - June 2019</strong></p>
   <ul>
