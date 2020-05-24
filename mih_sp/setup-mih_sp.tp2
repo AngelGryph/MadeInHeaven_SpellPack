@@ -5,7 +5,7 @@
 BACKUP "weidu_external/backup/mih_sp"
 
 AUTHOR "angel@pearlgates.net"
-VERSION v2
+VERSION v3
 
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
@@ -13,7 +13,7 @@ AUTO_EVAL_STRINGS
 
 ALWAYS
   OUTER_SPRINT MOD_NAME "mih_sp"
-  OUTER_SPRINT MOD_VERSION "v2"
+  OUTER_SPRINT MOD_VERSION "v3"
 
   INCLUDE "mih_sp/lib/always.tph"
 END	// ALWAYS block
