@@ -12,8 +12,8 @@ NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  OUTER_SPRINT MOD_NAME "mih_sp"
-  OUTER_SPRINT MOD_VERSION "v3"
+  OUTER_TEXT_SPRINT MOD_NAME "mih_sp"
+  OUTER_SPRINT MOD_VERSION @0 /* v3 */
 
   INCLUDE "mih_sp/lib/always.tph"
 END	// ALWAYS block
@@ -22,11 +22,12 @@ END	// ALWAYS block
 LANGUAGE "English"
          "english"
 	 "mih_sp/language/english/setup-mih_sp.tra"
+	 "weidu_external/lang/english/mih_sp/setup-mih_sp.tra"
 
 
 // Made in Heaven: Arcane Spells
 
-BEGIN ~Made in Heaven: Arcane Spells~
+BEGIN @1 /* Made in Heaven: Arcane Spells */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -37,7 +38,7 @@ END
 
 // Made in Heaven: Divine Spell Pack
 
-BEGIN ~Made in Heaven: Divine Spells~
+BEGIN @2 /* Made in Heaven: Divine Spells */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -48,7 +49,7 @@ END
 
 // Made in Heaven: Paladin Powers Pack
 
-BEGIN ~Made in Heaven: Paladin Powers~
+BEGIN @3 /* Made in Heaven: Paladin Powers */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -59,10 +60,10 @@ END
 
 // Restore Cure Blindness & Deafness
 
-BEGIN ~Restore Cure Blindness/Deafness (EXPERIMENTAL)~
-GROUP ~Spell Effect Tweaks~
+BEGIN @4 /* Restore Cure Blindness/Deafness (EXPERIMENTAL) */
+GROUP @5 /* Spell Effect Tweaks */
 
-FORBID_FILE "sppr316.spl" ~Some other mod already provides or supercedes this component.~
+FORBID_FILE "sppr316.spl" @6 /* Some other mod already provides or supercedes this component. */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -74,8 +75,8 @@ END
 
 // Level 4 Animate Dead
 
-BEGIN ~Level 4 Animate Dead for Wizards (EXPERIMENTAL)~
-GROUP ~Spell Effect Tweaks~
+BEGIN @7 /* Level 4 Animate Dead for Wizards (EXPERIMENTAL) */
+GROUP @5 /* Spell Effect Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -86,8 +87,8 @@ END
 
 // Protection from Evil blocks Domination
 
-BEGIN ~Protection from Evil blocks Domination~
-GROUP ~Spell Effect Tweaks~
+BEGIN @8 /* Protection from Evil blocks Domination */
+GROUP @5 /* Spell Effect Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -99,10 +100,10 @@ END
 
 // Prevent damage during Timestop
 
-BEGIN ~Prevent damage during Timestop~
-GROUP ~Spell Effect Tweaks~
+BEGIN @9 /* Prevent damage during Timestop */
+GROUP @5 /* Spell Effect Tweaks */
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10 /* This component is not applicable to your game. */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -113,10 +114,10 @@ END
 
 // Remove All Time Stop Immunity
 
-BEGIN ~Remove All Time Stop Immunity~
-GROUP ~Spell Effect Tweaks~
+BEGIN @11 /* Remove All Time Stop Immunity */
+GROUP @5 /* Spell Effect Tweaks */
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" ~This component is not applicable to your game.~
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10 /* This component is not applicable to your game. */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -127,8 +128,8 @@ END
 
 // No Elemental Mind Battle
 
-BEGIN ~No Elemental Mind Battle~
-GROUP ~Spell Effect Tweaks~
+BEGIN @12 /* No Elemental Mind Battle */
+GROUP @5 /* Spell Effect Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -139,8 +140,8 @@ END
 
 // Spell Improvements
 
-BEGIN ~Spell Improvements (see readme)~
-GROUP ~Spell Effect Tweaks~
+BEGIN @13 /* Spell Improvements (see readme) */
+GROUP @5 /* Spell Effect Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -152,8 +153,8 @@ END
 
 // Temples sell Priest Scrolls
 
-BEGIN ~Temples sell Priest Scrolls~
-GROUP ~Spell Availability Tweaks~
+BEGIN @14 /* Temples sell Priest Scrolls */
+GROUP @15 /* Spell Availability Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -164,10 +165,10 @@ END
 
 // Thalantyr the *Conjurer*
 
-BEGIN ~Thalantyr the *Conjurer*~
-GROUP ~Spell Availability Tweaks~
+BEGIN @16 /* Thalantyr the *Conjurer* */
+GROUP @15 /* Spell Availability Tweaks */
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg1" ~This component is not applicable to your game.~
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @10 /* This component is not applicable to your game. */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -178,8 +179,8 @@ END
 
 // Revised Strength Table
 
-BEGIN ~Revised Strength Table~
-GROUP ~Game Rule Tweaks~
+BEGIN @17 /* Revised Strength Table */
+GROUP @18 /* Game Rule Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -190,8 +191,8 @@ END
 
 // Revised Dexterity Table
 
-BEGIN ~Revised Dexterity Table~
-GROUP ~Game Rule Tweaks~
+BEGIN @19 /* Revised Dexterity Table */
+GROUP @18 /* Game Rule Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -202,8 +203,8 @@ END
 
 // Revised Constitution Table
 
-BEGIN ~Revised Constitution Table~
-GROUP ~Game Rule Tweaks~
+BEGIN @20 /* Revised Constitution Table */
+GROUP @18 /* Game Rule Tweaks */
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR

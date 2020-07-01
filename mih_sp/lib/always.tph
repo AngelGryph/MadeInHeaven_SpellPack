@@ -28,8 +28,8 @@ BEGIN
 
   OUTER_SET initialise = 1
 
-  OUTER_SPRINT modder_prefix "mh#"
-  OUTER_SPRINT mod_root "%MOD_NAME%"
+  OUTER_TEXT_SPRINT modder_prefix "mh#"
+  OUTER_TEXT_SPRINT mod_root "%MOD_NAME%"
 
   OUTER_FOR (i = 1; i <= 10; ++i)
   BEGIN
@@ -62,7 +62,7 @@ BEGIN
 
   // Read the .ini file
 
-  OUTER_SPRINT ini_to_read "%mod_root%/%mod_root%.ini"
+  OUTER_TEXT_SPRINT ini_to_read "%mod_root%/%mod_root%.ini"
   LAUNCH_ACTION_MACRO SFO_read_ini_file
 END	// done_init
 

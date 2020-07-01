@@ -3348,3 +3348,73 @@ BEGIN
 END
 
 
+// enforce_xp - Set xp_value based on creature's HD + adjustment
+
+DEFINE_PATCH_FUNCTION CRE_enforce_xp
+BEGIN
+  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END
+  LPF CRE_read_level1 RET level1=value END
+
+  SET level = level1 + arguments
+  
+  PATCH_MATCH level
+  WITH
+    1
+    BEGIN
+      SET xp_value = 15
+    END
+    2
+    BEGIN
+      SET xp_value = 35
+    END
+    3
+    BEGIN
+      SET xp_value = 65
+    END
+    4
+    BEGIN
+      SET xp_value = 120
+    END
+    5
+    BEGIN
+      SET xp_value = 175
+    END
+    6
+    BEGIN
+      SET xp_value = 270
+    END
+    7
+    BEGIN
+      SET xp_value = 420
+    END
+    8
+    BEGIN
+      SET xp_value = 650
+    END
+    9
+    BEGIN
+      SET xp_value = 975
+    END
+    10
+    BEGIN
+      SET xp_value = 1400
+    END
+    11
+    BEGIN
+      SET xp_value = 2000
+    END
+    DEFAULT
+    PATCH_IF (level > 11)
+    BEGIN
+      SET xp_value = (level - 10) * 1000
+    END
+    ELSE
+    BEGIN
+      SET xp_value = 7
+    END
+  END
+
+  LPF CRE_xp_value STR_VAR arguments="%xp_value%" END
+END
+
+

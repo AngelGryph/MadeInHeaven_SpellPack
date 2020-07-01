@@ -204,14 +204,14 @@ LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR lookup_table=are_
 
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY are_bit_fields_absolute BEGIN
-      outdoor=>~0x44,0~
-      day_night=>~0x44,1~
-      weather=>~0x44,2~
-      city=>~0x44,3~
-      forest=>~0x44,4~
-      dungeon=>~0x44,5~
-      extended_night=>~0x44,6~
-      rest_indoors=>~0x44,7~
+      outdoor=>~0x48,0~
+      day_night=>~0x48,1~
+      weather=>~0x48,2~
+      city=>~0x48,3~
+      forest=>~0x48,4~
+      dungeon=>~0x48,5~
+      extended_night=>~0x48,6~
+      rest_indoors=>~0x48,7~
 END
 
 LAF build_flag_data_field_editors STR_VAR lookup_table=are_bit_fields_absolute function_prefix=ARE  END
