@@ -52,7 +52,7 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
    MKDIR "%external_loc%/lang"
 
    ACTION_IF !FILE_EXISTS "%external_loc%/readme.txt" BEGIN
-      COPY + "%mod_root%/docs/weidu_external_readme.txt" "%external_loc%/readme.txt"
+      COPY + "%mod_root%/lib/resource/weidu_external_readme.txt" "%external_loc%/readme.txt"
    END
 
    //////////////////////////////////////////////////////////////
@@ -91,6 +91,7 @@ COPY - "%mod_root%/%ini_file%" "%workspace%"
    REPLACE_EVALUATE "debug_variable[ =]+\([0-9]+\)"
    BEGIN
        SET debug_variable=MATCH1
+	   
    END
    "" // doesn't matter, this is COPY -
 BUT_ONLY

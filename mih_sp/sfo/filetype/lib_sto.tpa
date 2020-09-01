@@ -39,10 +39,9 @@ DEFINE_ACTION_FUNCTION edit_store
            external_file=""
     BEGIN
          LAUNCH_ACTION_FUNCTION edit_template
-	          INT_VAR allow_missing tv 
                   STR_VAR file_list=~%store%~
                           file_ext=~STO~
-                          edits editstring external_file
+                          edits editstring allow_missing tv external_file
 
          END
 END
@@ -54,9 +53,8 @@ END
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 DEFINE_ACTION_FUNCTION install_store
-    INT_VAR
-           allow_missing=0
-	   tv=0
+    INT_VAR allow_missing=0
+            tv=0
     STR_VAR
            store=""
            edits=""
@@ -66,11 +64,31 @@ DEFINE_ACTION_FUNCTION install_store
            locbase=""
     BEGIN
          LAUNCH_ACTION_FUNCTION install_template
-	          INT_VAR allow_missing tv
                   STR_VAR file_list= ~%store%~
                           file_ext=~STO~
-                          edits editstring external_file location locbase 
+                          edits editstring allow_missing tv external_file location locbase 
 
+         END
+END
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////               overarching make
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION make_store
+    STR_VAR
+           store=""
+           edits=""
+           editstring=""
+    BEGIN
+         CREATE sto "%store%"
+         LAUNCH_ACTION_FUNCTION edit_template
+                  STR_VAR file_list= ~%store%~
+                          file_ext=~STO~
+                          edits= ~%edits%~
+                          editstring= ~%editstring%~
          END
 END
 
@@ -150,10 +168,11 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY sto_fields BEGIN
      item_bought=>"0x0,LONG"
      cure=>"0x0,ASCII"
      cure_price=>"0x8,LONG"
-     drinkname_string=>"0x4,LONG"
+     drinkname_string=>"0x8,LONG"
      special_rumor=>"0x0,ASCII"
      drink_price=>"0xc,LONG"
-     intoxication=>"0x10,LONG"
+     intoxication=>"0x10,LONG"  // misnomer
+     rumor_rate=>"0x10,LONG"  // misnomer
 END
 
 LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR lookup_table=sto_fields offset_base=~offset_base~ function_prefix=STO END
@@ -330,14 +349,14 @@ DEFINE_PATCH_FUNCTION STO_set_drink
    STR_VAR arguments=""
            offset_base="0"
 BEGIN
-   LPF patch_text_entry INT_VAR loc=0x4+offset_base STR_VAR function=set_string arguments= ~%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0x8+offset_base STR_VAR function=set_string arguments= ~%arguments%~ END
 END
 
 DEFINE_PATCH_FUNCTION STO_say_drink
    STR_VAR arguments=""
            offset_base="0"
 BEGIN
-   LPF say_this_here INT_VAR offset=0x4+offset_base say= ~%arguments%~ END
+   LPF say_this_here INT_VAR offset=0x8+offset_base say= ~%arguments%~ END
 END
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -370,7 +389,7 @@ BEGIN
         LPF warning STR_VAR warning="Store type %arguments% is unrecognised; defaulting to 0" END
         SET num=0
       END
-      LPF STO_type_code STR_VAR arguments="%num%" END
+      LPF STO_store_type_code STR_VAR arguments="%num%" END
 END
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -424,8 +443,6 @@ BEGIN
       END
    END
 END
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////            swap store item(s)

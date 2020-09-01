@@ -42,13 +42,14 @@ BEGIN
       STR_VAR
       spell_name
       RET
-      resref	= spell_res
+      spell_res
     END
 
     LAUNCH_ACTION_FUNCTION make_scroll_of_spell
       STR_VAR
-      resref	
+      resref		= "%spell_res%"
       scrollname
+      scrollicon	= "%scrollname%"
     END
   END
 

@@ -69,8 +69,14 @@ BEGIN
   // Install Detectable Spells
 
   INCLUDE "%mod_root%/lib/ds.tph"
-
   LAUNCH_ACTION_FUNCTION detectable_spells END
+
+
+  // Gather some data structures for SFO
+
+  LAUNCH_ACTION_MACRO read_in_saving_throws
+  LAUNCH_ACTION_MACRO read_in_thac0
+  LAUNCH_ACTION_MACRO read_in_hit_point_levels
 END	// done_init
 
 

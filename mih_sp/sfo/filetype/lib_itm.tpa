@@ -12,11 +12,12 @@ DEFINE_ACTION_FUNCTION clone_item
            editstring=""
     BEGIN
          LAUNCH_ACTION_FUNCTION clone_template
-	          INT_VAR allow_missing
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
                           edits
                           editstring
+                          allow_missing
+
          END
 END
 
@@ -41,10 +42,10 @@ DEFINE_ACTION_FUNCTION edit_item
            locabs=""
     BEGIN
          LAUNCH_ACTION_FUNCTION edit_template
-	          INT_VAR allow_missing silent tv
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
-                          edits editstring location locbase locabs
+                          edits editstring allow_missing
+                          tv silent location locbase locabs
 
          END
 END
@@ -66,10 +67,10 @@ DEFINE_ACTION_FUNCTION install_item
            locbase=""
     BEGIN
          LAUNCH_ACTION_FUNCTION install_template
-	          INT_VAR allow_missing tv
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
-                          edits editstring silent location locbase
+                          edits editstring allow_missing
+                          tv silent location locbase
 
          END
 END
@@ -160,6 +161,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY item_fields BEGIN
    icon => ~0x3a,ASCII~
    icon_ground =>~0x44,ASCII~
    icon_carried=>~0x58,ASCII~
+   minimum_strength=>~0x26,SHORT~
    lore=> ~0x42,SHORT~
    weight=>~0x4c,LONG~
    description1_string => ~0x50,LONG~
@@ -184,13 +186,13 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY item_ability_fields BEGIN
    ability_school=>~0x17,BYTE~
    ability_secondary=>~0x19,BYTE~
    ability_numdice=>~0x18,BYTE~
+   ability_dicenum=>~0x18,BYTE~
    damage_bonus=>~0x1a,SHORT~
    damage_type=>~0x1c,SHORT~
    effect_num=>~0x1e,SHORT~
    effect_offset=>~0x20,SHORT~
    number_charges => ~0x22,SHORT~
    when_drained => ~0x24,BYTE~
-   strength_bonus=>~0x26,BYTE~
    projectile => ~0x2a,SHORT~
    overhand=>~0x2c,SHORT~
    backhand=>~0x2e,SHORT~
@@ -315,6 +317,12 @@ END
 LAF build_flag_data_field_editors STR_VAR lookup_table=itm_bit_fields function_prefix=ITM END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY abil_bit_fields BEGIN
+      strength_bonus=>~0x26,0~
+      breakable=>~0x26,1~
+      damage_only=>~0x26,2~
+      to_hit_only=>~0x26,3~
+      breaks_sanctuary=>~0x27,1~
+      hostile=>~0x27,2~
       recharges_on_rest=>~0x27,3~
 END
 LAF build_flag_data_field_editors STR_VAR lookup_table=abil_bit_fields offset_base=~offset_base~ function_prefix=ITM END
@@ -577,6 +585,14 @@ BEGIN
    LPF patch_text_entry STR_VAR function=append_string_nospace loc=0x54 arguments= ~%arguments%~ END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_append_description") ""
+
+DEFINE_PATCH_FUNCTION ITM_append_description_newline
+   STR_VAR arguments=""
+BEGIN
+   LPF patch_text_entry STR_VAR function=append_string_nospace loc=0x54 arguments= ~%WNL%%arguments%~ END
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_append_description_newline") ""
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////             substitute the description
@@ -606,6 +622,7 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_description") ""
 DEFINE_PATCH_FUNCTION ITM_set_unidentified_description
    STR_VAR arguments=""
 BEGIN
+   SAY 0x50 (AT "%arguments%")
    LPF patch_text_entry STR_VAR function=set_string loc=0x50 arguments END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_unidentified_description") ""
@@ -1022,6 +1039,7 @@ BEGIN
       END
    END
 END
+
 
 
 // Apply CamDawg's immunity arrays
