@@ -64,6 +64,13 @@ BEGIN
 
   OUTER_TEXT_SPRINT ini_to_read "%mod_root%/%mod_root%.ini"
   LAUNCH_ACTION_MACRO SFO_read_ini_file
+
+
+  // Install Detectable Spells
+
+  INCLUDE "%mod_root%/lib/ds.tph"
+
+  LAUNCH_ACTION_FUNCTION detectable_spells END
 END	// done_init
 
 
