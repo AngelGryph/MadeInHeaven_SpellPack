@@ -4,8 +4,8 @@
 
 BACKUP "weidu_external/backup/mih_sp"
 
-AUTHOR "angel@pearlgates.net"
-VERSION v3
+SUPPORT "https://www.gibberlings3.net/forums/topic/29992-my-new-made-in-heaven-mods/"
+VERSION @0
 
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
