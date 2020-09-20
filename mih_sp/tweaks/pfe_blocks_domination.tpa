@@ -112,7 +112,7 @@ BEGIN
           match_opcode		= 142	// Graphics: Display Special Effect Icon
           match_parameter2	= 9	// Protection from Evil
           opcode		= 206	// Spell: Protection from Spell
-          parameter1		= RESOLVE_STR_REF(@0)
+          parameter1		= RESOLVE_STR_REF(@9)
           parameter2		= 0
           STR_VAR
           resource		= "%domination_res%"

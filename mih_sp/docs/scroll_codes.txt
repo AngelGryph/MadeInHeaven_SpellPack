@@ -1,5 +1,6 @@
 mh#wiz21	Spark Shower
 mh#wiz22	Seeking
+mh#wiz23	Fog Cloud
 
 mh#wiz31	Improved Magic Missile
 mh#wiz32	Heroism

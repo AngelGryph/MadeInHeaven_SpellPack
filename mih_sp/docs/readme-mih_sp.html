@@ -10,11 +10,11 @@
 <body>
 <h1>Made in Heaven: Spell Pack</h1>
 <div class="section">
-  <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a></strong> <br />
+  <p><strong><a href="http://www.gibberlings3.net/">A Gibberlings Three Mod</a></strong> <br/>
     <strong>Author</strong>: <a href="http://gibberlings3.net/forums/index.php?showuser=6180">Angel</a> </p>
 <!--  <p><strong>On the web: </strong><a href="http://www.gibberlings3.net/npcstrongholds/"><strong>Home page</strong></a> and <a href="http://gibberlings3.net/forums/index.php?showforum=77"><strong>discussion forum</strong></a></p> -->
-  <p><strong> Version 2 - <a href="https://github.com/AngelGryph/MadeInHeaven_SpellPack/releases/">Check for the most recent version</a></strong> <br />
-    <strong>Languages: </strong>English <br />
+  <p><strong> Version 2 - <a href="https://github.com/AngelGryph/MadeInHeaven_SpellPack/releases/">Check for the most recent version</a></strong> <br/>
+    <strong>Languages: </strong>English <br/>
     <strong>Platforms: </strong>Windows, Mac OS X, and Linux </p>
 </div>
 <h2>Overview</h2>
@@ -28,27 +28,27 @@
 </div>
 <h2>Installation</h2>
 <div class="section">
-  <p><strong>Before you install</strong><br />
+  <p><strong>Before you install</strong><br/>
   If you have an older version of the MiH Spell Pack, be sure to completely remove it first before trying to install the new version!</p>
-  <p><strong>Vanilla BG2 and Baldur's Gate Trilogy</strong><br />
+  <p><strong>Vanilla BG2 and Baldur's Gate Trilogy</strong><br/>
   Before installing this mod, you must install the latest official patch, and you must also install the Throne of Bhaal Extender (ToBEx) and the G3 Fixpack version 11 or higher.  This mod will not work correctly without those two installed!</p>
-  <p><strong>BG1EE and Siege of Dragonspear</strong><br />
+  <p><strong>BG1EE and Siege of Dragonspear</strong><br/>
   If you obtained your version of the game through Steam or GoG, you must either run a 'modmerge' or install 'A7-DlcMerger' before installing this mod (or any WeiDU-based mods, really).  If you obtained your game from Beamdog, this is not required.</p>
-  <p><strong>BG2EE and Extended Edition Trilogy</strong><br />
+  <p><strong>BG2EE and Extended Edition Trilogy</strong><br/>
   There are no requirements at this time.  For EET, install this mod after EET has been installed but before the EET installation is finalized.</p>
-  <p><strong>Windows</strong><br />
+  <p><strong>Windows</strong><br/>
 Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distributed as a zip archive.  Modern versions of Windows have support for zip files built in, just double-click the archive to open it, and extract the contents to your game file.  If you are still using an older version of Windows, you should install WinZip or a similar program to extract the archive.</p>
   <p>Your game folder should then contain a mih_sp folder and setup-mih_sp.exe. To install, double-click setup-mih_sp.exe and follow the instructions on screen.</p>
   <p>Please run setup-mih_sp.exe in your game folder to reinstall, uninstall, or otherwise change components.  To uninstall the entire mod without questions, run setup-mih_sp.exe --uninstall from a command line in your game directory.</p>
-  <p><strong>Mac OS X</strong><br />
+  <p><strong>Mac OS X</strong><br/>
     Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distributed as a compressed archive.  Extract the contents of the archive and move them to your game folder. Your game folder should then contain a mih_sp folder, setup-mih_sp, and setup-mih_sp.command. To install, simply double-click <strong>setup-mih_sp.command</strong> and follow the instructions on screen.</p>
-  <p><strong>Linux</strong><br />
+  <p><strong>Linux</strong><br/>
     Extract the contents of the mod archive to your game installation directory.</p>
   <p>If you haven't already, download the latest version of WeiDU for Linux from <a href="http://www.weidu.org/%7Ethebigg/" title="External link" rel="nofollow external">weidu.org</a> and extract (at least) the weidu executable to a $PATH directory (e.g. /usr/bin).</p>
   <p>To install, open a terminal, cd to your game installation directory and
  run <strong>weidu --log setup-mih_sp.debug mih_sp/setup-mih_sp.tp2</strong> from your game installation directory to install or uninstall the mod.</p>
   <p>Note: The readme files of some older mods recommend running tolower on Linux prior to installation.  <b>Don't do this on an Enhanced Edition game, you will break it!</b>  Modern versions of tolower will actually refuse to run in a EE game directory.  At any rate, the contents of MiH: Spell Pack are already all lower case, there is no need for tolower.</p>
-  <p><strong>New Game required!</strong><br />
+  <p><strong>New Game required!</strong><br/>
   After installing this mod you must start a new game.  This mod edits area files and stores, both of which are stored in your save game after you have visited them.  Continuing a saved game after installing this mod will have unexpected and likely undesired results.</p>
 </div>
 <h2>Component Descriptions</h2>
@@ -67,25 +67,28 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   This gives paladins a few additional powers.  Most paladins can now use Smite Evil once per day (as in Icewind Dale), dealing 1d6 points of magical damage for every three levels of the paladin.  Undead Hunters instead gain Smite Undead, and Blackguards (EE only) gain Smite Good.  In addition to these, all paladins cwwho can Lay on Hands (true paladin and cavalier) will gain an extra use of this ability every seven levels.</p>
 
   <h3>Spell Effect Tweaks</h3>
+  <p><strong>Split up Resist Fire/Cold <i>(EXPERIMENTAL)</i></strong><br/>
+  This component restores the dummied out Resist Cold spell, separating this function from the Resist Fire/Cold spell (which is internally known as CLERIC_RESIST_FIRE only).</p>
+
   <p><strong>Restore Cure Blindness/Deafness <i>(EXPERIMENTAL)</i></strong><br/>
   This component restores the dummied out Cure Blindness/Deafness spell, separating this function from the Cure Disease spell.  The stronger Neutralize Poison will still retain its ability to cure blindness and deafness.</p>
 
-  <p><strong>Level 4 Animate Dead for Wizards <i>(EXPERIMENTAL)</i></strong><br />
+  <p><strong>Level 4 Animate Dead for Wizards <i>(EXPERIMENTAL)</i></strong><br/>
   This makes Animate Dead a fourth level spell for wizards.  This only works if the character hasn't learned Animate Dead yet.  The fifth level version remains available and enemy spell lists are not affected.</p>
 
-  <p><strong>Protection from Evil Block Domination</strong><br />
+  <p><strong>Protection from Evil Block Domination</strong><br/>
   Per P&amp;P rules, the various Protection from Alignment spells should block domination effects, but in Baldur's Gate, Protection from evil doesn't do this.  This tweak makes it so.  Note that it does <i>not</i> prevent charm effects.</p>
 
   <p><strong>Prevent Damage during Time Stop</strong><br/>
   This tweak makes it impossible to deal damage to time-stopped creatures, they will be 100% resistant to everything.  This is mostly to prevent the incredibly cheap Time Stop melee tactic.</p>
 
-  <p><strong>Remove All Time Stop Immunity</strong><br />
+  <p><strong>Remove All Time Stop Immunity</strong><br/>
   This tweak will remove immunity to Time Stop from all creatures.  Casters remain of course immune to their own Time Stop spells.</p>
 
-  <p><strong>No Elemental Mind Battle</strong><br />
+  <p><strong>No Elemental Mind Battle</strong><br/>
   This removes the three-round "mind battle" from the arcane versions of the Conjure Elemental spells., making these spells actually useful.</p>
 
-  <p><strong>Spell Improvements</strong><br />
+  <p><strong>Spell Improvements</strong><br/>
   This is a collection of minor tweaks to various spells.</p>
   <ul>
   <li>Larloch's Minor Drain: This spell will now slightly scale with level, draining 1d4 +1/level hit points from the target (+10 maximum).</li>
@@ -95,15 +98,15 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   </ul>
 
   <h3>Spell Availability Tweaks</h3>
-  <p><strong>Temples sell Priest Scrolls</strong><br />
+  <p><strong>Temples sell Priest Scrolls</strong><br/>
   Temples in the game will now sell a selection of priest scrolls.  Available are Cure Light/Serious/Critical Wounds, Slow Poison, Neutralize Poison, Free Action, Chaotic Commands, Heal and Resurrection (the last two only in BG2)</p>
 
-  <p><strong>Thalantyr the *Conjurer*</strong><br />
+  <p><strong>Thalantyr the *Conjurer*</strong><br/>
   Thalantyr of Beregost is both canonically and in-game a Conjurer, but you cannot tell by his selection of spells for sale.  This component actually gives him a couple of scrolls from the conjuration school, and removes scrolls he wouldn't be able to make due to his barred school of divination.</p>
   <p>TODO: Give him more appropriate guardians than flesh golems.</p>
 
   <h3>Game Rule Tweaks</h3>
-  <p><strong>Revised Strength Table</strong><br />
+  <p><strong>Revised Strength Table</strong><br/>
   This patches the tables associated with strength to be more like 3.5e.  Bonuses start at 12 instead of 16 and the effects of exceptional strength are towned down a notch.</p>
   <table>
   <tr><th></th><th>TO_HIT</th><th>DAMAGE</th></tr>
@@ -128,7 +131,7 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   </table>
   <p>BEND_BARS_LIFT_GATES and WEIGHT_ALLOWANCE remain as is, as do stats for strength below 12.</p>
 
-  <p><strong>Revised Dexterity Table</strong><br />
+  <p><strong>Revised Dexterity Table</strong><br/>
   This installs a revised dexterity table.  Bonus start at 12 and the effects of very high dexterity are toned down somewhat.</p>
   <table>
   <tr><th></th><th>REACTION</th><th>MISSILE</th><th>AC</th></tr>
@@ -149,7 +152,7 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   </table>
   <p>Effects of dexterity below 12 remain unchanged.  Note: REACTION is displayed on your character sheet but has no effect in-game.</p>
 
-  <p><strong>Revised Constitution Table</strong><br />
+  <p><strong>Revised Constitution Table</strong><br/>
   This installs a revised constitution table.  Bonus start at 12 and the effects of very high constitution are toned down somewhat.</p>
   <table>
   <tr><th></th><th>OTHER</th><th>WARRIOR</th><th>MIN_ROLL</th></tr>
@@ -187,15 +190,15 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 </div>
 <h2>Shout Outs</h2>
 <div class="section">
-  <p><strong>Tools Used in Creation</strong><br />
-    <a href="http://www.weidu.org/"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a> by Wes Weimer, the bigg, and Wisp<br />
+  <p><strong>Tools Used in Creation</strong><br/>
+    <a href="http://www.weidu.org/"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a> by Wes Weimer, the bigg, and Wisp<br/>
     <a href="https://www.gibberlings3.net/mods/tools/dltcep/"><acronym title="DragonLance Total Converter Editor Pro">DLTCEP</acronym></a> by Avenger</p>
     <a href="http://www.shsforums.net/files/file/837-bam-batcher/">BAM Batcher</a> by Miloch</p>
-  <p><strong>People who Contributed in some way</strong><br />
-    DavidW, for writing the SFO library that this mod uses.<br />
-    kjeron, who provided the projectile for Scintilliating Sphere.<br />
-    All people brave enough to try and install my early beta versions...<br />
-    The people at Bioware and Beamdog, for creating respectively the original games and the Enhanced Editions in the first place.<br />
+  <p><strong>People who Contributed in some way</strong><br/>
+    DavidW, for writing the SFO library that this mod uses.<br/>
+    kjeron, who provided the projectile for Scintilliating Sphere.<br/>
+    All people brave enough to try and install my early beta versions...<br/>
+    The people at Bioware and Beamdog, for creating respectively the original games and the Enhanced Editions in the first place.<br/>
     Anyone else I forgot?  (Please let me know!)</p>
 </div>
 <h2>Credits and Copyright Information</h2>

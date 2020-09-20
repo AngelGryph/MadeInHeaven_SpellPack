@@ -43,7 +43,7 @@ BEGIN
   MAKE_PATCH
     patch_effect_inline=>~match=>"opcode = 0" parameter1=>"6 - parameter1" parameter2=>0~
     clone_effect_inline=>~match=>"opcode = 0" parameter1=>6 parameter2=>1~
-    say_description=>0
+    say_description=>7
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
@@ -79,7 +79,7 @@ BEGIN
   MAKE_PATCH
     patch_effect_inline'1=>~match=>"opcode=111 and ability_min_level<20" resource=>"ability_min_level from [mh#flm1 mh#flm1 mh#flm1 mh#flm2 mh#flm2 mh#flm3 mh#flm3 mh#flm4 mh#flm4 mh#flm5 mh#flm5 mh#flm6 mh#flm6 mh#flm7 mh#flm7 mh#flm8 mh#flm8 mh#flm9 mh#flm9]"~
     patch_effect_inline'2=>~match=>"opcode=111 and ability_min_level>19" resource=>"mh#flm10"~
-    say_description=>1
+    say_description=>8
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell

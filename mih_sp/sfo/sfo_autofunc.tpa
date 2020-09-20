@@ -7236,6 +7236,82 @@
                           END
                           
  
+                          DEFINE_PATCH_FUNCTION ARE_spawn_probability_day 
+                                   INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x8c + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_spawn_probability_dayGT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x8c + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x8c + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_spawn_probability_dayLT 
+                                    INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x8c + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x8c + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_spawn_probability_day 
+                                     INT_VAR offset_secondary=0 offset_base=0 RET value 
+                          BEGIN
+                                     READ_SHORT (0x8c + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_spawn_probability_night 
+                                   INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x8e + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_spawn_probability_nightGT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x8e + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x8e + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_spawn_probability_nightLT 
+                                    INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x8e + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x8e + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_spawn_probability_night 
+                                     INT_VAR offset_secondary=0 offset_base=0 RET value 
+                          BEGIN
+                                     READ_SHORT (0x8e + offset_base) value 
+                          END
+                          
+ 
                           DEFINE_PATCH_FUNCTION ARE_spawn_ee_weight1 
                                    INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
                           BEGIN 
@@ -20135,6 +20211,142 @@
                                   SET value=1 
                           END
                           DEFINE_PATCH_FUNCTION CRE_read_ac_effective INT_VAR offset_secondary=0 offset_base=0 RET value BEGIN READ_SSHORT 0x48 value END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_crushing 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                            WRITE_SHORT 0x4a arguments 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_crushingGT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                   PATCH_IF SSHORT_AT 0x4a < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT 0x4a arguments 
+                                           END 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_crushingLT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF SSHORT_AT 0x4a > arguments BEGIN 
+                                             PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                        WRITE_SHORT 0x4a arguments 
+                                             END 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_read_ac_vs_crushing INT_VAR offset_secondary=0 offset_base=0 RET value BEGIN READ_SSHORT 0x4a value END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_missiles 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                            WRITE_SHORT 0x4c arguments 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_missilesGT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                   PATCH_IF SSHORT_AT 0x4c < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT 0x4c arguments 
+                                           END 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_missilesLT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF SSHORT_AT 0x4c > arguments BEGIN 
+                                             PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                        WRITE_SHORT 0x4c arguments 
+                                             END 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_read_ac_vs_missiles INT_VAR offset_secondary=0 offset_base=0 RET value BEGIN READ_SSHORT 0x4c value END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_piercing 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                            WRITE_SHORT 0x4e arguments 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_piercingGT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                   PATCH_IF SSHORT_AT 0x4e < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT 0x4e arguments 
+                                           END 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_piercingLT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF SSHORT_AT 0x4e > arguments BEGIN 
+                                             PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                        WRITE_SHORT 0x4e arguments 
+                                             END 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_read_ac_vs_piercing INT_VAR offset_secondary=0 offset_base=0 RET value BEGIN READ_SSHORT 0x4e value END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_slashing 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                            WRITE_SHORT 0x50 arguments 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_slashingGT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                   PATCH_IF SSHORT_AT 0x50 < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT 0x50 arguments 
+                                           END 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_ac_vs_slashingLT 
+                                  INT_VAR offset_secondary=0 offset_base=0 STR_VAR arguments="" RET value 
+                          BEGIN 
+                                  LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                  PATCH_IF SSHORT_AT 0x50 > arguments BEGIN 
+                                             PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                        WRITE_SHORT 0x50 arguments 
+                                             END 
+                                  END 
+                                  SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION CRE_read_ac_vs_slashing INT_VAR offset_secondary=0 offset_base=0 RET value BEGIN READ_SSHORT 0x50 value END
                           
  
                           DEFINE_PATCH_FUNCTION CRE_morale 

@@ -1,12 +1,12 @@
 DEFINE_ACTION_FUNCTION restore_cure_blindness_and_deafness
 BEGIN
-  // Create sppr316 (Cure Blind/Deaf) by cloning sppr316 (Cure Disease)
+  // Create sppr316 (Cure Blind/Deaf) by cloning sppr317 (Cure Disease)
 
-  OUTER_SET blindness_cured = RESOLVE_STR_REF(@4)
+  OUTER_SET blindness_cured = RESOLVE_STR_REF(@6)
 
   MAKE_PATCH
-    say_name=>0
-    say_description=>1
+    say_name=>2
+    say_description=>3
     icon=>"sppr316c"
     patch_ability_inline=>"ability_icon=>sppr316b"
     patch_effect_inline=>"match=>opcode=139 parameter1=>%blindness_cured%"
@@ -24,7 +24,7 @@ BEGIN
   // Make Cure Disease no longer cure blindness/deafness
 
   MAKE_PATCH
-    say_description=>2
+    say_description=>4
     delete_opcodes=>"75 81"
     delete_effect=>"opcode=240 and parameter2 is_in [8 112]"
     add_effect_inline=>"opcode=>17 target=>2 timing=>1 parameter1=>5 power=>3 resist_dispel=>3"
@@ -39,18 +39,10 @@ BEGIN
   END
 
 
-  // Correct known cleric spells (now including sppr316)
-
-  LAUNCH_ACTION_FUNCTION edit_all_creatures
-    STR_VAR
-    editstring	= ~add_all_priest_spells=>null~
-  END
-
-
   // Make Cure Blind/Deaf purchaseable at temples
   // (Can't use SFO here, no functions for this edit.)
 
-  OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@3)
+  OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@5)
   APPEND "speldesc.2da" "sppr316	%cure_bd_desc%"
 
   COPY_EXISTING_REGEXP "^.+\.sto$" "override"

@@ -1,8 +1,18 @@
-// IDS additions
-
 // Made in Heaven function library
+//
+// These are custom functions I use in my mods.  If there are any that you
+// think you can use in yours, feel free to grab them.  A bit of credit would
+// be nice of course. <3
 
-DEFINE_ACTION_FUNCTION mh_erase_journal_entries_on_bg2_transition
+
+// erase_journal_entries_on_bg2_transition
+//
+// This function goes through a (compiled) dialog file, extracts the string
+// references of all JOURNAL, SOLVED_JOURNAL and UNSOLVED_JOURNAL entries,
+// and makes sure they get deleted from the journal during the transfer into
+// BG2.  If called on a non-BGT game (including EET), it does nothing at all.
+
+DEFINE_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
   STR_VAR
   dialog    = "dummy"
 BEGIN
@@ -40,7 +50,12 @@ BEGIN
 END
 
 
-// turns magic missile immunity into full immunity
+// cd_immunity_magic_missile_arrays
+//
+// This macro is for use with CamDawg's immunity arrays.  It turns immunity
+// to the Magic Missile spell into full immunity to all similar spells,
+// that is those that use the same projectile.
+
 DEFINE_PATCH_MACRO cd_immunity_magic_missile_arrays BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     206,  "-10",  "-10", "spwi112",  "-10",  "-10", "same" => 1 // immunity to Magic Missile spell
@@ -51,6 +66,101 @@ DEFINE_PATCH_MACRO cd_immunity_magic_missile_arrays BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN
     206,  "-10",  "-10", "spwi003",  "-10",  "-10", "same" => 1 // immunity to Magic Missile trap
     206,  "-10",  "-10", "spwi112",  "-10",  "-10", "same" => 1 // immunity to Magic Missile spell
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION CRE_make_legendary
+  STR_VAR
+  arguments	= ""
+BEGIN
+  INNER_ACTION
+  BEGIN
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "legendary.2da"
+      locbase	= "lib/resource"
+      row	= "%arguments%"
+      column	= "HD"
+      RET
+      hd_bonus	= value
+    END
+
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "legendary.2da"
+      locbase	= "lib/resource"
+      row	= "%arguments%"
+      column	= "AC"
+      RET
+      ac_bonus	= value
+    END
+
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "legendary.2da"
+      locbase	= "lib/resource"
+      row	= "%arguments%"
+      column	= "THAC0"
+      RET
+      thac0_bonus	= value
+    END
+  END
+
+  PATCH_PRINT "hd_bonus = %hd_bonus%"
+
+
+  CLEAR_ARRAY make_legendary
+  DEFINE_ASSOCIATIVE_ARRAY make_legendary
+  BEGIN
+    level_all=>"level1 + %hd_bonus%"
+    ac=>"if (ac_effective - %ac_bonus% < -20) then -20 else (ac_effective - %ac_bonus%)"
+    thac0=>"thac0 - %thac0_bonus%"
+    enforce_hp=>at_worst
+    enforce_saves=>at_worst
+  END
+  
+  LAUNCH_PATCH_FUNCTION apply_patches
+    STR_VAR
+    file_ext	= "CRE"
+    edits	= "make_legendary"
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION CRE_set_xp_by_hd
+BEGIN
+  LAUNCH_PATCH_FUNCTION fail_unless_int
+    STR_VAR
+    value="%arguments%"
+    expression=""
+  END
+
+  LAUNCH_PATCH_FUNCTION CRE_read_level1
+    RET level1=value
+  END
+
+  SET hd = level1 + arguments
+
+  SET hd = (hd < 0) ? 0 : hd
+  SET hd = (hd > 50) ? 50 : hd
+
+  INNER_ACTION
+  BEGIN
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "xp_table.2da"
+      locbase	= "lib/resource"
+      row	= "%hd%"
+      column	= "XP"
+      RET
+      xp_value	= value
+    END
+  END
+
+  LAUNCH_PATCH_FUNCTION CRE_xp_value
+    STR_VAR
+    arguments="%xp_value%"
   END
 END
 

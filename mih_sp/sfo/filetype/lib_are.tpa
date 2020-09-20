@@ -325,6 +325,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY are_fields BEGIN
    spawn_frequency=>~0x78,SHORT~
    spawn_method=>~0x7a,SHORT~
    spawn_maximum=>~0x84,SHORT~
+   spawn_probability_day=>~0x8c,SHORT~
+   spawn_probability_night=>~0x8e,SHORT~
    spawn_ee_weight1=>~0x98,BYTE~
    spawn_ee_weight2=>~0x99,BYTE~
    spawn_ee_weight3=>~0x9a,BYTE~
