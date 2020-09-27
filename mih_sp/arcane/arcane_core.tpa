@@ -171,12 +171,27 @@ BEGIN
 
   // mh#wiz44 - Evard's Black Tentacles
 
+  MAKE_PATCH
+    say_name=>20
+    say_description=>21
+  END
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#evblt.pro"
+
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      patch_ability_inline=>"projectile=>%mh#evblt%"
+    END
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz44"
     idsname	= "WIZARD_EVARDS_BLACK_TENTACLES"
     location	= "spells"
-    editstring	= "say_name=>20 say_description=>21"
+    edits	= "patch_data"
   END
 
 
@@ -242,7 +257,7 @@ BEGIN
     edits	= "patch_data"
   END
 
-  ACTION_IF ENGINE_IS "bgee bg2ee"
+  ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
       patch_effect_inline'1=>~match=>"opcode=258" resource=>"%spell_matrix%"~

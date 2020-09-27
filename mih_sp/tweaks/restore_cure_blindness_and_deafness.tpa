@@ -88,7 +88,7 @@ BEGIN
 
   // Fix allied SoD priest.
 
-  ACTION_IF GAME_INCLUDES "sod"
+  ACTION_IF has_sod
   BEGIN
     COPY_EXISTING "bdff1000.cre" "override"
       REMOVE_MEMORIZED_SPELL "sppr317"

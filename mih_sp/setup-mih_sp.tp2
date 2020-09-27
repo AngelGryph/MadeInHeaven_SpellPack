@@ -13,7 +13,7 @@ AUTO_EVAL_STRINGS
 
 ALWAYS
   OUTER_TEXT_SPRINT MOD_NAME "mih_sp"
-  OUTER_SPRINT MOD_VERSION @0 /* v3 */
+  OUTER_SPRINT MOD_VERSION @0
 
   INCLUDE "mih_sp/lib/always.tph"
 END	// ALWAYS block
@@ -25,9 +25,20 @@ LANGUAGE "English"
 	 "weidu_external/lang/english/mih_sp/setup-mih_sp.tra"
 
 
+// Made in Heaven: Restored Spells
+
+BEGIN @22
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_restorations"
+  location	= "restorations"
+END
+
+
 // Made in Heaven: Arcane Spells
 
-BEGIN @1 /* Made in Heaven: Arcane Spells */
+BEGIN @1
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -36,9 +47,9 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Made in Heaven: Divine Spell Pack
+// Made in Heaven: Divine Spells
 
-BEGIN @2 /* Made in Heaven: Divine Spells */
+BEGIN @2
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -49,7 +60,7 @@ END
 
 // Made in Heaven: Paladin Powers Pack
 
-BEGIN @3 /* Made in Heaven: Paladin Powers */
+BEGIN @3
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -58,25 +69,40 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Restore Resist Cold
+
+BEGIN @21
+GROUP @5
+
+FORBID_FILE "sppr215.spl" @6
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "restore_resist_cold"
+  tra		= "spell_tweaks"
+  location	= "tweaks"
+END
+
+
 // Restore Cure Blindness & Deafness
 
-BEGIN @4 /* Restore Cure Blindness/Deafness (EXPERIMENTAL) */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @4
+GROUP @5
 
-FORBID_FILE "sppr316.spl" @6 /* Some other mod already provides or supercedes this component. */
+FORBID_FILE "sppr316.spl" @6
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "restore_cure_blindness_and_deafness"
-  tra		= "restore_cure_blindness_and_deafness"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
 
 // Level 4 Animate Dead
 
-BEGIN @7 /* Level 4 Animate Dead for Wizards (EXPERIMENTAL) */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @7
+GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -87,23 +113,23 @@ END
 
 // Protection from Evil blocks Domination
 
-BEGIN @8 /* Protection from Evil blocks Domination */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @8
+GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "pfe_blocks_domination"
-  tra		= "pfe_blocks_domination"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
 
 // Prevent damage during Timestop
 
-BEGIN @9 /* Prevent damage during Timestop */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @9
+GROUP @5
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10 /* This component is not applicable to your game. */
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -114,10 +140,10 @@ END
 
 // Remove All Time Stop Immunity
 
-BEGIN @11 /* Remove All Time Stop Immunity */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @11
+GROUP @5
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10 /* This component is not applicable to your game. */
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -128,8 +154,8 @@ END
 
 // No Elemental Mind Battle
 
-BEGIN @12 /* No Elemental Mind Battle */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @12
+GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -138,23 +164,47 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Extend Summoning Tables
+
+BEGIN @24
+GROUP @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "extend_summoning_tables"
+  location	= "tweaks"
+END
+
+
+// Spell Level affects Saving Throws
+
+BEGIN @25
+GROUP @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "spell_level_saving_throws"
+  location	= "tweaks"
+END
+
+
 // Spell Improvements
 
-BEGIN @13 /* Spell Improvements (see readme) */
-GROUP @5 /* Spell Effect Tweaks */
+BEGIN @13
+GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "spell_improvements"
-  tra		= "spell_improvements"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
 
 // Temples sell Priest Scrolls
 
-BEGIN @14 /* Temples sell Priest Scrolls */
-GROUP @15 /* Spell Availability Tweaks */
+BEGIN @14
+GROUP @15
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -165,10 +215,10 @@ END
 
 // Thalantyr the *Conjurer*
 
-BEGIN @16 /* Thalantyr the *Conjurer* */
-GROUP @15 /* Spell Availability Tweaks */
+BEGIN @16
+GROUP @15
 
-REQUIRE_PREDICATE GAME_INCLUDES "bg1" @10 /* This component is not applicable to your game. */
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -177,10 +227,24 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Sixth Circle Spell Scrolls in Siege of Dragonspear
+
+BEGIN @23
+GROUP @15
+
+REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "level_6_spells_sod"
+  location	= "tweaks"
+END
+
+
 // Revised Strength Table
 
-BEGIN @17 /* Revised Strength Table */
-GROUP @18 /* Game Rule Tweaks */
+BEGIN @17
+GROUP @18
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -191,8 +255,8 @@ END
 
 // Revised Dexterity Table
 
-BEGIN @19 /* Revised Dexterity Table */
-GROUP @18 /* Game Rule Tweaks */
+BEGIN @19
+GROUP @18
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -203,8 +267,8 @@ END
 
 // Revised Constitution Table
 
-BEGIN @20 /* Revised Constitution Table */
-GROUP @18 /* Game Rule Tweaks */
+BEGIN @20
+GROUP @18
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR

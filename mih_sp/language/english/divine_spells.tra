@@ -201,5 +201,8 @@ Area of Effect: Special
 Saving Throw: None 
 
 Upon casting a conjure air elemental spell, the caster opens a special gate to the elemental plane of Air, and an air elemental is summoned to the vicinity of the spellcaster.  It is 60% likely that a 12-hit-dice elemental appears, 35% likely that a 16-hit-dice elemental appears, and 5% likely that a 24-hit-dice elemental appears.  All of the commands given to the elemental are done telepathically, so there is no time lost due to miscommunication, and it is not necessary to know the language of the summoned creature. Priests do not have to engage in a battle of the wits to control their summoned elemental (unlike mages).  The elemental will remain under the caster's control until slain or until the spell duration expires.~
+@30   = ~Water Elemental~
+@31   = ~Greater Water Elemental~
+@32   = ~Elder Water Elemental~
 
 

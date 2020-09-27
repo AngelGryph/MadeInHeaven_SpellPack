@@ -310,8 +310,13 @@ DEFINE_PATCH_FUNCTION append_numbered_row
 BEGIN
       COUNT_2DA_COLS colcount
       COUNT_2DA_ROWS colcount rowcount
+      PATCH_IF colcount=2 BEGIN
+         SET firstrow=1
+      END ELSE BEGIN
+         SET firstrow=0
+      END
       SET highest_num=0
-      FOR (i=0;i<rowcount;i+=1) BEGIN
+      FOR (i=firstrow;i<rowcount;i+=1) BEGIN
          READ_2DA_ENTRY i 0 colcount this_num
          PATCH_IF !IS_AN_INT this_num BEGIN
             PATCH_FAIL "You are trying to use the append_numbered_row function with a 2da (probably %SOURCE_FILE%) that is not of the right form"

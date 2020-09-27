@@ -2,25 +2,14 @@ DEFINE_ACTION_FUNCTION setup_divine_spells
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "divine_resources"
+    file	= "setup_summons"
+    locbase	= "shared/summons"
   END
  
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "summoned_monsters"
-    tra		= "summoned_monsters"
-    locbase	= "shared"
-  END
- 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "divine_core"
-    tra		= "divine_core"
-  END
- 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "divine_aftercare"
+    file	= "divine_resources divine_core divine_aftercare"
+    tra		= "divine_spells"
   END
 END	// setup_divine_spells
 

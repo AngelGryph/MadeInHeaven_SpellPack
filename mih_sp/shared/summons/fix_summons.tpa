@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION fix_summons
+BEGIN
+  MAKE_PATCH
+    match=>"gender = summoned"
+    no_corpse=>1
+    xp_value=>0
+    gold=>0
+    allegiance=>neutral
+    dv=>"%SOURCE_RES%"
+  END
+    
+  LAUNCH_ACTION_FUNCTION edit_all_creatures
+    STR_VAR
+    edits	= "patch_data"
+  END
+END	// fix_summons
+
+

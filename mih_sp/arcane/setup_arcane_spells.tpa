@@ -2,28 +2,17 @@ DEFINE_ACTION_FUNCTION setup_arcane_spells
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "arcane_resources"
+    file	= "setup_summons"
+    locbase	= "shared/summons"
   END
  
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "summoned_monsters"
-    locbase	= "shared"
-    tra		= "summoned_monsters"
+    file	= "arcane_resources arcane_core arcane_aftercare"
+    tra		= "arcane_spells"
   END
  
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "arcane_core"
-    tra		= "arcane_core"
-  END
- 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "arcane_aftercare"
-  END
-
-  ACTION_IF GAME_INCLUDES "bg1" AND $SFO_reserved_ini_hash("place_spell_scrolls_in_bg1")
+  ACTION_IF is_bg1 AND $SFO_reserved_ini_hash("place_spell_scrolls_in_bg1")
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
@@ -31,7 +20,7 @@ BEGIN
     END
   END
 
-  ACTION_IF GAME_INCLUDES "sod" AND $SFO_reserved_ini_hash("place_spell_scrolls_in_sod")
+  ACTION_IF has_sod AND $SFO_reserved_ini_hash("place_spell_scrolls_in_sod")
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
@@ -39,16 +28,15 @@ BEGIN
     END
   END
 
-  ACTION_IF GAME_INCLUDES "bg2" AND $SFO_reserved_ini_hash("place_spell_scrolls_in_bg2")
+  ACTION_IF is_bg2 AND $SFO_reserved_ini_hash("place_spell_scrolls_in_bg2")
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "place_spell_scrolls_in_bg2"
-      tra	= "place_spell_scrolls_in_bg2"
     END
   END
 
-  ACTION_IF GAME_INCLUDES "tob" AND $SFO_reserved_ini_hash("place_spell_scrolls_in_tob")
+  ACTION_IF has_tob AND $SFO_reserved_ini_hash("place_spell_scrolls_in_tob")
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR

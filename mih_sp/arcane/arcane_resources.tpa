@@ -14,7 +14,7 @@ BEGIN
     postfix	= "vvc"
   END
 
-  ACTION_IF ENGINE_IS "bgee bg2ee"
+  ACTION_IF enhanced_edition
   BEGIN
     COPY_LARGE "%mod_root%/%component_loc%/movies/ee" "movies"
   END

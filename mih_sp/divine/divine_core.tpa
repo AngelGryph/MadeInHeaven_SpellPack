@@ -150,6 +150,31 @@ BEGIN
 
   // mh#prs63 - Conjure Water Elemental
 
+  MAKE_PATCH
+    say_both_names=>"object_index from [30 31 32]"
+    animation=>water_weird
+    resist_fire=>"50"
+    resist_magic_fire=>50
+    resist_cold=>50
+    resist_magic_cold=>50
+    resist_acid=>100
+    class=>elemental_water
+    replace_items=>"waterele(weapon1)"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_creature
+    STR_VAR
+    creature	= "elfirpr=>elwatpr elfirpr2=>elwatpr2 elfirpr3=>elwatpr3"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_effect
+    STR_VAR
+    effect	= "spfir1p=>spwat1p spfir2p=>spwat2p spfir3p=>spwat3p"
+    editstring	= ~resource=>"object_index from [elwatpr elwatpr2 elwatpr3]"~
+  END
+
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs63"
@@ -171,6 +196,18 @@ BEGIN
 
 
   // mh#prs72 - Conjure Air Elemental
+
+  LAUNCH_ACTION_FUNCTION clone_creature
+    STR_VAR
+    creature	= "elairsu2=>elairpr elairsu3=>elairpr2 elairsu4=>elairpr3"
+    editstring	= ~strip_script=>"wizelsu2 rr#ewizs"~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_effect
+    STR_VAR
+    effect	= "spair1=>spair1p spair2=>spair2p spair3=>spair3p"
+    editstring	= ~resource=>"object_index from [elairpr elairpr2 elairpr3]"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR

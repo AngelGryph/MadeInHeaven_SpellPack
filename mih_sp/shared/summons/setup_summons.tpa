@@ -1,0 +1,25 @@
+DEFINE_ACTION_FUNCTION setup_summons
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_label
+    STR_VAR
+    label	= "mh#summons"
+    RET
+    installed	= value
+  END
+
+  ACTION_IF NOT installed
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_label
+      STR_VAR
+      label	= "mh#summons"
+    END
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "fix_summons more_summons summon_effects"
+      locbase
+    END
+  END
+END	// setup_summons
+
+

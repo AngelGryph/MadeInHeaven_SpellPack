@@ -1,0 +1,65 @@
+DEFINE_ACTION_FUNCTION more_summons
+BEGIN
+  ACTION_CLEAR_ARRAY summon_list
+
+  ACTION_IF GAME_IS "bgee"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_list
+    BEGIN
+      "ankhegsu"=>"ankheg"
+      "dopplesu"=>"dopple"
+      "ghoulgsu"=>"ghoullor"
+      "jellgrsu"=>"jellgr"
+      "jellocsu"=>"jelloc"
+      "otyughsu"=>"otyugh"
+      "snakegsu"=>"bdsnak01"
+      "spidhusu"=>"spidhu"
+      "werewosu"=>"werewo"
+      "wyvbabsu"=>"wyverba"
+    END
+  END
+  ELSE
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_list
+    BEGIN
+      "ankhegsu"=>"ankheg01"
+      "dopplesu"=>"dopple01"
+      "ghoulgsu"=>"ghogr01"
+      "golemfsu"=>"golfle01"
+      "golemssu"=>"golsto01"
+      "jellgrsu"=>"jelgra01"
+      "jellocsu"=>"jeloch01"
+      "mummysu" =>"mummy01"
+      "otyughsu"=>"otyugh01"
+      "snakegsu"=>"snakeg01"
+      "spidhusu"=>"spidhu01"
+      "umbhulsu"=>"umbhul01"
+      "umbeldsu"=>"umbhul02"
+      "werewosu"=>"werewo01"
+      "wyvbabsu"=>"wyvbab01"
+    END
+  END
+
+  MAKE_PATCH
+    no_corpse=>1
+    xp_value=>0
+    gold=>0
+    allegiance=>neutral
+    gender=>summoned
+    dv=>"%SOURCE_RES%"
+  END
+
+  ACTION_PHP_EACH summon_list AS summon => resource
+  BEGIN
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%summon%.cre"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION clone_creature
+        STR_VAR
+	creature	= "%resource%=>%summon%"
+	edits		= "patch_data"
+      END
+    END
+  END
+END	// more_summons
+
+
