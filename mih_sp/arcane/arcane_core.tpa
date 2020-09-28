@@ -171,19 +171,12 @@ BEGIN
 
   // mh#wiz44 - Evard's Black Tentacles
 
+  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#evblt.pro"
+
   MAKE_PATCH
     say_name=>20
     say_description=>21
-  END
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#evblt.pro"
-
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-    BEGIN
-      patch_ability_inline=>"projectile=>%mh#evblt%"
-    END
+    patch_ability_inline=>~projectile=>"if %enhanced_edition% then %mh#evblt% else no_change"~
   END
 
   LAUNCH_ACTION_FUNCTION install_spell

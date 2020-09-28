@@ -1,0 +1,14 @@
+DEFINE_ACTION_FUNCTION spell_level_saving_throws
+BEGIN
+  MAKE_PATCH
+    match=>~spell_type is_in [cleric wizard] and level > 1~
+    patch_effect_inline=>~match=>"save_vs_spell or save_vs_death or save_vs_polymorph or save_vs_breath or save_vs_wands" save_bonus=>"save_bonus - level + 1"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_all_spells
+    STR_VAR
+    edits	= "patch_data"
+  END
+END	// spell_level_saving_throws
+
+

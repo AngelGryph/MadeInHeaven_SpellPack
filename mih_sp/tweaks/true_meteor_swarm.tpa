@@ -1,0 +1,49 @@
+DEFINE_ACTION_FUNCTION true_meteor_swarm
+BEGIN
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "WIZARD_METEOR_SWARM"
+    editstring	= "say_name=>10 say_description=>11"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "scrl9t"
+    editstring	= "say_name=>10 say_description=>11"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "meteorsd"
+    location	= "spells"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "meteors"
+    idsname	= "WIZARD_TRUE_METEOR_SWARM"
+    location	= "spells"
+    editstring	= "say_description=>12"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+    STR_VAR
+    resref	= "%newname%"
+    scrollname	= "mh#metsw"
+    scrollicon	= "spwi911a"
+  END
+
+  MAKE_PATCH
+    literal=>~ADD_STORE_ITEM "mh#metsw" AFTER "scrl9t" #1 #1 #0 "identified" #2~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "25spell"
+    edits	= "patch_data"
+  END
+END
+
+

@@ -67,6 +67,30 @@ Area of Effect: Special
 Saving Throw: None
 
 With this spell, the caster causes a blazing ray of red-hot fire to spring forth from <PRO_HISHER> hand. This blade-like ray is wielded as if it were a scimitar, although there is no penalty if the caster does not know how to use a scimitar.  The blade is insubstantial and only deals damage by its flame, therefor strength has no effect on either its chance to hit or the damage it deals.  However, because only a touch is required the wielder gets a +4 bonus to their roll to hit.  The flame blade inflicts 1d8 points of fire damage, +1 for every two levels of the caster (max. +10).  It can damage anything that is vulnerable to fire, regardless of weapon immunities.~
-@9 = ~Domination blocked by Protection from Evil~
+@9    = ~Domination blocked by Protection from Evil~
+@10   = ~Rain of Destruction~
+@11   = ~Rain of Destruction
+(Evocation)
+
+Level: 9
+Range: 270 ft.
+Duration: 4 rounds
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+When the caster utters the words to this powerful spell, <PRO_HESHE> calls upon powerful forces indeed. These forces pull down meteors from above, hurling them randomly at anyone in the area of effect. Anyone caught in the destructive path of the meteors -whether friend or foe- will suffer 4d10 points of damage with no saving throw. The caster is well advised to be careful in <PRO_HISHER> use of this spell.~
+@12   = ~Meteor Swarm
+(Evocation)
+
+Level: 9
+Range: 40 ft.
+Duration: Instant
+Casting Time: 9
+Area of Effect: 4 target creatures/15-ft. radius
+Saving Throw: None or 1/2
+
+A Meteor Swarm is a powerful and spectacular spell similar to a Fireball in many aspects.  When cast, four fiery meteors spring from the outstretched hand of the caster and fly towards four target creatures designated by <PRO_HIMHER>.  Upon reaching their target they explode, dealing 10d4 points of fire damage in a 15 feet spread around the target.  The four direct targets get no saving throw, but other creatures in the area can save vs. spell for half damage.  If a creature is in the area of more than one meteor, they will have to save against all of them.  The caster can direct all four meteors at the same target if so desired.~
+
 
 

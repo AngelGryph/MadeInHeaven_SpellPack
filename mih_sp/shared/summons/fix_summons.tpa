@@ -6,6 +6,7 @@ BEGIN
     xp_value=>0
     gold=>0
     allegiance=>neutral
+    alignment=>neutral
     dv=>"%SOURCE_RES%"
   END
     

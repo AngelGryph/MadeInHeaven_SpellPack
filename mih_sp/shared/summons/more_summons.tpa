@@ -46,6 +46,7 @@ BEGIN
     gold=>0
     allegiance=>neutral
     gender=>summoned
+    alignment=>neutral
     dv=>"%SOURCE_RES%"
   END
 

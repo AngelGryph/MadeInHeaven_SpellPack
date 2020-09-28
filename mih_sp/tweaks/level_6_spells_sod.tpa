@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION level_6_spells_sod
+BEGIN
+  MAKE_PATCH
+    literal'601=>~ADD_STORE_ITEM "scrl7e" BEFORE "wand03 restore" #1 #0 #0 "identified" #1~
+    literal'602=>~ADD_STORE_ITEM "scrl7f" BEFORE "wand03 restore" #1 #0 #0 "identified" #1~
+    literal'603=>~ADD_STORE_ITEM "scrl7g" BEFORE "wand03 restore" #1 #0 #0 "identified" #1~
+    literal'604=>~ADD_STORE_ITEM "scrl7h" BEFORE "wand03 restore" #1 #0 #0 "identified" #1~
+    literal'605=>~ADD_STORE_ITEM "scrl7i" BEFORE "wand03 restore" #1 #0 #0 "identified" #1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "bdsorcsc bdbeleg3"
+    edits	= "patch_data"
+  END
+END	// level_6_spells_sod
+
+

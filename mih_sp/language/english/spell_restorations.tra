@@ -1,0 +1,22 @@
+@0   = ~Fog Cloud
+(Alteration)
+
+Level: 2
+Range: 10 yards
+Duration: 1 turn
+Casting Time: 2
+Area of Effect: 15-foot radius
+Saving Throw: None
+
+This spell creates a cloud of thick billowing fog.  Visibility within the cloud is practically zero; beings caught within are effectively blinded and invisible.~
+@1   = ~Spell Invulnerability
+(Abjuration) 
+
+Level: 9
+Range: 0
+Duration: 1 turn + 1 round/level
+Casting Time: 9
+Area of Effect: The caster 
+Saving Throw: None 
+
+This powerful spell makes the caster immune to all magical spells, for the duration <PRO_HESHE> will have 100% magic resistance and will be immune to spells and effects that lower magic resistance.~

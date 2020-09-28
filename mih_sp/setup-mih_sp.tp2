@@ -111,6 +111,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// True Meteor Swarm
+
+BEGIN @26
+GROUP @5
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "true_meteor_swarm"
+  location	= "tweaks"
+END
+
+
 // Protection from Evil blocks Domination
 
 BEGIN @8
@@ -164,7 +178,7 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Extend Summoning Tables
+// Extended Summoning Tables
 
 BEGIN @24
 GROUP @5

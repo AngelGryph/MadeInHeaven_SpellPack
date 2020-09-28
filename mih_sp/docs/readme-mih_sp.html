@@ -55,6 +55,10 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 <div class="section">
   <h3>Core Components</h3>
   <p>This mod consists of several components, each of which can be installed or removed independently from the others.<p>
+  <p><strong>Spell Restorations</strong><br/>
+  A number of spells were dummied out from Baldur's Gate 2 but left some remnants in the game files.  This component attempts to restore some of these spells, using as much of the original content as possible.  I keep this separate from the spell packs for any purists that might only want original game content and not my brand new spells.</p>
+  <p>This component plays nice with other mods that restore (some of) these spells, like Unfinished Business, d0Tweak, aTweak, IWDification and SCS &gt;= 32.  Still, it's probably best to install this restoration before other mods that add new spells.</p>
+  <p><a href="restored_spells.html">Restored Spell List</a></p>
   <p><strong>Arcane Spell Pack</strong><br/>
   This installs new spells for wizards and bards.  The spells will be available on the selection screen when creating a new character, and spell scrolls are distributed throughout the environment.</p>
   <p><a href="arcane_spell_list.html">Arcane Spell List</a></p>
@@ -76,6 +80,9 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   <p><strong>Level 4 Animate Dead for Wizards <i>(EXPERIMENTAL)</i></strong><br/>
   This makes Animate Dead a fourth level spell for wizards.  This only works if the character hasn't learned Animate Dead yet.  The fifth level version remains available and enemy spell lists are not affected.</p>
 
+  <p><strong>True Meteor Swarm</strong><br/>
+  This tweak will introduce the true Meteor Swarm spell as described in the 2e Player's Handbook; four 10d4 fireballs the caster can launch at up to four targets.  The existing Meteor Swarm spell will be renamed to Rain of Destruction.  The new spell scroll is available from the Arcana Archives.  Enemies will keep using the old spell, and it will remain available to players too.</p>
+
   <p><strong>Protection from Evil Block Domination</strong><br/>
   Per P&amp;P rules, the various Protection from Alignment spells should block domination effects, but in Baldur's Gate, Protection from evil doesn't do this.  This tweak makes it so.  Note that it does <i>not</i> prevent charm effects.</p>
 
@@ -87,6 +94,14 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 
   <p><strong>No Elemental Mind Battle</strong><br/>
   This removes the three-round "mind battle" from the arcane versions of the Conjure Elemental spells., making these spells actually useful.</p>
+
+  <p><strong>Extended Animal/Monster Summoning Tables</strong><br/>
+  Tired of seeing the same creatures every time you use an Animal- or Monster Summoning X spell?  Most tables only have four entries, and some (Monster Summoning III) have only two.  This modification extends these tables with a few more entries (up to seven in most cases).  This affects the vanilla spells Monster Summoning I-III and Animal Summoning I-II.</p>
+  <p>If you restored Monster Summoning IV through the Spell Restorations component of this mod this component affects it too, but if you got it from another source it might not, depending on whether it actually uses the table or not.  Monster Summoning V-VII are not changed by this component even if you got them from this mod.  (Their summoning tables were broken and had to be rewritten from scratch.).</p>
+
+  <p><strong>Spell Level affects Saving Throws</strong><br/>
+  Under second edition rules, a ninth circle spell cast by an archmage is no more difficult to save against than a first circle spell cast by a goblin adept.  This was changed in third edition where higher circle spells are more difficult to save against.  This modification backports that rule by tacking on a saving throw penalty to spells equal to the spell circle minus one.  So a first circle spell has no penalty, a fourth circle one has a -3 penalty, and a ninth circle spell has a -8 penalty.  This is cumulative with any penalty the spell might already carry, so a fifth circle spell that already had a -2 to saving throws would get a -6 penalty instead.</p>
+  <p>This can be combined with Tweaks' "save penalties for powerful spellcasters", but this will make high-level spells by powerful spellcasters very difficult to save against indeed.  They can be installed in any order.</p>
 
   <p><strong>Spell Improvements</strong><br/>
   This is a collection of minor tweaks to various spells.</p>
@@ -105,6 +120,8 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   Thalantyr of Beregost is both canonically and in-game a Conjurer, but you cannot tell by his selection of spells for sale.  This component actually gives him a couple of scrolls from the conjuration school, and removes scrolls he wouldn't be able to make due to his barred school of divination.</p>
   <p>TODO: Give him more appropriate guardians than flesh golems.</p>
 
+  <p><strong>Sixth Circle Spell Scrolls in Siege of Dragonspear</strong><br/>
+  Five sixths circle spells were actually in Tales of the Sword Coast, although not usable by the player: Invisible Stalker, Globe of Invulnerability, Tenser's Transformation, Flesh to Stone and Death Spell.  Now that Siege of Dragonspear extends the story, it seems only fair to let the player actually have these spells.  This will be most helpful if you have a mod that removes the XP cap so your wizard actually can reach level twelve and have sixth circle spell slot, but even if not they can still use the scrolls.  One copy of each is available at the Sorcerous Sundries (only after SoD starts), and at quartermaster Belegarm in the camp.</p>
   <h3>Game Rule Tweaks</h3>
   <p><strong>Revised Strength Table</strong><br/>
   This patches the tables associated with strength to be more like 3.5e.  Bonuses start at 12 instead of 16 and the effects of exceptional strength are towned down a notch.</p>
@@ -175,14 +192,7 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 </div>
 <h2>The .ini File</h2>
 <div class="section">
-  <p>Within the mod folder, there is a file called setup-mih_sp.ini.  This file can be used to fine-tune certain aspects of this mod.  It is meant as an expert option, for normal installation you can leave this file as it is.  If you do edit this file, you must reinstall the mod, or at least the components whose settings you changed.</p>
-  <table>
-    <tr><th colspan=2>MiH Spell Arcane Pack</th></tr>
-    <tr><td>place_spell_scrolls_in_bg1</td><td>Set to zero if you don't want new spell scrolls to show up in the original saga.</td></tr>
-    <tr><td>place_spell_scrolls_in_sod</td><td>Set to zero if you don't want new spell scrolls to show up in Siege of Dragonspear.</td></tr>
-    <tr><td>place_spell_scrolls_in_bg2</td><td>Set to zero if you don't want new spell scrolls to show up in Shadows of Amn.</td></tr>
-    <tr><td>place_spell_scrolls_in_tob</td><td>Set to zero if you don't want new spell scrolls to show up in Throne of Bhaal.</td></tr>
-  </table>
+  <p>Within the mod folder, there is a file called mih_sp.ini.  This file can be used to fine-tune certain aspects of this mod.  It is meant as an expert option, for normal installation you can leave this file as it is.  If you do edit this file, you must reinstall the mod, or at least the components whose settings you changed.</p>
 </div>
 <h2>Contact Information</h2>
 <div class="section">
