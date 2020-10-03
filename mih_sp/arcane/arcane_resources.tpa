@@ -16,13 +16,13 @@ BEGIN
 
   ACTION_IF enhanced_edition
   BEGIN
-    COPY_LARGE "%mod_root%/%component_loc%/movies/ee" "movies"
+    COPY_LARGE "%MOD_FOLDER%/%component_loc%/movies/ee" "movies"
   END
   ELSE
   BEGIN
     MAKE_BIFF "mh#spell"
     BEGIN
-      "%mod_root%/%component_loc%/movies/old" ".*\.mve"
+      "%MOD_FOLDER%/%component_loc%/movies/old" ".*\.mve"
     END
   END
 END	// arcane_resources

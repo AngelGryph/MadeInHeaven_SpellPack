@@ -87,7 +87,7 @@ BEGIN
 
   // mh#prs51 - Lightning Storm
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#lstrm.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#lstrm.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR

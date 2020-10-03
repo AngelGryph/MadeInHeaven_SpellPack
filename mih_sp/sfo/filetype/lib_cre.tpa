@@ -476,7 +476,7 @@ COPY_EXISTING kit.ids "override/dw#kit.ids"
             SET thisrow += 1
          END
       END
-      APPEND_FILE ~%mod_root%/sfo/dw#kit.ids~
+      APPEND_FILE ~%MOD_FOLDER%/sfo/dw#kit.ids~
 
 DEFINE_PATCH_FUNCTION CRE_kit
     STR_VAR arguments=""

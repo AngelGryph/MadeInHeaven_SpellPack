@@ -104,7 +104,7 @@ BEGIN
         REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP
          ~CheckSpellState(.*,DEAFENED)~ ~False()~
 
-        APPEND_FILE TEXT "%mod_root%/%component_loc%/scripts/use_cure_blind_deaf.baf"
+        APPEND_FILE TEXT "%MOD_FOLDER%/%component_loc%/scripts/use_cure_blind_deaf.baf"
       END
   END
 END	// restore_cure_blindness_and_deafness

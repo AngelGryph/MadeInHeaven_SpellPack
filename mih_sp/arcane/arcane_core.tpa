@@ -72,8 +72,8 @@ BEGIN
 
   // mh#wiz34 - Scintillating Sphere
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#scnt1.pro"
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#scnt2.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#scnt1.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#scnt2.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -104,7 +104,7 @@ BEGIN
 
   // mh#wiz36 - Ball Lightning
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#blght.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#blght.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -171,7 +171,7 @@ BEGIN
 
   // mh#wiz44 - Evard's Black Tentacles
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#evblt.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#evblt.pro"
 
   MAKE_PATCH
     say_name=>20
@@ -298,7 +298,7 @@ BEGIN
 
   // mh#wiz55 - Starfire
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#starf.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#starf.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -358,7 +358,7 @@ BEGIN
 
   // mh#wiz72 - Stygian Ice Storm
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#stygi.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#stygi.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -384,7 +384,7 @@ BEGIN
 
   // mh#wiz81 - Deathbolt
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#dbolt.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#dbolt.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -430,7 +430,7 @@ BEGIN
 
   // mh#wiz91 - Rune of Torment
 
-  ADD_PROJECTILE "%mod_root%/%component_loc%/projectiles/mh#runet.pro"
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#runet.pro"
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
