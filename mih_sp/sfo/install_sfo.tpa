@@ -20,7 +20,7 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
    //////////////////////////////////////////////////////////////
 
    ACTION_IF !VARIABLE_IS_SET mod_root BEGIN
-      OUTER_SPRINT mod_root "%TP2_BASE_NAME%"
+      OUTER_SPRINT mod_root "%MOD_FOLDER%"
       ACTION_TO_LOWER mod_root
    END
 
