@@ -107,8 +107,6 @@ BEGIN
     END
   END
 
-  PATCH_PRINT "hd_bonus = %hd_bonus%"
-
 
   CLEAR_ARRAY make_legendary
   DEFINE_ASSOCIATIVE_ARRAY make_legendary

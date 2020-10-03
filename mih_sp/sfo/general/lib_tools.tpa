@@ -340,7 +340,7 @@ BEGIN
 PATCH_IF "%locabs%" STRING_COMPARE "" BEGIN
  SPRINT directory "%locabs%"
 END ELSE BEGIN
- SPRINT directory ~%scsroot%~
+ SPRINT directory ~%mod_root%~
  PATCH_IF "%locbase%" STRING_EQUAL "" BEGIN
    PATCH_FOR_EACH loc IN component_loc local_loc location BEGIN
      PATCH_IF  ~%%loc%%~ STRING_COMPARE ~~ BEGIN
@@ -554,7 +554,7 @@ END
 
 DEFINE_ACTION_FUNCTION check_component
     STR_VAR label=""
-            mod="%scsroot%"
+            mod="%mod_root%"
     RET value
 BEGIN
     OUTER_SET value=MOD_IS_INSTALLED "%mod%.tp2" (ID_OF_LABEL "%mod%.tp2" "%label%")
@@ -1076,7 +1076,7 @@ END
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////    immutable version of HANDLE_CHARSETS
 ////////////
-////////////    Assumes "scsroot" has been set to your mod directory, and "workspace" to your working
+////////////    Assumes "mod_root" has been set to your mod directory, and "workspace" to your working
 ////////////    directory
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1088,37 +1088,37 @@ DEFINE_ACTION_FUNCTION handle_charsets_immutably
                iconv_path=""
        RET     scs_tra_loc
 BEGIN
-   // guess scsroot and workspace if not set
+   // guess mod_root and workspace if not set
    // do conversions (ee only)
    ACTION_IF enhanced_edition BEGIN
        OUTER_INNER_PATCH_SAVE versionstring "%MOD_VERSION%" BEGIN
           REPLACE_TEXTUALLY " " ""
        END
        OUTER_SPRINT scs_tra_loc "%ext_lang_loc%"
-       OUTER_SPRINT marker_name "%marker_loc%/dw#%scsroot%_%versionstring%_languages_installed.mrk"
+       OUTER_SPRINT marker_name "%marker_loc%/dw#%mod_root%_%versionstring%_languages_installed.mrk"
        ACTION_IF (!FILE_EXISTS "%marker_name%"  || force_tra_rebuild) BEGIN
           COPY ".../stratagems-inline/blank" "%marker_name%"
           MKDIR "%scs_tra_loc%/%LANGUAGE%"
-          ACTION_BASH_FOR "%scsroot%/%tra_base%/%LANGUAGE%" ".*\.tra" BEGIN
+          ACTION_BASH_FOR "%mod_root%/%tra_base%/%LANGUAGE%" ".*\.tra" BEGIN
              COPY "%BASH_FOR_FILESPEC%" "%scs_tra_loc%/%LANGUAGE%"
           END
           ACTION_MATCH "%LANGUAGE%" WITH
           "%base_language%" BEGIN END
           DEFAULT
             MKDIR "%scs_tra_loc%/%base_language%"
-            ACTION_BASH_FOR "%scsroot%/%tra_base%/%base_language%" ".*\.tra" BEGIN
+            ACTION_BASH_FOR "%mod_root%/%tra_base%/%base_language%" ".*\.tra" BEGIN
                 COPY "%BASH_FOR_FILESPEC%" "%scs_tra_loc%/%base_language%"
             END
           END
           // guess iconv path if not given
           ACTION_IF "%iconv_path%" STRING_EQUAL_CASE "" BEGIN
-             OUTER_SPRINT iconv_path "%scsroot%/%tra_base%/iconv"
+             OUTER_SPRINT iconv_path "%mod_root%/%tra_base%/iconv"
           END
           LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR iconv_path  tra_path = ~%scs_tra_loc%~  END
        END
    END ELSE BEGIN
       // on non-EE, just set the tra loc
-      OUTER_SPRINT scs_tra_loc "%scsroot%/%tra_base%"
+      OUTER_SPRINT scs_tra_loc "%mod_root%/%tra_base%"
    END
 END
 

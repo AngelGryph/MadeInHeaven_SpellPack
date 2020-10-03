@@ -37,8 +37,8 @@ DEFINE_ACTION_FUNCTION ~compile_ssl_to_bcs_core~ INT_VAR skip_bcs=0 STR_VAR scri
           END ELSE BEGIN
 
              // sanity check
-             ACTION_IF FILE_EXISTS ~%scsroot%\%location%\%script%.ssl~ BEGIN
-                OUTER_SPRINT full_loc ~%scsroot%\%location%~
+             ACTION_IF FILE_EXISTS ~%mod_root%\%location%\%script%.ssl~ BEGIN
+                OUTER_SPRINT full_loc ~%mod_root%\%location%~
              END ELSE BEGIN
                 LAF get_directory STR_VAR location locabs locbase RET full_loc=directory END
                 ACTION_IF !FILE_EXISTS ~%full_loc%\%script%.ssl~ BEGIN
@@ -49,21 +49,21 @@ DEFINE_ACTION_FUNCTION ~compile_ssl_to_bcs_core~ INT_VAR skip_bcs=0 STR_VAR scri
           END
           ACTION_IF debug_variable=2 BEGIN
              LAF warning STR_VAR warning= ~SSL call with variables %sslvariables%, library %ssllibrary%, booleans %booleanstring%~ END
-             PRINT ~~~~~actual SSL string is ~%scsroot%\%ssl_loc%\ssl.exe %full_loc%\%script% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%\autolib %booleanstring%~ ~~~~~
+             PRINT ~~~~~actual SSL string is ~%mod_root%\%ssl_loc%\ssl.exe %full_loc%\%script% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%\autolib %booleanstring%~ ~~~~~
           END
           DELETE "%workspace%/ssl_out/%script%.baf"
           ACTION_IF ~%WEIDU_OS%~ STRING_COMPARE_CASE ~WIN32~ THEN BEGIN
                 OUTER_INNER_PATCH_SAVE scsargs "%full_loc%/%script%" BEGIN
                      REPLACE_TEXTUALLY "\" "/"
                 END
-		AT_NOW ~chmod 755 %scsroot%/%ssl_loc%/ssl.pl~
-                AT_NOW ~/usr/bin/perl %scsroot%/%ssl_loc%/ssl.pl %scsargs% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%/autolib %booleanstring%~ EXACT	  
+		AT_NOW ~chmod 755 %mod_root%/%ssl_loc%/ssl.pl~
+                AT_NOW ~/usr/bin/perl %mod_root%/%ssl_loc%/ssl.pl %scsargs% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%/autolib %booleanstring%~ EXACT	  
           END ELSE BEGIN
                 LAF check_ini STR_VAR ini=Use_Perl_Natively RET value END
                 ACTION_IF value BEGIN
-                   AT_NOW ~perl %scsroot%\%ssl_loc%\ssl.pl %full_loc%\%script% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%\autolib %booleanstring%~
+                   AT_NOW ~perl %mod_root%\%ssl_loc%\ssl.pl %full_loc%\%script% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%\autolib %booleanstring%~
 		END ELSE BEGIN
-                   AT_NOW ~%scsroot%\%ssl_loc%\ssl.exe %full_loc%\%script% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%\autolib %booleanstring%~
+                   AT_NOW ~%mod_root%\%ssl_loc%\ssl.exe %full_loc%\%script% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %workspace%\autolib %booleanstring%~
 		END
 	  END
 	  COPY ~%workspace%\ssl_out\%script%.baf~ ~%workspace%\ssl_out~ EVALUATE_BUFFER
@@ -90,7 +90,7 @@ DEFINE_ACTION_FUNCTION ~ssl_to_bcs~
          STR_VAR script="" location="" locbase="" locabs="" variables="" booleans="" rename_to="" inline=""
 BEGIN
          // "location" should in normal circumstances be relativised to local_loc, but SSL permits
-         // it to be relative to scsroot (for legacy reasons)
+         // it to be relative to mod_root (for legacy reasons)
 
          ACTION_IF ~%script%~ STRING_EQUAL ~~ BEGIN
                LAF warning STR_VAR warning="Warning: SSL compiler called with empty argument" END

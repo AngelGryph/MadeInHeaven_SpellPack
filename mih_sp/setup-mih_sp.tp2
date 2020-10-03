@@ -5,17 +5,14 @@
 BACKUP "weidu_external/backup/mih_sp"
 
 SUPPORT "https://www.gibberlings3.net/forums/topic/29992-my-new-made-in-heaven-mods/"
-VERSION @0
+VERSION "v3"
 
 ASK_EVERY_COMPONENT
 NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  OUTER_TEXT_SPRINT MOD_NAME "mih_sp"
-  OUTER_SPRINT MOD_VERSION @0
-
-  INCLUDE "mih_sp/lib/always.tph"
+  INCLUDE "mih_sp/lib/always.tpa"
 END	// ALWAYS block
 
 
@@ -25,6 +22,7 @@ LANGUAGE "English"
 	 "weidu_external/lang/english/mih_sp/setup-mih_sp.tra"
 
 
+/*
 // Made in Heaven: Restored Spells
 
 BEGIN @22
@@ -34,6 +32,7 @@ LAUNCH_ACTION_FUNCTION run
   file		= "setup_restorations"
   location	= "restorations"
 END
+*/
 
 
 // Made in Heaven: Arcane Spells

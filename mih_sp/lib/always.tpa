@@ -2,6 +2,8 @@
 // Test for unsupported versions
 // =============================
 
+PRINT "Running ALWAYS block..."
+
 ACTION_IF GAME_IS "bg1 totsc tutu tutu_totsc"
 BEGIN
   FAIL ~Sorry, this mod does not support this version of BG1.  The use of BGEE is highly recommended.~
@@ -19,6 +21,8 @@ END
 
 ACTION_IF NOT VARIABLE_IS_SET initialise  
 BEGIN
+  PRINT "Running once-per-install block..."
+
   // Seed random number generator
 
   RANDOM_SEED "null"
@@ -28,8 +32,8 @@ BEGIN
 
   OUTER_SET initialise = 1
 
-  OUTER_TEXT_SPRINT modder_prefix "mh#"
-  OUTER_TEXT_SPRINT mod_root "%MOD_NAME%"
+  OUTER_TEXT_SPRINT mod_root "%MOD_FOLDER%"
+  OUTER_TEXT_SPRINT ini_file "%MOD_FOLDER%.ini"
 
   OUTER_FOR (i = 1; i <= 10; ++i)
   BEGIN

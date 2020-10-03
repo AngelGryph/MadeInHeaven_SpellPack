@@ -9,6 +9,7 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 ## Version History
 
 Version 3 - ???
+- Fixes to make mod work with WeiDU 247
 
 Version 2 - 21 May 2020
 - Almost complete rewrite using the SFO library

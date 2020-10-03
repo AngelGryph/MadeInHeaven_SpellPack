@@ -72,7 +72,7 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  ACTION_IF !VARIABLE_IS_SET scsroot BEGIN // legacy
-      OUTER_SPRINT scsroot "%TP2_BASE_NAME%"
+      OUTER_SPRINT scsroot "%mod_root%"
  END
  ACTION_IF !VARIABLE_IS_SET ssl_loc BEGIN
       OUTER_SPRINT ssl_loc "ssl"
@@ -402,8 +402,8 @@ END
 // Determine status of auto-built functions
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ACTION_IF FILE_EXISTS "%scsroot%/%sfo_loc%/SFO_autofunc.tpa" BEGIN
-   INCLUDE "%scsroot%/%sfo_loc%/SFO_autofunc.tpa"
+ACTION_IF FILE_EXISTS "%mod_root%/%sfo_loc%/SFO_autofunc.tpa" BEGIN
+   INCLUDE "%mod_root%/%sfo_loc%/SFO_autofunc.tpa"
    OUTER_SET SFO_reserved_build_function_control=2
 END ELSE BEGIN
    OUTER_SET SFO_reserved_build_function_control=1
@@ -419,9 +419,9 @@ END
      ACTION_READLN blook
      SILENT
   END
-  ACTION_BASH_FOR ~%scsroot%/%sfo_loc%/general~ ~lib_.*\.tpa~ BEGIN
+  ACTION_BASH_FOR ~%mod_root%/%sfo_loc%/general~ ~lib_.*\.tpa~ BEGIN
          ACTION_IF "%BASH_FOR_EXT%" STRING_EQUAL_CASE TPA BEGIN
-            INCLUDE ~%scsroot%/%sfo_loc%/general/%BASH_FOR_RES%.tpa~
+            INCLUDE ~%mod_root%/%sfo_loc%/general/%BASH_FOR_RES%.tpa~
          END
   END
 
@@ -434,9 +434,9 @@ END
      ACTION_READLN blook
      SILENT
   END
-  ACTION_BASH_FOR ~%scsroot%/%sfo_loc%/filetype~ ~lib_.*\.tpa~ BEGIN
+  ACTION_BASH_FOR ~%mod_root%/%sfo_loc%/filetype~ ~lib_.*\.tpa~ BEGIN
          ACTION_IF "%BASH_FOR_EXT%" STRING_EQUAL_CASE TPA BEGIN
-             INCLUDE ~%scsroot%/%sfo_loc%/filetype/%BASH_FOR_RES%.tpa~
+             INCLUDE ~%mod_root%/%sfo_loc%/filetype/%BASH_FOR_RES%.tpa~
          END
   END
 
@@ -445,9 +445,9 @@ END
 // If appropriate, copy over autofunc library
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ACTION_IF !FILE_EXISTS "%scsroot%/%sfo_loc%/SFO_autofunc.tpa" BEGIN
+ACTION_IF !FILE_EXISTS "%mod_root%/%sfo_loc%/SFO_autofunc.tpa" BEGIN
    ACTION_IF FILE_EXISTS "%workspace%/SFO_autofunc.tpa" BEGIN
-      COPY + "%workspace%/SFO_autofunc.tpa" "%scsroot%/%sfo_loc%/SFO_autofunc.tpa"
+      COPY + "%workspace%/SFO_autofunc.tpa" "%mod_root%/%sfo_loc%/SFO_autofunc.tpa"
    END
 END
 
@@ -477,7 +477,7 @@ END
 // Initialise SSL variables
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-OUTER_SPRINT ~sslvariables~ ~%percentage%scsroot%percentage%=%scsroot%&%percentage%tutu_var%percentage%=%tutu_var%~
+OUTER_SPRINT ~sslvariables~ ~%percentage%mod_root%percentage%=%mod_root%&%percentage%tutu_var%percentage%=%tutu_var%~
 OUTER_SPRINT ssllibrary ""
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
