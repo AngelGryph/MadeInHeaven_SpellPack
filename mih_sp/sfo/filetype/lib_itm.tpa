@@ -5,18 +5,20 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 DEFINE_ACTION_FUNCTION clone_item
-    INT_VAR allow_missing=0
+    INT_VAR silent=0
+			allow_missing=0
+			tv=0
     STR_VAR
            item=""
            edits=""
            editstring=""
     BEGIN
          LAUNCH_ACTION_FUNCTION clone_template
+				  INT_VAR silent tv allow_missing
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
                           edits
                           editstring
-                          allow_missing
 
          END
 END
@@ -42,10 +44,10 @@ DEFINE_ACTION_FUNCTION edit_item
            locabs=""
     BEGIN
          LAUNCH_ACTION_FUNCTION edit_template
+				  INT_VAR tv silent allow_missing
                   STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
-                          edits editstring allow_missing
-                          tv silent location locbase locabs
+                          edits editstring location locbase locabs
 
          END
 END
@@ -57,8 +59,10 @@ END
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 DEFINE_ACTION_FUNCTION install_item
-    INT_VAR allow_missing=0
-            tv=0
+    INT_VAR
+           silent=0
+           allow_missing=0
+           tv=0
     STR_VAR
            item=""
            edits=""
@@ -67,10 +71,10 @@ DEFINE_ACTION_FUNCTION install_item
            locbase=""
     BEGIN
          LAUNCH_ACTION_FUNCTION install_template
-                  STR_VAR file_list= ~%item%~
+                  INT_VAR tv silent allow_missing
+				  STR_VAR file_list= ~%item%~
                           file_ext=~ITM~
-                          edits editstring allow_missing
-                          tv silent location locbase
+                          edits editstring location locbase
 
          END
 END
@@ -86,10 +90,10 @@ DEFINE_ACTION_FUNCTION edit_all_items
            editstring=""
     BEGIN
          LAUNCH_ACTION_FUNCTION regexp_template
-                   STR_VAR       file_ext=~ITM~
-                          edits= ~%edits%~
-                          editstring= ~%editstring%~
-                          tv=1
+                   INT_VAR tv=1
+				   STR_VAR       file_ext=~ITM~
+                          edits
+                          editstring
          END
 END
 
@@ -193,6 +197,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY item_ability_fields BEGIN
    effect_offset=>~0x20,SHORT~
    number_charges => ~0x22,SHORT~
    when_drained => ~0x24,BYTE~
+   strength_bonus=>~0x26,BYTE~
    projectile => ~0x2a,SHORT~
    overhand=>~0x2c,SHORT~
    backhand=>~0x2e,SHORT~
@@ -202,7 +207,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY item_ability_fields BEGIN
    is_missile=>~0x36,SHORT~
 END
 
-LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR offset_base=~offset_base~ lookup_table=item_ability_fields function_prefix=ITM END
+LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR offset_base=yes lookup_table=item_ability_fields function_prefix=ITM END
 
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY eff_fields BEGIN
@@ -226,7 +231,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY eff_fields BEGIN
    mode=>~0x2c,LONG~
 END
 
-LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR lookup_table=eff_fields offset_base=~offset_base~ function_prefix=ITM secondary="yes" END
+LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR lookup_table=eff_fields offset_base=yes function_prefix=ITM secondary="yes" END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY itm_bit_fields BEGIN
       unsellable => ~0x18,0~
@@ -317,7 +322,7 @@ END
 LAF build_flag_data_field_editors STR_VAR lookup_table=itm_bit_fields function_prefix=ITM END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY abil_bit_fields BEGIN
-      strength_bonus=>~0x26,0~
+      add_strength_bonus=>~0x26,0~
       breakable=>~0x26,1~
       damage_only=>~0x26,2~
       to_hit_only=>~0x26,3~
@@ -325,7 +330,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY abil_bit_fields BEGIN
       hostile=>~0x27,2~
       recharges_on_rest=>~0x27,3~
 END
-LAF build_flag_data_field_editors STR_VAR lookup_table=abil_bit_fields offset_base=~offset_base~ function_prefix=ITM END
+LAF build_flag_data_field_editors STR_VAR lookup_table=abil_bit_fields offset_base=yes function_prefix=ITM END
 
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY eff_bit_fields BEGIN
@@ -339,7 +344,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY eff_bit_fields BEGIN
       bypass_mirror_image =>~0x27,0~
 END
 
-LAF build_flag_data_field_editors STR_VAR lookup_table=eff_bit_fields offset_base=~offset_base~ function_prefix=ITM  secondary="yes" END
+LAF build_flag_data_field_editors STR_VAR lookup_table=eff_bit_fields offset_base=yes function_prefix=ITM  secondary="yes" END
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -582,14 +587,14 @@ END
 DEFINE_PATCH_FUNCTION ITM_append_description
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=append_string_nospace loc=0x54 arguments= ~%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0x54 STR_VAR function=append_string_nospace  arguments= ~%arguments%~ END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_append_description") ""
 
 DEFINE_PATCH_FUNCTION ITM_append_description_newline
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=append_string_nospace loc=0x54 arguments= ~%WNL%%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0x54 STR_VAR function=append_string_nospace arguments= ~%WNL%%arguments%~ END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_append_description_newline") ""
 
@@ -602,7 +607,7 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_append_description_newline") ""
 DEFINE_PATCH_FUNCTION ITM_substitute_description
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=substitute_string loc=0x54 arguments= ~%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0x54 STR_VAR function=substitute_string arguments= ~%arguments%~ END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_substitute_description") ""
 
@@ -615,7 +620,7 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_substitute_description") ""
 DEFINE_PATCH_FUNCTION ITM_set_description
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=set_string loc=0x54 arguments END
+   LPF patch_text_entry INT_VAR loc=0x54 STR_VAR function=set_string arguments END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_description") ""
 
@@ -623,7 +628,7 @@ DEFINE_PATCH_FUNCTION ITM_set_unidentified_description
    STR_VAR arguments=""
 BEGIN
    SAY 0x50 (AT "%arguments%")
-   LPF patch_text_entry STR_VAR function=set_string loc=0x50 arguments END
+   LPF patch_text_entry INT_VAR loc=0x50 STR_VAR function=set_string arguments END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_unidentified_description") ""
 
@@ -632,14 +637,14 @@ DEFINE_PATCH_FUNCTION ITM_say_description
    STR_VAR arguments=""
 BEGIN
    LPF item_useability_string INT_VAR tra_ref=arguments RET desc END
-   LPF patch_text_entry STR_VAR function=set_string loc=0x54 arguments="%desc%" END
+   LPF patch_text_entry INT_VAR loc=0x54 STR_VAR function=set_string arguments="%desc%" END
 END
 
 DEFINE_PATCH_FUNCTION ITM_say_unidentified_description
    STR_VAR arguments=""
 BEGIN
    LPF item_useability_string INT_VAR tra_ref=arguments RET desc END
-   LPF patch_text_entry STR_VAR function=set_string loc=0x50 arguments="%desc%" END
+   LPF patch_text_entry INT_VAR loc=0x50 STR_VAR function=set_string arguments="%desc%" END
 END
 
 DEFINE_PATCH_FUNCTION ITM_set_both_descriptions
@@ -679,33 +684,33 @@ END
 DEFINE_PATCH_FUNCTION ITM_set_name
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=set_string loc=0xc arguments= ~%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0xc STR_VAR function=set_string arguments= ~%arguments%~ END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_name") ""
 
 DEFINE_PATCH_FUNCTION ITM_set_name_evaluate
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=set_string loc=0xc arguments= ~%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0xc STR_VAR function=set_string arguments= ~%arguments%~ END
 END
 
 DEFINE_PATCH_FUNCTION ITM_set_unidentified_name
    STR_VAR arguments=""
 BEGIN
-   LPF patch_text_entry STR_VAR function=set_string loc=0x8 arguments= ~%arguments%~ END
+   LPF patch_text_entry INT_VAR loc=0x8 STR_VAR function=set_string arguments= ~%arguments%~ END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_set_unidentified_name") ""
 
 DEFINE_PATCH_FUNCTION ITM_say_name
    STR_VAR arguments=""
 BEGIN
-   LPF say_this_here INT_VAR offset=0xc say= ~%arguments%~ END
+   WRITE_LONG 0xc RESOLVE_STR_REF ((AT arguments))
 END
 
 DEFINE_PATCH_FUNCTION ITM_say_unidentified_name
    STR_VAR arguments=""
 BEGIN
-   LPF say_this_here INT_VAR offset=0x8 say= ~%arguments%~ END
+   WRITE_LONG 0x8 RESOLVE_STR_REF ((AT arguments))
 END
 
 
@@ -854,7 +859,7 @@ END
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 
-DEFINE_PATCH_FUNCTION ITM_log_me STR_VAR filename="" arguments="" BEGIN
+DEFINE_PATCH_FUNCTION ITM_log_me STR_VAR arguments="" BEGIN
    LPF log_this STR_VAR file= ~%arguments%~ input= ~%filename%~ repeat=no END
 END
 
@@ -905,6 +910,7 @@ DEFINE_ACTION_FUNCTION armor_type
     STR_VAR item=""
     RET type success
 BEGIN
+	FAIL "armor_type function calls 'read_armor_bonus_by_type' function, which doesn't exist" 
    OUTER_SET success=0
    ACTION_IF FILE_EXISTS_IN_GAME "%item%.cre" BEGIN
       COPY_EXISTING "%item%.itm" override
@@ -1039,31 +1045,5 @@ BEGIN
       END
    END
 END
-
-
-
-// Apply CamDawg's immunity arrays
-
-DEFINE_PATCH_FUNCTION ITM_cd_immunity
-  STR_VAR
-  arguments	= ""
-BEGIN
-  WHILE "%arguments%" STRING_COMPARE ""
-  BEGIN
-    LAUNCH_PATCH_FUNCTION return_first_entry
-      STR_VAR
-      list	= "%arguments%"
-      RET
-      arguments	= list
-      entry
-    END
-
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_%entry%_arrays"
-    END
-  END
-END
-OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_cd_immunity") ""
 
 

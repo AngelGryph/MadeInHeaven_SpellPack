@@ -1,3 +1,5 @@
+// NB: as of SCS v33.5 SFO needs the ini system to have been installed already (from lib_ini)
+
 ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
 
   OUTER_SET sfo_installed=1
@@ -45,6 +47,7 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
    MKDIR "%external_loc%/data/%MOD_FOLDER%"
    MKDIR "%external_loc%/markers"
    MKDIR "%external_loc%/lang"
+   MKDIR "%external_loc%/lang/%MOD_FOLDER%"
 
    ACTION_IF !FILE_EXISTS "%external_loc%/readme.txt" BEGIN
       COPY + "%MOD_FOLDER%/lib/resource/weidu_external_readme.txt" "%external_loc%/readme.txt"
@@ -72,30 +75,11 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
  ACTION_IF !VARIABLE_IS_SET sfo_loc BEGIN
       OUTER_SPRINT sfo_loc "sfo"
  END
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Get the debug variable from ini (do this manually, ini reading functions aren't installed yet)
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-OUTER_SET debug_variable=0
-ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%ini_file%" BEGIN
-COPY - "%MOD_FOLDER%/%ini_file%" "%workspace%"
-   REPLACE_EVALUATE "debug_variable[ =]+\([0-9]+\)"
-   BEGIN
-       SET debug_variable=MATCH1
-	   
-   END
-   "" // doesn't matter, this is COPY -
-BUT_ONLY
-END
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Set the debug variable if it isn't already set; run silent if it's set to zero
+// Get the debug variable from ini; run silent if it's set to zero
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ACTION_IF !VARIABLE_IS_SET debug_variable BEGIN
-   OUTER_SET debug_variable=0
-END
+LAF check_ini STR_VAR ini="debug_variable" RET debug_variable=value END
 ACTION_IF debug_variable=0 BEGIN SILENT END
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,16 +123,16 @@ END
      SILENT
   END
 
-  OUTER_SET enhanced_edition = ( GAME_IS "bgee bg2ee eet iwdee" ? 1 : 0)
-  OUTER_SET is_bg1 = ( GAME_INCLUDES "bg1" ? 1 : 0)
-  OUTER_SET is_bg2 = ( GAME_INCLUDES "bg2" ? 1 : 0)
-  OUTER_SET is_iwd = ( GAME_INCLUDES "iwd" ? 1 : 0)
-  OUTER_SET is_tutu = ( GAME_IS "tutu tutu_totsc" ? 1 : 0)
-  OUTER_SET is_bgt = ( GAME_IS "bgt" ? 1 : 0)
-  OUTER_SET is_eet = ( GAME_IS "eet" ? 1 : 0)
-  OUTER_SET has_totsc = ( GAME_INCLUDES "totsc" ? 1 : 0)
-  OUTER_SET has_sod = ( GAME_INCLUDES "sod" ? 1 : 0)
-  OUTER_SET has_tob = ( GAME_INCLUDES "tob" ? 1 : 0)
+  OUTER_SET enhanced_edition = ( GAME_IS ~bgee bg2ee eet iwdee~ ? 1 : 0)
+  OUTER_SET is_bg1 = ( GAME_IS ~bgee tutu tutu_totsc bgt eet~ ? 1 : 0)
+  OUTER_SET is_bg2 = ( GAME_IS ~tutu tutu_totsc bgee iwdee~ ? 0 : 1)
+  OUTER_SET is_iwd = ( GAME_IS iwdee ? 1 : 0)
+  OUTER_SET is_tutu = ( GAME_IS ~tutu tutu_totsc~ ? 1 : 0)
+  OUTER_SET is_eet = ( GAME_IS ~eet~ ? 1 : 0)
+
+  OUTER_SET has_sod = ( GAME_INCLUDES ~sod~ ? 1 : 0)
+  OUTER_SET has_tob = ( GAME_INCLUDES ~tob~ ? 1 : 0)
+  OUTER_SET has_totsc = ( GAME_INCLUDES ~totsc~ ? 1 : 0)
 
   ACTION_IF !VARIABLE_IS_SET tutu_var BEGIN
      ACTION_IF is_tutu BEGIN
@@ -158,7 +142,7 @@ END
      END
   END
   
-  ACTION_IF is_eet BEGIN
+  ACTION_IF GAME_IS "eet" BEGIN
      OUTER_SPRINT eet_var "_"
   END ELSE BEGIN
      OUTER_SPRINT eet_var ""
@@ -297,7 +281,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_ids_missing BEGIN
    2985=>RED_HOLY_MIGHT
    3890=>DEMON_FEAR
 END
-ACTION_IF is_iwd BEGIN
+ACTION_IF GAME_IS iwdee BEGIN
    ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_ids_missing BEGIN
       1716=>CLERIC_SYMBOL_HOPELESSNESS
       1714=>CLERIC_SYMBOL_PAIN
@@ -413,7 +397,8 @@ END
   END
   ACTION_BASH_FOR ~%MOD_FOLDER%/%sfo_loc%/general~ ~lib_.*\.tpa~ BEGIN
          ACTION_IF "%BASH_FOR_EXT%" STRING_EQUAL_CASE TPA BEGIN
-            INCLUDE ~%MOD_FOLDER%/%sfo_loc%/general/%BASH_FOR_RES%.tpa~
+			//PRINT "%BASH_FOR_RES%"
+			INCLUDE ~%MOD_FOLDER%/%sfo_loc%/general/%BASH_FOR_RES%.tpa~
          END
   END
 
@@ -428,7 +413,7 @@ END
   END
   ACTION_BASH_FOR ~%MOD_FOLDER%/%sfo_loc%/filetype~ ~lib_.*\.tpa~ BEGIN
          ACTION_IF "%BASH_FOR_EXT%" STRING_EQUAL_CASE TPA BEGIN
-             INCLUDE ~%MOD_FOLDER%/%sfo_loc%/filetype/%BASH_FOR_RES%.tpa~
+			 INCLUDE ~%MOD_FOLDER%/%sfo_loc%/filetype/%BASH_FOR_RES%.tpa~
          END
   END
 
@@ -442,28 +427,6 @@ ACTION_IF !FILE_EXISTS "%MOD_FOLDER%/%sfo_loc%/SFO_autofunc.tpa" BEGIN
       COPY + "%workspace%/SFO_autofunc.tpa" "%MOD_FOLDER%/%sfo_loc%/SFO_autofunc.tpa"
    END
 END
-
-
-///////////////////////////////////////////////////
-// read in ini
-///////////////////////////////////////////////////
-
-  ACTION_IF debug_variable=3 BEGIN
-     PRINT "Reading in INI: press a key to continue"
-     ACTION_READLN blook
-     SILENT
-  END
-
-
-   ACTION_IF VARIABLE_IS_SET ini_file BEGIN
-      OUTER_SPRINT ini_to_read "%MOD_FOLDER%/%ini_file%"
-      LAM SFO_read_ini_file
-   END
-
-   ACTION_IF VARIABLE_IS_SET user_ini_file BEGIN
-      OUTER_SPRINT ini_to_read "%MOD_FOLDER%/%user_ini_file%"
-      LAM SFO_read_ini_file
-   END
  
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Initialise SSL variables
@@ -477,7 +440,7 @@ OUTER_SPRINT ssllibrary ""
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   ACTION_FOR_EACH hotkey IN A B C D E F G H I J K L M N O P Q R S T U V W X Y Z BEGIN
-     LAF check_ini STR_VAR ini="hot_key_%hotkey%" RET value END
+     LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_%hotkey%" RET value END
      ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
             OUTER_SPRINT "hot_key_%hotkey%" "%hotkey%"
      END ELSE BEGIN

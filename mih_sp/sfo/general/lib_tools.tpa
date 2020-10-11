@@ -300,6 +300,7 @@ END
 
 
 
+/* old version
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///// Check an ini value (case-insensitive)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -324,6 +325,8 @@ BEGIN
         LPF check_ini STR_VAR ini RET value END
        END
 END
+
+*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -451,7 +454,11 @@ BEGIN
               PRINT "about to run %entry%, with tra %scs_tra_loc%/english/%tra%.tra %scs_tra_loc%/%LANGUAGE%/%tra%.tra"
            END
            WITH_TRA "%scs_tra_loc%/english/%tra%.tra" "%scs_tra_loc%/%LANGUAGE%/%tra%.tra" BEGIN
-              LAF ~%entry%~ STR_VAR version= ~%version%~ END
+              ACTION_IF "%version%" STRING_EQUAL "" BEGIN
+				LAF ~%entry%~ END			  
+			  END ELSE BEGIN
+				LAF ~%entry%~ STR_VAR version= ~%version%~ END			  
+			  END
            END
        END
 END
@@ -511,7 +518,7 @@ END
 DEFINE_ACTION_FUNCTION get_label_loc
 RET location
 BEGIN
-   LAF check_ini STR_VAR ini=label_location RET loc=value END
+   LAF check_ini  INT_VAR silent=1 STR_VAR ini=label_location RET loc=value END
    ACTION_IF loc BEGIN
        OUTER_SPRINT location ~%loc%~
    END ELSE BEGIN
@@ -1076,8 +1083,6 @@ END
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////    immutable version of HANDLE_CHARSETS
 ////////////
-////////////    Assumes "MOD_FOLDER" has been set to your mod directory, and "workspace" to your working
-////////////    directory
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1088,7 +1093,6 @@ DEFINE_ACTION_FUNCTION handle_charsets_immutably
                iconv_path=""
        RET     scs_tra_loc
 BEGIN
-   // guess MOD_FOLDER and workspace if not set
    // do conversions (ee only)
    ACTION_IF enhanced_edition BEGIN
        OUTER_INNER_PATCH_SAVE versionstring "%MOD_VERSION%" BEGIN
@@ -1097,24 +1101,7 @@ BEGIN
        OUTER_SPRINT scs_tra_loc "%ext_lang_loc%"
        OUTER_SPRINT marker_name "%marker_loc%/dw#%MOD_FOLDER%_%versionstring%_languages_installed.mrk"
        ACTION_IF (!FILE_EXISTS "%marker_name%"  || force_tra_rebuild) BEGIN
-          COPY ".../stratagems-inline/blank" "%marker_name%"
-          MKDIR "%scs_tra_loc%/%LANGUAGE%"
-          ACTION_BASH_FOR "%MOD_FOLDER%/%tra_base%/%LANGUAGE%" ".*\.tra" BEGIN
-             COPY "%BASH_FOR_FILESPEC%" "%scs_tra_loc%/%LANGUAGE%"
-          END
-          ACTION_MATCH "%LANGUAGE%" WITH
-          "%base_language%" BEGIN END
-          DEFAULT
-            MKDIR "%scs_tra_loc%/%base_language%"
-            ACTION_BASH_FOR "%MOD_FOLDER%/%tra_base%/%base_language%" ".*\.tra" BEGIN
-                COPY "%BASH_FOR_FILESPEC%" "%scs_tra_loc%/%base_language%"
-            END
-          END
-          // guess iconv path if not given
-          ACTION_IF "%iconv_path%" STRING_EQUAL_CASE "" BEGIN
-             OUTER_SPRINT iconv_path "%MOD_FOLDER%/%tra_base%/iconv"
-          END
-          LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR iconv_path  tra_path = ~%scs_tra_loc%~  END
+		  LAF HANDLE_CHARSETS INT_VAR infer_charsets=1 STR_VAR tra_path="%MOD_FOLDER%/%tra_base%" out_path="%scs_tra_loc%" END
        END
    END ELSE BEGIN
       // on non-EE, just set the tra loc
@@ -1240,8 +1227,34 @@ BEGIN
            READ_2DA_ENTRY_FORMER 2da_data i data_column val
            SPRINT $array_data("%var%") "%val%"
         END
-        PATCH_IF first_row>=2da_data BEGIN
-           SPRINT $array_data("null") ""
-        END
    BUT_ONLY
+END
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////    given a 1:1 function (of argument->value type) with domain the keys of an array, sort that array alphabetically
+////////////	by the values of the function
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION sort_array_by_function
+	STR_VAR array=""
+			function=""
+	RET_ARRAY sorted_array
+BEGIN
+	ACTION_CLEAR_ARRAY sorting_array
+	OUTER_SET uniqueness_counter=0
+	ACTION_PHP_EACH "%array%" AS arguments=>discard BEGIN
+		LAF "%function%" STR_VAR arguments RET value END
+		OUTER_SPRINT value "%value%%uniqueness_counter%"
+		OUTER_SPRINT $sorting_array("%value%") "%arguments%"
+		OUTER_SET ++uniqueness_counter
+	END
+	ACTION_SORT_ARRAY_INDICES sorting_array LEXICOGRAPHICALLY
+	ACTION_CLEAR_ARRAY sorted_array
+	ACTION_PHP_EACH sorting_array AS discard=>key BEGIN
+		OUTER_SPRINT $sorted_array("%key%") $"%array%"("%key%")
+	END
+
 END

@@ -1,0 +1,155 @@
+// These are local additions, not part of standard SFO.
+
+DEFINE_PATCH_FUNCTION CRE_make_legendary
+  STR_VAR
+  arguments	= ""
+BEGIN
+  INNER_ACTION
+  BEGIN
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "legendary.2da"
+      locbase	= "lib/resource"
+      row	= "%arguments%"
+      column	= "HD"
+      RET
+      hd_bonus	= value
+    END
+
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "legendary.2da"
+      locbase	= "lib/resource"
+      row	= "%arguments%"
+      column	= "AC"
+      RET
+      ac_bonus	= value
+    END
+
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "legendary.2da"
+      locbase	= "lib/resource"
+      row	= "%arguments%"
+      column	= "THAC0"
+      RET
+      thac0_bonus	= value
+    END
+  END
+
+
+  CLEAR_ARRAY make_legendary
+  DEFINE_ASSOCIATIVE_ARRAY make_legendary
+  BEGIN
+    level_all=>"level1 + %hd_bonus%"
+    ac=>"if (ac_effective - %ac_bonus% < -20) then -20 else (ac_effective - %ac_bonus%)"
+    thac0=>"thac0 - %thac0_bonus%"
+    enforce_hp=>at_worst
+    enforce_saves=>at_worst
+  END
+  
+  LAUNCH_PATCH_FUNCTION apply_patches
+    STR_VAR
+    file_ext	= "CRE"
+    edits	= "make_legendary"
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION CRE_set_xp_by_hd
+BEGIN
+  LAUNCH_PATCH_FUNCTION fail_unless_int
+    STR_VAR
+    value="%arguments%"
+    expression=""
+  END
+
+  LAUNCH_PATCH_FUNCTION CRE_read_level1
+    RET level1=value
+  END
+
+  SET hd = level1 + arguments
+
+  SET hd = (hd < 0) ? 0 : hd
+  SET hd = (hd > 50) ? 50 : hd
+
+  INNER_ACTION
+  BEGIN
+    LAUNCH_ACTION_FUNCTION read_table_entry_external
+      STR_VAR
+      file	= "xp_table.2da"
+      locbase	= "lib/resource"
+      row	= "%hd%"
+      column	= "XP"
+      RET
+      xp_value	= value
+    END
+  END
+
+  LAUNCH_PATCH_FUNCTION CRE_xp_value
+    STR_VAR
+    arguments="%xp_value%"
+  END
+END
+
+
+DEFINE_PATCH_FUNCTION ITM_cd_immunity
+  STR_VAR
+  arguments	= ""
+BEGIN
+  WHILE "%arguments%" STRING_COMPARE ""
+  BEGIN
+    LAUNCH_PATCH_FUNCTION return_first_entry
+      STR_VAR
+      list	= "%arguments%"
+      RET
+      arguments	= list
+      entry
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_%entry%_arrays"
+    END
+  END
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_cd_immunity") ""
+
+
+// Apply CamDawg's immunity arrays
+
+DEFINE_PATCH_FUNCTION SPL_cd_immunity
+  STR_VAR
+  arguments	= ""
+BEGIN
+  WHILE "%arguments%" STRING_COMPARE ""
+  BEGIN
+    LAUNCH_PATCH_FUNCTION return_first_entry
+      STR_VAR
+      list	= "%arguments%"
+      RET
+      arguments	= list
+      entry
+    END
+
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_%entry%_arrays"
+    END
+  END
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_cd_immunity") ""
+
+
+DEFINE_PATCH_FUNCTION STO_swap_items
+          STR_VAR arguments=""
+BEGIN
+         PATCH_IF ~%arguments%~ STRING_COMPARE_CASE ~~ BEGIN
+             LPF return_first_pair STR_VAR list= ~%arguments%~ RET old=key new=value arguments=list END
+             REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old%~ ~%new%~ (8)
+             LPF STO_swap_items STR_VAR arguments= ~%arguments%~ END
+         END
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("STO_swap_items") ""
+
+

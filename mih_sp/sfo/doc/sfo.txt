@@ -60,11 +60,13 @@ AUTO_EVAL_STRINGS
 
 ALWAYS
 
+       OUTER_SPRINT scsroot mymod
+
        OUTER_SET debug_variable=0
 
-       OUTER_SPRINT workspace "weidu_external/workspace"
+       OUTER_SPRINT workspace "stratagems_external/workspace"
 
-       INCLUDE "%MOD_FOLDER%/sfo/install_sfo.tpa"
+       INCLUDE "%scsroot%/sfo/install_sfo.tpa"
 
 END
 
