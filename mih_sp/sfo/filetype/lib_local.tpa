@@ -57,6 +57,8 @@ END
 
 
 DEFINE_PATCH_FUNCTION CRE_set_xp_by_hd
+  STR_VAR
+  arguments	= ""
 BEGIN
   LAUNCH_PATCH_FUNCTION fail_unless_int
     STR_VAR
@@ -142,13 +144,25 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_cd_immunity") ""
 
 
 DEFINE_PATCH_FUNCTION STO_swap_items
-          STR_VAR arguments=""
+  STR_VAR
+  arguments=""
 BEGIN
-         PATCH_IF ~%arguments%~ STRING_COMPARE_CASE ~~ BEGIN
-             LPF return_first_pair STR_VAR list= ~%arguments%~ RET old=key new=value arguments=list END
-             REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old%~ ~%new%~ (8)
-             LPF STO_swap_items STR_VAR arguments= ~%arguments%~ END
-         END
+  PATCH_IF "%arguments%" STRING_COMPARE_CASE ""
+  BEGIN
+    LAUNCH_PATCH_FUNCTION return_first_pair
+      STR_VAR
+      list	= "%arguments%"
+      RET
+      old	= key
+      new	= value
+      arguments	= list
+    END
+    REPLACE_TEXTUALLY CASE_INSENSITIVE "%old%" "%new%" (8)
+    LAUNCH_PATCH_FUNCTION STO_swap_items
+      STR_VAR
+      arguments	= "%arguments%"
+    END
+  END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("STO_swap_items") ""
 

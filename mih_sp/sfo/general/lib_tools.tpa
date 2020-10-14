@@ -224,7 +224,7 @@ DEFINE_PATCH_FUNCTION key_value_sanity_check
     STR_VAR arguments=""
 BEGIN
    PATCH_IF ("%arguments%" STRING_CONTAINS_REGEXP "=>")=is_key && "%arguments%" STRING_COMPARE "" BEGIN
-         PATCH_IF is_key BEGIN 
+         PATCH_IF is_key BEGIN
             SPRINT censure "it should be a key"
          END ELSE BEGIN
             SPRINT censure "it should not be a key"
@@ -385,7 +385,7 @@ DEFINE_ACTION_FUNCTION include
 BEGIN
        ACTION_IF ~%file%~ STRING_EQUAL_CASE ~~ BEGIN
           ACTION_IF ~%files%~ STRING_EQUAL_CASE ~~ BEGIN
-              LAF warning STR_VAR warning="You've called an include with no argument" END 
+              LAF warning STR_VAR warning="You've called an include with no argument" END
           END ELSE BEGIN
               OUTER_SPRINT file ~%files%~
           END
@@ -434,7 +434,7 @@ BEGIN
 
        ACTION_IF ~%file%~ STRING_EQUAL_CASE ~~ BEGIN
           ACTION_IF ~%files%~ STRING_EQUAL_CASE ~~ BEGIN
-              LAF warning STR_VAR warning="You've called a 'run' with no argument" END 
+              LAF warning STR_VAR warning="You've called a 'run' with no argument" END
           END ELSE BEGIN
               OUTER_SPRINT file ~%files%~
           END
@@ -455,9 +455,9 @@ BEGIN
            END
            WITH_TRA "%scs_tra_loc%/english/%tra%.tra" "%scs_tra_loc%/%LANGUAGE%/%tra%.tra" BEGIN
               ACTION_IF "%version%" STRING_EQUAL "" BEGIN
-				LAF ~%entry%~ END			  
+				LAF ~%entry%~ END			
 			  END ELSE BEGIN
-				LAF ~%entry%~ STR_VAR version= ~%version%~ END			  
+				LAF ~%entry%~ STR_VAR version= ~%version%~ END			
 			  END
            END
        END
@@ -590,7 +590,7 @@ BEGIN
    INNER_PATCH ~~ BEGIN
       INSERT_BYTES 0x0 0x4
       WRITE_LONG 0x0 input
-      READ_SHORT 0x0 first 
+      READ_SHORT 0x0 first
       READ_SHORT 0x2 second
       WRITE_SHORT 0x0 second
       WRITE_SHORT 0x2 first
@@ -821,15 +821,15 @@ END
 ///// given names and feed them as STR_VAR entries to the ACTION_FUNCTION "function"
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-DEFINE_ACTION_FUNCTION process_table 
-            INT_VAR cumulative=0 
-            STR_VAR table="" 
-                    location="" 
-                    locbase="" 
+DEFINE_ACTION_FUNCTION process_table
+            INT_VAR cumulative=0
+            STR_VAR table=""
+                    location=""
+                    locbase=""
                     locabs=""
                     inline="no"
                     function=""
-                    ext_args="" 
+                    ext_args=""
             RET value
 BEGIN
   ACTION_IF "%inline%" STRING_COMPARE_CASE yes BEGIN
@@ -1086,7 +1086,7 @@ END
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-DEFINE_ACTION_FUNCTION handle_charsets_immutably 
+DEFINE_ACTION_FUNCTION handle_charsets_immutably
        INT_VAR force_tra_rebuild=0
        STR_VAR tra_base=lang
                base_language=english
@@ -1102,6 +1102,9 @@ BEGIN
        OUTER_SPRINT marker_name "%marker_loc%/dw#%MOD_FOLDER%_%versionstring%_languages_installed.mrk"
        ACTION_IF (!FILE_EXISTS "%marker_name%"  || force_tra_rebuild) BEGIN
 		  LAF HANDLE_CHARSETS INT_VAR infer_charsets=1 STR_VAR tra_path="%MOD_FOLDER%/%tra_base%" out_path="%scs_tra_loc%" END
+		  ACTION_IF "%LANGUAGE%" STRING_COMPARE_CASE "%base_language%" BEGIN
+			LAF HANDLE_CHARSETS INT_VAR infer_charsets=1 STR_VAR language="%base_language%" tra_path="%MOD_FOLDER%/%tra_base%" out_path="%scs_tra_loc%" END		
+		  END
        END
    END ELSE BEGIN
       // on non-EE, just set the tra loc
@@ -1163,7 +1166,7 @@ BEGIN
            PATCH_IF next_right<0 BEGIN
               SET indent=0
               LPF warning STR_VAR warning="Failed to properly extract next %left%---%right% section from file %SOURCE_RES%, starting at %index%" END
-           END ELSE 
+           END ELSE
            PATCH_IF next_left<0 BEGIN
               SET indent -=1
               SET loc=next_right + 1

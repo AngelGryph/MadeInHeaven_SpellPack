@@ -54,12 +54,11 @@ BEGIN
 
   // mh#wiz33 - Blink
 
-  CREATE EFF "mh#blink"
-    WRITE_LONG	0x0010 222	// Effect: Teleport Field
-    WRITE_LONG	0x001c 120
-    WRITE_SHORT	0x0024 1
-    WRITE_LONG	0x002c 100
-
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "mh#blink"
+    editstring	= "opcode=>222 timing=>1 parameter1=>120"
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -130,13 +129,11 @@ BEGIN
     editstring	= "say_name=>14 say_unidentified_name=>14"
   END
 
-  CREATE EFF "mh#irnmd"
-    WRITE_LONG	0x0010 67	// Summon: Creature Summoning
-    WRITE_LONG	0x001c 5
-    WRITE_SHORT	0x0024 1
-    WRITE_LONG	0x002c 100
-    WRITE_ASCII	0x0030 "mh#irnmd" #8
-    WRITE_ASCII	0x0070 "spcrtwpn" #8
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "mh#irnmd"
+    editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"mh#irnmd" vvc=>"spcrtwpn"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
@@ -344,7 +341,7 @@ BEGIN
     STR_VAR
     item	= "mh#faesd"
     location	= "items"
-    editstr	= "say_name=>32"
+    editstring	= "say_name=>32"
   END
 
   LAUNCH_ACTION_FUNCTION install_spell

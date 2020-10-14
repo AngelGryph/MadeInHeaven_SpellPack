@@ -19,7 +19,7 @@ END
 // Stuff that is done only once per install
 // ========================================
 
-ACTION_IF NOT VARIABLE_IS_SET initialise  
+ACTION_IF NOT VARIABLE_IS_SET "initialise_%MOD_FOLDER%"
 BEGIN
   PRINT "Running once-per-install block..."
 
@@ -30,7 +30,7 @@ BEGIN
 
   // Set variables
 
-  OUTER_SET initialise = 1
+  OUTER_SET "initialise_%MOD_FOLDER%" = 1
 
   OUTER_TEXT_SPRINT ini_file "%MOD_FOLDER%.ini"
 
@@ -72,6 +72,11 @@ BEGIN
 
   INCLUDE "%MOD_FOLDER%/lib/cd_functions.tph"
   INCLUDE "%MOD_FOLDER%/lib/mh_functions.tph"
+
+
+  // Set up SSL
+
+  OUTER_SPRINT ssllibrary "%MOD_FOLDER%/ssl/library"
 
 
   // Gather some data structures for SFO

@@ -1,0 +1,14 @@
+debug_variable=0
+================
+
+When set to non-zero, debugging information is shown during installation.
+
+place_spell_scrolls_in_bg1=1
+place_spell_scrolls_in_sod=1
+place_spell_scrolls_in_bg2=1
+place_spell_scrolls_in_tob=1
+============================
+
+Toggles whether arcane spell scrolls are added to these games.
+
+

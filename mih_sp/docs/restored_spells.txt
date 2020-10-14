@@ -1,0 +1,119 @@
+spwi204 - Fog Cloud
+
+What was there:
+- spell.ids entry: 2204 WIZARD_FOG_CLOUD
+- icon files: spwi204a.bam, spwi204b.bam, spwi204c.bam
+- name string: "Fog Cloud" at #12055, #12965, #13034
+
+What was missing:
+- spell file: spwi204.spl
+- arcane scroll: mh#rs204.itm
+- description string
+
+Other notes:
+Common spell from Player's Handbook.
+
+
+spwi315 - Wraithform
+What was there:
+- spell.ids entry: 2315 WIZARD_WRAITH_FORM
+- spell file: spwi315.spl (except in vanilla BG2)
+- arcane scroll: scrl1r.itm (except in vanilla BG2)
+
+What was missing:
+- A shop actually selling the scroll
+
+Other notes:
+Common spell from Player's Handbook.  Counts as both alteration and illusion,
+but effects fit alteration better.  Patched to make it an alteration spell.
+Also restored by Unfinished Business, both restorations can be used together.
+
+
+spwi402 - Dimension Door
+
+What was there:
+- everything except the arcane scroll
+
+What was missing:
+- arcane scroll: mh#rs402.itm
+
+Other notes:
+Common spell from Player's Handbook.
+Also restored by aTweaks and d0tweak, and already present in BG1 part
+of BGT and EET (but not unmodded BGEE).
+
+
+spwi610 - Monster Summoning IV
+
+What was there:
+- spell.ids entry: 2610 WIZARD_MONSTER_SUMMONING_4
+- name string: "Monster Summoning IV" at #16156, #34580
+- complete description string at #16165
+- summoning table at monsum04.2da, containing "ogremasu" and "wolfwisu"
+- creature files: ogremasu.cre and wolfwisu.cre
+
+What was missing:
+- spell file: spwi620.spl
+- arcane scroll: mh#rs610.itm
+- summoning effect file: spmon4.eff
+
+Other notes:
+Common spell from Player's Handbook.
+Also restored/introduced by IWDification and SCS >= 32.
+
+
+spwi7xx - Monster Summoning V
+What was there:
+- name string: "Monster Summoning V" at #16158
+- complete description string at #16170
+- summoning table at monsum05.2da, with five entries, two of which don't exist
+- creature files: jellmusu.cre, wyvernsu.cre, basillsu.cre
+
+What was missing:
+- spell.ids entry: "27xx WIZARD_MONSTER_SUMMONING_V"
+- spell file: spwi7xx.spl
+- arcane scroll: mh#rsms5.itm
+- summoning effect file: spmon5.eff
+
+Other notes:
+Common spell from Player's Handbook.
+Also restored/introduced by IWDification and SCS >= 32.
+
+
+spwi901 - Spell Invulnerability
+
+What was there:
+- gap in spell.ids where 2901 should be
+- icon files: spwi901a.bam, spwi901b.bam, spwi901c.bam
+- name string: "Spell Invulnerability" at #26294, #34626
+- partial description string at #26296
+- string "Protected by Spell Invulnerability" at #26301
+
+What was missing:
+- spell.ids entry: 2901 WIZARD_SPELL_INVULNERABILITY
+- spell file: spwi901.spl
+- arcane scroll: mh#rs910.itm
+- actual spell effect, decided on unbreakable MR for duration
+  (P&P effect is much weaker and outside engine capabilities)
+
+Other notes:
+Very rare spell from Forgotten Reams, found in Wizard's Compendium vol 3.
+
+
+sppr716 - Spacewarp
+
+What was there:
+- spell.ids entry: 1716 CLERIC_SPACE_WARP
+- icon files: sppr716a.bam, sppr716b.bam, sppr716c.bam
+- name string: "Spacewarp" at #2451
+- complete description string at #2575
+
+What was missing:
+- spell file: sppr716.spl
+
+Other notes:
+Found in Tome of Magic (2e), common spell for priests with access to the
+Numbers sphere.
+Also restored by Test Your Mettle mod, compatibility not tested.
+
+
