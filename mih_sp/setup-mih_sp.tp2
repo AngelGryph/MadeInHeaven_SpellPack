@@ -122,6 +122,7 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "true_meteor_swarm"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
