@@ -357,5 +357,31 @@ This variation of the Strength spell gives the recipient the strength of one of 
 - 19-21: Cloud Giant Strength (23)
 - 22-24: Storm Giant Strength (24)
 - 25+  : Titanic Strength (25)~
+@56   = ~Sunburst~
+@57   = ~Sunburst
+(Evocation)
+
+Level: 8
+Range: Caster
+Duration: Instant
+Casting Time: 4
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+The Sunburst spell causes the caster to briefly glow as bright as the midday sun.  All enemies within the area of effect must save versus spell or be blinded for three rounds.  All undead enemies additionally take 16d6 points of fire damage unless they save versus spell, in which case the damage will be halved.  The caster and %PRO_HISHER% allies are unaffected.~
+@58   = ~Weird~
+@59   = ~Weird
+(Illusion)
+
+Level: 9
+Range: 30 yards
+Duration: 10 rounds
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: Special
+
+When casting the Weird spell, the mage informs <PRO_HISHER> enemies that their final fate, indeed their doom is now upon them.  The spell then creates 1-4 weirds, quasi-real creatures made from shadow stuff.  While they appear only as blurry shadows to everyone else, their victims see the weird as whatever enemy they fear the most.  Although weirds are illusionary they cannot be disbelieved or dispelled by True Seeing and similar magic; the phantasm exists in the minds of the victims and is completely real to them for all purposes.  The only way to get rid of a weird before the spell ends is to defeat it in combat.
+
+Weirds attack twice per round and deal 2d8+4 damage on a succesful attack.  In addition, with every hit the victim must save versus death at -4 or either flee in panic or be paralyzed with fear (50% chance of either),  There is also a 20% chance per hit that the victim dies instantly from pure fright.~
 
 

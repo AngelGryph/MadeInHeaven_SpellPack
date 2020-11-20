@@ -126,7 +126,7 @@ BEGIN
     STR_VAR
     creature	= "mh#irnmd"
     location	= "actors"
-    editstring	= "say_name=>14 say_unidentified_name=>14"
+    editstring	= "say_both_names=>14"
   END
 
   LAUNCH_ACTION_FUNCTION make_effect
@@ -425,6 +425,23 @@ BEGIN
   END
 
 
+  // mh#wiz85 - Sunburst
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "mh#sunbu"
+    editstring	= "opcode=>12 target=>2 timing=>1 parameter2=>0x00080000 dicenum=>8 dicesize=>6"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wiz85"
+    idsname	= "WIZARD_SUNBURST"
+    location	= "spells"
+    editstring	= "say_name=>56 say_description=>57"
+  END
+
+
   // mh#wiz91 - Rune of Torment
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#runet.pro"
@@ -435,6 +452,36 @@ BEGIN
     idsname	= "WIZARD_RUNE_OF_TORMENT"
     location	= "spells"
     editstring	= ~say_name=>47 say_description=>48 patch_ability_inline=>"projectile=>%mh#runet%"~
+  END
+
+
+  // mh#wiz92 - Weird
+
+  LAUNCH_ACTION_FUNCTION install_item
+    STR_VAR
+    item	= "mh#weird"
+    location	= "items"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_creature
+    STR_VAR
+    creature	= "mh#weird"
+    location	= "actors"
+    editstring	= "say_both_names=>58"
+  END
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "mh#weird"
+    editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"mh#weird" vvc=>"spfleshs"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wiz92"
+    idsname	= "WIZARD_WEIRD"
+    location	= "spells"
+    editstring	= "say_name=>58 say_description=>59"
   END
 END	// arcane_core
 

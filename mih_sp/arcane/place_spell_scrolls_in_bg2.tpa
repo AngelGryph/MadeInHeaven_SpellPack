@@ -51,6 +51,8 @@ BEGIN
   // mh#wiz81 - Deathbolt
   // mh#wiz82 - Major Globe of Invulnerability
   // mh#wiz83 - Polar Ray
+  // mh#wiz85 - Sunburst
+  // mh#wiz92 - Weird
 
   MAKE_PATCH
     literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
@@ -74,6 +76,8 @@ BEGIN
     literal'1=>~ADD_STORE_ITEM "mh#wiz81" AFTER "scrl9v" #1 #1 #0 "identified" #1~
     literal'2=>~ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #1 #0 "identified" #1~
     literal'3=>~ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9a" #1 #1 #0 "identified" #1~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz85" AFTER "scrl8y" #1 #1 #0 "identified" #1~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz92" AFTER "scrl9v" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store

@@ -32,7 +32,9 @@ BEGIN
     "mh#wiz82"	=>	"WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY"
     "mh#wiz83"	=>	"WIZARD_POLAR_RAY"
     "mh#wiz84"	=>	"WIZARD_MECHANUS_CANNON"
+    "mh#wiz85"	=>	"WIZARD_SUNBURST"
     "mh#wiz91"	=>	"WIZARD_RUNE_OF_TORMENT"
+    "mh#wiz92"	=>	"WIZARD_WEIRD"
   END
 
 
