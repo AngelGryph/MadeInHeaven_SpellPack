@@ -9,6 +9,7 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 ## Version History
 
 Version 4 - ???
+- Finally fixed the issue with Spell Matrix and area effect spells
 
 Version 3 - 3 October 2020
 - Fixes to make mod work with WeiDU 247

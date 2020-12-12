@@ -237,6 +237,8 @@ BEGIN
   END
 
   MAKE_PATCH
+    icon=>"mh#wz52c"
+    patch_ability_inline=>~ability_icon=>"mh#wz52b"~
     patch_effect_inline'1=>~match=>"opcode=258" resource=>"%spell_matrix%"~
     patch_effect_inline'2=>~match=>"opcode=172" resource=>"%spell_matrix%d"~
   END
@@ -250,7 +252,9 @@ BEGIN
   ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
-      patch_effect_inline'1=>~match=>"opcode=258" resource=>"%spell_matrix%"~
+      icon=>"mh#wz52c"
+      patch_ability_inline=>~ability_icon=>"mh#wz52b"~
+      patch_effect_inline'1=>~match=>"opcode=260" resource=>"%spell_matrix%"~
       patch_effect_inline'2=>~match=>"opcode=172" resource=>"%spell_matrix%p"~
     END
 
