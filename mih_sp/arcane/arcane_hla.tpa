@@ -1,0 +1,167 @@
+DEFINE_ACTION_FUNCTION arcane_hla
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "force_hla_innate"
+    RET
+    force_hla_innate	= value
+  END
+
+  // Chosen of Mystra / Silver Fire
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#chmys"
+    location	= "hla"
+    editstring	= ~say_name=>67 say_description=>68 cd_immunity=>"disease"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "silver_fire"
+    idsname	= "INNATE_SILVER_FIRE"
+    location	= "hla"
+    editstring	= ~say_name=>69 say_description=>70~
+    RET
+    newname
+  END
+
+  ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION action_add_hla
+      STR_VAR
+      kit_name
+      ability		= "AP_mh#chmys"
+      num_allowed	= "1"
+      min_level		= "25"
+    END
+
+    LAUNCH_ACTION_FUNCTION action_add_hla
+      STR_VAR
+      kit_name
+      ability		= "GA_%newname%"
+      num_allowed	= "3"
+      prerequisite	= "AP_mh#chmys"
+    END
+  END
+
+ 
+  // Extra Level 9 Spell
+
+  MAKE_PATCH
+    patch_effect_inline=>~match=>"opcode = 42" parameter2=>BIT8~
+    substitute_name=>"8=>9"
+    substitute_description=>"8=>9"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spcl930=>mh#el9sp"
+    edits	= "patch_data"
+  END
+
+  ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION action_add_hla
+      STR_VAR
+      kit_name
+      ability		= "AP_mh#el9sp"
+      num_allowed	= "1"
+      prerequisite	= "AP_spcl930"
+    END
+  END
+
+
+  // Maximize Spell
+
+  OUTER_SPRINT maximized @62
+
+  MAKE_PATCH
+    level=>"level + 3"
+    patch_effect_inline=>~match=>"opcode = 12" parameter1=>"dicenum * dicesize + parameter1" dicenum=>0 dicesize=>0~
+    prepend_name=>"%maximized%"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi112=>mh#maxmm spwi211=>mh#maxaa spwi217=>mh#maxas spwi304=>mh#maxfb spwi308=>mh#maxlb spwi404=>mh#maxis spwi503=>mh#maxcc spwi615=>mh#maxcl"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    delete_effect=>"opcode = 42"
+    add_effect_inline'1=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxmm"~
+    add_effect_inline'2=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxaa"~
+    add_effect_inline'3=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxas"~
+    add_effect_inline'4=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxfb"~
+    add_effect_inline'5=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxlb"~
+    add_effect_inline'6=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxis"~
+    add_effect_inline'7=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxcc"~
+    add_effect_inline'8=>~opcode=>171 target=>1 timing=>9 resource=>"mh#maxcl"~
+    say_name=>60
+    say_description=>61
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spcl930=>mh#mxspl"
+    edits	= "patch_data"
+  END
+
+  ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION action_add_hla
+      STR_VAR
+      kit_name
+      ability		= "AP_mh#mxspl"
+      num_allowed	= "1"
+    END
+  END
+
+
+  // Nazzer's Nullification
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "nullification"
+    idsname	= "WIZARD_NAZZERS_NULLIFICATION"
+    location	= "hla"
+    editstring	= ~say_name=>65 say_description=>66 spell_type=>"if %force_hla_innate% then innate else no_change"~
+    RET
+    newname
+  END
+
+  ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION action_add_hla
+      STR_VAR
+      kit_name
+      ability		= "GA_%newname%"
+      num_allowed	= "1"
+    END
+  END
+
+
+  // Tolodine's Killing Wind
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "killing_wind"
+    location	= "hla"
+    editstring	= ~say_name=>63 say_description=>64 spell_type=>"if %force_hla_innate% then innate else no_change"~
+    RET
+    newname
+  END
+
+  ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION action_add_hla
+      STR_VAR
+      kit_name
+      ability		= "GA_%newname%"
+      num_allowed	= "1"
+    END
+  END
+END	// arcane_hla
+
+

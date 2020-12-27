@@ -118,8 +118,6 @@ END
 OUTER_SPRINT $SFO_do_not_parse_arguments("ITM_cd_immunity") ""
 
 
-// Apply CamDawg's immunity arrays
-
 DEFINE_PATCH_FUNCTION SPL_cd_immunity
   STR_VAR
   arguments	= ""
@@ -165,5 +163,30 @@ BEGIN
   END
 END
 OUTER_SPRINT $SFO_do_not_parse_arguments("STO_swap_items") ""
+
+
+DEFINE_PATCH_FUNCTION SPL_substitute_name
+   STR_VAR
+   arguments=""
+BEGIN
+   LAUNCH_PATCH_FUNCTION patch_text_entry
+     INT_VAR
+     loc=0x08
+     STR_VAR
+     function=substitute_string
+     arguments= "%arguments%"
+   END
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_substitute_name") ""
+
+
+DEFINE_PATCH_FUNCTION SPL_prepend_name
+  STR_VAR
+  arguments=""
+BEGIN
+  READ_STRREF NAME1 old_name
+  SAY_EVALUATED NAME1 ~%arguments% %old_name%~
+END
+OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_prepend_name") ""
 
 

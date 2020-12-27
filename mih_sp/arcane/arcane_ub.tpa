@@ -1,0 +1,36 @@
+DEFINE_ACTION_FUNCTION arcane_ub
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "overwrite_existing_spells"
+    RET
+    overwrite_existing_spells	= value
+  END
+
+
+  // spwi610 - Monster Summoning IV
+
+  MAKE_PATCH
+    parameter2=>"-1"
+    resource=>"monsum04"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_effect
+    INT_VAR
+    overwrite	= 0
+    STR_VAR
+    effect	= "spmon3=>spmon4"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    INT_VAR
+    overwrite	= overwrite_existing_spells
+    STR_VAR
+    spell	= "spwi610"
+    location	= "ub"
+    edits	= "patch_data"
+  END
+END	// arcane_ub
+
+

@@ -383,5 +383,49 @@ Saving Throw: Special
 When casting the Weird spell, the mage informs <PRO_HISHER> enemies that their final fate, indeed their doom is now upon them.  The spell then creates 1-4 weirds, quasi-real creatures made from shadow stuff.  While they appear only as blurry shadows to everyone else, their victims see the weird as whatever enemy they fear the most.  Although weirds are illusionary they cannot be disbelieved or dispelled by True Seeing and similar magic; the phantasm exists in the minds of the victims and is completely real to them for all purposes.  The only way to get rid of a weird before the spell ends is to defeat it in combat.
 
 Weirds attack twice per round and deal 2d8+4 damage on a succesful attack.  In addition, with every hit the victim must save versus death at -4 or either flee in panic or be paralyzed with fear (50% chance of either),  There is also a 20% chance per hit that the victim dies instantly from pure fright.~
+@60   = ~Maximize Spell~
+@61   = ~With this ability, the wizard learns to to cast certain spells with maximized effect.  A maximized spell takes up a slot three levels higher than normal.
+Maximimze Spell can be applied to the following spells:
+- Magic Missile
+- Aganazzar's Scorcher
+- Melf's Acid Arrow
+- Fireball
+- Lightning Bolt
+- Ice Storm
+- Cone of Cold
+- Chain Lightning~
+@62   = ~Maximized~
+@63   = ~Tolodine's Killing Wind~
+@64   = ~Tolodine's Killing Wind
+(Evocation)
+
+Level: Epic
+Range: 40 ft.
+Duration: 1 turn
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: Special
+
+This improved version of Cloudkill creates a billowing cloud of horrendously toxic vapors.  Creatures with 10 hd or less are instantly slain with no saving throw unless they are immune to poison.  Creatures with 15 hd or less must save versus poison at -10 avoid being slain.  Every living being caught in the cloud takes 5d10 points of poison damage per round.  The caster must carefully target this spell or risk killing %PRO_HISHER% allies or %PRO_HIMHER%self.~
+@65   = ~Nazzer's Nullification~
+@66   = ~Nazzer's Nullification
+(Abjuration)
+
+Level: Epic
+Range: Self
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+This improved version of Dispel Magic will end any and all dispelable magical effects around the caster from friends and foes alike.  Unlike Dispel Magic there is no level-based contest; anything that can be dispelled will be, including effects from potions and wands.  Note that the caster is the center of effect and thus will be subject of having %PRO_HISHER% own magical protections dispelled.  This may leave %PRO_HIMHER% vulnerable to attack, so this spell should be used with utmost care.~
+@67   = ~Chosen of Mystra~
+@68   = ~Your continued devotion to the Art has gained you the favor of Mystra, the Lady of All Magic.  This has the following benefits:
+- Constitution is set to 25
+- Immunity to disease
+- Immunity to disintegration
+- +5 on all saves vs. Spell
+- +3 on all saves vs. Breath~
+@69   = ~Silver Fire~
+@70   = ~A Chosen of Mystra can unleash a destructive white flame known as Silver Fire from <PRO_HISHER> body.  This stream of raw magical power deals 4d12 damage to the target and everything else in its path with no saving throw or chance of magic resistance.~
 
 
