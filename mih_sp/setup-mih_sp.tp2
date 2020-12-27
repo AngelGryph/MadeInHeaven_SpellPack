@@ -24,19 +24,6 @@ LANGUAGE "English"
 	 "weidu_external/lang/english/mih_sp/setup-mih_sp.tra"
 
 
-/*
-// Made in Heaven: Restored Spells
-
-BEGIN @22
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "setup_restorations"
-  location	= "restorations"
-END
-*/
-
-
 // Made in Heaven: Arcane Spells
 
 BEGIN @1
@@ -192,18 +179,6 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Spell Level affects Saving Throws
-
-BEGIN @25
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "spell_level_saving_throws"
-  location	= "tweaks"
-END
-
-
 // Spell Improvements
 
 BEGIN @13
@@ -253,42 +228,6 @@ REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "level_6_spells_sod"
-  location	= "tweaks"
-END
-
-
-// Revised Strength Table
-
-BEGIN @17
-GROUP @18
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "revised_strength_table"
-  location	= "tweaks"
-END
-
-
-// Revised Dexterity Table
-
-BEGIN @19
-GROUP @18
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "revised_dexterity_table"
-  location	= "tweaks"
-END
-
-
-// Revised Constitution Table
-
-BEGIN @20
-GROUP @18
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "revised_constitution_table"
   location	= "tweaks"
 END
 
