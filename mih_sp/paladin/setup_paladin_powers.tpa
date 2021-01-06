@@ -5,6 +5,15 @@ BEGIN
     file	= "paladin_resources paladin_core"
     tra		= "paladin_powers"
   END
+
+  ACTION_IF has_tob
+  BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "paladin_hla"
+      tra	= "paladin_spells"
+    END
+  END
 END	// setup_paladin_powers
 
 
