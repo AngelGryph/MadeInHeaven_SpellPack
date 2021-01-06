@@ -190,3 +190,76 @@ END
 OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_prepend_name") ""
 
 
+DEFINE_ACTION_FUNCTION edit_itemexcl
+  INT_VAR
+  mask		= 0
+  enable	= 1
+  STR_VAR
+  item		= ""
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini			= "update_itemexcl_2da"
+    RET
+    update_itemexcl_2da	= value
+  END
+
+  ACTION_IF (update_itemexcl_2da & mask) > 0
+  BEGIN
+    LAUNCH_ACTION_FUNCTION write_table_entry
+      STR_VAR
+      file	= "itemexcl"
+      row	= "%item%"
+      column	= "VALUE"
+      arguments	= "%enable%"
+    END
+  END
+END
+
+
+DEFINE_ACTION_FUNCTION edit_hidespl
+  INT_VAR
+  is_hidden	= "-1"
+  is_final	= "-1"
+  is_removed	= "-1"
+  STR_VAR
+  spell		= ""
+BEGIN
+  ACTION_IF enhanced_edition
+  BEGIN
+    ACTION_IF is_hidden >= 0
+    BEGIN
+      LAUNCH_ACTION_FUNCTION write_table_entry
+        STR_VAR
+        file		= "hidespl"
+        row		= "%spell%"
+        column		= "IS_HIDDEN"
+        arguments	= "%is_hidden%"
+      END
+    END
+
+    ACTION_IF is_final >= 0
+    BEGIN
+      LAUNCH_ACTION_FUNCTION write_table_entry
+        STR_VAR
+        file		= "hidespl"
+        row		= "%spell%"
+        column		= "IS_FINAL"
+        arguments	= "%is_final%"
+      END
+    END
+
+    ACTION_IF is_final >= 0
+    BEGIN
+      LAUNCH_ACTION_FUNCTION write_table_entry
+        STR_VAR
+        file		= "hidespl"
+        row		= "%spell%"
+        column		= "IS_REMOVED"
+        arguments	= "%is_removed%"
+      END
+    END
+  END
+END
+
+

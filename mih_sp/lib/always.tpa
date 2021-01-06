@@ -22,31 +22,10 @@ END
 ACTION_IF NOT VARIABLE_IS_SET "initialise_%MOD_FOLDER%"
 BEGIN
   PRINT "Running once-per-install block..."
-
-  // Seed random number generator
-
+  OUTER_SET "initialise_%MOD_FOLDER%" = 1
   RANDOM_SEED "null"
 
 
-  // Set variables
-
-  OUTER_SET "initialise_%MOD_FOLDER%" = 1
-
-  OUTER_TEXT_SPRINT ini_file "%MOD_FOLDER%.ini"
-
-  OUTER_FOR (i = 1; i <= 10; ++i)
-  BEGIN
-    ACTION_IF GAME_IS "eet"
-    BEGIN
-      OUTER_SET EVAL "bg2_chapter_%i%" = i + 12
-    END
-    ELSE
-    BEGIN
-      OUTER_SET EVAL "bg2_chapter_%i%" = i
-    END
-  END
-
-  
   // Load all libraries
 
   ACTION_BASH_FOR "%MOD_FOLDER%/lib" "lib_.*\.tp[ah]"

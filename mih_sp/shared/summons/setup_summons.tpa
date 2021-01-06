@@ -17,6 +17,7 @@ BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "fix_summons more_summons summon_effects"
+      tra	= "shared_summons"
       locbase
     END
   END

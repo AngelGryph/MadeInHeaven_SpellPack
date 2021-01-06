@@ -1,5 +1,20 @@
 DEFINE_ACTION_FUNCTION fix_summons
 BEGIN
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "mh#unsum.bam"
+    location	= "graphics"
+    locbase
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#unsum"
+    location	= "spells"
+    locbase
+    editstring	= "say_name=>0"
+  END
+
   MAKE_PATCH
     match=>"gender = summoned"
     no_corpse=>1
@@ -8,6 +23,7 @@ BEGIN
     allegiance=>neutral
     alignment=>neutral
     dv=>"%SOURCE_RES%"
+    add_spells=>"mh#unsum"
   END
     
   LAUNCH_ACTION_FUNCTION edit_all_creatures

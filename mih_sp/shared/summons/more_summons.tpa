@@ -48,6 +48,7 @@ BEGIN
     gender=>summoned
     alignment=>neutral
     dv=>"%SOURCE_RES%"
+    add_spells=>"mh#unsum"
   END
 
   ACTION_PHP_EACH summon_list AS summon => resource
