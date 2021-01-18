@@ -1,87 +1,256 @@
 DEFINE_ACTION_FUNCTION divine_core
 BEGIN
-  // Run definalise_hidespl if needed
-
-  ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION definalise_hidespl END
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "use_ee_half_damage"
+    RET
+    use_ee_half_damage	= value
   END
 
 
   // mh#prs11 - Striking
+
+  MAKE_PATCH
+    say_name=>0
+    say_description=>1
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs11"
     location	= "spells"
     idsname	= "CLERIC_STRIKING"
-    editstring	= "say_name=>0 say_description=>1"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs11"
+    newname
   END
 
 
   // mh#prs12 - Faerie Fire
+
+  MAKE_PATCH
+    say_name=>2
+    say_description=>3
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs12"
     idsname	= "CLERIC_FAERIE_FIRE"
     location	= "spells"
-    editstring	= "say_name=>2 say_description=>3"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs12"
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_hidespl
+    INT_VAR
+    is_hidden	= 0
+    STR_VAR
+    spell	= "%newname%"
   END
 
 
   // mh#prs22 - Seeking
+
+  MAKE_PATCH
+    say_name=>4
+    say_description=>5
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs22"
     idsname	= "CLERIC_SEEKING"
     location	= "spells"
-    editstring	= "say_name=>4 say_description=>5"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs22"
+    newname
   END
 
 
   // mh#prs23 - Resist Acid/Corrosion
+
+  MAKE_PATCH
+    say_name=>21
+    say_description=>22
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs23"
     idsname	= "CLERIC_RESIST_ACID_CORROSION"
     location	= "spells"
-    editstring	= "say_name=>21 say_description=>22"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs23"
+    newname
+  END
+
+
+  // spwi320 - Protection from Cold
+  // (cloned from Protection from wizard version)
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level	= 3
+    STR_VAR
+    idsname	= "CLERIC_PROTECTION_FROM_COLD"
+    RET
+    newname
+  END
+
+  MAKE_PATCH
+    spell_type=>"cleric"
+    priest_type=>0x4000
+    unusable_transmuter=>0
+    say_description=>39
+    patch_ability_inline=>~casting_time=>6~
+    patch_effect_inline'1=>~match=>"opcode = 85" parameter1=>80~
+    patch_effect_inline'2=>~match=>"duration > 5" duration=>"ability_true_level * 6 + 18"~
+    patch_effect_inline'3=>~match=>"opcode is_in [206 321]" resource=>DEST_RES~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi320=>%newname%"
+    edits	= "patch_data"
   END
 
 
   // mh#prs41 - Sticks to Snakes
+
+  MAKE_PATCH
+    say_name=>7
+    say_description=>8
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs41"
     idsname	= "CLERIC_STICKS_TO_SNAKES"
     location	= "spells"
-    editstring	= "say_name=>7 say_description=>8"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs41"
+    newname
   END
 
 
   // mh#prs42 - Heroism
+
+  MAKE_PATCH
+    say_name=>9
+    say_description=>10
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs42"
     idsname	= "CLERIC_HEROISM"
     location	= "spells"
-    editstring	= "say_name=>9 say_description=>10"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs42"
+    newname
   END
 
 
   // mh#prs43 - Repel Insects
+
+  MAKE_PATCH
+    say_name=>25
+    say_description=>26
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs43"
     idsname	= "CLERIC_REPEL_INSECTS"
     location	= "spells"
-    editstring	= "say_name=>25 say_description=>26"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs43"
+    newname
+  END
+
+
+  // spwi404 - Ice Storm
+  // (cloned from wizard version)
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level	= 4
+    STR_VAR
+    idsname	= "CLERIC_ICE_STORM"
+    RET
+    newname
+  END
+
+  MAKE_PATCH
+    spell_type=>"cleric"
+    priest_type=>0x4000
+    unusable_enchanter=>0
+    outdoors_only=>1
+    say_description=>40
+  END
+    
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi404=>%newname%"
+    edits	= "patch_data"
   END
 
 
@@ -89,12 +258,29 @@ BEGIN
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#lstrm.pro"
 
+  MAKE_PATCH
+    say_name=>11
+    say_description=>12
+    patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" dicenum=>6 mode=>256~
+    delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#lstrm%"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs51"
     idsname	= "CLERIC_LIGHTNING_STORM"
     location	= "spells"
-    editstring	= ~say_name=>11 say_description=>12 patch_ability_inline=>"projectile=>%mh#lstrm%"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs51"
+    newname
   END
 
 
@@ -106,45 +292,161 @@ BEGIN
     location	= "spells"
   END
 
+  MAKE_PATCH
+    say_name=>17
+    say_description=>18
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs52"
     idsname	= "CLERIC_INFERNO"
     location	= "spells"
-    editstring	= "say_name=>17 say_description=>18"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs52"
+    newname
   END
 
 
   // mh#prs53 - Break Enchantment
+
+  MAKE_PATCH
+    say_name=>23
+    say_description=>24
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs53"
     idsname	= "CLERIC_BREAK_ENCHANTMENT"
     location	= "spells"
-    editstring	= "say_name=>23 say_description=>24"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs53"
+    newname
+  END
+
+
+  // mh#prs54 - Hallow
+
+  MAKE_PATCH
+    say_name=>33
+    say_description=>34
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+    add_effect_inline=>~match=>"%enhanced_edition%" opcode=>177 target=>2 duration=>36 parameter1=>1 parameter2=>8 resource=>"mh#trnlv"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs54"
+    idsname	= "CLERIC_HALLOW"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs54"
+    newname
+  END
+
+
+  // mh#prs55 - Unhallow
+
+  MAKE_PATCH
+    say_name=>35
+    say_description=>36
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+    add_effect_inline=>~match=>"%enhanced_edition%" opcode=>177 target=>2 duration=>36 parameter1=>3 parameter2=>8 resource=>"mh#trnlv"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#prs55"
+    idsname	= "CLERIC_UNHALLOW"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs55"
+    newname
   END
 
 
   // mh#prs61 - Superheroism
+
+  MAKE_PATCH
+    say_name=>13
+    say_description=>14
+    cd_immunity=>"fear level_drain"
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs61"
     idsname	= "CLERIC_SUPERHEROISM"
     location	= "spells"
-    editstring	= ~say_name=>13 say_description=>14 cd_immunity=>"fear level_drain"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs61"
+    newname
   END
 
 
   // mh#prs62 - Celestial Protection
+
+  MAKE_PATCH
+    say_name=>15
+    say_description=>16
+    cd_immunity=>"poison disease poison_resistance"
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs62"
     idsname	= "CLERIC_CELESTIAL_PROTECTION"
     location	= "spells"
-    editstring	= ~say_name=>15 say_description=>16 cd_immunity=>"poison disease poison_resistance"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs62"
+    newname
   END
 
 
@@ -160,6 +462,7 @@ BEGIN
     resist_acid=>100
     class=>elemental_water
     replace_items=>"waterele(weapon1)"
+    add_effect_inline=>"opcode=>176 target=>1 timing=>1 parameter1=>5 parameter2=>1"
   END
 
   LAUNCH_ACTION_FUNCTION clone_creature
@@ -174,28 +477,59 @@ BEGIN
     editstring	= ~resource=>"object_index from [elwatpr elwatpr2 elwatpr3]"~
   END
 
+  MAKE_PATCH
+    say_name=>27
+    say_description=>28
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs63"
     idsname	= "CLERIC_CONJURE_WATER_ELEMENTAL"
     location	= "spells"
-    editstring	= "say_name=>27 say_description=>28"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs63"
+    newname
   END
 
 
   // mh#prs71 - Mass Negative Plane Protection
+
+  MAKE_PATCH
+    say_name=>19
+    say_description=>20
+    cd_immunity=>"level_drain"
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#prs71"
     idsname	= "CLERIC_MASS_NEGATIVE_PLANE_PROTECTION"
     location	= "spells"
-    editstring	= ~say_name=>19 say_description=>20 cd_immunity=>"level_drain"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#prs71"
+    newname
   END
 
 
-  // mh#prs72 - Conjure Air Elemental
+  // Conjure Air Elemental
+  // (clone from wizard version)
 
   LAUNCH_ACTION_FUNCTION clone_creature
     STR_VAR
@@ -209,12 +543,51 @@ BEGIN
     editstring	= ~resource=>"object_index from [elairpr elairpr2 elairpr3]"~
   END
 
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level	= 7
+    STR_VAR
+    idsname	= "CLERIC_CONJURE_AIR_ELEMENTAL"
+    RET
+    newname
+  END
+
+  MAKE_PATCH
+    spell_type=>"cleric"
+    level=>7
+    say_description=>29
+    delete_ability=>"ability_min_level > 1 and ability_min_level < 15"
+    delete_effect=>"not opcode is_in [67 177]"
+    patch_effect_inline'1=>~match=>"resource = spair1" resource=>"spair1p"~
+    patch_effect_inline'2=>~match=>"resource = spair2" resource=>"spair2p"~
+    patch_effect_inline'3=>~match=>"resource = spair3" resource=>"spair3p"~
+    patch_effect_inline'4=>~match=>"ability_min_level = 1" duration=>840~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi621=>%newname%"
+    edits	= "patch_data"
+  END
+
+
+  // Aura of Vitality
+
+  MAKE_PATCH
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+    name1_string=>37
+    say_description=>38
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
-    spell	= "mh#prs72"
-    idsname	= "CLERIC_CONJURE_AIR_ELEMENTAL"
+    spell	= "mh#prs73"
+    idsname	= "CLERIC_AURA_OF_VITALITY"
     location	= "spells"
-    editstring	= "name1_string=>24839 say_description=>29"
+    edits	= "patch_data"
+    RET
+    newname
   END
 END	// divine_core
 

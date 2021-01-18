@@ -1,24 +1,5 @@
 DEFINE_ACTION_FUNCTION divine_aftercare
 BEGIN
-  // Edit hidespl.2da (EE)
-
-  ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION idscode_to_spell
-      INT_VAR
-      idscode	= IDS_OF_SYMBOL("spell" "CLERIC_FAERIE_FIRE")
-      RET
-      resref
-    END
-
-    LAUNCH_ACTION_FUNCTION delete_table_row
-      STR_VAR
-      file	= "hidespl"
-      row	= "%resref%"
-    END
-  END
-
-
   // Further patches to Repel Insects
 
   ACTION_IF ENGINE_IS "bgee bg2ee iwdee"

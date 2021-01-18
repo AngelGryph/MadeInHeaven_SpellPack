@@ -5,7 +5,7 @@
 Level: 1
 Sphere: Combat
 Range: Touch
-Duration: 2 rounds 1 round/level
+Duration: 2 rounds + 1 round/level
 Casting Time: 1
 Area of Effect: 1 creature
 Saving Throw: None
@@ -75,7 +75,7 @@ Casting Time: 9
 Area of Effect: All enemies in sight
 Saving Throw: 1/2
 
-Lightning Storm must be cast outside; otherwise, it will not work, and the spell is wasted.  Upon completion, all creatures within visual range that are hostile to the caster are simultaneously struck by lightning for 4d12 points of electrical damage, even if they are hidden or invisible.~
+Lightning Storm must be cast outside; otherwise, it will not work, and the spell is wasted.  Upon completion, all creatures within visual range that are hostile to the caster are simultaneously struck by lightning for 6d12 points of electrical damage, even if they are hidden or invisible.  They may attempt a saving throw versus Spell for half damage.~
 @13   = ~Superheroism~
 @14   = ~Superheroism
 (Alteration)
@@ -204,5 +204,68 @@ Upon casting a conjure air elemental spell, the caster opens a special gate to t
 @30   = ~Water Elemental~
 @31   = ~Greater Water Elemental~
 @32   = ~Elder Water Elemental~
+@33   = ~Hallow~
+@34   = ~Hallow
+(Evocation)
+
+Level: 5
+Sphere: All
+Range: 40 ft.
+Duration: 1 turn
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+This spell blesses the recipients with holy power.  This has several major effects.  All recipients gain a +2 to attack rolls and morale, like a double-strength Bless.  Evil opponents and undead get a -2 penalty to hit the recipients, and summoned fiends cannot touch them at all, similar to a Protection from Evil spell.  Finally good clerics get a +4 bonus to any attempts to turn undead.~
+@35   = ~Unhallow~
+@36   = ~Unhallow
+(Evocation)
+
+Level: 5
+Sphere: All
+Range: 40 ft.
+Duration: 1 turn
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+This spell 'blesses' the recipients with unholy power.  This has several major effects.  All recipients gain a +2 to attack rolls and morale, like a double-strength Bless.  Good opponents get a -2 penalty to hit the recipients, similar to a Protection from Good spell, and undead friendly to the party become immune to turning.  Finally evil clerics get a +4 bonus to any attempts to rebuke undead.~
+@37   = ~Aura of Vitality~
+@38   = ~Aura of Vitality
+(Alteration)
+
+Level: 7
+Sphere: Necromantic
+Range: Caster
+Duration: 1 round/level
+Casting Time: 7
+Area of Effect: 15-ft. radius
+Saving Thrown: None
+
+By casting Aura of Vitality, the druid greatly boosts the vitality of affected creatures including <PRO_HIMHER>self.  For the duration of the spell, strength, dexterity and constitution are all raised by four points.~
+@39   = ~Protection From Cold
+(Abjuration)
+
+Level: 3
+Sphere: Protection, Elemental (Water)
+Range: Touch
+Duration: 3 rounds + 1 round/level
+Casting Time: 6
+Area of Effect: 1 creature
+Saving Throw: None
+
+The effects of a Protection From Cold spell last no longer than 3 rounds plus 1 round per level of the caster. When the spell is cast, it confers complete invulnerability to normal cold (snow, ice, near-freezing water, and the like) and to exposure to magical cold (frost dragon breath, winter wolf or cryohydra breath, spells such as Frost Fingers, Ice Storm, Cone of Cold, Otiluke's Freezing Sphere, Polar Ray, and so on), absorbing 80% of all the damage dealt by such magical sources.~
+@40   = ~Ice Storm
+(Evocation)
+
+Level: 4
+Sphere: Weather, Elemental (Water)
+Range: Visual range of the caster
+Duration: 4 rounds
+Casting Time: 4 
+Area of Effect: 15-ft. radius
+Saving Throw: None 
+
+The druid must be outdoors to cast Ice Storm, or it will not work and the spell is wasted.  Upon casting, great hail stones pound down for four rounds in a 30-ft. diameter area and inflict 2d8 points of cold damage to any creatures within the area of effect. Also, anyone that remains within the area of effect takes 2d8 cold damage each round for 4 rounds.~
 
 

@@ -11,6 +11,15 @@ BEGIN
     file	= "divine_resources divine_core divine_aftercare"
     tra		= "divine_spells"
   END
+
+  ACTION_IF has_tob
+  BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "divine_hla"
+      tra	= "divine_spells"
+    END
+  END
 END	// setup_divine_spells
 
 
