@@ -2,7 +2,7 @@
 @1    = ~Made in Heaven: Arcane Spells~
 @2    = ~Made in Heaven: Divine Spells~
 @3    = ~Made in Heaven: Paladin Powers~
-@4    = ~Restore Cure Blindness/Deafness (EXPERIMENTAL)~
+@4    = ~Made in Heaven: Spell Restorations~
 @5    = ~Spell Effect Tweaks~
 @6    = ~Some other mod already provides or supercedes this component.~
 @7    = ~Level 4 Animate Dead for Wizards (EXPERIMENTAL)~
@@ -19,8 +19,8 @@
 //@18   = ~Game Rule Tweaks~
 //@19   = ~Revised Dexterity Table~
 //@20   = ~Revised Constitution Table~
-@21   = ~Split up Resist Fire/Cold (EXPERIMENTAL)~
-@22   = ~Made in Heaven: Spell Restorations~
+//@21   = ~Split up Resist Fire/Cold (EXPERIMENTAL)~
+//@22   = ~Made in Heaven: Spell Restorations~
 @23   = ~Sixth Circle Spell Scrolls in Siege of Dragonspear~
 @24   = ~Extended Summoning Tables~
 //@25   = ~Spell Level affects Saving Throws~

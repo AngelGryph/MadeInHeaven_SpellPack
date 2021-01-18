@@ -1,48 +1,3 @@
-@0    = ~Resist Fire
-(Alteration)
-
-Level: 2
-Sphere: Protection
-Range: Touch
-Duration: 1 round/level
-Casting Time: 5
-Area of Effect: 1 creature
-Saving Throw: None
-
-When this spell is placed upon a creature, the creature's body is toughened to withstand heat. Complete immunity to mild conditions (reaching into an ordinary fire to pluck out a note) is gained. The recipient can somewhat resist intense heat or (whether natural or magical in origin), such as red-hot charcoal, a large amount of burning oil, flametongue swords, fire storms, fireballs, meteor swarms, or red dragon's breath. In all of these cases, the temperature affects the creature to some extent. The recipient has all damage sustained by fire reduced by 50%.~
-@1    = ~Resist Cold
-(Alteration)
-
-Level: 2
-Sphere: Protection
-Range: Touch
-Duration: 1 round/level
-Casting Time: 5
-Area of Effect: 1 creature
-Saving Throw: None
-
-When this spell is placed upon a creature, the creature's body is toughened to withstand cold. Complete immunity to mild conditions (standing naked in the snow) is gained. The recipient can somewhat resist intense cold (whether natural or magical in origin), such as frostbrand swords, ice storms, wands of frost, or white dragon's breath. In all of these cases, the temperature affects the creature to some extent. The recipient has all damage sustained by cold reduced by 50%.~
-@2    = ~Cure Blindness/Deafness~
-@3    = ~Cure Blindness/Deafness (Abjuration)
-Sphere: Necromantic
-Range: Touch
-Duration: Permanent
-Casting Time: 1
-Area of Effect: 1 creature
-Saving Throw: None
-
-By laying hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
-@4    = ~Cure Disease (Abjuration)
-Sphere: Necromantic
-Range: Touch
-Duration: Permanent
-Casting Time: 1
-Area of Effect: 1 creature
-Saving Throw: None
-
-By laying her hands upon a sickly person, the caster can cure almost any disease with this spell and restore 5 lost hit points.  The cure is permanent, but this does not grant the recipient of the spell immunity from further afflictions.  Feeblemind is also cured with this spell.  Some magically created diseases may not be curable by this spell.~
-@5    = ~The selected character is cured of blindness and deafness.~
-@6    = ~Blindness or deafness cured~
 @7   = ~Barkskin
 (Alteration)
 
@@ -91,6 +46,5 @@ Area of Effect: 4 target creatures/15-ft. radius
 Saving Throw: None or 1/2
 
 A Meteor Swarm is a powerful and spectacular spell similar to a Fireball in many aspects.  When cast, four fiery meteors spring from the outstretched hand of the caster and fly towards four target creatures designated by <PRO_HIMHER>.  Upon reaching their target they explode, dealing 10d4 points of fire damage in a 15 feet spread around the target.  The four direct targets get no saving throw, but other creatures in the area can save vs. spell for half damage.  If a creature is in the area of more than one meteor, they will have to save against all of them.  The caster can direct all four meteors at the same target if so desired.~
-
 
 

@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION arcane_ub
+DEFINE_ACTION_FUNCTION arcane_restorations
 BEGIN
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
@@ -7,23 +7,64 @@ BEGIN
     overwrite	= value
   END
 
-
   // spwi204 - Fog Cloud
+
+  MAKE_PATCH
+    say_name=>0
+    say_description=>1
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     INT_VAR
     overwrite
     STR_VAR
     spell	= "spwi204"
-    location	= "ub"
+    idsname	= "WIZARD_FOG_CLOUD"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "spwi204"
+    newname
+  END
+
+
+  // spwi315 - Wraithform
+
+  MAKE_PATCH
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+    delete_effect=>"not %enhanced_edition% and opcode = 61"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    INT_VAR
+    overwrite
+    STR_VAR
+    spell	= "spwi315"
+    idsname	= "WIZARD_WRAITH_FORM"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "spwi315"
+    newname
   END
 
 
   // spwi610 - Monster Summoning IV
 
   MAKE_PATCH
-    parameter2=>"-1"
-    resource=>"monsum04"
   END
 
   LAUNCH_ACTION_FUNCTION clone_effect
@@ -31,7 +72,14 @@ BEGIN
     overwrite
     STR_VAR
     effect	= "spmon3=>spmon4"
-    edits	= "patch_data"
+    editstring	= ~parameter2=>"-1" resource=>"monsum04"~
+  END
+
+  MAKE_PATCH
+    say_name=>2
+    say_description=>3
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
   END
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -39,35 +87,46 @@ BEGIN
     overwrite
     STR_VAR
     spell	= "spwi610"
-    location	= "ub"
+    idsname	= "WIZARD_MONSTER_SUMMONING_4"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "spwi610"
+    newname
   END
 
 
   // spwi901 - Spell Invulnerability
 
-  APPEND "spell.ids" "2901 WIZARD_SPELL_INVULNERABILITY" UNLESS "^2901"
-  CLEAR_IDS_MAP
-
-  STRING_SET #26296 ~Spell Invulnerability
-(Abjuration)
-
-Level: 9
-Range: 0
-Duration: 1 turn + 1 round/level
-Casting Time: 9
-Area of Effect: The caster
-Saving Throw: None
-
-This powerful abjuration spell protects the caster from being harmed by spells.  For the duration of the spell, the caster cannot be harmed by fire, cold, electricity, acid or magical energy; <PRO_HESHE> ignores spells like Magic Missile, Fireball, Ice Storm and even Meteor Swarm.  In addition, the caster will always make all saving throws.  Weapons cans still harm the caster whether they are magical or not.~
+  MAKE_PATCH
+    say_name=>4
+    say_description=>5
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     INT_VAR
     overwrite
     STR_VAR
     spell	= "spwi901"
-    location	= "ub"
+    idsname	= "WIZARD_SPELL_INVULNERABILITY"
+    location	= "spells"
     edits	= "patch_data"
+    RET
+    newname
   END
-END	// arcane_ub
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "spwi901"
+    newname
+  END
+END	// arcane_restorations
 
 

@@ -24,6 +24,17 @@ LANGUAGE "English"
 	 "weidu_external/lang/english/mih_sp/setup-mih_sp.tra"
 
 
+// Made in Heaven: Spell Restorations
+
+BEGIN @4
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_restorations"
+  location	= "restorations"
+END
+
+
 // Made in Heaven: Arcane Spells
 
 BEGIN @1
@@ -54,36 +65,6 @@ LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_paladin_powers"
   location	= "paladin"
-END
-
-
-// Restore Resist Cold
-
-BEGIN @21
-GROUP @5
-
-FORBID_FILE "sppr215.spl" @6
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "restore_resist_cold"
-  tra		= "spell_tweaks"
-  location	= "tweaks"
-END
-
-
-// Restore Cure Blindness & Deafness
-
-BEGIN @4
-GROUP @5
-
-FORBID_FILE "sppr316.spl" @6
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "restore_cure_blindness_and_deafness"
-  tra		= "spell_tweaks"
-  location	= "tweaks"
 END
 
 

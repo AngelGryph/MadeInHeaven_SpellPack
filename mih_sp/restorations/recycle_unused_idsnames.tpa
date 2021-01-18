@@ -1,0 +1,87 @@
+DEFINE_ACTION_FUNCTION recycle_unused_idsnames
+BEGIN
+  // Make sure every entry in spell.ids actually exists
+
+  COPY + "%MOD_FOLDER%/dummy.ids" "%workspace%/spell.ids"
+
+  COPY_EXISTING - "spell.ids" "not_really_copying"
+    // Yes, this is an ids file, not a 2da.  But we can use the 2da
+    // functions for reading entries anyway.
+
+    COUNT_2DA_ROWS 2 rows
+
+    READ_2DA_ENTRIES_NOW __mh_spell_ids 2
+
+    FOR (SET i = 1; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __mh_spell_ids i 1 spell_name
+
+      PATCH_MATCH "%spell_name%"
+      WITH
+      "WIZARD_ALARM"
+      BEGIN
+        // Duplicate entry, do nothing with this.
+      END
+      DEFAULT
+        INNER_ACTION
+        BEGIN
+          LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+            STR_VAR
+            spell_name
+            RET
+            spell_num
+            spell_res
+          END
+
+          ACTION_IF FILE_EXISTS_IN_GAME "%spell_res%.spl"
+          BEGIN
+            APPEND_OUTER "%workspace%/spell.ids" "%spell_num% %spell_name%"
+          END
+          ELSE
+          BEGIN
+            LAUNCH_ACTION_FUNCTION log_this
+              STR_VAR
+	      file	= "spell_ids_cleaning.txt"
+              input	= "%spell_name% (%spell_res%) not found in game, removed"
+	      repeat	= "no"
+	    END
+          END
+	END
+      END
+    END
+
+  COPY "%workspace%/spell.ids" "override"
+  DELETE + "%workspace%/spell.ids"
+
+
+  // spwi801 was dummied out, but the icons were re-used for spwi519
+  // (Spell Shield).  Rename them so we can re-use spwi801 safely.
+
+  COPY_EXISTING "spwi801a.bam" "override/spwi519a.bam"
+                "spwi801b.bam" "override/spwi519b.bam"
+                "spwi801c.bam" "override/spwi519c.bam"
+
+  MAKE_PATCH
+    icon=>"spwi519c"
+    patch_ability_inline=>~ability_icon=>"spwi519b"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spwi519"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    icon=>"spwi519a"
+    patch_ability_inline=>~ability_icon=>"spwi519a"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "scrl8x"
+    edits	= "patch_data"
+  END
+END	// recycle_unused_idsnames
+
+

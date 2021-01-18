@@ -1,4 +1,5 @@
-@0   = ~Fog Cloud
+@0   = ~Fog Cloud~
+@1   = ~Fog Cloud
 (Alteration)
 
 Level: 2
@@ -9,14 +10,69 @@ Area of Effect: 15-foot radius
 Saving Throw: None
 
 This spell creates a cloud of thick billowing fog.  Visibility within the cloud is practically zero; beings caught within are effectively blinded and invisible.~
-@1   = ~Spell Invulnerability
-(Abjuration) 
+@2   = ~Monster Summoning IV~
+@3   = ~Monster Summoning IV
+(Conjuration/Summoning)
+
+Level: 6
+Range: 120 ft.
+Duration: 5 rounds + 1 round/level
+Casting Time: 6
+Area of Effect: Special
+Saving Throw: None
+
+This spell is much like the 3rd-level monster summoning I spell, except that this spell summons 6-HD monsters. There is a 60% chance of receiving one monster and a 40% chance of receiving two monsters. These monster(s) appear within spell range and attack the caster's opponents until the spell duration expires or until they are slain. Monster Summoning IV~
+@4   = ~Spell Invulnerability~
+@5   = ~Spell Invulnerability
+(Abjuration)
 
 Level: 9
 Range: 0
 Duration: 1 turn + 1 round/level
 Casting Time: 9
-Area of Effect: The caster 
-Saving Throw: None 
+Area of Effect: The caster
+Saving Throw: None
 
-This powerful spell makes the caster immune to all magical spells, for the duration <PRO_HESHE> will have 100% magic resistance and will be immune to spells and effects that lower magic resistance.~
+This powerful abjuration spell protects the caster from being harmed by spells.  For the duration of the spell, the caster cannot be harmed by fire, cold, electricity, acid or magical energy; <PRO_HESHE> ignores spells like Magic Missile, Fireball, Ice Storm and even Meteor Swarm.  In addition, the caster will always make all saving throws.  Weapons cans still harm the caster whether they are magical or not.~
+@6   = ~Animal Friendship~
+@7   = ~Animal Friendship 
+(Enchantment/Charm)
+
+Level: 1
+Sphere: Animal
+Range: 30 ft.
+Duration: Permanent
+Casting Time: 5
+Area of Effect: 1 animal
+Saving Throw: Neg.
+
+By means of this spell, the caster can befriend a single animal.  If succesful, the animal will be friendly to the caster and follow <PRO_HIMHER> around, although it will not leave the area where it was found.  The duration is permanent as long as the caster or <PRO_HISHER> allies do not harm or provoke the animal in any way.~
+@8   = ~Endure Cold/Heat~
+@9   = ~Endure Cold/Heat
+(Alteration)
+
+Level: 1
+Sphere: Protection
+Range: Touch
+Duration: 1 turn/level
+Casting Time: 9
+Area of Effect: 1 creature
+Saving Throw: None
+
+The creature recieving this spell is protected from normal extremes of heat and cold such as the heat of the desert or the chill of the mountains.  Against magical sources of heat and cold such as fireballs or cones of cold, this spell offers only partial protection and reduces the damage done by 25%.~
+@10  = ~Cure Blindness/Deafness~
+@11  = ~Cure Blindness/Deafness
+(Abjuration)
+
+Level: 2
+Sphere: Necromantic
+Range: Touch
+Duration: Permanent
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+By laying <PRO_HISHER> hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
+@12  = ~The selected character is cured of blindness and deafness.~
+
+
