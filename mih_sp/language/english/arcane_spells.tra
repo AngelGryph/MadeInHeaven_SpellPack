@@ -319,11 +319,7 @@ Casting Time: 3
 Area of Effect: 1-4 creatures
 Saving Throw: 1/2
 
-This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20, but when more orbs are created, the damage per orb is slightly less.  Each orb can be targetted at a different creature.  Upon contact with the target, it takes electrical damage as follows:
-  1 orb: 4d12
-  2 orbs: 4d10 per orb (total 8d10)
-  3 orbs: 4d8 per orb (total 12d8)
-  4 orbs: 5d6 per orb (total 20d6)~
+This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20.  Each orb can be targetted at a different creature.  Upon contact with the target, it deals 3d12 points of electrical damage and disappears.~
 @52   = ~Starfire~
 @53   = ~Starfire
 (Invocation/Evocation)
@@ -427,5 +423,17 @@ This improved version of Dispel Magic will end any and all dispelable magical ef
 - +3 on all saves vs. Breath~
 @69   = ~Silver Fire~
 @70   = ~A Chosen of Mystra can unleash a destructive white flame known as Silver Fire from <PRO_HISHER> body.  This stream of raw magical power deals 4d12 damage to the target and everything else in its path with no saving throw or chance of magic resistance.~
+@71   = ~Frost Fingers~
+@72   = ~Frost Fingers
+(Alteration)
+
+Level: 1
+Range: 5 ft.
+Duration: Instant 
+Casting Time: 1 
+Area of Effect: 1 creature
+Saving Throw: 1/2
+
+When the wizard casts this spell, a spray of numbing cold and ice crystals shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The frost fingers send out ice sprays of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of cold damage. A creature that successfully saves vs. Spell receives half damage.~
 
 

@@ -2,16 +2,18 @@ DEFINE_ACTION_FUNCTION place_spell_scrolls_in_bg1
 BEGIN
   // High Hedge (Thalantyr)
   //
+  // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
 
   MAKE_PATCH
-    literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2~
-    literal'2=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
+    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -49,6 +51,7 @@ BEGIN
 
   // Sorcerous Sundries
   //
+  // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
   // mh#wiz32 - Heroism
@@ -57,12 +60,13 @@ BEGIN
   // mh#wiz44 - Evard's Black Tentacles
 
   MAKE_PATCH
-    literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'2=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
-    literal'5=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
-    literal'6=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
+    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
+    literal'6=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
+    literal'7=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store

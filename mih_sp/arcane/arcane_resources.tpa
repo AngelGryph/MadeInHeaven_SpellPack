@@ -1,16 +1,33 @@
+DEFINE_ACTION_FUNCTION install_rename_icons
+  STR_VAR
+  oldname	= ""
+  newname	= ""
+BEGIN
+  ACTION_FOR_EACH suffix IN "a" "b" "c"
+  BEGIN
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%%suffix%.bam"
+    BEGIN
+      COPY_LARGE "%MOD_FOLDER%/%component_loc%/graphics/%oldname%%suffix%.bam" "override/%newname%%suffix%.bam"
+    END
+  END
+END
+
+
 DEFINE_ACTION_FUNCTION arcane_resources
 BEGIN
+  // Install required graphics
+
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
     files	= "all"
-    location	= "graphics"
+    location	= "graphics/_copy"
     postfix	= "bam"
   END
 
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
     files	= "all"
-    location	= "graphics"
+    location	= "graphics/_copy"
     postfix	= "vvc"
   END
 
@@ -24,6 +41,14 @@ BEGIN
     BEGIN
       "%MOD_FOLDER%/%component_loc%/movies/old" ".*\.mve"
     END
+  END
+
+
+  // Run definalise_hidespl if needed
+
+  ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION definalise_hidespl END
   END
 END	// arcane_resources
 

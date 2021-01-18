@@ -36,7 +36,7 @@ BEGIN
  
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "arcane_resources arcane_ub arcane_core arcane_aftercare"
+    file	= "arcane_resources arcane_core arcane_aftercare"
     tra		= "arcane_spells"
   END
  

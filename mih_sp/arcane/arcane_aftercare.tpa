@@ -4,6 +4,7 @@ BEGIN
 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_scroll
   BEGIN
+    "mh#wiz11"	=>	"WIZARD_FROST_FINGERS"
     "mh#wiz21"	=>	"WIZARD_SPARK_SHOWER"
     "mh#wiz22"	=>	"WIZARD_SEEKING"
     "mh#wiz31"	=>	"WIZARD_IMPROVED_MAGIC_MISSILE"
@@ -22,7 +23,7 @@ BEGIN
     "mh#wiz52"	=>	"WIZARD_SPELL_MATRIX"
     "mh#wiz53"	=>	"WIZARD_RAMAZITHS_SLIME_SUMMONS"
     //"mh#wiz54"	=>	"WIZARD_DISMISSAL"
-    "mh#wiz55"	=>	"WIZARD_STARFIRE"
+    //"mh#wiz55"	=>	"WIZARD_STARFIRE"
     "mh#wiz61"	=>	"WIZARD_MORDENKAINENS_LUCUBRATION"
     "mh#wiz62"	=>	"WIZARD_ISAACS_GREATER_MISSILE_STORM"
     "mh#wiz71"	=>	"WIZARD_FAERIE_SWORD"
@@ -51,7 +52,7 @@ BEGIN
       STR_VAR
       resref		= "%spell_res%"
       scrollname
-      scrollicon	= "%scrollname%"
+      //scrollicon	= "%scrollname%"
     END
   END
 

@@ -1,0 +1,73 @@
+DEFINE_ACTION_FUNCTION arcane_ub
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "overwrite_existing_spells"
+    RET
+    overwrite	= value
+  END
+
+
+  // spwi204 - Fog Cloud
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    INT_VAR
+    overwrite
+    STR_VAR
+    spell	= "spwi204"
+    location	= "ub"
+  END
+
+
+  // spwi610 - Monster Summoning IV
+
+  MAKE_PATCH
+    parameter2=>"-1"
+    resource=>"monsum04"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_effect
+    INT_VAR
+    overwrite
+    STR_VAR
+    effect	= "spmon3=>spmon4"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    INT_VAR
+    overwrite
+    STR_VAR
+    spell	= "spwi610"
+    location	= "ub"
+  END
+
+
+  // spwi901 - Spell Invulnerability
+
+  APPEND "spell.ids" "2901 WIZARD_SPELL_INVULNERABILITY" UNLESS "^2901"
+  CLEAR_IDS_MAP
+
+  STRING_SET #26296 ~Spell Invulnerability
+(Abjuration)
+
+Level: 9
+Range: 0
+Duration: 1 turn + 1 round/level
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+This powerful abjuration spell protects the caster from being harmed by spells.  For the duration of the spell, the caster cannot be harmed by fire, cold, electricity, acid or magical energy; <PRO_HESHE> ignores spells like Magic Missile, Fireball, Ice Storm and even Meteor Swarm.  In addition, the caster will always make all saving throws.  Weapons cans still harm the caster whether they are magical or not.~
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    INT_VAR
+    overwrite
+    STR_VAR
+    spell	= "spwi901"
+    location	= "ub"
+    edits	= "patch_data"
+  END
+END	// arcane_ub
+
+

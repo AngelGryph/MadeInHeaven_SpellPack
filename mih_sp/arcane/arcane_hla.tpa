@@ -126,9 +126,16 @@ BEGIN
     spell	= "nullification"
     idsname	= "WIZARD_NAZZERS_NULLIFICATION"
     location	= "hla"
-    editstring	= ~say_name=>65 say_description=>66 spell_type=>"if %force_hla_innate% then innate else no_change"~
+    editstring	= ~say_name=>65 say_description=>66 spell_type=>"if %force_hla_innate% then innate else wizard"~
     RET
     newname
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_hidespl
+    INT_VAR
+    is_hidden	= 1
+    STR_VAR
+    spell	= "%newname%"
   END
 
   ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
@@ -147,10 +154,18 @@ BEGIN
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "killing_wind"
+    idsname	= "WIZARD_TOLODINES_KILLING_WIND"
     location	= "hla"
-    editstring	= ~say_name=>63 say_description=>64 spell_type=>"if %force_hla_innate% then innate else no_change"~
+    editstring	= ~say_name=>63 say_description=>64 spell_type=>"if %force_hla_innate% then innate else wizard"~
     RET
     newname
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_hidespl
+    INT_VAR
+    is_hidden	= 1
+    STR_VAR
+    spell	= "%newname%"
   END
 
   ACTION_FOR_EACH kit_name IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"

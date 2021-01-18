@@ -1,54 +1,146 @@
 DEFINE_ACTION_FUNCTION arcane_core
 BEGIN
-  // Run definalise_hidespl if needed
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "use_ee_half_damage"
+    RET
+    use_ee_half_damage	= value
+  END
 
-  ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION definalise_hidespl END
+
+  // mh#wiz11 - Frost Fingers
+
+  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#frost.pro"
+
+  MAKE_PATCH
+    say_name=>71
+    say_description=>72
+    patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" parameter1=>"ability_true_level * 2" dicesize=>3 mode=>256~
+    delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#frost%"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wiz11"
+    idsname	= "WIZARD_FROST_FINGERS"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz11"
+    newname
   END
 
 
   // mh#wiz21 - Spark Shower
+
+  MAKE_PATCH
+    say_name=>0
+    say_description=>1
+    patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" dicenum=>4 mode=>256~
+    delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz21"
     idsname	= "WIZARD_SPARK_SHOWER"
     location	= "spells"
-    editstring	= "say_name=>0 say_description=>1"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz21"
+    newname
   END
 
 
   // mh#wiz22 - Seeking
+
+  MAKE_PATCH
+    say_name=>2
+    say_description=>3
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz22"
     idsname	= "WIZARD_SEEKING"
     location	= "spells"
-    editstring	= "say_name=>2 say_description=>3"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz22"
+    newname
   END
 
 
   // mh#wiz31 - Improved Magic Missile
+
+  MAKE_PATCH
+    say_name=>4
+    say_description=>5
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz31"
     idsname	= "WIZARD_IMPROVED_MAGIC_MISSILE"
     location	= "spells"
-    editstring	= "say_name=>4 say_description=>5"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz31"
+    newname
   END
 
 
   // mh#wiz32 - Heroism
+
+  MAKE_PATCH
+    say_name=>6
+    say_description=>7
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     idsname	= "WIZARD_HEROISM"
     spell	= "mh#wiz32"
     location	= "spells"
-    editstring	= "say_name=>6 say_description=>7"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz32"
+    newname
   END
 
 
@@ -60,12 +152,27 @@ BEGIN
     editstring	= "opcode=>222 timing=>1 parameter1=>120"
   END
 
+  MAKE_PATCH
+    say_name=>8
+    say_description=>9
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz33"
     idsname	= "WIZARD_BLINK"
     location	= "spells"
-    editstring	= "say_name=>8 say_description=>9"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz33"
+    newname
   END
 
 
@@ -76,28 +183,60 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
-    spell	= "mh#wiz34"
-    idsname	= "WIZARD_SCINTILLATING_SPHERE"
-    location	= "spells"
-    editstring	= ~say_name=>10 say_description=>11 patch_ability_inline=>"projectile=>%mh#scnt1%"~
-  END
-
-  LAUNCH_ACTION_FUNCTION install_spell
-    STR_VAR
     spell	= "mh#wz34a"
     location	= "spells"
     editstring	= ~patch_ability_inline=>"projectile=>%mh#scnt2%"~
   END
 
+  MAKE_PATCH
+    say_name=>10
+    say_description=>11
+    patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" dicenum=>"ability_true_level" mode=>256~
+    delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#scnt1%"~
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell
+    STR_VAR
+    spell	= "mh#wiz34"
+    idsname	= "WIZARD_SCINTILLATING_SPHERE"
+    location	= "spells"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz34"
+    newname
+  END
+
 
   // mh#wiz35 - Minor Malison
+
+  MAKE_PATCH
+    say_name=>12
+    say_description=>13
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz35"
     idsname	= "WIZARD_MINOR_MALISON"
     location	= "spells"
-    editstring	= "say_name=>12 say_description=>13"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz35"
+    newname
   END
 
 
@@ -105,12 +244,29 @@ BEGIN
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#blght.pro"
 
+  MAKE_PATCH
+    say_name=>44
+    say_description=>51
+    patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" dicenum=>3 mode=>256~
+    delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#blght%"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz36"
     idsname	= "WIZARD_BALL_LIGHTNING"
     location	= "spells"
-    editstring	= ~say_name=>44 say_description=>51 patch_ability_inline=>"projectile=>%mh#blght%"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz36"
+    newname
   END
 
 
@@ -135,34 +291,79 @@ BEGIN
     editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"mh#irnmd" vvc=>"spcrtwpn"~
   END
 
+  MAKE_PATCH
+    say_name=>14
+    say_description=>15
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz41"
     idsname	= "WIZARD_IRON_MAIDEN"
     location	= "spells"
-    editstring	= "say_name=>14 say_description=>15"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz41"
+    newname
   END
 
 
   // mh#wiz42 - Command Elementals
+
+  MAKE_PATCH
+    say_name=>16
+    say_description=>17
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz42"
     idsname	= "WIZARD_COMMAND_ELEMENTALS"
     location	= "spells"
-    editstring	= "say_name=>16 say_description=>17"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz42"
+    newname
   END
 
 
   // mh#wiz43 - Rary's Mnemonic Enhancer
+
+  MAKE_PATCH
+    say_name=>18
+    say_description=>19
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz43"
     idsname	= "WIZARD_RARYS_MNEMONIC_ENHANCER"
     location	= "spells"
-    editstring	= "say_name=>18 say_description=>19"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz43"
+    newname
   END
 
 
@@ -173,7 +374,8 @@ BEGIN
   MAKE_PATCH
     say_name=>20
     say_description=>21
-    patch_ability_inline=>~projectile=>"if %enhanced_edition% then %mh#evblt% else no_change"~
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"if %enhanced_edition% then %mh#evblt% else no_change"~
   END
 
   LAUNCH_ACTION_FUNCTION install_spell
@@ -182,6 +384,14 @@ BEGIN
     idsname	= "WIZARD_EVARDS_BLACK_TENTACLES"
     location	= "spells"
     edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz44"
+    newname
   END
 
 
@@ -193,132 +403,249 @@ BEGIN
     location	= "spells"
   END
 
+  MAKE_PATCH
+    say_name=>22
+    say_description=>23
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz45"
     idsname	= "WIZARD_ISAACS_LESSER_MISSILE_STORM"
     location	= "spells"
-    editstring	= "say_name=>22 say_description=>23"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz45"
+    newname
   END
 
 
   // mh#wiz46 - Tenser's Giant Strength
+
+  MAKE_PATCH
+    say_name=>54
+    say_description=>55
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz46"
     idsname	= "WIZARD_TENSERS_GIANT_STRENGTH"
     location	= "spells"
-    editstring	= "say_name=>54 say_description=>55"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz46"
+    newname
   END
 
 
   // mh#wiz51 - Superheroism
+
+  MAKE_PATCH
+    say_name=>24
+    say_description=>25
+    cd_immunity=>"fear level_drain"
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz51"
     idsname	= "WIZARD_SUPERHEROISM"
     location	= "spells"
-    editstring	= ~say_name=>24 say_description=>25 cd_immunity=>"fear level_drain"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz51"
+    newname
   END
 
 
   // mh#wiz52 - Spell Matrix
+
+  MAKE_PATCH
+    say_name=>26
+    say_description=>27
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz52"
     idsname	= "WIZARD_SPELL_MATRIX"
     location	= "spells"
-    editstring	= "say_name=>26 say_description=>27"
+    edits	= "patch_data"
     RET
-    spell_matrix	= newname
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz52"
+    newname
   END
 
   MAKE_PATCH
-    icon=>"mh#wz52c"
-    patch_ability_inline=>~ability_icon=>"mh#wz52b"~
-    patch_effect_inline'1=>~match=>"opcode=258" resource=>"%spell_matrix%"~
-    patch_effect_inline'2=>~match=>"opcode=172" resource=>"%spell_matrix%d"~
+    icon=>"%newname%c"
+    patch_ability_inline=>~ability_icon=>"%newname%b"~
+    patch_effect_inline'1=>~match=>"opcode=258" resource=>"%newname%"~
+    patch_effect_inline'2=>~match=>"opcode=172" resource=>"%newname%d"~
   END
 
   LAUNCH_ACTION_FUNCTION clone_spell
     STR_VAR
-    spell	= "spwi420d=>%spell_matrix%d"
+    spell	= "spwi420d=>%newname%d"
     edits	= "patch_data"
   END
 
   ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
-      icon=>"mh#wz52c"
-      patch_ability_inline=>~ability_icon=>"mh#wz52b"~
-      patch_effect_inline'1=>~match=>"opcode=260" resource=>"%spell_matrix%"~
-      patch_effect_inline'2=>~match=>"opcode=172" resource=>"%spell_matrix%p"~
+      icon=>"%newname%c"
+      patch_ability_inline=>~ability_icon=>"%newname%b"~
+      patch_effect_inline'1=>~match=>"opcode=260" resource=>"%newname%"~
+      patch_effect_inline'2=>~match=>"opcode=172" resource=>"%newname%p"~
     END
 
     LAUNCH_ACTION_FUNCTION clone_spell
       STR_VAR
-      spell	= "spwi420p=>%spell_matrix%p"
+      spell	= "spwi420p=>%newname%p"
       edits	= "patch_data"
     END
 
-    ACTION_TO_UPPER spell_matrix
+    ACTION_TO_UPPER newname
 
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~mageBookStrings = {~
       ~mageBookStrings = {
-  	%spell_matrix% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
+  	%newname% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
   END
 
 
   // mh#wiz53 - Ramazith's Slime Summons
+
+  MAKE_PATCH
+    say_name=>45
+    say_description=>46
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz53"
     idsname	= "WIZARD_RAMAZITHS_SLIME_SUMMONS"
     location	= "spells"
-    editstring	= "say_name=>45 say_description=>46"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz53"
+    newname
   END
 
 
   /*
   // mh#wiz54 - Dismissal
 
+  MAKE_PATCH
+    say_name=>49
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz54"
     idsname	= "WIZARD_DISMISSAL"
     location	= "spells"
-    editstring	= "say_name=>49"
+    edits	= "patch_data"
+    RET
+    newname
   END
-  */
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz54"
+    newname
+  END
 
 
   // mh#wiz55 - Starfire
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#starf.pro"
 
+  MAKE_PATCH
+    say_name=>52
+    say_description=>53
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#starf%"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz55"
     idsname	= "WIZARD_STARFIRE"
     location	= "spells"
-    editstring	= ~say_name=>52 say_description=>53 patch_ability_inline=>"projectile=>%mh#starf%"~
+    edits	= "patch_data"
+    RET
+    newname
   END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz55"
+    newname
+  END
+  */
 
 
   // mh#wiz61 - Mordenkainen's Lucubration
+
+  MAKE_PATCH
+    say_name=>28
+    say_description=>29
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz61"
     idsname	= "WIZARD_MORDENKAINENS_LUCUBRATION"
     location	= "spells"
-    editstring	= "say_name=>28 say_description=>29"
+    edits	= "patch_data"
     RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz61"
+    newname
   END
 
 
@@ -330,12 +657,27 @@ BEGIN
     location	= "spells"
   END
 
+  MAKE_PATCH
+    say_name=>30
+    say_description=>31
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz62"
     idsname	= "WIZARD_ISAACS_GREATER_MISSILE_STORM"
     location	= "spells"
-    editstring	= "say_name=>30 say_description=>31"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz62"
+    newname
   END
 
 
@@ -348,12 +690,27 @@ BEGIN
     editstring	= "say_name=>32"
   END
 
+  MAKE_PATCH
+    say_name=>32
+    say_description=>33
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz71"
     idsname	= "WIZARD_FAERIE_SWORD"
     location	= "spells"
-    editstring	= "say_name=>32 say_description=>33"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz71"
+    newname
   END
 
 
@@ -361,24 +718,53 @@ BEGIN
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#stygi.pro"
 
+  MAKE_PATCH
+    say_name=>34
+    say_description=>35
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#stygi%"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz72"
     idsname	= "WIZARD_STYGIAN_ICE_STORM"
     location	= "spells"
-    editstring	= ~say_name=>34 say_description=>35 patch_ability_inline=>"projectile=>%mh#stygi%"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz72"
+    newname
   END
 
 
   /*
   // mh#wiz73 - Banishment
 
+  MAKE_PATCH
+    say_name=>50
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz73"
     idsname	= "WIZARD_BANISHMENT"
     location	= "spells"
-    editstring	= "say_name=>50"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz73"
+    newname
   END
   */
 
@@ -387,45 +773,106 @@ BEGIN
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#dbolt.pro"
 
+  MAKE_PATCH
+    say_name=>36
+    say_description=>37
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#dbolt%"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz81"
     idsname	= "WIZARD_DEATHBOLT"
     location	= "spells"
-    editstring	= ~say_name=>36 say_description=>37 patch_ability_inline=>"projectile=>%mh#dbolt%"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz81"
+    newname
   END
 
 
   // mh#wiz82 - Major Globe of Invulnerability
+
+  MAKE_PATCH
+    say_name=>38
+    say_description=>39
+    cd_immunity=>"spell_level_1 spell_level_2 spell_level_3 spell_level_4 spell_level_5"
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz82"
     idsname	= "WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY"
     location	= "spells"
-    editstring	= ~say_name=>38 say_description=>39 cd_immunity=>"spell_level_1 spell_level_2 spell_level_3 spell_level_4 spell_level_5~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz82"
+    newname
   END
 
 
   // mh#wiz83 - Polar Ray
+
+  MAKE_PATCH
+    say_name=>40
+    say_description=>41
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz83"
     idsname	= "WIZARD_POLAR_RAY"
     location	= "spells"
-    editstring	= "say_name=>40 say_description=>41"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz83"
+    newname
   END
 
 
   // mh#wiz84 - Mechanus' Cannon
+
+  MAKE_PATCH
+    say_name=>42
+    say_description=>43
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
 
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz84"
     idsname	= "WIZARD_MECHANUS_CANNON"
     location	= "spells"
-    editstring	= "say_name=>42 say_description=>43"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz84"
+    newname
   END
 
 
@@ -437,12 +884,27 @@ BEGIN
     editstring	= "opcode=>12 target=>2 timing=>1 parameter2=>0x00080000 dicenum=>8 dicesize=>6"
   END
 
+  MAKE_PATCH
+    say_name=>56
+    say_description=>57
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz85"
     idsname	= "WIZARD_SUNBURST"
     location	= "spells"
-    editstring	= "say_name=>56 say_description=>57"
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz85"
+    newname
   END
 
 
@@ -450,12 +912,27 @@ BEGIN
 
   ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/mh#runet.pro"
 
+  MAKE_PATCH
+    say_name=>47
+    say_description=>48
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES" projectile=>"%mh#runet%"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz91"
     idsname	= "WIZARD_RUNE_OF_TORMENT"
     location	= "spells"
-    editstring	= ~say_name=>47 say_description=>48 patch_ability_inline=>"projectile=>%mh#runet%"~
+    edits	= "patch_data"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz91"
+    newname
   END
 
 
@@ -480,12 +957,27 @@ BEGIN
     editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"mh#weird" vvc=>"spfleshs"~
   END
 
+  MAKE_PATCH
+    say_name=>58
+    say_description=>59
+    icon=>"DEST_RES"
+    patch_ability_inline=>~ability_icon=>"DEST_RES"~
+  END
+
   LAUNCH_ACTION_FUNCTION install_spell
     STR_VAR
     spell	= "mh#wiz92"
     idsname	= "WIZARD_WEIRD"
     location	= "spells"
     editstring	= "say_name=>58 say_description=>59"
+    RET
+    newname
+  END
+
+  LAUNCH_ACTION_FUNCTION install_rename_icons
+    STR_VAR
+    oldname	= "mh#wiz92"
+    newname
   END
 END	// arcane_core
 

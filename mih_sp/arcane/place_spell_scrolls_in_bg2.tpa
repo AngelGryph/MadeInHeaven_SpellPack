@@ -38,6 +38,7 @@ BEGIN
 
   // Waukeen's Promenade / Adventurer's Market
   //
+  // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
   // mh#wiz32 - Heroism
@@ -55,15 +56,16 @@ BEGIN
   // mh#wiz92 - Weird
 
   MAKE_PATCH
-    literal'1=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
-    literal'2=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #4~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz33" AFTER "scrl1t" #1 #1 #0 "identified" #4~
-    literal'5=>~ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #4~
-    literal'6=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3~
-    literal'7=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3~
-    literal'8=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl1y" #1 #1 #0 "identified" #2~
-    literal'9=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1~
+    literal'01=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #4~
+    literal'02=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
+    literal'03=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'04=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #4~
+    literal'05=>~ADD_STORE_ITEM "mh#wiz33" AFTER "scrl1t" #1 #1 #0 "identified" #4~
+    literal'06=>~ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #4~
+    literal'07=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3~
+    literal'08=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3~
+    literal'09=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl1y" #1 #1 #0 "identified" #2~
+    literal'10=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
