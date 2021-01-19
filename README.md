@@ -10,6 +10,9 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 
 Version 4 - ???
 - Finally fixed the issue with Spell Matrix and area effect spells
+- Damage spells use proper save for half damage mechanics in EE games
+- Added a few epic spells and other high-level abilities for mages
+- Paladins can start casting spells at level 4 (as per 3.5e rules)
 
 Version 3 - 3 October 2020
 - Fixes to make mod work with WeiDU 247

@@ -6,34 +6,17 @@ BEGIN
   // mh#wiz32 - Heroism
   // mh#wiz35 - Minor Malison
 
-  COPY_EXISTING "ar0602.are" "override"
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 9
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz21"
-    END
+  MAKE_PATCH
+    add_item_inline'1=>~match=>"parent_index = 8" item_resource=>"mh#wiz21" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'2=>~match=>"parent_index = 13" item_resource=>"mh#wiz32" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'3=>~match=>"parent_index = 36" item_resource=>"mh#wiz35" item_charges_1=>1 item_charges_2=>1~
+  END
 
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 14
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz32"
-    END
-
-    // Minor Malison
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 37
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz35"
-    END
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar0602"
+    edits	= "patch_data"
+  END
 
 
   // Waukeen's Promenade / Adventurer's Market
@@ -126,43 +109,27 @@ BEGIN
   // mh#wiz42 - Control Elemental
   // mh#wiz61 - Mordenkainen's Lucubration
 
-  COPY_EXISTING "ar0410.are" "override"
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 1
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz61"
-    END
+  MAKE_PATCH
+    add_item_inline=>~match=>"parent_index = 0" item_resource=>"mh#wiz61" item_charges_1=>1 item_charges_2=>1~
+  END
 
-  COPY_EXISTING "ar0411.are" "override"
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 8
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz34"
-    END
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar0410"
+    edits	= "patch_data"
+  END
 
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 2
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz36"
-    END
+  MAKE_PATCH
+    add_item_inline'1=>~match=>"parent_index = 7" item_resource=>"mh#wiz34" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'2=>~match=>"parent_index = 1" item_resource=>"mh#wiz36" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'3=>~match=>"parent_index = 3" item_resource=>"mh#wiz42" item_charges_1=>1 item_charges_2=>1~
+  END
 
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 4
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz42"
-    END
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar0411"
+    edits	= "patch_data"
+  END
 
 
   // Spellhold
@@ -170,24 +137,16 @@ BEGIN
   // mh#wiz31 - Improved Magic Missile
   // mh#wiz53 - Ramazith's Slime Summons
 
-  COPY_EXISTING "ar1515.are" "override"
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 5
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz31"
-    END
+  MAKE_PATCH
+    add_item_inline'1=>~match=>"parent_index = 4" item_resource=>"mh#wiz31" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'2=>~match=>"parent_index = 4" item_resource=>"mh#wiz53" item_charges_1=>1 item_charges_2=>1~
+  END
 
-    LAUNCH_PATCH_FUNCTION ADD_AREA_ITEM
-      INT_VAR
-      container_to_add_to	= 5
-      charges1			= 1
-      charges2			= 1
-      STR_VAR
-      item_to_add		= "mh#wiz53"
-    END
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "ar1515"
+    edits	= "patch_data"
+  END
 
 
   // Underdark

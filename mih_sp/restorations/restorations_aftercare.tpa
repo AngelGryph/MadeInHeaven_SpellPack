@@ -67,7 +67,7 @@ BEGIN
 
     LAUNCH_ACTION_FUNCTION edit_store
       STR_VAR
-      store	= "bdsorc"
+      store	= "bdsorcsc"
       edits	= "patch_data"
     END
 

@@ -24,6 +24,7 @@ BEGIN
     alignment=>neutral
     dv=>"%SOURCE_RES%"
     add_spells=>"mh#unsum"
+    patch_item_inline=>"unstealable=>1 undroppable=>1"
   END
     
   LAUNCH_ACTION_FUNCTION edit_all_creatures
