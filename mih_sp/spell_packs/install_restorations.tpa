@@ -1,0 +1,11 @@
+DEFINE_ACTION_FUNCTION install_restorations
+BEGIN
+  INCLUDE "%MOD_FOLDER%/%component_loc%/installer.tph"
+
+  LAUNCH_ACTION_FUNCTION install_spells
+    STR_VAR
+    dir		= "restorations"
+  END
+END	// install_restorations
+
+

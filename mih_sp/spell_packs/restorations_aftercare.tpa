@@ -1,34 +1,5 @@
 DEFINE_ACTION_FUNCTION restorations_aftercare
 BEGIN
-  // Create spell scrolls for restored wizard spells
-
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_scroll
-  BEGIN
-    "mh#rs204"	=>	"WIZARD_FOG_CLOUD"
-    "scrl1r"	=>	"WIZARD_WRAITH_FORM"
-    "scrl1v"	=>	"WIZARD_DIMENSION_DOOR"
-    "mh#rs610"	=>	"WIZARD_MONSTER_SUMMONING_4"
-    "mh#rs901"	=>	"WIZARD_SPELL_INVULNERABILITY"
-  END
-
-  ACTION_PHP_EACH spell_scroll AS scrollname => spell_name
-  BEGIN
-    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-      STR_VAR
-      spell_name
-      RET
-      spell_res
-      spell_num
-    END
-
-    LAUNCH_ACTION_FUNCTION make_scroll_of_spell
-      STR_VAR
-      resref		= "%spell_res%"
-      scrollname
-    END
-  END
-
-
   // Add spell scrolls to shops
 
   ACTION_IF is_bg1

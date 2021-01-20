@@ -31,7 +31,8 @@ BEGIN @4
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_restorations"
-  location	= "restorations"
+  location	= "spell_packs"
+  tra		= "restorations"
 END
 
 

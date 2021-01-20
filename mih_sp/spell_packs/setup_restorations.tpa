@@ -10,7 +10,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "restorations_resources arcane_restorations divine_restorations restorations_aftercare"
+    file	= "install_restorations restorations_aftercare"
     tra		= "restorations"
   END
 
@@ -19,7 +19,6 @@ BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "recycle_unused_idsnames"
-      tra	= "restorations"
     END
   END
 END	// restorations

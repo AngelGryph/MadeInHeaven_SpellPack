@@ -1,0 +1,163 @@
+DEFINE_ACTION_FUNCTION install_spells
+  STR_VAR
+  dir	= ""
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "use_ee_half_damage"
+    RET
+    use_ee_half_damage	= value
+  END
+
+
+  COPY - "%MOD_FOLDER%/%component_loc%/%dir%/tables/master.2da" "nowhere"
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+    READ_2DA_ENTRIES_NOW __MH_RESERVED_master cols
+
+    FOR (SET i = 1; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 0 idsname
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 1 name_tra
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 2 desc_tra
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 3 idsnum
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 4 scrollname
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 5 half_damage
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 6 projectile
+      
+      INNER_ACTION
+      BEGIN
+        OUTER_TEXT_SPRINT filename "%idsname%"
+	ACTION_TO_LOWER filename
+
+
+        // If we have a preferred idsnum, try to snatch it.
+
+	ACTION_IF IS_AN_INT idsnum
+	BEGIN
+	  APPEND "spell.ids" "%idsnum% %idsname%" UNLESS "^%idsnum%"
+	  CLEAR_IDS_MAP
+	END
+
+        LAUNCH_ACTION_FUNCTION add_spell_to_ids
+          STR_VAR
+          idsname
+	  filename
+	  file_loc	= "%MOD_FOLDER%/%component_loc%/%dir%/spells"
+          RET
+          newname
+        END
+
+
+        // We know the new resource now, patch icon names in.
+
+        ACTION_CLEAR_ARRAY patch_data
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	BEGIN
+	  icon=>"%newname%c"
+	  patch_ability_inline'1=>~ability_icon=>"%newname%b"~
+	END
+
+
+        // Add name/description strings if we have them.
+
+	ACTION_IF IS_AN_INT name_tra
+	BEGIN
+	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	  BEGIN
+	    say_name=>"%name_tra%"
+	  END
+	END
+
+	ACTION_IF IS_AN_INT desc_tra
+	BEGIN
+	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	  BEGIN
+	    say_description=>"%desc_tra%"
+	  END
+	END
+
+
+        // Check/handle EE half damage
+
+        ACTION_MATCH "%half_damage%"
+	WITH
+	"dd"	// Double dicenum.
+	BEGIN
+	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	  BEGIN
+            patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" dicenum=>"dicenum * 2" mode=>256~
+            delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+	  END
+	END
+	"ff"	// Frost Fingers: Double param1 and set dicesize to 3.
+	BEGIN
+	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	  BEGIN
+            patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" parameter1=>"parameter1 * 2" dicesize=>3 mode=>256~
+            delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+	  END
+	END
+	"bl"	// Ball Lightning: Set dicenum to 3.
+	BEGIN
+	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	  BEGIN
+            patch_effect_inline=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" dicenum=>3 mode=>256~
+	  END
+	END
+	DEFAULT
+	END
+
+
+        // Check/handle projectile
+
+	ACTION_IF "%projectile%" STRING_COMPARE "*"
+	BEGIN
+	  ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/%dir%/projectiles/%projectile%.pro"
+	  OUTER_SET pronum = IDS_OF_SYMBOL("projectl" "%projectile%") + 1
+	  
+	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+	  BEGIN
+            patch_ability_inline'2=>~projectile=>"%pronum%"~
+	  END
+	END
+
+
+        // Install and patch the actual spell file.
+
+	LAUNCH_ACTION_FUNCTION install_spell
+	  STR_VAR
+	  spell		= "%filename%"
+	  idsname
+	  location	= "%dir%/spells"
+	  edits		= "patch_data"
+	END
+
+
+	// Look for any icon files we have that need installing.
+
+	ACTION_FOR_EACH suffix IN "a" "b" "c"
+	BEGIN
+	  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%%suffix%.bam" AND
+	   FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%dir%/graphics/%idsname%_%suffix%.bam"
+	  BEGIN
+	    COPY_LARGE "%MOD_FOLDER%/%component_loc%/%dir%/graphics/%idsname%_%suffix%.bam" "override/%newname%%suffix%.bam"
+	  END
+	END
+
+
+	// Create a scroll if one is requested.
+
+	ACTION_IF "%scrollname%" STRING_COMPARE "*"
+	BEGIN
+          LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+            STR_VAR
+            resref		= "%newname%"
+            scrollname
+          END
+	END
+      END
+    END
+END	// install_spells
+
+
