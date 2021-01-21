@@ -1,0 +1,78 @@
+DEFINE_ACTION_FUNCTION arcane_postproc
+BEGIN
+  // Install movies
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    COPY_LARGE "%MOD_FOLDER%/%component_loc%/movies/ee" "movies"
+  END
+  ELSE
+  BEGIN
+    MAKE_BIFF "mh#spell"
+    BEGIN
+      "%MOD_FOLDER%/%component_loc%/movies/old" ".*\.mve"
+    END
+  END
+
+
+  // Create Spell Matrix innates
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "WIZARD_SPELL_MATRIX"
+    RET
+    spell_res
+  END
+
+  MAKE_PATCH
+    icon=>"%spell_res%c"
+    patch_ability_inline=>~ability_icon=>"%spell_res%b"~
+    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%spell_res%"~
+    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%spell_res%d"~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi420d=>%spell_res%d"
+    edits	= "patch_data"
+  END
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      icon=>"%spell_res%c"
+      patch_ability_inline=>~ability_icon=>"%spell_res%b"~
+      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%spell_res%"~
+      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%spell_res%p"~
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_spell
+      STR_VAR
+      spell	= "spwi420p=>%spell_res%p"
+      edits	= "patch_data"
+    END
+
+    ACTION_TO_UPPER spell_res
+
+    COPY_EXISTING "bgee.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~mageBookStrings = {~
+        ~mageBookStrings = {
+%spell_res% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
+  END
+
+
+  // Fix/extend Magic Missile immunity
+  //
+  // NB: Keep this as is for speed, SFO has horrible performance.
+
+  COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_magic_missile_arrays"
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// arcane_postproc
+
+

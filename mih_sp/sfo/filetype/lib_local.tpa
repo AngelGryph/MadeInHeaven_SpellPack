@@ -263,3 +263,51 @@ BEGIN
 END
 
 
+DEFINE_ACTION_FUNCTION add_to_contingx
+  STR_VAR
+  idsname	= ""
+BEGIN
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "%idsname%"
+    RET
+    spell_res
+  END
+
+  COPY_EXISTING - "%spell_res%.spl" "%workspace%"
+    LAUNCH_PATCH_FUNCTION SPL_read_level
+      RET
+      spell_level	= value
+    END
+
+
+  COPY_EXISTING "contingx.2da" "override"
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+
+    LAUNCH_PATCH_FUNCTION get_table_row_coordinate
+      INT_VAR
+      lookup_column	= spell_level
+      STR_VAR
+      row		= "****"
+      RET
+      rownum
+    END
+
+    PATCH_IF rownum == "-1"
+    BEGIN
+      SET rownum = rows
+      
+      LAUNCH_PATCH_FUNCTION append_numbered_row
+        STR_VAR
+	arguments	= ~****       ****       ****       ****       ****       ****       ****       ****       ****~
+      END
+
+      ++rows
+    END
+
+    SET_2DA_ENTRY rownum spell_level cols "%spell_res%"
+    PRETTY_PRINT_2DA
+END
+
+

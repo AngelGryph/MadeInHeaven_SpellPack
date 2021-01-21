@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION setup_divine_spellpack
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "setup_summons"
+    locbase	= "shared/summons"
+  END
+ 
+  LAUNCH_ACTION_FUNCTION install_spell_pack
+    STR_VAR
+    tra		= "divine_spellpack"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "divine_postproc"
+  END
+END	// setup_divine_spellpack
+
+

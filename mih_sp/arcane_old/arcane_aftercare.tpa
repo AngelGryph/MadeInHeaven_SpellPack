@@ -1,0 +1,108 @@
+DEFINE_ACTION_FUNCTION arcane_aftercare
+BEGIN
+  // Create spell scrolls
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_scroll
+  BEGIN
+    "mh#wiz11"	=>	"WIZARD_FROST_FINGERS"
+    "mh#wiz21"	=>	"WIZARD_SPARK_SHOWER"
+    "mh#wiz22"	=>	"WIZARD_SEEKING"
+    "mh#wiz31"	=>	"WIZARD_IMPROVED_MAGIC_MISSILE"
+    "mh#wiz32"	=>	"WIZARD_HEROISM"
+    "mh#wiz33"	=>	"WIZARD_BLINK"
+    "mh#wiz34"	=>	"WIZARD_SCINTILLATING_SPHERE"
+    "mh#wiz35"	=>	"WIZARD_MINOR_MALISON"
+    "mh#wiz36"	=>	"WIZARD_BALL_LIGHTNING"
+    "mh#wiz41"	=>	"WIZARD_IRON_MAIDEN"
+    "mh#wiz42"	=>	"WIZARD_COMMAND_ELEMENTALS"
+    "mh#wiz43"	=>	"WIZARD_RARYS_MNEMONIC_ENHANCER"
+    "mh#wiz44"	=>	"WIZARD_EVARDS_BLACK_TENTACLES"
+    "mh#wiz45"	=>	"WIZARD_ISAACS_LESSER_MISSILE_STORM"
+    "mh#wiz46"	=>	"WIZARD_TENSERS_GIANT_STRENGTH"
+    "mh#wiz51"	=>	"WIZARD_SUPERHEROISM"
+    "mh#wiz52"	=>	"WIZARD_SPELL_MATRIX"
+    "mh#wiz53"	=>	"WIZARD_RAMAZITHS_SLIME_SUMMONS"
+    //"mh#wiz54"	=>	"WIZARD_DISMISSAL"
+    //"mh#wiz55"	=>	"WIZARD_STARFIRE"
+    "mh#wiz61"	=>	"WIZARD_MORDENKAINENS_LUCUBRATION"
+    "mh#wiz62"	=>	"WIZARD_ISAACS_GREATER_MISSILE_STORM"
+    "mh#wiz71"	=>	"WIZARD_FAERIE_SWORD"
+    "mh#wiz72"	=>	"WIZARD_STYGIAN_ICE_STORM"
+    //"mh#wiz73"	=>	"WIZARD_BANISHMENT"
+    "mh#wiz81"	=>	"WIZARD_DEATHBOLT"
+    "mh#wiz82"	=>	"WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY"
+    "mh#wiz83"	=>	"WIZARD_POLAR_RAY"
+    "mh#wiz84"	=>	"WIZARD_MECHANUS_CANNON"
+    "mh#wiz85"	=>	"WIZARD_SUNBURST"
+    "mh#wiz91"	=>	"WIZARD_RUNE_OF_TORMENT"
+    "mh#wiz92"	=>	"WIZARD_WEIRD"
+  END
+
+
+  ACTION_PHP_EACH spell_scroll AS scrollname => spell_name
+  BEGIN
+    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+      STR_VAR
+      spell_name
+      RET
+      spell_res
+    END
+
+    LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+      STR_VAR
+      resref		= "%spell_res%"
+      scrollname
+      //scrollicon	= "%scrollname%"
+    END
+  END
+
+
+  // Fix/extend Magic Missile immunity
+  //
+  // NB: Keep this as is for speed, SFO has horrible performance.
+
+  COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_magic_missile_arrays"
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+
+
+  // Update contingx.2da
+
+  COPY_EXISTING "contingx.2da" "override"
+    COUNT_2DA_COLS col_count
+    COUNT_2DA_ROWS col_count row_count
+
+    PATCH_FOR_EACH spell_name IN "WIZARD_RARYS_MNEMONIC_ENHANCER" "WIZARD_SPELL_MATRIX" "WIZARD_MORDENKAINENS_LUCUBRATION"
+    BEGIN
+      LAUNCH_PATCH_FUNCTION RES_NUM_OF_SPELL_NAME
+        STR_VAR
+        spell_name
+        RET
+        spell_res
+      END
+
+      INNER_PATCH_FILE "%spell_res%.spl"
+      BEGIN
+        READ_LONG 0x0034 spell_level
+      END
+
+      LAUNCH_PATCH_FUNCTION get_table_row_coordinate
+        INT_VAR
+	lookup_column	= spell_level
+	STR_VAR
+	row		= "****"
+	RET
+	rownum
+      END
+
+      SET_2DA_ENTRY rownum spell_level col_count "%spell_res%"
+    END
+
+    PRETTY_PRINT_2DA
+END	// arcane_aftercare
+
+

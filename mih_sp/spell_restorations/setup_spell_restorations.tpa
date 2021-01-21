@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION setup_spell_restorations
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "recycle_unused_idsnames"
+    RET
+    recycle_unused_idsnames	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION install_spell_pack
+    STR_VAR
+    tra		= "spell_restorations"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "restorations_postproc"
+    tra		= "spell_restorations"
+  END
+
+  ACTION_IF recycle_unused_idsnames AND NOT is_eet
+  BEGIN
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file	= "recycle_unused_idsnames"
+    END
+  END
+END	// setup_spell_restorations
+
+

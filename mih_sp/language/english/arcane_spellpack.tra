@@ -1,0 +1,398 @@
+@0    = ~Spark Shower~
+@1    = ~Spark Shower
+(Invocation/Evocation)
+
+Level: 2
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 2
+Area of Effect: 15' radius
+Saving Throw: 1/2
+
+This spell creates a shower of purple sparks at the point designated by the caster.  Every creature caught within will be shocked for 4d4 points of electrical damage unless they save versus spell, in which case they will take half damage.~
+@2    = ~Seeking~
+@3    = ~Seeking
+(Enchantment/Charm)
+
+Level: 2
+Range: Touch
+Duration: 2 rounds + 1 round/3 levels
+Casting Time: 2
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell slightly twists the normal laws of momentum and gravity in the recipient's favor, making <PRO_HISHER> arrows, bolts or other projectiles veer towards their intended target, even dodging around obstacles if needed.  For the duration, the recipient has a +4 bonus on all to-hit rolls with ranged weapons.~
+@4    = ~Improved Magic Missile~
+@5    = ~Improved Magic Missile
+(Invocation/Evocation)
+
+Level: 3
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 3
+Area of Effect: 1 creature
+Saving Throw: None 
+
+Like the 1st-level spell Magic Missile, Improved Magic Missile creates missiles of magical energy that dart from the wizard's fingertips and unerringly strike their target, which must be a creature of some sort.  However, this spell creates up to eleven such missiles instead of only five.  The damage is still the same, 1d4+1 per missile.  For a caster below 11th level this spell works just like Magic Missile, but at 11th level <PRO_HESHE> gets 6 missiles, then 7 at 13th level and so on up to 11 missiles at 21th level.  The Shield spell and other effects that specifically counter Magic Missile will also block the missiles created by this spell.~
+@6    = ~Heroism~
+@7    = ~Heroism
+(Alteration)
+
+Level: 3
+Range: Touch
+Duration: 1 round/level
+Casting Time: 4
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 10%, and the recipient's hit points are raised by 10%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.~
+@8    = ~Blink~
+@9    = ~Blink
+(Alteration)
+
+Level: 3
+Range: 0
+Duration: 1 round/level
+Casting Time: 1
+Area of Effect: The caster
+Saving Throw: None
+
+Upon casting this spell, the caster starts rapidly winking in- and out of existence, making it difficult to strike <PRO_HIMHER> with any weapons.  However, the caster has no control over where and when <PRO_HESHE> winks into existence, making it more difficult to strike opponents and possibly placing <PRO_HIMHER> in a dangerous situation.  For the duration of the spell, the caster's AC is improved by 4 and all physical attacks deal half their normal damage, but the caster has a -4 penalty to hit.~
+@10   = ~Scintillating Sphere~
+@11   = ~Scintillating Sphere
+(Invocation/Evocation)
+
+Level: 3
+Range: 40 ft.
+Duration: Instant
+Casting Time: 3
+Area of Effect: 30-ft. radius
+Saving Throw: 1/2
+
+This spell creates a burst of electricity, shocking anyone unfortunate enough to be in the area for 1d6 damage per level of the caster (up to a maximum of 10d6).  A grape-sized sphere appears near the caster and travels to the designated point at a high velocity, where it bursts into the scintillating sphere.  Creatures failing their Saves vs. Spell take full damage from the shock.  Those who roll succesful Saving Throws have managed to partially evade the blast and receive half damage.~
+@12   = ~Minor Malison~
+@13   = ~Minor Malison
+(Enchantment/Charm)
+
+Level: 3
+Range: 50 ft.
+Duration: 2 rounds/level
+Casting Time: 3
+Area of Effect: 30-ft. radius
+Saving Throw: None
+
+The spell allows the caster to adversely affect all the Saving Throws of <PRO_HISHER> enemies. The effect is applied to all hostile creatures within the area of effect. Opponents under the influence of this spell make all Saving Throws at a penalty of -2.~
+@14   = ~Iron Maiden~
+@15   = ~Iron Maiden
+(Invocation/Evocation)
+
+Level: 4
+Range: Visual range of the caster
+Duration: 1 round/level
+Casting Time: 4
+Area of Effect: Special
+Saving Throw: None
+
+This secret spell of the Harpers creates a construct known as a "helmed horror" which appears as an animated suit of armor wielding a flaming long sword.  The creature will fight as directed by the caster for the duration of the spell, after which it falls apart into worthless junk.  Because this is a construct created on the spot and not a creature conjured from elsewhere, the iron maiden is not vulnerable to effects that specifically target summoned creatures.~
+@16   = ~Command Elementals~
+@17   = ~Command Elementals
+(Enchantment/Charm)
+
+Level: 4
+Range: Visual range of the caster
+Duration: 5 rounds
+Casting Time: 4
+Area of Effect: 1 elemental
+Saving Throw: Neg.
+
+This spell enables the caster to command (or wrest command of) a single elemental creature.  The elemental can attempt a saving throw vs. spell to avoid the effect, but with a -4 penalty to the roll.
+For the duration of the spell the elemental will obey the caster, overriding all other controls.  If the caster or <PRO_HISHER> allies attack the creature, the spell is broken and the elemental immediately becomes hostile.~
+@18   = ~Rary's Mnemonic Enhancer~
+@19   = ~Rary's Mnemonic Enhancer
+(Alteration)
+
+Level: 4
+Range: 0
+Duration: Instant
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to third level, one up to second, and the final one of first level.  Only arcane spells can be restored.~
+@20   = ~Evard's Black Tentacles~
+@21   = ~Evard's Black Tentacles
+(Conjuration/Summoning)
+
+Level: 4
+Range: Visual range of caster
+Duration: 1 turn
+Casting Time: 4
+Area of Effect: 40' radius
+Saving Throw: Neg.
+
+By means of this spell, the wizard calls forth a mass of writhing tentacles that grab on to any creature in the area, holding them in place and dealing 1d6+4 crushing damage per round.  A succesful save versus spell allows a victim to escape, but as long as they remain in the area they may be grabbed again.~
+@22   = ~Isaac's Lesser Missile Storm~
+@23   = ~Isaac's Lesser Missile Storm
+(Invocation/Evocation)
+
+Level: 4
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 4
+Area of Effect: 30' radius
+Saving Throw: None
+
+This spell bombards all hostile creatures in the designated area with magic missiles similar to that of the Magic Missile spell.  Each hostile creature will be randomly targetted by 1d3 missiles, each of which deals 1d6 damage with no saving throw.  This spell will not harm party members.  The missiles can be stopped by anything that also stops the Magic Missile spell, such as the Shield spell.
+
+This spell was developed in the city of Neverwinter.~
+@24   = ~Superheroism~
+@25   = ~Superheroism
+(Alteration)
+
+Level: 5
+Range: Touch
+Duration: 2 rounds/level
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 20%, and the recipient's hit points are raised by 20%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.  In addition to this, the spike of positive energy will render the recipient immune to fear and energy drain for the duration of the spell.~
+@26   = ~Spell Matrix~
+@27   = ~Spell Matrix
+(Invocation/Evocation)
+
+Level: 5
+Range: 0
+Duration: Permanent
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+This spell allows a wizard to store two spells and activate them both at the same time from <PRO_HISHER> Special Ability button. Both spells must be of 3rd level or lower. To create a matrix, a Mage must memorize not only Spell Matrix but also the spells <PRO_HESHE> intends to store in it (a Sorcerer can store spells of any level for which <PRO_HESHE> still has spell slots). After casting Spell Matrix, the player will be prompted to choose the sequenced spells from those <PRO_HESHE> has memorized.
+
+A matrix lasts until activated and, once used, releases its spells immediately (no casting time). The Special Ability icon also disappears until the next time a matrix is formed. A wizard can possess only one Spell Matrix at a time, and it may not be given to other characters.~
+@28   = ~Mordenkainen's Lucubration~
+@29   = ~Mordenkainen's Lucubration
+(Alteration)
+
+Level: 6
+Range: 0
+Duration: Instant
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to fifth level, one up to fourth, and the final one up to third level.  Only arcane spells can be restored.~
+@30   = ~Isaac's Greater Missile Storm~
+@31   = ~Isaac's Greater Missile Storm
+(Invocation/Evocation)
+
+Level: 6
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 4
+Area of Effect: 30' radius
+Saving Throw: None
+
+This spell bombards all hostile creatures in the designated area with magic missiles similar to that of the Magic Missile spell.  Each hostile creature will be randomly targetted by 1d3+1 missiles, each of which deals 1d6 damage with no saving throw.  This spell will not harm party members.  The missiles can be stopped by anything that also stops the Magic Missile spell, such as the Shield spell.
+
+This spell was developed in the city of Neverwinter.~
+@32   = ~Faerie Sword~
+@33   = ~Faerie Sword
+(Invocation/Evocation)
+
+Level: 7
+Range: 0
+Duration: 1 round/2 levels
+Casting Time: 7
+Area of Effect: Special
+Saving Throw: Special
+
+This spell creates a slender, shimmering sword in the caster's hands.  The caster can wield this blade as well as a fighter of equal level with proficiency in longswords.  It can strike any opponent as if it were a +5 weapon, although there is no bonus to hit.  50% of the time, the sword inflicts 5d4 slashing damage on the enemy.  The other 50%, it randomly inflicts one of the following effects:
+- 8d4 fire damage
+- 10d4 acid damage
+- turned to stone (allows save vs. petrification)
+- mazed
+- disintegrated (allows save vs. death)~
+@34   = ~Stygian Ice Storm~
+@35   = ~Stygian Ice Storm
+(Invocation/Evocation)
+
+Level: 7
+Range: Visual range of the caster
+Duration: Special
+Casting Time: 7
+Area of Effect: 30' radius
+Saving Throw: Special
+
+Few know the true terror of Baator, let alone the gruesome Fifth Layer. This devastating spell summons the harshest cold and bitter ice of the Fifth Layer of Baator, Stygia, to annihilate all enemies within range. As the River Styx flows through the Stygian Ice, so it does in this spell as well. Perhaps if the victims are strong enough to survive this devastation they may live to tell others about the true terror... but the River Styx has a tendency to make people forget.
+
+Ice from Stygia is summoned to crush all creatures within sight for 8d8 points of cold damage, with no saving throw.  Finally, all creatures must save vs. spell or suffer confusion for five rounds due to the immediate contact with the frozen, forgetful waters of the River Styx.~
+@36   = ~Deathbolt~
+@37   = ~Deathbolt
+(necromancy)
+
+Level: 8
+Range: 100 feet
+Duration: Instant
+Casting Time: 8
+Area of Effect: 1 creature
+Saving Throw: Special
+
+Death comes in many forms, but none so painful as this. For even if you evade Death's Touch, it will always leave a mark. 
+
+This spell calls forth a magical bolt of death energy that kills a specified target, unless it makes a successful saving throw vs. spell. Even on a successful saving throw, the victim suffers 10d6 points of electrical damage.~
+@38   = ~Major Globe of Invulnerability~
+@39   = ~Major Globe of Invulnerability
+(Abjuration)
+
+Level: 8
+Range: 0
+Duration: 1 round/level
+Casting Time: 8
+Area of Effect: 5-ft. radius sphere
+Saving Throw: None
+
+This spell creates an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd-, 4th-, or 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the Major Globe of Invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. 6th- and higher level spells are not affected by the globe, and magical attacks of 6th-level or higher, such as Spellstrike and Pierce Magic, can bring it down.~
+@40   = ~Polar Ray~
+@41   = ~Polar Ray
+(Invocation/Evocation)
+
+Level: 8
+Range: 15 ft.
+Duration: 1 round
+Casting Time: 8
+Area of Effect: 2-ft. by 15-ft. jet
+Saving Throw: None
+
+Upon casting this spell, the mage projects a ray of intense cold that freezes everything in its path.  Everyone and everything crossing the ray will take 1d6 points of cold damage per caster level (max. 25d6).~
+@42   = ~Mechanus' Cannon~
+@43   = ~Mechanus' Cannon
+(Conjuration/Summoning)
+
+Level: 8
+Range: 50 ft.
+Duration: Instant
+Speed: 8
+Area of Effect: 1 creature
+Saving Throw: None
+
+The true, logical justice of Primus shall be delivered unto the illogical, as pure energy descends from Mechanus.
+
+This spell summons the ultimate form of 'equalization' from Primus: A huge energy blast that comes from the very heart of Mechanus and fires toward the target specified by the caster, via a portal. A temporary portal will appear 10 ft. from the target and Mechanus' Logical Justice will be handed down, inflicting 20d4+10 points of magical damage, with no saving throw.~
+@44   = ~Ball Lightning~
+@45   = ~Ramazith's Slime Summons~
+@46   = ~Ramazith's Slime Summons
+(Conjuration/Summoning)
+
+Level: 5
+Range: 120 ft.
+Duration: 3 rounds + 1 round/level
+Casting Time: 7
+Area of Effect: Special
+Saving Throw: None
+
+This spell was developed by the evil mage Ramazith of Baldur's Gate.  The mage casts this spell at a specially prepared foul brew which then comes to life as an ooze monster under <PRO_HISHER> control.  There is a 50% chance that the ooze splits in two immediately after forming.  All oozes created by this spell will fight for the mage until slain or the duration elapses.  The exact type of ooze depends on the level of the mage.
+9th : gray ooze
+12th : ochre jelly
+15th+ : mustard jelly~
+@47   = ~Rune of Torment~
+@48   = ~Rune of Torment
+(Invocation/Evocation)
+
+Level: 9
+Range: 0
+Duration: Instant
+Casting Time: 9
+Area of Effect: 50-ft. radius
+Saving Throw: None
+
+Pain, Agony, Suffering, Torment. When the Rune is invoked, even the earth shall resonate its anguish. Torment of the mind. Torment of the body. Torment of the soul. All will be made clear when the Circle is drawn.
+
+After the Ultimate Circle is inscribed on the ground, and the Rune explodes, all creatures in a 50' radius around the caster that are hostile take 14d6+16 points of damage. There is no Saving Throw.~
+@49   = ~Dismissal~
+@50   = ~Banishment~
+@51   = ~Ball Lightning
+(Invocation/Evocation)
+
+Level: 3
+Range: 50 yds.
+Duration: Instant
+Casting Time: 3
+Area of Effect: 1-4 creatures
+Saving Throw: 1/2
+
+This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20.  Each orb can be targetted at a different creature.  Upon contact with the target, it deals 4d12 points of electrical damage and disappears.~
+@52   = ~Starfire~
+@53   = ~Starfire
+(Invocation/Evocation)
+
+Level: 5
+Range: 90 yards
+Duration: 3 rounds
+Casting Time: 3
+Area of Effect: 15-foot radius
+Saving Throw: 1/2
+
+Upon casting this spell, the mage causes a rain of golden fire to descend into the area of effect.  The fire deals 5d6 points of damage to anyone caught in the area, with a save versus spell allowed for half damage.
+
+This spell is rumored to have been first developed on the Upper Planes.~
+@54   = ~Tenser's Giant Strength~
+@55   = ~Tenser's Giant Strength
+(Alteration)
+
+Level: 4
+Range: Touch
+Duration: 1 round/level
+Casting Time: 1 round
+Area of Effect: Target creature
+Saving Throw: None
+
+This variation of the Strength spell gives the recipient the strength of one of the true giant races.  The exact strength given depends on the caster's level:
+-  7- 9: Hill Giant Strength (19)
+- 10-12: Stone Giant Strength (20)
+- 13-15: Frost Giant Strength (21)
+- 16-18: Fire Giant Strength (22)
+- 19-21: Cloud Giant Strength (23)
+- 22-24: Storm Giant Strength (24)
+- 25+  : Titanic Strength (25)~
+@56   = ~Sunburst~
+@57   = ~Sunburst
+(Evocation)
+
+Level: 8
+Range: Caster
+Duration: Instant
+Casting Time: 4
+Area of Effect: 15-foot radius
+Saving Throw: Special
+
+The Sunburst spell causes the caster to briefly glow as bright as the midday sun.  All enemies within the area of effect must save versus spell or be blinded for three rounds.  All undead enemies additionally take 16d6 points of fire damage unless they save versus spell, in which case the damage will be halved.  The caster and %PRO_HISHER% allies are unaffected.~
+@58   = ~Weird~
+@59   = ~Weird
+(Illusion)
+
+Level: 9
+Range: 30 yards
+Duration: 10 rounds
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: Special
+
+When casting the Weird spell, the mage informs <PRO_HISHER> enemies that their final fate, indeed their doom is now upon them.  The spell then creates 1-4 weirds, quasi-real creatures made from shadow stuff.  While they appear only as blurry shadows to everyone else, their victims see the weird as whatever enemy they fear the most.  Although weirds are illusionary they cannot be disbelieved or dispelled by True Seeing and similar magic; the phantasm exists in the minds of the victims and is completely real to them for all purposes.  The only way to get rid of a weird before the spell ends is to defeat it in combat.
+
+Weirds attack twice per round and deal 2d8+4 damage on a succesful attack.  In addition, with every hit the victim must save versus death at -4 or either flee in panic or be paralyzed with fear (50% chance of either),  There is also a 20% chance per hit that the victim dies instantly from pure fright.~
+@60   = ~Frost Fingers~
+@61   = ~Frost Fingers
+(Alteration)
+
+Level: 1
+Range: 5 ft.
+Duration: Instant 
+Casting Time: 1 
+Area of Effect: 1 creature
+Saving Throw: 1/2
+
+When the wizard casts this spell, a spray of numbing cold and ice crystals shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The frost fingers send out ice sprays of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of cold damage. A creature that successfully saves vs. Spell receives half damage.~
+
+

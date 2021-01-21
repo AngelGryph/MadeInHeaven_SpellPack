@@ -1,0 +1,45 @@
+@0    = ~Nazzer's Nullification~
+@1    = ~Nazzer's Nullification
+(Abjuration)
+
+Level: Epic
+Range: Self
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+This improved version of Dispel Magic will end any and all dispelable magical effects around the caster from friends and foes alike.  Unlike Dispel Magic there is no level-based contest; anything that can be dispelled will be, including effects from potions and wands.  Note that the caster is the center of effect and thus will be subject of having %PRO_HISHER% own magical protections dispelled.  This may leave %PRO_HIMHER% vulnerable to attack, so this spell should be used with utmost care.~
+@2    = ~Tolodine's Killing Wind~
+@3    = ~Tolodine's Killing Wind
+(Evocation)
+
+Level: Epic
+Range: 40 ft.
+Duration: 1 turn
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: Special
+
+This improved version of Cloudkill creates a billowing cloud of horrendously toxic vapors.  Creatures with 10 hd or less are instantly slain with no saving throw unless they are immune to poison.  Creatures with 15 hd or less must save versus poison at -10 avoid being slain.  Every living being caught in the cloud takes 5d10 points of poison damage per round.  The caster must carefully target this spell or risk killing %PRO_HISHER% allies or %PRO_HIMHER%self.~
+@4    = ~Chosen of Mystra~
+@5    = ~Your continued devotion to the Art has gained you the favor of Mystra, the Lady of All Magic.  This has the following benefits:
+- Constitution is set to 25
+- Immunity to disease
+- Immunity to disintegration
+- +5 on all saves vs. Spell
+- +3 on all saves vs. Breath~
+@6    = ~Silver Fire~
+@7    = ~A Chosen of Mystra can unleash a destructive white flame known as Silver Fire from <PRO_HISHER> body.  This stream of raw magical power deals 4d12 damage to the target and everything else in its path with no saving throw or chance of magic resistance.~
+@8    = ~Maximize Spell~
+@9    = ~With this ability, the wizard learns to to cast certain spells with maximized effect.  A maximized spell takes up a slot three levels higher than normal.
+Maximimze Spell can be applied to the following spells:
+- Magic Missile
+- Aganazzar's Scorcher
+- Melf's Acid Arrow
+- Fireball
+- Lightning Bolt
+- Ice Storm
+- Cone of Cold
+- Chain Lightning~
+
+

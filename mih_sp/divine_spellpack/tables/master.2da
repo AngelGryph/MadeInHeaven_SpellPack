@@ -1,0 +1,25 @@
+2DA v1.0
+*
+IDSNAME					NAME	DESC	IDSNUM	SCROLL		HALF	PROJECTL	SEQ	CD_IMMUNITY
+CLERIC_STRIKING				0	1	*	*		n	*		y	*
+CLERIC_FAERIE_FIRE			2	3	*	*		n	*		y	*
+CLERIC_SEEKING				4	5	*	*		n	*		y	*
+CLERIC_RESIST_ACID_CORROSION		21	22	*	*		n	*		y	*
+CLERIC_PROTECTION_FROM_COLD		*	39	*	*		n	*		y	*
+CLERIC_STICKS_TO_SNAKES			7	8	*	*		n	*		y	*
+CLERIC_HEROISM				9	10	*	*		n	*		y	*
+CLERIC_REPEL_INSECTS			25	26	*	*		n	*		y	*
+CLERIC_ICE_STORM			*	40	*	*		n	*		y	*
+CLERIC_LIGHTNING_STORM			11	12	*	*		n	mh#lstrm	y	*
+CLERIC_INFERNO				17	18	*	*		n	*		y	*
+CLERIC_BREAK_ENCHANTMENT		23	24	*	mh#prs53	n	*		y	*
+CLERIC_HALLOW				33	34	*	*		n	*		y	*
+CLERIC_UNHALLOW				35	36	*	*		n	*		y	*
+CLERIC_SUPERHEROISM			13	14	*	*		n	*		y	fear,level_drain
+CLERIC_CELESTIAL_PROTECTION		15	16	*	*		n	*		y	poison,disease,poison_resistance
+CLERIC_CONJURE_WATER_ELEMENTAL		27	28	*	*		n	*		y	*
+CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	19	20	*	*		n	*		y	level_drain
+CLERIC_CONJURE_AIR_ELEMENTAL		*	29	*	*		n	*		y	*
+CLERIC_AURA_OF_VITALITY			37	38	*	*		n	*		y	*
+
+

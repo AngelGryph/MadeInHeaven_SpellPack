@@ -30,30 +30,30 @@ BEGIN @4
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_restorations"
-  location	= "spell_packs"
+  file		= "setup_spell_restorations"
+  location	= "spell_restorations"
 END
 
 
-// Made in Heaven: Arcane Spells
+// Made in Heaven: Arcane Spellpack
 
 BEGIN @1
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_arcane_spells"
-  location	= "spell_packs"
+  file		= "setup_arcane_spellpack"
+  location	= "arcane_spellpack"
 END
 
 
-// Made in Heaven: Divine Spells
+// Made in Heaven: Divine Spellpack
 
 BEGIN @2
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_divine_spells"
-  location	= "spell_packs"
+  file		= "setup_divine_spellpack"
+  location	= "divine_spellpack"
 END
 
 

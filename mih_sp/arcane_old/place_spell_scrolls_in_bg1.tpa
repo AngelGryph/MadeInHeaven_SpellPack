@@ -1,0 +1,126 @@
+DEFINE_ACTION_FUNCTION place_spell_scrolls_in_bg1
+BEGIN
+  // High Hedge (Thalantyr)
+  //
+  // mh#wiz11 - Frost Fingers
+  // mh#wiz21 - Spark Shower
+  // mh#wiz22 - Seeking
+  // mh#wiz32 - Heroism
+  // mh#wiz33 - Blink
+
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "highhedg"
+    edits	= "patch_data"
+  END
+
+
+  // Firewine Ruins
+  //
+  // mh#wiz35 - Minor Malison (on Lendar)
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "lendar"
+    editstring	= ~add_items=>"mhwiz35(qitem,x1.1)"~
+  END
+
+
+  // Ulcaster Ruins
+  //
+  // mh#wiz35 - Minor Malison
+
+  MAKE_PATCH
+    add_item_inline=>~match=>"parent_index = 6" item_resource=>"mh#wiz35" item_charges_1=>1 item_charges_2=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "%UlcasterRuins%"
+    edits	= "patch_data"
+  END
+
+
+  // Sorcerous Sundries
+  //
+  // mh#wiz11 - Frost Fingers
+  // mh#wiz21 - Spark Shower
+  // mh#wiz22 - Seeking
+  // mh#wiz32 - Heroism
+  // mh#wiz33 - Blink
+  // mh#wiz43 - Rary's Mnemonic Enhancer
+  // mh#wiz44 - Evard's Black Tentacles
+
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
+    literal'6=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
+    literal'7=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "sto0703"
+    edits	= "patch_data"
+  END
+
+
+  // Ramazith's Tower
+  //
+  // mh#wiz53 - Ramazith's Slime Summons
+
+  MAKE_PATCH
+    add_item_inline=>~match=>"parent_index = 8" item_resource=>"mh#wiz53" item_charges_1=>2 item_charges_2=>2~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "%NBaldursGate_RamazithsTower_L6%"
+    edits	= "patch_data"
+  END
+
+
+  // Candlekeep
+  //
+  // mh#wiz36 - Ball Lightning
+  // mh#wiz41 - Iron Maiden
+  // mh#wiz42 - Control Elemental
+  // mh#wiz45 - Isaac's Lesser Missile Storm
+  // mh#wiz51 - Superheroism
+
+  MAKE_PATCH
+    add_item_inline=>~match=>"parent_index = 5" item_resource=>"mh#wiz41" item_charges_1=>1 item_charges_2=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "%Candlekeep_Library_L5%"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    add_item_inline'1=>~match=>"parent_index = 2" item_resource=>"mh#wiz36" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'2=>~match=>"parent_index = 1" item_resource=>"mh#wiz42" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'3=>~match=>"parent_index = 1" item_resource=>"mh#wiz45" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'4=>~match=>"parent_index = 0" item_resource=>"mh#wiz51" item_charges_1=>1 item_charges_2=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "%Candlekeep_Catacombs_L1Antechamber%"
+    edits	= "patch_data"
+  END
+END	// place_spell_scrolls_in_bg1
+
+
