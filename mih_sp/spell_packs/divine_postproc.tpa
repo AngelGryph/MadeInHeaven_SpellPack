@@ -1,8 +1,9 @@
-DEFINE_ACTION_FUNCTION divine_aftercare
+DEFINE_ACTION_FUNCTION divine_postproc
 BEGIN
-  // Further patches to Repel Insects
+  // Further patches to Repel Insects so it can dispel an ongoing
+  // Insect Swarm.
 
-  ACTION_IF ENGINE_IS "bgee bg2ee iwdee"
+  ACTION_IF enhanced_edition
   BEGIN
     // We have EE engine, use opcode #321 to remove
     // the spells we protect against.
@@ -40,6 +41,24 @@ BEGIN
     spell	= "CLERIC_REPEL_INSECTS"
     edits	= "patch_data"
   END
-END	// divine_aftercare
+
+
+  // Hallow/Unhallow's turning bonus does not work on old engine,
+  // turn it into a caster level bonus for clerics
+
+  ACTION_IF NOT enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      opcode=>191
+      parameter2=>1
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_effect
+      STR_VAR
+      effect	= "mh#turn4"
+      edits	= "patch_data"
+    END
+  END
+END	// divine_postproc
 
 

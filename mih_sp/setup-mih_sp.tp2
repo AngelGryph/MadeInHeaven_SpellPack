@@ -32,7 +32,6 @@ LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_restorations"
   location	= "spell_packs"
-  tra		= "restorations"
 END
 
 
@@ -43,7 +42,7 @@ BEGIN @1
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_arcane_spells"
-  location	= "arcane"
+  location	= "spell_packs"
 END
 
 
@@ -54,7 +53,7 @@ BEGIN @2
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_divine_spells"
-  location	= "divine"
+  location	= "spell_packs"
 END
 
 

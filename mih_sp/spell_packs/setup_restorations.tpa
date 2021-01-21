@@ -10,7 +10,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "install_restorations restorations_aftercare"
+    file	= "install_restorations restorations_postproc"
     tra		= "restorations"
   END
 
