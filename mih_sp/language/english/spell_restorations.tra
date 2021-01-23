@@ -74,5 +74,17 @@ Saving Throw: None
 
 By laying <PRO_HISHER> hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
 @12  = ~The selected character is cured of blindness and deafness.~
+@13  = ~Otto's Irresistible Dance~
+@14  = ~Otto's Irresistible Dance
+(Enchantment/Charm)
+
+Level: 8
+Range: Touch
+Duration: 5 rounds
+Casting Time: 5
+Area of Effect: Creature touched
+Saving Throw: None
+
+When an Otto's Irresistible Dance spell is placed upon a creature, the spell causes the recipient to begin dancing, complete with feet shuffling and tapping.  This dance makes it impossible for the victim to do anything other than caper and prance; this cavorting worsens the armor class of the creature by -4 and saving throws by -6.  There is no saving throw against this spell.~
 
 
