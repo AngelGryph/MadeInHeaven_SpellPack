@@ -2,7 +2,6 @@ mh#wiz11	Frost Fingers
 
 mh#wiz21	Spark Shower
 mh#wiz22	Seeking
-mh#wiz23	Fog Cloud
 
 mh#wiz31	Improved Magic Missile
 mh#wiz32	Heroism
@@ -21,7 +20,6 @@ mh#wiz46	Tenser's Giant Strength
 mh#wiz51	Superheroism
 mh#wiz52	Spell Matrix
 mh#wiz53	Ramazith's Slime Summons
-mh#wiz55	Starfire
 
 mh#wiz61	Mordenkainen's Lucubration
 mh#wiz62	Isaac's Greater Missile Storm
@@ -37,5 +35,16 @@ mh#wiz85	Sunburst
 
 mh#wiz91	Rune of Torment
 mh#wiz92	Weird
+
+
+mh#prs53	Break Enchantment
+
+
+spwi204		Fog Cloud
+scrl1r		Wraithform
+scrl1v		Dimension Door
+spwi610		Monster Summoning IV
+spwi814		Otto's Irresistible Dance
+spwi901		Spell Invulnerability
 
 
