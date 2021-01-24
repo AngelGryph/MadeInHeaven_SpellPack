@@ -96,6 +96,12 @@ END
 
 DEFINE_ACTION_FUNCTION install_spell_pack
   STR_VAR
+  spell_main	= "spells"
+  spell_itm	= "spl_itm"
+  spell_spl	= "spl_spl"
+  spell_cre	= "spl_cre"
+  spell_eff	= "spl_eff"
+  spell_copy	= "_copy"
   tra		= ""
 BEGIN
   LAUNCH_ACTION_FUNCTION check_ini
@@ -123,12 +129,15 @@ BEGIN
 
     // Copy anything that just needs copying
 
-    COPY_LARGE "%MOD_FOLDER%/%component_loc%/_copy" "override"
+    ACTION_IF "%spell_copy%" STRING_COMPARE ""
+    BEGIN
+      COPY_LARGE "%MOD_FOLDER%/%component_loc%/%spell_copy%" "override"
+    END
 
 
     // Simple spell items, cre paws & stuff
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/items.2da" "nowhere"
+    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_itm%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_items cols
@@ -162,16 +171,16 @@ BEGIN
 
     // Simple summons for single spells
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/summons.2da" "nowhere"
+    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_cre%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
-      READ_2DA_ENTRIES_NOW __MH_RESERVED_items cols
+      READ_2DA_ENTRIES_NOW __MH_RESERVED_summons cols
 
       FOR (SET i = 1; i < rows; ++i)
       BEGIN
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_items i 0 resref
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_items i 1 name_tra
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_items i 2 vvc
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_summons i 0 resref
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_summons i 1 name_tra
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_summons i 2 vvc
 
         INNER_ACTION
         BEGIN
@@ -193,7 +202,7 @@ BEGIN
 
     // Simple effects
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/effects.2da" "nowhere"
+    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_eff%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_effects cols
@@ -221,7 +230,7 @@ BEGIN
 
     // Process secondary spells
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/secondary.2da" "nowhere"
+    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_spl%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_secondary cols
@@ -253,24 +262,25 @@ BEGIN
       END
 
 
-    // Process master table
+    // Process main spells table
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/master.2da" "nowhere"
+    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_main%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
-      READ_2DA_ENTRIES_NOW __MH_RESERVED_master cols
+      READ_2DA_ENTRIES_NOW __MH_RESERVED_spell_main cols
 
       FOR (SET i = 1; i < rows; ++i)
       BEGIN
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 0 idsname
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 1 name_tra
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 2 desc_tra
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 3 idsnum
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 4 scrollname
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 5 half_damage
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 6 projectile
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 7 allow_sequencer
-        READ_2DA_ENTRY_FORMER __MH_RESERVED_master i 8 cd_immunity_csv
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 0 idsname
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 1 name_tra
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 2 desc_tra
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 3 spell_type
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 4 idsnum
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 5 scrollname
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 6 half_damage
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 7 projectile
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 8 allow_sequencer
+        READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_main i 9 cd_immunity_csv
         
         INNER_ACTION
         BEGIN
@@ -287,6 +297,8 @@ BEGIN
 	  END
 
           LAUNCH_ACTION_FUNCTION add_spell_to_ids
+	    INT_VAR
+	    type	= spell_type
             STR_VAR
             idsname
 	    filename
@@ -355,13 +367,16 @@ BEGIN
 
           // Install and patch the actual spell file.
 
+          COPY + "%MOD_FOLDER%/%component_loc%/spells/%filename%.spl" "%workspace%/%newname%.spl"
+
 	  LAUNCH_ACTION_FUNCTION install_spell
 	    STR_VAR
-	    spell	= "%filename%"
-	    idsname
-	    location	= "spells"
+	    spell	= "%newname%"
+	    locabs	= "%workspace%"
 	    edits	= "patch_data"
 	  END
+
+	  DELETE + "%workspace%/%newname%.spl"
 
 
 	  // Create a scroll if one is requested.
