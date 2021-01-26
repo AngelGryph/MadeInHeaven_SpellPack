@@ -394,5 +394,6 @@ Area of Effect: 1 creature
 Saving Throw: 1/2
 
 When the wizard casts this spell, a spray of numbing cold and ice crystals shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The frost fingers send out ice sprays of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of cold damage. A creature that successfully saves vs. Spell receives half damage.~
+@62   = ~Add spells to your matrix~
 
 

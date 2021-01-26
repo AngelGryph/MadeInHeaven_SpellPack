@@ -54,11 +54,18 @@ BEGIN
 
     ACTION_TO_UPPER spell_res
 
+    OUTER_SPRINT spell_matrix_title @26
+    OUTER_SPRINT add_spell_matrix_label @62
+
+    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~uiStrings = {~
+        ~uiStrings = {%WNL%%TAB%SPELL_MATRIX_TITLE = "%spell_matrix_title%",%WNL%%TAB%ADD_SPELLS_MATRIX_LABEL = "%add_spell_matrix_label%",~
+
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
         ~mageBookStrings = {~
-        ~mageBookStrings = {
-%spell_res% = {tip = 24616, title = 'SPELL_SEQUENCER_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
+        ~mageBookStrings = {%WNL%%TAB%%spell_res% = {tip = 24616, title = 'SPELL_MATRIX_TITLE', action = "ADD_SPELLS_MATRIX_LABEL"},~
   END
 
 
