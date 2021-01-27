@@ -111,5 +111,17 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 This spell creates a protective barrier around the creature touched which improves the armor class of the recipient by 3.  Thus AC 8 becomes AC 5.  The protection is cumulative with other forms of armor, including that granted by an Armor- or Shield spell.  It lasts until dispelled or the duration runs out.~
+@19  = ~Reveal Magic~
+@20  = ~Reveal Magic
+(Divination) 
+
+Level: 1
+Range: 0
+Duration: Instant
+Casting Time: 1
+Area of Effect: 30-ft. radius
+Saving Throw: None
+
+This spell discovers disturbances in the Weave in any creature. Any creature within the range of the spell that has one or more active spells on them will glow red briefly.~
 
 
