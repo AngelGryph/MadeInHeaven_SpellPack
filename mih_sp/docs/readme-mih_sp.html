@@ -110,7 +110,8 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 
   <h3>Spell Availability Tweaks</h3>
   <p><strong>Temples sell Priest Scrolls</strong><br/>
-  Temples in the game will now sell a selection of priest scrolls.  Available are Cure Light/Serious/Critical Wounds, Slow Poison, Neutralize Poison, Free Action, Chaotic Commands, Heal and Resurrection (the last two only in BG2)</p>
+  This component restores a bunch of dummied out priest spell scrolls and adds them to a few selected temples in BG1 and BG2.  Available are Cure Light Wounds, Slow Poison, Remove Fear, Invisibility Purge, Remove Curse, Remove Paralysis, Cure Serious Wounds, Free Action and Neutralize Poison.  Temples in BG2 also get Cure Critical Wounds, Chaotic Commands, Flame Strike, Heal and Resurrection, although in very limited quantities.</p>
+  <p>If you installed Restored Spells, Cure Blindness/Deafness is also added to the list, and if you installed Divine Spellpack, you also get a few scrolls of Break Enchantment.</p>
 
   <p><strong>Thalantyr the *Conjurer*</strong><br/>
   Thalantyr of Beregost is both canonically and in-game a Conjurer, but you cannot tell by his selection of spells for sale.  This component actually gives him a couple of scrolls from the conjuration school, and removes scrolls he wouldn't be able to make due to his barred school of divination.</p>
@@ -118,74 +119,7 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 
   <p><strong>Sixth Circle Spell Scrolls in Siege of Dragonspear</strong><br/>
   Five sixths circle spells were actually in Tales of the Sword Coast, although not usable by the player: Invisible Stalker, Globe of Invulnerability, Tenser's Transformation, Flesh to Stone and Death Spell.  Now that Siege of Dragonspear extends the story, it seems only fair to let the player actually have these spells.  This will be most helpful if you have a mod that removes the XP cap so your wizard actually can reach level twelve and have sixth circle spell slot, but even if not they can still use the scrolls.  One copy of each is available at the Sorcerous Sundries (only after SoD starts), and at quartermaster Belegarm in the camp.</p>
-  <h3>Game Rule Tweaks</h3>
-  <p><strong>Revised Strength Table</strong><br/>
-  This patches the tables associated with strength to be more like 3.5e.  Bonuses start at 12 instead of 16 and the effects of exceptional strength are towned down a notch.</p>
-  <table>
-  <tr><th></th><th>TO_HIT</th><th>DAMAGE</th></tr>
-  <tr><td>12</td><td>0</td><td>1</td></tr>
-  <tr><td>13</td><td>1</td><td>1</td></tr>
-  <tr><td>14</td><td>1</td><td>2</td></tr>
-  <tr><td>15</td><td>2</td><td>2</td></tr>
-  <tr><td>16</td><td>2</td><td>3</td></tr>
-  <tr><td>17</td><td>3</td><td>3</td></tr>
-  <tr><td>18/01</td><td>3</td><td>4</td></tr>
-  <tr><td>18/25</td><td>4</td><td>4</td></tr>
-  <tr><td>18/50</td><td>4</td><td>5</td></tr>
-  <tr><td>18/75</td><td>5</td><td>5</td></tr>
-  <tr><td>18/00</td><td>5</td><td>6</td></tr>
-  <tr><td>19</td><td>6</td><td>6</td></tr>
-  <tr><td>10</td><td>6</td><td>7</td></tr>
-  <tr><td>21</td><td>7</td><td>7</td></tr>
-  <tr><td>22</td><td>7</td><td>8</td></tr>
-  <tr><td>23</td><td>8</td><td>8</td></tr>
-  <tr><td>24</td><td>8</td><td>9</td></tr>
-  <tr><td>25</td><td>9</td><td>9</td></tr>
-  </table>
-  <p>BEND_BARS_LIFT_GATES and WEIGHT_ALLOWANCE remain as is, as do stats for strength below 12.</p>
 
-  <p><strong>Revised Dexterity Table</strong><br/>
-  This installs a revised dexterity table.  Bonus start at 12 and the effects of very high dexterity are toned down somewhat.</p>
-  <table>
-  <tr><th></th><th>REACTION</th><th>MISSILE</th><th>AC</th></tr>
-  <tr><td>12</td><td>1</td><td>0</td><td>0</td></tr>
-  <tr><td>13</td><td>1</td><td>1</td><td>0</td></tr>
-  <tr><td>14</td><td>1</td><td>1</td><td>-1</td></tr>
-  <tr><td>15</td><td>2</td><td>1</td><td>-1</td></tr>
-  <tr><td>16</td><td>2</td><td>2</td><td>-1</td></tr>
-  <tr><td>17</td><td>2</td><td>2</td><td>-2</td></tr>
-  <tr><td>18</td><td>3</td><td>2</td><td>-2</td></tr>
-  <tr><td>19</td><td>3</td><td>3</td><td>-2</td></tr>
-  <tr><td>20</td><td>3</td><td>3</td><td>-3</td></tr>
-  <tr><td>21</td><td>4</td><td>3</td><td>-3</td></tr>
-  <tr><td>22</td><td>4</td><td>4</td><td>-3</td></tr>
-  <tr><td>23</td><td>4</td><td>4</td><td>-4</td></tr>
-  <tr><td>24</td><td>5</td><td>4</td><td>-4</td></tr>
-  <tr><td>25</td><td>5</td><td>5</td><td>-4</td></tr>
-  </table>
-  <p>Effects of dexterity below 12 remain unchanged.  Note: REACTION is displayed on your character sheet but has no effect in-game.</p>
-
-  <p><strong>Revised Constitution Table</strong><br/>
-  This installs a revised constitution table.  Bonus start at 12 and the effects of very high constitution are toned down somewhat.</p>
-  <table>
-  <tr><th></th><th>OTHER</th><th>WARRIOR</th><th>MIN_ROLL</th></tr>
-  <tr><td>12</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td>13</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td>14</td><td>1</td><td>2</td><td>1</td></tr>
-  <tr><td>15</td><td>2</td><td>2</td><td>1</td></tr>
-  <tr><td>16</td><td>2</td><td>3</td><td>1</td></tr>
-  <tr><td>17</td><td>2</td><td>3</td><td>1</td></tr>
-  <tr><td>18</td><td>3</td><td>4</td><td>1</td></tr>
-  <tr><td>19</td><td>3</td><td>4</td><td>1</td></tr>
-  <tr><td>20</td><td>3</td><td>5</td><td>1</td></tr>
-  <tr><td>21</td><td>4</td><td>5</td><td>2</td></tr>
-  <tr><td>22</td><td>4</td><td>6</td><td>2</td></tr>
-  <tr><td>23</td><td>4</td><td>6</td><td>3</td></tr>
-  <tr><td>24</td><td>5</td><td>7</td><td>3</td></tr>
-  <tr><td>25</td><td>5</td><td>7</td><td>4</td></tr>
-  </table>
-  <p>REGENERATION_RATE and FATIGUE_BONUS remain unchanged, as do the effects of constitution below 12.</p>
-</div>
 <h2>The .ini File</h2>
 <div class="section">
   <p>Within the mod folder, there is a file called mih_sp.ini.  This file can be used to fine-tune certain aspects of this mod.  It is meant as an expert option, for normal installation you can leave this file as it is.  If you do edit this file, you must reinstall the mod, or at least the components whose settings you changed.</p>
