@@ -1,11 +1,5 @@
 DEFINE_ACTION_FUNCTION extend_summoning_tables
 BEGIN
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "setup_summons"
-    locbase	= "shared/summons"
-  END
- 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY monsum01
   BEGIN
     5=>"gibbersu"

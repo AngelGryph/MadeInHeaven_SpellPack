@@ -1,0 +1,33 @@
+DEFINE_ACTION_FUNCTION restorations_preproc
+BEGIN
+  // spwi801 was dummied out, but the icons were re-used for spwi519
+  // (Spell Shield).  Rename them so we can re-use spwi801 safely.
+
+  COPY_EXISTING "spwi801a.bam" "override/spwi519a.bam"
+                "spwi801b.bam" "override/spwi519b.bam"
+                "spwi801c.bam" "override/spwi519c.bam"
+
+  MAKE_PATCH
+    icon=>"spwi519c"
+    patch_ability_inline=>~ability_icon=>"spwi519b"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "spwi519"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    icon=>"spwi519a"
+    patch_ability_inline=>~ability_icon=>"spwi519a"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "scrl8x"
+    edits	= "patch_data"
+  END
+END	// restorations_preproc
+
+

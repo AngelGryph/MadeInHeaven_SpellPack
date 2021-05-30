@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION setup_monster_summoning
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "setup_summons"
+    locbase	= "shared/summons"
+  END
+ 
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "extend_summoning_tables revise_summoning_spells"
+    tra		= "monster_summoning"
+  END
+END	// setup_monster_summoning
+
+

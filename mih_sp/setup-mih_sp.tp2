@@ -57,6 +57,19 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Made in Heaven: Epic Spellpack
+
+BEGIN @25
+
+REQUIRE_PREDICATE GAME_INCLUDES "tob" @10
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_epic_spellpack"
+  location	= "epic_spellpack"
+END
+
+
 // Made in Heaven: Paladin Powers Pack
 
 BEGIN @3
@@ -68,14 +81,51 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Level 4 Animate Dead
+// Revised Animate Dead
 
 BEGIN @7
 GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "level_4_animate_dead"
+  file		= "setup_animate_dead"
+  location	= "animate_dead"
+END
+
+
+// Revised Monster Summoning
+
+BEGIN @24
+GROUP @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_monster_summoning"
+  location	= "monster_summoning"
+END
+
+
+// No Elemental Mind Battle
+
+BEGIN @12
+GROUP @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "no_elemental_mind_battle"
+  location	= "tweaks"
+END
+
+
+// Protection from Evil blocks Domination
+
+BEGIN @8
+GROUP @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "pfe_blocks_domination"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
@@ -90,19 +140,6 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "true_meteor_swarm"
-  tra		= "spell_tweaks"
-  location	= "tweaks"
-END
-
-
-// Protection from Evil blocks Domination
-
-BEGIN @8
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "pfe_blocks_domination"
   tra		= "spell_tweaks"
   location	= "tweaks"
 END
@@ -132,30 +169,6 @@ REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "remove_timestop_immunity"
-  location	= "tweaks"
-END
-
-
-// No Elemental Mind Battle
-
-BEGIN @12
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "no_elemental_mind_battle"
-  location	= "tweaks"
-END
-
-
-// Extended Summoning Tables
-
-BEGIN @24
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "extend_summoning_tables"
   location	= "tweaks"
 END
 

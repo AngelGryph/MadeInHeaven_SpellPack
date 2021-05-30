@@ -30,6 +30,7 @@ BEGIN
     "ogremasu"=>"spmonsum"
     "otyughsu"=>"spmonsum"
     "shadowsu"=>"spraised"
+    "skeletsu"=>"spraised"
     "skelwasu"=>"spraised"
     "smoundsu"=>"spmonsum"
     "snakegsu"=>"spanisum"
@@ -47,6 +48,7 @@ BEGIN
     "wyvbabsu"=>"spmonsum"
     "wyvernsu"=>"spmonsum"
     "xvartsu" =>"spmonsum"
+    "zombiesu"=>"spraised"
   END
 
   ACTION_PHP_EACH summon_effect AS summon => effect

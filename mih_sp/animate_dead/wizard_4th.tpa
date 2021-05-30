@@ -1,0 +1,35 @@
+DEFINE_ACTION_FUNCTION wizard_4th
+BEGIN
+  // Create level 4 Animate Dead spell/scroll
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level	= 4
+    STR_VAR
+    idsname	= "WIZARD_ANIMATE_DEAD_4TH"
+    typename	= "wizard"
+    RET
+    resref	= newname
+  END
+
+  MAKE_PATCH
+    level=>4
+    patch_effect_inline=>"power=>4"
+    substitute_description=>~": 5"=>": 4"~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi501=>%resref%"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+    STR_VAR
+    resref
+    scrollname	= "mh#ad4th"
+    scrollicon	= "spwi501a"
+  END
+END	// wizard_4th
+
+

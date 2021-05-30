@@ -1,0 +1,80 @@
+DEFINE_ACTION_FUNCTION revise_summoning_spells
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "monster_summoning_1_power"
+    RET
+    monster_summoning_1_power	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "monster_summoning_2_power"
+    RET
+    monster_summoning_2_power	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "monster_summoning_3_power"
+    RET
+    monster_summoning_3_power	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "monster_summoning_4_power"
+    RET
+    monster_summoning_4_power	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "animal_summoning_1_power"
+    RET
+    animal_summoning_1_power	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "animal_summoning_2_power"
+    RET
+    animal_summoning_2_power	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "animal_summoning_3_power"
+    RET
+    animal_summoning_3_power	= value
+  END
+
+
+  MAKE_PATCH
+    parameter2=>~object_index from [%monster_summoning_1_power% %monster_summoning_2_power% %monster_summoning_3_power% %monster_summoning_4_power% %animal_summoning_1_power% %animal_summoning_2_power% %animal_summoning_3_power%]~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_effect
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    effect		= "spmon1 spmon2 spmon3 spmon4 spmon1a spmon2a spmon3a"
+    edits		= "patch_data"
+  END
+
+
+  MAKE_PATCH
+    delete_effect=>"opcode is_in [67 127 177]"
+    add_effect_inline=>~opcode=>177 target=>1 duration=>"ability_true_level * 6 + 12" parameter2=>2 power=>level resource=>"object_index from [spmon1 spmon2 spmon3 spmon4 spmon1a spmon2a spmon3a]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    INT_VAR
+    allow_missing	= 1
+    STR_VAR
+    spell		= "WIZARD_MONSTER_SUMMONING_1 WIZARD_MONSTER_SUMMONING_2 WIZARD_MONSTER_SUMMONING_3 WIZARD_MONSTER_SUMMONING_4 CLERIC_ANIMAL_SUMMONING_1 CLERIC_ANIMAL_SUMMONING_2 CLERIC_ANIMAL_SUMMONING_3"
+    edits		= "patch_data"
+  END
+END	// revise_summoning_spells
+
+

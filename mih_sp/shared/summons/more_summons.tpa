@@ -12,10 +12,12 @@ BEGIN
       "jellgrsu"=>"jellgr"
       "jellocsu"=>"jelloc"
       "otyughsu"=>"otyugh"
+      "skeletsu"=>"skelet"
       "snakegsu"=>"bdsnak01"
       "spidhusu"=>"spidhu"
       "werewosu"=>"werewo"
       "wyvbabsu"=>"wyverba"
+      "zombiesu"=>"zombie"
     END
   END
   ELSE
@@ -31,12 +33,14 @@ BEGIN
       "jellocsu"=>"jeloch01"
       "mummysu" =>"mummy01"
       "otyughsu"=>"otyugh01"
+      "skeletsu"=>"skelet01"
       "snakegsu"=>"snakeg01"
       "spidhusu"=>"spidhu01"
       "umbhulsu"=>"umbhul01"
       "umbeldsu"=>"umbhul02"
       "werewosu"=>"werewo01"
       "wyvbabsu"=>"wyvbab01"
+      "zombiesu"=>"zombie01"
     END
   END
 

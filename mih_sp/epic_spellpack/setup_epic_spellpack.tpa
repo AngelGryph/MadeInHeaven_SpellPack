@@ -1,0 +1,23 @@
+DEFINE_ACTION_FUNCTION setup_epic_spellpack
+BEGIN
+  /*
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "setup_summons"
+    locbase	= "shared/summons"
+  END
+  */
+ 
+  LAUNCH_ACTION_FUNCTION install_spell_pack
+    STR_VAR
+    tra		= "epic_spellpack"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "maximized_spells"
+    tra		= "epic_spellpack"
+  END
+END	// setup_divine_spellpack
+
+

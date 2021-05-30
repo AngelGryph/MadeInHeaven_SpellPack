@@ -1,0 +1,44 @@
+DEFINE_ACTION_FUNCTION skeletons_and_zombies
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "animate_dead_power"
+    RET
+    animate_dead_power	= value
+  END
+
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "animdead.2da"
+    location	= "tables"
+  END
+
+  MAKE_PATCH
+    opcode=>127
+    timing=>1
+    parameter1=>"%animate_dead_power%"
+    parameter2=>"-1"
+    resource=>"animdead"
+    vvc=>"spraised"
+  END
+
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "spandead"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    delete_effect=>~opcode is_in [67 127 177] and ability_min_level < 15~
+    add_effect_inline=>~match=>"ability_min_level < 15" opcode=>177 target=>1 duration=>2400 parameter2=>2 power=>level resource=>"spandead"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "CLERIC_ANIMATE_DEAD WIZARD_ANIMATE_DEAD"
+    edits	= "patch_data"
+  END
+END	// skeletons_and_zombies
+
+

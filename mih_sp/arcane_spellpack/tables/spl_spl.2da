@@ -1,12 +1,12 @@
 2DA V1.0
 *
-RESREF		PROJ		DUMMY
-mh#wz34d	mh#scnt2	*
-mh#wz45a	*		*
-mh#wz45b	*		*
-mh#wz45c	*		*
-mh#wz62a	*		*
-mh#wz62b	*		*
-mh#wz62c	*		*
+RESREF		PROJ		HALF
+mh#wz34d	mh#scnt2	n
+mh#wz45a	*		n
+mh#wz45b	*		n
+mh#wz45c	*		n
+mh#wz62a	*		n
+mh#wz62b	*		n
+mh#wz62c	*		n
 
 

@@ -179,12 +179,15 @@ LAUNCH_ACTION_FUNCTION build_simple_data_field_editors STR_VAR lookup_table=item
 ACTION_DEFINE_ASSOCIATIVE_ARRAY item_ability_fields BEGIN
    ability_type => ~0x0,BYTE~
    ability_icon_loc => ~0x2,BYTE~
+   alt_dicesize => ~0x3,BYTE~
    ability_icon => ~0x4,ASCII~
    ability_target=>~0xc,BYTE~
    ability_target_count=>~0xd,BYTE~
    ability_range=>~0xe,SHORT~
    launcher_required=>~0x10,SHORT~
+   alt_dicenum => ~0x11,BYTE~
    speed=> ~0x12,SHORT~
+   alt_bonus => ~0x13,BYTE~
    to_hit => ~0x14,SHORT~
    ability_dicesize=>~0x16,BYTE~
    ability_school=>~0x17,BYTE~

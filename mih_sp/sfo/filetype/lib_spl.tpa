@@ -601,7 +601,7 @@ BEGIN
             PATCH_IF spell_level<=5 BEGIN
               SET value = 2 * spell_level - 1
             END ELSE BEGIN
-             LPF SPL_read_spell_type RET type=value END
+             LPF SPL_read_spell_type_num RET type=value END
              PATCH_IF type=2 BEGIN // priest
                SET value= spell_level=6 ? 11 : 2*spell_level
              END ELSE BEGIN
