@@ -35,6 +35,7 @@ mh#wiz85	Sunburst
 
 mh#wiz91	Rune of Torment
 mh#wiz92	Weird
+mh#wiz93	Foresight
 
 
 mh#prs53	Break Enchantment

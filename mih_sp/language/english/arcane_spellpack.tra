@@ -94,19 +94,18 @@ Area of Effect: Special
 Saving Throw: None
 
 This secret spell of the Harpers creates a construct known as a "helmed horror" which appears as an animated suit of armor wielding a flaming long sword.  The creature will fight as directed by the caster for the duration of the spell, after which it falls apart into worthless junk.  Because this is a construct created on the spot and not a creature conjured from elsewhere, the iron maiden is not vulnerable to effects that specifically target summoned creatures.~
-@16   = ~Command Elementals~
-@17   = ~Command Elementals
+@16   = ~Slumber~
+@17   = ~Slumber
 (Enchantment/Charm)
 
 Level: 4
 Range: Visual range of the caster
-Duration: 5 rounds
+Duration: 5 rounds/level
 Casting Time: 4
-Area of Effect: 1 elemental
-Saving Throw: Neg.
+Area of Effect: 15-ft. radius
+Saving Throw: None
 
-This spell enables the caster to command (or wrest command of) a single elemental creature.  The elemental can attempt a saving throw vs. spell to avoid the effect, but with a -4 penalty to the roll.
-For the duration of the spell the elemental will obey the caster, overriding all other controls.  If the caster or <PRO_HISHER> allies attack the creature, the spell is broken and the elemental immediately becomes hostile.~
+Slumber is a more powerful version of the first level spell Sleep.  When a wizard casts a Slumber spell, <PRO_HESHE> causes a comatose slumber to come upon one or more enemies (other than undead and certain other creatures specifically excluded from the spell's effects).  All creatures to be affected by the Slumber spell must be within a 15-ft. radius.  Creatures in the area of effect fall asleep with no saving throw.  Monsters with 8 Hit Dice or more are unaffected. Attacks against sleeping opponents never miss.~
 @18   = ~Rary's Mnemonic Enhancer~
 @19   = ~Rary's Mnemonic Enhancer
 (Alteration)
@@ -395,5 +394,17 @@ Saving Throw: 1/2
 
 When the wizard casts this spell, a spray of numbing cold and ice crystals shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The frost fingers send out ice sprays of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of cold damage. A creature that successfully saves vs. Spell receives half damage.~
 @62   = ~Add spells to your matrix~
+@63   = ~Foresight~
+@64   = ~Foresight
+(Divination)
+
+Level: 9
+Range: 0
+Duration: 1 turn/level
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+Casting this spell grants the caster a powerful sixth sense for danger.  While the spell is active, <PRO_HESHE> will instinctively know when an attack is coming and what action to take (jumping, ducking to the side, closing one's eyes etc) to best avoid the attack.  Therefor, <PRO_HESHE> cannot be backstabbed and gains a +4 bonus to armor class and saving throws versus wand, -spell and -breath for the duration of the spell.~
 
 

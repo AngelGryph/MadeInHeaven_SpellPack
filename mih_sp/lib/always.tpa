@@ -42,7 +42,10 @@ BEGIN
 
   // Set up Detectable Spells
 
-  LAUNCH_ACTION_FUNCTION detectable_spells END
+  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/lib/lib_ds.tph"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION detectable_spells END
+  END
 
 
   // Set up SFO library
@@ -56,6 +59,12 @@ BEGIN
   // Set up SSL compiler
 
   OUTER_SPRINT ssllibrary "%MOD_FOLDER%/ssl/library"
+
+
+  // Set up crossplatform variables
+
+  OUTER_TEXT_SPRINT component_loc "lib"
+  INCLUDE "%MOD_FOLDER%/%component_loc%/crossplatform.tpa"
 END	// done_init
 
 
