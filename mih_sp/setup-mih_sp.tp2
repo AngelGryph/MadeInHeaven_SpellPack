@@ -21,7 +21,7 @@ END	// ALWAYS block
 LANGUAGE "English"
          "english"
 	 "mih_sp/language/english/setup-mih_sp.tra"
-	 "weidu_external/lang/english/mih_sp/setup-mih_sp.tra"
+	 "weidu_external/lang/mih_sp/english/setup-mih_sp.tra"
 
 
 // Made in Heaven: Spell Restorations
@@ -113,19 +113,6 @@ GROUP @5
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "no_elemental_mind_battle"
-  location	= "tweaks"
-END
-
-
-// Protection from Evil blocks Domination
-
-BEGIN @8
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "pfe_blocks_domination"
-  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
