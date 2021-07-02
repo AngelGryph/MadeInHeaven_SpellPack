@@ -2,16 +2,28 @@ DEFINE_ACTION_FUNCTION setup_paladin_powers
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "paladin_resources paladin_core"
+    file	= "paladin_preproc"
     tra		= "paladin_powers"
   END
 
+  LAUNCH_ACTION_FUNCTION install_spell_pack
+    STR_VAR
+    tra		= "arcane_spellpack"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "paladin_postproc"
+    tra		= "paladin_powers"
+  END
+
+  
   ACTION_IF has_tob
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "paladin_hla"
-      tra	= "paladin_spells"
+      tra	= "paladin_powers"
     END
   END
 END	// setup_paladin_powers

@@ -1,0 +1,31 @@
+DEFINE_ACTION_FUNCTION paladin_preproc
+BEGIN
+  // Create smite damage effects
+
+  OUTER_FOR (SET i = 1; i <= 11; ++i)
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_effect
+      STR_VAR
+      effect		= "mh#m%i%d6"
+      editstring	= "opcode=>12 target=>2 timing=>1 parameter2=>0x00400000 dicenum=>%i% dicesize=>6"
+    END
+  END
+
+
+  // Create innate version of Cure Disease
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level		= 3
+    STR_VAR
+    idsname		= "PALADIN_CURE_DISEASE"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "sppr317=>%cure_disease%"
+    editstring	= ~spell_type=>"innate" patch_ability_inline=>"ability_icon_loc=>4 casting_time=>1"~
+  END
+END	// paladin_preproc
+
+
