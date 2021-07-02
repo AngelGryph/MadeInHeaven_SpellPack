@@ -173,6 +173,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Revised Spell Learning XP
+
+BEGIN @8
+GROUP @15
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "spell_learning_xp"
+  location	= "tweaks"
+END
+
+
 // Temples sell Priest Scrolls
 
 BEGIN @14
