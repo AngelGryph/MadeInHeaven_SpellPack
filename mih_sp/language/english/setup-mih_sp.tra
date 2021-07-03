@@ -1,7 +1,7 @@
 @0    = ~dummy~
 @1    = ~Made in Heaven: Arcane Spellpack~
 @2    = ~Made in Heaven: Divine Spellpack~
-@3    = ~Made in Heaven: Paladin Powers~
+@3    = ~Revised Paladin Powers~
 @4    = ~Made in Heaven: Spell Restorations~
 @5    = ~Spell Effect Tweaks~
 @6    = ~Some other mod already provides or supercedes this component.~
@@ -15,7 +15,7 @@
 @14   = ~Temples sell Priest Scrolls~
 @15   = ~Spell Availability Tweaks~
 @16   = ~Thalantyr the *Conjurer*~
-//@17   = ~Revised Strength Table~
+@17   = ~Revised Bhaalspawn Powers~
 //@18   = ~Game Rule Tweaks~
 //@19   = ~Revised Dexterity Table~
 //@20   = ~Revised Constitution Table~
