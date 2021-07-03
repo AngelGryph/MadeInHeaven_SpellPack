@@ -81,6 +81,17 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Made in Heaven: Bhaalspawn Powers Pack
+
+BEGIN @17
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bhaalspawn_powers"
+  location	= "bhaalspawn"
+END
+
+
 // Revised Animate Dead
 
 BEGIN @7

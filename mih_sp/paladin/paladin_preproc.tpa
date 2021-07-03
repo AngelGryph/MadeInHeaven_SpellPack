@@ -19,6 +19,8 @@ BEGIN
     level		= 3
     STR_VAR
     idsname		= "PALADIN_CURE_DISEASE"
+    RET
+    cure_disease	= newname
   END
 
   LAUNCH_ACTION_FUNCTION clone_spell

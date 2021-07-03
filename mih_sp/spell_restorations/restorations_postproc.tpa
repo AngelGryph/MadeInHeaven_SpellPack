@@ -1,5 +1,61 @@
 DEFINE_ACTION_FUNCTION restorations_postproc
 BEGIN
+/*
+  // Create Tattoos of Power innates
+
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "WIZARD_TATTOOS_OF_POWER"
+    RET
+    spell_res
+  END
+
+  MAKE_PATCH
+    icon=>"%spell_res%c"
+    patch_ability_inline=>~ability_icon=>"%spell_res%b"~
+    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%spell_res%"~
+    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%spell_res%d"~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi420d=>%spell_res%d"
+    edits	= "patch_data"
+  END
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      icon=>"%spell_res%c"
+      patch_ability_inline=>~ability_icon=>"%spell_res%b"~
+      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%spell_res%"~
+      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%spell_res%p"~
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_spell
+      STR_VAR
+      spell	= "spwi420p=>%spell_res%p"
+      edits	= "patch_data"
+    END
+
+    ACTION_TO_UPPER spell_res
+
+    OUTER_SPRINT tattoos_of_power_title @21
+    OUTER_SPRINT add_spells_tattoos_label @23
+
+    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~uiStrings = {~
+        ~uiStrings = {%WNL%%TAB%TATTOOS_OF_POWER_TITLE = "%tattoos_of_power_title%",%WNL%%TAB%ADD_SPELLS_TATTOOS_LABEL = "%add_spells_tattoos_label%",~
+
+    COPY_EXISTING "bgee.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~mageBookStrings = {~
+        ~mageBookStrings = {%WNL%%TAB%%spell_res% = {tip = 24616, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
+  END
+*/
+
+
   // Add spell scrolls to shops
 
   ACTION_IF is_bg1
@@ -106,8 +162,15 @@ BEGIN
   // Make Cure Blind/Deaf purchaseable at temples
   // (Can't use SFO here, no functions for this edit.)
 
+  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+    STR_VAR
+    spell_name	= "CLERIC_CURE_BLIND_DEAF"
+    RET
+    spell_res
+  END
+
   OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@12)
-  APPEND "speldesc.2da" "sppr316	%cure_bd_desc%"
+  APPEND "speldesc.2da" "%spell_res%	%cure_bd_desc%"
 
   COPY_EXISTING_REGEXP "^.+\.sto$" "override"
     SET new_offset = 0
@@ -128,7 +191,7 @@ BEGIN
     PATCH_IF new_offset > 0 AND price > 0
     BEGIN
       INSERT_BYTES new_offset 0x0c
-      WRITE_ASCII new_offset "sppr316"
+      WRITE_ASCII new_offset "%spell_res%"
       WRITE_LONG (new_offset + 0x0008) price
 
       PATCH_IF LONG_AT (0x002c) >= new_offset

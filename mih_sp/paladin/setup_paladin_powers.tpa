@@ -8,7 +8,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION install_spell_pack
     STR_VAR
-    tra		= "arcane_spellpack"
+    tra		= "paladin_powers"
   END
 
   LAUNCH_ACTION_FUNCTION run
