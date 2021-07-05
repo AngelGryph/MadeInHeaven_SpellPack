@@ -196,14 +196,15 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Temples sell Priest Scrolls
+// Expanded Temple Services
 
 BEGIN @14
 GROUP @15
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "temples_sell_scrolls"
+  file		= "expanded_temple_services"
+  tra		= "expanded_temple_services"
   location	= "tweaks"
 END
 
