@@ -66,23 +66,23 @@ BEGIN
   MAKE_PATCH
     match=>~store_type = temple~
     delete_cure=>~cure_resource is_in [sppr317 sppr417]~ // Prevent dups
-    clone_cure_inline'1=>~match=>"cure_resource = sppr307" cure_resource=>sppr317~
-    clone_cure_inline'2=>~match=>"cure_resource = sppr401" cure_resource=>sppr417~
+    clone_cure_inline'1=>~match=>"cure_resource = sppr307" cure_resource=>sppr317 cure_price=>"cure_price / 2"~
+    clone_cure_inline'2=>~match=>"cure_resource = sppr401" cure_resource=>sppr417 cure_price=>"cure_price * 3"~
     literal'01=>~ADD_STORE_ITEM "scrl21" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
     literal'02=>~ADD_STORE_ITEM "scrl26" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
-    literal'01=>~ADD_STORE_ITEM "scrl29" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
-    literal'03=>~ADD_STORE_ITEM "scrl40" BEFORE "scrlpet restore" #1 #0 #0 "identified" #3~
-    literal'04=>~ADD_STORE_ITEM "scrl46" BEFORE "scrlpet restore" #1 #0 #0 "identified" #3~
-    literal'05=>~ADD_STORE_ITEM "scrl50" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'06=>~ADD_STORE_ITEM "scrl51" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'07=>~ADD_STORE_ITEM "scrl52" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'08=>~ADD_STORE_ITEM "scrl56" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'09=>~ADD_STORE_ITEM "scrl58" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'10=>~ADD_STORE_ITEM "scrl59" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'11=>~ADD_STORE_ITEM "scrl5f" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-    literal'12=>~ADD_STORE_ITEM "scrl61" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-    literal'13=>~ADD_STORE_ITEM "scheal" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-    literal'14=>~ADD_STORE_ITEM "scrsct" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
+    literal'03=>~ADD_STORE_ITEM "scrl29" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
+    literal'04=>~ADD_STORE_ITEM "scrl40" BEFORE "scrlpet restore" #1 #0 #0 "identified" #3~
+    literal'05=>~ADD_STORE_ITEM "scrl46" BEFORE "scrlpet restore" #1 #0 #0 "identified" #3~
+    literal'06=>~ADD_STORE_ITEM "scrl50" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    literal'07=>~ADD_STORE_ITEM "scrl51" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    literal'08=>~ADD_STORE_ITEM "scrl52" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    literal'09=>~ADD_STORE_ITEM "scrl56" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    literal'10=>~ADD_STORE_ITEM "scrl58" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    literal'11=>~ADD_STORE_ITEM "scrl59" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
+    literal'12=>~ADD_STORE_ITEM "scrl5f" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
+    literal'13=>~ADD_STORE_ITEM "scrl61" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
+    literal'14=>~ADD_STORE_ITEM "scheal" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
+    literal'15=>~ADD_STORE_ITEM "scrsct" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
   END
 
   // Add Cure Blindness/Deafness if available
@@ -100,7 +100,7 @@ BEGIN
 
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      clone_cure_inline'98=>~match=>"cure_resource = sppr212" cure_resource=>%spell_res%~
+      clone_cure_inline'98=>~match=>"cure_resource = sppr212" cure_resource=>%spell_res% cure_price=>"(cure_price * 3) / 2"~
       literal'98=>~ADD_STORE_ITEM "mh#curbd" AFTER "scrl26" #1 #0 #0 "identified" #4~
     END
   END
@@ -120,7 +120,7 @@ BEGIN
 
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      clone_cure_inline'99=>~match=>"cure_resource = sppr504" cure_resource=>%spell_res%~
+      clone_cure_inline'99=>~match=>"cure_resource = sppr504" cure_resource=>%spell_res% cure_price=>"(cure_price * 2) / 3~
       literal'99=>~ADD_STORE_ITEM "mh#prs53" AFTER "scrl5f" #1 #0 #0 "identified" #1~
     END
   END

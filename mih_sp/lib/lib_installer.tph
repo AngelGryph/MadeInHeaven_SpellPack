@@ -2,7 +2,7 @@ DEFINE_ACTION_MACRO __handle_projectile
 BEGIN
   ACTION_IF "%projectile%" STRING_COMPARE "*"
   BEGIN
-    ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/%projectile%.pro"
+    ADD_PROJECTILE "%file_loc%/projectiles/%projectile%.pro"
     OUTER_SET pronum = IDS_OF_SYMBOL("projectl" "%projectile%") + 1
     
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
@@ -10,21 +10,23 @@ BEGIN
       patch_ability_inline'2=>~projectile=>"%pronum%"~
     END
 
-    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/graphics/%projectile%.bam"
+    ACTION_IF FILE_EXISTS "%file_loc%/graphics/%projectile%.bam"
     BEGIN
       LAUNCH_ACTION_FUNCTION install
         STR_VAR
         file		= "%projectile%.bam"
         location	= "graphics"
+	locbase
       END
     END
 
-    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/graphics/%projectile%.vvc"
+    ACTION_IF FILE_EXISTS "%file_loc%/graphics/%projectile%.vvc"
     BEGIN
       LAUNCH_ACTION_FUNCTION install
         STR_VAR
         file		= "%projectile%.vvc"
         location	= "graphics"
+	locbase
       END
     END
   END
@@ -48,8 +50,8 @@ BEGIN
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      patch_effect_inline'2=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and save_vs_spells" parameter1=>"parameter1 * 2" dicenum=>"dicenum * 2" mode=>256~
-      delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not save_vs_spells~
+      patch_effect_inline'2=>~match=>"%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and (save_vs_death or save_vs_breath or save_vs_polymorph or save_vs_wands or save_vs_spells)" parameter1=>"parameter1 * 2" dicenum=>"dicenum * 2" mode=>256~
+      delete_effect=>~%enhanced_edition% and %use_ee_half_damage% and opcode = 12 and not (save_vs_death or save_vs_breath or save_vs_polymorph or save_vs_wands or save_vs_spells)~
     END
   END
 
@@ -103,7 +105,18 @@ DEFINE_ACTION_FUNCTION install_item_pack
   item_eff	= "itm_eff"
   item_copy	= "_copy"
   tra		= ""
+  locbase	= ""
+  locabs	= ""
 BEGIN
+  LAUNCH_ACTION_FUNCTION get_directory
+    STR_VAR
+    location
+    locbase
+    locabs
+    RET
+    file_loc	= directory
+  END
+
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
     ini		= "use_ee_half_damage"
@@ -162,7 +175,7 @@ BEGIN
 
   ACTION_IF "%tra%" STRING_EQUAL ""
   BEGIN
-    OUTER_TEXT_SPRINT tra "%component_loc%"
+    OUTER_TEXT_SPRINT tra "%file_loc%"
   END
 
   WITH_TRA "%scs_tra_loc%/english/%tra%.tra"
@@ -172,13 +185,13 @@ BEGIN
 
     ACTION_IF "%item_copy%" STRING_COMPARE ""
     BEGIN
-      COPY_LARGE "%MOD_FOLDER%/%component_loc%/%item_copy%" "override"
+      COPY_LARGE "%file_loc%/%item_copy%" "override"
     END
 
 
     // Simple pseudo items, cre paws & stuff
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%item_itm%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%item_itm%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_items cols
@@ -205,6 +218,7 @@ BEGIN
 	    item	= "%resref%"
 	    location	= "items"
 	    edits	= "patch_data"
+	    locbase
 	  END
         END
       END
@@ -212,7 +226,7 @@ BEGIN
 
     // Simple summons for single items
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%item_cre%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%item_cre%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_summons cols
@@ -230,12 +244,16 @@ BEGIN
 	    creature	= "%resref%"
 	    location	= "actors"
 	    editstring	= "say_both_names=>%name_tra%"
+	    locbase
 	  END
 	
-	  LAUNCH_ACTION_FUNCTION make_effect
-	    STR_VAR
-	    effect	= "%resref%"
-	    editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"%resref%" vvc=>"%vvc%"~
+	  ACTION_IF "%vvc%" STRING_COMPARE_CASE "*"
+	  BEGIN
+	    LAUNCH_ACTION_FUNCTION make_effect
+	      STR_VAR
+	      effect	= "%resref%"
+	      editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"%resref%" vvc=>"%vvc%"~
+	    END
 	  END
         END
       END
@@ -243,7 +261,7 @@ BEGIN
 
     // Simple effects
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%item_eff%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%item_eff%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_effects cols
@@ -272,7 +290,7 @@ BEGIN
 
     // Process secondary spells
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%item_spl%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%item_spl%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_secondary cols
@@ -305,6 +323,7 @@ BEGIN
 	    spell	= "%filename%"
 	    location	= "spells"
 	    edits	= "patch_data"
+	    locbase
 	  END
         END
       END
@@ -312,7 +331,7 @@ BEGIN
 
     // Process main items table
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%item_main%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%item_main%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_item_main cols
@@ -400,6 +419,7 @@ BEGIN
 	    item	= "%item_res%"
 	    location	= "items"
 	    edits	= "patch_data"
+	    locbase
 	  END
 	END
       END
@@ -416,7 +436,18 @@ DEFINE_ACTION_FUNCTION install_spell_pack
   spell_eff	= "spl_eff"
   spell_copy	= "_copy"
   tra		= ""
+  locbase	= ""
+  locabs	= ""
 BEGIN
+  LAUNCH_ACTION_FUNCTION get_directory
+    STR_VAR
+    location
+    locbase
+    locabs
+    RET
+    file_loc	= directory
+  END
+
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
     ini		= "use_ee_half_damage"
@@ -426,7 +457,7 @@ BEGIN
 
   ACTION_IF "%tra%" STRING_EQUAL ""
   BEGIN
-    OUTER_TEXT_SPRINT tra "%component_loc%"
+    OUTER_TEXT_SPRINT tra "%file_loc%"
   END
 
   WITH_TRA "%scs_tra_loc%/english/%tra%.tra"
@@ -444,13 +475,13 @@ BEGIN
 
     ACTION_IF "%spell_copy%" STRING_COMPARE ""
     BEGIN
-      COPY_LARGE "%MOD_FOLDER%/%component_loc%/%spell_copy%" "override"
+      COPY_LARGE "%file_loc%/%spell_copy%" "override"
     END
 
 
     // Simple spell items, cre paws & stuff
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_itm%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%spell_itm%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_items cols
@@ -477,6 +508,7 @@ BEGIN
 	    item	= "%resref%"
 	    location	= "items"
 	    edits	= "patch_data"
+	    locbase
 	  END
         END
       END
@@ -484,7 +516,7 @@ BEGIN
 
     // Simple summons for single spells
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_cre%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%spell_cre%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_summons cols
@@ -502,12 +534,16 @@ BEGIN
 	    creature	= "%resref%"
 	    location	= "actors"
 	    editstring	= "say_both_names=>%name_tra%"
+	    locbase
 	  END
 	
-	  LAUNCH_ACTION_FUNCTION make_effect
-	    STR_VAR
-	    effect	= "%resref%"
-	    editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"%resref%" vvc=>"%vvc%"~
+	  ACTION_IF "%vvc%" STRING_COMPARE_CASE "*"
+	  BEGIN
+	    LAUNCH_ACTION_FUNCTION make_effect
+	      STR_VAR
+	      effect	= "%resref%"
+	      editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"%resref%" vvc=>"%vvc%"~
+	    END
 	  END
         END
       END
@@ -515,7 +551,7 @@ BEGIN
 
     // Simple effects
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_eff%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%spell_eff%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_effects cols
@@ -544,7 +580,7 @@ BEGIN
 
     // Process secondary spells
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_spl%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%spell_spl%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_secondary cols
@@ -577,6 +613,7 @@ BEGIN
 	    spell	= "%filename%"
 	    location	= "spells"
 	    edits	= "patch_data"
+	    locbase
 	  END
         END
       END
@@ -584,7 +621,7 @@ BEGIN
 
     // Process main spells table
 
-    COPY - "%MOD_FOLDER%/%component_loc%/tables/%spell_main%.2da" "%workspace%"
+    COPY - "%file_loc%/tables/%spell_main%.2da" "%workspace%"
       COUNT_2DA_COLS cols
       COUNT_2DA_ROWS cols rows
       READ_2DA_ENTRIES_NOW __MH_RESERVED_spell_main cols
@@ -622,7 +659,7 @@ BEGIN
             STR_VAR
             idsname
 	    filename
-	    file_loc	= "%MOD_FOLDER%/%component_loc%/spells"
+	    file_loc	= "%file_loc%/spells"
             RET
             newname
           END
@@ -678,16 +715,16 @@ BEGIN
 	  ACTION_FOR_EACH suffix IN "a" "b" "c"
 	  BEGIN
 	    ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%%suffix%.bam" AND
-	     FILE_EXISTS "%MOD_FOLDER%/%component_loc%/graphics/%idsname%_%suffix%.bam"
+	     FILE_EXISTS "%file_loc%/graphics/%idsname%_%suffix%.bam"
 	    BEGIN
-	      COPY_LARGE "%MOD_FOLDER%/%component_loc%/graphics/%idsname%_%suffix%.bam" "override/%newname%%suffix%.bam"
+	      COPY_LARGE "%file_loc%/graphics/%idsname%_%suffix%.bam" "override/%newname%%suffix%.bam"
 	    END
 	  END
 
 
           // Install and patch the actual spell file.
 
-          COPY + "%MOD_FOLDER%/%component_loc%/spells/%filename%.spl" "%workspace%/%newname%.spl"
+          COPY + "%file_loc%/spells/%filename%.spl" "%workspace%/%newname%.spl"
 
 	  LAUNCH_ACTION_FUNCTION install_spell
 	    STR_VAR

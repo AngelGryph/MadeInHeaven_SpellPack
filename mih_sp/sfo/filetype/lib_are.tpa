@@ -717,6 +717,8 @@ DEFINE_ACTION_FUNCTION extend_area_script
            top=""
            bottom=""
            location=""
+           locbase=""
+           locabs=""
            variables=""
            inline="no"
            ssl="no"
@@ -727,8 +729,8 @@ BEGIN
       END
       LAF return_first_entry STR_VAR list= ~%area%~ RET entry=entry area=list END
       LAF get_area_script STR_VAR area= ~%entry%~ RET file=script END
-      LAF extend STR_VAR file top bottom location inline ssl variables END
-      LAF extend_area_script STR_VAR area top bottom location inline ssl variables END
+      LAF extend STR_VAR file top bottom location locbase locabs inline ssl variables END
+      LAF extend_area_script STR_VAR area top bottom location locbase locabs inline ssl variables END
    END
 END
 

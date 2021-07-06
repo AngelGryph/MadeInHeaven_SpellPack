@@ -244,7 +244,8 @@ Area of Effect: 15-ft. radius
 Saving Thrown: None
 
 By casting Aura of Vitality, the druid greatly boosts the vitality of affected creatures including <PRO_HIMHER>self.  For the duration of the spell, strength, dexterity and constitution are all raised by four points.~
-@39   = ~Protection From Cold
+@39   = ~Protection From Cold~
+@40   = ~Protection From Cold
 (Abjuration)
 
 Level: 3
@@ -256,7 +257,7 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 The effects of a Protection From Cold spell last no longer than 3 rounds plus 1 round per level of the caster. When the spell is cast, it confers complete invulnerability to normal cold (snow, ice, near-freezing water, and the like) and to exposure to magical cold (frost dragon breath, winter wolf or cryohydra breath, spells such as Frost Fingers, Ice Storm, Cone of Cold, Otiluke's Freezing Sphere, Polar Ray, and so on), absorbing 80% of all the damage dealt by such magical sources.~
-@40   = ~Ice Storm
+@41   = ~Ice Storm
 (Evocation)
 
 Level: 4

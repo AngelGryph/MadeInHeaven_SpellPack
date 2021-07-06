@@ -40,13 +40,13 @@ This powerful abjuration spell protects the caster from being harmed by spells. 
 
 Level: 1
 Sphere: Animal
-Range: 30 ft.
-Duration: Permanent
-Casting Time: 5
+Range: Caster
+Duration: 1 hour
+Casting Time: 9
 Area of Effect: 1 animal
-Saving Throw: Neg.
+Saving Throw: None
 
-By means of this spell, the caster can befriend a single animal.  If succesful, the animal will be friendly to the caster and follow <PRO_HIMHER> around, although it will not leave the area where it was found.  The duration is permanent as long as the caster or <PRO_HISHER> allies do not harm or provoke the animal in any way.~
+This spell must be cast outdoors or there is no effect.  The spell conjures one animal that follows the spellcaster around and will attack <PRO_HISHER> enemies until it is slain or the duration expires.~
 @8   = ~Endure Cold/Heat~
 @9   = ~Endure Cold/Heat
 (Alteration)
@@ -73,7 +73,7 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 By laying <PRO_HISHER> hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
-@12  = ~The selected character is cured of blindness and deafness.~
+//@12  = ~The selected character is cured of blindness and deafness.~
 @13  = ~Otto's Irresistible Dance~
 @14  = ~Otto's Irresistible Dance
 (Enchantment/Charm)
@@ -97,7 +97,7 @@ Casting Time: 6
 Area of Effect: 1 creature
 Saving Throw: None
 
-This spell places a protectiva ward on the creature touched which improves the armor class of the recipient by 3.  Thus AC 8 becomes AC 5.  The protection is cumulative with other forms of armor, including that granted by an Armor- or Shield spell.  It lasts until dispelled or the duration runs out.~
+This spell places a protective ward on the creature touched which improves the armor class of the recipient by 3.  Thus AC 8 becomes AC 5.  The protection is cumulative with other forms of armor, including that granted by an Armor- or Shield spell.  It lasts until dispelled or the duration runs out.~
 @17  = ~Circle of Protection~
 @18  = ~Circle of Protection
 (Enchantment)
@@ -123,5 +123,8 @@ Area of Effect: 30-ft. radius
 Saving Throw: None
 
 This spell discovers disturbances in the Weave in any creature. Any creature within the range of the spell that has one or more active spells on them will glow red briefly.~
+@21  = ~Tattoos of Power~
+@22  = ~Tattoos of Power~
+@23  = ~Add spells to your tattoos of power~
 
 

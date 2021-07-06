@@ -1,6 +1,5 @@
 DEFINE_ACTION_FUNCTION restorations_postproc
 BEGIN
-/*
   // Create Tattoos of Power innates
 
   LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
@@ -53,7 +52,6 @@ BEGIN
         ~mageBookStrings = {~
         ~mageBookStrings = {%WNL%%TAB%%spell_res% = {tip = 24616, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
   END
-*/
 
 
   // Add spell scrolls to shops
@@ -157,62 +155,6 @@ BEGIN
       edits	= "patch_data"
     END
   END
-
-
-  // Make Cure Blind/Deaf purchaseable at temples
-  // (Can't use SFO here, no functions for this edit.)
-
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name	= "CLERIC_CURE_BLIND_DEAF"
-    RET
-    spell_res
-  END
-
-  OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@12)
-  APPEND "speldesc.2da" "%spell_res%	%cure_bd_desc%"
-
-  COPY_EXISTING_REGEXP "^.+\.sto$" "override"
-    SET new_offset = 0
-    SET price = 0
-
-    GET_OFFSET_ARRAY cures_array STO_V10_CURES
-    PHP_EACH cures_array AS int => cures_offset
-    BEGIN
-      READ_ASCII cures_offset cure_res
-
-      PATCH_IF "%cure_res%" STRING_EQUAL_CASE "sppr212"
-      BEGIN
-        SET new_offset = cures_offset + 0x0c
-        READ_LONG (cures_offset + 0x0008) price
-      END
-    END
-
-    PATCH_IF new_offset > 0 AND price > 0
-    BEGIN
-      INSERT_BYTES new_offset 0x0c
-      WRITE_ASCII new_offset "%spell_res%"
-      WRITE_LONG (new_offset + 0x0008) price
-
-      PATCH_IF LONG_AT (0x002c) >= new_offset
-      BEGIN
-        WRITE_LONG 0x002c (THIS + 0x0c)
-      END
-
-      PATCH_IF LONG_AT (0x0034) >= new_offset
-      BEGIN
-        WRITE_LONG 0x0034 (THIS + 0x0c)
-      END
-
-      PATCH_IF LONG_AT (0x004c) >= new_offset
-      BEGIN
-        WRITE_LONG 0x004c (THIS + 0x0c)
-      END
-
-      WRITE_LONG 0x0074 (THIS + 1)
-    END
-
-    BUT_ONLY_IF_IT_CHANGES
 END	// restorations_postproc
 
 

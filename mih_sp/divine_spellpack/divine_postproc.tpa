@@ -59,6 +59,21 @@ BEGIN
       edits	= "patch_data"
     END
   END
+
+
+  // "Protection from Cold" string is not the same between BGEE and BG2EE.
+
+  OUTER_SET prot_cold_strref = RESOLVE_STR_REF(@39)
+
+  MAKE_PATCH
+    patch_effect_inline=>~match=>"opcode = 139" parameter1=>%prot_cold_strref%~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "CLERIC_PROTECTION_FROM_COLD"
+    edits	= "patch_data"
+  END
 END	// divine_postproc
 
 
