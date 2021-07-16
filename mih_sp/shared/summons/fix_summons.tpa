@@ -2,7 +2,7 @@ DEFINE_ACTION_FUNCTION fix_summons
 BEGIN
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
-    file	= "mh#unsum.bam"
+    file	= "rr#usumn.bam"
     location	= "graphics"
     locbase
   END

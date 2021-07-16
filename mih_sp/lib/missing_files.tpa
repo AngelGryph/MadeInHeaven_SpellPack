@@ -1,0 +1,57 @@
+// Copy over files that don't need further editing
+
+LAUNCH_ACTION_FUNCTION install
+  INT_VAR
+  overwrite	= 0
+  STR_VAR
+  file		= "all"
+  location	= "resource/missing/_copy"
+END
+
+
+ACTION_IF GAME_IS "bgee sod"
+BEGIN
+  OUTER_TEXT_SPRINT game "BGEE"
+END
+ELSE
+BEGIN
+  OUTER_TEXT_SPRINT game "OTHER"
+END
+
+COPY - "%MOD_FOLDER%/%component_loc%/resource/missing/cre_strref.2da" "%workspace%"
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+
+  FOR (SET i = 0; i < rows; ++i)
+  BEGIN
+    LAUNCH_PATCH_FUNCTION read_table_entry
+      INT_VAR
+      rownum	= i
+      colnum	= 0
+      RET
+      creature	= value
+    END
+
+    LAUNCH_PATCH_FUNCTION read_table_entry
+      INT_VAR
+      rownum	= i
+      STR_VAR
+      column	= "%game%"
+      RET
+      strref	= value
+    END
+
+    INNER_ACTION
+    BEGIN
+      LAUNCH_ACTION_FUNCTION install_creature
+        INT_VAR
+        overwrite	= 0
+        STR_VAR
+        creature
+        editstring	= "name1_string=>%strref% name2_string=>%strref%"
+        location	= "resource/missing"
+      END
+    END
+  END
+
+

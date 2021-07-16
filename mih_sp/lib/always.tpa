@@ -54,6 +54,7 @@ BEGIN
   LAUNCH_ACTION_MACRO read_in_saving_throws
   LAUNCH_ACTION_MACRO read_in_thac0
   LAUNCH_ACTION_MACRO read_in_hit_point_levels
+  OUTER_TEXT_SPRINT component_loc "lib"
 
 
   // Set up SSL compiler
@@ -63,8 +64,18 @@ BEGIN
 
   // Set up crossplatform variables
 
-  OUTER_TEXT_SPRINT component_loc "lib"
-  INCLUDE "%MOD_FOLDER%/%component_loc%/crossplatform.tpa"
+  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/crossplatform.tpa"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/%component_loc%/crossplatform.tpa"
+  END
+
+
+  // Install any files that might be missing
+
+  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/missing_files.tpa"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/%component_loc%/missing_files.tpa"
+  END
 END	// done_init
 
 
