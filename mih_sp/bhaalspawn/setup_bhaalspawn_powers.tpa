@@ -1,7 +1,15 @@
 DEFINE_ACTION_FUNCTION setup_bhaalspawn_powers
 BEGIN
-  LAUNCH_ACTION_FUNCTION install_spell_pack
+  LAUNCH_ACTION_FUNCTION install
     STR_VAR
+    file	= "all"
+    postfix	= "bam"
+    location	= "graphics"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "good_powers evil_powers"
     tra		= "bhaalspawn_powers"
   END
 END	// setup_bhaalspawn_powers

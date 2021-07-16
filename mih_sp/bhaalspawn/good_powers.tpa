@@ -1,0 +1,56 @@
+DEFINE_ACTION_FUNCTION good_powers
+BEGIN
+  // Cure Light Wounds => Healing Touch
+
+  MAKE_PATCH
+    say_name=>0
+    icon=>"rr#bp1g"
+    patch_ability_inline=>~ability_icon=>"rr#bp1g"~
+    clone_ability_inline=>~number_to_add=>19 ability_min_level=>"entry_index + 1"~
+    patch_effect_inline=>~match=>"opcode = 18" parameter1=>0 dicenum=>ability_true_level dicesize=>4~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "INNATE_CURE_LIGHT_WOUNDS"
+    edits	= "patch_data"
+  END
+
+
+  // Slow Poison => Purifying Touch
+
+  MAKE_PATCH
+    say_name=>1
+    icon=>"rr#bp2g"
+    patch_ability_inline=>~ability_icon=>"rr#bp2g"~
+    clone_ability_inline=>~number_to_add=>4 ability_min_level=>"5 + entry_index * 5"~
+    add_effect_inline'1=>~match=>"ability_min_level > 4" number_to_add=>2 opcode=>"entry_index from [75 81]" target=>2 timing=>1 power=>2~
+    add_effect_inline'2=>~match=>"ability_min_level > 9" number_to_add=>2 opcode=>"entry_index from [77 79]" target=>2 timing=>1 power=>2~
+    add_effect_inline'3=>~match=>"ability_min_level > 14" opcode=>43 target=>2 timing=>1 power=>2~
+    add_effect_inline'4=>~match=>"ability_min_level > 19" opcode=>224 target=>2 timing=>1 power=>2~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "INNATE_SLOW_POISON"
+    edits	= "patch_data"
+  END
+
+
+  // Draw Upon Holy Might => Divine Might
+
+  MAKE_PATCH
+    say_name=>2
+    icon=>"rr#bp3g"
+    patch_ability_inline=>~ability_icon=>"rr#bp3g"~
+    clone_effect_inline=>~match=>"opcode = 132" number_to_add=>6 opcode=>"entry_index from [0 33 34 35 36 37]"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "INNATE_DRAW_UPON_HOLY_MIGHT"
+    edits	= "patch_data"
+  END
+END	// good_powers
+
+

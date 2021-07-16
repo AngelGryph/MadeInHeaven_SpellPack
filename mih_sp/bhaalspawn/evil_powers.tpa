@@ -1,0 +1,6 @@
+DEFINE_ACTION_FUNCTION evil_powers
+BEGIN
+  // TODO: Enhanced evil powers!
+END	// evil_powers
+
+
