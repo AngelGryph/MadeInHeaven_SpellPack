@@ -5,9 +5,10 @@ BEGIN
   MAKE_PATCH
     say_name=>0
     icon=>"rr#bp1g"
+    delete_ability=>"ability_min_level > 1"
     patch_ability_inline=>~ability_icon=>"rr#bp1g"~
     clone_ability_inline=>~number_to_add=>19 ability_min_level=>"entry_index + 1"~
-    patch_effect_inline=>~match=>"opcode = 18" parameter1=>0 dicenum=>ability_true_level dicesize=>4~
+    patch_effect_inline=>~match=>"opcode = 17" parameter1=>0 dicenum=>ability_true_level dicesize=>4~
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
@@ -22,6 +23,7 @@ BEGIN
   MAKE_PATCH
     say_name=>1
     icon=>"rr#bp2g"
+    delete_ability=>"ability_min_level > 1"
     patch_ability_inline=>~ability_icon=>"rr#bp2g"~
     clone_ability_inline=>~number_to_add=>4 ability_min_level=>"5 + entry_index * 5"~
     add_effect_inline'1=>~match=>"ability_min_level > 4" number_to_add=>2 opcode=>"entry_index from [75 81]" target=>2 timing=>1 power=>2~

@@ -30,7 +30,7 @@ BEGIN
   END
 
   MAKE_PATCH
-    delete_effect=>~opcode is_in [67 127 177] and ability_min_level < 15~
+    delete_effect=>~opcode is_in [67 127 177 331] and ability_min_level < 15~
     add_effect_inline=>~match=>"ability_min_level < 15" opcode=>177 target=>1 duration=>2400 parameter2=>2 power=>level resource=>"spandead"~
   END
 

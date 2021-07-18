@@ -1,47 +1,12 @@
 DEFINE_ACTION_FUNCTION more_summons
 BEGIN
-  ACTION_CLEAR_ARRAY summon_list
-
-  ACTION_IF GAME_IS "bgee"
+  ACTION_IF GAME_IS "bgee sod"
   BEGIN
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_list
-    BEGIN
-      "ankhegsu"=>"ankheg"
-      "dopplesu"=>"dopple"
-      "ghoulgsu"=>"ghoullor"
-      "jellgrsu"=>"jellgr"
-      "jellocsu"=>"jelloc"
-      "otyughsu"=>"otyugh"
-      "skeletsu"=>"skelet"
-      "snakegsu"=>"bdsnak01"
-      "spidhusu"=>"spidhu"
-      "werewosu"=>"werewo"
-      "wyvbabsu"=>"wyverba"
-      "zombiesu"=>"zombie"
-    END
+    OUTER_TEXT_SPRINT game "BGEE"
   END
   ELSE
   BEGIN
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY summon_list
-    BEGIN
-      "ankhegsu"=>"ankheg01"
-      "dopplesu"=>"dopple01"
-      "ghoulgsu"=>"ghogr01"
-      "golemfsu"=>"golfle01"
-      "golemssu"=>"golsto01"
-      "jellgrsu"=>"jelgra01"
-      "jellocsu"=>"jeloch01"
-      "mummysu" =>"mummy01"
-      "otyughsu"=>"otyugh01"
-      "skeletsu"=>"skelet01"
-      "snakegsu"=>"snakeg01"
-      "spidhusu"=>"spidhu01"
-      "umbhulsu"=>"umbhul01"
-      "umbeldsu"=>"umbhul02"
-      "werewosu"=>"werewo01"
-      "wyvbabsu"=>"wyvbab01"
-      "zombiesu"=>"zombie01"
-    END
+    OUTER_TEXT_SPRINT game "OTHER"
   END
 
   MAKE_PATCH
@@ -56,17 +21,41 @@ BEGIN
     patch_item_inline=>"unstealable=>1 undroppable=>1"
   END
 
-  ACTION_PHP_EACH summon_list AS summon => resource
-  BEGIN
-    ACTION_IF NOT FILE_EXISTS_IN_GAME "%summon%.cre"
+  COPY - "%MOD_FOLDER%/shared/summons/tables/summons.2da" "%workspace%"
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+
+    FOR (SET i = 0; i < rows; ++i)
     BEGIN
-      LAUNCH_ACTION_FUNCTION clone_creature
+      LAUNCH_PATCH_FUNCTION read_table_entry
+        INT_VAR
+        rownum		= i
+        colnum		= 0
+        RET
+        summon		= value
+      END
+
+      LAUNCH_PATCH_FUNCTION read_table_entry
+        INT_VAR
+        rownum		= i
         STR_VAR
-	creature	= "%resource%=>%summon%"
-	edits		= "patch_data"
+        column		= "%game%"
+        RET
+        creature	= value
+      END
+
+      INNER_ACTION
+      BEGIN
+        LAUNCH_ACTION_FUNCTION clone_creature
+          INT_VAR
+          overwrite		= 0
+          STR_VAR
+          creature
+	  creature	= "%creature%=>%summon%"
+	  edits		= "patch_data"
+        END
       END
     END
-  END
 END	// more_summons
 
 
