@@ -17,18 +17,11 @@ BEGIN
 
     FOR (SET i = 1; i < rows; ++i)
     BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_maximize i 0 spell_name
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_maximize i 0 idsname
 
       INNER_ACTION
       BEGIN
-        LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-	  STR_VAR
-	  spell_name
-	  RET
-	  spell_res
-	END
-
-        COPY_EXISTING - "%spell_res%.spl" "%workspace%"
+        COPY_EXISTING - "%%idsname%%.spl" "%workspace%"
 	  LAUNCH_PATCH_FUNCTION SPL_read_level
 	    RET
 	    spell_level	= value
@@ -39,7 +32,7 @@ BEGIN
 	    spell_type	= value
 	  END
 
-        INNER_PATCH_SAVE max_name "%spell_name%"
+        INNER_PATCH_SAVE max_name "%idsname%"
         BEGIN
           REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH ~WIZARD~ ~MAXIMIZED~
         END
@@ -64,7 +57,7 @@ BEGIN
 
 	LAUNCH_ACTION_FUNCTION clone_spell
 	  STR_VAR
-	  spell		= "%spell_res%=>%max_res%"
+	  spell		= EVAL "%%idsname%%=>%max_res%"
 	  edits		= "patch_data"
 	END
 

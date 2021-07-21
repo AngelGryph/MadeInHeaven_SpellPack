@@ -11,12 +11,14 @@ BEGIN
     tra		= "paladin_powers"
   END
 
+  OUTER_SET macro_spellcodes_read=0
+  LAUNCH_ACTION_MACRO read_in_spellcodes
+
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
     file	= "paladin_postproc"
     tra		= "paladin_powers"
   END
-
   
   ACTION_IF has_tob
   BEGIN

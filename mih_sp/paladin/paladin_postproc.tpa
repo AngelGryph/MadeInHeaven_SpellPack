@@ -1,42 +1,5 @@
 DEFINE_ACTION_FUNCTION paladin_postproc
 BEGIN
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name		= "PALADIN_SMITE_EVIL"
-    RET
-    smite_evil		= spell_res
-  END
-
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name		= "BLACKGUARD_SMITE_GOOD"
-    RET
-    smite_good		= spell_res
-  END
-
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name		= "PALADIN_SMITE_UNDEAD"
-    RET
-    smite_undead	= spell_res
-  END
-
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name		= "PALADIN_DIVINE_FAVOR"
-    RET
-    divine_favor	= spell_res
-  END
-
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name		= "PALADIN_CURE_DISEASE"
-    RET
-    cure_disease	= spell_res
-  END
-
-
-
   // 3.5e-stype spell table
 
   LAUNCH_ACTION_FUNCTION install
@@ -49,29 +12,29 @@ BEGIN
   // True Paladin
 
   APPEND "clabpa01.2da"
-    ~mh#palsp    GA_%smite_evil%  GA_%cure_disease%  GA_%divine_favor%  ****        ****        GA_%cure_disease%  GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palsp    GA_%PALADIN_SMITE_EVIL%  GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_DIVINE_FAVOR%  ****        ****        GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****
+mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
   // Cavalier
 
   APPEND "clabpa02.2da"
-    ~mh#palsp    GA_%smite_evil%  GA_%cure_disease%  GA_%divine_favor%  ****        ****        GA_%cure_disease%  GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        GA_%divine_favor%  ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****        ****        ****        ****        ****        ****        GA_spcl211  ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palsp    GA_%PALADIN_SMITE_EVIL%  GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_DIVINE_FAVOR%  ****        ****        GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****
+mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
   // Inquisitor
 
   APPEND "clabpa03.2da"
-    ~mh#palsp    GA_%smite_evil%  ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palsp    GA_%PALADIN_SMITE_EVIL%  ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
+mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
   // Undead Hunter
 
   APPEND "clabpa04.2da"
-    ~mh#palsp    GA_%smite_undead%  ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        GA_%divine_favor%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+    ~mh#palsp    GA_%PALADIN_SMITE_UNDEAD%  ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
+mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
 
 
   // Blackguard (EE only)
@@ -79,8 +42,8 @@ mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#pa
   ACTION_IF enhanced_edition
   BEGIN
     APPEND "clabpa06.2da"
-      ~mh#palsp    GA_%smite_good%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
-mh#palab    ****        ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+      ~mh#palsp    GA_%BLACKGUARD_SMITE_GOOD%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
+mh#palab    ****        ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
   END
 
 

@@ -40,16 +40,9 @@ BEGIN
 
   ACTION_PHP_EACH spell_scrolls AS scrollname => idsname
   BEGIN
-    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-      STR_VAR
-      spell_name	= "%idsname%"
-      RET
-      resref		= spell_res
-    END
-
     LAUNCH_ACTION_FUNCTION make_scroll_of_spell
       STR_VAR
-      resref
+      resref		= EVALUATE_BUFFER "%%idsname%%"
       scrollname
     END
   END
@@ -88,19 +81,12 @@ BEGIN
   // Add Cure Blindness/Deafness if available
   ACTION_IF FILE_EXISTS_IN_GAME "mh#curbd.itm"
   BEGIN
-    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-      STR_VAR
-      spell_name	= "CLERIC_CURE_BLIND_DEAF"
-      RET
-      spell_res
-    END
-
     OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@2)
-    APPEND "speldesc.2da" "%spell_res%	%cure_bd_desc%"
+    APPEND "speldesc.2da" "%CLERIC_CURE_BLIND_DEAF%	%cure_bd_desc%"
 
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      clone_cure_inline'98=>~match=>"cure_resource = sppr212" cure_resource=>%spell_res% cure_price=>"(cure_price * 3) / 2"~
+      clone_cure_inline'98=>~match=>"cure_resource = sppr212" cure_resource=>%CLERIC_CURE_BLIND_DEAF% cure_price=>"(cure_price * 3) / 2"~
       literal'98=>~ADD_STORE_ITEM "mh#curbd" AFTER "scrl26" #1 #0 #0 "identified" #4~
     END
   END
@@ -108,19 +94,12 @@ BEGIN
   // Add Break Enchantment if available
   ACTION_IF FILE_EXISTS_IN_GAME "mh#prs53.itm"
   BEGIN
-    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-      STR_VAR
-      spell_name	= "CLERIC_BREAK_ENCHANTMENT"
-      RET
-      spell_res
-    END
-
     OUTER_SET break_enchantment_desc = RESOLVE_STR_REF(@3)
-    APPEND "speldesc.2da" "%spell_res%	%break_enchantment_desc%"
+    APPEND "speldesc.2da" "%CLERIC_BREAK_ENCHANTMENT%	%break_enchantment_desc%"
 
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      clone_cure_inline'99=>~match=>"cure_resource = sppr504" cure_resource=>%spell_res% cure_price=>"(cure_price * 2) / 3~
+      clone_cure_inline'99=>~match=>"cure_resource = sppr504" cure_resource=>%CLERIC_BREAK_ENCHANTMENT% cure_price=>"(cure_price * 2) / 3~
       literal'99=>~ADD_STORE_ITEM "mh#prs53" AFTER "scrl5f" #1 #0 #0 "identified" #1~
     END
   END

@@ -2,19 +2,12 @@ DEFINE_ACTION_FUNCTION paladin_hla
 BEGIN
   // Extra Lay on Hands
 
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name	= "PALADIN_LAY_ON_HANDS"
-    RET
-    spell_res
-  END
-
   ACTION_FOR_EACH kit_name IN "PALADIN" "CAVALIER"
   BEGIN
     LAUNCH_ACTION_FUNCTION action_add_hla
       STR_VAR
       kit_name
-      ability		= "GA_%spell_res%"
+      ability		= "GA_%PALADIN_LAY_ON_HANDS%"
       num_allowed	= "3"
     END
   END
@@ -22,19 +15,12 @@ BEGIN
 
   // Extra Smite Evil
 
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name	= "PALADIN_SMITE_EVIL"
-    RET
-    spell_res
-  END
-
   ACTION_FOR_EACH kit_name IN "PALADIN" "CAVALIER" "INQUISITOR"
   BEGIN
     LAUNCH_ACTION_FUNCTION action_add_hla
       STR_VAR
       kit_name
-      ability		= "GA_%spell_res%"
+      ability		= "GA_%PALADIN_SMITE_EVIL%"
       num_allowed	= "3"
     END
   END
@@ -42,19 +28,12 @@ BEGIN
 
   // Extra Smite Undead
 
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name	= "PALADIN_SMITE_UNDEAD"
-    RET
-    spell_res
-  END
-
   ACTION_FOR_EACH kit_name IN "UNDEAD_HUNTER"
   BEGIN
     LAUNCH_ACTION_FUNCTION action_add_hla
       STR_VAR
       kit_name
-      ability		= "GA_%spell_res%"
+      ability		= "GA_%PALADIN_SMITE_UNDEAD%"
       num_allowed	= "3"
     END
   END
@@ -64,19 +43,12 @@ BEGIN
 
   ACTION_IF enhanced_edition
   BEGIN
-    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-      STR_VAR
-      spell_name	= "BLACKGUARD_SMITE_GOOD"
-      RET
-      spell_res
-    END
-  
     ACTION_FOR_EACH kit_name IN "BLACKGUARD"
     BEGIN
       LAUNCH_ACTION_FUNCTION action_add_hla
         STR_VAR
         kit_name
-        ability		= "GA_%spell_res%"
+        ability		= "GA_%BLACKGUARD_SMITE_GOOD%"
         num_allowed	= "3"
       END
     END

@@ -2,42 +2,35 @@ DEFINE_ACTION_FUNCTION restorations_postproc
 BEGIN
   // Create Tattoos of Power innates
 
-  LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
-    STR_VAR
-    spell_name	= "WIZARD_TATTOOS_OF_POWER"
-    RET
-    spell_res
-  END
-
   MAKE_PATCH
-    icon=>"%spell_res%c"
-    patch_ability_inline=>~ability_icon=>"%spell_res%b"~
-    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%spell_res%"~
-    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%spell_res%d"~
+    icon=>"%WIZARD_TATTOOS_OF_POWER%c"
+    patch_ability_inline=>~ability_icon=>"%WIZARD_TATTOOS_OF_POWER%b"~
+    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%WIZARD_TATTOOS_OF_POWER%"~
+    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%WIZARD_TATTOOS_OF_POWER%d"~
   END
 
   LAUNCH_ACTION_FUNCTION clone_spell
     STR_VAR
-    spell	= "spwi420d=>%spell_res%d"
+    spell	= "spwi420d=>%WIZARD_TATTOOS_OF_POWER%d"
     edits	= "patch_data"
   END
 
   ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
-      icon=>"%spell_res%c"
-      patch_ability_inline=>~ability_icon=>"%spell_res%b"~
-      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%spell_res%"~
-      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%spell_res%p"~
+      icon=>"%WIZARD_TATTOOS_OF_POWER%c"
+      patch_ability_inline=>~ability_icon=>"%WIZARD_TATTOOS_OF_POWER%b"~
+      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%WIZARD_TATTOOS_OF_POWER%"~
+      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%WIZARD_TATTOOS_OF_POWER%p"~
     END
 
     LAUNCH_ACTION_FUNCTION clone_spell
       STR_VAR
-      spell	= "spwi420p=>%spell_res%p"
+      spell	= "spwi420p=>%WIZARD_TATTOOS_OF_POWER%p"
       edits	= "patch_data"
     END
 
-    ACTION_TO_UPPER spell_res
+    ACTION_TO_UPPER WIZARD_TATTOOS_OF_POWER
 
     OUTER_SPRINT tattoos_of_power_title @21
     OUTER_SPRINT add_spells_tattoos_label @23
@@ -50,7 +43,7 @@ BEGIN
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
         ~mageBookStrings = {~
-        ~mageBookStrings = {%WNL%%TAB%%spell_res% = {tip = 24616, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
+        ~mageBookStrings = {%WNL%%TAB%%WIZARD_TATTOOS_OF_POWER% = {tip = 24616, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
   END
 
 
