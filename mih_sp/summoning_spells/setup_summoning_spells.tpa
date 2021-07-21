@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION setup_summoning_spells
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "setup_summons"
+    locbase	= "shared/summons"
+  END
+  
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "all"
+    postfix	= "2da"
+    location	= "tables"
+  END
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "all"
+    postfix	= "bam"
+    location	= "graphics"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "animal_summoning monster_summoning"
+    tra		= "summoning_spells"
+  END
+END	// setup_summoning_spells
+
+

@@ -48,7 +48,7 @@ BEGIN
       BEGIN
         LAUNCH_ACTION_FUNCTION clone_creature
           INT_VAR
-          overwrite		= 0
+          overwrite	= 0
           STR_VAR
           creature
 	  creature	= "%creature%=>%summon%"

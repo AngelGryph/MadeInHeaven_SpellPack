@@ -2,9 +2,9 @@ DEFINE_ACTION_FUNCTION skeletons_and_zombies
 BEGIN
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
-    ini		= "animate_dead_power"
+    ini		= "animate_dead_base_power"
     RET
-    animate_dead_power	= value
+    animate_dead_base_power	= value
   END
 
 
@@ -17,7 +17,7 @@ BEGIN
   MAKE_PATCH
     opcode=>127
     timing=>1
-    parameter1=>"%animate_dead_power%"
+    parameter1=>"object_index * 16 + %animate_dead_base_power%"
     parameter2=>"-1"
     resource=>"animdead"
     vvc=>"spraised"
@@ -25,13 +25,15 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION make_effect
     STR_VAR
-    effect	= "spandead"
+    effect	= "spande01 spande07 spande11"
     edits	= "patch_data"
   END
 
   MAKE_PATCH
-    delete_effect=>~opcode is_in [67 127 177 331] and ability_min_level < 15~
-    add_effect_inline=>~match=>"ability_min_level < 15" opcode=>177 target=>1 duration=>2400 parameter2=>2 power=>level resource=>"spandead"~
+    delete_ability=>~ability_min_level > 1~
+    delete_effect=>~opcode is_in [67 127 177 331]~
+    clone_ability_inline=>~number_to_add=>3 ability_min_level=>"entry_index from [7 11 15]"~
+    add_effect_inline=>~opcode=>177 target=>1 duration=>2400 parameter2=>2 power=>level resource=>"entry_index from [spande01 spande07 spande11 spandl15]"~
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
