@@ -1,36 +1,36 @@
 2DA v1.0
 *
-IDSNAME					NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJECTL	SEQ	CD_IMMUNITY
-WIZARD_FROST_FINGERS			60	61	0	*	mh#wiz11	ff	mh#frost	y	*
-WIZARD_SPARK_SHOWER			0	1	0	*	mh#wiz21	dd	*		y	*
-WIZARD_SEEKING				2	3	0	*	mh#wiz22	n	*		y	*
-WIZARD_IMPROVED_MAGIC_MISSILE		4	5	0	*	mh#wiz31	n	*		y	*
-WIZARD_HEROISM				6	7	0	*	mh#wiz32	n	*		y	*
-WIZARD_BLINK				8	9	0	*	mh#wiz33	n	*		y	*
-WIZARD_SCINTILLATING_SPHERE		10	11	0	*	mh#wiz34	dl	mh#scnt1	y	*
-WIZARD_MINOR_MALISON			12	13	0	*	mh#wiz35	n	*		y	*
-WIZARD_BALL_LIGHTNING			44	51	0	*	mh#wiz36	dd	mh#blght	n	*
-WIZARD_IRON_MAIDEN			14	15	0	*	mh#wiz41	n	*		y	*
-WIZARD_SLUMBER				16	17	0	*	mh#wiz42	n	*		y	*
-WIZARD_RARYS_MNEMONIC_ENHANCER		18	19	0	*	mh#wiz43	n	*		n	*
-WIZARD_EVARDS_BLACK_TENTACLES		20	21	0	*	mh#wiz44	n	mh#evblt	y	*
-WIZARD_ISAACS_LESSER_MISSILE_STORM	22	23	0	*	mh#wiz45	n	*		y	*
-WIZARD_TENSERS_GIANT_STRENGTH		54	55	0	*	mh#wiz46	n	*		y	*
-WIZARD_WALL_OF_FIRE			65	66	0	*	mh#wiz47	dl	*
-WIZARD_SUPERHEROISM			24	25	0	*	mh#wiz51	n	*		y	fear,level_drain
-WIZARD_SPELL_MATRIX			26	27	0	*	mh#wiz52	n	*		n	*
-WIZARD_RAMAZITHS_SLIME_SUMMONS		45	46	0	*	mh#wiz53	n	*		y	*
-WIZARD_MORDENKAINENS_LUCUBRATION	28	29	0	*	mh#wiz61	n	*		n	*
-WIZARD_ISAACS_GREATER_MISSILE_STORM	30	31	0	*	mh#wiz62	n	*		y	*
-WIZARD_FAERIE_SWORD			32	33	0	*	mh#wiz71	n	*		y	*
-WIZARD_STYGIAN_ICE_STORM		34	35	0	*	mh#wiz72	n	mh#stygi	y	*
-WIZARD_DEATHBOLT			36	37	0	*	mh#wiz81	n	mh#dbolt	y	*
-WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY	38	39	0	*	mh#wiz82	n	*		y	spell_level_1,spell_level_2,spell_level_3,spell_level_4,spell_level_5
-WIZARD_POLAR_RAY			40	41	0	*	mh#wiz83	n	*		y	*
-WIZARD_MECHANUS_CANNON			42	43	0	*	mh#wiz84	n	*		y	*
-WIZARD_SUNBURST				56	57	0	*	mh#wiz85	n	*		y	*
-WIZARD_RUNE_OF_TORMENT			47	48	0	*	mh#wiz91	n	mh#runet	y	*
-WIZARD_WEIRD				58	59	0	*	mh#wiz92	n	*		y	*
-WIZARD_FORESIGHT			63	64	0	*	mh#wiz93	n	*		y	*
+IDSNAME					LEVEL	NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJECTL	SEQ	CD_IMMUNITY
+WIZARD_FROST_FINGERS			1	60	61	0	*	mh#wiz11	ff	mh#frost	y	*
+WIZARD_SPARK_SHOWER			1	0	1	0	*	mh#wiz21	dd	*		y	*
+WIZARD_SEEKING				2	2	3	0	*	mh#wiz22	n	*		y	*
+WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	0	*	mh#wiz31	n	*		y	*
+WIZARD_HEROISM				3	6	7	0	*	mh#wiz32	n	*		y	*
+WIZARD_BLINK				3	8	9	0	*	mh#wiz33	n	*		y	*
+WIZARD_SCINTILLATING_SPHERE		3	10	11	0	*	mh#wiz34	dl	mh#scnt1	y	*
+WIZARD_MINOR_MALISON			3	12	13	0	*	mh#wiz35	n	*		y	*
+WIZARD_BALL_LIGHTNING			3	44	51	0	*	mh#wiz36	dd	mh#blght	n	*
+WIZARD_IRON_MAIDEN			4	14	15	0	*	mh#wiz41	n	*		y	*
+WIZARD_SLUMBER				4	16	17	0	*	mh#wiz42	n	*		y	*
+WIZARD_RARYS_MNEMONIC_ENHANCER		4	18	19	0	*	mh#wiz43	n	*		n	*
+WIZARD_EVARDS_BLACK_TENTACLES		4	20	21	0	*	mh#wiz44	n	mh#evblt	y	*
+WIZARD_ISAACS_LESSER_MISSILE_STORM	4	22	23	0	*	mh#wiz45	n	*		y	*
+WIZARD_TENSERS_GIANT_STRENGTH		4	54	55	0	*	mh#wiz46	n	*		y	*
+WIZARD_WALL_OF_FIRE			4	65	66	0	*	mh#wiz47	dl	*
+WIZARD_SUPERHEROISM			5	24	25	0	*	mh#wiz51	n	*		y	fear,level_drain
+WIZARD_SPELL_MATRIX			5	26	27	0	*	mh#wiz52	n	*		n	*
+WIZARD_RAMAZITHS_SLIME_SUMMONS		5	45	46	0	*	mh#wiz53	n	*		y	*
+WIZARD_MORDENKAINENS_LUCUBRATION	6	28	29	0	*	mh#wiz61	n	*		n	*
+WIZARD_ISAACS_GREATER_MISSILE_STORM	6	30	31	0	*	mh#wiz62	n	*		y	*
+WIZARD_FAERIE_SWORD			7	32	33	0	*	mh#wiz71	n	*		y	*
+WIZARD_STYGIAN_ICE_STORM		7	34	35	0	*	mh#wiz72	n	mh#stygi	y	*
+WIZARD_DEATHBOLT			8	36	37	0	*	mh#wiz81	n	mh#dbolt	y	*
+WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY	8	38	39	0	*	mh#wiz82	n	*		y	spell_level_1,spell_level_2,spell_level_3,spell_level_4,spell_level_5
+WIZARD_POLAR_RAY			8	40	41	0	*	mh#wiz83	n	*		y	*
+WIZARD_MECHANUS_CANNON			8	42	43	0	*	mh#wiz84	n	*		y	*
+WIZARD_SUNBURST				8	56	57	0	*	mh#wiz85	n	*		y	*
+WIZARD_RUNE_OF_TORMENT			9	47	48	0	*	mh#wiz91	n	mh#runet	y	*
+WIZARD_WEIRD				9	58	59	0	*	mh#wiz92	n	*		y	*
+WIZARD_FORESIGHT			9	63	64	0	*	mh#wiz93	n	*		y	*
 
 

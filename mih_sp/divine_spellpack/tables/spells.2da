@@ -1,25 +1,25 @@
 2DA v1.0
 *
-IDSNAME					NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJECTL	SEQ	CD_IMMUNITY
-CLERIC_STRIKING				0	1	0	*	*		n	*		y	*
-CLERIC_FAERIE_FIRE			2	3	0	*	*		n	*		y	*
-CLERIC_SEEKING				4	5	0	*	*		n	*		y	*
-CLERIC_RESIST_ACID_CORROSION		21	22	0	*	*		n	*		y	*
-CLERIC_PROTECTION_FROM_COLD		39	40	0	*	*		n	*		y	*
-CLERIC_STICKS_TO_SNAKES			7	8	0	*	*		n	*		y	*
-CLERIC_HEROISM				9	10	0	*	*		n	*		y	*
-CLERIC_REPEL_INSECTS			25	26	0	*	*		n	*		y	*
-CLERIC_ICE_STORM			*	41	0	*	*		n	*		y	*
-CLERIC_LIGHTNING_STORM			11	12	0	*	*		dd	mh#lstrm	y	*
-CLERIC_INFERNO				17	18	0	*	*		n	*		y	*
-CLERIC_BREAK_ENCHANTMENT		23	24	0	*	mh#prs53	n	*		y	*
-CLERIC_HALLOW				33	34	0	*	*		n	*		y	*
-CLERIC_UNHALLOW				35	36	0	*	*		n	*		y	*
-CLERIC_SUPERHEROISM			13	14	0	*	*		n	*		y	fear,level_drain
-CLERIC_CELESTIAL_PROTECTION		15	16	0	*	*		n	*		y	poison,disease,poison_resistance
-CLERIC_CONJURE_WATER_ELEMENTAL		27	28	0	*	*		n	*		y	*
-CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	19	20	0	*	*		n	*		y	level_drain
-CLERIC_CONJURE_AIR_ELEMENTAL		*	29	0	*	*		n	*		y	*
-CLERIC_AURA_OF_VITALITY			37	38	0	*	*		n	*		y	*
+IDSNAME					LEVEL	NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJECTL	SEQ	CD_IMMUNITY
+CLERIC_STRIKING				1	0	1	0	*	*		n	*		y	*
+CLERIC_FAERIE_FIRE			1	2	3	0	*	*		n	*		y	*
+CLERIC_SEEKING				2	4	5	0	*	*		n	*		y	*
+CLERIC_RESIST_ACID_CORROSION		2	21	22	0	*	*		n	*		y	*
+CLERIC_PROTECTION_FROM_COLD		3	39	40	0	*	*		n	*		y	*
+CLERIC_STICKS_TO_SNAKES			4	7	8	0	*	*		n	*		y	*
+CLERIC_HEROISM				4	9	10	0	*	*		n	*		y	*
+CLERIC_REPEL_INSECTS			4	25	26	0	*	*		n	*		y	*
+CLERIC_ICE_STORM			4	*	41	0	*	*		n	*		y	*
+CLERIC_LIGHTNING_STORM			5	11	12	0	*	*		dd	mh#lstrm	y	*
+CLERIC_INFERNO				5	17	18	0	*	*		n	*		y	*
+CLERIC_BREAK_ENCHANTMENT		5	23	24	0	*	mh#prs53	n	*		y	*
+CLERIC_HALLOW				5	33	34	0	*	*		n	*		y	*
+CLERIC_UNHALLOW				5	35	36	0	*	*		n	*		y	*
+CLERIC_SUPERHEROISM			6	13	14	0	*	*		n	*		y	fear,level_drain
+CLERIC_CELESTIAL_PROTECTION		6	15	16	0	*	*		n	*		y	poison,disease,poison_resistance
+CLERIC_CONJURE_WATER_ELEMENTAL		6	27	28	0	*	*		n	*		y	*
+CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	7	19	20	0	*	*		n	*		y	level_drain
+CLERIC_CONJURE_AIR_ELEMENTAL		7	*	29	0	*	*		n	*		y	*
+CLERIC_AURA_OF_VITALITY			7	37	38	0	*	*		n	*		y	*
 
 

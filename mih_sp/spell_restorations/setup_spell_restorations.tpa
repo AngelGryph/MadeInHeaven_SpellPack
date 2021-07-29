@@ -20,8 +20,9 @@ BEGIN
     tra		= "spell_restorations"
   END
 
-  LAUNCH_ACTION_FUNCTION install_spell_pack
+  LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
+    copy_files	= ""
     tra		= "spell_restorations"
   END
 
