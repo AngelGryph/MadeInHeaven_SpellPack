@@ -74,6 +74,16 @@ BEGIN
     spell	= "CLERIC_PROTECTION_FROM_COLD"
     edits	= "patch_data"
   END
+
+
+  // Unhide some previously hidden spells
+
+  LAUNCH_ACTION_FUNCTION edit_hidespl
+    INT_VAR
+    is_hidden	= 0
+    STR_VAR
+    spell	= "%CLERIC_FAERIE_FIRE%"
+  END
 END	// divine_postproc
 
 
