@@ -47,10 +47,16 @@ Sphere: Creation, Plant
 Range: 30 yds.
 Duration: 2 rounds/level
 Casting Time: 7
-Area of Effect: 1d4 snakes
+Area of Effect: 1-5 giant snakes
 Saving Throw: None
 
-After casting this spell, the priest tosses a handful of sticks on the ground.  1d4 of these sticks will then transform into giant snakes.  The snakes remain and fight for the caster until they are slain or the duration expires.~
+After casting this spell, the priest tosses a handful of sticks on the ground.  Depending on the priest's level, one to five of these sticks will then transform into giant snakes.
+ 7th level - 1 snake
+10th level - 2 snakes
+13th level - 3 snakes
+16th level - 4 snakes
+20th level - 5 snakes
+The giant snakes remain and fight for the caster until they are slain or the duration expires.~
 @9    = ~Heroism~
 @10   = ~Heroism
 (Alteration)
