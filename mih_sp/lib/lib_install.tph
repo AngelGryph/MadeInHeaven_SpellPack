@@ -270,10 +270,6 @@ BEGIN
         
       INNER_ACTION
       BEGIN
-        OUTER_TEXT_SPRINT filename "%idsname%"
-	ACTION_TO_LOWER filename
-
-
         // Obtain a slot in spell.ids
 
 	ACTION_IF IS_AN_INT idsnum
@@ -353,7 +349,7 @@ BEGIN
 
         // Install and patch the actual spell file.
 
-        COPY + "%file_loc%/%spells_loc%/%filename%.spl" "%workspace%/%newname%.spl"
+        COPY + "%file_loc%/%spells_loc%/%idsname%.spl" "%workspace%/%newname%.spl"
 
 	LAUNCH_ACTION_FUNCTION install_spell
 	  STR_VAR
