@@ -5,7 +5,7 @@
 BACKUP "weidu_external/backup/mih_sp"
 
 SUPPORT "https://www.gibberlings3.net/forums/topic/29992-my-new-made-in-heaven-mods/"
-VERSION "v3"
+VERSION "v5"
 
 //MODDER setup_tra none area_variables warn missing_extern warn missing_resref warn ict2_actions none missing_eval none overwriting_file none fun_args warn
 

@@ -8,6 +8,8 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 
 ## Version History
 
+Version 5 - ???
+
 Version 4 - August 4 2021
 - Finally fixed the issue with Spell Matrix and area effect spells
 - Damage spells use proper save for half damage mechanics in EE games
