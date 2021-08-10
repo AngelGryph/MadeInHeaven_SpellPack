@@ -7,6 +7,22 @@ BEGIN
     monster_summoning_base_power	= value
   END
 
+
+  ACTION_CLEAR_ARRAY spell_scrolls
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_scrolls
+  BEGIN
+    WIZARD_MONSTER_SUMMONING_0	=> mh#scms0
+    WIZARD_MONSTER_SUMMONING_1	=> scrl1l
+    WIZARD_MONSTER_SUMMONING_2	=> scrl2a
+    WIZARD_MONSTER_SUMMONING_3	=> scrl2g
+    WIZARD_MONSTER_SUMMONING_4	=> scrl7n
+    WIZARD_MONSTER_SUMMONING_5	=> mh#scmd5
+    WIZARD_MONSTER_SUMMONING_6	=> mh#scmd6
+    WIZARD_MONSTER_SUMMONING_7	=> mh#scmd7
+  END
+
+
   OUTER_FOR (SET i = 0; i < 8; ++i)
   BEGIN
     MAKE_PATCH
@@ -47,6 +63,14 @@ BEGIN
       STR_VAR
       idsname	= "WIZARD_MONSTER_SUMMONING_%i%"
       edits	= patch_data
+      RET
+      resref	= newname
+    END
+
+    LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+      STR_VAR
+      resref
+      scrollname	= $spell_scrolls("WIZARD_MONSTER_SUMMONING_%i%")
     END
   END
 END	// monster_summoning
