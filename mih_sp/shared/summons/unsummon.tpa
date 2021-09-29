@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION fix_summons
+DEFINE_ACTION_FUNCTION unsummon
 BEGIN
   LAUNCH_ACTION_FUNCTION install
     STR_VAR
@@ -17,20 +17,13 @@ BEGIN
 
   MAKE_PATCH
     match=>"gender = summoned"
-    no_corpse=>1
-    xp_value=>0
-    gold=>0
-    allegiance=>neutral
-    alignment=>neutral
-    dv=>"%SOURCE_RES%"
     add_spells=>"mh#unsum"
-    patch_item_inline=>"unstealable=>1 undroppable=>1"
   END
     
   LAUNCH_ACTION_FUNCTION edit_all_creatures
     STR_VAR
     edits	= "patch_data"
   END
-END	// fix_summons
+END	// unsummon
 
 

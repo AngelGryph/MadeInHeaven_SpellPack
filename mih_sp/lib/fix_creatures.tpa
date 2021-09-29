@@ -1,0 +1,96 @@
+LAUNCH_ACTION_FUNCTION check_label
+  STR_VAR
+  label	= "mh#fix_creatures"
+  RET
+  installed	= value
+END
+
+ACTION_IF NOT installed
+BEGIN
+  LAUNCH_ACTION_FUNCTION make_label
+    STR_VAR
+    label	= "mh#fix_creatures"
+  END
+
+
+  // General => Fix several issues
+  // - Many BG1 creatures have level2 set to 30 for no reason
+  // - Many creatures have too low thac0 for their HD
+  // - Many creatures have too low saves for their HD
+
+  ACTION_CLEAR_ARRAY general
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY general
+  BEGIN
+    level2=>"if level1 < 15 and level2 = 30 then 1 else no_change"
+    enforce_thac0=>at_worst
+    enforce_saves=>at_worst
+  END
+
+
+  // Mummy => Don't label as ghoul
+
+  ACTION_CLEAR_ARRAY mummy
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY mummy
+  BEGIN
+    match=>~animation = mummy and race = ghoul~
+    race=>"mummy"
+    class=>"no_class"
+  END
+
+
+  // Summons: Make sure they give no xp, leave no corpse or items,
+  // are unaligned and have a correct DV.
+
+  ACTION_CLEAR_ARRAY summoned
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY summoned
+  BEGIN
+    match=>"gender = summoned"
+    no_corpse=>1
+    xp_value=>0
+    gold=>0
+    allegiance=>neutral
+    alignment=>neutral
+    dv=>"%SOURCE_RES%"
+    patch_item_inline=>"unstealable=>1 undroppable=>1"
+  END
+
+
+  // Water Elemental => Fix class (219) on non-EE installs
+
+  ACTION_CLEAR_ARRAY water_elemental
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY water_elemental
+  BEGIN
+    match=>~animation is_in [water_weird elemental_water elemental_water_small] and race = elemental~
+    class=>"elemental_water"
+  END
+
+
+  COPY_EXISTING_REGEXP "^.*\.cre$" "override"
+    LAUNCH_PATCH_FUNCTION apply_patches
+      STR_VAR
+      file_ext	= "CRE"
+      edits		= "general"
+    END
+
+    LAUNCH_PATCH_FUNCTION apply_patches
+      STR_VAR
+      file_ext	= "CRE"
+      edits		= "mummy"
+    END
+
+    LAUNCH_PATCH_FUNCTION apply_patches
+      STR_VAR
+      file_ext	= "CRE"
+      edits		= "summoned"
+    END
+
+    LAUNCH_PATCH_FUNCTION apply_patches
+      STR_VAR
+      file_ext	= "CRE"
+      edits		= "water_elemental"
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END
+
+

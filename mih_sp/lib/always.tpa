@@ -30,6 +30,7 @@ BEGIN
 
   ACTION_BASH_FOR "%MOD_FOLDER%/lib" "lib_.*\.tp[ah]"
   BEGIN
+      PRINT "Processing library %BASH_FOR_FILESPEC%..."
     INCLUDE "%BASH_FOR_FILESPEC%"
   END
 
@@ -45,6 +46,12 @@ BEGIN
   ACTION_IF FILE_EXISTS "%MOD_FOLDER%/lib/lib_ds.tph"
   BEGIN
     LAUNCH_ACTION_FUNCTION detectable_spells END
+    
+    ACTION_BASH_FOR "%MOD_FOLDER%/lib" "ds_.*\.tp[ah]"
+    BEGIN
+      PRINT "Processing DS file %BASH_FOR_FILESPEC%..."
+      INCLUDE "%BASH_FOR_FILESPEC%"
+    END
   END
 
 
@@ -75,6 +82,14 @@ BEGIN
   ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/missing_files.tpa"
   BEGIN
     INCLUDE "%MOD_FOLDER%/%component_loc%/missing_files.tpa"
+  END
+
+
+  // Install any issues with creature definitions
+
+  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/fix_creatures.tpa"
+  BEGIN
+    INCLUDE "%MOD_FOLDER%/%component_loc%/fix_creatures.tpa"
   END
 END	// done_init
 

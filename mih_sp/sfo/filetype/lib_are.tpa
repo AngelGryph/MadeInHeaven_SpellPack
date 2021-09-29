@@ -761,7 +761,8 @@ OUTER_SPRINT $SFO_do_not_parse_arguments("ARE_swap_items") ""
 DEFINE_PATCH_FUNCTION ARE_say_trigger_info
    STR_VAR arguments="" 
 BEGIN
-   WRITE_LONG (offset_base+0x64) RESOLVE_STR_REF ((AT arguments))
+	strref=RESOLVE_STR_REF ( (AT %arguments%) )
+	LPF ARE_trigger_info STR_VAR arguments="%strref%" END
 END
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1163,8 +1164,6 @@ DEFINE_PATCH_FUNCTION ARE_trigger_says
 BEGIN
 	strref=RESOLVE_STR_REF ( (AT %arguments%) )
 	LPF ARE_trigger_info STR_VAR arguments="%strref%" END
-
-
 END
 
 
@@ -1177,7 +1176,8 @@ END
 DEFINE_PATCH_FUNCTION ARE_say_mapnote_text
    STR_VAR arguments=""
 BEGIN
-   WRITE_LONG (offset_base+0x04) RESOLVE_STR_REF ((AT arguments))
+	strref=RESOLVE_STR_REF ( (AT %arguments%) )
+	LPF ARE_mapnote_text STR_VAR arguments="%strref%" END
 END
 
 
