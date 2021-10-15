@@ -1,0 +1,24 @@
+DEFINE_ACTION_FUNCTION epic_postproc
+BEGIN
+  COPY - "%MOD_FOLDER%/%component_loc%/tables/spells.2da" "%workspace%"
+    COUNT_2DA_COLS cols
+    COUNT_2DA_ROWS cols rows
+    READ_2DA_ENTRIES_NOW __MH_RESERVED_main_spells cols
+
+    FOR (SET i = 1; i < rows; ++i)
+    BEGIN
+      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 0 idsname
+
+      INNER_ACTION
+      BEGIN
+        LAUNCH_ACTION_FUNCTION edit_hidespl
+          INT_VAR
+          is_hidden	= 1
+          STR_VAR
+          spell		= EVAL "%%idsname%%"
+        END
+      END
+    END
+END
+
+

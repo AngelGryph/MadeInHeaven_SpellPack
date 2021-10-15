@@ -3,6 +3,7 @@ BEGIN
   // Create Tattoos of Power innates
 
   MAKE_PATCH
+    say_name=>21
     icon=>"%WIZARD_TATTOOS_OF_POWER%c"
     patch_ability_inline=>~ability_icon=>"%WIZARD_TATTOOS_OF_POWER%b"~
     patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%WIZARD_TATTOOS_OF_POWER%"~
@@ -18,6 +19,7 @@ BEGIN
   ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
+      say_name=>21
       icon=>"%WIZARD_TATTOOS_OF_POWER%c"
       patch_ability_inline=>~ability_icon=>"%WIZARD_TATTOOS_OF_POWER%b"~
       patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%WIZARD_TATTOOS_OF_POWER%"~
@@ -34,6 +36,7 @@ BEGIN
 
     OUTER_SPRINT tattoos_of_power_title @21
     OUTER_SPRINT add_spells_tattoos_label @23
+    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
 
     COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
@@ -43,7 +46,7 @@ BEGIN
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
         ~mageBookStrings = {~
-        ~mageBookStrings = {%WNL%%TAB%%WIZARD_TATTOOS_OF_POWER% = {tip = 24616, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
+        ~mageBookStrings = {%WNL%%TAB%%WIZARD_TATTOOS_OF_POWER% = {tip = %sequencer_tip_strref%, title = 'TATTOOS_OF_POWER_TITLE', action = "ADD_SPELLS_TATTOOS_LABEL"},~
   END
 
 

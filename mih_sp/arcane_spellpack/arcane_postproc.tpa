@@ -18,6 +18,7 @@ BEGIN
   // Create Spell Matrix innates
 
   MAKE_PATCH
+    say_name=>26
     icon=>"%WIZARD_SPELL_MATRIX%c"
     patch_ability_inline=>~ability_icon=>"%WIZARD_SPELL_MATRIX%b"~
     patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%WIZARD_SPELL_MATRIX%"~
@@ -33,6 +34,7 @@ BEGIN
   ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
+      say_name=>26
       icon=>"%WIZARD_SPELL_MATRIX%c"
       patch_ability_inline=>~ability_icon=>"%WIZARD_SPELL_MATRIX%b"~
       patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%WIZARD_SPELL_MATRIX%"~
@@ -47,6 +49,7 @@ BEGIN
 
     OUTER_SPRINT spell_matrix_title @26
     OUTER_SPRINT add_spell_matrix_label @62
+    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
 
     COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
@@ -56,7 +59,7 @@ BEGIN
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
         ~mageBookStrings = {~
-        ~mageBookStrings = {%WNL%%TAB%%WIZARD_SPELL_MATRIX% = {tip = 24616, title = 'SPELL_MATRIX_TITLE', action = "ADD_SPELLS_MATRIX_LABEL"},~
+        ~mageBookStrings = {%WNL%%TAB%%WIZARD_SPELL_MATRIX% = {tip = %sequencer_tip_strref%, title = 'SPELL_MATRIX_TITLE', action = "ADD_SPELLS_MATRIX_LABEL"},~
   END
 
 
@@ -71,6 +74,19 @@ BEGIN
     END
 
     BUT_ONLY_IF_IT_CHANGES
+
+
+  // Make Heroism/Superheroism mutually exclusive
+
+  MAKE_PATCH
+    clone_effect_inline=>~match=>"opcode = 206" resource=>"object_index from [%WIZARD_SUPERHEROISM% %WIZARD_HEROISM%]" only_once=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "%WIZARD_HEROISM% %WIZARD_SUPERHEROISM%"
+    edits	= "patch_data"
+  END
 END	// arcane_postproc
 
 

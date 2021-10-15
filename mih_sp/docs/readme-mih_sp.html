@@ -55,6 +55,12 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 <div class="section">
   <h3>Core Components</h3>
   <p>This mod consists of several components, each of which can be installed or removed independently from the others.<p>
+  <p><strong>Spell Restorations</strong><br/>
+  This component restores a number of spells that are found in the game files but not completely implemented.</p>
+  <p>For arcane casters: <i>Reveal Magic, Protection Circle, Fog Cloud, Wraith Form, Dimension Door, Monster Summoning IV, Tattoos of Power, Otto's Irresible Dance</i> and <i>Spell Invulnerability</i>.</p>
+  <p>For divine casters: <i>Circle of Protecion, Animal Friendship, Endure Heat &amp; Cold</i> and <i>Cure Blindness/Deafness</i>.</p>
+  <p>It will also sanitize spell.ids, removing malformed and/or unused labels, freeing up a few additional slots for new spells.</p>
+
   <p><strong>Arcane Spell Pack</strong><br/>
   This installs new spells for wizards and bards.  The spells will be available on the selection screen when creating a new character, and spell scrolls are distributed throughout the environment.</p>
   <p><a href="arcane_spell_list.html">Arcane Spell List</a></p>
@@ -62,6 +68,9 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   <p><strong>Divine Spell Pack</strong><br/>
   This installs new spells for clerics and druids.  The new spells will be added to the spell list as the characters level up, just like other spells for these classes.</p>
   <p><a href="divine_spell_list.html">Divine Spell List</a></p>
+
+  <p><strong>Epic Spell Pack <i>(EXPERIMENTAL)</i></strong><br/>
+  This component installs a few new high-level spell options for both arcane- and divine casters.  This is still in development and may change in the future.</p>
 
   <p><strong>Paladin Powers Pack</strong><br/>
   This component revises and extends paladin powers as follows:</p>
@@ -73,38 +82,32 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
     <li>Paladins can start casting divine spells at 4th level.</li>
     <li>Paladins can opt to gain an extra use of Lay on Hands or Smite Good/Evil/Undead as a high-level ability.</li>
   </ul>
+
+  <p><strong>Bhaalspawn Powers Pack <i>(EXPERIMENTAL)</i></strong><br/>
+  This component enhances and changes the bhaalspawn powers gained through the course of Baldur's Gate 1.  This is a work in progress and liable to change.  Currently only the 'good' powers are affected.</p>
+
   <h3>Spell Effect Tweaks</h3>
-  <p><strong>Split up Resist Fire/Cold <i>(EXPERIMENTAL)</i></strong><br/>
-  This component restores the dummied out Resist Cold spell, separating this function from the Resist Fire/Cold spell (which is internally known as CLERIC_RESIST_FIRE only).</p>
+  <p><strong>Revised Animate Dead<i>(EXPERIMENTAL)</i></strong><br/>
+  This makes <i>Animate Dead</i> a fourth level spell for wizards, changing the fifth level version to the stronger <i>Ghoul Call</i>.  The undead summoned by the spell will also be a little more varied mix of skeletons and zombies.  This is still a work in progress and liable to change.</p>
 
-  <p><strong>Restore Cure Blindness/Deafness <i>(EXPERIMENTAL)</i></strong><br/>
-  This component restores the dummied out Cure Blindness/Deafness spell, separating this function from the Cure Disease spell.  The stronger Neutralize Poison will still retain its ability to cure blindness and deafness.</p>
+  <p><strong>Revised Animal/Monster Summoning</strong><br/>
+  Tired of seeing the same creatures every time you use an Animal- or Monster Summoning X spell?  Most tables only have four entries, and some (Monster Summoning III) have only two.  This modification extends these tables with a few more entries (up to seven in most cases).  This affects the vanilla spells Monster Summoning I-III and Animal Summoning I-II.</p>
+  <p>If you restored Monster Summoning IV through the Spell Restorations component of this mod this component affects it too, but if you got it from another source it might not, depending on whether it actually uses the table or not.  Monster Summoning V-VII are not changed by this component even if you got them from this mod.  (Their summoning tables were broken and had to be rewritten from scratch.).</p>
 
-  <p><strong>Level 4 Animate Dead for Wizards <i>(EXPERIMENTAL)</i></strong><br/>
-  This makes Animate Dead a fourth level spell for wizards.  This only works if the character hasn't learned Animate Dead yet.  The fifth level version remains available and enemy spell lists are not affected.</p>
+  <p><strong>Revised Dispel Magic <i>(EXPERIMENTAL)</i></strong><br/>
+  Due to the way the 2nd edition rules work, Dispel/Remove Magic are almost useless to players and nearly overpowered for enemies, which are almost always higher level than your casters.  This component changes these spells so that their success flat-out depends on caster level, not on level difference.  The chance to succesfully dispel is 50%, plus 2% per caster level.  This is an experimental component still being tested for game balance and may change.</p>
 
-  <p><strong>True Meteor Swarm</strong><br/>
-  This tweak will introduce the true Meteor Swarm spell as described in the 2e Player's Handbook; four 10d4 fireballs the caster can launch at up to four targets.  The existing Meteor Swarm spell will be renamed to Rain of Destruction.  The new spell scroll is available from the Arcana Archives.  Enemies will keep using the old spell, and it will remain available to players too.</p>
+  <p><strong>No Elemental Mind Battle</strong><br/>
+  This removes the three-round "mind battle" from the arcane versions of the Conjure Elemental spells., making these spells actually useful.</p>
 
-  <p><strong>Protection from Evil Block Domination</strong><br/>
-  Per P&amp;P rules, the various Protection from Alignment spells should block domination effects, but in Baldur's Gate, Protection from evil doesn't do this.  This tweak makes it so.  Note that it does <i>not</i> prevent charm effects.</p>
+  <p><strong>True Meteor Swarm <i>(EXPERIMENTAL)</i></strong><br/>
+  This tweak will introduce the true Meteor Swarm spell as described in the 2e Player's Handbook; four 10d4 fireballs the caster can launch at up to four targets.  The existing Meteor Swarm spell will be renamed to Rain of Destruction.  The new spell scroll is available from the Arcana Archives.  Enemies will keep using the old spell, and it will remain available to players too.  This is still a work in progress and may change.</p>
 
   <p><strong>Prevent Damage during Time Stop</strong><br/>
   This tweak makes it impossible to deal damage to time-stopped creatures, they will be 100% resistant to everything.  This is mostly to prevent the incredibly cheap Time Stop melee tactic.</p>
 
   <p><strong>Remove All Time Stop Immunity</strong><br/>
   This tweak will remove immunity to Time Stop from all creatures.  Casters remain of course immune to their own Time Stop spells.</p>
-
-  <p><strong>No Elemental Mind Battle</strong><br/>
-  This removes the three-round "mind battle" from the arcane versions of the Conjure Elemental spells., making these spells actually useful.</p>
-
-  <p><strong>Extended Animal/Monster Summoning Tables</strong><br/>
-  Tired of seeing the same creatures every time you use an Animal- or Monster Summoning X spell?  Most tables only have four entries, and some (Monster Summoning III) have only two.  This modification extends these tables with a few more entries (up to seven in most cases).  This affects the vanilla spells Monster Summoning I-III and Animal Summoning I-II.</p>
-  <p>If you restored Monster Summoning IV through the Spell Restorations component of this mod this component affects it too, but if you got it from another source it might not, depending on whether it actually uses the table or not.  Monster Summoning V-VII are not changed by this component even if you got them from this mod.  (Their summoning tables were broken and had to be rewritten from scratch.).</p>
-
-  <p><strong>Spell Level affects Saving Throws</strong><br/>
-  Under second edition rules, a ninth circle spell cast by an archmage is no more difficult to save against than a first circle spell cast by a goblin adept.  This was changed in third edition where higher circle spells are more difficult to save against.  This modification backports that rule by tacking on a saving throw penalty to spells equal to the spell circle minus one.  So a first circle spell has no penalty, a fourth circle one has a -3 penalty, and a ninth circle spell has a -8 penalty.  This is cumulative with any penalty the spell might already carry, so a fifth circle spell that already had a -2 to saving throws would get a -6 penalty instead.</p>
-  <p>This can be combined with Tweaks' "save penalties for powerful spellcasters", but this will make high-level spells by powerful spellcasters very difficult to save against indeed.  They can be installed in any order.</p>
 
   <p><strong>Spell Improvements</strong><br/>
   This is a collection of minor tweaks to various spells.</p>
@@ -115,6 +118,9 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
   <li>Flame Blade: The flaming sword is treated as a magical scimitar with no penalty for non-proficiency.  It can strike any target not immune to fire with a +4 to hit and deals 1d8 points of fire damage, +1 for every two levels.  Strength does not apply.</li>
   </ul>
 
+  <p><strong>Revised Spell Learning XP</strong><br/>
+  This small component revises the experience gained from writing new spells to the spellbook to more sane values, making it actually worth doing in BG1 while toning down the ridiculous values in BG2.  This is similar to the component from BGT Tweaks.  The XP gains are as follows: 50/100/200/500/1000/2000/3000/4000/5000.</p>
+
   <h3>Spell Availability Tweaks</h3>
   <p><strong>Expanded Temple Services</strong><br/>
   This component expands the services of all temples in the game.  You can now purchase the spells Cure Disease and Restoration at most temples.  If you installed Spell Restorations, Cure Blindness/Deafness will be available as well, and if you installed Divine Spells, Break Enchantment will also be added.</p>
@@ -122,14 +128,15 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 
   <p><strong>Thalantyr the *Conjurer*</strong><br/>
   Thalantyr of Beregost is both canonically and in-game a Conjurer, but you cannot tell by his selection of spells for sale.  This component actually gives him a couple of scrolls from the conjuration school, and removes scrolls he wouldn't be able to make due to his barred school of divination.</p>
-  <p>TODO: Give him more appropriate guardians than flesh golems.</p>
+  <p>NOTE: In a future version, this component will likely be integrated in canon lore changes.</p>
 
   <p><strong>Sixth Circle Spell Scrolls in Siege of Dragonspear</strong><br/>
   Five sixths circle spells were actually in Tales of the Sword Coast, although not usable by the player: Invisible Stalker, Globe of Invulnerability, Tenser's Transformation, Flesh to Stone and Death Spell.  Now that Siege of Dragonspear extends the story, it seems only fair to let the player actually have these spells.  This will be most helpful if you have a mod that removes the XP cap so your wizard actually can reach level twelve and have sixth circle spell slot, but even if not they can still use the scrolls.  One copy of each is available at the Sorcerous Sundries (only after SoD starts), and at quartermaster Belegarm in the camp.</p>
 
-<h2>The .ini File</h2>
+<h2>Expert Configuration Options</h2>
 <div class="section">
-  <p>Within the mod folder, there is a file called mih_sp.ini.  This file can be used to fine-tune certain aspects of this mod.  It is meant as an expert option, for normal installation you can leave this file as it is.  If you do edit this file, you must reinstall the mod, or at least the components whose settings you changed.</p>
+  <p>Within the mod folder, there is a file called mih_sp.ini.  This file can be used to fine-tune certain aspects of this mod.  It is meant as an expert option; for normal installation you can leave this file as it is.  If you do edit this file, you must reinstall the mod, or at least the components for which you changed settings.</p>
+  <p>Which spells get installed by the spell packs is determined by the file tables/spells.2da in the subdir folders of the components.  It is possible to add your own spells here.  The spell file goes in the subdir spells and the icons go into graphics.  There are other similar tables that control the installation of things like summoned creatures and simple items like paws.  You can also delete a spell you really don't like here, but this may have unexpected results down the line so be careful.</p>
 </div>
 <h2>Contact Information</h2>
 <div class="section">
@@ -157,6 +164,11 @@ Made in Heaven: Spell Pack is packaged and installed with WeiDU and is distribut
 <div class="section">
   <p><strong>Version 5 - ???</strong></p>
   <ul>
+    <li>Added missing icon for Tattoos of Power</li>
+    <li>Added missing graphics for Evard's Black Tentacles</li>
+    <li>Fixed erroneous strings in Tattoos of Power and Spell Matrix on BG2(EE)</li>
+    <li>Made Heroism and Superheroism not cumulative with each other</li>
+    <li>Readme updates, clearly marked experimental components</li>
   </ul>
   <p><strong>Version 4 - August 2021</strong></p>
   <ul>

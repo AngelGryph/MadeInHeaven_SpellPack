@@ -4,11 +4,21 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 
 ## Introduction
 
+This mod installs various new spells into the game, most are straight from
+the Player's Handbook or official Forgotten Realms sources, with a few more
+original creations.
+
+For detailed descriptions, please check the docs directory.
 
 
 ## Version History
 
 Version 5 - ???
+- Added missing icon for Tattoos of Power
+- Added missing graphics for Evard's Black Tentacles
+- Fixed erroneous strings in Tattoos of Power and Spell Matrix on BG2(EE)
+- Made Heroism and Superheroism not cumulative with each other
+- Readme updates, clearly marked experimental components.
 
 Version 4 - August 4 2021
 - Finally fixed the issue with Spell Matrix and area effect spells

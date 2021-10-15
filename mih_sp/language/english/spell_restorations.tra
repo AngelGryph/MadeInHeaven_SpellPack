@@ -124,7 +124,16 @@ Saving Throw: None
 
 This spell discovers disturbances in the Weave in any creature. Any creature within the range of the spell that has one or more active spells on them will glow red briefly.~
 @21  = ~Tattoos of Power~
-@22  = ~Tattoos of Power~
+@22  = ~Tattoos of Power
+(Alteration, Evocation)
+Level: 6
+Range: 0
+Duration: Permanent
+Casting Time: 1 round
+Area of Effect: Special
+Saving Throw: None
+
+This spell allows a mage to store spells and access them from his special ability button.  After choosing the spells for the tattoos, the wizard creates a special ability that will release the power contained within the spells simultaneously.  This ability, the tattoos of power, can store two spells, both of which must be of 4th level or lower.  A mage can only possess one tattoo of power at a time, and the tattoo may not be given to other players.  Once the tattoo is used, the special ability icon disappears.~
 @23  = ~Add spells to your tattoos of power~
 
 

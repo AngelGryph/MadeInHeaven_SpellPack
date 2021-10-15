@@ -14,11 +14,14 @@ BEGIN
     tra		= "epic_spellpack"
   END
 
+  OUTER_SET macro_spellcodes_read=0
+  LAUNCH_ACTION_MACRO read_in_spellcodes
+
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "maximized_spells"
+    file	= "maximized_spells epic_postproc"
     tra		= "epic_spellpack"
   END
-END	// setup_divine_spellpack
+END	// setup_epic_spellpack
 
 
