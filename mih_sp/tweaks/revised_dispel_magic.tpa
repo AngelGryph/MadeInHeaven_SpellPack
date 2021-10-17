@@ -1,0 +1,17 @@
+DEFINE_ACTION_FUNCTION revised_dispel_magic
+BEGIN
+  MAKE_PATCH
+    delete_effect=>"opcode is_in [77 81 240]"
+    patch_effect_inline'1=>~match=>"opcode = 58 and parameter2 > 0" parameter2=>0 probability1=>"if ability_true_level > 25 then 100 else (49 + 2 * ability_true_level)"~
+    patch_effect_inline'2=>~match=>"opcode is_in [123 177 215]" probability1=>"if ability_true_level > 25 then 100 else (49 + 2 * ability_true_level)"~
+    clone_effect_inline=>~match=>"opcode = 177 and resource = destself" parameter1=>101 parameter2=>3~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "CLERIC_DISPEL_MAGIC WIZARD_DISPEL_MAGIC WIZARD_TRUE_DISPEL_MAGIC INQUIS_DISPEL_MAGIC YESLICK_DISPEL_MAGIC"
+    edits	= "patch_data"
+  END
+END	// revised_dispel_magic
+
+

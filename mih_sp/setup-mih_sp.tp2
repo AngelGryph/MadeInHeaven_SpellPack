@@ -116,6 +116,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Revised Dispel Magic
+
+BEGIN @18
+GROUP @5
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "revised_dispel_magic"
+  location	= "tweaks"
+END
+
+
 // No Elemental Mind Battle
 
 BEGIN @12
