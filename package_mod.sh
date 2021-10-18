@@ -5,7 +5,7 @@ source "../ModPackaging/utilities/ie_games.sh"
 
 # /* MODIFY: set the values of the 3 variables below to reflect the current mod version */
 export mod_name="Made in Heaven: Spell Pack"
-export mod_version="v5"
+export mod_version="v6"
 export mod_folder="mih_sp"
 
 # /* MODIFY: these variables have sensible default values but they may need to be tweaked to match your particular mod */
