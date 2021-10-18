@@ -13,7 +13,7 @@ For detailed descriptions, please check the docs directory.
 
 ## Version History
 
-Version 5 - ???
+Version 5 - October 18 2021
 - Added missing icon for Tattoos of Power
 - Added missing graphics for Evard's Black Tentacles
 - Fixed erroneous strings in Tattoos of Power and Spell Matrix on BG2(EE)
