@@ -69,25 +69,25 @@ BEGIN
     LAUNCH_PATCH_FUNCTION apply_patches
       STR_VAR
       file_ext	= "CRE"
-      edits		= "general"
+      edits	= "general"
     END
 
     LAUNCH_PATCH_FUNCTION apply_patches
       STR_VAR
       file_ext	= "CRE"
-      edits		= "mummy"
+      edits	= "mummy"
     END
 
     LAUNCH_PATCH_FUNCTION apply_patches
       STR_VAR
       file_ext	= "CRE"
-      edits		= "summoned"
+      edits	= "summoned"
     END
 
     LAUNCH_PATCH_FUNCTION apply_patches
       STR_VAR
       file_ext	= "CRE"
-      edits		= "water_elemental"
+      edits	= "water_elemental"
     END
 
     BUT_ONLY_IF_IT_CHANGES

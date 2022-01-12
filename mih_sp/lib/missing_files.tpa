@@ -18,12 +18,15 @@ BEGIN
     file	= "dir.ids"
     location	= "resource/missing"
   END
+END
 
-  LAUNCH_ACTION_FUNCTION swap_text
-    STR_VAR
-    file	= "action.ids"
-    swaps	= ~"I:Face\*" => "I:Face*DIR"~
-  END
+// NB: Doing this outside the ACTION_IF because some versions of Ascension
+// (and potentially other mods) provide dir.ids without editing action.ids.
+
+LAUNCH_ACTION_FUNCTION swap_text
+  STR_VAR
+  file	= "action.ids"
+  swaps	= ~"I:Face\*)" => "I:Face*DIR)"~
 END
 
 
