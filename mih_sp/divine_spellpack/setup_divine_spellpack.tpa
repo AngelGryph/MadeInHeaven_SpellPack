@@ -1,11 +1,5 @@
 DEFINE_ACTION_FUNCTION setup_divine_spellpack
 BEGIN
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "setup_summons"
-    locbase	= "shared/summons"
-  END
- 
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     tra		= "divine_spellpack"

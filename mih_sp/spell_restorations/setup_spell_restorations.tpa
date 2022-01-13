@@ -10,12 +10,6 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "setup_summons"
-    locbase	= "shared/summons"
-  END
- 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
     file	= "restorations_preproc"
     tra		= "spell_restorations"
   END

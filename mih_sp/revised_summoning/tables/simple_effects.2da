@@ -1,0 +1,14 @@
+2DA V1.0
+*
+REFRES		OPCODE	PARAMETER1	PARAMETER2	PARAMETER3	DICENUM	DICESZ	RESOURCE
+monsum01	127	32		-1		0		0	0	monsum01
+monsum02	127	48		-1		0		0	0	monsum02
+monsum03	127	64		-1		0		0	0	monsum03
+monsum04	127	80		-1		0		0	0	monsum04
+monsum05	127	96		-1		0		0	0	monsum05
+monsum06	127	112		-1		0		0	0	monsum06
+monsum07	127	128		-1		0		0	0	monsum07
+monsum08	127	128		-1		0		0	0	monsum08
+anisum01	127	32		-1		0		0	0	anisum01
+anisum02	127	48		-1		0		0	0	anisum02
+anisum03	127	64		-1		0		0	0	anisum03

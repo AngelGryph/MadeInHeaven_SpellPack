@@ -114,8 +114,8 @@ GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_summoning_spells"
-  location	= "summoning_spells"
+  file		= "setup_revised_summoning"
+  location	= "revised_summoning"
 END
 
 

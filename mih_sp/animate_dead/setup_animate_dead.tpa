@@ -2,12 +2,6 @@ DEFINE_ACTION_FUNCTION setup_animate_dead
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "setup_summons"
-    locbase	= "shared/summons"
-  END
- 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
     file	= "skeletons_and_zombies wizard_4th ghoul_call"
     tra		= "animate_dead"
   END

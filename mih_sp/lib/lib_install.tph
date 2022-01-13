@@ -474,11 +474,20 @@ BEGIN
 
       INNER_ACTION
       BEGIN
+        ACTION_IF IS_AN_INT "%name_tra%"
+	BEGIN
+	  OUTER_TEXT_SPRINT editstring "say_both_names=>%name_tra%"
+	END
+	ELSE
+	BEGIN
+	  OUTER_TEXT_SPRINT editstring ""
+	END
+
         LAUNCH_ACTION_FUNCTION install_creature
 	  STR_VAR
 	  creature	= "%resref%"
 	  location	= "%creatures_loc%"
-	  editstring	= "say_both_names=>%name_tra%"
+	  editstring
 	  locbase
 	END
 	
