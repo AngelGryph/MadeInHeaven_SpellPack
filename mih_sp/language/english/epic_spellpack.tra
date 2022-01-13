@@ -30,21 +30,11 @@ This improved version of Cloudkill creates a billowing cloud of horrendously tox
 - +3 on all saves vs. Breath~
 @6    = ~Silver Fire~
 @7    = ~A Chosen of Mystra can unleash a destructive white flame known as Silver Fire from <PRO_HISHER> body.  This stream of raw magical power deals 4d12 damage to the target and everything else in its path with no saving throw or chance of magic resistance.~
-@8    = ~Maximize Spell~
-@9    = ~With this ability, the wizard learns to to cast certain spells with maximized effect.  A maximized spell takes up a slot three levels higher than normal.
-Maximimze Spell can be applied to the following spells:
-- Magic Missile
-- Aganazzar's Scorcher
-- Melf's Acid Arrow
-- Fireball
-- Lightning Bolt
-- Ice Storm
-- Cone of Cold
-- Chain Lightning~
-@10   = ~Maximized~
-@11   = ~Extra Level 9 Spell~
-@12   = ~Choosing this ability allows the wizard to cast one additional Level 9 spell.~
+@8    = ~Magic Missile Storm~
+@9    = ~Magic Missile Storm~
+@10   = ~Extra Level 9 Spell~
+@11   = ~Choosing this ability allows the wizard to cast one additional Level 9 spell.~
+@12   = ~Ioulaum's Longevity~
 @13   = ~Ioulaum's Longevity~
-@14   = ~Ioulaum's Longevity~
 
 

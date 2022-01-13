@@ -19,7 +19,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "maximized_spells epic_postproc"
+    file	= "arcane_hla_tables epic_postproc"
     tra		= "epic_spellpack"
   END
 END	// setup_epic_spellpack
