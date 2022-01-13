@@ -9,44 +9,6 @@ BEGIN
   END
 
 
-  // True Paladin
-
-  APPEND "clabpa01.2da"
-    ~mh#palsp    GA_%PALADIN_SMITE_EVIL%  GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_DIVINE_FAVOR%  ****        ****        GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
-
-
-  // Cavalier
-
-  APPEND "clabpa02.2da"
-    ~mh#palsp    GA_%PALADIN_SMITE_EVIL%  GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_DIVINE_FAVOR%  ****        ****        GA_%PALADIN_CURE_DISEASE%  GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_LAY_ON_HANDS%  ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
-
-
-  // Inquisitor
-
-  APPEND "clabpa03.2da"
-    ~mh#palsp    GA_%PALADIN_SMITE_EVIL%  ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
-
-
-  // Undead Hunter
-
-  APPEND "clabpa04.2da"
-    ~mh#palsp    GA_%PALADIN_SMITE_UNDEAD%  ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        GA_%PALADIN_DIVINE_FAVOR%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
-mh#palab    AP_mh#paldi ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
-
-
-  // Blackguard (EE only)
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    APPEND "clabpa06.2da"
-      ~mh#palsp    GA_%BLACKGUARD_SMITE_GOOD%  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****
-mh#palab    ****        ****        ****        ****        AP_mh#palcl AP_mh#palcl AP_mh#palcl AP_mh#palcl ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
-  END
-
-
   // Extend cavalier's bonus to dragons also to wyverns
 
   MAKE_PATCH

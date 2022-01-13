@@ -28,6 +28,49 @@ BEGIN
     spell	= "sppr317=>%cure_disease%"
     editstring	= ~spell_type=>"innate" patch_ability_inline=>"ability_icon_loc=>4 casting_time=>1"~
   END
+
+
+  // Ensure separate HLA tables for paladin kits
+  // (default all but Blackguard use lupa0.2da)
+
+  ACTION_CLEAR_ARRAY paladin_kits_hla_tables
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY paladin_kits_hla_tables
+  BEGIN
+    "cavalier"		=> "pa1"
+    "inquisitor"	=> "pa2"
+    "undead_hunter"	=> "pa3"
+  END
+
+  ACTION_PHP_EACH paladin_kits_hla_tables AS kit => table
+  BEGIN
+    LAUNCH_ACTION_FUNCTION read_table_entry
+      INT_VAR
+      colnum	= 1
+      STR_VAR
+      file	= "luabbr"
+      row	= "%kit%"
+      RET
+      value
+    END
+
+    ACTION_IF "%value%" STRING_EQUAL_CASE "pa0"
+    BEGIN
+      ACTION_IF NOT FILE_EXISTS_IN_GAME "lu%table%.2da"
+      BEGIN
+        COPY_EXISTING "lupa0.2da" "lu%table%.2da"
+      END
+
+      LAUNCH_ACTION_FUNCTION write_table_entry
+        INT_VAR
+        colnum	= 1
+        STR_VAR
+	file		= "luabbr"
+        row		= "%kit%"
+	arguments	= "%table%"
+      END
+    END
+  END
 END	// paladin_preproc
 
 

@@ -14,6 +14,8 @@ For detailed descriptions, please check the docs directory.
 ## Version History
 
 Version 6 - ???
+- Fixed a bug in Paladin Powers that prevented disease immunity from working
+- Documented new paladin powers better, added note about other mods
 
 Version 5 - October 18 2021
 - Added missing icon for Tattoos of Power
@@ -25,7 +27,7 @@ Version 5 - October 18 2021
 Version 4 - August 4 2021
 - Finally fixed the issue with Spell Matrix and area effect spells
 - Damage spells use proper save for half damage mechanics in EE games
-- Added a few experimenttal epic spells and other high-level abilities
+- Added a few experimental epic spells and other high-level abilities
 - Paladins can start casting spells at level 4 (as per 3.5e rules)
 - Bug fixes and code improvements
 

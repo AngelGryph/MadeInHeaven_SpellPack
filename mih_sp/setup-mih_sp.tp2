@@ -57,19 +57,6 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Made in Heaven: Epic Spellpack
-
-BEGIN @25
-
-REQUIRE_PREDICATE GAME_INCLUDES "tob" @10
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "setup_epic_spellpack"
-  location	= "epic_spellpack"
-END
-
-
 // Made in Heaven: Paladin Powers Pack
 
 BEGIN @3
@@ -89,6 +76,22 @@ LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_bhaalspawn_powers"
   location	= "bhaalspawn"
+END
+
+
+// Made in Heaven: Epic Spellpack
+//
+// NB: Moved here to have a better chance of having consistent
+// paladin innates between BG1 and BG2.
+
+BEGIN @25
+
+REQUIRE_PREDICATE GAME_INCLUDES "tob" @10
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_epic_spellpack"
+  location	= "epic_spellpack"
 END
 
 
