@@ -1,5 +1,43 @@
-@1000 = ~Ghoul Call~
+@0    = ~Animate Dead
+(Necromancy) 
 
-@2000 = ~Ghoul Call~
+Level: 4
+Range: 10 yards 
+Duration: 8 hours 
+Casting Time: 1 round
+Area of Effect: Special 
+Saving Throw: None 
+
+This spell creates the lowest of the undead monsters, skeletons and zombies, from the remains of dead humans, demihumans or humanoids.  Once animated, the undead stay around until they are destroyed in combat, a powerful priest or paladin succesfully turns them, or eight hours pass, in which case they will crumble to dust.  The animating magic cannot be dispelled.
+
+Casting this spell is not a good act and only evil wizards use it frequently.  Good or neutral wizards using this spell risk attracting the attention of dark powers or face alignment shifts.~
+@1    = ~Ghoul Call~
+@2    = ~Ghoul Call
+(Necromancy) 
+
+Level: 5
+Range: 10 yards 
+Duration: 8 hours 
+Casting Time: 1 round
+Area of Effect: Special 
+Saving Throw: None 
+
+By casting this spell, the necromancer animates the dead remains of humans, demihumans or humanoids as the flesh-eating undead horrors known as ghouls.  The ghouls stay animated until destroyed in combat, a powerful priest or paladin succesfully turns them, or eight hours pass in which case they crumble to dust.  The animating magic cannot be dispelled.
+
+Casting this spell is not a good act and only evil wizards use it frequently.  Good or neutral wizards using this spell risk attracting the attention of dark powers or face alignment shifts.~
+@3    = ~Animate Dead
+(Necromancy) 
+
+Level: 3
+Sphere: Necromantic
+Range: 10 yards 
+Duration: 8 hours
+Casting Time: 1 round
+Area of Effect: Special 
+Saving Throw: None
+
+This spell creates the lowest of the undead monsters, skeletons and zombies, from the remains of dead humans, demihumans or humanoids.  Once animated, the undead stay around until they are destroyed in combat, a powerful priest or paladin succesfully turns them, or eight hours pass, in which case they will crumble to dust.  The animating magic cannot be dispelled.
+
+Casting this spell is not a good act and only evil clerics use it frequently.  Neutral wizards using this spell risk attracting the attention of dark powers or face alignment shifts.~
 
 
