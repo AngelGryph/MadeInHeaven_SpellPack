@@ -1,5 +1,24 @@
 DEFINE_ACTION_FUNCTION place_spell_scrolls_in_bg1
 BEGIN
+  // The Northern Light (Ries Kensiddar)
+  //
+  // mh#wiz11 - Frost Fingers
+  // mh#wiz21 - Spark Shower
+  // mh#wiz22 - Seeking
+  
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #1~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "%tutu_var%inn4801"
+    edits	= "patch_data"
+  END
+
+
   // High Hedge (Thalantyr)
   //
   // mh#wiz11 - Frost Fingers

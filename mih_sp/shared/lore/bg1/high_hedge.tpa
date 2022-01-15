@@ -1,0 +1,64 @@
+DEFINE_ACTION_FUNCTION high_hedge
+BEGIN
+  // Appropriate scrolls in shop
+
+  MAKE_PATCH
+    //remove_items=>"scrl75 scrl76 scrl87"
+    literal'1=>~ADD_STORE_ITEM "scrl95" AFTER "scrl94" #1 #0 #0 "identified" #3~
+    literal'2=>~ADD_STORE_ITEM "scrla3" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3~
+    literal'3=>~ADD_STORE_ITEM "scrl6e" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3~
+    literal'4=>~ADD_STORE_ITEM "scrl1l" AFTER "scrl1i" #1 #0 #0 "identified" #3~
+    literal'5=>~ADD_STORE_ITEM "scrl1t" AFTER "scrl1q" #1 #0 #0 "identified" #3~
+    literal'6=>~ADD_STORE_ITEM "scrl2a" BEFORE "wand08" #1 #0 #0 "identified" #1~
+    literal'7=>~ADD_STORE_ITEM "scrl6r" BEFORE "wand08" #1 #0 #0 "identified" #1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store		= "highhedg"
+    edits		= "patch_data"
+  END
+
+
+  // Cosmetic items on Thalantyr
+
+  LAUNCH_ACTION_FUNCTION install_item
+    INT_VAR
+    overwrite	= 0
+    STR_VAR
+    item	= "staf12"
+    location	= "items"
+    locbase
+  END
+
+  MAKE_PATCH
+    add_items=>"staf12(weapon1) clck15(armor)"
+    remove_items=>"staf01 clck14"
+    patch_item_inline=>~match=>"item_resource is_in [staf12 clck15]" unstealable=>1 undroppable=>1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%tutu_var%thalan"
+    edits	= "patch_data"
+  END
+
+
+  // Replace Flesh Golems with Invisible Stalkers
+
+  MAKE_PATCH
+    script_override=>"none"
+    script_class=>"fgolem"
+    script_race=>"shout"
+    script_general=>"none"
+    script_default=>"wdasight"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_creature
+    STR_VAR
+    creature	= "%tutu_scriptbg%stalke=>%tutu_var%fgolem"
+    edits	= "patch_data"
+  END
+END	// high_hedge
+
+

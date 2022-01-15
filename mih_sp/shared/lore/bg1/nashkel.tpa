@@ -1,0 +1,108 @@
+DEFINE_ACTION_FUNCTION nashkel
+BEGIN
+  // Nashkel Inn: The Northern Light
+
+  MAKE_PATCH
+    say_name=>0
+    can_buy=>1
+    will_buy=>~{literal:1 6 9 10 11 16 26 32 34 35}~
+    can_sell=>1
+    add_item_inline'2=>~number_to_add=>16 item_resource=>"entry_index from [scrl1b scrl1c scrl85 scrl86 scrl87 scrl89 scrl90 scrl91 scrl92 scrl93 scrl94 scrl95 scrl96 scrl97 scrl98 scrl99]" item_charges_1=>1 item_num_in_stock=>1 state_identified=>1~
+    add_item_inline'1=>~number_to_add=>18 item_resource=>"entry_index from [scrl66 scrl67 scrl68 scrl69 scrl70 scrl71 scrl72 scrl73 scrl75 scrl76 scrl77 scrl78 scrl79 scrl80 scrl81 scrl82 scrl83 scrl84]" item_charges_1=>1 item_num_in_stock=>2 state_identified=>1~
+    can_identify=>1
+    lore=>100
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "%tutu_var%inn4801"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    say_both_names=>1
+    race=>human
+    class=>mage
+    gender=>male
+    animation=>mage_male_human
+    level=>5
+    enforce_hp=>at_worst
+    enforce_thac0=>at_worst
+    enforce_saves=>at_worst
+    alignment=>lawful_neutral
+    script_class=>mage3
+    script_default=>wtasight
+    add_items=>~staf01(weapon1) brac01(gloves)~
+    add_spells=>~WIZARD_MAGIC_MISSILE(3) WIZARD_STINKING_CLOUD WIZARD_AGANNAZAR_SCORCHER WIZARD_GHOST_ARMOR~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%tutu_var%innkn2"
+    edits	= "patch_data"
+  END
+
+
+  // Nashkel Store: Cloud Peaks Outfitters
+
+  MAKE_PATCH
+    say_name=>2
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "%tutu_var%sto4803"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    say_both_names=>3
+    race=>halfling
+    class=>cleric
+    gender=>female
+    animation=>cleric_female_halfling
+    steal_sounds_from=>~%tutu_var%halffg~
+    level=>4
+    enforce_hp=>at_worst
+    enforce_thac0=>at_worst
+    enforce_saves=>at_worst
+    alignment=>chaotic_good
+    script_class=>priest1
+    script_race=>none
+    script_general=>shopkn
+    script_default=>wtasight
+    add_items=>~blun04(weapon1) shld01(shield) chan01(armor)~
+    add_all_priest_spells=>null
+    add_spells=>~CLERIC_COMMAND(2) CLERIC_ENTANGLE CLERIC_HOLD_PERSON(2)~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_creature
+    STR_VAR
+    creature	= "%tutu_var%shopkn"
+    edits	= "patch_data"
+  END
+
+
+  // Berrun Ghastkill
+
+  MAKE_PATCH
+    race=>human
+    animation=>fighter_male_human
+  END
+
+
+  // Area Edits
+
+  MAKE_PATCH
+    patch_trigger_inline'1=>~match=>"trigger_name = Info4801" say_trigger_info=>0~
+    patch_trigger_inline'2=>~match=>"trigger_name = Info4803" say_trigger_info=>2~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_area
+    STR_VAR
+    area	= "%Nashkel%"
+    edits	= "patch_data"
+  END
+END	// nashkel
+
+

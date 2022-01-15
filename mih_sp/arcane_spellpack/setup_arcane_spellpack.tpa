@@ -1,5 +1,11 @@
 DEFINE_ACTION_FUNCTION setup_arcane_spellpack
 BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "setup_lore"
+    locbase	= "shared/lore"
+  END
+
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     tra		= "arcane_spellpack"

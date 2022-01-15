@@ -224,20 +224,6 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Thalantyr the *Conjurer*
-
-BEGIN @16
-GROUP @15
-
-REQUIRE_PREDICATE GAME_INCLUDES "bg1" @10
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "thalantyr_the_conjurer"
-  location	= "tweaks"
-END
-
-
 // Sixth Circle Spell Scrolls in Siege of Dragonspear
 
 BEGIN @23
