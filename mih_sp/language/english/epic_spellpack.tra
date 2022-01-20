@@ -8,7 +8,7 @@ Casting Time: 9
 Area of Effect: 15-ft. radius
 Saving Throw: None
 
-This improved version of Dispel Magic will end any and all dispelable magical effects around the caster from friends and foes alike.  Unlike Dispel Magic there is no level-based contest; anything that can be dispelled will be, including effects from potions and wands.  Note that the caster is the center of effect and thus will be subject of having %PRO_HISHER% own magical protections dispelled.  This may leave %PRO_HIMHER% vulnerable to attack, so this spell should be used with utmost care.~
+This improved version of Dispel Magic will end any and all dispelable magical effects around the caster from friends and foes alike.  Unlike Dispel Magic there is no level-based contest; anything that can be dispelled will be, including effects from potions and wands.  Note that the caster is the center of effect and thus will be subject of having <PRO_HISHER> own magical protections dispelled.  This may leave <PRO_HIMHER> vulnerable to attack, so this spell should be used with utmost care.~
 @2    = ~Tolodine's Killing Wind~
 @3    = ~Tolodine's Killing Wind
 (Evocation)
@@ -20,7 +20,7 @@ Casting Time: 9
 Area of Effect: 15-ft. radius
 Saving Throw: Special
 
-This improved version of Cloudkill creates a billowing cloud of horrendously toxic vapors.  Creatures with 10 hd or less are instantly slain with no saving throw unless they are immune to poison.  Creatures with 15 hd or less must save versus poison at -10 avoid being slain.  Every living being caught in the cloud takes 5d10 points of poison damage per round.  The caster must carefully target this spell or risk killing %PRO_HISHER% allies or %PRO_HIMHER%self.~
+This improved version of Cloudkill creates a billowing cloud of horrendously toxic vapors.  Creatures with 10 hd or less are instantly slain with no saving throw unless they are immune to poison.  Creatures with 15 hd or less must save versus poison at -10 avoid being slain.  Every living being caught in the cloud takes 5d10 points of poison damage per round.  The caster must carefully target this spell or risk killing <PRO_HISHER> allies or <PRO_HIMHER>self.~
 @4    = ~Chosen of Mystra~
 @5    = ~Your continued devotion to the Art has gained you the favor of Mystra, the Lady of All Magic.  This has the following benefits:
 - Constitution is set to 25
@@ -36,5 +36,14 @@ This improved version of Cloudkill creates a billowing cloud of horrendously tox
 @11   = ~Choosing this ability allows the wizard to cast one additional Level 9 spell.~
 @12   = ~Ioulaum's Longevity~
 @13   = ~Ioulaum's Longevity~
+@14   = ~Interdiction~
+@15   = ~Interdiction~
+@16   = ~Wolf Spirits~
+@17   = ~Wolf Spirits~
+@18   = ~Wolf Spirit~
+@19   = ~Arcane Insight~
+@20   = ~Arcane Insight~
+@21   = ~Divine Insight~
+@22   = ~Divine Insight~
 
 
