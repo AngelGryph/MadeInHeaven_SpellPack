@@ -130,20 +130,8 @@ Area of Effect: 40' radius
 Saving Throw: Neg.
 
 By means of this spell, the wizard calls forth a mass of writhing tentacles that grab on to any creature in the area, holding them in place and dealing 1d6+4 crushing damage per round.  A succesful save versus spell allows a victim to escape, but as long as they remain in the area they may be grabbed again.~
-@22   = ~Isaac's Lesser Missile Storm~
-@23   = ~Isaac's Lesser Missile Storm
-(Invocation/Evocation)
-
-Level: 4
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 4
-Area of Effect: 30' radius
-Saving Throw: None
-
-This spell bombards all hostile creatures in the designated area with magic missiles similar to that of the Magic Missile spell.  Each hostile creature will be randomly targetted by 1d3 missiles, each of which deals 1d6 damage with no saving throw.  This spell will not harm party members.  The missiles can be stopped by anything that also stops the Magic Missile spell, such as the Shield spell.
-
-This spell was developed in the city of Neverwinter.~
+//@22   = ~~
+//@23   = ~~
 @24   = ~Superheroism~
 @25   = ~Superheroism
 (Alteration)
@@ -182,20 +170,8 @@ Area of Effect: The caster
 Saving Throw: None
 
 This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to fifth level, one up to fourth, and the final one up to third level.  Only arcane spells can be restored.~
-@30   = ~Isaac's Greater Missile Storm~
-@31   = ~Isaac's Greater Missile Storm
-(Invocation/Evocation)
-
-Level: 6
-Range: Visual range of the caster
-Duration: Instant
-Casting Time: 4
-Area of Effect: 30' radius
-Saving Throw: None
-
-This spell bombards all hostile creatures in the designated area with magic missiles similar to that of the Magic Missile spell.  Each hostile creature will be randomly targetted by 1d3+1 missiles, each of which deals 1d6 damage with no saving throw.  This spell will not harm party members.  The missiles can be stopped by anything that also stops the Magic Missile spell, such as the Shield spell.
-
-This spell was developed in the city of Neverwinter.~
+//@30   = ~~
+//@31   = ~~
 @32   = ~Faerie Sword~
 @33   = ~Faerie Sword
 (Invocation/Evocation)
@@ -322,39 +298,20 @@ Area of Effect: 1-4 creatures
 Saving Throw: 1/2
 
 This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20.  Each orb can be targetted at a different creature.  Upon contact with the target, it deals 4d12 points of electrical damage and disappears.~
-@52   = ~Starfire~
-@53   = ~Starfire
-(Invocation/Evocation)
+@52   = ~Snilloc's Major Missile~
+@53   = ~Snilloc's Major Missile
+(Evocation)
 
 Level: 5
-Range: 90 yards
-Duration: 3 rounds
-Casting Time: 3
-Area of Effect: 15-foot radius
-Saving Throw: 1/2
+Range: Visual range of the caster
+Duration: Instant
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: None 
 
-Upon casting this spell, the mage causes a rain of golden fire to descend into the area of effect.  The fire deals 5d6 points of damage to anyone caught in the area, with a save versus spell allowed for half damage.
-
-This spell is rumored to have been first developed on the Upper Planes.~
-@54   = ~Tenser's Giant Strength~
-@55   = ~Tenser's Giant Strength
-(Alteration)
-
-Level: 4
-Range: Touch
-Duration: 1 round/level
-Casting Time: 1 round
-Area of Effect: Target creature
-Saving Throw: None
-
-This variation of the Strength spell gives the recipient the strength of one of the true giant races.  The exact strength given depends on the caster's level:
--  7- 9: Hill Giant Strength (19)
-- 10-12: Stone Giant Strength (20)
-- 13-15: Frost Giant Strength (21)
-- 16-18: Fire Giant Strength (22)
-- 19-21: Cloud Giant Strength (23)
-- 22-24: Storm Giant Strength (24)
-- 25+  : Titanic Strength (25)~
+Snilloc's Major Missile functions in most ways as the first circle spell Magic Missile, except that it fires only one large missile for increased damage.  The missile deals 10d4+10 damage, plus an additional 1d4+1 damage for every two levels over 9th, up till 20d4+20 damage at level 29.  It is otherwise identical to Magic Missile, and can be blocked by a Shield spell or a Brooch of Shielding.~
+//@54   = ~~
+//@55   = ~~
 @56   = ~Sunburst~
 @57   = ~Sunburst
 (Evocation)
@@ -418,5 +375,54 @@ Area of Effect: Target creature
 Saving Throw: 1/2
 
 When the wizard calls down a wall of fire spell, a vertical column of fire roars downward striking the exact location called for by the caster. The target must roll a saving throw vs. spell. Failure means the creature sustains 1d8 points of damage per level of the caster; otherwise, the damage is halved.~
+@67   = ~Summon Cats~
+@68   = ~Summon Cats
+(Conjuration/Summoning)
+
+Level: 2
+Range: 40 yards
+Duration: 1 round/level
+Casting Time: 2
+Area of Effect: Special
+Saving Throw: None
+
+This minor summoning spell conjures a great cat from the plane of Arborea to fight for the caster until slain or the duration expires.  Experienced mages can summon more powerful felines.
+
+3rd-4th: One giant lynx (2HD)
+5th-7th: Two giant lynxes, or one cheetah, mountain lion or leopard (3 HD)
+8th-11th: A cheetah, mountain lion and leopard, or a panther or jaguar (4 HD)
+12th-15th: A panther and jaguar, or a lion (5 HD), or a spotted lion (6 HD)
+
+A caster of 16th level or higher instead conjures a cath shee or faerie cat, a magical feline with several innate abilities.~
+@69   = ~Cheetah~
+@70   = ~Leopard~
+@71   = ~Mountain Lion~
+@72   = ~Spotted Lion~
+@73   = ~Giant Lynx~
+@74   = ~Panther~
+@75   = ~Cath Shee~
+@76   = ~Gust of Wind~
+@77   = ~Gust of Wind
+(Evocation)
+
+Level: 3
+Range: 0
+Duration: Instant
+Casting Time: 3
+Area of Effect: 18-ft. cone with 60-deg. arc
+Saving Throw: Neg.
+
+This spell causes a sudden gust of wind blowing from the caster into the direction <PRO_HESHE> indicates.  This wind blast is strong enough to knock humanoids and normal animals prone and send them tumbling away from the caster unless they save versus breath.  Giant humanoids will not be knocked prone, but will be momentarily unable to advance as they struggle against the wind.  This spell will also dissipate all gas clouds such as those produced by Stinking Cloud and Cloud Kill.~
+@78   = ~Mirage Arcana~
+@79   = ~Mirage Arcana
+(Illusion/Phantasm)
+
+Level: 6
+Range: 0
+Duration: 3 rounds + 1 round/level
+Casting Time: 3
+Area of Effect: 15-ft. radius
+
+When a Mirage Arcana spell is invoked, the caster causes from 2 to 8 exact duplicates of themselves to come into being around the members of <PRO_HISHER> entire party. These images do exactly what the party members do. Since the spell causes a blurring and slight distortion when cast, it is impossible for opponents to be certain which are the illusions and which is the actual party member. When an image is struck by a melee or missile attack -magical or otherwise- it disappears, but any other existing images remain intact until they are struck. However, it is important to note that this will not protect the caster against every attack, as it is possible for an enemy to choose the real person amongst all the images.~
 
 

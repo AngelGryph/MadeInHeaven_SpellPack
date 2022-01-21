@@ -5,11 +5,13 @@ BEGIN
   // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
+  // mh#wiz23 - Summon Cats
   
   MAKE_PATCH
     literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
     literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #1~
     literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #1~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl90" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -24,15 +26,19 @@ BEGIN
   // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
+  // mh#wiz23 - Summon Cats
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
+  // mh#wiz37 - Gust of Wind
 
   MAKE_PATCH
     literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
     literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2~
     literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
-    literal'5=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
+    literal'6=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
+    literal'7=>~ADD_STORE_ITEM "mh#wiz37" AFTER "scrl1f" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -73,19 +79,25 @@ BEGIN
   // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
+  // mh#wiz23 - Summon Cats
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
+  // mh#wiz37 - Gust of Wind
   // mh#wiz43 - Rary's Mnemonic Enhancer
   // mh#wiz44 - Evard's Black Tentacles
+  // mh#wiz45 - Wall of Fire
 
   MAKE_PATCH
-    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
-    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
-    literal'5=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
-    literal'6=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
-    literal'7=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
+    literal'01=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
+    literal'02=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'03=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'04=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'05=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
+    literal'06=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
+    literal'07=>~ADD_STORE_ITEM "mh#wiz37" BEFORE "scrl1g" #1 #1 #0 "identified" #2~
+    literal'08=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
+    literal'09=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
+    literal'10=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -114,8 +126,7 @@ BEGIN
   //
   // mh#wiz36 - Ball Lightning
   // mh#wiz41 - Iron Maiden
-  // mh#wiz42 - Control Elemental
-  // mh#wiz45 - Isaac's Lesser Missile Storm
+  // mh#wiz42 - Slumber
   // mh#wiz51 - Superheroism
 
   MAKE_PATCH
@@ -130,7 +141,6 @@ BEGIN
 
   MAKE_PATCH
     add_item_inline'1=>~match=>"parent_index = 2" item_resource=>"mh#wiz36" item_charges_1=>1 item_charges_2=>1~
-    add_item_inline'2=>~match=>"parent_index = 1" item_resource=>"mh#wiz42" item_charges_1=>1 item_charges_2=>1~
     add_item_inline'3=>~match=>"parent_index = 1" item_resource=>"mh#wiz45" item_charges_1=>1 item_charges_2=>1~
     add_item_inline'4=>~match=>"parent_index = 0" item_resource=>"mh#wiz51" item_charges_1=>1 item_charges_2=>1~
   END

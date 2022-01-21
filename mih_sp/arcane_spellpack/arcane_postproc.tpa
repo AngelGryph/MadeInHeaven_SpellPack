@@ -1,20 +1,5 @@
 DEFINE_ACTION_FUNCTION arcane_postproc
 BEGIN
-  // Install movies
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    COPY_LARGE "%MOD_FOLDER%/%component_loc%/movies/ee" "movies"
-  END
-  ELSE
-  BEGIN
-    MAKE_BIFF "mh#spell"
-    BEGIN
-      "%MOD_FOLDER%/%component_loc%/movies/old" ".*\.mve"
-    END
-  END
-
-
   // Create Spell Matrix innates
 
   MAKE_PATCH
@@ -85,6 +70,23 @@ BEGIN
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
     spell	= "%WIZARD_HEROISM% %WIZARD_SUPERHEROISM%"
+    edits	= "patch_data"
+  END
+
+
+  // Add save vs. breath to Gust of Wind effects
+  //
+  // Note to self: Consider extending simple effects table (again) if more
+  // spells start needing this.
+
+  MAKE_PATCH
+    save_vs_breath=>1
+    resist_dispel=>2
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_effect
+    STR_VAR
+    effect	= "mh#gusta mh#gustb mh#gustc"
     edits	= "patch_data"
   END
 END	// arcane_postproc

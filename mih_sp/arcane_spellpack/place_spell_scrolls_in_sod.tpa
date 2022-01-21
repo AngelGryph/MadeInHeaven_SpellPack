@@ -5,12 +5,13 @@ BEGIN
   // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
+  // mh#wiz23 - Summon Cats
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
-  // mh#wiz42 - Control Elemental
+  // mh#wiz37 - Gust of Wind
   // mh#wiz43 - Rary's Mnemonic Enhancer
   // mh#wiz44 - Evard's Black Tentacles
-  // mh#wiz45 - Isaac's Lesser Missile Storm
+  // mh#wiz45 - Wall of Fire
   // mh#wiz51 - Superheroism
   // mh#wiz52 - Spell Matrix
 
@@ -18,12 +19,13 @@ BEGIN
     literal'01=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #4~
     literal'02=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
     literal'03=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl94" #1 #1 #0 "identified" #4~
+    literal'03=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl94" #1 #1 #0 "identified" #4~
     literal'04=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #3~
     literal'05=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #3~
-    literal'06=>~ADD_STORE_ITEM "mh#wiz42" AFTER "scrla8" #1 #1 #0 "identified" #2~
+    literal'06=>~ADD_STORE_ITEM "mh#wiz37" AFTER "scrl1g" #1 #1 #0 "identified" #3~
     literal'07=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
     literal'08=>~ADD_STORE_ITEM "mh#wiz44" BEFORE "scrlaj" #1 #1 #0 "identified" #2~
-    literal'09=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrlaj" #1 #1 #0 "identified" #2~
+    literal'09=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
     literal'10=>~ADD_STORE_ITEM "mh#wiz51" AFTER "scrl2h" #1 #1 #0 "identified" #1~
     literal'11=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl2h" #1 #1 #0 "identified" #1~
   END
@@ -41,12 +43,14 @@ BEGIN
   // mh#wiz34 - Scintillating Sphere
   // mh#wiz36 - Ball Lightning
   // mh#wiz41 - Iron Maiden
+  // mh#wiz42 - Slumber
 
   MAKE_PATCH
-    literal'1=>~ADD_STORE_ITEM "mh#wiz41" FIRST #1 #1 #0 "identified" #1~
-    literal'2=>~ADD_STORE_ITEM "mh#wiz36" FIRST #1 #1 #0 "identified" #1~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz34" FIRST #1 #1 #0 "identified" #1~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz31" FIRST #1 #1 #0 "identified" #1~
+    literal'1=>~ADD_STORE_ITEM "mh#wiz42" FIRST #1 #1 #0 "identified" #1~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz41" FIRST #1 #1 #0 "identified" #1~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz36" FIRST #1 #1 #0 "identified" #1~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz34" FIRST #1 #1 #0 "identified" #1~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz31" FIRST #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store

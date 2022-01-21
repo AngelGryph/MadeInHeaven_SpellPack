@@ -6,6 +6,12 @@ BEGIN
     locbase	= "shared/lore"
   END
 
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "arcane_preproc"
+    tra		= "arcane_spellpack"
+  END
+
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     tra		= "arcane_spellpack"
