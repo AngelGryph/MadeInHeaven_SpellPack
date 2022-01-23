@@ -1493,7 +1493,7 @@ BEGIN
            LPF SPL_read_ability_target RET ability_target=value END
            LPF SPL_read_ability_range RET range=value END
            LPF SPL_read_spell_type_num RET type=value END
-		   PATCH_IF value=1 BEGIN
+		   PATCH_IF type=1 BEGIN
                 PATCH_FOR_EACH specialist IN abjurer conjurer diviner enchanter illusionist invoker necromancer transmuter generalist BEGIN
                    LPF "SPL_read_unusable_%specialist%" RET value END
                    PATCH_IF value BEGIN

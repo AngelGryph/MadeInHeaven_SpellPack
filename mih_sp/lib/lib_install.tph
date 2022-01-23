@@ -1,30 +1,30 @@
 DEFINE_ACTION_MACRO __handle_projectile
 BEGIN
-  ACTION_IF "%projectile%" STRING_COMPARE "*"
+  ACTION_IF "%PROJ%" STRING_COMPARE "*"
   BEGIN
-    ADD_PROJECTILE "%file_loc%/projectiles/%projectile%.pro"
-    OUTER_SET pronum = IDS_OF_SYMBOL("projectl" "%projectile%") + 1
+    ADD_PROJECTILE "%file_loc%/projectiles/%PROJ%.pro"
+    OUTER_SET pronum = IDS_OF_SYMBOL("projectl" "%PROJ%") + 1
     
     ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
       patch_ability_inline'2=>~projectile=>"%pronum%"~
     END
 
-    ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%projectile%.bam"
+    ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%PROJ%.bam"
     BEGIN
       LAUNCH_ACTION_FUNCTION install
         STR_VAR
-        file		= "%projectile%.bam"
+        file		= "%PROJ%.bam"
         location	= "%graphics_loc%"
 	locbase
       END
     END
 
-    ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%projectile%.vvc"
+    ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%PROJ%.vvc"
     BEGIN
       LAUNCH_ACTION_FUNCTION install
         STR_VAR
-        file		= "%projectile%.vvc"
+        file		= "%PROJ%.vvc"
         location	= "%graphics_loc%"
 	locbase
       END
@@ -35,7 +35,7 @@ END	// __handle_projectile
 
 DEFINE_ACTION_MACRO __handle_half_damage
 BEGIN
-  ACTION_MATCH "%half_damage%"
+  ACTION_MATCH "%HALF%"
   WITH
   "dl"  // Level-based dice num
   BEGIN
@@ -70,20 +70,20 @@ END	// __handle_half_damage
 
 DEFINE_ACTION_MACRO __handle_allow_sequencer
 BEGIN
-  ACTION_IF "%allow_sequencer%" STRING_EQUAL_CASE "n"
+  ACTION_IF "%SEQ%" STRING_EQUAL_CASE "n"
   BEGIN
     LAUNCH_ACTION_FUNCTION add_to_contingx
       STR_VAR
-      idsname
+      idsname	= "%IDSNAME%"
     END
   END
 END
 
 DEFINE_ACTION_MACRO __handle_cd_immunity
 BEGIN
-  ACTION_IF "%cd_immunity_csv%" STRING_COMPARE "*"
+  ACTION_IF "%CD_IMMUNITY%" STRING_COMPARE "*"
   BEGIN
-    OUTER_PATCH_SAVE cd_immunity_list "%cd_immunity_csv%"
+    OUTER_PATCH_SAVE cd_immunity_list "%CD_IMMUNITY%"
     BEGIN
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "," " "
     END
@@ -96,7 +96,16 @@ BEGIN
 END	// __handle_cd_immunity
 
 
-DEFINE_ACTION_MACRO __handle_main_items
+DEFINE_ACTION_FUNCTION __handle_main_items
+  STR_VAR
+  RESREF	= ~~
+  NAME		= ~~
+  DESC		= ~~
+  UNNAME	= ~~
+  UNDESC	= ~~
+  EXCL		= ~~
+  PROJ		= ~~
+  CD_IMMUNITY	= ~~
 BEGIN
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
@@ -147,101 +156,93 @@ BEGIN
   END
 
 
-  COPY - "%file_loc%/%tables_loc%/%main_items%.2da" "%workspace%"
-    COUNT_2DA_COLS cols
-    COUNT_2DA_ROWS cols rows
-    READ_2DA_ENTRIES_NOW __MH_RESERVED_main_items cols
+  ACTION_CLEAR_ARRAY patch_data
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+  BEGIN
+    max_in_stack=>~if max_in_stack > 1 and category = 9 then %max_stack_potions% else if max_in_stack > 1 and category is_in [5 14 24 31] then %max_stack_ammo% else if max_in_stack > 1 and category is_in [16 25] then %max_stack_thrown% else if max_in_stack > 1 and category is_in [1 10 34] then %max_stack_jewels% else no_change~
+  END
 
-    FOR (SET i = 1; i < rows; ++i)
+  ACTION_IF IS_AN_INT NAME
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 0 item_res
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 1 name_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 2 desc_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 3 uniden_name_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 4 uniden_desc_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 5 item_exclude
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 6 projectile
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_items i 7 cd_immunity_csv
-        
-      INNER_ACTION
-      BEGIN
-        ACTION_CLEAR_ARRAY patch_data
-        ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	BEGIN
-	  max_in_stack=>~if max_in_stack > 1 and category = 9 then %max_stack_potions% else if max_in_stack > 1 and category is_in [5 14 24 31] then %max_stack_ammo% else if max_in_stack > 1 and category is_in [16 25] then %max_stack_thrown% else if max_in_stack > 1 and category is_in [1 10 34] then %max_stack_jewels% else no_change~
-	END
-
-	ACTION_IF IS_AN_INT name_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_name=>"%name_tra%"
-	  END
-	END
-
-	ACTION_IF IS_AN_INT desc_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_description=>"%desc_tra%"
-	  END
-	END
-
-	ACTION_IF IS_AN_INT uniden_name_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_unidentified_name=>"%name_tra%"
-	  END
-	END
-
-	ACTION_IF IS_AN_INT uniden_desc_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_unidentified_description=>"%desc_tra%"
-	  END
-	END
-
-
-        // Check/handle item exclude
-
-	ACTION_IF IS_AN_INT item_exclude AND item_exclude > 0
-	BEGIN
-	  LAUNCH_ACTION_FUNCTION edit_itemexcl
-	    INT_VAR
-	    mask	= item_exclude
-	    STR_VAR
-	    item	= "%item_res%"
-	  END
-	END
-
-
-        // Check/handle projectile
-
-	LAUNCH_ACTION_MACRO __handle_projectile
-
-
-	// Check/handle immunities
-
-	LAUNCH_ACTION_MACRO __handle_cd_immunity
-
-
-        // Install and patch the actual item file.
-
-	LAUNCH_ACTION_FUNCTION install_item
-	  STR_VAR
-	  item		= "%item_res%"
-	  location	= "%items_loc%"
-	  edits		= "patch_data"
-	  locbase
-	END
-      END
+      say_name=>"%NAME%"
     END
+  END
+
+  ACTION_IF IS_AN_INT DESC
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      say_description=>"%DESC%"
+    END
+  END
+
+  ACTION_IF IS_AN_INT UNNAME
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      say_unidentified_name=>"%UNNAME%"
+    END
+  END
+
+  ACTION_IF IS_AN_INT UNDESC
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      say_unidentified_description=>"%DESC%"
+    END
+  END
+
+
+  // Check/handle item exclude
+
+  ACTION_IF IS_AN_INT EXCL AND EXCL > 0
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_itemexcl
+      INT_VAR
+      mask	= EXCL
+      STR_VAR
+      item	= "%RESREF%"
+    END
+  END
+
+
+  // Check/handle projectile
+
+  LAUNCH_ACTION_MACRO __handle_projectile
+
+
+  // Check/handle immunities
+
+  LAUNCH_ACTION_MACRO __handle_cd_immunity
+
+
+  // Install and patch the actual item file.
+
+  LAUNCH_ACTION_FUNCTION install_item
+    STR_VAR
+    item	= "%RESREF%"
+    location	= "%items_loc%"
+    edits	= "patch_data"
+    locbase
+  END
 END	// __handle_main_items
 
 
-DEFINE_ACTION_MACRO __handle_main_spells
+DEFINE_ACTION_FUNCTION __handle_main_spells
+  STR_VAR
+  IDSNAME	= ~~
+  LEVEL		= ~~
+  NAME		= ~~
+  DESC		= ~~
+  TYPE		= ~~
+  IDSNUM	= ~~
+  SCROLL	= ~~
+  HALF		= ~~
+  PROJ		= ~~
+  SEQ		= ~~
+  CD_IMMUNITY	= ~~
 BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME "hidespl.2da"
   BEGIN
@@ -249,290 +250,257 @@ BEGIN
   END
 
 
-  COPY - "%file_loc%/%tables_loc%/%main_spells%.2da" "%workspace%"
-    COUNT_2DA_COLS cols
-    COUNT_2DA_ROWS cols rows
-    READ_2DA_ENTRIES_NOW __MH_RESERVED_main_spells cols
+  // Obtain a slot in spell.ids
 
-    FOR (SET i = 1; i < rows; ++i)
+  ACTION_IF IS_AN_INT IDSNUM
+  BEGIN
+    APPEND "spell.ids" "%IDSNUM% %IDSNAME%" UNLESS "^%IDSNUM%"
+    CLEAR_IDS_MAP
+  END
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    type	= "%TYPE%"
+    level	= "%LEVEL%"
+    STR_VAR
+    idsname	= "%IDSNAME%"
+    RET
+    newname
+  END
+
+
+  // We know the new resource now, patch stuff in.
+
+  ACTION_CLEAR_ARRAY patch_data
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+  BEGIN
+    patch_effect_inline'1=>~match=>"resource = ##SELF##" resource=>"%newname%"~
+  END
+
+
+  // Look for any icon files we have that need installing.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%a.bam" AND
+            FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_a.bam"
+  BEGIN
+    COPY_LARGE "%file_loc%/%graphics_loc%/%IDSNAME%_a.bam" "override/%newname%a.bam"
+  END
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%b.bam" AND
+            FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_b.bam"
+  BEGIN
+    COPY_LARGE "%file_loc%/%graphics_loc%/%IDSNAME%_b.bam" "override/%newname%b.bam"
+  END
+
+  ACTION_IF FILE_EXISTS_IN_GAME "%newname%b.bam"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 0 idsname
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 1 level
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 2 name_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 3 desc_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 4 type
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 5 idsnum
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 6 scrollname
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 7 half_damage
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 8 projectile
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 9 allow_sequencer
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_main_spells i 10 cd_immunity_csv
-        
-      INNER_ACTION
-      BEGIN
-        // Obtain a slot in spell.ids
-
-	ACTION_IF IS_AN_INT idsnum
-	BEGIN
-	  APPEND "spell.ids" "%idsnum% %idsname%" UNLESS "^%idsnum%"
-	  CLEAR_IDS_MAP
-	END
-
-        LAUNCH_ACTION_FUNCTION add_spell_to_ids
-	  INT_VAR
-	  type
-	  level
-          STR_VAR
-          idsname
-          RET
-          newname
-        END
-
-
-        // We know the new resource now, patch stuff in.
-
-        ACTION_CLEAR_ARRAY patch_data
-
-	ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	BEGIN
-	  icon=>"%newname%c"
-	  patch_ability_inline'1=>~ability_icon=>"%newname%b"~
-	  patch_effect_inline'1=>~match=>"resource = ##SELF##" resource=>"%newname%"~
-	END
-
-
-        // Add name/description strings if we have them.
-
-	ACTION_IF IS_AN_INT name_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_name=>"%name_tra%"
-	  END
-	END
-
-	ACTION_IF IS_AN_INT desc_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_description=>"%desc_tra%"
-	  END
-	END
-
-
-        // Check/handle EE half damage
-
-	LAUNCH_ACTION_MACRO __handle_half_damage
-
-
-        // Check/handle projectile
-
-	LAUNCH_ACTION_MACRO __handle_projectile
-
-
-	// Check/handle immunities
-
-	LAUNCH_ACTION_MACRO __handle_cd_immunity
-
-
-	// Look for any icon files we have that need installing.
-
-	ACTION_FOR_EACH suffix IN "a" "b" "c"
-	BEGIN
-	  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%%suffix%.bam" AND
-	   FILE_EXISTS "%file_loc%/%graphics_loc%/%idsname%_%suffix%.bam"
-	  BEGIN
-	    COPY_LARGE "%file_loc%/%graphics_loc%/%idsname%_%suffix%.bam" "override/%newname%%suffix%.bam"
-	  END
-	END
-
-
-        // Install and patch the actual spell file.
-
-        COPY + "%file_loc%/%spells_loc%/%idsname%.spl" "%workspace%/%newname%.spl"
-
-	LAUNCH_ACTION_FUNCTION install_spell
-	  STR_VAR
-	  spell		= "%newname%"
-	  locabs	= "%workspace%"
-	  edits		= "patch_data"
-	END
-
-	DELETE + "%workspace%/%newname%.spl"
-
-
-	// Create a scroll if one is requested.
-
-	ACTION_IF "%scrollname%" STRING_COMPARE "*"
-	BEGIN
-            LAUNCH_ACTION_FUNCTION make_scroll_of_spell
-              STR_VAR
-              resref	= "%newname%"
-              scrollname
-            END
-	END
-
-
-	// Update contingx.2da if needed
-
-	LAUNCH_ACTION_MACRO __handle_allow_sequencer
-      END
+      patch_ability_inline'1=>~ability_icon=>"%newname%b"~
     END
+  END
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%c.bam" AND
+            FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_c.bam"
+  BEGIN
+    COPY_LARGE "%file_loc%/%graphics_loc%/%IDSNAME%_c.bam" "override/%newname%c.bam"
+  END
+
+  ACTION_IF FILE_EXISTS_IN_GAME "%newname%c.bam"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      icon=>"%newname%c"
+    END
+  END
+
+
+  // Add name/description strings if we have them.
+
+  ACTION_IF IS_AN_INT "%NAME%"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      say_name=>"%NAME%"
+    END
+  END
+
+  ACTION_IF IS_AN_INT "%DESC%"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
+    BEGIN
+      say_description=>"%DESC%"
+    END
+  END
+
+
+  // Check/handle EE half damage
+
+  LAUNCH_ACTION_MACRO __handle_half_damage
+
+
+  // Check/handle projectile
+
+  LAUNCH_ACTION_MACRO __handle_projectile
+
+
+  // Check/handle immunities
+
+  LAUNCH_ACTION_MACRO __handle_cd_immunity
+
+
+  // Install and patch the actual spell file.
+
+  COPY + "%file_loc%/%spells_loc%/%IDSNAME%.spl" "%workspace%/%newname%.spl"
+
+  LAUNCH_ACTION_FUNCTION install_spell
+  STR_VAR
+    spell	= "%newname%"
+    locabs	= "%workspace%"
+    edits	= "patch_data"
+  END
+
+  DELETE + "%workspace%/%newname%.spl"
+
+
+  // Create a scroll if one is requested.
+
+  ACTION_IF "%SCROLL%" STRING_COMPARE "*"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_scroll_of_spell
+      STR_VAR
+      resref		= "%newname%"
+      scrollname	= "%SCROLL%"
+    END
+  END
+
+
+  // Update contingx.2da if needed
+
+  LAUNCH_ACTION_MACRO __handle_allow_sequencer
 END	// __handle_main_spells
 
 
-DEFINE_ACTION_MACRO __handle_simple_items
+DEFINE_ACTION_FUNCTION __handle_simple_items
+  STR_VAR
+  RESREF	= ""
+  NAME		= ""
+  DUMMY		= ""
 BEGIN
-  COPY - "%file_loc%/%tables_loc%/%simple_items%.2da" "%workspace%"
-    COUNT_2DA_COLS cols
-    COUNT_2DA_ROWS cols rows
-    READ_2DA_ENTRIES_NOW __MH_RESERVED_item_simple cols
+  ACTION_CLEAR_ARRAY patch_data
 
-    FOR (SET i = 1; i < rows; ++i)
+  ACTION_IF IS_AN_INT NAME
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
     BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_item_simple i 0 resref
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_item_simple i 1 name_tra
-
-      INNER_ACTION
-      BEGIN
-        ACTION_CLEAR_ARRAY patch_data
-
-	ACTION_IF IS_AN_INT name_tra
-	BEGIN
-	  ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-	  BEGIN
-	    say_both_names=>"%name_tra%"
-	  END
-	END
-
-        LAUNCH_ACTION_FUNCTION install_item
-	  STR_VAR
-	  item		= "%resref%"
-	  location	= "%items_loc%"
-	  edits		= "patch_data"
-	  locbase
-	END
-      END
+      say_both_names=>"%NAME%"
     END
+  END
+
+  LAUNCH_ACTION_FUNCTION install_item
+  STR_VAR
+    item	= "%RESREF%"
+    location	= "%items_loc%"
+    edits	= "patch_data"
+    locbase
+  END
 END	// __handle_simple_items
 
 
-DEFINE_ACTION_MACRO __handle_simple_spells
+DEFINE_ACTION_FUNCTION __handle_simple_spells
+  STR_VAR
+  RESREF	= ""
+  PROJ		= ""
+  HALF		= ""
 BEGIN
-  COPY - "%file_loc%/%tables_loc%/%simple_spells%.2da" "%workspace%"
-    COUNT_2DA_COLS cols
-    COUNT_2DA_ROWS cols rows
-    READ_2DA_ENTRIES_NOW __MH_RESERVED_spell_simple cols
-
-    FOR (SET i = 1; i < rows; ++i)
-    BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_simple i 0 filename
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_simple i 1 projectile
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_spell_simple i 2 half_damage
-
-      INNER_ACTION
-      BEGIN
-        ACTION_CLEAR_ARRAY patch_data
-	
-
-        // Check/handle projectile
-
-	LAUNCH_ACTION_MACRO __handle_projectile
+  ACTION_CLEAR_ARRAY patch_data
 
 
-        // Check/handle EE half damage
+  // Check/handle projectile
 
-	LAUNCH_ACTION_MACRO __handle_half_damage
+  LAUNCH_ACTION_MACRO __handle_projectile
 
 
-        // Install the actual spell file.
+  // Check/handle EE half damage
 
-	LAUNCH_ACTION_FUNCTION install_spell
-	  STR_VAR
-	  spell		= "%filename%"
-	  location	= "%spells_loc%"
-	  edits		= "patch_data"
-	  locbase
-	END
-      END
-    END
+  LAUNCH_ACTION_MACRO __handle_half_damage
+
+
+  // Install the actual spell file.
+
+  LAUNCH_ACTION_FUNCTION install_spell
+  STR_VAR
+    spell	= "%RESREF%"
+    location	= "%spells_loc%"
+    edits	= "patch_data"
+    locbase
+  END
 END	// __handle_simple_spells
 
 
-DEFINE_ACTION_MACRO __handle_simple_creatures
+DEFINE_ACTION_FUNCTION __handle_simple_creatures
+  STR_VAR
+  RESREF	= ~~
+  NAME		= ~~
+  VVC		= ~~
 BEGIN
-  COPY - "%file_loc%//%tables_loc%/%simple_creatures%.2da" "%workspace%"
-    COUNT_2DA_COLS cols
-    COUNT_2DA_ROWS cols rows
-    READ_2DA_ENTRIES_NOW __MH_RESERVED_creatures cols
+  ACTION_IF IS_AN_INT "%NAME%"
+  BEGIN
+    OUTER_TEXT_SPRINT editstring "say_both_names=>%NAME%"
+  END
+  ELSE
+  BEGIN
+    OUTER_TEXT_SPRINT editstring ""
+  END
 
-    FOR (SET i = 1; i < rows; ++i)
-    BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_creatures i 0 resref
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_creatures i 1 name_tra
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_creatures i 2 vvc
-
-      INNER_ACTION
-      BEGIN
-        ACTION_IF IS_AN_INT "%name_tra%"
-	BEGIN
-	  OUTER_TEXT_SPRINT editstring "say_both_names=>%name_tra%"
-	END
-	ELSE
-	BEGIN
-	  OUTER_TEXT_SPRINT editstring ""
-	END
-
-        LAUNCH_ACTION_FUNCTION install_creature
-	  STR_VAR
-	  creature	= "%resref%"
-	  location	= "%creatures_loc%"
-	  editstring
-	  locbase
-	END
+  LAUNCH_ACTION_FUNCTION install_creature
+  STR_VAR
+    creature	= "%RESREF%"
+    location	= "%creatures_loc%"
+    editstring
+    locbase
+  END
 	
-	ACTION_IF "%vvc%" STRING_COMPARE_CASE "*"
-	BEGIN
-	  LAUNCH_ACTION_FUNCTION make_effect
-	    STR_VAR
-	    effect	= "%resref%"
-	    editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"%resref%" vvc=>"%vvc%"~
-	  END
-	END
-      END
+  ACTION_IF "%VVC%" STRING_COMPARE_CASE "*"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_effect
+      STR_VAR
+      effect		= "%RESREF%"
+      editstring	= ~opcode=>67 timing=>1 parameter1=>5 resource=>"%RESREF%" vvc=>"%VVC%"~
     END
+  END
 END	// __handle_simple_creatures
 
 
-DEFINE_ACTION_MACRO __handle_simple_effects
+DEFINE_ACTION_FUNCTION __handle_simple_effects
+  STR_VAR
+  RESREF	= ~~
+  OPCODE	= ~~
+  PARAMETER1	= ~~
+  PARAMETER2	= ~~
+  PARAMETER3	= ~~
+  PARAMETER4	= ~~
+  DICENUM	= ~~
+  DICESZ	= ~~
+  RESOURCE	= ~~
+  VVC		= ~~
 BEGIN
-  COPY - "%file_loc%/%tables_loc%/%simple_effects%.2da" "%workspace%"
-    COUNT_2DA_COLS cols
-    COUNT_2DA_ROWS cols rows
-    READ_2DA_ENTRIES_NOW __MH_RESERVED_effects cols
+  ACTION_IF "%RESOURCE%" STRING_EQUAL "$"
+  BEGIN
+    OUTER_TEXT_SPRINT RESOURCE ~~
+  END
 
-    FOR (SET i = 1; i < rows; ++i)
-    BEGIN
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 0 resref
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 1 opcode
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 2 parameter1
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 3 parameter2
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 4 parameter3
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 5 parameter4
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 6 dicenum
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 7 dicesize
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 8 resource1
-      READ_2DA_ENTRY_FORMER __MH_RESERVED_effects i 9 resource2
+  ACTION_IF "%VVC%" STRING_EQUAL "$"
+  BEGIN
+    OUTER_TEXT_SPRINT VVC ~~
+  END
 
-      INNER_ACTION
-      BEGIN
-        LAUNCH_ACTION_FUNCTION make_effect
-          STR_VAR
-	  effect	= "%resref%"
-	  editstring	= ~litvar_resource1=>%resource1% litvar_resource2=>%resource2% opcode=>%opcode% timing=>1 parameter1=>%parameter1% parameter2=>%parameter2% parameter3=>%parameter3% parameter4=>%parameter4% dicenum=>%dicenum% dicesize=>%dicesize% resource=>resource1 vvc=>resource2~
-        END
-      END
-    END
+  LAUNCH_ACTION_FUNCTION make_effect
+    STR_VAR
+    effect	= "%RESREF%"
+    editstring	= ~litvar_resource1=>"%RESOURCE%" litvar_resource2=>"%VVC%" opcode=>%OPCODE% timing=>1 parameter1=>%PARAMETER1% parameter2=>%PARAMETER2% parameter3=>%PARAMETER3% parameter4=>%PARAMETER4% dicenum=>%DICENUM% dicesize=>%DICESZ% resource=>resource1 vvc=>resource2~
+  END
 END	// __handle_simple_effects
 
 
@@ -598,7 +566,13 @@ BEGIN
     ACTION_IF "%simple_items%" STRING_COMPARE ""
           AND FILE_EXISTS "%file_loc%/%tables_loc%/%simple_items%.2da"
     BEGIN
-      LAUNCH_ACTION_MACRO __handle_simple_items
+      LAUNCH_ACTION_FUNCTION process_table
+        STR_VAR
+	table		= "%simple_items%.2da"
+	function	= "__handle_simple_items"
+	location	= "%tables_loc%"
+	locbase
+      END
     END
 
 
@@ -607,7 +581,13 @@ BEGIN
     ACTION_IF "%simple_spells%" STRING_COMPARE ""
           AND FILE_EXISTS "%file_loc%/%tables_loc%/%simple_spells%.2da"
     BEGIN
-      LAUNCH_ACTION_MACRO __handle_simple_spells
+      LAUNCH_ACTION_FUNCTION process_table
+        STR_VAR
+	table		= "%simple_spells%.2da"
+	function	= "__handle_simple_spells"
+	location	= "%tables_loc%"
+	locbase
+      END
     END
 
 
@@ -616,7 +596,13 @@ BEGIN
     ACTION_IF "%simple_creatures%" STRING_COMPARE ""
           AND FILE_EXISTS "%file_loc%/%tables_loc%/%simple_creatures%.2da"
     BEGIN
-      LAUNCH_ACTION_MACRO __handle_simple_creatures
+      LAUNCH_ACTION_FUNCTION process_table
+        STR_VAR
+	table		= "%simple_creatures%.2da"
+	function	= "__handle_simple_creatures"
+	location	= "%tables_loc%"
+	locbase
+      END
     END
 
 
@@ -625,7 +611,13 @@ BEGIN
     ACTION_IF "%simple_effects%" STRING_COMPARE ""
           AND FILE_EXISTS "%file_loc%/%tables_loc%/%simple_effects%.2da"
     BEGIN
-      LAUNCH_ACTION_MACRO __handle_simple_effects
+      LAUNCH_ACTION_FUNCTION process_table
+        STR_VAR
+	table		= "%simple_effects%.2da"
+	function	= "__handle_simple_effects"
+	location	= "%tables_loc%"
+	locbase
+      END
     END
 
 
@@ -634,7 +626,13 @@ BEGIN
     ACTION_IF "%main_items%" STRING_COMPARE ""
           AND FILE_EXISTS "%file_loc%/%tables_loc%/%main_items%.2da"
     BEGIN
-      LAUNCH_ACTION_MACRO __handle_main_items
+      LAUNCH_ACTION_FUNCTION process_table
+        STR_VAR
+	table		= "%main_items%.2da"
+	function	= "__handle_main_items"
+	location	= "%tables_loc%"
+	locbase
+      END
     END
 
 
@@ -643,7 +641,13 @@ BEGIN
     ACTION_IF "%main_spells%" STRING_COMPARE ""
           AND FILE_EXISTS "%file_loc%/%tables_loc%/%main_spells%.2da"
     BEGIN
-      LAUNCH_ACTION_MACRO __handle_main_spells
+      LAUNCH_ACTION_FUNCTION process_table
+        STR_VAR
+	table		= "%main_spells%.2da"
+	function	= "__handle_main_spells"
+	location	= "%tables_loc%"
+	locbase
+      END
     END
   END
 END	// grand_unified_installer

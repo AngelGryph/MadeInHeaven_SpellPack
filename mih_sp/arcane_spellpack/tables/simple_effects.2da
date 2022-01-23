@@ -1,11 +1,11 @@
 2DA V1.0
 *
-REFRES		OPCODE	PARAMETER1	PARAMETER2	PARAMETER3	PARAMETER4	DICENUM	DICESZ	RESOURCE	VVC
+RESREF		OPCODE	PARAMETER1	PARAMETER2	PARAMETER3	PARAMETER4	DICENUM	DICESZ	RESOURCE	VVC
 catjagsu	67	5		0		0		0		0	0	catjagsu	spanisum
 catliosu	67	5		0		0		0		0	0	catliosu	spanisum
 jellmusu	67	5		0		0		0		0	0	jellmusu	trblobb
 mh#blink	222	128		0		0		0		0	0	$		$
-mh#gusta	67	0		0		0		0		0	0	$		$
+mh#gusta	39	0		0		0		0		0	0	$		$
 mh#gustb	235	10		2		0		0		0	0	$		$
 mh#gustc	165	0		0		0		0		0	0	$		$
 mh#sunbu	12	0		0x00080000	0		0		8	6	$		$
