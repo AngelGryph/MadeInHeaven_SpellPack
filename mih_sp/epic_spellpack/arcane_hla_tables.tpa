@@ -19,6 +19,15 @@ BEGIN
     END
   END
 
+  ACTION_IF enhanced_edition
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_kit
+      STR_VAR
+      kit	= "DRAGON_DISCIPLE"
+      edits	= "patch_data"
+    END
+  END
+
 
   // Single- and multiclass mages
 
