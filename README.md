@@ -17,6 +17,7 @@ Version 6 - ???
 - Fixed a bug in Paladin Powers that prevented disease immunity from working
 - Documented new paladin powers better, added note about other mods
 - Integrated Thalatyr the *Conjurer* with lore-friendly changes
+- Various versions of (Super)Heroism won't stack, for real this time (I hope)
 
 Version 5 - October 18 2021
 - Added missing icon for Tattoos of Power

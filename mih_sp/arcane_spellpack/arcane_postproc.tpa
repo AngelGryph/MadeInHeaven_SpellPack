@@ -48,32 +48,6 @@ BEGIN
   END
 
 
-  // Fix/extend Magic Missile immunity
-  //
-  // NB: Keep this as is for speed, SFO has horrible performance.
-
-  COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_magic_missile_arrays"
-    END
-
-    BUT_ONLY_IF_IT_CHANGES
-
-
-  // Make Heroism/Superheroism mutually exclusive
-
-  MAKE_PATCH
-    clone_effect_inline=>~match=>"opcode = 206" resource=>"object_index from [%WIZARD_SUPERHEROISM% %WIZARD_HEROISM%]" only_once=>1~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "%WIZARD_HEROISM% %WIZARD_SUPERHEROISM%"
-    edits	= "patch_data"
-  END
-
-
   // Add save vs. breath to Gust of Wind effects
   //
   // Note to self: Consider extending simple effects table (again) if more
@@ -89,6 +63,19 @@ BEGIN
     effect	= "mh#gusta mh#gustb mh#gustc"
     edits	= "patch_data"
   END
+
+
+  // Fix/extend Magic Missile immunity
+  //
+  // NB: Keep this as is for speed, SFO has horrible performance.
+
+  COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_magic_missile_arrays"
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
 END	// arcane_postproc
 
 

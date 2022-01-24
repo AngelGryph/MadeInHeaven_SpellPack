@@ -84,19 +84,6 @@ BEGIN
     STR_VAR
     spell	= "%CLERIC_FAERIE_FIRE%"
   END
-
-
-  // Make Heroism/Superheroism mutually exclusive
-
-  MAKE_PATCH
-    clone_effect_inline=>~match=>"opcode = 206" resource=>"object_index from [%CLERIC_SUPERHEROISM% %CLERIC_HEROISM%]" only_once=>1~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "%CLERIC_HEROISM% %CLERIC_SUPERHEROISM%"
-    edits	= "patch_data"
-  END
 END	// divine_postproc
 
 
