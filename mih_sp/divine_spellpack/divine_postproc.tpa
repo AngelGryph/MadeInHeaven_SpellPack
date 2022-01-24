@@ -1,48 +1,5 @@
 DEFINE_ACTION_FUNCTION divine_postproc
 BEGIN
-  // Further patches to Repel Insects so it can dispel an ongoing
-  // Insect Swarm.
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    // We have EE engine, use opcode #321 to remove
-    // the spells we protect against.
-
-    MAKE_PATCH
-      clone_effect_inline=>~match=>"opcode = 206" clone_at_top=>1 opcode=>321~
-    END
-  END
-  ELSE
-  BEGIN
-    // Old engine, give insect spells a special sectype and
-    // use opcodes 221 to remove spells by sectype.
-    // (Much clumsier, and much less reliable.)
-
-    LAUNCH_ACTION_FUNCTION add_silent_sectype
-      STR_VAR
-      sectype	= "mh#InsectSwarm"
-      RET
-      sectype_value
-    END
-
-    LAUNCH_ACTION_FUNCTION edit_spell
-      STR_VAR
-      spell	= "CLERIC_SUMMON_INSECTS CLERIC_INSECT_PLAGUE CLERIC_CREEPING_DOOM BLACK_DRAGON_INSECT"
-      editstring	= "secondary=>%sectype_value%"
-    END
-
-    MAKE_PATCH
-      clone_effect_inline=>~match=>"opcode = 83 and parameter2 = 227" number_to_add=>2 opcode=>"entry_index from [205 221]" parameter1=>0 parameter2=>%sectype_value%~
-    END
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "CLERIC_REPEL_INSECTS"
-    edits	= "patch_data"
-  END
-
-
   // Hallow/Unhallow's turning bonus does not work on old engine,
   // turn it into a caster level bonus for clerics
 
@@ -83,6 +40,30 @@ BEGIN
     is_hidden	= 0
     STR_VAR
     spell	= "%CLERIC_FAERIE_FIRE%"
+  END
+
+
+  // Prevent stacking of arcane/divine versions of
+  // certain spells.
+  //
+  // Externalized in shared to keep it the same for both.
+
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "mutual_excludes"
+    locbase	= "shared/spells"
+  END
+
+
+  // Handle spells that need to repel/disperse swarms.
+  //
+  // Externalized in shared to keep it the same for both.
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "repel_insects"
+    locbase	= "shared/spells"
   END
 END	// divine_postproc
 

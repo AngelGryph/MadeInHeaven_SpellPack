@@ -10,12 +10,6 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "no_stack_heroism"
-    locbase	= "shared/spells"
-  END
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
     file	= "divine_postproc"
   END
 END	// setup_divine_spellpack

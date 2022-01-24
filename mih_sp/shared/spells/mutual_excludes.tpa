@@ -1,0 +1,37 @@
+DEFINE_ACTION_FUNCTION mutual_excludes
+BEGIN
+  // Barrier (arcane) and Armor of Faith (divine)
+  OUTER_TEXT_SPRINT spell_list ~~
+
+  ACTION_FOR_EACH spell IN WIZARD_BARRIER CLERIC_ARMOR_OF_FAITH
+  BEGIN
+    ACTION_IF VARIABLE_IS_SET "%spell%"
+    BEGIN
+      OUTER_TEXT_SPRINT spell_list EVAL "%spell_list% %%spell%%"
+    END
+  END
+
+  LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
+    STR_VAR
+    spell_list
+  END
+
+
+  // Heroism, Superheroism (arcane and divine)
+  OUTER_TEXT_SPRINT spell_list ~~
+
+  ACTION_FOR_EACH spell IN WIZARD_HEROISM WIZARD_SUPERHEROISM CLERIC_HEROISM CLERIC_SUPERHEROISM
+  BEGIN
+    ACTION_IF VARIABLE_IS_SET "%spell%"
+    BEGIN
+      OUTER_TEXT_SPRINT spell_list EVAL "%spell_list% %%spell%%"
+    END
+  END
+
+  LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
+    STR_VAR
+    spell_list
+  END
+END	// mutual_excludes
+
+

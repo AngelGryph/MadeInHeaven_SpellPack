@@ -22,12 +22,6 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "no_stack_heroism"
-    locbase	= "shared/spells"
-  END
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
     file	= "arcane_postproc"
     tra		= "arcane_spellpack"
   END

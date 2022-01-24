@@ -1,0 +1,99 @@
+DEFINE_ACTION_FUNCTION repel_insects
+BEGIN
+  // Patch spells that summon insects
+
+  OUTER_TEXT_SPRINT insect_spells ~~
+
+  LAUNCH_ACTION_FUNCTION add_silent_sectype
+    STR_VAR
+    sectype	= "InsectPlague1"
+    RET
+    sectype1	= sectype_value
+  END
+
+  COPY_EXISTING_REGEXP "^sp[a-z]+[0-9]+\.spl$" "override"
+    SET is_an_insect_spell = 0
+
+    GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+    PHP_EACH ab_array AS ab_index => ab_offset
+    BEGIN
+      READ_BYTE (ab_offset + 0x0026) projectile
+      --projectile	// This value is off by one with projectl.ids
+
+      PATCH_IF (projectile == IDS_OF_SYMBOL("projectl" "insec1"))
+            OR (projectile == IDS_OF_SYMBOL("projectl" "insec3"))
+            OR (projectile == IDS_OF_SYMBOL("projectl" "insec2"))
+            OR (projectile == IDS_OF_SYMBOL("projectl" "insec4"))
+      BEGIN
+        SET is_an_insect_spell = 1
+      END
+    END
+    
+    PATCH_IF is_an_insect_spell
+    BEGIN
+      TEXT_SPRINT insect_spells "%insect_spells% %SOURCE_RES%"
+
+      PATCH_IF NOT FILE_EXISTS_IN_GAME "%SOURCE_RES%a.spl"
+      BEGIN
+        INNER_ACTION
+        BEGIN
+	  MAKE_PATCH
+            sectype=>"%sectype1%"
+            patch_ability_inline=>"projectile=>1"
+            name1_string=>"-1"
+            no_LOS=>1
+            not_wild_dead=>1
+            not_wild_surge=>1
+          END
+
+          LAUNCH_ACTION_FUNCTION clone_spell
+          STR_VAR
+	    spell	= "%SOURCE_RES%=>%SOURCE_RES%a"
+	    edits	= "clone_patches"
+	  END
+        END
+
+	PATCH_MAKE_PATCH
+	  delete_effect=>null
+	  delete_ability=>"ability_min_level > 1"
+	  add_effect_inline=>~opcode=>146 target=>2 timing=>1 parameter2=>1 power=>level resource=>"%SOURCE_RES%a"~
+	END
+      END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+
+
+  ACTION_IF VARIABLE_IS_SET WIZARD_GUST_OF_WIND
+  BEGIN
+    MAKE_PATCH
+      delete_effect=>"opcode is_in [205 206 221]"
+      add_effect_inline=>~insert_point=>0 number_to_add=>2 opcode=>221 target=>"entry_index from [1 2]" timing=>1 parameter1=>10 parameter2=>%sectype1%~
+    END
+    
+    LAUNCH_ACTION_FUNCTION edit_spell
+      STR_VAR
+      spell	= "%WIZARD_GUST_OF_WIND%"
+      edits	= "patch_data"
+    END
+  END
+
+  ACTION_IF VARIABLE_IS_SET CLERIC_REPEL_INSECTS
+  BEGIN
+    MAKE_PATCH
+      litvar_insect_spells=>"[%insect_spells%]"
+      delete_effect=>"opcode is_in [205 206 221]"
+      add_effect_inline=>~insert_point=>0 opcode=>221 target=>2 timing=>1 parameter1=>10 parameter2=>%sectype1%~
+      clone_effect_inline'1=>~match=>"opcode = 83" clone_at_bottom=>1 only_once=>1 opcode=>205 parameter2=>%sectype1%~
+      clone_effect_inline'2=>~match=>"opcode = 83" number_to_add=>"length insect_spells" clone_at_bottom=>1 only_once=>1 opcode=>206 parameter2=>0 resource=>"entry_index from insect_spells"~
+    END
+    
+    LAUNCH_ACTION_FUNCTION edit_spell
+      STR_VAR
+      spell	= "%CLERIC_REPEL_INSECTS%"
+      edits	= "patch_data"
+    END
+  END
+END	// repel_insects
+
+
