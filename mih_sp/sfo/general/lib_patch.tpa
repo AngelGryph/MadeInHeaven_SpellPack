@@ -1141,7 +1141,7 @@ BEGIN
                   LPF update_offsets INT_VAR bytes_added STR_VAR entry_type END
                   // patch
                   FOR (entry_index=0;entry_index<number_to_add_val;entry_index+=1) BEGIN
-                     SET offset_num = clone_at_top ? (index + num_added_here + entry_index) : (clone_at_bottom? index + num_added_here + number : (index_here + entry_index + !clone_above))
+                     SET offset_num = clone_at_top ? (index + num_added_here + entry_index) : (clone_at_bottom? index + num_added_here + number + entry_index : (index_here + entry_index + !clone_above))
                      LPF return_offset INT_VAR offset_num STR_VAR entry_type file_ext RET offset_here=value END
                      LPF apply_patches INT_VAR parent_index entry_index offset_secondary=offset_here offset_base STR_VAR edits="%arguments%" file_ext filename is_conditional=yes END
                   END
