@@ -74,8 +74,8 @@ Saving Throw: None
 
 By laying <PRO_HISHER> hands upon a blinded or deafened creature, the priest can restore vision and hearing to normal.  The cure is permanent, but does not prevent the creature from being blinded or deafened again.  Some magical curses that cause blindess or deafness may not be undone by this spell.~
 //@12  = ~The selected character is cured of blindness and deafness.~
-@13  = ~Otto's Irresistible Dance~
-@14  = ~Otto's Irresistible Dance
+@13   = ~Otto's Irresistible Dance~
+@14   = ~Otto's Irresistible Dance
 (Enchantment/Charm)
 
 Level: 8
@@ -86,8 +86,8 @@ Area of Effect: Creature touched
 Saving Throw: None
 
 When an Otto's Irresistible Dance spell is placed upon a creature, the spell causes the recipient to begin dancing, complete with feet shuffling and tapping.  This dance makes it impossible for the victim to do anything other than caper and prance; this cavorting worsens the armor class of the creature by -4 and saving throws by -6.  There is no saving throw against this spell.~
-@15  = ~Protection Circle~
-@16  = ~Protection Circle
+@15   = ~Protection Circle~
+@16   = ~Protection Circle
 (Enchantment)
 
 Level: 1
@@ -98,8 +98,8 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 This spell places a protective ward on the creature touched which improves the armor class of the recipient by 3.  Thus AC 8 becomes AC 5.  The protection is cumulative with other forms of armor, including that granted by an Armor- or Shield spell.  It lasts until dispelled or the duration runs out.~
-@17  = ~Circle of Protection~
-@18  = ~Circle of Protection
+@17   = ~Circle of Protection~
+@18   = ~Circle of Protection
 (Enchantment)
 
 Level: 1
@@ -111,8 +111,8 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 This spell creates a protective barrier around the creature touched which improves the armor class of the recipient by 3.  Thus AC 8 becomes AC 5.  The protection is cumulative with other forms of armor, including that granted by an Armor- or Shield spell.  It lasts until dispelled or the duration runs out.~
-@19  = ~Reveal Magic~
-@20  = ~Reveal Magic
+@19   = ~Reveal Magic~
+@20   = ~Reveal Magic
 (Divination) 
 
 Level: 1
@@ -123,8 +123,8 @@ Area of Effect: 30-ft. radius
 Saving Throw: None
 
 This spell discovers disturbances in the Weave in any creature. Any creature within the range of the spell that has one or more active spells on them will glow red briefly.~
-@21  = ~Tattoos of Power~
-@22  = ~Tattoos of Power
+@21   = ~Tattoos of Power~
+@22   = ~Tattoos of Power
 (Alteration, Evocation)
 Level: 6
 Range: 0
@@ -134,6 +134,19 @@ Area of Effect: Special
 Saving Throw: None
 
 This spell allows a mage to store spells and access them from his special ability button.  After choosing the spells for the tattoos, the wizard creates a special ability that will release the power contained within the spells simultaneously.  This ability, the tattoos of power, can store two spells, both of which must be of 4th level or lower.  A mage can only possess one tattoo of power at a time, and the tattoo may not be given to other players.  Once the tattoo is used, the special ability icon disappears.~
-@23  = ~Add spells to your tattoos of power~
+@23   = ~Add spells to your tattoos of power~
+@24   = ~Holy Sword~
+@25   = ~Holy Sword
+(Alteration)
+
+Level: 4
+Sphere: Combat
+Range: Touch
+Duration: 4 rounds + 1 round/level
+Casting Time: 2
+Area of Effect: 1 normal sword
+Saving Throw: None
+
+This spell enables the caster to create a magical sword very similar to the Holy Avenger that Paladins seek. This sword gives a +5 bonus to hit and a +5 bonus to damage. Also, the sword grants the caster temporary knowledge on how to wield it properly, so the caster does not receive any penalties for using this sword.~
 
 

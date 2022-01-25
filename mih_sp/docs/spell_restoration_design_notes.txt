@@ -1,0 +1,230 @@
+Design notes of the spells I restored, for the curious.  Unless noted
+otherwise, this refers to vanilla (non-EE) BG2 files.
+
+
+WIZARD_REVEAL_MAGIC
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2121
+- dialog.tlk entries: 4653 (name), 25869 (name), 25870 (incomplete desc)
+- working opcode #225 Reveal Magic
+
+Deduced scroll item: scrl6b (logical order)
+
+P&P source: Canon FR spell (Wizard's Compendium)
+
+This one was a straightforward implement as all the necessary elements except
+spell icons (my worst nemesis) were there and its P&P description was readily
+translated into engine terms.  I basically just edited Detect Evil.
+
+
+WIZARD_PROTECTION_CIRCLE
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2122
+- dialog.tlk entries: 4654 (name), 34643 (incomplete desc)
+- mentioned in description of Breach (25915)
+
+Deduced scroll item: scrl6c (logical order)
+
+P&P source: Not found
+
+This one and its clerical counterpart Circle of Protection baffled me, as I
+had no official source for them, or anything even close to it.  All I could
+deduce is that it was a combat protection of some sort, so I decided to make
+it give an AC bonus.  This might change if I can find an official source for
+it.
+
+There was no icon for this one, so I used the one for the cleric Circle of
+Protection which does have bam files.
+
+
+WIZARD_FOG_CLOUD
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2204 WIZARD_FOG_CLOUD
+- icon files: spwi204a.bam, spwi204b.bam, spwi204c.bam, iscrl88.bam
+- dialog.tlk entries: 12055 (name), 12965 (name), 13034 (name)
+
+Deduced scroll item: scrl88 (icon present)
+
+P&P source: Core spell (PHB)
+
+One of my first restorations, as this one was already in the original Baldur's
+Gate 1.  Since the cloud obscures sight both into and out of it, I settled for
+making everyone in it both invisible and blinded.
+
+Note: Surprisingly effective at thwarting enemy archers!
+
+
+WIZARD_WRAITH_FORM
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2315
+- icon files: spwi315a.bam, spwi315b.bam, spwi315c.bam, iscrl1r.bam
+- dialog.tlk entries: 12020 (name), 12995 (name), 12144 (desc), 13065 (name)
+
+Deduced scroll item: scrl1r (icon present)
+
+P&P source: Core spell (PHB)
+
+One of the most well known dummied out spells restored by several mods
+including UB, one of the oldest ones around.  In vanilla BG1, it even had a
+working spell file, which made restoring this one quite easy.
+
+Note: May have been cut for balance reasons.  Very effective against many BG1
+enemies, especially by a fighter/mage.
+
+
+WIZARD_DIMENSION_DOOR
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2402
+- working spell file: spwi402.spl
+- icon files: spwi402a.bam, spwi402b.bam, spwi402c.bam, iscrl1v.bam
+- dialog.tlk entries: 12082 (name), 12192 (desc), 12999 (name), 13069 (name)
+
+Deduced scroll item: scrl1v (item and icon present)
+
+P&P source: Core spell (PHB)
+
+The most complete dummied out spell in BG2, probably because it was working
+and normally available in BG1.  It only needed a few small updates to be
+viable again.
+
+Note: Probably dummied out because of the many ways in which careless use can
+screw up your game.  Use at your own risk!
+
+
+WIZARD_MONSTER_SUMMONING_4
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2610
+- table file: monsum04.2da
+- dialog.tlk entries: 16156 (name), 16165 (desc), 34580 (name)
+
+Deduced scroll item: scrl7n (logical order)
+
+P&P source: Core spell (PHB)
+
+This one was really easy, I only had to edit another monster summoning spell 
+nd provide one effect file.  Oh, and create a BG2 icon file.  I just recolored
+an Icewind Dale one.
+
+Note: Strings and tables for Monster Summoning V to VII are also present.
+However, the tables are incomplete and corrupt, and there are no spell.ids
+entries or obvious gaps for these spells.
+
+
+WIZARD_TATTOOS_OF_POWER
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2709
+- dialog.tlk entries: 25949 (name), 25950 (partial desc), 34601 (name)
+
+Deduced scroll item: scrl8k (logical order)
+
+P&P source: Not found.
+
+There is no known seventh level spell by this name, but there is a 6th level
+one called Tattoo of Power, used in arabian- and savage settings.  Seems also
+appropriate to the Red Wizards to me.
+
+Since this is another "container" spell and 7th level already has Spell
+Sequencer, I decided to change its level to 6th.
+
+
+WIZARD_OTTOS_IRRESISTABLE_DANCE
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2814
+- dialog.tlk entries: 26274 (name), 34624 (name)
+
+Deduced scroll item: scrl9i (logical order)
+
+P&P source: Core spell (PHB)
+
+
+WIZARD_SPELL_INVULNERABILITY
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 2901
+- icon files: spwi901a.bam, spwi901b.bam, spwi901c.bam
+- dialog.tlk entries: 26294 (name), 26296 (partial desc), 26301 (status
+  message), 34626 (name)
+
+Deduced scroll item: scrl9k (logical order)
+
+P&P source: Not found.
+
+The biggest challenge for this one was deciding what to make it do as I had
+literally nothing to go on.  I may still change my mind on it.
+
+
+CLERIC_CIRCLE_OF_PROTECTION
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 1112
+- icon files: sppr112a.bam, sppr112b.bam, sppr112c.bam
+- dialog.tlk entries: 25605 (name), 25606 (partial desc), 25868 (partial desc)
+
+P&P source: Not found.
+
+Like the wizard's Protection Circle, I could find no P&P source for this one.
+I did find something just called Circle that gave a small AC bonus, so I went
+with this.
+
+
+CLERIC_ANIMAL_FRIENDSHIP
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 1114
+- dialog.tlk entries: 38564 (name), 38565 (partial desc)
+
+P&P source: Core spell (PHB)
+
+Since priests already have Charm Animal, I decided to turn this into a minor
+summoning spell to let a druid or ranger summon an animal companion for a
+little while in the outdoors.
+
+
+CLERIC_ENDURE_HEAT_COLD
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 1115
+- dialog.tlk entries: 38566 (name)
+
+P&P source: Core spell (PHB)
+
+In P&P this is less powerful but lasts longer than Resist Fire/Cold, so I did
+my best to reflect that in this version.
+
+
+CLERIC_CURE_BLIND_DEAF
+
+Proof that the spell was meant to be in the game:
+- spell.ids entry: 1316
+- dialog.tlk entries: 294 (name), 14072 (status), 14074 (status)
+- icon files: sppr316a.bam, sppr316b.bam, sppr316c.bam
+
+P&P source: Core spell (PHB)
+
+The functionality of this spell was added to Cure Disease, making it
+redundant.  I first decided to remove this function from Cure Disease, but
+that gave unexpected AI problems, especially in Siege of Dragonspear.  So I
+settled for altering it to a level 2 spell instead.
+
+
+CLERIC_HOLY_SWORD
+
+Proof that the spell was meant to be in the game:
+- dialog.tlk entries: 6924 (name), 6925 (desc), 36485 (name), 36542 (name)
+- hsword.itm: Incomplete item
+
+P&P source: Not found.
+
+Came across this one while searching for cleric spells in the Combat sphere.
+Was a fairly simple matter to edit Flame Blade into this spell and restore the
+item to working order.
+
+
