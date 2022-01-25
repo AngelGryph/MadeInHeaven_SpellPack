@@ -3,15 +3,17 @@ BEGIN
   // The Northern Light (Ries Kensiddar)
   //
   // mh#wiz11 - Frost Fingers
+  // mh#wiz12 - Barrier
   // mh#wiz21 - Spark Shower
-  // mh#wiz22 - Seeking
-  // mh#wiz23 - Summon Cats
+  // mh#wiz24 - Cat's Grace
+  // mh#wiz25 - Bear's Endurance
   
   MAKE_PATCH
-    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
-    literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #1~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #1~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl90" #1 #1 #0 "identified" #1~
+    literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl69" #1 #1 #0 "identified" #2~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz12" AFTER "scrl67" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl96" #1 #1 #0 "identified" #1~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz24" AFTER "scrl85" #1 #1 #0 "identified" #1~
+    literal'5=>~ADD_STORE_ITEM "mh#wiz25" BEFORE "scrl85" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -25,8 +27,8 @@ BEGIN
   //
   // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
-  // mh#wiz22 - Seeking
-  // mh#wiz23 - Summon Cats
+  // mh#wiz24 - Cat's Grace
+  // mh#wiz25 - Bear's Endurance
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
   // mh#wiz37 - Gust of Wind
@@ -34,8 +36,8 @@ BEGIN
   MAKE_PATCH
     literal'1=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
     literal'2=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl90" #1 #1 #0 "identified" #2~
-    literal'3=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl90" #1 #1 #0 "identified" #2~
-    literal'4=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl90" #1 #1 #0 "identified" #2~
+    literal'3=>~ADD_STORE_ITEM "mh#wiz24" AFTER "scrl85" #1 #1 #0 "identified" #2~
+    literal'4=>~ADD_STORE_ITEM "mh#wiz25" BEFORE "scrl85" #1 #1 #0 "identified" #2~
     literal'5=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1f" #1 #1 #0 "identified" #1~
     literal'6=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1f" #1 #1 #0 "identified" #1~
     literal'7=>~ADD_STORE_ITEM "mh#wiz37" AFTER "scrl1f" #1 #1 #0 "identified" #1~
@@ -50,21 +52,24 @@ BEGIN
 
   // Firewine Ruins
   //
+  // mh#wiz22 - Seeking (on Lendar)
   // mh#wiz35 - Minor Malison (on Lendar)
 
   LAUNCH_ACTION_FUNCTION edit_creature
     STR_VAR
     creature	= "lendar"
-    editstring	= ~add_items=>"mhwiz35(qitem,x1.1)"~
+    editstring	= ~add_items=>"mh#wiz22(qitem,x1.1) mhwiz35(qitem,x1.1)"~
   END
 
 
   // Ulcaster Ruins
   //
+  // mh#wiz23 - Summon Cats
   // mh#wiz35 - Minor Malison
 
   MAKE_PATCH
-    add_item_inline=>~match=>"parent_index = 6" item_resource=>"mh#wiz35" item_charges_1=>1 item_charges_2=>1~
+    litvar_items=>"[mhwiz23 mh#wiz35]"
+    add_item_inline=>~match=>"parent_index = 6" number_to_add=>"length items" item_resource=>"entry_index from items" item_charges_1=>1 item_charges_2=>1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_area
@@ -78,8 +83,8 @@ BEGIN
   //
   // mh#wiz11 - Frost Fingers
   // mh#wiz21 - Spark Shower
-  // mh#wiz22 - Seeking
-  // mh#wiz23 - Summon Cats
+  // mh#wiz24 - Cat's Grace
+  // mh#wiz25 - Bear's Endurance
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
   // mh#wiz37 - Gust of Wind
@@ -90,8 +95,8 @@ BEGIN
   MAKE_PATCH
     literal'01=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
     literal'02=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'03=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'04=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'03=>~ADD_STORE_ITEM "mh#wiz24" AFTER "scrl85" #1 #1 #0 "identified" #2~
+    literal'04=>~ADD_STORE_ITEM "mh#wiz25" BEFORE "scrl85" #1 #1 #0 "identified" #2~
     literal'05=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1t" #1 #1 #0 "identified" #2~
     literal'06=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #2~
     literal'07=>~ADD_STORE_ITEM "mh#wiz37" BEFORE "scrl1g" #1 #1 #0 "identified" #2~
@@ -124,13 +129,16 @@ BEGIN
 
   // Candlekeep
   //
+  // mh#wiz22 - Seeking
+  // mh#wiz23 - Summon Cats
   // mh#wiz36 - Ball Lightning
   // mh#wiz41 - Iron Maiden
   // mh#wiz42 - Slumber
   // mh#wiz51 - Superheroism
 
   MAKE_PATCH
-    add_item_inline=>~match=>"parent_index = 5" item_resource=>"mh#wiz41" item_charges_1=>1 item_charges_2=>1~
+    litvar_items=>"[mh#wiz22 mh#wiz23 mh#wiz41]"
+    add_item_inline=>~match=>"parent_index = 5" number_to_add=>"length items" item_resource=>"entry_index from items" item_charges_1=>1 item_charges_2=>1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_area
@@ -141,8 +149,8 @@ BEGIN
 
   MAKE_PATCH
     add_item_inline'1=>~match=>"parent_index = 2" item_resource=>"mh#wiz36" item_charges_1=>1 item_charges_2=>1~
-    add_item_inline'3=>~match=>"parent_index = 1" item_resource=>"mh#wiz45" item_charges_1=>1 item_charges_2=>1~
-    add_item_inline'4=>~match=>"parent_index = 0" item_resource=>"mh#wiz51" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'2=>~match=>"parent_index = 1" item_resource=>"mh#wiz45" item_charges_1=>1 item_charges_2=>1~
+    add_item_inline'3=>~match=>"parent_index = 0" item_resource=>"mh#wiz51" item_charges_1=>1 item_charges_2=>1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_area

@@ -22,9 +22,12 @@ BEGIN
   // Waukeen's Promenade / Adventurer's Market
   //
   // mh#wiz11 - Frost Fingers
+  // mh#wiz12 - Barrier
   // mh#wiz21 - Spark Shower
   // mh#wiz22 - Seeking
   // mh#wiz23 - Summon Cats
+  // mh#wiz24 - Cat's Grace
+  // mh#wiz25 - Bear's Endurance
   // mh#wiz32 - Heroism
   // mh#wiz33 - Blink
   // mh#wiz35 - Minor Malison
@@ -43,18 +46,21 @@ BEGIN
 
   MAKE_PATCH
     literal'01=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #4~
-    literal'02=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
-    literal'03=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'03=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl1c" #1 #1 #0 "identified" #2~
-    literal'04=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #4~
-    literal'05=>~ADD_STORE_ITEM "mh#wiz33" AFTER "scrl1t" #1 #1 #0 "identified" #4~
-    literal'06=>~ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #4~
-    literal'07=>~ADD_STORE_ITEM "mh#wiz37" AFTER "scrl1g" #1 #1 #0 "identified" #4~
-    literal'08=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3~
-    literal'09=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3~
-    literal'10=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
-    literal'11=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1~
-    literal'12=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrla4" #1 #1 #0 "identified" #1~
+    literal'02=>~ADD_STORE_ITEM "mh#wiz12" AFTER "scrl67" #1 #1 #0 "identified" #4~
+    literal'03=>~ADD_STORE_ITEM "mh#wiz21" AFTER "scrl94" #1 #1 #0 "identified" #4~
+    literal'04=>~ADD_STORE_ITEM "mh#wiz22" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'05=>~ADD_STORE_ITEM "mh#wiz23" AFTER "scrl1c" #1 #1 #0 "identified" #2~
+    literal'06=>~ADD_STORE_ITEM "mh#wiz24" AFTER "scrl85" #1 #1 #0 "identified" #2~
+    literal'07=>~ADD_STORE_ITEM "mh#wiz25" BEFORE "scrl85" #1 #1 #0 "identified" #2~
+    literal'08=>~ADD_STORE_ITEM "mh#wiz32" AFTER "scrl1h" #1 #1 #0 "identified" #4~
+    literal'09=>~ADD_STORE_ITEM "mh#wiz33" AFTER "scrl1t" #1 #1 #0 "identified" #4~
+    literal'10=>~ADD_STORE_ITEM "mh#wiz35" AFTER "scrl1i" #1 #1 #0 "identified" #4~
+    literal'11=>~ADD_STORE_ITEM "mh#wiz37" AFTER "scrl1g" #1 #1 #0 "identified" #4~
+    literal'12=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3~
+    literal'13=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3~
+    literal'14=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
+    literal'15=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1~
+    literal'16=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrla4" #1 #1 #0 "identified" #1~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -74,6 +80,23 @@ BEGIN
   LAUNCH_ACTION_FUNCTION edit_store
     STR_VAR
     store	= "ribald3"
+    edits	= "patch_data"
+  END
+
+
+  // Slums / Copper Coronet
+  //
+  // mh#wiz24 - Cat's Grace
+  // mh#wiz25 - Bear's Endurance
+
+  MAKE_PATCH
+    literal'1=>~ADD_STORE_ITEM "mh#wiz24" AFTER "scrl85" #1 #1 #0 "identified" #1~
+    literal'2=>~ADD_STORE_ITEM "mh#wiz25" BEFORE "scrl85" #1 #1 #0 "identified" #1~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_store
+    STR_VAR
+    store	= "bernard bernard2"
     edits	= "patch_data"
   END
 

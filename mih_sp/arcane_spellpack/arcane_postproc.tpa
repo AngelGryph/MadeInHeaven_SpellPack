@@ -100,6 +100,16 @@ BEGIN
     file	= "repel_insects"
     locbase	= "shared/spells"
   END
+
+
+  // Apply CamDawg's elven sleep/charm resistance to Slumber and Mass Charm.
+  //
+  // TODO: Get this properly into SFO?
+
+  COPY_EXISTING "%WIZARD_SLUMBER%.spl" "override"
+                "%WIZARD_MASS_CHARM%.spl" "override"
+    LAUNCH_PATCH_FUNCTION cd_elven_sleep_charm_resistance END
+    BUT_ONLY_IF_IT_CHANGES
 END	// arcane_postproc
 
 

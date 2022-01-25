@@ -5,6 +5,9 @@ CLERIC_STRIKING				1	0	1	0	*	*		n	*		y	*
 CLERIC_FAERIE_FIRE			1	2	3	0	*	*		n	*		y	*
 CLERIC_SEEKING				2	4	5	0	*	*		n	*		y	*
 CLERIC_RESIST_ACID_CORROSION		2	21	22	0	*	*		n	*		y	*
+CLERIC_BULLS_STRENGTH			2	42	43	0	*	*		n	*		y	*
+CLERIC_CATS_GRACE			2	44	45	0	*	*		n	*		y	*
+CLERIC_BEARS_ENDURANCE			2	46	47	0	*	*		n	*		y	*
 CLERIC_PROTECTION_FROM_COLD		3	39	40	0	*	*		n	*		y	*
 CLERIC_STICKS_TO_SNAKES			4	6	7	0	*	*		n	*		y	*
 CLERIC_HEROISM				4	9	10	0	*	*		n	*		y	*

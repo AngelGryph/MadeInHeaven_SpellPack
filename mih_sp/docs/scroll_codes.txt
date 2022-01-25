@@ -1,8 +1,11 @@
 mh#wiz11	Frost Fingers
+mh#wiz12	Barrier
 
 mh#wiz21	Spark Shower
 mh#wiz22	Seeking
 mh#wiz23	Summon Cats
+mh#wiz24	Cat's Grace
+mh#wiz25	Bear's Endurance
 
 mh#wiz31	Improved Magic Missile
 mh#wiz32	Heroism

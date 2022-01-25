@@ -1,10 +1,14 @@
 2DA v1.0
 *
-IDSNAME					LEVEL	NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJ	SEQ	CD_IMMUNITY
+IDSNAME					LEVEL	NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJ		SEQ	CD_IMMUNITY
 WIZARD_FROST_FINGERS			1	60	61	0	*	mh#wiz11	ff	mh#frost	y	*
+WIZARD_BARRIER				1	22	23	0	*	mh#wiz12	n	*		y	*
 WIZARD_SPARK_SHOWER			1	0	1	0	*	mh#wiz21	dd	*		y	*
 WIZARD_SEEKING				2	2	3	0	*	mh#wiz22	n	*		y	*
 WIZARD_SUMMON_CATS			2	67	68	0	*	mh#wiz23	n	*		y	*
+WIZARD_STRENGTH				2	80	81	0	2214	*		n	*		y	*
+WIZARD_CATS_GRACE			2	82	83	0	*	mh#wiz24	n	*		y	*
+WIZARD_BEARS_ENDURANCE			2	84	85	0	*	mh#wiz25	n	*		y	*
 WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	0	*	mh#wiz31	n	*		y	*
 WIZARD_HEROISM				3	6	7	0	*	mh#wiz32	n	*		y	*
 WIZARD_BLINK				3	8	9	0	*	mh#wiz33	n	*		y	*
@@ -30,6 +34,7 @@ WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY	8	38	39	0	*	mh#wiz82	n	*		y	spell_level_1,
 WIZARD_POLAR_RAY			8	40	41	0	*	mh#wiz83	n	*		y	*
 WIZARD_MECHANUS_CANNON			8	42	43	0	*	mh#wiz84	n	*		y	*
 WIZARD_SUNBURST				8	56	57	0	*	mh#wiz85	n	*		y	*
+WIZARD_MASS_CHARM			8	30	31	0	*	mh#wiz86	n	*		y	*
 WIZARD_RUNE_OF_TORMENT			9	47	48	0	*	mh#wiz91	n	mh#runet	y	*
 WIZARD_WEIRD				9	58	59	0	*	mh#wiz92	n	*		y	*
 WIZARD_FORESIGHT			9	63	64	0	*	mh#wiz93	n	*		y	*

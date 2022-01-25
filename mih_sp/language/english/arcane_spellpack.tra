@@ -31,7 +31,7 @@ Range: Visual range of the caster
 Duration: Instant
 Casting Time: 3
 Area of Effect: 1 creature
-Saving Throw: None 
+Saving Throw: None
 
 Like the 1st-level spell Magic Missile, Improved Magic Missile creates missiles of magical energy that dart from the wizard's fingertips and unerringly strike their target, which must be a creature of some sort.  However, this spell creates up to eleven such missiles instead of only five.  The damage is still the same, 1d4+1 per missile.  For a caster below 11th level this spell works just like Magic Missile, but at 11th level <PRO_HESHE> gets 6 missiles, then 7 at 13th level and so on up to 11 missiles at 21th level.  The Shield spell and other effects that specifically counter Magic Missile will also block the missiles created by this spell.~
 @6    = ~Heroism~
@@ -130,8 +130,18 @@ Area of Effect: 40' radius
 Saving Throw: Neg.
 
 By means of this spell, the wizard calls forth a mass of writhing tentacles that grab on to any creature in the area, holding them in place and dealing 1d6+4 crushing damage per round.  A succesful save versus spell allows a victim to escape, but as long as they remain in the area they may be grabbed again.~
-//@22   = ~~
-//@23   = ~~
+@22   = ~Barrier~
+@23   = ~Barrier
+(Abjuration)
+
+Level: 1
+Range: 0
+Duration: 3 rounds + 1 round/level
+Casting Time: 1
+Area of Effect: Caster
+Saving Throw: None
+
+The caster of the Barrier spell receives significant protection against melee and magical attacks.  This magical barrier is a force of energy that absorbs a portion of the damage intended for the caster.  At first level, the protection is 5%, and every five levels of the caster improves this by another 5%.  A 20th-level wizard would have 25% of her damage 'absorbed' if protected by this spell.~
 @24   = ~Superheroism~
 @25   = ~Superheroism
 (Alteration)
@@ -170,8 +180,8 @@ Area of Effect: The caster
 Saving Throw: None
 
 This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to fifth level, one up to fourth, and the final one up to third level.  Only arcane spells can be restored.~
-//@30   = ~~
-//@31   = ~~
+@30   = ~Mass Charm~
+@31   = ~Mass Charm~
 @32   = ~Faerie Sword~
 @33   = ~Faerie Sword
 (Invocation/Evocation)
@@ -214,7 +224,7 @@ Casting Time: 8
 Area of Effect: 1 creature
 Saving Throw: Special
 
-Death comes in many forms, but none so painful as this. For even if you evade Death's Touch, it will always leave a mark. 
+Death comes in many forms, but none so painful as this. For even if you evade Death's Touch, it will always leave a mark.
 
 This spell calls forth a magical bolt of death energy that kills a specified target, unless it makes a successful saving throw vs. spell. Even on a successful saving throw, the victim suffers 10d6 points of electrical damage.~
 @38   = ~Major Globe of Invulnerability~
@@ -307,7 +317,7 @@ Range: Visual range of the caster
 Duration: Instant
 Casting Time: 5
 Area of Effect: 1 creature
-Saving Throw: None 
+Saving Throw: None
 
 Snilloc's Major Missile functions in most ways as the first circle spell Magic Missile, except that it fires only one large missile for increased damage.  The missile deals 10d4+10 damage, plus an additional 1d4+1 damage for every two levels over 9th, up till 20d4+20 damage at level 29.  It is otherwise identical to Magic Missile, and can be blocked by a Shield spell or a Brooch of Shielding.~
 //@54   = ~~
@@ -344,8 +354,8 @@ Weirds attack twice per round and deal 2d8+4 damage on a succesful attack.  In a
 
 Level: 1
 Range: 5 ft.
-Duration: Instant 
-Casting Time: 1 
+Duration: Instant
+Casting Time: 1
 Area of Effect: 1 creature
 Saving Throw: 1/2
 
@@ -424,5 +434,41 @@ Casting Time: 3
 Area of Effect: 15-ft. radius
 
 When a Mirage Arcana spell is invoked, the caster causes from 2 to 8 exact duplicates of themselves to come into being around the members of <PRO_HISHER> entire party. These images do exactly what the party members do. Since the spell causes a blurring and slight distortion when cast, it is impossible for opponents to be certain which are the illusions and which is the actual party member. When an image is struck by a melee or missile attack -magical or otherwise- it disappears, but any other existing images remain intact until they are struck. However, it is important to note that this will not protect the caster against every attack, as it is possible for an enemy to choose the real person amongst all the images.~
+@80   = ~Bull's Strength~
+@81   = ~Bull's Strength
+(Alteration)
+
+Level: 2
+Range: 20 ft.
+Duration: 1 turn/level
+Casting Time: 9
+Area of Effect: 1 creature
+Saving Throw: None
+
+The Bull's Strength spell raises the recipient's Strength score by four points, granting <PRO_HIMHER> all benefits of a higher strength, such as increased changes to hit and damage with melee weapons.~
+@82   = ~Cat's Grace~
+@83   = ~Cat's Grace
+(Alteration)
+
+Level: 2
+Range: 20 ft.
+Duration: 1 turn/level
+Casting Time: 9
+Area of Effect: 1 creature
+Saving Throw: None
+
+The Cat's Grace spell raises the recipient's Dexterity score by four points, granting <PRO_HIMHER> all benefits of a higher dexterity, such as increased changes to hit with missile weapons and an improved Armor Class.~
+@84   = ~Bear's Endurance~
+@85   = ~Bear's Endurance
+(Alteration)
+
+Level: 2
+Range: 20 ft.
+Duration: 1 turn/level
+Casting Time: 9
+Area of Effect: 1 creature
+Saving Throw: None
+
+The Bear's Endurance spell raises the recipient's Constitution score by four points, granting <PRO_HIMHER> all benefits of a higher constitution, such as extra hit points.  Note however that these extra hit points will disappear when the spell ends, possibly killing the recipient if <PRO_HESHE> took a lot of damage.~
 
 
