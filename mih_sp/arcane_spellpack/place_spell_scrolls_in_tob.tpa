@@ -67,6 +67,7 @@ BEGIN
   // mh#wiz82 - Major Globe of Invulnerability
   // mh#wiz83 - Polar Ray
   // mh#wiz85 - Sunburst
+  // mh#wiz86 - Mass Charm
   // mh#wiz92 - Weird
   // mh#wiz93 - Foresight
 
@@ -101,8 +102,9 @@ BEGIN
     literal'28=>~ADD_STORE_ITEM "mh#wiz82" AFTER "scrl9e" #1 #1 #0 "identified" #2~
     literal'29=>~ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9g" #1 #1 #0 "identified" #2~
     literal'30=>~ADD_STORE_ITEM "mh#wiz85" AFTER "scrl9h" #1 #1 #0 "identified" #2~
-    literal'31=>~ADD_STORE_ITEM "mh#wiz92" AFTER "scrl9v" #1 #1 #0 "identified" #2~
-    literal'32=>~ADD_STORE_ITEM "mh#wiz93" AFTER "scrl9w" #1 #1 #0 "identified" #2~
+    literal'31=>~ADD_STORE_ITEM "mh#wiz86" AFTER "scrl9c" #1 #1 #0 "identified" #2~
+    literal'32=>~ADD_STORE_ITEM "mh#wiz92" AFTER "scrl9v" #1 #1 #0 "identified" #2~
+    literal'33=>~ADD_STORE_ITEM "mh#wiz93" AFTER "scrl9w" #1 #1 #0 "identified" #2~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store

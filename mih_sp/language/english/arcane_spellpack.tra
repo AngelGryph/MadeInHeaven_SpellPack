@@ -66,7 +66,7 @@ Level: 3
 Range: 40 ft.
 Duration: Instant
 Casting Time: 3
-Area of Effect: 30-ft. radius
+Area of Effect: 30' radius
 Saving Throw: 1/2
 
 This spell creates a burst of electricity, shocking anyone unfortunate enough to be in the area for 1d6 damage per level of the caster (up to a maximum of 10d6).  A grape-sized sphere appears near the caster and travels to the designated point at a high velocity, where it bursts into the scintillating sphere.  Creatures failing their Saves vs. Spell take full damage from the shock.  Those who roll succesful Saving Throws have managed to partially evade the blast and receive half damage.~
@@ -78,7 +78,7 @@ Level: 3
 Range: 50 ft.
 Duration: 2 rounds/level
 Casting Time: 3
-Area of Effect: 30-ft. radius
+Area of Effect: 30' radius
 Saving Throw: None
 
 The spell allows the caster to adversely affect all the Saving Throws of <PRO_HISHER> enemies. The effect is applied to all hostile creatures within the area of effect. Opponents under the influence of this spell make all Saving Throws at a penalty of -2.~
@@ -102,10 +102,10 @@ Level: 4
 Range: Visual range of the caster
 Duration: 5 rounds/level
 Casting Time: 4
-Area of Effect: 15-ft. radius
+Area of Effect: 15' radius
 Saving Throw: None
 
-Slumber is a more powerful version of the first level spell Sleep.  When a wizard casts a Slumber spell, <PRO_HESHE> causes a comatose slumber to come upon one or more enemies (other than undead and certain other creatures specifically excluded from the spell's effects).  All creatures to be affected by the Slumber spell must be within a 15-ft. radius.  Creatures in the area of effect fall asleep with no saving throw.  Monsters with 8 Hit Dice or more are unaffected. Attacks against sleeping opponents never miss.~
+Slumber is a more powerful version of the first level spell Sleep.  When a wizard casts a Slumber spell, <PRO_HESHE> causes a comatose slumber to come upon one or more enemies (other than undead and certain other creatures specifically excluded from the spell's effects).  All creatures to be affected by the Slumber spell must be within a 15' radius.  Creatures in the area of effect fall asleep with no saving throw.  Monsters with 8 Hit Dice or more are unaffected. Attacks against sleeping opponents never miss.~
 @18   = ~Rary's Mnemonic Enhancer~
 @19   = ~Rary's Mnemonic Enhancer
 (Alteration)
@@ -181,7 +181,19 @@ Saving Throw: None
 
 This spell restores previously cast spells to memory so they may be cast again.  Up to three spells will be restored, one of which can be up to fifth level, one up to fourth, and the final one up to third level.  Only arcane spells can be restored.~
 @30   = ~Mass Charm~
-@31   = ~Mass Charm~
+@31   = ~Mass Charm
+(Enchantment)
+
+Level: 8
+Range: Visual range of caster
+Duration: 5 rounds
+Casting Time: 8
+Area of Effect: 15' radius
+Saving Throw: Neg.
+
+This powerful spell affects humanoids, animals and giant humanoids.  Those who fail to save vs. spell (at a -2 penalty due to the power of this spell) regard the caster as trusted friend and ally to be heeded.  The caster may give them orders, which they will carry out as quickly as possible.  If the caster or one of <PRO_HISHER> allies attempts to harm a creature under this spell the charm is broken, but only for that creature.  A successful dispel magic spell can free all charmed creatures in its area of effect.
+If two or more charm effects simultaneously affect a creature, the most recent charm takes precedence.  Note that the subject has full memory of the events that took place while <PRO_HESHE> was charmed. 
+Also note that you cannot have a charmed creature leave the area where <PRO_HESHE> was charmed.~
 @32   = ~Faerie Sword~
 @33   = ~Faerie Sword
 (Invocation/Evocation)
@@ -235,7 +247,7 @@ Level: 8
 Range: 0
 Duration: 1 round/level
 Casting Time: 8
-Area of Effect: 5-ft. radius sphere
+Area of Effect: 5' radius sphere
 Saving Throw: None
 
 This spell creates an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd-, 4th-, or 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the Major Globe of Invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. 6th- and higher level spells are not affected by the globe, and magical attacks of 6th-level or higher, such as Spellstrike and Pierce Magic, can bring it down.~
@@ -289,7 +301,7 @@ Level: 9
 Range: 0
 Duration: Instant
 Casting Time: 9
-Area of Effect: 50-ft. radius
+Area of Effect: 50' radius
 Saving Throw: None
 
 Pain, Agony, Suffering, Torment. When the Rune is invoked, even the earth shall resonate its anguish. Torment of the mind. Torment of the body. Torment of the soul. All will be made clear when the Circle is drawn.
@@ -330,7 +342,7 @@ Level: 8
 Range: Caster
 Duration: Instant
 Casting Time: 4
-Area of Effect: 15-foot radius
+Area of Effect: 15' radius
 Saving Throw: Special
 
 The Sunburst spell causes the caster to briefly glow as bright as the midday sun.  All enemies within the area of effect must save versus spell or be blinded for three rounds.  All undead enemies additionally take 16d6 points of fire damage unless they save versus spell, in which case the damage will be halved.  The caster and <PRO_HISHER> allies are unaffected.~
@@ -431,7 +443,7 @@ Level: 6
 Range: 0
 Duration: 3 rounds + 1 round/level
 Casting Time: 3
-Area of Effect: 15-ft. radius
+Area of Effect: 15' radius
 
 When a Mirage Arcana spell is invoked, the caster causes from 2 to 8 exact duplicates of themselves to come into being around the members of <PRO_HISHER> entire party. These images do exactly what the party members do. Since the spell causes a blurring and slight distortion when cast, it is impossible for opponents to be certain which are the illusions and which is the actual party member. When an image is struck by a melee or missile attack -magical or otherwise- it disappears, but any other existing images remain intact until they are struck. However, it is important to note that this will not protect the caster against every attack, as it is possible for an enemy to choose the real person amongst all the images.~
 @80   = ~Bull's Strength~
