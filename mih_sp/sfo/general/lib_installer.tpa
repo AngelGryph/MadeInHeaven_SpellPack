@@ -289,14 +289,12 @@ BEGIN
 
   // Look for any icon files we have that need installing.
 
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%a.bam" AND
-            FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_a.bam"
+  ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_a.bam"
   BEGIN
     COPY_LARGE "%file_loc%/%graphics_loc%/%IDSNAME%_a.bam" "override/%newname%a.bam"
   END
 
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%b.bam" AND
-            FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_b.bam"
+  ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_b.bam"
   BEGIN
     COPY_LARGE "%file_loc%/%graphics_loc%/%IDSNAME%_b.bam" "override/%newname%b.bam"
   END
@@ -309,8 +307,7 @@ BEGIN
     END
   END
 
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "%newname%c.bam" AND
-            FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_c.bam"
+  ACTION_IF FILE_EXISTS "%file_loc%/%graphics_loc%/%IDSNAME%_c.bam"
   BEGIN
     COPY_LARGE "%file_loc%/%graphics_loc%/%IDSNAME%_c.bam" "override/%newname%c.bam"
   END

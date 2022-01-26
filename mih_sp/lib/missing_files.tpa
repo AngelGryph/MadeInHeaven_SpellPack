@@ -64,15 +64,16 @@ COPY - "%MOD_FOLDER%/%component_loc%/resource/missing/cre_strref.2da" "%workspac
       strref	= value
     END
 
-    INNER_ACTION
+    PATCH_IF NOT FILE_EXISTS_IN_GAME "%creature%.cre"
     BEGIN
-      LAUNCH_ACTION_FUNCTION install_creature
-        INT_VAR
-        overwrite	= 0
-        STR_VAR
-        creature
-        editstring	= "name1_string=>%strref% name2_string=>%strref%"
-        location	= "resource/missing"
+      INNER_ACTION
+      BEGIN
+        LAUNCH_ACTION_FUNCTION install_creature
+          STR_VAR
+          creature
+          editstring	= "name1_string=>%strref% name2_string=>%strref%"
+          location	= "resource/missing"
+        END
       END
     END
   END

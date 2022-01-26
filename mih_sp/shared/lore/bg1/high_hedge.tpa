@@ -22,13 +22,14 @@ BEGIN
 
   // Cosmetic items on Thalantyr
 
-  LAUNCH_ACTION_FUNCTION install_item
-    INT_VAR
-    overwrite	= 0
-    STR_VAR
-    item	= "staf12"
-    location	= "items"
-    locbase
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "staf12.itm"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION install_item
+      STR_VAR
+      item	= "staf12"
+      location	= "items"
+      locbase
+    END
   END
 
   MAKE_PATCH

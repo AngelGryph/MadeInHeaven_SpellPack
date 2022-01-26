@@ -11,7 +11,7 @@ COPY - "%MOD_FOLDER%/lib/ids_entries.2da" "override"
     READ_2DA_ENTRY_FORMER __ids_entries i 2 value
 
     PATCH_IF FILE_EXISTS_IN_GAME "%ids_file%.ids"
-          AND IDS_OF_SYMBOL("%ids_file%" "%symbol%") != "%value%"
+          AND IDS_OF_SYMBOL("%ids_file%" "%symbol%") == "-1"
     BEGIN
       INNER_ACTION
       BEGIN
