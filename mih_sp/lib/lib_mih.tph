@@ -58,14 +58,24 @@ END
 
 DEFINE_PATCH_MACRO cd_immunity_magic_missile_arrays BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
-    206,  "-10",  "-10", "spwi112",  "-10",  "-10", "same" => 1 // immunity to Magic Missile spell
+	206,	"-10",	"-10",	"spwi112",	"-10",	"-10",	"same"	=>	1	// immunity to Magic Missile spell
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    83,	     0,    36,         "", "-10", "-10", "same"  => 1 // Protection: From Projectile
+	83,		0,	36,	"",	"-10",	"-10",	"same"	=>	1	// Protection: From Projectile
+	206,	"-10",	"-10",	"spwi003",	"-10",	"-10",	"same"	=>	1	// immunity to Magic Missile trap
+	206,	"-10",	"-10",	"mh#mstrm",	"-10",	"-10",	"same"	=>	1	// immunity to Magic Missile Storm (HLA)
+  END
+  PATCH_FOR_EACH spell IN WIZARD_IMPROVED_MAGIC_MISSILE WIZARD_SNILLOCS_MAJOR_MISSILE
+  BEGIN
+    PATCH_IF VARIABLE_IS_SET EVAL "%spell%"
+    BEGIN
+      DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+	206,	"-10",	"-10",	EVAL "%%spell%%",	"-10",	"-10",	"same"	=>	1
+      END
+    END
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN
-    206,  "-10",  "-10", "spwi003",  "-10",  "-10", "same" => 1 // immunity to Magic Missile trap
-    206,  "-10",  "-10", "spwi112",  "-10",  "-10", "same" => 1 // immunity to Magic Missile spell
+    // Nothing to delete
   END
 END
 

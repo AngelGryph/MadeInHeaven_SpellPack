@@ -54,10 +54,11 @@ BEGIN
   //
   // mh#wiz23 - Summon Cats
   // mh#wiz35 - Minor Malison
+  // mh#wiz38 - Alacrity
   // mh#wiz54 - Snilloc's Major Missile
 
   MAKE_PATCH
-    litvar_items=>"[mh#wiz23 mh#wiz35 mh#wiz54]"
+    litvar_items=>"[mh#wiz23 mh#wiz35 mh#wiz38 mh#wiz54]"
     add_item_inline=>~match=>"parent_index = 8" number_to_add=>"length items" item_resource=>"entry_index from items" item_charges_1=>1 item_charges_2=>1~
   END
 

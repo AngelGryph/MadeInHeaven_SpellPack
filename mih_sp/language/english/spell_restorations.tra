@@ -28,12 +28,12 @@ This spell is much like the 3rd-level monster summoning I spell, except that thi
 
 Level: 9
 Range: 0
-Duration: 1 turn + 1 round/level
+Duration: 5 rounds
 Casting Time: 9
 Area of Effect: The caster
 Saving Throw: None
 
-This powerful abjuration spell protects the caster from being harmed by spells.  For the duration of the spell, the caster cannot be harmed by fire, cold, electricity, acid or magical energy; <PRO_HESHE> ignores spells like Magic Missile, Fireball, Ice Storm and even Meteor Swarm.  In addition, the caster will always make all saving throws.  Weapons cans still harm the caster whether they are magical or not.~
+This powerful abjuration spell protects the caster from being harmed by spells.  For the duration of the spell, the caster cannot be affected by any spells, <PRO_HESHE> has 100% magic resistance that cannot be lowered by any means except by bringing this spell down with Spell Strike or similar magic.  Weapons can still harm the caster whether they are magical or not.~
 @6   = ~Animal Friendship~
 @7   = ~Animal Friendship 
 (Enchantment/Charm)

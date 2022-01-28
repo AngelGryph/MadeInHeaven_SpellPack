@@ -332,8 +332,19 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 Snilloc's Major Missile functions in most ways as the first circle spell Magic Missile, except that it fires only one large missile for increased damage.  The missile deals 10d4+10 damage, plus an additional 1d4+1 damage for every two levels over 9th, up till 20d4+20 damage at level 29.  It is otherwise identical to Magic Missile, and can be blocked by a Shield spell or a Brooch of Shielding.~
-//@54   = ~~
-//@55   = ~~
+@54   = ~Alacrity~
+@55   = ~Alacrity
+(Alteration)
+
+Level: 3
+Range: 0
+Duration: 1 turn + 1 round/level
+Area of Effect: The caster
+Saving Throw: None
+
+The use of an Alacrity spell allows the wizard to speed up the casting of fifth level spells and lower.  All spells cast within the duration of the Alacrity spell are sped by 2 (so a spell with a casting time of 5 would have a casting time of 3 instead), lessening the change for the wizard to be interrupted and have <PRO_HISHER> spell ruined.
+
+Alacrity cannot be used to speed up spells of sixth level and higher, and attemting to cast such a spell will end the Alacrity spell immediately.~
 @56   = ~Sunburst~
 @57   = ~Sunburst
 (Evocation)

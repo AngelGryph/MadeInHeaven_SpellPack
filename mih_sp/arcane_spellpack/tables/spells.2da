@@ -16,6 +16,7 @@ WIZARD_SCINTILLATING_SPHERE		3	10	11	0	*	mh#wiz34	dl	mh#scnt1	y	*
 WIZARD_MINOR_MALISON			3	12	13	0	*	mh#wiz35	n	*		y	*
 WIZARD_BALL_LIGHTNING			3	44	51	0	*	mh#wiz36	dd	mh#blght	n	*
 WIZARD_GUST_OF_WIND			3	76	77	0	*	mh#wiz37	n	mh#gustw	y	*
+WIZARD_ALACRITY				3	54	55	0	*	mh#wiz38	n	*		y	*
 WIZARD_IRON_MAIDEN			4	14	15	0	*	mh#wiz41	n	*		y	*
 WIZARD_SLUMBER				4	16	17	0	*	mh#wiz42	n	*		y	*
 WIZARD_RARYS_MNEMONIC_ENHANCER		4	18	19	0	*	mh#wiz43	n	*		n	*

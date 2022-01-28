@@ -65,19 +65,6 @@ BEGIN
   END
 
 
-  // Fix/extend Magic Missile immunity
-  //
-  // NB: Keep this as is for speed, SFO has horrible performance.
-
-  COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
-      STR_VAR
-      array_name	= "cd_immunity_magic_missile_arrays"
-    END
-
-    BUT_ONLY_IF_IT_CHANGES
-
-
   // Prevent stacking of arcane/divine versions of
   // certain spells.
   //
@@ -109,6 +96,50 @@ BEGIN
   COPY_EXISTING "%WIZARD_SLUMBER%.spl" "override"
                 "%WIZARD_MASS_CHARM%.spl" "override"
     LAUNCH_PATCH_FUNCTION cd_elven_sleep_charm_resistance END
+    BUT_ONLY_IF_IT_CHANGES
+
+
+  // Make new msectype for Alacrity
+
+  LAUNCH_ACTION_FUNCTION add_silent_sectype
+    STR_VAR
+    sectype	= "mhAlacrity"
+    RET
+    mhAlacrity	= sectype_value
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "%WIZARD_ALACRITY%"
+    editstring	= "secondary=>%mhAlacrity%"
+  END
+
+
+  // Further patching of existing spells:
+  // - Extend Magic Missile immunity to improved versions
+  // - Make 6th level or higher spells dispel Alacrity
+  //
+  // NB: Keep this as is for speed, SFO has horrible performance.
+
+  COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
+    LAUNCH_PATCH_FUNCTION cd_apply_batch
+      STR_VAR
+      array_name	= "cd_immunity_magic_missile_arrays"
+    END
+    
+    PATCH_IF "%SOURCE_EXT%" STRING_EQUAL_CASE "spl"
+         AND LONG_AT (0x0034) > 5 // spell level
+    BEGIN
+      LAUNCH_PATCH_FUNCTION ADD_SPELL_CFEFFECT
+        INT_VAR
+	opcode		= 221	// Removal: Remove Secondary
+	target		= 1	// Self
+	timing		= 1	// Permanent
+	parameter1	= 10
+	parameter2	= mhAlacrity
+      END
+    END
+
     BUT_ONLY_IF_IT_CHANGES
 END	// arcane_postproc
 

@@ -31,19 +31,63 @@ This improved version of Cloudkill creates a billowing cloud of horrendously tox
 @6    = ~Silver Fire~
 @7    = ~A Chosen of Mystra can unleash a destructive white flame known as Silver Fire from <PRO_HISHER> body.  This stream of raw magical power deals 4d12 damage to the target and everything else in its path with no saving throw or chance of magic resistance.~
 @8    = ~Magic Missile Storm~
-@9    = ~Magic Missile Storm~
+@9    = ~Magic Missile Storm
+(Evocation)
+
+Level: Epic
+Range: Visual range of caster
+Duration: Instantaneous
+Casting Time: 1
+Area of Effect: 1 creature
+Saving Throw: None
+
+This vastly improved version of the basic Magic Missile spell shreds the target with wave after wave of magically created missiles.  A total of 30 missiles will strike the target, dealing 30d4+30 points of damage.~
 @10   = ~Extra Level 9 Spell~
 @11   = ~Choosing this ability allows the wizard to cast one additional Level 9 spell.~
 @12   = ~Ioulaum's Longevity~
 @13   = ~Ioulaum's Longevity~
 @14   = ~Interdiction~
-@15   = ~Interdiction~
+@15   = ~Interdiction
+(Conjuration)
+
+Level: Quest
+Sphere: Combat
+Range: 0
+Duration: 1 turn
+Casting Time: 1 round
+Area of Effect: 15' radius
+Saving Throw: None
+
+By means of this powerful prayer, the cleric brings good fortune upon <PRO_HISHER> allies and doom to <PRO_HISHER> enemies.  After completing the spell all those friendly to the priest gain a +1 bonus to AC, hit rolls and damage rolls and a +2 to all saves, while <PRO_HISHER> enemies get penalties.  This spell is not cumulative with itself but can be combined with similar spells like Chant, Prayer and Recitation for an even greater effect.~
 @16   = ~Wolf Spirits~
 @17   = ~Wolf Spirits~
 @18   = ~Wolf Spirit~
 @19   = ~Arcane Insight~
-@20   = ~Arcane Insight~
+@20   = ~Your continued studies of the arcane arts gains you new insights in the real nature of the universe.
+
+You gain:
+- +1 Intelligence
+- +1 Casting Speed
+- +5% Magic Resistance~
 @21   = ~Divine Insight~
-@22   = ~Divine Insight~
+@22   = ~Your continued devotion gains you a blessing of insight in the nature of the planes from your deity.
+
+You gain:
+- +1 Wisdom
+- +1 Casting Speed
+- +5% Magic Resistance~
+@23   = ~Elminster's Effulgent Epuration~
+@24   = ~Elminster's Effulgent Epuration
+(Abjuration)
+
+Level: Epic
+Range: 0
+Duration: 1 turn/level
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+This powerful and long-lasting abjuration spell -a much stronger version of Spell Deflection- was developed by Elminster, the famous Sage of Shadowdale.  Up to one spell level per level of the caster will be harmlessly absorbed by this spell, with a maximum of 30 levels.  This includes spells cast from scrolls and innate spell-like abilities, but excludes the following: area effects that are not centered directly upon the wizard as well as area effects that are stationary, such as cloud kill and stinking cloud.  As long as the spell is cast directly at the wizard it will be absorbed.  Something to note is that as long as there are levels remaining then the spell will be absorbed.  For example, if there is only 1 level left and a 3rd-level spell is cast at the wizard, the spell will be absorbed while canceling the spell deflection.  It is not affected by a dispel magic.~
+@25   = ~Protected by Elminster's Effulgent Epuration~
 
 
