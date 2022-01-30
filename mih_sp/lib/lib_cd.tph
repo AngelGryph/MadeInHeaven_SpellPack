@@ -205,8 +205,17 @@ DEFINE_PATCH_MACRO ~cd_immunity_free_action_arrays~ BEGIN
       101, "-10",    45, "same", "-10", "-10", "same" => 1 // stun immunity
       101, "-10",   210, "same", "-10", "-10", "same" => 1 // pw: stun immunity
       169, "-10",    55, "same", "-10", "-10", "same" => 1 // prevent stun icon
-      267,  1280, "-10", "same", "-10", "-10", "same" => 1 // prevent stunned string
       267, 14043, "-10", "same", "-10", "-10", "same" => 1 // prevent stun string
+    END
+    PATCH_IF GAME_IS "bgee" BEGIN
+      DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN
+        267, 25862, "-10", "same", "-10", "-10", "same" => 1 // prevent stunned string
+      END
+    END
+    ELSE BEGIN
+      DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN
+        267,  1280, "-10", "same", "-10", "-10", "same" => 1 // prevent stunned string
+      END
     END
   END
 END
@@ -298,18 +307,28 @@ DEFINE_PATCH_MACRO ~cd_immunity_confusion_arrays~ BEGIN
 END
 
 
-
 // turns level drain immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_level_drain_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     101,  "-10", 216, "same",  "-10",  "-10", "same" => 1 // immunity to level drain
   END
-  DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    267, 41495, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "one level drained"
-    267, 40968, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "two levels drained"
-    267, 40969, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "three levels drained"
-    267, 40979, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "four levels drained"
-    267, 41616, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "five levels drained"
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267, 25802, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "one level drained"
+      267, 25803, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "two levels drained"
+      267, 25804, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "three levels drained"
+      267, 25805, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "four levels drained"
+      267, 25805, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "five levels drained"
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267, 41495, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "one level drained"
+      267, 40968, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "two levels drained"
+      267, 40969, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "three levels drained"
+      267, 40979, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "four levels drained"
+      267, 41616, "-10",     "same",  "-10", "-10", "same" => 1 // protection from string "five levels drained"
+    END
   END
   PATCH_IF cosmetic = 1 BEGIN
     DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
@@ -388,10 +407,19 @@ DEFINE_PATCH_MACRO ~cd_immunity_charm_arrays~ BEGIN
     101,  "-10",  5, "same",  "-10",  "-10", "same" => 1 // immunity to charm
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    267,  8364, "-10",     "same", "-10", "-10", "same"  => 1 // protection from string "dominated"
     267, 14672, "-10",     "same", "-10", "-10", "same"  => 1 // protection from string "charmed"
     267, 14780, "-10",     "same", "-10", "-10", "same"  => 1 // protection from string "dire charmed"
     296, "-10", "-10", "spnwchrm", "-10", "-10", "same"  => 1 // protection from animation
+  END
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267, 26206, "-10",     "same", "-10", "-10", "same"  => 1 // protection from string "dominated"
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267,  8364, "-10",     "same", "-10", "-10", "same"  => 1 // protection from string "dominated"
+    END
   END
   PATCH_IF cosmetic = 1 BEGIN
     DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
@@ -404,7 +432,6 @@ DEFINE_PATCH_MACRO ~cd_immunity_charm_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
 
-        
 
 // turns haste immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_haste_arrays~ BEGIN
@@ -428,15 +455,22 @@ DEFINE_PATCH_MACRO ~cd_immunity_haste_arrays~ BEGIN
 END
 
 
-
 // turns disease immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_disease_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     101,  "-10", 78, "same",  "-10",  "-10", "same" => 1 // immunity to disease
   END
-  DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    267, 39752, "-10", "same",  "-10", "-10", "same" => 1 // protection from string "stricken by a foul disease"
-    267, 54337, "-10", "same",  "-10", "-10", "same" => 1 // protection from string "diseased"
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267, 26453, "-10", "same",  "-10", "-10", "same" => 1 // protection from string "stricken by a foul disease"
+      267, 31238, "-10", "same",  "-10", "-10", "same" => 1 // protection from string "diseased"
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267, 39752, "-10", "same",  "-10", "-10", "same" => 1 // protection from string "stricken by a foul disease"
+      267, 54337, "-10", "same",  "-10", "-10", "same" => 1 // protection from string "diseased"
+    END
   END
   PATCH_IF cosmetic = 1 BEGIN
     DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
@@ -445,7 +479,6 @@ DEFINE_PATCH_MACRO ~cd_immunity_disease_arrays~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
-
 
 
 // turns poison immunity into full immunity
@@ -671,9 +704,6 @@ DEFINE_PATCH_MACRO ~cd_full_blindness_eff_arrays~ BEGIN
 END
 
 
-
-
-
 // turns petrification immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_petrification_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -686,22 +716,28 @@ DEFINE_PATCH_MACRO ~cd_immunity_petrification_arrays~ BEGIN
 END
 
 
-
-
 // turns kill target immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_kill_target_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     101, "-10", 13, "same",  "-10",  "-10", "same" => 1 // immunity to kill target
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    267,  64285, "-10", "same", "-10",  "-10", "same" => 1 // disable string "vorpal hit"
     267,  14026, "-10", "same", "-10",  "-10", "same" => 1 // disable string "death"
-    267,  10554, "-10", "same", "-10",  "-10", "same" => 1 // disable string "undead destroyed"
+  END
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      // NB: string "vorpal hit" is not in BGEE dialog.tlk
+      267,  31250, "-10", "same", "-10",  "-10", "same" => 1 // disable string "undead destroyed"
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267,  64285, "-10", "same", "-10",  "-10", "same" => 1 // disable string "vorpal hit"
+      267,  10554, "-10", "same", "-10",  "-10", "same" => 1 // disable string "undead destroyed"
+    END
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
-
-
 
 
 // turns invisibility immunity into full immunity
@@ -769,8 +805,15 @@ DEFINE_PATCH_MACRO ~cd_immunity_deafness_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     101, "-10", 80, "same",  "-10",  "-10", "same" => 1 // immunity to deafneas
   END
-  DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    267,  54318, "-10", "same", "-10",  "-10", "same" => 1 // disable string "deaf"
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267,  25102, "-10", "same", "-10",  "-10", "same" => 1 // disable string "deaf"
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267,  54318, "-10", "same", "-10",  "-10", "same" => 1 // disable string "deaf"
+    END
   END
   PATCH_IF cosmetic = 1 BEGIN
     DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
@@ -779,9 +822,6 @@ DEFINE_PATCH_MACRO ~cd_immunity_deafness_arrays~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
-
-
-
 
 
 // turns slay immunity into full immunity
@@ -810,6 +850,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_invisible_detection_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
 
+
 // turns polymorph immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_polymorph_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -822,7 +863,6 @@ DEFINE_PATCH_MACRO ~cd_immunity_polymorph_arrays~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
-
 
 
 // turns sleep immunity into full immunity
@@ -842,6 +882,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_sleep_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
 
+
 // turns stun immunity into full immunity
 DEFINE_PATCH_MACRO ~cd_immunity_stun_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -849,8 +890,17 @@ DEFINE_PATCH_MACRO ~cd_immunity_stun_arrays~ BEGIN
     101, "-10", 210, "same",  "-10",  "-10", "same" => 1 // immunity to pw: stun
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    267,   1280, "-10", "same", "-10",  "-10", "same" => 1 // disable string "stunned"
     267,  14043, "-10", "same", "-10",  "-10", "same" => 1 // disable string "stun"
+  END
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267, 25862, "-10", "same", "-10", "-10", "same" => 1 // prevent stunned string
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      267,  1280, "-10", "same", "-10", "-10", "same" => 1 // prevent stunned string
+    END
   END
   PATCH_IF cosmetic = 1 BEGIN
     DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
@@ -895,7 +945,6 @@ DEFINE_PATCH_MACRO ~cd_immunity_feeblemind_arrays~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
-
 
 
 // round out dispel magic
@@ -953,6 +1002,7 @@ DEFINE_PATCH_MACRO ~cd_full_dispel_arrays~ BEGIN
   END
 END
 
+
 // round out dispel magic
 DEFINE_PATCH_MACRO ~cd_full_dispel_novis_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -1008,6 +1058,7 @@ DEFINE_PATCH_MACRO ~cd_full_dispel_novis_arrays~ BEGIN
   END
 END
 
+
 // immunity to psionics - this one's a little special, since it'll pick up on an immunity to any psionic attack and
 // extend it to *all* psionics. obviously, don't use this in a regexp
 DEFINE_PATCH_MACRO ~cd_immunity_psionics_arrays~ BEGIN
@@ -1034,6 +1085,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_psionics_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
 
+
 // human transform array - clears out special abilities from all forms
 DEFINE_PATCH_MACRO ~cd_spell_transformation_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -1047,6 +1099,7 @@ DEFINE_PATCH_MACRO ~cd_spell_transformation_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
+
 
 // human transform array - clears out special abilities from all forms
 DEFINE_PATCH_MACRO ~cd_spell_transformation_human_arrays~ BEGIN
@@ -1072,17 +1125,28 @@ DEFINE_PATCH_MACRO ~cd_spell_transformation_human_arrays~ BEGIN
   END
 END
 
+
 // ensures stun is always accompanied by string and icon
 DEFINE_PATCH_MACRO ~cd_full_stun_arrays~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
     45, "-10", "-10", "same",  "-10",  "-10", "same" => 1 // blindness
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
-    139,  1280, "-10", "same",     1,     0, "same" => 1 // display 'stunned' string
     142, "-10",    55, "same", "-10", "-10", "same" => 1 // display 'stun' icon
+  END
+  PATCH_IF GAME_IS "bgee" BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      139, 25862, "-10", "same", "-10", "-10", "same" => 1 // display 'stunned' string
+    END
+  END
+  ELSE BEGIN
+    DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_extras BEGIN
+      139,  1280, "-10", "same",     1,     0, "same" => 1 // display 'stunned' string
+    END
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END
 END
+
 
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_abjuration~ BEGIN
@@ -1095,6 +1159,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_abjuration~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
+
 
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_conjuration~ BEGIN
@@ -1112,6 +1177,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_conjuration~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
+
 
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_evocation~ BEGIN
@@ -1133,6 +1199,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_evocation~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
 
+
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_necromancy~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -1147,6 +1214,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_necromancy~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
+
 
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_alteration~ BEGIN
@@ -1175,6 +1243,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_illusion~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
 
+
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_enchantment~ BEGIN
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_key BEGIN
@@ -1184,6 +1253,7 @@ DEFINE_PATCH_MACRO ~cd_immunity_enchantment~ BEGIN
   END
   DEFINE_ASSOCIATIVE_ARRAY cd_immunity_batches_delete BEGIN END // nothing to delete
 END
+
 
 // alters spell school immunities to cover AoE spells in school
 DEFINE_PATCH_MACRO ~cd_immunity_divination~ BEGIN
@@ -1199,6 +1269,7 @@ END
 /////                                                  \\\\\
 ///// the batch... err... patch                        \\\\\
 /////                                                  \\\\\
+
 
 // batch effects
 DEFINE_PATCH_FUNCTION ~cd_apply_batch~ 

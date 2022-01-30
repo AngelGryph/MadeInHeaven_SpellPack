@@ -1166,7 +1166,7 @@ BEGIN
          LAF warning STR_VAR warning="No need to add spell %idsname% to spell.ids as it is already there at the right level" END
       END ELSE BEGIN
          COPY_EXISTING "spell.ids" override
-             REPLACE_TEXTUALLY "%current_num% +%idsname%" "%current_num% %idsname%_OLD"
+             REPLACE_TEXTUALLY "%current_num%[ %TAB%]+%idsname%" "%current_num% %idsname%_OLD"
          BUT_ONLY
          LAF warning STR_VAR warning="Deprecating older version of %idsname%" END
          CLEAR_IDS_MAP

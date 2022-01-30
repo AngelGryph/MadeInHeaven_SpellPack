@@ -395,6 +395,9 @@ DEFINE_ACTION_FUNCTION __handle_simple_items
 BEGIN
   ACTION_CLEAR_ARRAY object_data
 
+
+  // Check if we should set a name string
+
   ACTION_IF IS_AN_INT NAME
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
@@ -402,6 +405,14 @@ BEGIN
       say_both_names=>"%NAME%"
     END
   END
+
+
+  // Handle CD_IMMUNITY
+
+  LAUNCH_ACTION_MACRO __handle_cd_immunity
+
+
+  // Install the item file
 
   LAUNCH_ACTION_FUNCTION install_item
   STR_VAR

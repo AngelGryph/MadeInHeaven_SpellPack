@@ -328,6 +328,25 @@ BEGIN
 END
 
 
+DEFINE_ACTION_FUNCTION append_numbered_row
+      STR_VAR arguments=""
+              file=""
+      RET value
+BEGIN
+   ACTION_IF !FILE_EXISTS_IN_GAME "%file%" BEGIN
+      ACTION_IF !FILE_EXISTS_IN_GAME "%file%.2da" BEGIN
+         FAIL "Tried to append a numbered row to %file%, but %file% does not exist and nor does %file%.2da"
+      END ELSE BEGIN
+         OUTER_SPRINT file "%file%.2da"
+      END
+   END
+   COPY_EXISTING "%file%" "override"
+      LPF append_numbered_row STR_VAR arguments RET value END
+      PRETTY_PRINT_2DA
+   BUT_ONLY
+END
+
+
 DEFINE_PATCH_FUNCTION renumber_rows
       INT_VAR start_at=1
 BEGIN

@@ -79,6 +79,7 @@ gtimes	NINE_TURNS			540
 gtimes	TEN_TURNS			601
 gtimes	FIFTEEN_TURNS			901
 
+race	BEETLE				160
 race	MUMMY				163
 race	REPTILE				183
 
