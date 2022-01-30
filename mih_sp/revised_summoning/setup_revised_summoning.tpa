@@ -17,8 +17,14 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "unsummon_button"
+    file	= "unsummon_button revised_summoning_postproc"
     tra		= "revised_summoning"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "fix_animations"
+    locbase	= "shared/compat"
   END
 END	// setup_revised_summoning
 

@@ -1,5 +1,13 @@
 DEFINE_ACTION_FUNCTION revised_summoning_preproc
 BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini				= "infinity_animations"
+    RET
+    infinity_animations		= value
+  END
+
+
   // Install revised summoning tables
 
   LAUNCH_ACTION_FUNCTION install
@@ -7,5 +15,29 @@ BEGIN
     file	= "anisum01 anisum02 anisum03 monsum01 monsum02 monsum03 monsum04 monsum05 monsum06 monsum07 monsum08"
     postfix	= "2da"
     location	= "tables"
+  END
+
+
+  // Enable beetles if we have EE or IA
+
+  ACTION_IF enhanced_edition OR infinity_animations
+  BEGIN
+    ACTION_CLEAR_ARRAY add_beetles
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY add_beetles
+    BEGIN
+      "monsum01"	=> "beetfisu"
+      "monsum02"	=> "beetbmsu"
+      "monsum03"	=> "beetbrsu"
+      "monsum08"	=> "beetrhsu"
+    END
+
+    ACTION_PHP_EACH add_beetles AS table => summon
+    BEGIN
+      LAUNCH_ACTION_FUNCTION append_numbered_row
+        STR_VAR
+        file		= "%table%"
+        arguments	= "%summon%"
+      END
+    END
   END
 END	// revised_summoning_preproc

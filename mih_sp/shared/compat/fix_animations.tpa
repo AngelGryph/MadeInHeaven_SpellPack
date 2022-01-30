@@ -1,0 +1,71 @@
+DEFINE_ACTION_FUNCTION fix_animations
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini				= "infinity_animations"
+    RET
+    infinity_animations		= value
+  END
+
+
+  // Set appropriate animations for some creatures
+
+  LAUNCH_ACTION_FUNCTION process_table
+    STR_VAR
+    table		= "animations.2da"
+    function		= "__animation_helper"
+    location		= "tables"
+    locbase
+  END
+END	// monsters_postproc
+
+
+DEFINE_ACTION_FUNCTION __animation_helper
+  STR_VAR
+  RESREF	= ~~
+  EE		= ~~
+  IA		= ~~
+  FALLBACK	= ~~
+BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME "%RESREF%.cre"
+  BEGIN
+    OUTER_TEXT_SPRINT animation	""
+
+    ACTION_IF IDS_OF_SYMBOL("animate" "%FALLBACK%") != "-1"
+    BEGIN
+      OUTER_TEXT_SPRINT animation "%FALLBACK%"
+    END
+
+    ACTION_IF IDS_OF_SYMBOL("animate" "%IA%") != "-1" AND infinity_animations
+    BEGIN
+      OUTER_TEXT_SPRINT animation "%IA%"
+    END
+
+    ACTION_IF IDS_OF_SYMBOL("animate" "%EE%") != "-1"
+    BEGIN
+      OUTER_TEXT_SPRINT animation "%EE%"
+    END
+
+    ACTION_IF "%animation%" STRING_EQUAL ""
+    BEGIN
+      FAIL ~No suitable animation found for creature %RESREF%, tried %EE%, %IA% and %FALLBACK%!~
+    END
+
+    LAUNCH_ACTION_FUNCTION log_this
+      STR_VAR
+      file		= "animations.txt"
+      input		= ~Using animation "%animation% for creature "%RESREF%".~
+      repeat		= "no"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_creature
+      INT_VAR
+      allow_missing	= 1
+      STR_VAR
+      creature		= "%RESREF%"
+      editstring	= ~animation=>"%animation%"~
+    END
+  END
+END	// fix_animations
+
+
