@@ -1,0 +1,24 @@
+DEFINE_ACTION_FUNCTION bard_kit_tables
+BEGIN
+  // All bard kits
+
+  MAKE_PATCH
+    grant_power'1=>"%BARD_FRIENDS% 1"
+    grant_power'2=>"%BARD_CURE_LIGHT_WOUNDS% 2"
+    grant_power'3=>"%BARD_SLOW_POISON% 4"
+    grant_power'4=>"%BARD_CURE_DISEASE% 7"
+    grant_power'5=>"%BARD_CURE_SERIOUS_WOUNDS% 10"
+    grant_power'6=>"%BARD_CURE_CRITICAL_WOUNDS% 13"
+  END
+
+  ACTION_FOR_EACH kit IN BARD BLADE JESTER SKALD
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_kit
+      STR_VAR
+      kit
+      edits	= "patch_data"
+    END
+  END
+END	// bard_kit_tables
+
+

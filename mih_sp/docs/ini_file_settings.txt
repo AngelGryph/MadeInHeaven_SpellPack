@@ -33,12 +33,4 @@ Whether or not to implement lore-friendly changes when installing certain
 components.  Components will assume this is in effect, so without it some
 things will look strange and some content may not be accessible in-game.
 
-===
-
-recycle_unused_idsnames=1
-
-Controls whether to clean up spell.ids of unused entries after installing
-restored spells.  Recommended.  Note that EET also does this automatically.
-(There is no harm in doing it twice.)
-
 

@@ -2,7 +2,7 @@
 @1    = ~Made in Heaven: Arcane Spellpack~
 @2    = ~Made in Heaven: Divine Spellpack~
 @3    = ~Revised Paladin Powers~
-@4    = ~Made in Heaven: Spell Restorations~
+//@4    = ~~
 @5    = ~Spell Effect Tweaks~
 @6    = ~Some other mod already provides or supercedes this component.~
 @7    = ~Revised Animate Dead (EXPERIMENTAL)~
@@ -14,7 +14,7 @@
 @13   = ~Spell Improvements (see readme)~
 @14   = ~Expanded Temple Services~
 @15   = ~Spell Availability Tweaks~
-//@16   = ~~
+@16   = ~Revised Bard Powers~
 @17   = ~Revised Bhaalspawn Powers (EXPERIMENTAL)~
 @18   = ~Revised Dispel Magic (EXPERIMENTAL)~
 //@19   = ~~

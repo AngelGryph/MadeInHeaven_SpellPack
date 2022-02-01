@@ -24,17 +24,6 @@ LANGUAGE "English"
 	 "weidu_external/lang/mih_sp/english/setup-mih_sp.tra"
 
 
-// Made in Heaven: Spell Restorations
-
-BEGIN @4
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "setup_spell_restorations"
-  location	= "spell_restorations"
-END
-
-
 // Made in Heaven: Arcane Spellpack
 
 BEGIN @1
@@ -65,6 +54,17 @@ LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_paladin_powers"
   location	= "paladin"
+END
+
+
+// Made in Heaven: Bard Powers Pack
+
+BEGIN @16
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_bard_powers"
+  location	= "bard"
 END
 
 

@@ -1,15 +1,15 @@
-DEFINE_ACTION_FUNCTION setup_animate_dead
+DEFINE_ACTION_FUNCTION setup_bard_powers
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "animate_dead_preproc"
-    tra		= "animate_dead"
+    file	= "bard_preproc"
+    tra		= "bard_powers"
   END
 
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     copy_files	= ""
-    tra		= "animate_dead"
+    tra		= "bard_powers"
   END
 
   OUTER_SET macro_spellcodes_read=0
@@ -17,9 +17,9 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "animate_dead_postproc"
-    tra		= "summoning"
+    file	= "bard_kit_tables"
+    tra		= "bard_powers"
   END
-END	// setup_animate_dead
+END	// setup_bard_powers
 
 

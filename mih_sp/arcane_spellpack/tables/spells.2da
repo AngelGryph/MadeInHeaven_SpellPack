@@ -21,7 +21,6 @@ WIZARD_IRON_MAIDEN			4	14	15	0	*	mh#wiz41	n	*		y	*
 WIZARD_SLUMBER				4	16	17	0	*	mh#wiz42	n	*		y	*
 WIZARD_RARYS_MNEMONIC_ENHANCER		4	18	19	0	*	mh#wiz43	n	*		n	*
 WIZARD_EVARDS_BLACK_TENTACLES		4	20	21	0	*	mh#wiz44	n	mh#evblt	y	*
-WIZARD_WALL_OF_FIRE			4	65	66	0	*	mh#wiz45	dl	*
 WIZARD_SUPERHEROISM			5	24	25	0	*	mh#wiz51	n	*		y	fear,level_drain
 WIZARD_SPELL_MATRIX			5	26	27	0	*	mh#wiz52	n	*		n	*
 WIZARD_RAMAZITHS_SLIME_SUMMONS		5	45	46	0	*	mh#wiz53	n	*		y	*

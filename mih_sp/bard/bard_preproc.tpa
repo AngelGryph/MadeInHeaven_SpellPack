@@ -1,0 +1,21 @@
+DEFINE_ACTION_FUNCTION bard_preproc
+BEGIN
+  // Create innate version of Friends
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level		= 1
+    STR_VAR
+    idsname		= "BARD_FRIENDS"
+    RET
+    bard_friends	= newname
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi107=>%bard_friends%"
+    editstring	= ~spell_type=>"innate" patch_ability_inline=>"ability_icon_loc=>4 casting_time=>1"~
+  END
+END	// bard_preproc
+
+

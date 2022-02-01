@@ -90,7 +90,6 @@ BEGIN
   // mh#wiz37 - Gust of Wind
   // mh#wiz43 - Rary's Mnemonic Enhancer
   // mh#wiz44 - Evard's Black Tentacles
-  // mh#wiz45 - Wall of Fire
 
   MAKE_PATCH
     literal'01=>~ADD_STORE_ITEM "mh#wiz11" AFTER "scrl68" #1 #1 #0 "identified" #2~
@@ -102,7 +101,6 @@ BEGIN
     literal'07=>~ADD_STORE_ITEM "mh#wiz37" BEFORE "scrl1g" #1 #1 #0 "identified" #2~
     literal'08=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl5j" #1 #1 #0 "identified" #2~
     literal'09=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
-    literal'10=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
@@ -150,7 +148,7 @@ BEGIN
 
   MAKE_PATCH
     litvar_items1=>"[mh#wiz36 mh#wiz38]"
-    litvar_items2=>"[mh#wiz45]"
+    litvar_items2=>"[mh#wiz42]"
     litvar_items3=>"[mh#wiz51]"
     add_item_inline'1=>~match=>"parent_index = 2" number_to_add=>"length items1" item_resource=>"entry_index from items1" item_charges_1=>1 item_charges_2=>1~
     add_item_inline'1=>~match=>"parent_index = 1" number_to_add=>"length items2" item_resource=>"entry_index from items2" item_charges_1=>1 item_charges_2=>1~

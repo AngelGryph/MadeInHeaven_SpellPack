@@ -46,13 +46,3 @@ mh#wiz93	Foresight
 mh#prs53	Break Enchantment
 
 
-spwi204		Fog Cloud
-scrl1r		Wraithform
-scrl1v		Dimension Door
-spwi610		Monster Summoning IV
-spwi814		Otto's Irresistible Dance
-spwi901		Spell Invulnerability
-
-mh#curbd	Cure Blindness/Deafness
-
-

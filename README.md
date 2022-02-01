@@ -18,6 +18,8 @@ Version 6 - ???
 - Documented new paladin powers better, added note about other mods
 - Integrated Thalatyr the *Conjurer* with lore-friendly changes
 - Various versions of (Super)Heroism won't stack, for real this time (I hope)
+- Added new component Bard Powers
+- Moved Spell Restorations to new mod Fixes & Restorations
 
 Version 5 - October 18 2021
 - Added missing icon for Tattoos of Power

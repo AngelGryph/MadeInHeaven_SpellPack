@@ -10,7 +10,6 @@ BEGIN
   // mh#wiz33 - Blink
   // mh#wiz43 - Rary's Mnemonic Enhancer
   // mh#wiz44 - Evard's Black Tentacles
-  // mh#wiz45 - Wall of Fire
   // mh#wiz52 - Spell Matrix
   // mh#wiz61 - Mordenkainen's Lucubration
 
@@ -23,7 +22,6 @@ BEGIN
     literal'06=>~ADD_STORE_ITEM "mh#wiz33" BEFORE "scrl1d" #1 #1 #0 "identified" #3~
     literal'07=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #1 #0 "identified" #2~
     literal'08=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
-    literal'09=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
     literal'10=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6u" #1 #1 #0 "identified" #2~
     literal'11=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrl7l" #1 #1 #0 "identified" #1~
   END
@@ -56,7 +54,6 @@ BEGIN
   // mh#wiz42 - Slumber
   // mh#wiz43 - Rary's Mnemonic Enhancer
   // mh#wiz44 - Evard's Black Tentacles
-  // mh#wiz45 - Wall of Fire
   // mh#wiz51 - Superheroism
   // mh#wiz52 - Spell Matrix
   // mh#wiz53 - Ramazith's Slime Summons
@@ -92,7 +89,6 @@ BEGIN
     literal'17=>~ADD_STORE_ITEM "mh#wiz42" AFTER "scrl1w" #1 #1 #0 "identified" #2~
     literal'18=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl2a" #1 #1 #0 "identified" #2~
     literal'19=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #2~
-    literal'20=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl6p" #1 #1 #0 "identified" #2~
     literal'21=>~ADD_STORE_ITEM "mh#wiz51" AFTER "scrl8x" #1 #1 #0 "identified" #2~
     literal'22=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6w" #1 #1 #0 "identified" #2~
     literal'23=>~ADD_STORE_ITEM "mh#wiz53" AFTER "scrl7d" #1 #1 #0 "identified" #2~

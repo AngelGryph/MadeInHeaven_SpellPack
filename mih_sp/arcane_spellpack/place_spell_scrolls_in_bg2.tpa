@@ -34,7 +34,6 @@ BEGIN
   // mh#wiz37 - Gust of Wind
   // mh#wiz43 - Rary's Mnemonic Enhancer
   // mh#wiz44 - Evard's Black Tentacles
-  // mh#wiz45 - Wall of Fire
   // mh#wiz52 - Spell Matrix
   // mh#wiz62 - Mirage Arcana
   //
@@ -59,7 +58,6 @@ BEGIN
     literal'11=>~ADD_STORE_ITEM "mh#wiz37" AFTER "scrl1g" #1 #1 #0 "identified" #4~
     literal'12=>~ADD_STORE_ITEM "mh#wiz43" AFTER "scrl1z" #1 #1 #0 "identified" #3~
     literal'13=>~ADD_STORE_ITEM "mh#wiz44" AFTER "scrl1u" #1 #1 #0 "identified" #3~
-    literal'14=>~ADD_STORE_ITEM "mh#wiz45" AFTER "scrl2a" #1 #1 #0 "identified" #2~
     literal'15=>~ADD_STORE_ITEM "mh#wiz52" AFTER "scrl6v" #1 #1 #0 "identified" #1~
     literal'16=>~ADD_STORE_ITEM "mh#wiz61" AFTER "scrla4" #1 #1 #0 "identified" #1~
   END

@@ -396,18 +396,8 @@ Area of Effect: The caster
 Saving Throw: None
 
 Casting this spell grants the caster a powerful sixth sense for danger.  While the spell is active, <PRO_HESHE> will instinctively know when an attack is coming and what action to take (jumping, ducking to the side, closing one's eyes etc) to best avoid the attack.  Therefor, <PRO_HESHE> cannot be backstabbed and gains a +4 bonus to armor class and saving throws versus wand, -spell and -breath for the duration of the spell.~
-@65   = ~Wall of Fire~
-@66   = ~Wall of Fire
-(Evocation)
-
-Level: 4
-Range: Visual range of caster
-Duration: Instantaneous
-Casting Time: 8
-Area of Effect: Target creature
-Saving Throw: 1/2
-
-When the wizard calls down a wall of fire spell, a vertical column of fire roars downward striking the exact location called for by the caster. The target must roll a saving throw vs. spell. Failure means the creature sustains 1d8 points of damage per level of the caster; otherwise, the damage is halved.~
+//@65   = ~~
+//@66   = ~~
 @67   = ~Summon Cats~
 @68   = ~Summon Cats
 (Conjuration/Summoning)
