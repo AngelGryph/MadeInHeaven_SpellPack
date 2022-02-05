@@ -322,3 +322,127 @@ BEGIN
 END
 
 
+// Function to get version and correct offsets for a bam file
+
+DEFINE_PATCH_FUNCTION get_bam_version_data
+  RET
+  version
+  RET_ARRAY
+  frame_array
+  cycle_array
+  data_array
+BEGIN
+  READ_ASCII 0x0004 version (4)
+
+  PATCH_MATCH "%version%"
+  WITH
+  "V1  "
+  BEGIN
+    // For v1, we can get the frame offsets in the usual way.
+
+    GET_OFFSET_ARRAY frame_array 0x000c 4 0x0008 2 0 0 12
+
+
+    // V1 didn't have a separate offset entry for cycle blocks,
+    // they are located directly after the frame blocks.
+    // So we have to do a little math wizardry here.
+
+    READ_LONG 0x000c frame_offset
+    READ_SHORT 0x0008 frame_count
+    READ_BYTE 0x000a cycle_count
+
+    SET cycle_offset = (frame_count * 12) + frame_offset
+
+    FOR (SET index = 0; index < cycle_count; ++index)
+    BEGIN
+      SET offset = (index * 4) + cycle_offset
+
+      PATCH_DEFINE_ASSOCIATIVE_ARRAY cycle_array
+      BEGIN
+        "%index%" => "%offset%"
+      END
+    END
+
+
+    // V1 doesn't use data blocks
+
+    PATCH_DEFINE_ASSOCIATIVE_ARRAY data_array
+    BEGIN
+    END
+  END
+  "V2  "
+  BEGIN
+    // V2 is straightforward, we can get everything easily.
+
+    GET_OFFSET_ARRAY frame_array 0x0014 4 0x0008 4 0 0 12
+    GET_OFFSET_ARRAY cycle_array 0x0018 4 0x000c 4 0 0 4
+    GET_OFFSET_ARRAY data_array 0x001c 4 0x0010 4 0 0 28
+  END
+  DEFAULT
+    PATCH_FAIL ~File "%SOURCE_FILE%" has unknown BAM version "%version%"!~
+  END
+END
+
+
+// Function to alter the center points of frames in a bam.
+
+DEFINE_ACTION_FUNCTION recenter_bam_frames
+  INT_VAR
+  center_x	= 0
+  center_y	= 0
+  silent	= 0
+  STR_VAR
+  bam		= ""
+  frames	= ""
+BEGIN
+  ACTION_IF "%bam%" STRING_COMPARE ""
+  BEGIN
+    LAF return_first_entry STR_VAR list="%bam%" RET entry bam=list END
+
+    ACTION_IF FILE_EXISTS_IN_GAME "%entry%.bam"
+    BEGIN
+      COPY_EXISTING "%entry%.bam" override
+        LAUNCH_PATCH_FUNCTION recenter_bam_frames
+	  INT_VAR
+	  center_x
+	  center_y
+	  STR_VAR
+	  frames
+	END
+
+        BUT_ONLY_IF_IT_CHANGES
+    END
+    ELSE
+    BEGIN
+      ACTION_IF !silent
+      BEGIN
+        LAF warning STR_VAR warning="tried to recenter frames of %entry%.bam but it doesn't exist" END
+      END
+    END
+  END
+END
+
+DEFINE_PATCH_FUNCTION recenter_bam_frames
+  INT_VAR
+  center_x	= 0
+  center_y	= 0
+  STR_VAR
+  frames	= ""
+BEGIN
+  LPF decompress_bam RET was_compressed dl END
+ 
+  LPF get_bam_version_data RET_ARRAY frame_array END
+  PHP_EACH frame_array AS index => offset
+  BEGIN
+    PATCH_IF STRING_LENGTH "%frames%" == 0
+          OR INDEX (EVALUATE_REGEXP "(^| )%index%( |$)" "%frames%") >= 0
+    BEGIN
+      WRITE_SHORT (offset + 0x0004) center_x
+      WRITE_SHORT (offset + 0x0006) center_y
+    END
+  END
+
+  LPF compress_bam INT_VAR was_compressed dl END
+END
+
+
