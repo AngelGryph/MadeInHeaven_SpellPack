@@ -1,0 +1,100 @@
+DEFINE_ACTION_FUNCTION sanitize_wizard_spell_slots
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "sanitize_wizard_spell_slots"
+    RET
+    sanitize_wizard_spell_slots	= value
+  END
+
+  LAUNCH_ACTION_FUNCTION check_label
+    STR_VAR
+    label	= "mh#sanitize_wizard_spell_slots"
+    RET
+    installed	= value
+  END
+
+  // Free up 9th level spell slots by moving bogus stuff
+  // to innate namespace.
+  // (Mostly TotSC-related innates.)
+
+  ACTION_IF sanitize_wizard_spell_slots AND NOT installed
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_label
+      STR_VAR
+      label	= "mh#sanitize_wizard_spell_slots"
+    END
+
+    OUTER_SET to_try_next = 0
+    ACTION_CLEAR_ARRAY __new_codes
+
+    ACTION_FOR_EACH idsname IN QUICK_TELEPORT SUCCUBUS_ETHEREAL SUCCUBUS_ENERGY_DRAIN SUCCUBUS_CHARM_FEMALE SUCCUBUS_CHARM_MALE SUCCUBUS_TELEPORT TANARI_CHANGE DURLAG_SWORD CRUSHING_TRAP SUMMON_SKELETON_WARRIOR3 SUMMON_SKELETON_WARRIOR2 SUMMON_SKELETON_WARRIOR CHARM_HERO FIREDRAKE_DAMAGE LOVEM_CHANGE QUEEN_CHANGE SIRINE_DIRE_CHARM DAESEWOLF_CHANGE LOUPGAR_CHANGE PLAYER_WEREWOLF_CHANGE GREATER_WOLFWERE_CHANGE WEREWOLF_CHANGE WOLFWERE_CHANGE
+    BEGIN
+      OUTER_TEXT_SPRINT old_name EVAL "%%idsname%%"
+
+      ACTION_IF NOT "%old_name%" STRING_MATCHES_REGEXP "^spwi9..$"
+      BEGIN
+        LAUNCH_ACTION_FUNCTION find_spell_ids_slot
+          INT_VAR
+	  type		= 3
+	  level		= 9
+	  to_try	= to_try_next
+	  STR_VAR
+	  idsname	= "__next_free_please__"
+          RET
+          new_code	= slot
+	  to_try_next
+        END
+
+        LAUNCH_ACTION_FUNCTION idscode_to_spell
+          INT_VAR
+	  idscode	= new_code
+	  RET
+	  new_name	= resref
+        END
+
+        COPY_EXISTING "%old_name%.spl" "override/%new_name%.spl"
+
+	DISABLE_FROM_KEY "%old_name%.spl"
+	ACTION_IF FILE_EXISTS "override/%old_name%.spl"
+	BEGIN
+	  DELETE "override/%old_name%.spl"
+	END
+
+        LAUNCH_ACTION_FUNCTION edit_hidespl
+	  INT_VAR
+	  is_hidden	= 0
+	  STR_VAR
+	  spell		= "%old_name%"
+	END
+
+        ACTION_DEFINE_ASSOCIATIVE_ARRAY __new_codes
+        BEGIN
+          "%idsname%"=>"%new_code%"
+        END
+
+        LAUNCH_ACTION_FUNCTION log_this
+          STR_VAR
+	  file		= "sanitze_wizard_spell_slots.2da"
+          input		= "%idsname%%TAB%%old_name%%TAB%%new_name%"
+	  repeat	= "no"
+        END
+      END
+
+      COPY_EXISTING "spell.ids" "override"
+        PHP_EACH __new_codes AS idsname => idscode
+	BEGIN
+	  LAUNCH_PATCH_FUNCTION write_table_entry
+	    INT_VAR
+	    colnum	= 0
+	    lookup_column	= 1
+	    STR_VAR
+	    row		= "%idsname%"
+	    arguments	= "%idscode%"
+	  END
+	END
+    END
+  END
+END	// sanitize_wizard_spell_slots
+
+

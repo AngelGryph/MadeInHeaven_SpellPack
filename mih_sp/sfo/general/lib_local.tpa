@@ -70,31 +70,6 @@ END
 OUTER_SPRINT $SFO_do_not_parse_arguments("STO_swap_items") ""
 
 
-DEFINE_PATCH_FUNCTION SPL_substitute_name
-   STR_VAR
-   arguments=""
-BEGIN
-   LAUNCH_PATCH_FUNCTION patch_text_entry
-     INT_VAR
-     loc=0x08
-     STR_VAR
-     function=substitute_string
-     arguments= "%arguments%"
-   END
-END
-OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_substitute_name") ""
-
-
-DEFINE_PATCH_FUNCTION SPL_prepend_name
-  STR_VAR
-  arguments=""
-BEGIN
-  READ_STRREF NAME1 old_name
-  SAY_EVALUATED NAME1 ~%arguments% %old_name%~
-END
-OUTER_SPRINT $SFO_do_not_parse_arguments("SPL_prepend_name") ""
-
-
 DEFINE_ACTION_FUNCTION edit_itemexcl
   INT_VAR
   mask		= 0
@@ -128,7 +103,7 @@ DEFINE_ACTION_FUNCTION edit_hidespl
   is_final	= "-1"
   is_removed	= "-1"
   STR_VAR
-  spells	= ""
+  spell		= ""
 BEGIN
   ACTION_IF enhanced_edition
   BEGIN
@@ -262,10 +237,92 @@ BEGIN
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
+    INT_VAR
+    allow_missing	= 1
     STR_VAR
     spell	= "%spell_list%"
     edits	= "no_stacking"
   END
 END	// prevent_mutual_stacking
+
+
+// Patch an item and, if it exists, also its externalized spell.
+//
+// Mosty used for IR compatibility, since IR externalizes most potion- and
+// wand effects.
+
+DEFINE_ACTION_FUNCTION edit_item_and_external_spell
+  INT_VAR
+  silent	= 0
+  allow_missing	= 0
+  tv		= 0
+  STR_VAR
+  item		= ""
+  edits=""
+  editstring	= ""
+  location	= ""
+  locbase	= ""
+  locabs	= ""
+BEGIN
+  LAUNCH_ACTION_FUNCTION edit_template
+    INT_VAR
+    tv silent allow_missing
+    STR_VAR file_list	= ~%item%~
+    file_ext=~ITM~
+    edits editstring location locbase locabs
+  END
+
+  ACTION_IF FILE_EXISTS_IN_GAME "%item%.spl"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_template
+      INT_VAR
+      tv silent allow_missing
+      STR_VAR file_list	= ~%item%~
+      file_ext=~SPL~
+      edits editstring location locbase locabs
+    END
+  END
+END
+
+
+// Patch an item's externalized spell if it exists, otherwise patch the item.
+//
+// Mosty used for IR compatibility, since IR externalizes most potion- and
+// wand effects.
+
+DEFINE_ACTION_FUNCTION edit_item_or_external_spell
+  INT_VAR
+  silent	= 0
+  allow_missing	= 0
+  tv		= 0
+  STR_VAR
+  item		= ""
+  edits=""
+  editstring	= ""
+  location	= ""
+  locbase	= ""
+  locabs	= ""
+BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME "%item%.spl"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_template
+      INT_VAR
+      tv silent allow_missing
+      STR_VAR file_list	= ~%item%~
+      file_ext=~SPL~
+      edits editstring location locbase locabs
+    END
+  END
+  ELSE
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_template
+      INT_VAR
+      tv silent allow_missing
+      STR_VAR file_list	= ~%item%~
+      file_ext=~ITM~
+      edits editstring location locbase locabs
+    END
+  END
+END
 
 

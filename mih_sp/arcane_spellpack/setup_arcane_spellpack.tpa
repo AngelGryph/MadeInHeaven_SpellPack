@@ -8,6 +8,13 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
+    file	= "sanitize_wizard_spell_slots"
+    locbase	= "shared/spells"
+  END
+
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
     file	= "arcane_preproc"
     tra		= "arcane_spellpack"
   END

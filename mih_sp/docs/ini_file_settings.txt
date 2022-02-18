@@ -34,3 +34,13 @@ components.  Components will assume this is in effect, so without it some
 things will look strange and some content may not be accessible in-game.
 
 
+===
+
+sanitize_wizard_spell_slots=0
+
+If enabled, this attempts to free up more ninth level spell slots for wizards
+by moving innates that have been stored there into the innate name space.  This
+may create issues for mods that refer to these spells by resource instead of
+by ids label.  USE AT YOUR OWN RISK!
+
+

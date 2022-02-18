@@ -5,7 +5,7 @@ BEGIN
   MAKE_PATCH
     apply_hla=>"%HLA_CLERIC_DIVINE_INSIGHT%"
     grant_hla=>"%HLA_CLERIC_INTERDICTION%"
-    restrict_hla'1=>~hla=>"%HLA_DIVINE_INSIGHT%" num_allowed=>3~
+    restrict_hla'1=>~hla=>"%HLA_CLERIC_DIVINE_INSIGHT%" num_allowed=>3~
     restrict_hla'2=>~hla=>"%HLA_CLERIC_INTERDICTION%" num_allowed=>1~
   END
 
