@@ -6,10 +6,10 @@ BEGIN
     tra		= "bard_powers"
   END
 
-  LAUNCH_ACTION_FUNCTION grand_unified_installer
+  LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    copy_files	= ""
-    tra		= "bard_powers"
+    file	= "arcane_healing"
+    locbase	= "shared/spells"
   END
 
   OUTER_SET macro_spellcodes_read=0

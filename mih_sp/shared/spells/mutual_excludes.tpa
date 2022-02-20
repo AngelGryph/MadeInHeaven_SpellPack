@@ -1,42 +1,11 @@
 DEFINE_ACTION_FUNCTION mutual_excludes
 BEGIN
-  // Barrier (arcane) and Armor of Faith (divine)
+  // Curse (divine) and Curse (item effect)
 
   LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
     STR_VAR
-    ids_list	= "WIZARD_BARRIER CLERIC_ARMOR_OF_FAITH"
-  END
-
-
-  // Heroism, Superheroism (arcane and divine)
-
-  LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
-    STR_VAR
-    ids_list	= "WIZARD_HEROISM WIZARD_SUPERHEROISM CLERIC_HEROISM CLERIC_SUPERHEROISM"
-  END
-
-
-  // (Bull's) Strength, Mass Bull's Strength (arcane and divine)
-
-  LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
-    STR_VAR
-    ids_list	= "WIZARD_STRENGTH WIZARD_MASS_BULLS_STRENGTH CLERIC_BULLS_STRENGTH CLERIC_MASS_BULLS_STRENGTH"
-  END
-
-
-  // Cat's Grace, Mass Cat's Grace (arcane and divine)
-
-  LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
-    STR_VAR
-    ids_list	= "WIZARD_CATS_GRACE WIZARD_MASS_CATS_GRACE CLERIC_CATS_GRACE CLERIC_CATS_GRACE"
-  END
-
-
-  // Bear's Endurance, Mass Bear's Endurance (arcane and divine)
-
-  LAUNCH_ACTION_FUNCTION prevent_mutual_stacking
-    STR_VAR
-    ids_list	= "WIZARD_BEARS_ENDURANCE WIZARD_MASS_BEARS_ENDURANCE CLERIC_BEARS_ENDURANCE CLERIC_BEARS_ENDURANCE"
+    ids_list	= "CLERIC_CURSE"
+    spell_list	= "mh#iwd23"
   END
 END	// mutual_excludes
 
