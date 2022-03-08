@@ -38,8 +38,7 @@ BEGIN
   END
 
 
-  // Summons: Make sure they give no xp, leave no corpse or items,
-  // are unaligned and have a correct DV.
+  // Summons: Make sure they give no xp or gold and leave no corpse or items.
 
   ACTION_CLEAR_ARRAY summoned
   ACTION_DEFINE_ASSOCIATIVE_ARRAY summoned
@@ -48,9 +47,9 @@ BEGIN
     no_corpse=>1
     xp_value=>0
     gold=>0
-    allegiance=>neutral
+//    allegiance=>neutral
     alignment=>neutral
-    dv=>"%SOURCE_RES%"
+//    dv=>"%SOURCE_RES%"
     patch_item_inline=>"unstealable=>1 undroppable=>1"
   END
 

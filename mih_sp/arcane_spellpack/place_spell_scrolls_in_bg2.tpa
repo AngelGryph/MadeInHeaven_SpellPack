@@ -251,7 +251,8 @@ BEGIN
   // mh#wiz84 - Mechanus' Cannon
   // mh#wiz91 - Rune of Torment
 
-  WITH_TRA "%MOD_FOLDER%/%LANGUAGE%/limited_wish.tra"
+  WITH_TRA "%scs_tra_loc%/english/limited_wish.tra"
+   "%scs_tra_loc%/%LANGUAGE%/limited_wish.tra"
   BEGIN
     LAUNCH_ACTION_FUNCTION install
       STR_VAR

@@ -21,34 +21,7 @@ BEGIN
   END
   
 
-  // Restore some dummied out cleric scrolls
-
-  ACTION_CLEAR_ARRAY spell_scrolls
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_scrolls
-  BEGIN
-    scrl21 =>	CLERIC_CURE_LIGHT_WOUNDS
-    scrl26 =>	CLERIC_REMOVE_FEAR
-    scrl29 =>	CLERIC_AID
-    scrl40 =>	CLERIC_SLOW_POISON
-    scrl46 =>	CLERIC_DISPEL_MAGIC
-    scrl50 =>	CLERIC_REMOVE_CURSE
-    scrl51 =>	CLERIC_REMOVE_PARALYSIS
-    scrl52 =>	CLERIC_INVISIBILITY_PURGE
-    scheal =>	CLERIC_HEAL
-    scrsct =>	CLERIC_RESURRECTION
-  END
-
-  ACTION_PHP_EACH spell_scrolls AS scrollname => idsname
-  BEGIN
-    LAUNCH_ACTION_FUNCTION make_scroll_of_spell
-      STR_VAR
-      resref		= EVALUATE_BUFFER "%%idsname%%"
-      scrollname
-    END
-  END
-
-
-  // Add scrolls and cures
+  // Add more cures
 
   OUTER_SET cure_disease_desc = RESOLVE_STR_REF(@0)
   APPEND "speldesc.2da" "sppr317	%cure_disease_desc%" UNLESS "sppr317"
@@ -56,52 +29,33 @@ BEGIN
   OUTER_SET restoration_desc = RESOLVE_STR_REF(@1)
   APPEND "speldesc.2da" "sppr417	%restoration_desc%" UNLESS "sppr417"
 
-  MAKE_PATCH
-    match=>~store_type = temple~
-    delete_cure=>~cure_resource is_in [sppr317 sppr417]~ // Prevent dups
-    clone_cure_inline'1=>~match=>"cure_resource = sppr307" cure_resource=>sppr317 cure_price=>"cure_price / 2"~
-    clone_cure_inline'2=>~match=>"cure_resource = sppr401" cure_resource=>sppr417 cure_price=>"cure_price * 3"~
-    literal'01=>~ADD_STORE_ITEM "scrl21" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
-    literal'02=>~ADD_STORE_ITEM "scrl26" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
-    literal'03=>~ADD_STORE_ITEM "scrl29" BEFORE "scrlpet restore" #1 #0 #0 "identified" #4~
-    literal'04=>~ADD_STORE_ITEM "scrl40" BEFORE "scrlpet restore" #1 #0 #0 "identified" #3~
-    literal'05=>~ADD_STORE_ITEM "scrl46" BEFORE "scrlpet restore" #1 #0 #0 "identified" #3~
-    literal'06=>~ADD_STORE_ITEM "scrl50" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'07=>~ADD_STORE_ITEM "scrl51" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'08=>~ADD_STORE_ITEM "scrl52" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'09=>~ADD_STORE_ITEM "scrl56" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'10=>~ADD_STORE_ITEM "scrl58" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'11=>~ADD_STORE_ITEM "scrl59" BEFORE "scrlpet restore" #1 #0 #0 "identified" #2~
-    literal'12=>~ADD_STORE_ITEM "scrl5f" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-    literal'13=>~ADD_STORE_ITEM "scrl61" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-    literal'14=>~ADD_STORE_ITEM "scheal" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-    literal'15=>~ADD_STORE_ITEM "scrsct" BEFORE "scrlpet restore" #1 #0 #0 "identified" #1~
-  END
+  OUTER_TEXT_SPRINT old_cures "sppr303 sppr307"
+  OUTER_TEXT_SPRINT new_cures "sppr303->sppr317 sppr307->sppr417"
 
   // Add Cure Blindness/Deafness if available
-  ACTION_IF FILE_EXISTS_IN_GAME "mh#curbd.itm"
+  ACTION_IF VARIABLE_IS_SET CLERIC_CURE_BLIND_DEAF
   BEGIN
     OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@2)
     APPEND "speldesc.2da" "%CLERIC_CURE_BLIND_DEAF%	%cure_bd_desc%"
 
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-    BEGIN
-      clone_cure_inline'98=>~match=>"cure_resource = sppr212" cure_resource=>%CLERIC_CURE_BLIND_DEAF% cure_price=>"(cure_price * 3) / 2"~
-      literal'98=>~ADD_STORE_ITEM "mh#curbd" AFTER "scrl26" #1 #0 #0 "identified" #4~
-    END
+    OUTER_TEXT_SPRINT old_cures "sppr212 %old_cures%"
+    OUTER_TEXT_SPRINT new_cures "sppr212->%CLERIC_CURE_BLIND_DEAF% %new_cures%"
   END
 
   // Add Break Enchantment if available
-  ACTION_IF FILE_EXISTS_IN_GAME "mh#prs53.itm"
+  ACTION_IF VARIABLE_IS_SET CLERIC_BREAK_ENCHANTMENT
   BEGIN
     OUTER_SET break_enchantment_desc = RESOLVE_STR_REF(@3)
     APPEND "speldesc.2da" "%CLERIC_BREAK_ENCHANTMENT%	%break_enchantment_desc%"
 
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY patch_data
-    BEGIN
-      clone_cure_inline'99=>~match=>"cure_resource = sppr504" cure_resource=>%CLERIC_BREAK_ENCHANTMENT% cure_price=>"(cure_price * 2) / 3~
-      literal'99=>~ADD_STORE_ITEM "mh#prs53" AFTER "scrl5f" #1 #0 #0 "identified" #1~
-    END
+    OUTER_TEXT_SPRINT old_cures "%old_cures% sppr504"
+    OUTER_TEXT_SPRINT new_cures "%new_cures% sppr504->%CLERIC_BREAK_ENCHANTMENT%"
+  END
+
+  MAKE_PATCH
+    match=>"store_type = temple"
+    delete_cure=>"cure_resource is_in [sppr317 sppr417]" // Prevent dups
+    clone_cure_inline=>~match=>"cure_resource is_in [%old_cures%]" cure_resource=>"cure_resource in [%new_cures%]"~
   END
 
   LAUNCH_ACTION_FUNCTION edit_all_stores
