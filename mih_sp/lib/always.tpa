@@ -78,14 +78,19 @@ BEGIN
 
 
   // Install any files that might be missing
+  // (Mostly used for animations between BGEE/BG2EE/SOD)
 
-  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/missing_files.tpa"
+  ACTION_BASH_FOR "%MOD_FOLDER%/%component_loc%/resource/_copy" ".*"
   BEGIN
-    INCLUDE "%MOD_FOLDER%/%component_loc%/missing_files.tpa"
+    ACTION_IF NOT FILE_EXISTS_IN_GAME "%BASH_FOR_FILE%"
+    BEGIN
+      PRINT "Installing missing file %BASH_FOR_FILE%..."
+      COPY_LARGE "%BASH_FOR_FILESPEC%" "override"
+    END
   END
 
 
-  // Install any issues with creature definitions
+  // Fix some issues with creature definitions
 
   ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/fix_creatures.tpa"
   BEGIN
