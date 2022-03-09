@@ -2,29 +2,8 @@ DEFINE_ACTION_FUNCTION setup_revised_summoning
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "revised_summoning_preproc"
+    file	= "make_more_summons generate_tables edit_summon_spells"
     tra		= "revised_summoning"
-  END
-
-  LAUNCH_ACTION_FUNCTION grand_unified_installer
-    STR_VAR
-    copy_files	= ""
-    tra		= "revised_summoning"
-  END
-
-  OUTER_SET macro_spellcodes_read=0
-  LAUNCH_ACTION_MACRO read_in_spellcodes
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "unsummon_button revised_summoning_postproc"
-    tra		= "revised_summoning"
-  END
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "fix_animations"
-    locbase	= "shared/compat"
   END
 END	// setup_revised_summoning
 
