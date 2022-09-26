@@ -170,7 +170,7 @@ BEGIN
     max_in_stack=>~if max_in_stack > 1 and category = 9 then %max_stack_potions% else if max_in_stack > 1 and category is_in [5 14 24 31] then %max_stack_ammo% else if max_in_stack > 1 and category is_in [16 25] then %max_stack_thrown% else if max_in_stack > 1 and category is_in [1 10 34] then %max_stack_jewels% else no_change~
   END
 
-  ACTION_IF IS_AN_INT NAME
+  ACTION_IF IS_AN_INT "%NAME%"
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
     BEGIN
@@ -178,7 +178,7 @@ BEGIN
     END
   END
 
-  ACTION_IF IS_AN_INT DESC
+  ACTION_IF IS_AN_INT "%DESC%"
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
     BEGIN
@@ -186,7 +186,7 @@ BEGIN
     END
   END
 
-  ACTION_IF IS_AN_INT UNNAME
+  ACTION_IF IS_AN_INT "%UNNAME%"
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
     BEGIN
@@ -194,11 +194,11 @@ BEGIN
     END
   END
 
-  ACTION_IF IS_AN_INT UNDESC
+  ACTION_IF IS_AN_INT "%UNDESC%"
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
     BEGIN
-      say_unidentified_description=>"%DESC%"
+      say_unidentified_description=>"%UNDESC%"
     END
   END
 

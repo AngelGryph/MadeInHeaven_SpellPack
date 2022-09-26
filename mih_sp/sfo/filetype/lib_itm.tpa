@@ -249,7 +249,11 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY itm_bit_fields BEGIN
       cold_iron => ~0x19,1~
       stolen => ~0x19,2~
       conversable => ~0x19,3~
+      fake_twohanded => ~0x19,4~
       forbid_offhand => ~0x19,5~
+      adamantine => ~0x19,7~
+      undispellable => ~0x21,0~
+      toggle_critical => ~0x21,1~
       unusable_chaotic => ~0x1e,0~
       unusable_evil => ~0x1e,1~
       unusable_good => ~0x1e,2~

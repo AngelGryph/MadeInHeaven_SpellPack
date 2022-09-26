@@ -88,14 +88,6 @@ BEGIN
       COPY_LARGE "%BASH_FOR_FILESPEC%" "override"
     END
   END
-
-
-  // Fix some issues with creature definitions
-
-  ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/fix_creatures.tpa"
-  BEGIN
-    INCLUDE "%MOD_FOLDER%/%component_loc%/fix_creatures.tpa"
-  END
 END	// done_init
 
 

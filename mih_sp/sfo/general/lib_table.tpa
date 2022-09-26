@@ -467,5 +467,35 @@ BEGIN
 			SET_2DA_ENTRY row colnum_to colcount data
 		END
 	  BUT_ONLY
-
 END
+
+DEFINE_PATCH_FUNCTION set_table_default
+  STR_VAR
+  arguments	= ""
+BEGIN
+  SET_2DA_ENTRY 1 0 1 "%arguments%"
+END
+
+
+DEFINE_ACTION_FUNCTION set_table_default
+  STR_VAR
+  file		= ""
+  arguments	= ""
+BEGIN
+  ACTION_IF !FILE_EXISTS_IN_GAME "%file%"
+  BEGIN
+    ACTION_IF !FILE_EXISTS_IN_GAME "%file%.2da"
+    BEGIN
+      FAIL "Tried to write an entry to %file%, but %file% does not exist and nor does %file%.2da"
+     END
+    ELSE
+    BEGIN
+      OUTER_SPRINT file "%file%.2da"
+    END
+  END
+
+  COPY_EXISTING "%file%" "override"
+    LPF set_table_default STR_VAR arguments END
+END
+
+
