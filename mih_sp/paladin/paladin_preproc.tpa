@@ -37,9 +37,9 @@ BEGIN
 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY paladin_kits_hla_tables
   BEGIN
-    "cavalier"		=> "pa1"
-    "inquisitor"	=> "pa2"
-    "undead_hunter"	=> "pa3"
+    "cavalier"		=> "Pa1"
+    "inquisitor"	=> "Pa2"
+    "undead_hunter"	=> "Pa3"
   END
 
   ACTION_PHP_EACH paladin_kits_hla_tables AS kit => table
@@ -54,12 +54,9 @@ BEGIN
       value
     END
 
-    ACTION_IF "%value%" STRING_EQUAL_CASE "pa0"
+    ACTION_IF "%value%" STRING_EQUAL_CASE "Pa0"
     BEGIN
-      ACTION_IF NOT FILE_EXISTS_IN_GAME "lu%table%.2da"
-      BEGIN
-        COPY_EXISTING "lupa0.2da" "lu%table%.2da"
-      END
+      COPY_EXISTING "luPa0.2da" "override/lu%table%.2da"
 
       LAUNCH_ACTION_FUNCTION write_table_entry
         INT_VAR

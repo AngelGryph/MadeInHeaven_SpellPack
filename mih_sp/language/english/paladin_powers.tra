@@ -1,4 +1,13 @@
 @0  = ~Smite Evil~
-@1  = ~Smite Good~
-@2  = ~Smite Undead~
-@3  = ~Divine Favor~
+@1  = ~Smite Evil
+
+This ability allows the paladin to smite evil foes with holy energy, dealing 1d6 points of magic damage per level.  It has no effect on creatures that are not evil, even if they are hostile to the paladin.~
+@2  = ~Smite Good~
+@3  = ~Smite Good
+
+This ability allows the blackguard to smite evil foes with unholy energy, dealing 1d6 points of magic damage per level.  It has no effect on creatures that are not good, even if they are hostile to the blackguard.~
+@4  = ~Smite Undead~
+@5  = ~Smite Undead
+
+This ability allows the undead hunter to smite undead foes with holy energy, dealing 1d6 points of magic damage per level.  It has no effect on creatures that are not undead, even if they are hostile to the undead hunter.~
+@6  = ~Divine Favor~

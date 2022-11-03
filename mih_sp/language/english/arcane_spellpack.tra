@@ -154,8 +154,8 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 20%, and the recipient's hit points are raised by 20%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.  In addition to this, the spike of positive energy will render the recipient immune to fear and energy drain for the duration of the spell.~
-@26   = ~Spell Matrix~
-@27   = ~Spell Matrix
+@26   = ~Symbul's Spell Matrix~
+@27   = ~Symbul's Spell Matrix
 (Invocation/Evocation)
 
 Level: 5
