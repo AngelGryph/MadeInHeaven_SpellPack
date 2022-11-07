@@ -4,10 +4,17 @@ BEGIN
 
   MAKE_PATCH
     apply_power=>"mh#chmys 24"
-    apply_hla=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%"
-    grant_hla=>"%HLA_WIZARD_SILVER_FIRE%"
-    restrict_hla'1=>~hla=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>1~
-    restrict_hla'2=>~hla=>"%HLA_WIZARD_SILVER_FIRE%" prerequisite=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>3~
+    apply_hla=>"%HLA_WIZARD_ARCANE_INSIGHT% %HLA_WIZARD_CHOSEN_OF_MYSTRA% %HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%"
+    grant_hla=>"%HLA_WIZARD_EFFULGENT_EPURATION% %HLA_WIZARD_IOULAUMS_LONGEVITY% %HLA_WIZARD_MAGIC_MISSILE_STORM% %HLA_WIZARD_NAZZERS_NULLIFICATION% %HLA_WIZARD_SILVER_FIRE% %HLA_WIZARD_TOLODINES_KILLING_WIND%"
+    restrict_hla'1=>~hla=>"%HLA_WIZARD_ARCANE_INSIGHT%" num_allowed=>3~
+    restrict_hla'2=>~hla=>"%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%" prerequisite=>"SPCL930" num_allowed=>1~
+    restrict_hla'3=>~hla=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>1~
+    restrict_hla'4=>~hla=>"%HLA_WIZARD_SILVER_FIRE%" prerequisite=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>3~
+    restrict_hla'5=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" num_allowed=>1~
+    restrict_hla'6=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" num_allowed=>1~
+    restrict_hla'7=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" num_allowed=>1~
+    restrict_hla'8=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" num_allowed=>1~
+    restrict_hla'9=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" num_allowed=>1~
   END
 
   ACTION_FOR_EACH kit IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE"
@@ -16,6 +23,28 @@ BEGIN
       STR_VAR
       kit
       edits	= "patch_data"
+    END
+
+    LAUNCH_ACTION_FUNCTION read_table_entry
+      INT_VAR
+      colnum	= 1
+      STR_VAR
+      file	= "luabbr"
+      row	= "%kit%"
+      RET
+      lu_table	= value
+    END
+
+    ACTION_TO_LOWER lu_table
+
+    LAUNCH_ACTION_FUNCTION write_table_entry
+      INT_VAR
+      lookup_column	= 1
+      STR_VAR
+      file	= "lu%lu_table%.2da"
+      column	= "PREREQUISITE"
+      row	= "AP_%HLA_WIZARD_CHOSEN_OF_MYSTRA%"
+      arguments	= "AP_MH#CHMYS"
     END
   END
 
@@ -29,21 +58,21 @@ BEGIN
   END
 
 
-  // Single- and multiclass mages
+  // Multiclass mages
 
   MAKE_PATCH
     apply_hla=>"%HLA_WIZARD_ARCANE_INSIGHT% %HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%"
     grant_hla=>"%HLA_WIZARD_EFFULGENT_EPURATION% %HLA_WIZARD_IOULAUMS_LONGEVITY% %HLA_WIZARD_MAGIC_MISSILE_STORM% %HLA_WIZARD_NAZZERS_NULLIFICATION% %HLA_WIZARD_TOLODINES_KILLING_WIND%"
     restrict_hla'1=>~hla=>"%HLA_WIZARD_ARCANE_INSIGHT%" num_allowed=>3~
-    restrict_hla'2=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" num_allowed=>1~
+    restrict_hla'2=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" min_level=>32 num_allowed=>1~
     restrict_hla'3=>~hla=>"%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%" prerequisite=>"SPCL930" num_allowed=>1~
-    restrict_hla'4=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" num_allowed=>1~
-    restrict_hla'5=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" num_allowed=>1~
-    restrict_hla'6=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" num_allowed=>1~
-    restrict_hla'7=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" num_allowed=>1~
+    restrict_hla'4=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" min_level=>32 num_allowed=>1~
+    restrict_hla'5=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" min_level=>32 num_allowed=>1~
+    restrict_hla'6=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" min_level=>32 num_allowed=>1~
+    restrict_hla'7=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" min_level=>32 num_allowed=>1~
   END
 
-  ACTION_FOR_EACH kit IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE" "DRAGON_DISCIPLE" "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
+  ACTION_FOR_EACH kit IN "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"
   BEGIN
     LAUNCH_ACTION_FUNCTION edit_kit
       STR_VAR
