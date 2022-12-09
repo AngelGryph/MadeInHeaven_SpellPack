@@ -2,12 +2,31 @@ DEFINE_ACTION_FUNCTION epic_postproc
 BEGIN
   // Set correct string for Elminster's Effulgent Epuration
 
-  OUTER_SET epuration_msg = RESOLVE_STR_REF(@25)
+  OUTER_SET str_ref = RESOLVE_STR_REF(@25)
 
+  MAKE_PATCH
+    patch_effect_inline=>~match=>"opcode = 139" parameter1=>%str_ref%~
+  END
+    
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
     spell	= "%HLA_WIZARD_EFFULGENT_EPURATION%"
-    editstring	= ~match=>"opcode = 139" parameter1=>%epuration_msg%~
+    edits	= "patch_data"
+  END
+
+
+  // Set correct string for Interdiction
+
+  OUTER_SET str_ref = RESOLVE_STR_REF(@14)
+
+  MAKE_PATCH
+    patch_effect_inline=>~match=>"opcode = 139" parameter1=>%str_ref%~
+  END
+    
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "mh#intda"
+    edits	= "patch_data"
   END
 END
 

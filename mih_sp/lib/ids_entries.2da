@@ -10,6 +10,10 @@ class	ELEMENTAL_WATER			219
 class	GREEN_DRAGON			220
 class	WIGHT				223
 
+gender	NEITHER				4
+
+general	PLANT				7
+
 gtimes	ONE_MINUTE			5
 gtimes	TWO_MINUTES			10
 gtimes	THREE_MINUTES			15
@@ -81,6 +85,7 @@ gtimes	FIFTEEN_TURNS			901
 
 race	BEETLE				160
 race	MUMMY				163
+race	SHAMBLING_MOUND			176
 race	REPTILE				183
 
 spell	YESLICK_DISPEL_MAGIC		3112

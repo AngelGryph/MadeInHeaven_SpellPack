@@ -1,5 +1,10 @@
 DEFINE_ACTION_FUNCTION setup_epic_spellpack
 BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "epic_preproc"
+  END
+
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     copy_files	= ""

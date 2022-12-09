@@ -4,9 +4,9 @@ RESREF		NAME	VVC
 elwatpr		30	spportal
 elwatpr2	31	spportal
 elwatpr3	32	spportal
-elairpr		30	spportal
-elairpr2	31	spportal
-elairpr3	32	spportal
+elairpr		50	spportal
+elairpr2	51	spportal
+elairpr3	52	spportal
 snakegsu	8	spmonsum
 
 

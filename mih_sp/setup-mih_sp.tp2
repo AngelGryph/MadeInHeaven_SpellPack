@@ -107,15 +107,15 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Revised Animal/Monster Summoning
+// Augment Summoning
 
 BEGIN @24
 GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "setup_revised_summoning"
-  location	= "revised_summoning"
+  file		= "setup_augment_summoning"
+  location	= "tweaks"
 END
 
 
