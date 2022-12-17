@@ -396,8 +396,18 @@ Area of Effect: The caster
 Saving Throw: None
 
 Casting this spell grants the caster a powerful sixth sense for danger.  While the spell is active, <PRO_HESHE> will instinctively know when an attack is coming and what action to take (jumping, ducking to the side, closing one's eyes etc) to best avoid the attack.  Therefor, <PRO_HESHE> cannot be backstabbed and gains a +4 bonus to armor class and saving throws versus wand, -spell and -breath for the duration of the spell.~
-//@65   = ~~
-//@66   = ~~
+@65   = ~Shooting Stars~
+@66   = ~Shooting Stars
+(Invocation/Evocation)
+
+Level: 8
+Range: 70 yds
+Duration: Special
+Casting Time: 8
+Area of Effect: 1 target/star
+Saving Throw: None
+
+This spell creates three small glowing missiles in the caster's hand, which <PRO_HESHE> may then throw at enemies.  The missiles are +6 to hit and explode on impact, dealing 6d6+4 points of fire damage per missile.~
 @67   = ~Summon Cats~
 @68   = ~Summon Cats
 (Conjuration/Summoning)

@@ -37,6 +37,8 @@ mh#wiz82	Major Globe of Invulnerability
 mh#wiz83	Polar Ray
 mh#wiz84	Mechanus' Cannon
 mh#wiz85	Sunburst
+mh#wiz86	Mass Charm
+mh#wiz87	Shooting Stars
 
 mh#wiz91	Rune of Torment
 mh#wiz92	Weird
