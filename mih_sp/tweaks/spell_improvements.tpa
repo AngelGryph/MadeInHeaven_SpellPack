@@ -33,6 +33,47 @@ BEGIN
   END
 
 
+  // ===========
+  // Wyvern Call
+  // ===========
+
+  MAKE_PATCH
+    ac=>0
+    strength=>20
+    dexterity=>18
+    constitution=>17
+    resist_magic=>35
+    level=>11
+    enforce_hp=>at_worst
+    enforce_thac0=>at_worst
+    enforce_saves=>at_worst
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_creature
+    STR_VAR
+    creature	= "wyvernsu=>wyvgrtsu"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_effect
+    STR_VAR
+    effect	= "wyvernsu=>wyvgrtsu"
+    editstring	= ~resource=>"wyvgrtsu"~
+  END
+
+  MAKE_PATCH
+    level_based_blocks=>"if this = 30 then -1 else this + 1"
+    patch_effect_inline=>~duration=>"ability_min_level * 6" resource=>"wyvgrtsu"~
+    clone_effect_inline=>~match=>"ability_min_level > 19" number_to_add=>"if ability_min_level > 29 then 2 else 1"~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "WIZARD_WYVERN_CALL"
+    edits	= "patch_data"
+  END
+
+
   // ==========
   // Shillelagh
   // ==========

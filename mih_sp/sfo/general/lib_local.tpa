@@ -232,7 +232,7 @@ BEGIN
   BEGIN
     ACTION_DEFINE_ASSOCIATIVE_ARRAY no_stacking
     BEGIN
-      clone_effect_inline=>~number_to_add=>"length spell_list" clone_at_bottom=>1 only_once=>1 match=>"opcode = %opcode_for_clone%" opcode=>206 parameter2=>0 resource=>"entry_index from spell_list"~
+      clone_effect_inline=>~number_to_add=>"length spell_list" clone_at_bottom=>1 only_once=>1 match=>"opcode = %opcode_for_clone%" opcode=>206 parameter1=>-1 parameter2=>0 resource=>"entry_index from spell_list"~
     END
   END
 
