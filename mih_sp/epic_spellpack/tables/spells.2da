@@ -11,6 +11,7 @@ HLA_WIZARD_MAGIC_MISSILE_STORM		9	8	9	4	*	*		n	*		y	*
 HLA_WIZARD_NAZZERS_NULLIFICATION	9	0	1	4	*	*		n	*		y	*
 HLA_WIZARD_TOLODINES_KILLING_WIND	9	2	3	4	*	*		n	*		y	*
 HLA_CLERIC_DIVINE_INSIGHT		9	21	22	4	*	*		n	*		y	*
+HLA_CLERIC_HEALTH_BLESSING		7	26	27	4	*	*		n	*		y	poison,disease,poison_resistance
 HLA_CLERIC_INTERDICTION			7	14	15	4	*	*		n	*		y	*
 HLA_DRUID_WOLF_SPIRITS			7	16	17	4	*	*		n	*		y	*
 
