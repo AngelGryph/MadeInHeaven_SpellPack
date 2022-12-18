@@ -13,8 +13,8 @@ For detailed descriptions, please check the docs directory.
 
 ## Version History
 
-Version 6 - ???
-- Fixed a bug in Paladin Powers that prevented disease immunity from working
+Version 6 - December 18 2022
+- Fixed many bugs and added some new spells to play around with.
 - Documented new paladin powers better, added note about other mods
 - Integrated Thalatyr the *Conjurer* with lore-friendly changes
 - Various versions of (Super)Heroism won't stack, for real this time (I hope)
