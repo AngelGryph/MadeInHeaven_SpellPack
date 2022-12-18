@@ -13,6 +13,8 @@ For detailed descriptions, please check the docs directory.
 
 ## Version History
 
+Version 7 - ???
+
 Version 6 - December 18 2022
 - Fixed many bugs and added some new spells to play around with.
 - Documented new paladin powers better, added note about other mods
