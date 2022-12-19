@@ -5,16 +5,17 @@ BEGIN
   MAKE_PATCH
     apply_power=>"mh#chmys 24"
     apply_hla=>"%HLA_WIZARD_ARCANE_INSIGHT% %HLA_WIZARD_CHOSEN_OF_MYSTRA% %HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%"
-    grant_hla=>"%HLA_WIZARD_EFFULGENT_EPURATION% %HLA_WIZARD_IOULAUMS_LONGEVITY% %HLA_WIZARD_MAGIC_MISSILE_STORM% %HLA_WIZARD_NAZZERS_NULLIFICATION% %HLA_WIZARD_SILVER_FIRE% %HLA_WIZARD_TOLODINES_KILLING_WIND%"
-    restrict_hla'1=>~hla=>"%HLA_WIZARD_ARCANE_INSIGHT%" num_allowed=>3~
-    restrict_hla'2=>~hla=>"%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%" prerequisite=>"SPCL930" num_allowed=>1~
-    restrict_hla'3=>~hla=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>1~
-    restrict_hla'4=>~hla=>"%HLA_WIZARD_SILVER_FIRE%" prerequisite=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>3~
-    restrict_hla'5=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" num_allowed=>1~
-    restrict_hla'6=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" num_allowed=>1~
-    restrict_hla'7=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" num_allowed=>1~
-    restrict_hla'8=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" num_allowed=>1~
-    restrict_hla'9=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" num_allowed=>1~
+    grant_hla=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT% %HLA_WIZARD_EFFULGENT_EPURATION% %HLA_WIZARD_IOULAUMS_LONGEVITY% %HLA_WIZARD_MAGIC_MISSILE_STORM% %HLA_WIZARD_NAZZERS_NULLIFICATION% %HLA_WIZARD_SILVER_FIRE% %HLA_WIZARD_TOLODINES_KILLING_WIND%"
+    restrict_hla'01=>~hla=>"%HLA_WIZARD_ARCANE_INSIGHT%" num_allowed=>3~
+    restrict_hla'02=>~hla=>"%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%" prerequisite=>"SPCL930" num_allowed=>1~
+    restrict_hla'03=>~hla=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>1~
+    restrict_hla'04=>~hla=>"%HLA_WIZARD_SILVER_FIRE%" prerequisite=>"%HLA_WIZARD_CHOSEN_OF_MYSTRA%" num_allowed=>3~
+    restrict_hla'05=>~hla=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%" num_allowed=>1~
+    restrict_hla'06=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" num_allowed=>1~
+    restrict_hla'07=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" num_allowed=>1~
+    restrict_hla'08=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" num_allowed=>1~
+    restrict_hla'09=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" num_allowed=>1~
+    restrict_hla'10=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" num_allowed=>1~
   END
 
   ACTION_FOR_EACH kit IN "MAGE" "ABJURER" "CONJURER" "DIVINER" "ENCHANTER" "ILLUSIONIST" "INVOKER" "NECROMANCER" "TRANSMUTER" "SORCERER" "WILDMAGE"
@@ -62,14 +63,15 @@ BEGIN
 
   MAKE_PATCH
     apply_hla=>"%HLA_WIZARD_ARCANE_INSIGHT% %HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%"
-    grant_hla=>"%HLA_WIZARD_EFFULGENT_EPURATION% %HLA_WIZARD_IOULAUMS_LONGEVITY% %HLA_WIZARD_MAGIC_MISSILE_STORM% %HLA_WIZARD_NAZZERS_NULLIFICATION% %HLA_WIZARD_TOLODINES_KILLING_WIND%"
+    grant_hla=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT% %HLA_WIZARD_EFFULGENT_EPURATION% %HLA_WIZARD_IOULAUMS_LONGEVITY% %HLA_WIZARD_MAGIC_MISSILE_STORM% %HLA_WIZARD_NAZZERS_NULLIFICATION% %HLA_WIZARD_TOLODINES_KILLING_WIND%"
     restrict_hla'1=>~hla=>"%HLA_WIZARD_ARCANE_INSIGHT%" num_allowed=>3~
-    restrict_hla'2=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" min_level=>32 num_allowed=>1~
-    restrict_hla'3=>~hla=>"%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%" prerequisite=>"SPCL930" num_allowed=>1~
-    restrict_hla'4=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" min_level=>32 num_allowed=>1~
-    restrict_hla'5=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" min_level=>32 num_allowed=>1~
-    restrict_hla'6=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" min_level=>32 num_allowed=>1~
-    restrict_hla'7=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" min_level=>32 num_allowed=>1~
+    restrict_hla'2=>~hla=>"%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%" prerequisite=>"SPCL930" num_allowed=>1~
+    restrict_hla'3=>~hla=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%" prerequisite=>"SPCL930" num_allowed=>1~
+    restrict_hla'4=>~hla=>"%HLA_WIZARD_EFFULGENT_EPURATION%" min_level=>32 num_allowed=>1~
+    restrict_hla'5=>~hla=>"%HLA_WIZARD_IOULAUMS_LONGEVITY%" min_level=>32 num_allowed=>1~
+    restrict_hla'6=>~hla=>"%HLA_WIZARD_MAGIC_MISSILE_STORM%" min_level=>32 num_allowed=>1~
+    restrict_hla'7=>~hla=>"%HLA_WIZARD_NAZZERS_NULLIFICATION%" min_level=>32 num_allowed=>1~
+    restrict_hla'8=>~hla=>"%HLA_WIZARD_TOLODINES_KILLING_WIND%" min_level=>32 num_allowed=>1~
   END
 
   ACTION_FOR_EACH kit IN "FIGHTER_MAGE" "MAGE_THIEF" "FIGHTER_MAGE_THIEF" "CLERIC_MAGE" "FIGHTER_MAGE_CLERIC"

@@ -1,5 +1,53 @@
 DEFINE_ACTION_FUNCTION epic_postproc
 BEGIN
+  // Create Algarth's Embattlement innates
+
+  MAKE_PATCH
+    say_name=>28
+    icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
+    patch_ability_inline=>~ability_icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"~
+    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"~
+    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"~
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi420d=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"
+    edits	= "patch_data"
+  END
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      say_name=>26
+      icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
+      patch_ability_inline=>~ability_icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"~
+      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"~
+      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%p"~
+    END
+
+    LAUNCH_ACTION_FUNCTION clone_spell
+      STR_VAR
+      spell	= "spwi420p=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%p"
+      edits	= "patch_data"
+    END
+
+    OUTER_SPRINT algarths_embattlement_title @28
+    OUTER_SPRINT add_algarths_embattlement_label @30
+    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
+
+    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~uiStrings = {~
+        ~uiStrings = {%WNL%%TAB%ALGARTHS_EMBATTLEMENT_TITLE = "%algarths_embattlement_title%",%WNL%%TAB%ADD_SPELLS_MATRIX_LABEL = "%add_algarths_embattlement_label%",~
+
+    COPY_EXISTING "bgee.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~mageBookStrings = {~
+        ~mageBookStrings = {%WNL%%TAB%%HLA_WIZARD_ALGARTHS_EMBATTLEMENT% = {tip = %sequencer_tip_strref%, title = 'ALGARTHS_EMBATTLEMENT_TITLE', action = "ADD_SPELLS_MATRIX_LABEL"},~
+  END
+
+
   // Set correct string for Elminster's Effulgent Epuration
 
   OUTER_SET str_ref = RESOLVE_STR_REF(@25)
