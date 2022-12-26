@@ -35,7 +35,8 @@ WIZARD_POLAR_RAY			8	40	41	0	*	mh#wiz83	n	*		y	*
 WIZARD_MECHANUS_CANNON			8	42	43	0	*	mh#wiz84	n	*		y	*
 WIZARD_SUNBURST				8	56	57	0	*	mh#wiz85	n	*		y	*
 WIZARD_MASS_CHARM			8	30	31	0	*	mh#wiz86	n	*		y	*
-WIZARD_SHOOTING_STARS			8	65	66	0	*	mh#wiz87	n	*
+WIZARD_SHOOTING_STARS			8	65	66	0	*	mh#wiz87	n	*		y	*
+WIZARD_DEVASTATE			8	86	87	0	*	mh#wiz88	n	*		y	*
 WIZARD_RUNE_OF_TORMENT			9	47	48	0	*	mh#wiz91	n	mh#runet	y	*
 WIZARD_WEIRD				9	58	59	0	*	mh#wiz92	n	*		y	*
 WIZARD_FORESIGHT			9	63	64	0	*	mh#wiz93	n	*		y	*

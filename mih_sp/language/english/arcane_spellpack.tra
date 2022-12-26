@@ -493,5 +493,17 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 The Bear's Endurance spell raises the recipient's Constitution score by four points, granting <PRO_HIMHER> all benefits of a higher constitution, such as extra hit points.  Note however that these extra hit points will disappear when the spell ends, possibly killing the recipient if <PRO_HESHE> took a lot of damage.~
+@86   = ~Devastate~
+@87   = ~Devastate
+(Alteration)
+
+Level: 8
+Range: Visual range of the caster
+Duration: 1 round/level
+Casting Time: 8
+Area of Effect: 15' radius
+Saving Throw: None
+
+This powerful spell weakens enemy defenses so that subsequent spells strike with devastating effect.  Opponents under the influence of this spell make all saving throws at a -5 penalty and have their resistances to elemental- and magical damage reduced by 30%.~
 
 

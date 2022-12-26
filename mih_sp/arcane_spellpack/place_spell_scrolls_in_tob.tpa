@@ -66,6 +66,8 @@ BEGIN
   // mh#wiz83 - Polar Ray
   // mh#wiz85 - Sunburst
   // mh#wiz86 - Mass Charm
+  // mh#wiz87 - Shooting Stars
+  // mh#wiz88 - Devastate
   // mh#wiz92 - Weird
   // mh#wiz93 - Foresight
 
@@ -101,8 +103,10 @@ BEGIN
     literal'30=>~ADD_STORE_ITEM "mh#wiz83" AFTER "scrl9g" #1 #1 #0 "identified" #2~
     literal'31=>~ADD_STORE_ITEM "mh#wiz85" AFTER "scrl9h" #1 #1 #0 "identified" #2~
     literal'32=>~ADD_STORE_ITEM "mh#wiz86" AFTER "scrl9c" #1 #1 #0 "identified" #2~
-    literal'33=>~ADD_STORE_ITEM "mh#wiz92" AFTER "scrl9v" #1 #1 #0 "identified" #2~
-    literal'34=>~ADD_STORE_ITEM "mh#wiz93" AFTER "scrl9w" #1 #1 #0 "identified" #2~
+    literal'33=>~ADD_STORE_ITEM "mh#wiz87" AFTER "scrlb1" #1 #1 #0 "identified" #2~
+    literal'34=>~ADD_STORE_ITEM "mh#wiz88" AFTER "scrl8y" #1 #1 #0 "identified" #2~
+    literal'35=>~ADD_STORE_ITEM "mh#wiz92" AFTER "scrl9v" #1 #1 #0 "identified" #2~
+    literal'36=>~ADD_STORE_ITEM "mh#wiz93" AFTER "scrl9w" #1 #1 #0 "identified" #2~
   END
 
   LAUNCH_ACTION_FUNCTION edit_store
