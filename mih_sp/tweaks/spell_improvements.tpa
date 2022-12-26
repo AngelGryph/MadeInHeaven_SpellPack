@@ -17,22 +17,6 @@ BEGIN
   END
 
 
-  // ==========
-  // Skull Trap
-  // ==========
-
-  MAKE_PATCH
-    delete_ability=>~ability_min_level > 10~
-    patch_effect_inline=>~match=>"opcode = 12" dicenum=>"dicenum + enhanced_edition + 1" dicesize=>4~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "WIZARD_SKULL_TRAP"
-    edits	= "patch_data"
-  END
-
-
   // ===========
   // Wyvern Call
   // ===========
@@ -144,7 +128,34 @@ BEGIN
     spell	= "CLERIC_FLAME_BLADE"
     edits	= "patch_data"
   END
-END	// spell_improvements
 
+
+  // =============
+  // Bolt of Glory
+  // =============
+
+  MAKE_PATCH
+    target=>2
+    dicenum=>10
+    dicesize=>"object_index from [10 6 4 8]"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_effect
+    STR_VAR
+    effect	= "boltdem boltelem boltprim boltund"
+    edits	= "patch_data"
+  END
+
+  MAKE_PATCH
+    casting_time=>4
+    say_description=>9
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "CLERIC_BOLT_OF_GLORY"
+    edits	= "patch_data"
+  END
+END	// spell_improvements
 
 
