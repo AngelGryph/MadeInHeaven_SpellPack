@@ -34,6 +34,7 @@ BEGIN
 
   // Add Cure Blindness/Deafness if available
   ACTION_IF VARIABLE_IS_SET CLERIC_CURE_BLIND_DEAF
+        AND FILE_EXISTS_IN_GAME "%CLERIC_CURE_BLIND_DEAF%.spl"
   BEGIN
     OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@2)
     APPEND "speldesc.2da" "%CLERIC_CURE_BLIND_DEAF%	%cure_bd_desc%"
@@ -44,6 +45,7 @@ BEGIN
 
   // Add Break Enchantment if available
   ACTION_IF VARIABLE_IS_SET CLERIC_BREAK_ENCHANTMENT
+        AND FILE_EXISTS_IN_GAME "%CLERIC_BREAK_ENCHANTMENT%.spl"
   BEGIN
     OUTER_SET break_enchantment_desc = RESOLVE_STR_REF(@3)
     APPEND "speldesc.2da" "%CLERIC_BREAK_ENCHANTMENT%	%break_enchantment_desc%"
