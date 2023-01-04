@@ -21,6 +21,34 @@ BEGIN
     spell	= "spcl221"
     edits	= "patch_data"
   END
+
+
+  // Make Detect Evil usable at will
+
+  MAKE_PATCH
+    add_effect_global_inline=>~number_to_add=>2 opcode=>"entry_index from [172 171]" target=>1 timing=>1 resource=>filename~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "PALADIN_DETECT_EVIL"
+    edits	= "patch_data"
+  END
+
+
+  // Make Protection from Evil self-only and last 24 hours
+
+  MAKE_PATCH
+    patch_ability_inline=>~ability_target=>5~
+    patch_effect_inline=>~duration=>"if duration > 5 then 1680 else no_change"~
+    delete_effect=>~opcode = 9~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "PALADIN_PROTECTION_FROM_EVIL"
+    edits	= "patch_data"
+  END
 END	// paladin_postproc
 
 
