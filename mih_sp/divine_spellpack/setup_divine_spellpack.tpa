@@ -12,6 +12,18 @@ BEGIN
     STR_VAR
     file	= "divine_postproc"
   END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "mutual_excludes"
+    locbase	= "shared/spells"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "repel_insects"
+    locbase	= "shared/spells"
+  END
 END	// setup_divine_spellpack
 
 

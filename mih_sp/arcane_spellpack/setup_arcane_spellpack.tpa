@@ -33,6 +33,19 @@ BEGIN
     tra		= "arcane_spellpack"
   END
 
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "mutual_excludes"
+    locbase	= "shared/spells"
+  END
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "repel_insects"
+    locbase	= "shared/spells"
+  END
+
+
   ACTION_IF is_bg1
   BEGIN
     LAUNCH_ACTION_FUNCTION run

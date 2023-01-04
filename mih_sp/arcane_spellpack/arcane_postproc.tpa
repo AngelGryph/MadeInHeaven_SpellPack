@@ -65,30 +65,6 @@ BEGIN
   END
 
 
-  // Prevent stacking of arcane/divine versions of
-  // certain spells.
-  //
-  // Externalized in shared to keep it the same for both.
-
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "mutual_excludes"
-    locbase	= "shared/spells"
-  END
-
-
-  // Handle spells that need to repel/disperse swarms.
-  //
-  // Externalized in shared to keep it the same for both.
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "repel_insects"
-    locbase	= "shared/spells"
-  END
-
-
   // Apply CamDawg's elven sleep/charm resistance to Slumber and Mass Charm.
   //
   // TODO: Get this properly into SFO?
