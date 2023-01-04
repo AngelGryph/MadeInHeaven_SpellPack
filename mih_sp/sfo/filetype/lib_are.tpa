@@ -475,9 +475,20 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY are_bit_fields BEGIN
       // doors
 	  door_open=>~0x28,0~
       door_locked=>~0x28,1~
-      override_script_name=>~0x28,3~ // also for actors
+      door_reset_trap=>~0x28,2~
+      door_detect_trap=>~0x28,3~
+      door_broken=>~0x28,4~
+      door_unclosed=>~0x28,5~
+      door_linked=>~0x28,6~
+      door_secret=>~0x28,7~
+      door_found=>~0x29,0~
+      door_found=>~0x29,0~
+      door_transparent=>~0x29,1~
+      door_use_up_key=>~0x29,2~
+      door_sliding=>~0x29,3~
+      // actors
       invulnerable=>~0x28,2~
-	  dont_block_line_of_sight=>~0x29,2~
+      override_script_name=>~0x28,3~
 
 END
 

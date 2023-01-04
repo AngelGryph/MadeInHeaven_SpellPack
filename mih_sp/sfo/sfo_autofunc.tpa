@@ -10740,7 +10740,25 @@
                        END
                        
  
-                       DEFINE_PATCH_FUNCTION ARE_override_script_name STR_VAR arguments="" RET value BEGIN
+                       DEFINE_PATCH_FUNCTION ARE_door_reset_trap STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 251)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BOR 4)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_reset_trap STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 4)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_detect_trap STR_VAR arguments="" RET value BEGIN
                                      LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
                                      PATCH_IF arguments=0 BEGIN
                                         WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 247)
@@ -10749,8 +10767,152 @@
                                      END
                                      SET value=1
                        END
-                       DEFINE_PATCH_FUNCTION ARE_read_override_script_name STR_VAR arguments="" RET value BEGIN
+                       DEFINE_PATCH_FUNCTION ARE_read_door_detect_trap STR_VAR arguments="" RET value BEGIN
                                      PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 8)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_broken STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 239)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BOR 16)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_broken STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 16)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_unclosed STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 223)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BOR 32)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_unclosed STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 32)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_linked STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 191)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BOR 64)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_linked STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 64)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_secret STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 127)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BOR 128)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_secret STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 128)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_found STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BAND 254)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BOR 1)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_found STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x29 + offset_base) BAND 1)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_transparent STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BAND 253)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BOR 2)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_transparent STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x29 + offset_base) BAND 2)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_use_up_key STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BAND 251)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BOR 4)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_use_up_key STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x29 + offset_base) BAND 4)  = 0 BEGIN
+                                        SET value=0
+                                     END ELSE BEGIN
+                                        SET value=1
+                                     END
+                       END
+                       
+ 
+                       DEFINE_PATCH_FUNCTION ARE_door_sliding STR_VAR arguments="" RET value BEGIN
+                                     LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
+                                     PATCH_IF arguments=0 BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BAND 247)
+                                     END ELSE BEGIN
+                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BOR 8)
+                                     END
+                                     SET value=1
+                       END
+                       DEFINE_PATCH_FUNCTION ARE_read_door_sliding STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x29 + offset_base) BAND 8)  = 0 BEGIN
                                         SET value=0
                                      END ELSE BEGIN
                                         SET value=1
@@ -10776,17 +10938,17 @@
                        END
                        
  
-                       DEFINE_PATCH_FUNCTION ARE_dont_block_line_of_sight STR_VAR arguments="" RET value BEGIN
+                       DEFINE_PATCH_FUNCTION ARE_override_script_name STR_VAR arguments="" RET value BEGIN
                                      LPF fail_unless_boolean STR_VAR value="%arguments%" expression="" END
                                      PATCH_IF arguments=0 BEGIN
-                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BAND 251)
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BAND 247)
                                      END ELSE BEGIN
-                                        WRITE_BYTE (0x29 + offset_base) (BYTE_AT (0x29 + offset_base) BOR 4)
+                                        WRITE_BYTE (0x28 + offset_base) (BYTE_AT (0x28 + offset_base) BOR 8)
                                      END
                                      SET value=1
                        END
-                       DEFINE_PATCH_FUNCTION ARE_read_dont_block_line_of_sight STR_VAR arguments="" RET value BEGIN
-                                     PATCH_IF (BYTE_AT (0x29 + offset_base) BAND 4)  = 0 BEGIN
+                       DEFINE_PATCH_FUNCTION ARE_read_override_script_name STR_VAR arguments="" RET value BEGIN
+                                     PATCH_IF (BYTE_AT (0x28 + offset_base) BAND 8)  = 0 BEGIN
                                         SET value=0
                                      END ELSE BEGIN
                                         SET value=1
