@@ -60,9 +60,14 @@ BEGIN
   INCLUDE "%MOD_FOLDER%/sfo/install_sfo.tpa"
   OUTER_TEXT_SPRINT component_loc "lib"
 
-  LAUNCH_ACTION_MACRO read_in_saving_throws
-  LAUNCH_ACTION_MACRO read_in_thac0
-  LAUNCH_ACTION_MACRO read_in_hit_point_levels
+  ACTION_FOR_EACH macro IN spellcodes saving_throws hit_point_levels stats PCs thac0
+  BEGIN
+    PRINT ~Reading in data: %macro%~
+
+    SILENT
+    LAUNCH_ACTION_MACRO ~read_in_%macro%~
+  END
+
 
   // Set up SSL compiler
 

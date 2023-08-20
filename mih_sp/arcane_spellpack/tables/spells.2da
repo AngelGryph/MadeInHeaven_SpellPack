@@ -6,7 +6,7 @@ WIZARD_BARRIER				1	22	23	0	*	mh#wiz12	n	*		y	*
 WIZARD_SPARK_SHOWER			1	0	1	0	*	mh#wiz21	dd	*		y	*
 WIZARD_SEEKING				2	2	3	0	*	mh#wiz22	n	*		y	*
 WIZARD_SUMMON_CATS			2	67	68	0	*	mh#wiz23	n	*		y	*
-WIZARD_STRENGTH				2	80	81	0	2214	*		n	*		y	*
+WIZARD_STRENGTH				2	80	81	0	2214	scrl98		n	*		y	*
 WIZARD_CATS_GRACE			2	82	83	0	*	mh#wiz24	n	*		y	*
 WIZARD_BEARS_ENDURANCE			2	84	85	0	*	mh#wiz25	n	*		y	*
 WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	0	*	mh#wiz31	n	*		y	*
