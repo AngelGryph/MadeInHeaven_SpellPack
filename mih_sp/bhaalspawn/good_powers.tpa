@@ -13,7 +13,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "INNATE_CURE_LIGHT_WOUNDS"
+    spell	= "BHAALSPAWN_CURE_LIGHT_WOUNDS"
     edits	= "patch_data"
   END
 
@@ -34,7 +34,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "INNATE_SLOW_POISON"
+    spell	= "BHAALSPAWN_SLOW_POISON"
     edits	= "patch_data"
   END
 
@@ -50,7 +50,7 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION edit_spell
     STR_VAR
-    spell	= "INNATE_DRAW_UPON_HOLY_MIGHT"
+    spell	= "BHAALSPAWN_DRAW_UPON_HOLY_MIGHT"
     edits	= "patch_data"
   END
 END	// good_powers

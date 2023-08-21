@@ -4,10 +4,21 @@ BEGIN
   // Larloch's Minor Drain
   // =====================
 
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "WIZARD_LARLOCH_MINOR_DRAIN BHAALSPAWN_LARLOCH_MINOR_DRAIN"
+    editstring	= "say_description=>0"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "scrl84"
+    editstring	= "say_description=>0"
+  END
+
   MAKE_PATCH
     level_based_blocks=>"if this=10 then -1 else this+1"
-    patch_effect_inline'1=>~match=>"opcode = 12" duration=>60 parameter1=>ability_true_level dicenum=>1 dicesize=>4 mode=>BIT3~
-    patch_effect_inline'2=>~match=>"opcode = 18" duration=>60 parameter1=>ability_true_level dicenum=>1 dicesize=>4~
+    patch_effect_inline=>~match=>"opcode is_in [12 18]" parameter1=>ability_true_level dicenum=>1 dicesize=>4~
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
@@ -35,20 +46,21 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION clone_creature
     STR_VAR
-    creature	= "wyvernsu=>wyvgrtsu"
+    creature	= "wyvernsu=>mh#wyvsu"
     edits	= "patch_data"
   END
 
   LAUNCH_ACTION_FUNCTION clone_effect
     STR_VAR
-    effect	= "wyvernsu=>wyvgrtsu"
-    editstring	= ~resource=>"wyvgrtsu"~
+    effect	= "wyvernsu=>mh#wyvsu"
+    editstring	= ~resource=>"mh#wyvsu"~
   END
 
   MAKE_PATCH
     level_based_blocks=>"if this = 30 then -1 else this + 1"
-    patch_effect_inline=>~duration=>"ability_min_level * 6" resource=>"wyvgrtsu"~
-    clone_effect_inline=>~match=>"ability_min_level > 19" number_to_add=>"if ability_min_level > 29 then 2 else 1"~
+    patch_effect_inline=>~duration=>"ability_min_level * 6" resource=>"mh#wyvsu"~
+    clone_effect_inline=>~match=>"ability_min_level > 17" number_to_add=>"(ability_min_level - 12) / 6"~
+    say_description=>1
   END
 
   LAUNCH_ACTION_FUNCTION edit_spell
@@ -57,6 +69,11 @@ BEGIN
     edits	= "patch_data"
   END
 
+  LAUNCH_ACTION_FUNCTION edit_item
+    STR_VAR
+    item	= "scrl7w"
+    editstring	= "say_description=>1"
+  END
 
   // ==========
   // Shillelagh
@@ -74,6 +91,12 @@ BEGIN
     STR_VAR
     item	= "shille"
     edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "CLERIC_SHILLELAGH"
+    editstring	= "say_description=>2"
   END
 
 
