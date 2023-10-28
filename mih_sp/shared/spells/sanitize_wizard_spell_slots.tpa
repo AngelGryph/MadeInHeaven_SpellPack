@@ -75,7 +75,7 @@ BEGIN
 
         LAUNCH_ACTION_FUNCTION log_this
           STR_VAR
-	  file		= "sanitze_wizard_spell_slots.2da"
+	  file		= "sanitize_wizard_spell_slots.2da"
           input		= "%idsname%%TAB%%old_name%%TAB%%new_name%"
 	  repeat	= "no"
         END

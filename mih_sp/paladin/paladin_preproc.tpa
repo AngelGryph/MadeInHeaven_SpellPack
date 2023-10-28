@@ -17,6 +17,7 @@ BEGIN
   LAUNCH_ACTION_FUNCTION add_spell_to_ids
     INT_VAR
     level		= 3
+    type		= 4
     STR_VAR
     idsname		= "PALADIN_CURE_DISEASE"
     RET
