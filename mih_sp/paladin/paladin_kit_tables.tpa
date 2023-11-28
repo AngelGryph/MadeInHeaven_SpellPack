@@ -17,6 +17,13 @@ BEGIN
     grant_hla'2=>"%PALADIN_LAY_ON_HANDS%"
     restrict_hla'1=>~hla=>"%PALADIN_SMITE_EVIL%" num_allowed=>3~ 
     restrict_hla'2=>~hla=>"%PALADIN_LAY_ON_HANDS%" num_allowed=>3~
+    proficiency_longsword=>3
+    proficiency_bastardsword=>3
+    proficiency_twohandedsword=>3
+    proficiency_mace=>3
+    proficiency_flailmorningstar=>3
+    proficiency_warhammer=>3
+    proficiency_halberd=>3
   END
 
   LAUNCH_ACTION_FUNCTION edit_kit
@@ -45,6 +52,13 @@ BEGIN
     grant_power'4=>"%PALADIN_DIVINE_FAVOR% 3 7 20"
     grant_hla'1=>"%PALADIN_SMITE_EVIL%"
     restrict_hla'1=>~hla=>"%PALADIN_SMITE_EVIL%" num_allowed=>3~
+    proficiency_longsword=>3
+    proficiency_bastardsword=>3
+    proficiency_twohandedsword=>3
+    proficiency_mace=>3
+    proficiency_flailmorningstar=>3
+    proficiency_warhammer=>3
+    proficiency_halberd=>3
   END
 
   LAUNCH_ACTION_FUNCTION edit_kit
@@ -67,6 +81,13 @@ BEGIN
     grant_power'4=>"%PALADIN_DIVINE_FAVOR% 3 7 20"
     grant_hla'1=>"%PALADIN_SMITE_UNDEAD%"
     restrict_hla'1=>~hla=>"%PALADIN_SMITE_UNDEAD%" num_allowed=>3~
+    proficiency_longsword=>3
+    proficiency_bastardsword=>3
+    proficiency_twohandedsword=>3
+    proficiency_mace=>3
+    proficiency_flailmorningstar=>3
+    proficiency_warhammer=>3
+    proficiency_halberd=>3
   END
 
   LAUNCH_ACTION_FUNCTION edit_kit
@@ -85,6 +106,13 @@ BEGIN
       grant_power'1=>"%BLACKGUARD_SMITE_GOOD% 1"
       grant_hla'1=>"%BLACKGUARD_SMITE_GOOD%"
       restrict_hla'1=>~hla=>"%BLACKGUARD_SMITE_GOOD%" num_allowed=>3~
+      proficiency_longsword=>3
+      proficiency_bastardsword=>3
+      proficiency_twohandedsword=>3
+      proficiency_mace=>3
+      proficiency_flailmorningstar=>3
+      proficiency_warhammer=>3
+      proficiency_halberd=>3
     END
 
     LAUNCH_ACTION_FUNCTION edit_kit
