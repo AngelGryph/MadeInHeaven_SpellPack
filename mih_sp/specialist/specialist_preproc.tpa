@@ -1,0 +1,85 @@
+DEFINE_ACTION_FUNCTION specialist_preproc
+BEGIN
+  // Ensure existing and unique clab- and lua tables
+
+  LAUNCH_ACTION_FUNCTION make_clabs_unique END
+  LAUNCH_ACTION_FUNCTION make_luas_unique END
+
+
+  // Create Diviner version of Find Traps
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level		= 2
+    type		= 4
+    STR_VAR
+    idsname		= "DIVINER_FIND_TRAPS"
+    RET
+    diviner_find_traps	= newname
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "sppr205=>%diviner_find_traps%"
+    editstring	= ~spell_type=>"wizard" patch_ability_inline=>"ability_icon_loc=>4"~
+  END
+
+
+  // Create Enchanter version of Free Action
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level		= 4
+    type		= 4
+    STR_VAR
+    idsname		= "ENCHANTER_FREE_ACTION"
+    RET
+    enchanter_free_action	= newname
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "sppr403=>%enchanter_free_action%"
+    editstring	= ~spell_type=>"wizard" school=>"enchantment" patch_ability_inline=>"ability_icon_loc=>4" casting_time=>1~
+  END
+
+
+  // Create Illusionist version of Detect Illusion
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level		= 3
+    type		= 4
+    STR_VAR
+    idsname		= "ILLUSIONIST_DETECT_ILLUSION"
+    RET
+    illusionist_detect_illusion	= newname
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "spwi322=>%illusionist_detect_illusion%"
+    editstring	= ~school=>"illusion" patch_ability_inline=>"ability_icon_loc=>4"~
+  END
+
+
+  // Create Necromancer version of Negative Plane Protection
+
+  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+    INT_VAR
+    level		= 4
+    type		= 4
+    STR_VAR
+    idsname		= "NECROMANCER_NEGATIVE_PLANE_PROTECTION"
+    RET
+    necromancer_negative_plane_protection	= newname
+  END
+
+  LAUNCH_ACTION_FUNCTION clone_spell
+    STR_VAR
+    spell	= "sppr413=>%necromancer_negative_plane_protection%"
+    editstring	= ~school=>"necromancy" patch_ability_inline=>"ability_icon_loc=>4 ability_target=>5" patch_effect_inline=>"target=>1"~
+  END
+END	// specialist_preproc
+
+

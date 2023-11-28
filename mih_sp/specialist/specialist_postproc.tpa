@@ -1,0 +1,27 @@
+DEFINE_ACTION_FUNCTION specialist_postproc
+BEGIN
+  // Add elemental damage increment to Elemental Mastery
+  //
+  // Has to be done dynamically because it differs between ToBEx and EE.
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    MAKE_PATCH
+      add_effect_inline=>~number_to_add=>4 opcode=>332 target=>1 timing=>9 parameter1=>10 parameter2=>"entry_index + 1"~
+    END
+  END
+  ELSE
+  BEGIN
+    MAKE_PATCH
+      add_effect_inline=>~number_to_add=>4 opcode=>318 target=>1 timing=>9 parameter1=>10 parameter2=>"entry_index from [387 388 390 391]"~
+    END
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "mh#invem"
+    edits	= "patch_data"
+  END
+END	// specialist_postproc
+
+

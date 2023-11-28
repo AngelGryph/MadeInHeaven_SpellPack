@@ -1,0 +1,126 @@
+DEFINE_ACTION_FUNCTION specialist_kit_tables
+BEGIN
+  // Abjurer
+  //
+  // 8th level	=> +1 saves vs. poison/paralyze/death
+  // 11th level	=> +1 AC
+  // 14th level	=> Permanent Hold Immunity
+
+  MAKE_PATCH
+    apply_power'1=>"mh#abjsd 8"
+    apply_power'2=>"mh#abjac 11"
+    apply_power'3=>"mh#abjim 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "abjurer"
+    edits	= "patch_data"
+  END
+
+
+  // Conjurer
+  //
+  // 11th level	=> Banishment (1/day)
+  // 14th level	=> Banishment (2/day)
+
+  MAKE_PATCH
+    grant_power=>"%CONJURER_BANISHMENT% 11 3 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "conjurer"
+    edits	= "patch_data"
+  END
+
+
+  // Diviner
+  //
+  // 11th level => Find Traps (3/day)
+  // 14th level	=> Permanent Non-Detection
+
+  MAKE_PATCH
+    grant_power'1=>"%DIVINER_FIND_TRAPS% 11"
+    grant_power'2=>"%DIVINER_FIND_TRAPS% 11"
+    grant_power'3=>"%DIVINER_FIND_TRAPS% 11"
+    apply_power=>"mh#divim 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "diviner"
+    edits	= "patch_data"
+  END
+
+
+  // Enchanter
+  //
+  // 11th level => Free Action (1/day)
+  // 14th level	=> Permanent Charm Immunity
+
+  MAKE_PATCH
+    grant_power=>"%ENCHANTER_FREE_ACTION% 11"
+    apply_power=>"mh#encim 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "enchanter"
+    edits	= "patch_data"
+  END
+
+
+  // Illusionist
+  //
+  // 8th level => Invisibility (1/day)
+  // 11th level => Detect Illusion (1/day)
+  // 14th level	=> Detect Illusion (2/day)
+
+  MAKE_PATCH
+    grant_power'1=>"%QUAYLE_INVISIBILITY% 8"
+    grant_power'2=>"%ILLUSIONIST_DETECT_ILLUSION% 11 3 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "illusionist"
+    edits	= "patch_data"
+  END
+
+
+  // Invoker
+  //
+  // 8th level	=> Elemental Mastery (+10% elemental resistance)
+  // 11th level	=> Elemental Mastery (+10% elemental resistance)
+  // 14th level	=> Elemental Mastery (+10% elemental resistance)
+
+  MAKE_PATCH
+    apply_power=>"mh#invem 8 3 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "invoker"
+    edits	= "patch_data"
+  END
+
+
+  // Necromancer
+  //
+  // 11th level => Summon Ghast
+  // 14th level => Negative Plane Protection
+
+  MAKE_PATCH
+    grant_power'1=>"%TIAX_SUMMON_GHAST% 11"
+    grant_power'2=>"%NECROMANCER_NEGATIVE_PLANE_PROTECTION% 14"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "necromancer"
+    edits	= "patch_data"
+  END
+END	// specialist_kit_tables
+
+

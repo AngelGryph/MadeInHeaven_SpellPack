@@ -1,0 +1,25 @@
+DEFINE_ACTION_FUNCTION setup_specialist_perks
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "specialist_preproc"
+    tra		= "specialist_perks"
+  END
+
+  LAUNCH_ACTION_FUNCTION grand_unified_installer
+    STR_VAR
+    copy_files	= ""
+    tra		= "specialist_perks"
+  END
+
+  OUTER_SET macro_spellcodes_read=0
+  LAUNCH_ACTION_MACRO read_in_spellcodes
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "specialist_kit_tables specialist_postproc"
+    tra		= "specialist_perks"
+  END
+END	// setup_specialist_perks
+
+

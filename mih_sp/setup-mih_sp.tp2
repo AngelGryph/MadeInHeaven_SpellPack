@@ -84,6 +84,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Made in Heaven: Specialist Perks
+
+BEGIN @4 
+DESIGNATED 127
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_specialist_perks"
+  location	= "specialist"
+END
+
+
 // Made in Heaven: Epic Spellpack
 //
 // NB: Moved here to have a better chance of having consistent
