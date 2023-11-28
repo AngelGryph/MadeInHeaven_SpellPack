@@ -1,5 +1,11 @@
 DEFINE_ACTION_FUNCTION paladin_preproc
 BEGIN
+  // Ensure existing and unique clab- and lua tables
+
+  LAUNCH_ACTION_FUNCTION make_clabs_unique END
+  LAUNCH_ACTION_FUNCTION make_luas_unique END
+
+
   // Create smite damage effects
 
   OUTER_FOR (SET i = 1; i <= 11; ++i)
@@ -28,46 +34,6 @@ BEGIN
     STR_VAR
     spell	= "sppr317=>%cure_disease%"
     editstring	= ~spell_type=>"innate" patch_ability_inline=>"ability_icon_loc=>4 casting_time=>1"~
-  END
-
-
-  // Ensure separate HLA tables for paladin kits
-  // (default all but Blackguard use lupa0.2da)
-
-  ACTION_CLEAR_ARRAY paladin_kits_hla_tables
-
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY paladin_kits_hla_tables
-  BEGIN
-    "cavalier"		=> "Pa1"
-    "inquisitor"	=> "Pa2"
-    "undead_hunter"	=> "Pa3"
-  END
-
-  ACTION_PHP_EACH paladin_kits_hla_tables AS kit => table
-  BEGIN
-    LAUNCH_ACTION_FUNCTION read_table_entry
-      INT_VAR
-      colnum	= 1
-      STR_VAR
-      file	= "luabbr"
-      row	= "%kit%"
-      RET
-      value
-    END
-
-    ACTION_IF "%value%" STRING_EQUAL_CASE "Pa0"
-    BEGIN
-      COPY_EXISTING "luPa0.2da" "override/lu%table%.2da"
-
-      LAUNCH_ACTION_FUNCTION write_table_entry
-        INT_VAR
-        colnum	= 1
-        STR_VAR
-	file		= "luabbr"
-        row		= "%kit%"
-	arguments	= "%table%"
-      END
-    END
   END
 END	// paladin_preproc
 
