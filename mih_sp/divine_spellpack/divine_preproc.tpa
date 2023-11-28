@@ -1,0 +1,27 @@
+DEFINE_ACTION_FUNCTION divine_preproc
+BEGIN
+  // Create mistposu.cre if we don't have it yet.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "mistposu.cre"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION clone_creature
+      STR_VAR
+      creature		= "mistpo01=>mistposu"
+      editstring	= "xp_value=>0 gender=>summoned"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_creature
+      STR_VAR
+      creature		= "mistpo01"
+      editstring	= "xp_value=>3500 gender=>neither"
+    END
+
+    LAUNCH_ACTION_FUNCTION edit_effect
+      STR_VAR
+      effect		= "sppois"
+      editstring	= "resource=>mistposu"
+    END
+  END
+END	// divine_preproc
+
+

@@ -18,6 +18,7 @@ CLERIC_INFERNO				5	17	18	0	*	*		n	*		y	*
 CLERIC_BREAK_ENCHANTMENT		5	23	24	0	*	mh#prs53	n	*		y	*
 CLERIC_HALLOW				5	33	34	0	*	*		n	*		y	*
 CLERIC_UNHALLOW				5	35	36	0	*	*		n	*		y	*
+CLERIC_MURDEROUS_MIST			5	53	54	0	*	*		n	*
 CLERIC_SUPERHEROISM			6	13	14	0	*	*		n	*		y	fear,level_drain
 CLERIC_CELESTIAL_PROTECTION		6	15	16	0	*	*		n	*		y	poison,disease,poison_resistance
 CLERIC_CONJURE_WATER_ELEMENTAL		6	27	28	0	*	*		n	*		y	*

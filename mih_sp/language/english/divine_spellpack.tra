@@ -330,5 +330,22 @@ This spell transforms a sprig of holly into a deadly missile, which can be throw
 @50   = ~Lesser Air Elemental~
 @51   = ~Air Elemental~
 @52   = ~Greater Air Elemental~
+@53   = ~Murderous Mist~
+@54   = ~Murderous Mist
+(Conjuration/Summoning) 
 
+Level: 5
+Sphere: Elemental (Air)
+Range: 40 yards
+Duration: 1 round/level
+Casting Time: 6
+Area of Effect: Special
+Saving Throw: None
 
+Using this spell, a druid can conjure 1-4 Poison Mists.  These murderous gaseous creatures will fight on the druid's behalf until they are slain or the duration of the spell runs out.
+
+The exact number of Poison Mists summoned depends on the druid's level:
+ 9-11: 1
+12-14: 2
+15-18: 3
+18+:   4~
