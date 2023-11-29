@@ -4597,7 +4597,7 @@
                           BEGIN 
                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
                                    PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
-                                          WRITE_LONG (0x7c + offset_base) arguments 
+                                          WRITE_LONG (0x68 + offset_base) arguments 
                                    END 
                                    SET value=1 
                           END
@@ -4605,9 +4605,9 @@
                                   STR_VAR arguments="" RET value 
                           BEGIN 
                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
-                                    PATCH_IF LONG_AT (0x7c + offset_base) < arguments BEGIN 
+                                    PATCH_IF LONG_AT (0x68 + offset_base) < arguments BEGIN 
                                            PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
-                                                     WRITE_LONG (0x7c + offset_base) arguments 
+                                                     WRITE_LONG (0x68 + offset_base) arguments 
                                            END 
                                     END 
                                     SET value=1 
@@ -4616,9 +4616,9 @@
                                     STR_VAR arguments="" RET value 
                           BEGIN 
                                      LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
-                                     PATCH_IF LONG_AT (0x7c + offset_base) > arguments BEGIN 
+                                     PATCH_IF LONG_AT (0x68 + offset_base) > arguments BEGIN 
                                                 PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
-                                                          WRITE_LONG (0x7c + offset_base) arguments 
+                                                          WRITE_LONG (0x68 + offset_base) arguments 
                                                 END 
                                      END 
                                      SET value=1 
@@ -4626,7 +4626,7 @@
                           DEFINE_PATCH_FUNCTION ARE_read_door_icon 
                                      STR_VAR arguments=~null~ RET value 
                           BEGIN
-                                     READ_LONG (0x7c + offset_base) value 
+                                     READ_LONG (0x68 + offset_base) value 
                           END
                           
  DEFINE_PATCH_FUNCTION ARE_door_script 
@@ -4819,6 +4819,82 @@
                                      STR_VAR arguments=~null~ RET value 
                           BEGIN
                                      READ_SHORT (0x70 + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_door_trap_xloc 
+                                   STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x74 + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_trap_xlocGT 
+                                  STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x74 + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x74 + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_trap_xlocLT 
+                                    STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x74 + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x74 + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_door_trap_xloc 
+                                     STR_VAR arguments=~null~ RET value 
+                          BEGIN
+                                     READ_SHORT (0x74 + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_door_trap_yloc 
+                                   STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x76 + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_trap_ylocGT 
+                                  STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x76 + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x76 + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_trap_ylocLT 
+                                    STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x76 + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x76 + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_door_trap_yloc 
+                                     STR_VAR arguments=~null~ RET value 
+                          BEGIN
+                                     READ_SHORT (0x76 + offset_base) value 
                           END
                           
  
@@ -5123,6 +5199,158 @@
                                      STR_VAR arguments=~null~ RET value 
                           BEGIN
                                      READ_SHORT (0x46 + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_door_x_coord_front 
+                                   STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x90 + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_x_coord_frontGT 
+                                  STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x90 + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x90 + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_x_coord_frontLT 
+                                    STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x90 + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x90 + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_door_x_coord_front 
+                                     STR_VAR arguments=~null~ RET value 
+                          BEGIN
+                                     READ_SHORT (0x90 + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_door_y_coord_front 
+                                   STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x92 + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_y_coord_frontGT 
+                                  STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x92 + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x92 + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_y_coord_frontLT 
+                                    STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x92 + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x92 + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_door_y_coord_front 
+                                     STR_VAR arguments=~null~ RET value 
+                          BEGIN
+                                     READ_SHORT (0x92 + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_door_x_coord_back 
+                                   STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x94 + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_x_coord_backGT 
+                                  STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x94 + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x94 + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_x_coord_backLT 
+                                    STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x94 + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x94 + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_door_x_coord_back 
+                                     STR_VAR arguments=~null~ RET value 
+                          BEGIN
+                                     READ_SHORT (0x94 + offset_base) value 
+                          END
+                          
+ 
+                          DEFINE_PATCH_FUNCTION ARE_door_y_coord_back 
+                                   STR_VAR arguments="" RET value 
+                          BEGIN 
+                                   LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                   PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                          WRITE_SHORT (0x96 + offset_base) arguments 
+                                   END 
+                                   SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_y_coord_backGT 
+                                  STR_VAR arguments="" RET value 
+                          BEGIN 
+                                    LPF fail_unless_int STR_VAR value="%arguments%" expression="" END 
+                                    PATCH_IF SHORT_AT (0x96 + offset_base) < arguments BEGIN 
+                                           PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                     WRITE_SHORT (0x96 + offset_base) arguments 
+                                           END 
+                                    END 
+                                    SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_door_y_coord_backLT 
+                                    STR_VAR arguments="" RET value 
+                          BEGIN 
+                                     LPF fail_unless_int STR_VAR value="%arguments%" expression="" END  
+                                     PATCH_IF SHORT_AT (0x96 + offset_base) > arguments BEGIN 
+                                                PATCH_IF "%arguments%" STRING_COMPARE no_change BEGIN 
+                                                          WRITE_SHORT (0x96 + offset_base) arguments 
+                                                END 
+                                     END 
+                                     SET value=1 
+                          END
+                          DEFINE_PATCH_FUNCTION ARE_read_door_y_coord_back 
+                                     STR_VAR arguments=~null~ RET value 
+                          BEGIN
+                                     READ_SHORT (0x96 + offset_base) value 
                           END
                           
  DEFINE_PATCH_FUNCTION ARE_container_name  
