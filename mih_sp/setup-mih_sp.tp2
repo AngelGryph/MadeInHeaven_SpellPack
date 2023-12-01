@@ -60,6 +60,18 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Made in Heaven: Ranger Powers Pack
+
+BEGIN @19 
+DESIGNATED 128
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_ranger_powers"
+  location	= "ranger"
+END
+
+
 // Made in Heaven: Bard Powers Pack
 
 BEGIN @16 

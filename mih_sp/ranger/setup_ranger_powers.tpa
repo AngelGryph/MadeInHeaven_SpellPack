@@ -1,9 +1,9 @@
-DEFINE_ACTION_FUNCTION setup_paladin_powers
+DEFINE_ACTION_FUNCTION setup_ranger_powers
 BEGIN
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "paladin_preproc"
-    tra		= "paladin_powers"
+    file	= "ranger_preproc"
+    tra		= "ranger_powers"
   END
 
   LAUNCH_ACTION_FUNCTION run
@@ -12,20 +12,22 @@ BEGIN
     locbase	= "shared/spells"
   END
 
+/*
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     copy_files	= ""
-    tra		= "paladin_powers"
+    tra		= "ranger_powers"
   END
 
   OUTER_SET macro_spellcodes_read=0
   LAUNCH_ACTION_MACRO read_in_spellcodes
+*/
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "paladin_kit_tables paladin_postproc"
-    tra		= "paladin_powers"
+    file	= "ranger_kit_tables ranger_postproc"
+    tra		= "ranger_powers"
   END
-END	// setup_paladin_powers
+END	// setup_ranger_powers
 
 

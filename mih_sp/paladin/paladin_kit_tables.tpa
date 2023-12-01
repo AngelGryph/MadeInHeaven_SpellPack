@@ -5,8 +5,8 @@ BEGIN
   MAKE_PATCH
     remove_power'1=>"%PALADIN_DETECT_EVIL%"
     remove_power'2=>"%PALADIN_PROTECTION_FROM_EVIL%"
-    apply_power'1=>"mh#paldi 1"
-    apply_power'2=>"mh#palcl 5 1 8"
+    apply_power'1=>"mh#palim 1"
+    apply_power'2=>"mh#divcl 5 1 8"
     grant_power'1=>"%PALADIN_DETECT_EVIL% 1"
     grant_power'2=>"%PALADIN_PROTECTION_FROM_EVIL% 1"
     grant_power'3=>"%PALADIN_SMITE_EVIL% 1"
@@ -44,8 +44,8 @@ BEGIN
   MAKE_PATCH
     remove_power'1=>"%PALADIN_DETECT_EVIL%"
     remove_power'2=>"%PALADIN_PROTECTION_FROM_EVIL%"
-    apply_power'1=>"mh#paldi 1"
-    apply_power'2=>"mh#palcl 5 1 8"
+    apply_power'1=>"mh#palim 1"
+    apply_power'2=>"mh#divcl 5 1 8"
     grant_power'1=>"%PALADIN_DETECT_EVIL% 1"
     grant_power'2=>"%PALADIN_PROTECTION_FROM_EVIL% 1"
     grant_power'3=>"%PALADIN_SMITE_EVIL% 1"
@@ -73,8 +73,8 @@ BEGIN
   MAKE_PATCH
     remove_power'1=>"%PALADIN_DETECT_EVIL%"
     remove_power'2=>"%PALADIN_PROTECTION_FROM_EVIL%"
-    apply_power'1=>"mh#paldi 1"
-    apply_power'2=>"mh#palcl 5 1 8"
+    apply_power'1=>"mh#palim 1"
+    apply_power'2=>"mh#divcl 5 1 8"
     grant_power'1=>"%PALADIN_DETECT_EVIL% 1"
     grant_power'2=>"%PALADIN_PROTECTION_FROM_EVIL% 1"
     grant_power'3=>"%PALADIN_SMITE_UNDEAD% 1"
@@ -102,7 +102,7 @@ BEGIN
   ACTION_IF enhanced_edition
   BEGIN
     MAKE_PATCH
-      apply_power'1=>"mh#palcl 5 1 8"
+      apply_power'1=>"mh#divcl 5 1 8"
       grant_power'1=>"%BLACKGUARD_SMITE_GOOD% 1"
       grant_hla'1=>"%BLACKGUARD_SMITE_GOOD%"
       restrict_hla'1=>~hla=>"%BLACKGUARD_SMITE_GOOD%" num_allowed=>3~

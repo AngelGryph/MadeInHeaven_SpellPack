@@ -1,0 +1,9 @@
+DEFINE_ACTION_FUNCTION ranger_preproc
+BEGIN
+  // Ensure existing and unique clab- and lua tables
+
+  LAUNCH_ACTION_FUNCTION make_clabs_unique END
+  LAUNCH_ACTION_FUNCTION make_luas_unique END
+END	// ranger_preproc
+
+

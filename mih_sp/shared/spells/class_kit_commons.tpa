@@ -1,0 +1,37 @@
+DEFINE_ACTION_FUNCTION class_kit_commons
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_label
+    STR_VAR
+    label	= "mh#class_kit_commons"
+    RET
+    installed	= value
+  END
+
+  ACTION_IF NOT installed
+  BEGIN
+    LAUNCH_ACTION_FUNCTION make_label
+      STR_VAR
+      label	= "mh#class_kit_commons"
+    END
+
+    // Permanently increase casting level by one - divine
+
+    MAKE_PATCH
+      spell_type=>"innate"
+      no_LOS=>1
+      not_wild_dead=>1
+      not_wild_surge=>1
+      castable_when_silenced=>1
+      add_ability_inline=>~ability_min_level=>1 ability_type=>1 ability_icon_loc=>4 ability_target=>5 ability_range=>1 projectile=>1~
+      add_effect_inline=>~opcode=>191 target=>1 timing=>9 parameter1=>1 parameter2=>1~
+    END
+
+    LAUNCH_ACTION_FUNCTION make_spell
+      STR_VAR
+      spell	= "mh#divcl"
+      edits	= "patch_data"
+    END
+  END
+END	// class_kit_commons
+
+

@@ -1,0 +1,61 @@
+DEFINE_ACTION_FUNCTION ranger_kit_tables
+BEGIN
+  // True Ranger & Stalker
+
+  MAKE_PATCH
+    remove_power=>"spcl311"
+    grant_power=>"spcl311 1 2 5"
+    apply_power'1=>"mh#divcl 5 1 8"
+    proficiency_dagger=>3
+    proficiency_shortsword=>3
+    proficiency_scimitarwakisashininjato=>3
+    proficiency_longbow=>3
+    proficiency_shortbow=>3
+    proficiency_crossbow=>3
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "ranger"
+    edits	= "patch_data"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "stalker"
+    edits	= "patch_data"
+  END
+
+
+  // Archer (internally called feralan for... reasons)
+
+  MAKE_PATCH
+    apply_power'1=>"mh#divcl 5 1 8"
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "feralan"
+    edits	= "patch_data"
+  END
+
+
+  // Beast Master
+
+  MAKE_PATCH
+    remove_power=>"spcl311"
+    grant_power=>"spcl311 1 2 5"
+    apply_power'1=>"mh#divcl 5 1 8"
+    proficiency_longbow=>3
+    proficiency_shortbow=>3
+    proficiency_crossbow=>3
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_kit
+    STR_VAR
+    kit		= "beastmaster"
+    edits	= "patch_data"
+  END
+END	// ranger_kit_tables
+
+
