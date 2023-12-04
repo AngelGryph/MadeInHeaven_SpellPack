@@ -124,32 +124,6 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Revised Animate Dead
-
-BEGIN @7 
-DESIGNATED 107
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "setup_animate_dead"
-  location	= "animate_dead"
-END
-
-
-// Augment Summoning
-
-BEGIN @24 
-DESIGNATED 124
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "augment_summoning"
-  location	= "tweaks"
-END
-
-
 // Revised Dispel Magic
 
 BEGIN @18
@@ -159,19 +133,6 @@ GROUP @5
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "revised_dispel_magic"
-  location	= "tweaks"
-END
-
-
-// No Elemental Mind Battle
-
-BEGIN @12
-DESIGNATED 112
-GROUP @5
-
-LAUNCH_ACTION_FUNCTION run
-  STR_VAR
-  file		= "no_elemental_mind_battle"
   location	= "tweaks"
 END
 

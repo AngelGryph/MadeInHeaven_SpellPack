@@ -1,33 +1,5 @@
 DEFINE_ACTION_FUNCTION spell_improvements
 BEGIN
-  // =====================
-  // Larloch's Minor Drain
-  // =====================
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "WIZARD_LARLOCH_MINOR_DRAIN BHAALSPAWN_LARLOCH_MINOR_DRAIN"
-    editstring	= "say_description=>0"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_item
-    STR_VAR
-    item	= "scrl84"
-    editstring	= "say_description=>0"
-  END
-
-  MAKE_PATCH
-    level_based_blocks=>"if this=10 then -1 else this+1"
-    patch_effect_inline=>~match=>"opcode is_in [12 18]" parameter1=>ability_true_level dicenum=>1 dicesize=>4~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "spwi119a spin104a"
-    edits	= "patch_data"
-  END
-
-
   // ===========
   // Wyvern Call
   // ===========
@@ -74,6 +46,7 @@ BEGIN
     item	= "scrl7w"
     editstring	= "say_description=>1"
   END
+
 
   // ==========
   // Shillelagh

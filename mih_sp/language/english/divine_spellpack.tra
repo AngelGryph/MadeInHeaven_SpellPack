@@ -11,19 +11,8 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 By touching the recipient's weapon, the priest bestows a combat blessing which increases melee damage dealt by +4.  It has no effect on ranged attacks or spells.~
-@2    = ~Faerie Fire~
-@3    = ~Faerie Fire 
-(Alteration)
-
-Level: 1
-Sphere: Weather
-Range: Sight
-Duration: 4 rounds/level
-Casting Time: 4
-Area of Effect: 10-ft. radius
-Saving Throw: None
-
-This spell outlines one or more creatures with a pale violet glow, making positions and movements easily visible. Outlined creatures are easier to strike, giving them an Armor Class penalty of -2.~
+//@2    = ~~
+//@3    = ~~
 @4    = ~Seeking~
 @5    = ~Seeking
 (Enchantment/Charm)
@@ -140,19 +129,8 @@ Area of Effect: 30-ft. radius
 Saving Throw: None
 
 This spell affords the caster's entire party partial protection from undead monsters with Negative Energy Plane connections (such as vampires), and certain weapons and spells that drain energy levels. The Negative Plane Protection spell opens a channel to the Positive Energy Plane, possibly offsetting the effects of the negative energy attack. A protected creature struck by a negative energy attack is protected against any form of level draining for the duration of the spell. The protected creature suffers only normal Hit Point damage from the attack and does not suffer any drain of experience. This spell cannot be cast on the Negative Energy Plane.~
-@21   = ~Resist Acid/Corrosion~
-@22   = ~Resist Acid/Corrosion
-(Alteration)
-
-Level: 2
-Sphere: Protection
-Range: Touch
-Duration: 1 round/level
-Casting Time: 5
-Area of Effect: Creature touched
-Saving Throw: None
-
-When this spell is placed upon a creature by a priest, the creature's body is toughened to withstand acidic and corrosive fluids and gasses. Mild corrosives cannot harm the subject at all. The recipient can somewhat resist intense acids and corrosives (whether natural or magical in origin), such as: Melf's Acid Arrow, Vitriolic Sphere, Death Fog, Acid Storm, the touch of various slimes and puddings, ankheg spittle and the breath of black- or green dragons.  In all of these cases, the corrosive agent affects the creature to some extent. The recipient has all damage sustained by acid or poison reduced by 50%.  Note that they can however still be poisoned, although the spell does grant a +3 bonus to the saving throw.~
+//@21   = ~~
+//@22   = ~~
 @23   = ~Break Enchantment~
 @24   = ~Break Enchantment
 (Abjuration)

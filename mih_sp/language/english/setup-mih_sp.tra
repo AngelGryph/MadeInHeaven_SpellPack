@@ -5,12 +5,12 @@
 @4    = ~Specialist Perks (WIP)~
 @5    = ~Spell Effect Tweaks~
 @6    = ~Some other mod already provides or supercedes this component.~
-@7    = ~Revised Animate Dead (EXPERIMENTAL)~
+//@7    = ~~
 @8    = ~Revised Spell Learning XP~
 @9    = ~Prevent damage during Timestop~
 @10   = ~This component is not applicable to your game.~
 @11   = ~Remove All Time Stop Immunity~
-@12   = ~No Elemental Mind Battle~
+//@12   = ~~
 @13   = ~Spell Improvements (see readme)~
 @14   = ~Expanded Temple Services~
 @15   = ~Spell Availability Tweaks~
@@ -22,7 +22,7 @@
 //@21   = ~~
 //@22   = ~~
 @23   = ~Sixth Circle Spell Scrolls in Siege of Dragonspear~
-@24   = ~Augmented Monster/Animal Summoning~
+//@24   = ~~
 @25   = ~Made in Heaven: Epic Spellpack (BETA)~
 @26   = ~True Meteor Swarm (EXPERIMENTAL)~
 

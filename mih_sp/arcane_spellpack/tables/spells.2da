@@ -29,6 +29,7 @@ WIZARD_MORDENKAINENS_LUCUBRATION	6	28	29	0	*	mh#wiz61	n	*		n	*
 WIZARD_MIRAGE_ARCANA			6	78	79	0	*	mh#wiz62	n	*		y	*
 WIZARD_FAERIE_SWORD			7	32	33	0	*	mh#wiz71	n	*		y	*
 WIZARD_STYGIAN_ICE_STORM		7	34	35	0	*	mh#wiz72	n	mh#stygi	y	*
+WIZARD_DOOM_LEGION			7	88	89	0	*	mh#wiz73	n	*		y	*
 WIZARD_DEATHBOLT			8	36	37	0	*	mh#wiz81	n	mh#dbolt	y	*
 WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY	8	38	39	0	*	mh#wiz82	n	*		y	spell_level_1,spell_level_2,spell_level_3,spell_level_4,spell_level_5
 WIZARD_POLAR_RAY			8	40	41	0	*	mh#wiz83	n	*		y	*

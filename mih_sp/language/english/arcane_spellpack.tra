@@ -505,5 +505,16 @@ Area of Effect: 15' radius
 Saving Throw: None
 
 This powerful spell weakens enemy defenses so that subsequent spells strike with devastating effect.  Opponents under the influence of this spell make all saving throws at a -5 penalty and have their resistances to elemental- and magical damage reduced by 30%.~
+@88    = ~Doom Legion~
+@89    = ~Doom Legion
+
+Level: 7
+Range: 10 yards 
+Duration: 8 hours 
+Casting Time: 1 round
+Area of Effect: Special 
+Saving Throw: None 
+
+Through this powerful necromantic ritual the necromancer animates the skeletal remains of soldiers slain in battle as a small squad of powerful skeleton warriors.  The spell animates two skeleton warriors at level 14, four at level 21 and finally six at level 28.~
 
 
