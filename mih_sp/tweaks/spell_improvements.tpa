@@ -1,5 +1,20 @@
 DEFINE_ACTION_FUNCTION spell_improvements
 BEGIN
+  // ===============================
+  // Protection from Normal Missiles
+  // ===============================
+
+  MAKE_PATCH
+    clone_effect_inline=>~match=>"opcode = 142" opcode=>89 parameter1=>0 parameter2=>50~
+  END
+
+  LAUNCH_ACTION_FUNCTION edit_spell
+    STR_VAR
+    spell	= "WIZARD_PROTECTION_FROM_NORMAL_MISSILES spra303"
+    edits	= "patch_data"
+  END
+
+
   // ===========
   // Wyvern Call
   // ===========

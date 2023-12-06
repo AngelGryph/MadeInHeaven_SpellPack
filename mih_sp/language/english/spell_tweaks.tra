@@ -1,14 +1,13 @@
-@0   = ~Larloch's Minor Drain 
-(Necromancy)
+@0   = ~Protection From Normal Missiles
+(Abjuration)
+Level: 3
+Range: Touch 
+Duration: 5 turns
+Casting Time: 3 
+Area of Effect: Creature touched 
+Saving Throw: None 
 
-Level: 1
-Range: 30 ft.
-Duration: Special
-Casting Time: 1
-Area of Effect: 1 creature
-Saving Throw: None
-
-With this spell, the wizard drains the life force from a target and adds it to <PRO_HISHER> own. The target creature suffers 1d4 plus 1/level (max +10) points of damage, while the Mage gains a like amount of Hit Points. If the Mage goes over <PRO_HISHER> maximum Hit Point total with this spell, <PRO_HESHE> loses any extra Hit Points after 1 turn.~
+By means of this spell, the wizard bestows total invulnerability to non-magical hurled and projected missiles, such as arrows, axes, bolts, javelins, and sling stones and reduces damage from magical missiles by 50%.  Note, however, that this spell does not convey any protection from such magical attacks as Fireball-, Lightning Bolt- or Magic Missile spells.~
 @1   = ~Wyvern Call
 (Conjuration/Summoning)
 
