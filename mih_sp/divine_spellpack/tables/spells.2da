@@ -19,9 +19,7 @@ CLERIC_UNHALLOW				5	35	36	0	*	*		n	*		y	*
 CLERIC_MURDEROUS_MIST			5	53	54	0	*	*		n	*
 CLERIC_SUPERHEROISM			6	13	14	0	*	*		n	*		y	fear,level_drain
 CLERIC_CELESTIAL_PROTECTION		6	15	16	0	*	*		n	*		y	poison,disease,poison_resistance
-CLERIC_CONJURE_WATER_ELEMENTAL		6	27	28	0	*	*		n	*		y	*
 CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	7	19	20	0	*	*		n	*		y	level_drain
-CLERIC_CONJURE_AIR_ELEMENTAL		7	*	29	0	*	*		n	*		y	*
 CLERIC_AURA_OF_VITALITY			7	37	38	0	*	*		n	*		y	*
 CLERIC_HOLLY_DART			7	48	49	0	*	*		n	*		y	*
 
