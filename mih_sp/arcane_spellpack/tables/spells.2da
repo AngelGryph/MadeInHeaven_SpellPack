@@ -38,6 +38,7 @@ WIZARD_SUNBURST				8	56	57	0	*	mh#wiz85	n	*		y	*
 WIZARD_MASS_CHARM			8	30	31	0	*	mh#wiz86	n	*		y	*
 WIZARD_SHOOTING_STARS			8	65	66	0	*	mh#wiz87	n	*		y	*
 WIZARD_DEVASTATE			8	86	87	0	*	mh#wiz88	n	*		y	*
+WIZARD_WEB_OF_LIGHTNING			8	90	91	0	*	mh#wiz89	n	*
 WIZARD_RUNE_OF_TORMENT			9	47	48	0	*	mh#wiz91	n	mh#runet	y	*
 WIZARD_WEIRD				9	58	59	0	*	mh#wiz92	n	*		y	*
 WIZARD_FORESIGHT			9	63	64	0	*	mh#wiz93	n	*		y	*

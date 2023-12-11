@@ -9,7 +9,7 @@ Casting Time: 2
 Area of Effect: 15' radius
 Saving Throw: 1/2
 
-This spell creates a shower of purple sparks at the point designated by the caster.  Every creature caught within will be shocked for 4d4 points of electrical damage unless they save versus spell, in which case they will take half damage.~
+This spell creates a shower of purple sparks at the point designated by the caster.  Every creature caught within will be shocked with electricity, taking 4d4 points of damage plus 1d4 for every odd caster level after third, to a maximum of 12d4 damage.  A saving throw versus spell reduces the damage by half.~
 @2    = ~Seeking~
 @3    = ~Seeking
 (Enchantment/Charm)
@@ -516,5 +516,7 @@ Area of Effect: Special
 Saving Throw: None 
 
 Through this powerful necromantic ritual the necromancer animates the skeletal remains of soldiers slain in battle as a small squad of powerful skeleton warriors.  The spell animates two skeleton warriors at level 14, four at level 21 and finally six at level 28.~
+@90    = ~Web of Lightning~
+@91    = ~Web of Lightning~
 
 
