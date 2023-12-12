@@ -14,7 +14,9 @@ NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  INCLUDE "mih_sp/lib/always.tpa"
+  OUTER_SPRINT sfo_library_path "sfo2e"
+  OUTER_SPRINT sfo_tra_path "language"
+  INCLUDE "%MOD_FOLDER%/%sfo_library_path%/sfo_init.tpc"
 END	// ALWAYS block
 
 
@@ -27,7 +29,6 @@ LANGUAGE "English"
 // Made in Heaven: Arcane Spellpack
 
 BEGIN @1 
-DESIGNATED 101
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -36,10 +37,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Icewind Dale: Arcane Spellpack
+
+BEGIN @20
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "iwdspells_arcane"
+  location	= "third_party/iwdspells"
+END
+
+
 // Made in Heaven: Divine Spellpack
 
 BEGIN @2 
-DESIGNATED 102
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -48,10 +59,20 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Icewind Dale: Divine Spellpack
+
+BEGIN @21
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "iwdspells_divine"
+  location	= "third_party/iwdspells"
+END
+
+
 // Made in Heaven: Paladin Powers Pack
 
 BEGIN @3 
-DESIGNATED 103
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -63,7 +84,6 @@ END
 // Made in Heaven: Ranger Powers Pack
 
 BEGIN @19 
-DESIGNATED 128
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -75,7 +95,6 @@ END
 // Made in Heaven: Bard Powers Pack
 
 BEGIN @16 
-DESIGNATED 116
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -87,7 +106,6 @@ END
 // Made in Heaven: Bhaalspawn Powers Pack
 
 BEGIN @17 
-DESIGNATED 117
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -99,7 +117,6 @@ END
 // Made in Heaven: Specialist Perks
 
 BEGIN @4 
-DESIGNATED 127
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -113,7 +130,7 @@ END
 // NB: Moved here to have a better chance of having consistent
 // paladin innates between BG1 and BG2.
 
-BEGIN @25 DESIGNATED 125
+BEGIN @7
 
 REQUIRE_PREDICATE GAME_INCLUDES "tob" @10
 
@@ -127,7 +144,6 @@ END
 // Revised Dispel Magic
 
 BEGIN @18
-DESIGNATED 118
 GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
@@ -140,7 +156,6 @@ END
 // True Meteor Swarm
 
 BEGIN @26
-DESIGNATED 126
 GROUP @5
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
@@ -156,7 +171,6 @@ END
 // Prevent damage during Timestop
 
 BEGIN @9
-DESIGNATED 109
 GROUP @5
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
@@ -171,7 +185,6 @@ END
 // Remove All Time Stop Immunity
 
 BEGIN @11
-DESIGNATED 111
 GROUP @5
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
@@ -186,7 +199,6 @@ END
 // Spell Improvements
 
 BEGIN @13
-DESIGNATED 113
 GROUP @5
 
 LAUNCH_ACTION_FUNCTION run
@@ -200,7 +212,6 @@ END
 // Revised Spell Learning XP
 
 BEGIN @8
-DESIGNATED 108
 GROUP @15
 
 LAUNCH_ACTION_FUNCTION run
@@ -213,7 +224,6 @@ END
 // Expanded Temple Services
 
 BEGIN @14
-DESIGNATED 114
 GROUP @15
 
 LAUNCH_ACTION_FUNCTION run
@@ -227,7 +237,6 @@ END
 // Sixth Circle Spell Scrolls in Siege of Dragonspear
 
 BEGIN @23
-DESIGNATED 123
 GROUP @15
 
 REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
