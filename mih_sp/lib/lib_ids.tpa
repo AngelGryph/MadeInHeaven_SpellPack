@@ -19,24 +19,6 @@ COPY - "%MOD_FOLDER%/lib/ids_entries.2da" "override"
       END
     END
   END
-
-
-  // Add dir.ids to game versions lacking it.
-
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "dir.ids"
-  BEGIN
-    COPY "%MOD_FOLDER%/lib/resource/dir.ids" "override"
-  END
-
-  // Some mods (Ascension) add dir.ids but no not make the required edits
-  // to action.ids, so we do those outside the conditional block.
-
-  COPY_EXISTING "action.ids" "override"
-    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-      "I:Direction*)" "I:Direction*DIR)"
-    REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-      "I:Face*)" "I:Face*DIR)"
-    BUT_ONLY_IF_IT_CHANGES
 CLEAR_IDS_MAP
 
 

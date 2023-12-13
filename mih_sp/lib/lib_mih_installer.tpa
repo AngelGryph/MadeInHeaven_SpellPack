@@ -1,0 +1,478 @@
+// Grand Unified Installer
+//
+// This mammoth can automatically install items and spells under the
+// direction of tables.
+//
+// Note: Since this library gets loaded before SFO we can't use the
+// SFO syntaxtic sugar here!  (Except in anomymous functions.)
+
+DEFINE_ACTION_MACRO __handle_projectile
+BEGIN
+  ACTION_IF "%projectile%" STRING_COMPARE "*"
+  BEGIN
+    ADD_PROJECTILE "%MOD_FOLDER%/%component_loc%/projectiles/%projectile%.pro"
+    OUTER_TEXT_SPRINT edits "%edits%%WNL%m.ab.alter{s_projectile:=%projectile%}"
+
+    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.bam"
+    BEGIN
+      COPY "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.bam" "override"
+    END
+
+    ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.vvc"
+    BEGIN
+      COPY "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.bam" "overr
+ide"
+    END
+  END
+END	// __handle_projectile
+
+
+DEFINE_ACTION_FUNCTION __handle_main_items
+  STR_VAR
+  resref	= ~~
+  name		= ~~
+  desc		= ~~
+  unname	= ~~
+  undesc	= ~~
+  exclude	= ~~
+  projectile	= ~~
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "max_stack_ammo"
+    RET
+    max_stack_ammo	= value
+  END
+
+  ACTION_IF (max_stack_ammo == 0)
+  BEGIN
+    OUTER_SET max_stack_ammo = enhanced_edition ? 80 : 40
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "max_stack_thrown"
+    RET
+    max_stack_thrown	= value
+  END
+
+  ACTION_IF (max_stack_thrown == 0)
+  BEGIN
+    OUTER_SET max_stack_thrown = enhanced_edition ? 40 : 10
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "max_stack_potions"
+    RET
+    max_stack_potions	= value
+  END
+
+  ACTION_IF (max_stack_potions == 0)
+  BEGIN
+    OUTER_SET max_stack_potions = enhanced_edition ? 24 : 5
+  END
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "max_stack_jewels"
+    RET
+    max_stack_jewels	= value
+  END
+
+  ACTION_IF (max_stack_jewels == 0)
+  BEGIN
+    OUTER_SET max_stack_jewels = 20	// Not changed between old and EE.
+  END
+
+
+  ACTION_CLEAR_ARRAY object_data
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
+  BEGIN
+    max_in_stack=>~if max_in_stack > 1 and category = 9 then %max_stack_potions% else if max_in_stack > 1 and category is_in [5 14 24 31] then %max_stack_ammo% else if max_in_stack > 1 and category is_in [16 25] then %max_stack_thrown% else if max_in_stack > 1 and category is_in [1 10 34] then %max_stack_jewels% else no_change~
+  END
+
+  ACTION_IF IS_AN_INT "%name%"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
+    BEGIN
+      say_name=>"%name%"
+    END
+  END
+
+  ACTION_IF IS_AN_INT "%DESC%"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
+    BEGIN
+      say_description=>"%DESC%"
+    END
+  END
+
+  ACTION_IF IS_AN_INT "%UNname%"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
+    BEGIN
+      say_unidentified_name=>"%UNname%"
+    END
+  END
+
+  ACTION_IF IS_AN_INT "%UNDESC%"
+  BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
+    BEGIN
+      say_unidentified_description=>"%UNDESC%"
+    END
+  END
+
+
+  // Check/handle item exclude
+
+  ACTION_IF IS_AN_INT EXCL AND EXCL > 0
+  BEGIN
+    LAUNCH_ACTION_FUNCTION edit_itemexcl
+      INT_VAR
+      mask	= EXCL
+      STR_VAR
+      item	= "%resref%"
+    END
+  END
+
+
+  // Check/handle projectile
+
+  LAUNCH_ACTION_MACRO __handle_projectile
+
+
+  // Install and patch the actual item file.
+
+  LAUNCH_ACTION_FUNCTION itm_copy
+    STR_VAR
+    itm			= "%resref%"
+    source_location	= "%items_loc%"
+    edits		= "object_data"
+    locbase
+  END
+END	// __handle_main_items
+
+
+DEFINE_ACTION_FUNCTION __handle_main_spells
+  STR_VAR
+  idsname	= ~~
+  level		= ~~
+  name		= ~~
+  desc		= ~~
+  type		= ~~
+  idsnum	= ~~
+  scroll	= ~~
+  projectile	= ~~
+BEGIN
+  // Obtain a slot in spell.ids
+
+  ACTION_IF IS_AN_INT idsnum
+  BEGIN
+    APPEND "spell.ids" "%idsnum% %idsname%" UNLESS "^%idsnum%"
+    CLEAR_IDS_MAP
+  END
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level
+    STR_VAR
+    ids		= "%idsname%"
+    type
+    RET
+    resref
+  END
+
+
+  // We know the new resource now, patch stuff in.
+
+  OUTER_TEXT_SPRINT edits ""
+
+
+  // Add name/description strings if we have them.
+
+  ACTION_IF IS_AN_INT "%name%"
+  BEGIN
+    OUTER_TEXT_SPRINT edits ~%edits%%WNL%
+      name:="%name%"~
+  END
+
+  ACTION_IF IS_AN_INT "%desc%"
+  BEGIN
+    OUTER_TEXT_SPRINT edits ~%edits%%WNL%
+      desc:="%desc%"~
+  END
+
+
+  // Check/handle projectile
+
+  LAUNCH_ACTION_MACRO __handle_projectile
+
+
+  // Install and patch the actual spell file.
+
+  LAUNCH_ACTION_FUNCTION spl_copy
+  INT_VAR
+    create_scroll	= "%scroll%" STRING_EQUAL "y"
+  STR_VAR
+    spl			= "%idsname%=>%resref%"
+    source_location	= "%spells_loc%"
+    icon_location	= "%graphics_loc%"
+    locbase
+    edits
+  END
+END	// __handle_main_spells
+
+
+DEFINE_ACTION_FUNCTION __handle_simple_items
+  STR_VAR
+  resref	= ""
+  name		= ""
+BEGIN
+  OUTER_TEXT_SPRINT edits ""
+
+
+  // Check if we should set a name string
+
+  ACTION_IF IS_AN_INT name
+  BEGIN
+    OUTER_TEXT_SPRINT edits "m_both_names:=%name%"
+  END
+
+
+  // Install the item file
+
+  LAUNCH_ACTION_FUNCTION itm_copy
+  STR_VAR
+    itm			= "%resref%"
+    source_location	= "%items_loc%"
+    edits
+    locbase
+  END
+END	// __handle_simple_items
+
+
+DEFINE_ACTION_FUNCTION __handle_simple_spells
+  STR_VAR
+  resref	= ""
+  projectile	= ""
+BEGIN
+  OUTER_TEXT_SPRINT edits ""
+
+
+  // Check/handle projectile
+
+  LAUNCH_ACTION_MACRO __handle_projectile
+
+
+  // Install the actual spell file.
+
+  LAUNCH_ACTION_FUNCTION spl_copy
+  STR_VAR
+    spl			= "%resref%"
+    source_location	= "%spells_loc%"
+    edits
+    locbase
+  END
+END	// __handle_simple_spells
+
+
+DEFINE_ACTION_FUNCTION __handle_simple_creatures
+  STR_VAR
+  resref	= ~~
+  name		= ~~
+  vvc		= ~~
+BEGIN
+  OUTER_TEXT_SPRINT edits ""
+
+  ACTION_IF IS_AN_INT "%name%"
+  BEGIN
+    OUTER_TEXT_SPRINT edits "m_both_names:=%name%"
+  END
+
+  LAUNCH_ACTION_FUNCTION cre_copy
+  STR_VAR
+    cre			= "%resref%"
+    source_location	= "%creatures_loc%"
+    edits
+    locbase
+  END
+	
+  ACTION_IF "%vvc%" STRING_COMPARE_CASE "*"
+  BEGIN
+    LAUNCH_ACTION_FUNCTION eff_make
+      STR_VAR
+      effect	= "%resref%"
+      edits	= ~m_opcode=67 m_timing=1 m_parameter1=5 m_resource:="%resref%" m_resource2:="%VVC%"~
+    END
+  END
+END	// __handle_simple_creatures
+
+
+DEFINE_ACTION_FUNCTION __handle_simple_effects
+  STR_VAR
+  resref	= ~~
+  opcode	= ~~
+  parameter1	= ~~
+  parameter2	= ~~
+  parameter3	= ~~
+  parameter4	= ~~
+  dicenum	= ~~
+  dicesize	= ~~
+  resource	= ~~
+  vvc		= ~~
+BEGIN
+  OUTER_TEXT_SPRINT edits ~
+    m_opcode=%opcode%
+    m_timing=1
+    m_parameter1=%parameter1%
+    m_parameter2=%parameter2%
+    m_parameter3=%parameter3%
+    m_parameter4=%parameter4%
+    m_dicenumber=%dicenum%
+    m_dicesize=%dicesz%
+    m_resource:=%resource%
+    m_resource2:=%vvc%
+~
+
+  LAUNCH_ACTION_FUNCTION eff_make
+    STR_VAR
+    eff		= "%resref%"
+    edits
+  END
+END	// __handle_simple_effects
+
+
+DEFINE_ACTION_FUNCTION grand_unified_installer
+  STR_VAR
+  main_items		= "items"
+  main_spells		= "spells"
+  main_stores		= "stores"
+  simple_items		= "simple_items"
+  simple_spells		= "simple_spells"
+  simple_creatures	= "simple_creatures"
+  simple_effects	= "simple_effects"
+  copy_files		= "_copy"
+  items_loc		= "items"
+  spells_loc		= "spells"
+  creatures_loc		= "actors"
+  graphics_loc		= "graphics"
+  tables_loc		= "tables"
+  tra			= ""
+  locbase		= ""
+  locabs		= ""
+BEGIN
+  // Handle tra file setting
+
+  ACTION_IF "%tra%" STRING_EQUAL ""
+  BEGIN
+    OUTER_TEXT_SPRINT tra "%MOD_FOLDER%/%component_loc%"
+  END
+
+
+  // Main action starts here
+
+  WITH_TRA "%scs_tra_loc%/english/%tra%.tra"
+   "%scs_tra_loc%/%LANGUAGE%/%tra%.tra"
+  BEGIN
+    // Copy anything that just needs copying
+
+    ACTION_IF "%copy_files%" STRING_COMPARE ""
+    BEGIN
+      COPY "%MOD_FOLDER%/%component_loc%/%copy_files%" "override"
+    END
+
+
+    // Simple items, creature paws & stuff
+
+    ACTION_IF "%simple_items%" STRING_COMPARE ""
+          AND FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%tables_loc%/%simple_items%.2da"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION 2da_process_table
+        STR_VAR
+	table		= "%simple_items%.2da"
+	function	= "__handle_simple_items"
+	location	= "%tables_loc%"
+	locbase
+      END
+    END
+
+
+    // Simple spells, repeating spells and such
+
+    ACTION_IF "%simple_spells%" STRING_COMPARE ""
+          AND FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%tables_loc%/%simple_spells%.2da"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION 2da_process_table
+        STR_VAR
+	table		= "%simple_spells%.2da"
+	function	= "__handle_simple_spells"
+	location	= "%tables_loc%"
+	locbase
+      END
+    END
+
+
+    // Simple creatures, summons and such
+
+    ACTION_IF "%simple_creatures%" STRING_COMPARE ""
+          AND FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%tables_loc%/%simple_creatures%.2da"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION 2da_process_table
+        STR_VAR
+	table		= "%simple_creatures%.2da"
+	function	= "__handle_simple_creatures"
+	location	= "%tables_loc%"
+	locbase
+      END
+    END
+
+
+    // Simple effects
+
+    ACTION_IF "%simple_effects%" STRING_COMPARE ""
+          AND FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%tables_loc%/%simple_effects%.2da"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION 2da_process_table
+        STR_VAR
+	table		= "%simple_effects%.2da"
+	function	= "__handle_simple_effects"
+	location	= "%tables_loc%"
+	locbase
+      END
+    END
+
+
+    // Main items
+
+    ACTION_IF "%main_items%" STRING_COMPARE ""
+          AND FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%tables_loc%/%main_items%.2da"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION 2da_process_table
+        STR_VAR
+	table		= "%main_items%.2da"
+	function	= "__handle_main_items"
+	location	= "%tables_loc%"
+	locbase
+      END
+    END
+
+
+    // Main spells
+
+    ACTION_IF "%main_spells%" STRING_COMPARE ""
+          AND FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%tables_loc%/%main_spells%.2da"
+    BEGIN
+      LAUNCH_ACTION_FUNCTION 2da_process_table
+        STR_VAR
+	table		= "%main_spells%.2da"
+	function	= "__handle_main_spells"
+	location	= "%tables_loc%"
+	locbase
+      END
+    END
+  END
+END	// grand_unified_installer
+
+

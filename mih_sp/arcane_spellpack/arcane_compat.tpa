@@ -1,0 +1,19 @@
+DEFINE_ACTION_FUNCTION arcane_compat
+BEGIN
+  ACTION_IF NOT enhanced_edition
+  BEGIN
+    // Scintillating Sphere
+    // Spark Shower
+    // Web of Lightning
+    //
+    // oBG2 did not have a save for half damage flag
+
+    spl.edit[%WIZARD_SCINTILLATING_SPHERE% %WIZARD_SPARK_SHOWER% mh#wblit]
+    [
+      m.adfx.alter{s_dicenumber/=2 save_vs_spell=0 save_vs_breath=0 save_vs_poison=0 save_vs_wand=0 save_vs_polymorph=0|match="opcode=12"}
+      m.adfx.clone{s_dicenumber+=(p_level MODULO 2) save_vs_spell=0 save_vs_breath=0 save_vs_poison=0 save_vs_wand=0 save_vs_polymorph=0|match="opcode=12"}
+    ]
+  END
+END	// arcane_compat
+
+

@@ -6,30 +6,19 @@ BEGIN
     tra		= "divine_spellpack"
   END
 
+
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     tra		= "divine_spellpack"
   END
 
-  OUTER_SET macro_spellcodes_read=0
-  LAUNCH_ACTION_MACRO read_in_spellcodes
+  LAM data_spell_resrefs
+
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "divine_postproc"
+    file	= "divine_postproc divine_compat"
     tra		= "divine_spellpack"
-  END
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "mutual_excludes"
-    locbase	= "shared/spells"
-  END
-
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "repel_insects"
-    locbase	= "shared/spells"
   END
 END	// setup_divine_spellpack
 

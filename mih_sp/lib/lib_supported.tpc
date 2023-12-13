@@ -1,0 +1,17 @@
+// =============================
+// Test for unsupported versions
+// =============================
+
+PRINT "Checking for unsupported BG1 versions..."
+
+ACTION_IF GAME_IS "bg1 totsc tutu tutu_totsc"
+BEGIN
+  FAIL ~Sorry, this mod does not support this version of BG1.  The use of BGEE is highly recommended.~
+END
+
+ACTION_IF FILE_EXISTS "dlc/sod-dlc.zip" OR FILE_EXISTS "sod-dlc.zip"
+BEGIN
+  FAIL ~You need to run modmerge or install A7-DlcMerger before installing this mod.~
+END
+
+

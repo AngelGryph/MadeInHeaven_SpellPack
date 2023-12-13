@@ -1,26 +1,21 @@
-2DA v1.0
-*
-IDSNAME					LEVEL	NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJ		SEQ	CD_IMMUNITY
-CLERIC_STRIKING				1	0	1	0	*	*		n	*		y	*
-CLERIC_SEEKING				2	4	5	0	*	*		n	*		y	*
-CLERIC_BULLS_STRENGTH			2	42	43	0	*	*		n	*		y	*
-CLERIC_CATS_GRACE			2	44	45	0	*	*		n	*		y	*
-CLERIC_BEARS_ENDURANCE			2	46	47	0	*	*		n	*		y	*
-CLERIC_PROTECTION_FROM_COLD		3	39	40	0	*	*		n	*		y	*
-CLERIC_STICKS_TO_SNAKES			4	6	7	0	*	*		n	*		y	*
-CLERIC_HEROISM				4	9	10	0	*	*		n	*		y	*
-CLERIC_REPEL_INSECTS			4	25	26	0	*	*		n	*		y	*
-CLERIC_ICE_STORM			4	*	41	0	*	*		n	*		y	*
-CLERIC_LIGHTNING_STORM			5	11	12	0	*	*		dd	mh#lstrm	y	*
-CLERIC_INFERNO				5	17	18	0	*	*		n	*		y	*
-CLERIC_BREAK_ENCHANTMENT		5	23	24	0	*	mh#prs53	n	*		y	*
-CLERIC_HALLOW				5	33	34	0	*	*		n	*		y	*
-CLERIC_UNHALLOW				5	35	36	0	*	*		n	*		y	*
-CLERIC_MURDEROUS_MIST			5	53	54	0	*	*		n	*
-CLERIC_SUPERHEROISM			6	13	14	0	*	*		n	*		y	fear,level_drain
-CLERIC_CELESTIAL_PROTECTION		6	15	16	0	*	*		n	*		y	poison,disease,poison_resistance
-CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	7	19	20	0	*	*		n	*		y	level_drain
-CLERIC_AURA_OF_VITALITY			7	37	38	0	*	*		n	*		y	*
-CLERIC_HOLLY_DART			7	48	49	0	*	*		n	*		y	*
+idsname					level	name	desc	type	idsnum	scroll	projectile
+CLERIC_STRIKING				1	0	1	priest	*	n	*
+CLERIC_SEEKING				2	4	5	priest	*	n	*
+CLERIC_PROTECTION_FROM_COLD		3	39	40	priest	*	n	*
+CLERIC_STICKS_TO_SNAKES			4	6	7	priest	*	n	*
+CLERIC_HEROISM				4	9	10	priest	*	n	*
+CLERIC_REPEL_INSECTS			4	25	26	priest	*	n	*
+CLERIC_ICE_STORM			4	*	41	priest	*	n	*
+CLERIC_LIGHTNING_STORM			5	11	12	priest	*	n	mh#lstrm
+CLERIC_INFERNO				5	17	18	priest	*	n	*
+CLERIC_BREAK_ENCHANTMENT		5	23	24	priest	*	y	*
+CLERIC_HALLOW				5	33	34	priest	*	n	*
+CLERIC_UNHALLOW				5	35	36	priest	*	n	*
+CLERIC_MURDEROUS_MIST			5	53	54	priest	*	n	*
+CLERIC_SUPERHEROISM			6	13	14	priest	*	n	*
+CLERIC_CELESTIAL_PROTECTION		6	15	16	priest	*	n	*
+CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	7	19	20	priest	*	n	*
+CLERIC_AURA_OF_VITALITY			7	37	38	priest	*	n	*
+CLERIC_HOLLY_DART			7	48	49	priest	*	n	*
 
 

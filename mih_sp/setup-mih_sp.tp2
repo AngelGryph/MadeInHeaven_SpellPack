@@ -14,9 +14,7 @@ NO_IF_EVAL_BUG
 AUTO_EVAL_STRINGS
 
 ALWAYS
-  OUTER_SPRINT sfo_library_path "sfo2e"
-  OUTER_SPRINT sfo_tra_path "language"
-  INCLUDE "%MOD_FOLDER%/%sfo_library_path%/sfo_init.tpc"
+  INCLUDE "%MOD_FOLDER%/lib/always.tpa"
 END	// ALWAYS block
 
 

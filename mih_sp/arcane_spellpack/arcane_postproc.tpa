@@ -2,35 +2,25 @@ DEFINE_ACTION_FUNCTION arcane_postproc
 BEGIN
   // Create Spell Matrix innates
 
-  MAKE_PATCH
-    say_name=>26
-    icon=>"%WIZARD_SPELL_MATRIX%c"
-    patch_ability_inline=>~ability_icon=>"%WIZARD_SPELL_MATRIX%b"~
-    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%WIZARD_SPELL_MATRIX%"~
-    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%WIZARD_SPELL_MATRIX%d"~
-  END
-
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "spwi420d=>%WIZARD_SPELL_MATRIX%d"
-    edits	= "patch_data"
-  END
+  spl.copy[spwi420d=>%WIZARD_SPELL_MATRIX%d]
+  [
+    m_name:=@26
+    m_icon:="%WIZARD_SPELL_MATRIX%c"
+    m.ab.alter{s_icon:="%WIZARD_SPELL_MATRIX%b"}
+    m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%"|match="s_opcode=258"}
+    m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%d"|match="s_opcode=172"}
+  ]
 
   ACTION_IF enhanced_edition
   BEGIN
-    MAKE_PATCH
-      say_name=>26
-      icon=>"%WIZARD_SPELL_MATRIX%c"
-      patch_ability_inline=>~ability_icon=>"%WIZARD_SPELL_MATRIX%b"~
-      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%WIZARD_SPELL_MATRIX%"~
-      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%WIZARD_SPELL_MATRIX%p"~
-    END
-
-    LAUNCH_ACTION_FUNCTION clone_spell
-      STR_VAR
-      spell	= "spwi420p=>%WIZARD_SPELL_MATRIX%p"
-      edits	= "patch_data"
-    END
+    spl.copy[spwi420p=>%WIZARD_SPELL_MATRIX%p]
+    [
+      m_name:=@26
+      m_icon:="%WIZARD_SPELL_MATRIX%c"
+      m.ab.alter{s_icon:="%WIZARD_SPELL_MATRIX%b"}
+      m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%"|match="s_opcode=260"}
+      m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%p"|match="s_opcode=172"}
+    ]
 
     OUTER_SPRINT spell_matrix_title @26
     OUTER_SPRINT add_spell_matrix_label @62
@@ -49,53 +39,61 @@ BEGIN
 
 
   // Add save vs. breath to Gust of Wind effects
-  //
-  // Note to self: Consider extending simple effects table (again) if more
-  // spells start needing this.
 
-  MAKE_PATCH
-    save_vs_breath=>1
-    resist_dispel=>2
-  END
+  eff.edit[mh#gusta mh#gustb mh#gustc]
+  [
+    m_save_vs_breath=1
+    m_resist_dispel=2
+  ]
+    
 
-  LAUNCH_ACTION_FUNCTION edit_effect
-    STR_VAR
-    effect	= "mh#gusta mh#gustb mh#gustc"
-    edits	= "patch_data"
-  END
-
-
-  // Apply CamDawg's elven sleep/charm resistance to Slumber and Mass Charm.
-  //
-  // TODO: Get this properly into SFO?
+  // Apply CamDawg's patches to certain spells
 
   COPY_EXISTING "%WIZARD_SLUMBER%.spl" "override"
                 "%WIZARD_MASS_CHARM%.spl" "override"
     LAUNCH_PATCH_FUNCTION cd_elven_sleep_charm_resistance END
     BUT_ONLY_IF_IT_CHANGES
 
+  COPY_EXISTING "%WIZARD_SUPERHEROISM%.spl" "override"
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_fear_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_level_drain_arrays" END
+    BUT_ONLY_IF_IT_CHANGES
+
+  COPY_EXISTING "%WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY%.spl" "override"
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_1_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_2_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_3_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_4_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_5_arrays" END
+    BUT_ONLY_IF_IT_CHANGES
+
+
+  // Append some spells to contingx
+
+  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_RARYS_MNEMONIC_ENHANCER" END
+  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_SPELL_MATRIX" END
+  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_MORDENKAINENS_LUCUBRATION" END
+
 
   // Make new msectype for Alacrity
 
-  LAUNCH_ACTION_FUNCTION add_silent_sectype
+  LAUNCH_ACTION_FUNCTION resolve_sectype
     STR_VAR
     sectype	= "mhAlacrity"
     RET
     mhAlacrity	= sectype_value
   END
 
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "%WIZARD_ALACRITY%"
-    editstring	= "secondary=>%mhAlacrity%"
-  END
+  spl.edit[%WIZARD_ALACRITY%]
+  [
+    m_sectype=%mhAlacrity%
+  ]
 
 
-  // Further patching of existing spells:
-  // - Extend Magic Missile immunity to improved versions
-  // - Make 6th level or higher spells dispel Alacrity
-  //
-  // NB: Keep this as is for speed, SFO has horrible performance.
+  // Required edits on existing creatures/items/spells:
+  // - Extend Magic Missile immunity to Improved Magic Missile
+  //   and Major Missile.
+  // - Make casting a 6th level or higher spell dispel Alacrity.
 
   COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
     LAUNCH_PATCH_FUNCTION cd_apply_batch
@@ -117,6 +115,22 @@ BEGIN
     END
 
     BUT_ONLY_IF_IT_CHANGES
+
+
+  // Prevent stacking of Heroism-type spells
+
+  LAUNCH_ACTION_FUNCTION resolve_sectype
+    STR_VAR
+    sectype	= "mhHeroism"
+    RET
+    mhHeroism	= sectype_value
+  END
+
+  spl.edit[%WIZARD_HEROISM% %WIZARD_SUPERHEROISM%]
+  [
+    m_sectype=%mhHeroism%
+    m.ab_fx.add{s_opcode=221 s_target=2 s_timing=1 s_parameter1=10 s_parameter2=%mhHeroism%|insert_point:i=0}
+  ]
 END	// arcane_postproc
 
 

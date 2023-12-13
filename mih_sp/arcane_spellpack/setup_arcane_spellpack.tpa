@@ -7,11 +7,13 @@ BEGIN
   END
 
 
+/*
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
     file	= "arcane_preproc"
     tra		= "arcane_spellpack"
   END
+*/
 
 
   LAUNCH_ACTION_FUNCTION grand_unified_installer
@@ -19,29 +21,17 @@ BEGIN
     tra		= "arcane_spellpack"
   END
 
-  OUTER_SET macro_spellcodes_read=0
-  LAUNCH_ACTION_MACRO read_in_spellcodes
+  LAM data_spell_resrefs
 
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "arcane_postproc"
+    file	= "arcane_postproc arcane_compat"
     tra		= "arcane_spellpack"
   END
 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "mutual_excludes"
-    locbase	= "shared/spells"
-  END
 
-  LAUNCH_ACTION_FUNCTION run
-    STR_VAR
-    file	= "repel_insects"
-    locbase	= "shared/spells"
-  END
-
-
+/*
   ACTION_IF is_bg1
   BEGIN
     LAUNCH_ACTION_FUNCTION run
@@ -50,7 +40,7 @@ BEGIN
     END
   END
 
-  ACTION_IF has_sod
+  ACTION_IF is_sod
   BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
@@ -64,15 +54,13 @@ BEGIN
       STR_VAR
       file	= "place_spell_scrolls_in_bg2"
     END
-  END
 
-  ACTION_IF has_tob
-  BEGIN
     LAUNCH_ACTION_FUNCTION run
       STR_VAR
       file	= "place_spell_scrolls_in_tob"
     END
   END
+*/
 END	// setup_arcane_spellpack
 
 

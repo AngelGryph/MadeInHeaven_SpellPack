@@ -1,13 +1,11 @@
-2DA V1.0
-*
-RESREF		OPCODE	PARAMETER1	PARAMETER2	PARAMETER3	PARAMETER4	DICENUM	DICESZ	RESOURCE	VVC
+resref		opcode	parameter1	parameter2	parameter3	parameter4	dicenum	dicesz	resource	vvc
 catjagsu	67	5		0		0		0		0	0	catjagsu	spanisum
 catliosu	67	5		0		0		0		0	0	catliosu	spanisum
 jellmusu	67	5		0		0		0		0	0	jellmusu	trblobb
-mh#blink	222	128		0		0		0		0	0	$		$
-mh#gusta	39	0		0		0		0		0	0	$		$
-mh#gustb	235	10		2		0		0		0	0	$		$
-mh#gustc	165	0		0		0		0		0	0	$		$
-mh#sunbu	12	0		0x00080000	0		0		8	6	$		$
+mh#blink	222	128		0		0		0		0	0	no_change	no_change
+mh#gusta	39	0		0		0		0		0	0	no_change	no_change
+mh#gustb	235	10		2		0		0		0	0	no_change	no_change
+mh#gustc	165	0		0		0		0		0	0	no_change	no_change
+mh#sunbu	12	0		0x00080000	0		0		8	6	no_change	no_change
 
 

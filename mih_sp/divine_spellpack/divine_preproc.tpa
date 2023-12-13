@@ -4,23 +4,22 @@ BEGIN
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "mistposu.cre"
   BEGIN
-    LAUNCH_ACTION_FUNCTION clone_creature
-      STR_VAR
-      creature		= "mistpo01=>mistposu"
-      editstring	= "xp_value=>0 gender=>summoned"
-    END
+    cre.copy[mistpo01=>mistposu]
+    [
+      m_xp_value:=0
+      m_gender:=summoned
+    ]
 
-    LAUNCH_ACTION_FUNCTION edit_creature
-      STR_VAR
-      creature		= "mistpo01"
-      editstring	= "xp_value=>3500 gender=>neither"
-    END
+    cre.edit[mistpo01]
+    [
+      m_xp_value:=3500
+      m_gender:=neither
+    ]
 
-    LAUNCH_ACTION_FUNCTION edit_effect
-      STR_VAR
-      effect		= "sppois"
-      editstring	= "resource=>mistposu"
-    END
+    eff.edit[sppois]
+    [
+      m_resource:="mistposu"
+    ]
   END
 END	// divine_preproc
 

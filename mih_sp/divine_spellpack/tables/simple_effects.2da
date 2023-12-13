@@ -1,6 +1,4 @@
-2DA V1.0
-*
-RESREF		OPCODE	PARAMETER1	PARAMETER2	PARAMETER3	PARAMETER4	DICENUM	DICESZ	RESOURCE	VVC
-mh#turn4	323	4		0		0		0		0	0	$		$
+resref		opcode	parameter1	parameter2	parameter3	parameter4	dicenum	dicesz	resource	vvc
+mh#turn4	323	4		0		0		0		0	0	no_change	no_change
 
 
