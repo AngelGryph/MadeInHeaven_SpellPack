@@ -158,7 +158,7 @@ BEGIN
 			
 			// make scroll
 			ACTION_MATCH "%spell_resref%" WITH
-			"SPPR.*" "SPWI.*" BEGIN
+			"SPPR.*" "SPWI.*" WHEN create_scroll BEGIN
 				LAF spl_make_scroll STR_VAR spell_resref RET scroll_resref END
 			END
 			DEFAULT
@@ -286,7 +286,7 @@ BEGIN
 					END
 				END
 				ACTION_MATCH "%spell_resref%" WITH
-				"SPPR.*" "SPWI.*" BEGIN
+				"SPPR.*" "SPWI.*" WHEN create_scroll BEGIN
 					LAF spl_make_scroll STR_VAR spell_resref RET scroll_resref END
 				END
 				DEFAULT

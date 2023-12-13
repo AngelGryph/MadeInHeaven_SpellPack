@@ -37,6 +37,9 @@ DEFINE_ACTION_FUNCTION __handle_main_items
   exclude	= ~~
   projectile	= ~~
 BEGIN
+  OUTER_TEXT_SPRINT edits ""
+
+
   LAUNCH_ACTION_FUNCTION check_ini
     STR_VAR
     ini		= "max_stack_ammo"
@@ -166,28 +169,16 @@ DEFINE_ACTION_FUNCTION __handle_main_spells
   scroll	= ~~
   projectile	= ~~
 BEGIN
-  // Obtain a slot in spell.ids
+  OUTER_TEXT_SPRINT edits ""
+
+
+  // Attempt to claim a fixed IDS number if it is still free.
 
   ACTION_IF IS_AN_INT idsnum
   BEGIN
     APPEND "spell.ids" "%idsnum% %idsname%" UNLESS "^%idsnum%"
     CLEAR_IDS_MAP
   END
-
-  LAUNCH_ACTION_FUNCTION spl_resolve_ids
-    INT_VAR
-    level
-    STR_VAR
-    ids		= "%idsname%"
-    type
-    RET
-    resref
-  END
-
-
-  // We know the new resource now, patch stuff in.
-
-  OUTER_TEXT_SPRINT edits ""
 
 
   // Add name/description strings if we have them.
@@ -214,9 +205,10 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION spl_copy
   INT_VAR
+    is_ids		= 1
     create_scroll	= "%scroll%" STRING_EQUAL "y"
   STR_VAR
-    spl			= "%idsname%=>%resref%"
+    spl			= "%idsname%=>%idsname%"
     source_location	= "%spells_loc%"
     icon_location	= "%graphics_loc%"
     locbase
