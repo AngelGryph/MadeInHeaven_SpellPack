@@ -2,39 +2,43 @@ DEFINE_ACTION_FUNCTION paladin_preproc
 BEGIN
   // Ensure existing and unique clab- and lua tables
 
-  LAUNCH_ACTION_FUNCTION make_clabs_unique END
-  LAUNCH_ACTION_FUNCTION make_luas_unique END
+  LAUNCH_ACTION_FUNCTION kit_clab_initialize END
+  LAUNCH_ACTION_FUNCTION kit_baseline_lua END
 
 
   // Create smite damage effects
 
   OUTER_FOR (SET i = 1; i <= 11; ++i)
   BEGIN
-    LAUNCH_ACTION_FUNCTION make_effect
-      STR_VAR
-      effect		= "mh#m%i%d6"
-      editstring	= "opcode=>12 target=>2 timing=>1 parameter2=>0x00400000 dicenum=>%i% dicesize=>6"
-    END
+    eff.make[mh#m%i%d6]
+    [
+      m_opcode=12
+      m_target=2
+      m_timing=1
+      m_parameter2=0x00400000
+      m_dicenumber=%i%
+      m_dicesize=6
+    ]
   END
 
 
   // Create innate version of Cure Disease
 
-  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
-    level		= 3
-    type		= 4
+    level	= 3
     STR_VAR
-    idsname		= "PALADIN_CURE_DISEASE"
+    ids		= "PALADIN_CURE_DISEASE"
+    type	= "class"
     RET
-    cure_disease	= newname
+    resref
   END
 
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "sppr317=>%cure_disease%"
-    editstring	= ~spell_type=>"innate" patch_ability_inline=>"ability_icon_loc=>4 casting_time=>1"~
-  END
+  spl.copy[sppr317=>%resref%]
+  [
+    m_type:="innate"
+    m.ab.alter{s_location:="innate" s_casting_time=1}
+  ]
 END	// paladin_preproc
 
 

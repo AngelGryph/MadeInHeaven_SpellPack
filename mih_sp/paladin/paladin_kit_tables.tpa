@@ -2,124 +2,94 @@ DEFINE_ACTION_FUNCTION paladin_kit_tables
 BEGIN
   // True Paladin & Cavalier
 
-  MAKE_PATCH
-    remove_power'1=>"%PALADIN_DETECT_EVIL%"
-    remove_power'2=>"%PALADIN_PROTECTION_FROM_EVIL%"
-    apply_power'1=>"mh#palim 1"
-    apply_power'2=>"mh#divcl 5 1 8"
-    grant_power'1=>"%PALADIN_DETECT_EVIL% 1"
-    grant_power'2=>"%PALADIN_PROTECTION_FROM_EVIL% 1"
-    grant_power'3=>"%PALADIN_SMITE_EVIL% 1"
-    grant_power'4=>"%PALADIN_CURE_DISEASE% 2 4 6"
-    grant_power'5=>"%PALADIN_DIVINE_FAVOR% 3 7 20"
-    grant_power'6=>"%PALADIN_LAY_ON_HANDS% 7 7 30"
-    grant_hla'1=>"%PALADIN_SMITE_EVIL%"
-    grant_hla'2=>"%PALADIN_LAY_ON_HANDS%"
-    restrict_hla'1=>~hla=>"%PALADIN_SMITE_EVIL%" num_allowed=>3~ 
-    restrict_hla'2=>~hla=>"%PALADIN_LAY_ON_HANDS%" num_allowed=>3~
-    proficiency_longsword=>3
-    proficiency_bastardsword=>3
-    proficiency_twohandedsword=>3
-    proficiency_mace=>3
-    proficiency_flailmorningstar=>3
-    proficiency_warhammer=>3
-    proficiency_halberd=>3
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "paladin"
-    edits	= "patch_data"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "cavalier"
-    edits	= "patch_data"
-  END
+  kit.edit[PALADIN CAVALIER]
+  [
+    k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
+    k.kit_apply_powers{mh#palim 1}
+    k.kit_apply_powers{mh#divcl 5 1 8}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_PROTECTION_FROM_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_SMITE_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_CURE_DISEASE% 2 4 6}
+    k.kit_grant_powers{%PALADIN_DIVINE_FAVOR% 3 7 20}
+    k.kit_grant_powers{%PALADIN_LAY_ON_HANDS% 7 7 30}
+    //k.kit_grant_hlas{%PALADIN_SMITE_EVIL%}
+    //k.kit_grant_hlas{"%PALADIN_LAY_ON_HANDS%}
+    //k.kit_restrict_hlas{%PALADIN_SMITE_EVIL% num_allowed=>3} 
+    //k.kit_restrict_hlas{%PALADIN_LAY_ON_HANDS% num_allowed=>3}
+    k.kit_proficiency_longsword=3
+    k.kit_proficiency_bastardsword=3
+    k.kit_proficiency_twohandedsword=3
+    k.kit_proficiency_mace=3
+    k.kit_proficiency_flailmorningstar=3
+    k.kit_proficiency_warhammer=3
+    k.kit_proficiency_halberd=3
+  ]
 
 
   // Inquisitor
 
-  MAKE_PATCH
-    remove_power'1=>"%PALADIN_DETECT_EVIL%"
-    remove_power'2=>"%PALADIN_PROTECTION_FROM_EVIL%"
-    apply_power'1=>"mh#palim 1"
-    apply_power'2=>"mh#divcl 5 1 8"
-    grant_power'1=>"%PALADIN_DETECT_EVIL% 1"
-    grant_power'2=>"%PALADIN_PROTECTION_FROM_EVIL% 1"
-    grant_power'3=>"%PALADIN_SMITE_EVIL% 1"
-    grant_power'4=>"%PALADIN_DIVINE_FAVOR% 3 7 20"
-    grant_hla'1=>"%PALADIN_SMITE_EVIL%"
-    restrict_hla'1=>~hla=>"%PALADIN_SMITE_EVIL%" num_allowed=>3~
-    proficiency_longsword=>3
-    proficiency_bastardsword=>3
-    proficiency_twohandedsword=>3
-    proficiency_mace=>3
-    proficiency_flailmorningstar=>3
-    proficiency_warhammer=>3
-    proficiency_halberd=>3
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "inquisitor"
-    edits	= "patch_data"
-  END
+  kit.edit[INQUISITOR]
+  [
+    k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
+    k.kit_apply_powers{mh#divcl 5 1 8}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_PROTECTION_FROM_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_SMITE_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_DIVINE_FAVOR% 3 7 20}
+    //k.kit_grant_hlas{%PALADIN_SMITE_EVIL%}
+    //k.kit_restrict_hlas~hla{%PALADIN_SMITE_EVIL% num_allowed=>3}
+    k.kit_proficiency_longsword=3
+    k.kit_proficiency_bastardsword=3
+    k.kit_proficiency_twohandedsword=3
+    k.kit_proficiency_mace=3
+    k.kit_proficiency_flailmorningstar=3
+    k.kit_proficiency_warhammer=3
+    k.kit_proficiency_halberd=3
+  ]
 
 
   // Undead Hunter
 
-  MAKE_PATCH
-    remove_power'1=>"%PALADIN_DETECT_EVIL%"
-    remove_power'2=>"%PALADIN_PROTECTION_FROM_EVIL%"
-    apply_power'1=>"mh#palim 1"
-    apply_power'2=>"mh#divcl 5 1 8"
-    grant_power'1=>"%PALADIN_DETECT_EVIL% 1"
-    grant_power'2=>"%PALADIN_PROTECTION_FROM_EVIL% 1"
-    grant_power'3=>"%PALADIN_SMITE_UNDEAD% 1"
-    grant_power'4=>"%PALADIN_DIVINE_FAVOR% 3 7 20"
-    grant_hla'1=>"%PALADIN_SMITE_UNDEAD%"
-    restrict_hla'1=>~hla=>"%PALADIN_SMITE_UNDEAD%" num_allowed=>3~
-    proficiency_longsword=>3
-    proficiency_bastardsword=>3
-    proficiency_twohandedsword=>3
-    proficiency_mace=>3
-    proficiency_flailmorningstar=>3
-    proficiency_warhammer=>3
-    proficiency_halberd=>3
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "undead_hunter"
-    edits	= "patch_data"
-  END
+  kit.edit[UNDEAD_HUNTER]
+  [
+    k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
+    k.kit_apply_powers{mh#palim 1}
+    k.kit_apply_powers{mh#divcl 5 1 8}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_PROTECTION_FROM_EVIL% 1}
+    k.kit_grant_powers{%PALADIN_SMITE_UNDEAD% 1}
+    k.kit_grant_powers{%PALADIN_DIVINE_FAVOR% 3 7 20}
+    //grant_hla'1{%PALADIN_SMITE_UNDEAD%}
+    //restrict_hla'1~hla=>{%PALADIN_SMITE_UNDEAD% num_allowed=>3}
+    k.kit_proficiency_longsword=3
+    k.kit_proficiency_bastardsword=3
+    k.kit_proficiency_twohandedsword=3
+    k.kit_proficiency_mace=3
+    k.kit_proficiency_flailmorningstar=3
+    k.kit_proficiency_warhammer=3
+    k.kit_proficiency_halberd=3
+  ]
 
 
   // Blackguard (EE only)
 
   ACTION_IF enhanced_edition
   BEGIN
-    MAKE_PATCH
-      apply_power'1=>"mh#divcl 5 1 8"
-      grant_power'1=>"%BLACKGUARD_SMITE_GOOD% 1"
-      grant_hla'1=>"%BLACKGUARD_SMITE_GOOD%"
-      restrict_hla'1=>~hla=>"%BLACKGUARD_SMITE_GOOD%" num_allowed=>3~
-      proficiency_longsword=>3
-      proficiency_bastardsword=>3
-      proficiency_twohandedsword=>3
-      proficiency_mace=>3
-      proficiency_flailmorningstar=>3
-      proficiency_warhammer=>3
-      proficiency_halberd=>3
-    END
-
-    LAUNCH_ACTION_FUNCTION edit_kit
-      STR_VAR
-      kit	= "blackguard"
-      edits	= "patch_data"
-    END
+    kit.edit[BLACKGUARD]
+    [
+      k.kit_apply_powers{mh#divcl 5 1 8}
+      k.kit_grant_powers{%BLACKGUARD_SMITE_GOOD% 1}
+      //k.kit_grant_hlas{%BLACKGUARD_SMITE_GOOD%}
+      //k.kit_restrict_hlas{hla=>"%BLACKGUARD_SMITE_GOOD%" num_allowed=>3}
+      k.kit_proficiency_longsword=3
+      k.kit_proficiency_bastardsword=3
+      k.kit_proficiency_twohandedsword=3
+      k.kit_proficiency_mace=3
+      k.kit_proficiency_flailmorningstar=3
+      k.kit_proficiency_warhammer=3
+      k.kit_proficiency_halberd=3
+    ]
   END
 END	// paladin_kit_tables
 

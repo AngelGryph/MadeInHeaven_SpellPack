@@ -2,53 +2,35 @@ DEFINE_ACTION_FUNCTION paladin_postproc
 BEGIN
   // 3.5e-stype spell table
 
-  LAUNCH_ACTION_FUNCTION install
-    STR_VAR
-    file		= "mxsplpal.2da"
-    location		= "tables"
-  END
+  COPY "%MOD_FOLDER%/%component_loc%/tables/mxsplpal.2da" "override"
 
 
   // Extend cavalier's bonus to dragons also to wyverns
 
-  MAKE_PATCH
-    clone_effect_inline'1=>~match=>"opcode = 177 and resource = draghit" resource=>"mh#wyvh3"~
-    clone_effect_inline'2=>~match=>"opcode = 177 and resource = dragdam3" resource=>"mh#wyvd3"~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "spcl221"
-    edits	= "patch_data"
-  END
+  spl.copy[spcl221]
+  [
+    m.ab_fx.clone{s_resource:="mh#wyvh3"|match=~s_opcode=177 AND s_resource=="draghit"~}
+    m.ab_fx.clone{s_resource:="mh#wyvd3"|match=~s_opcode=177 AND s_resource=="dragdam3"~}
+  ]
 
 
   // Make Detect Evil usable at will
 
-  MAKE_PATCH
-    add_effect_global_inline=>~number_to_add=>2 opcode=>"entry_index from [172 171]" target=>1 timing=>1 resource=>filename~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "PALADIN_DETECT_EVIL"
-    edits	= "patch_data"
-  END
+  spl.copy[%PALADIN_DETECT_EVIL%]
+  [
+    m.ab_fx.add{s_opcode=172 s_target=1 s_timing=1 s_resource:="%PALADIN_DETECT_EVIL%"}
+    m.ab_fx.add{s_opcode=171 s_target=1 s_timing=1 s_resource:="%PALADIN_DETECT_EVIL%"}
+  ]
 
 
   // Make Protection from Evil self-only and last 24 hours
 
-  MAKE_PATCH
-    patch_ability_inline=>~ability_target=>5~
-    patch_effect_inline=>~duration=>"if duration > 5 then 1680 else no_change"~
-    delete_effect=>~opcode = 9~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "PALADIN_PROTECTION_FROM_EVIL"
-    edits	= "patch_data"
-  END
+  spl.copy[%PALADIN_PROTECTION_FROM_EVIL%]
+  [
+    m.ab.alter{s_target=5}
+    m.ab_fx.alter{s_duration=(s_duration > 5) ? 1680 : s_duration}
+    m.ab_fx.delete{s_opcode=9}
+  ]
 END	// paladin_postproc
 
 

@@ -1,7 +1,5 @@
-2DA v1.0
-*
-IDSNAME					LEVEL	NAME	DESC	TYPE	IDSNUM	SCROLL		HALF	PROJ	SEQ	CD_IMMUNITY
-PALADIN_SMITE_EVIL			1	0	1	0	*	*		n	*		y	*
-BLACKGUARD_SMITE_GOOD			1	2	3	0	*	*		n	*		y	*
-PALADIN_SMITE_UNDEAD			1	4	5	0	*	*		n	*		y	*
-PALADIN_DIVINE_FAVOR			1	6	*	0	*	*		n	*		y	*
+idsname					level	name	desc	type	idsnum	scroll		projectile
+PALADIN_SMITE_EVIL			1	0	1	class	*	n		*
+BLACKGUARD_SMITE_GOOD			1	2	3	class	*	n		*
+PALADIN_SMITE_UNDEAD			1	4	5	class	*	n		*
+PALADIN_DIVINE_FAVOR			1	6	*	class	*	n		*
