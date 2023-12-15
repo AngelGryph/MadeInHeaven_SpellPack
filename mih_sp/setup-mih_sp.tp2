@@ -246,3 +246,13 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Fourth level Animate Dead for Wizards
+
+BEGIN @12
+GROUP @15
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "level_4_animate_dead"
+  location	= "tweaks"
+END
