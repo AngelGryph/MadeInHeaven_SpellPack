@@ -27,9 +27,11 @@ BEGIN
 
   spl.copy[%PALADIN_PROTECTION_FROM_EVIL%]
   [
+    m.ab.delete{s_level>1}
     m.ab.alter{s_target=5}
     m.ab_fx.alter{s_duration=(s_duration > 5) ? 1680 : s_duration}
     m.ab_fx.delete{s_opcode=9}
+    m.ab.clone{s_level=12 s_projectile=158 s_icon:="sppr408b"}
   ]
 END	// paladin_postproc
 

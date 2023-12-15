@@ -5,14 +5,8 @@ BEGIN
   kit.edit[PALADIN CAVALIER]
   [
     k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
-    k.kit_apply_powers{mh#palim 1}
-    k.kit_apply_powers{mh#divcl 5 1 8}
-    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_PROTECTION_FROM_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_SMITE_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_CURE_DISEASE% 2 4 6}
-    k.kit_grant_powers{%PALADIN_DIVINE_FAVOR% 3 7 20}
-    k.kit_grant_powers{%PALADIN_LAY_ON_HANDS% 7 7 30}
+    k.kit_apply_powers{mh#palim 1,mh#divcl 5 1 8}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_EVIL% 1,%PALADIN_CURE_DISEASE% 2 4 6,%PALADIN_DIVINE_FAVOR% 3 7 20,%PALADIN_LAY_ON_HANDS% 7 7 30}
     //k.kit_grant_hlas{%PALADIN_SMITE_EVIL%}
     //k.kit_grant_hlas{"%PALADIN_LAY_ON_HANDS%}
     //k.kit_restrict_hlas{%PALADIN_SMITE_EVIL% num_allowed=>3} 
@@ -31,12 +25,9 @@ BEGIN
 
   kit.edit[INQUISITOR]
   [
-    k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
+    k.kit_remove_powers{%PALADIN_DETECT_EVIL%,%PALADIN_PROTECTION_FROM_EVIL%}
     k.kit_apply_powers{mh#divcl 5 1 8}
-    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_PROTECTION_FROM_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_SMITE_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_DIVINE_FAVOR% 3 7 20}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_EVIL% 1,%PALADIN_DIVINE_FAVOR% 3 7 20}
     //k.kit_grant_hlas{%PALADIN_SMITE_EVIL%}
     //k.kit_restrict_hlas~hla{%PALADIN_SMITE_EVIL% num_allowed=>3}
     k.kit_proficiency_longsword=3
@@ -53,13 +44,9 @@ BEGIN
 
   kit.edit[UNDEAD_HUNTER]
   [
-    k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
-    k.kit_apply_powers{mh#palim 1}
-    k.kit_apply_powers{mh#divcl 5 1 8}
-    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_PROTECTION_FROM_EVIL% 1}
-    k.kit_grant_powers{%PALADIN_SMITE_UNDEAD% 1}
-    k.kit_grant_powers{%PALADIN_DIVINE_FAVOR% 3 7 20}
+    k.kit_remove_powers{%PALADIN_DETECT_EVIL%,%PALADIN_PROTECTION_FROM_EVIL%}
+    k.kit_apply_powers{mh#palim 1,mh#divcl 5 1 8}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_UNDEAD% 1,%PALADIN_DIVINE_FAVOR% 3 7 20}
     //grant_hla'1{%PALADIN_SMITE_UNDEAD%}
     //restrict_hla'1~hla=>{%PALADIN_SMITE_UNDEAD% num_allowed=>3}
     k.kit_proficiency_longsword=3

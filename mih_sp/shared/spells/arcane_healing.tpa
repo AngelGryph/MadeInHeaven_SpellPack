@@ -16,34 +16,31 @@ BEGIN
 
     ACTION_FOR_EACH idsname IN CLERIC_CURE_LIGHT_WOUNDS CLERIC_SLOW_POISON CLERIC_CURE_DISEASE CLERIC_CURE_SERIOUS_WOUNDS CLERIC_CURE_CRITICAL_WOUNDS CLERIC_NEUTRALIZE_POISON CLERIC_MASS_CURE
     BEGIN
-      OUTER_TEXT_SPRINT oldname EVAL "%%idsname%%"
-
       OUTER_PATCH_SAVE new_ids "%idsname%"
       BEGIN
         REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH "CLERIC_" "ARCANE_"
       END
 
-      COPY_EXISTING - "%oldname%.spl" "%workspace%"
-        LAUNCH_PATCH_FUNCTION SPL_read_level
-	  RET
-	  level		= value
-	END
+      OUTER_TEXT_SPRINT spell EVAL "%%idsname%%"
 
-      LAUNCH_ACTION_FUNCTION add_spell_to_ids
+      COPY_EXISTING - "%spell%.spl" "%workspace%"
+	LPF struct_get STR_VAR arguments=level RET level=value END
+
+      LAUNCH_ACTION_FUNCTION spl_resolve_ids
         INT_VAR
 	level
-	type		= 4
         STR_VAR
-        idsname		= "%new_ids%"
+        ids	= "%new_ids%"
+	type	= "class"
 	RET
-	newname
+	resref
       END
 
-      LAUNCH_ACTION_FUNCTION clone_spell
-        STR_VAR
-	spell		= "%oldname%=>%newname%"
-	editstring	= ~spell_type=>"wizard" priest_type=>0 casting_sound=>"CAS_M07"~
-      END
+      spl.copy[%spell%=>%resref%]
+      [
+	m_type:="wizard"
+	casting_sound:="CAS_M07"
+      ]
     END
   END
 END	// arcane_healing

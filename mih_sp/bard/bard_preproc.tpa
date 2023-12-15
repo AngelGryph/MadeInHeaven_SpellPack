@@ -2,27 +2,27 @@ DEFINE_ACTION_FUNCTION bard_preproc
 BEGIN
   // Ensure existing and unique clab- and lua tables
 
-  LAUNCH_ACTION_FUNCTION make_clabs_unique END
-  LAUNCH_ACTION_FUNCTION make_luas_unique END
+  LAUNCH_ACTION_FUNCTION kit_clab_initialize END
+  LAUNCH_ACTION_FUNCTION kit_baseline_lua END
 
 
   // Create innate version of Friends
 
-  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
-    level		= 1
-    type		= 4
+    level	= 1
     STR_VAR
-    idsname		= "BARD_FRIENDS"
+    ids		= "BARD_FRIENDS"
+    type	= "class"
     RET
-    newname
+    resref
   END
 
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "spwi107=>%newname%"
-    editstring	= ~spell_type=>"innate" patch_ability_inline=>"ability_icon_loc=>4 casting_time=>1"~
-  END
+  spl.copy[spwi107=>%resref%]
+  [
+    m_type:="innate"
+    m.ab.alter{s_location:="innate" s_casting_time=1}
+  ]
 END	// bard_preproc
 
 

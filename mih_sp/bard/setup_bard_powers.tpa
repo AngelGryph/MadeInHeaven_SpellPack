@@ -6,14 +6,16 @@ BEGIN
     tra		= "bard_powers"
   END
 
+
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
     file	= "arcane_healing"
     locbase	= "shared/spells"
   END
 
-  OUTER_SET macro_spellcodes_read=0
-  LAUNCH_ACTION_MACRO read_in_spellcodes
+
+  LAM data_spell_resrefs
+
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR

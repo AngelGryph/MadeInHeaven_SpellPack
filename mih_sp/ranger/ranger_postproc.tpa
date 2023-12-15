@@ -2,25 +2,17 @@ DEFINE_ACTION_FUNCTION ranger_postproc
 BEGIN
   // 3.5e-stype spell table
 
-  LAUNCH_ACTION_FUNCTION install
-    STR_VAR
-    file		= "mxsplran.2da"
-    location		= "tables"
-  END
+  COPY "%MOD_FOLDER%/%component_loc%/tables/mxsplran.2da" "override"
 
 
   // Make ranger's Charm Animal better with level
 
-  MAKE_PATCH
-    level_based_blocks=>"if this>19 then -1 else this+2"
-    patch_effect_inline=>~match=>"save_vs_spell or save_vs_death or save_vs_polymorph or save_vs_breath or save_vs_wands" save_bonus=>"0 - ability_true_level / 2"~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "RANGER_CHARM_ANIMAL"
-    edits	= "patch_data"
-  END
+  spl.edit[%RANGER_CHARM_ANIMAL%]
+  [
+    m.ab.delete{s_level>1}
+    m.ab.clone{s_level=entry_index*2+1|number:i=10}
+    m.ab_fx.alter{s_savebonus=(p_level < 3)?0:(0 - ((p_level - 1) / 2))|match="s_save_vs_spell=1"}
+  ]
 END	// ranger_postproc
 
 
