@@ -11,6 +11,12 @@ INCLUDE "%MOD_FOLDER%/%sfo_library_path%/sfo_init.tpc"
 
 // Load additional library files.
 
+ACTION_BASH_FOR "%MOD_FOLDER%/third_party/lib" ".*\.tp[ach]"
+BEGIN
+  PRINT "Loading third_party library %BASH_FOR_FILESPEC%..."
+  INCLUDE "%BASH_FOR_FILESPEC%"
+END
+
 ACTION_BASH_FOR "%MOD_FOLDER%/lib" "lib_.*\.tp[ach]"
 BEGIN
   PRINT "Loading library %BASH_FOR_FILESPEC%..."
