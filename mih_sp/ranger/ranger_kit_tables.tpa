@@ -7,12 +7,12 @@ BEGIN
     k.kit_remove_powers{spcl311}
     k.kit_grant_powers{spcl311 1 2 5}
     k.kit_apply_powers{mh#divcl 5 1 8}
-    k.kit_proficiency_dagger=3
-    k.kit_proficiency_shortsword=3
-    k.kit_proficiency_scimitarwakisashininjato=3
-    k.kit_proficiency_longbow=3
-    k.kit_proficiency_shortbow=3
-    k.kit_proficiency_crossbow=3
+    k_dagger=3
+    k_shortsword=3
+    k_scimitarwakisashininjato=3
+    k_longbow=3
+    k_shortbow=3
+    k_crossbow=3
   ]
 
 
@@ -31,9 +31,9 @@ BEGIN
     k.kit_remove_powers{spcl311}
     k.kit_grant_powers{spcl311 1 2 5}
     k.kit_apply_powers{mh#divcl 5 1 8}
-    k.kit_proficiency_longbow=3
-    k.kit_proficiency_shortbow=3
-    k.kit_proficiency_crossbow=3
+    k_longbow=3
+    k_shortbow=3
+    k_crossbow=3
   ]
 END	// ranger_kit_tables
 
