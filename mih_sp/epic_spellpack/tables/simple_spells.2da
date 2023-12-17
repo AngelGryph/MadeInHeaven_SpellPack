@@ -1,11 +1,9 @@
-2DA V1.0
-*
-RESREF		PROJ		HALF
-mh#chmys	*		n
-mh#mstrm	*		n
-mh#iolla	*		dd
-mh#iollb	*		n
-mh#intda	*		n
-mh#intde	*		n
+resref		projectile
+mh#chmys	*
+mh#mstrm	*
+mh#iolla	*
+mh#iollb	*
+mh#intda	*
+mh#intde	*
 
 

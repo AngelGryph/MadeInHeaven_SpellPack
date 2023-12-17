@@ -22,8 +22,21 @@ BEGIN
 
     spl.edit[%CLERIC_LIGHTNING_STORM%]
     [
-      m.adfx.alter{s_dicenumber/=2 save_vs_spell=0 save_vs_breath=0 save_vs_poison=0 save_vs_wand=0 save_vs_polymorph=0|match="opcode=12"}
-      m.adfx.clone{s_dicenumber+=(p_level MODULO 2) save_vs_spell=0 save_vs_breath=0 save_vs_poison=0 save_vs_wand=0 save_vs_polymorph=0|match="opcode=12"}
+      m.adfx.alter{s_dicenumber/=2|match="opcode=12"}
+      m.adfx.clone{s_dicenumber+=(p_level MODULO 2) s_save_vs_spell=0 s_save_vs_breath=0 s_save_vs_poison=0 s_save_vs_wand=0 s_save_vs_polymorph=0|match="s_opcode=12"}
+    ]
+
+
+    // Hallow
+    // Unhallow
+    //
+    // The turning bonus opcode does not work on old engine,
+    // turn it into a caster level bonus for clerics.
+
+    eff.edit[mh#turn4]
+    [
+      m_opcode=191
+      m_parameter2=1
     ]
   END
 

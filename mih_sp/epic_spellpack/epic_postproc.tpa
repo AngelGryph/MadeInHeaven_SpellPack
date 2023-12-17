@@ -2,35 +2,25 @@ DEFINE_ACTION_FUNCTION epic_postproc
 BEGIN
   // Create Algarth's Embattlement innates
 
-  MAKE_PATCH
-    say_name=>28
-    icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
-    patch_ability_inline=>~ability_icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"~
-    patch_effect_inline'1=>~match=>"opcode = 258" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"~
-    patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"~
-  END
-
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "spwi420d=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"
-    edits	= "patch_data"
-  END
+  spl.copy[spwi420d=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d]
+  [
+    m_name:=@28
+    m_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
+    m.ab.alter{s_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"}
+    m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"|match="s_opcode = 258"}
+    m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"|match="s_opcode = 172"}
+  ]
 
   ACTION_IF enhanced_edition
   BEGIN
-    MAKE_PATCH
-      say_name=>26
-      icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
-      patch_ability_inline=>~ability_icon=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"~
-      patch_effect_inline'1=>~match=>"opcode = 260" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"~
-      patch_effect_inline'2=>~match=>"opcode = 172" resource=>"%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%p"~
-    END
-
-    LAUNCH_ACTION_FUNCTION clone_spell
-      STR_VAR
-      spell	= "spwi420p=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%p"
-      edits	= "patch_data"
-    END
+    spl.copy[spwi420d=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%p]
+    [
+      m_name:=@28
+      m_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
+      m.ab.alter{s_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"}
+      m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"|match="s_opcode = 260"}
+      m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"|match="s_opcode = 172"}
+    ]
 
     OUTER_SPRINT algarths_embattlement_title @28
     OUTER_SPRINT add_algarths_embattlement_label @30
@@ -50,32 +40,35 @@ BEGIN
 
   // Set correct string for Elminster's Effulgent Epuration
 
-  OUTER_SET str_ref = RESOLVE_STR_REF(@25)
-
-  MAKE_PATCH
-    patch_effect_inline=>~match=>"opcode = 139" parameter1=>%str_ref%~
-  END
+  spl.edit[%HLA_WIZARD_EFFULGENT_EPURATION%]
+  [
+    m.ab_fx.alter{s_parameter1=RESOLVE_STR_REF(@25)|match="s_opcode = 139"}
+  ]
     
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "%HLA_WIZARD_EFFULGENT_EPURATION%"
-    edits	= "patch_data"
-  END
-
 
   // Set correct string for Interdiction
 
-  OUTER_SET str_ref = RESOLVE_STR_REF(@14)
+  spl.edit[mh#intda]
+  [
+    m.ab_fx.alter{s_parameter1=RESOLVE_STR_REF(@14)|match="s_opcode = 139"}
+  ]
 
-  MAKE_PATCH
-    patch_effect_inline=>~match=>"opcode = 139" parameter1=>%str_ref%~
-  END
-    
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "mh#intda"
-    edits	= "patch_data"
-  END
+
+  // Apply CamDawg's patches to certain spells
+
+  COPY_EXISTING "%HLA_WIZARD_CHOSEN_OF_MYSTRA%.spl" "override"
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_disease_arrays" END
+
+  COPY_EXISTING "%HLA_CLERIC_HEALTH_BLESSING%.spl" "override"
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_poison_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_disease_arrays" END
+    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_poison_resistance_arrays" END
+    BUT_ONLY_IF_IT_CHANGES
+
+
+  // Append Algarth's Embattlement to contingx
+
+  LAF add_spell_to_contingx STR_VAR ids = "HLA_WIZARD_ALGARTHS_EMBATTLEMENT" END
 END
 
 

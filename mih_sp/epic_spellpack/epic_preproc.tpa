@@ -1,50 +1,9 @@
 DEFINE_ACTION_FUNCTION epic_preproc
 BEGIN
-  // Ensure separate HLA tables for mage kits
-  // (default all use luMa0.2da, except sorcerer in EE)
+  // Ensure existing and unique clab- and lua tables
 
-  ACTION_CLEAR_ARRAY mage_kits_hla_tables
-
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY mage_kits_hla_tables
-  BEGIN
-    "abjurer"		=> "Ma1"
-    "conjurer"		=> "Ma2"
-    "diviner"		=> "Ma3"
-    "enchanter"		=> "Ma4"
-    "illusionist"	=> "Ma5"
-    "invoker"		=> "Ma6"
-    "necromancer"	=> "Ma7"
-    "transmuter"	=> "Ma8"
-    "wildmage"		=> "Ma9"
-    "sorcerer"		=> "So0"
-  END
-
-  ACTION_PHP_EACH mage_kits_hla_tables AS kit => table
-  BEGIN
-    LAUNCH_ACTION_FUNCTION read_table_entry
-      INT_VAR
-      colnum	= 1
-      STR_VAR
-      file	= "luabbr"
-      row	= "%kit%"
-      RET
-      value
-    END
-
-    ACTION_IF "%value%" STRING_EQUAL_CASE "Ma0"
-    BEGIN
-      COPY_EXISTING "luMa0.2da" "override/lu%table%.2da"
-
-      LAUNCH_ACTION_FUNCTION write_table_entry
-        INT_VAR
-        colnum	= 1
-        STR_VAR
-	file		= "luabbr"
-        row		= "%kit%"
-	arguments	= "%table%"
-      END
-    END
-  END
+  LAUNCH_ACTION_FUNCTION kit_clab_initialize END
+  LAUNCH_ACTION_FUNCTION kit_baseline_lua END
 END	// epic_preproc
 
 

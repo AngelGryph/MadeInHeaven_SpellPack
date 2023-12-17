@@ -321,13 +321,13 @@ BEGIN
     edits
     locbase
   END
-	
-  ACTION_IF "%vvc%" STRING_COMPARE_CASE "*"
+
+  ACTION_IF "%vvc%" STRING_COMPARE "*"
   BEGIN
     LAUNCH_ACTION_FUNCTION eff_make
       STR_VAR
-      effect	= "%resref%"
-      edits	= ~m_opcode=67 m_timing=1 m_parameter1=5 m_resource:="%resref%" m_resource2:="%VVC%"~
+      eff	= "%resref%"
+      edits	= ~m_opcode=67 m_timing=1 m_parameter1=5 m_resource:="%resref%" m_resource2:="%vvc%"~
     END
   END
 END	// __handle_simple_creatures

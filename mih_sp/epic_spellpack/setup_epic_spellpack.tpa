@@ -5,18 +5,19 @@ BEGIN
     file	= "epic_preproc"
   END
 
+
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     copy_files	= ""
     tra		= "epic_spellpack"
   END
 
-  OUTER_SET macro_spellcodes_read=0
-  LAUNCH_ACTION_MACRO read_in_spellcodes
+  LAM data_spell_resrefs
+
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
-    file	= "arcane_hla_tables divine_hla_tables epic_postproc"
+    file	= "arcane_hla_tables divine_hla_tables epic_postproc epic_compat"
     tra		= "epic_spellpack"
   END
 END	// setup_epic_spellpack

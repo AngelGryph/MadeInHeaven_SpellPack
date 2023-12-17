@@ -1,18 +1,5 @@
 DEFINE_ACTION_FUNCTION divine_postproc
 BEGIN
-  // Hallow/Unhallow's turning bonus does not work on old engine,
-  // turn it into a caster level bonus for clerics
-
-  ACTION_IF NOT enhanced_edition
-  BEGIN
-    eff.edit[mh#turn4]
-    [
-      m_opcode:=191
-      m_parameter2:=1
-    ]
-  END
-
-
   // Apply CamDawg's patches to certain spells
 
   COPY_EXISTING "%CLERIC_SUPERHEROISM%.spl" "override"
