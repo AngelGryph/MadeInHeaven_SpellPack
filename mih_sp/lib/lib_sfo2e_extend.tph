@@ -1,0 +1,127 @@
+DEFINE_ACTION_FUNCTION kit_grant_apply_hla//internal
+  INT_VAR
+  num_allowed		= 20
+  min_level		= 1
+  max_level		= 99
+  STR_VAR
+  arguments		= ""
+  struct		= ""
+  prefix		= ""
+  prerequisite		= "*"
+  excluded_by		= "*"
+  alignment_restrict	= "*"
+  RET_ARRAY
+  struct
+BEGIN
+  LAF array_copy STR_VAR array="%struct%" RET_ARRAY struct=array END
+
+  OUTER_TEXT_SPRINT lu_file EVAL "lu%%struct%_hla_abbrev%"
+
+  COPY_EXISTING "%lu_file%.2da" override
+    COUNT_2DA_COLS colcount
+    READ_2DA_ENTRIES_NOW lu_data colcount
+
+    // find an empty row
+    empty_row="-1"
+    FOR (row=0;row<lu_data;++row) BEGIN
+      READ_2DA_ENTRY_FORMER lu_data row 1 ability
+      PATCH_IF "%ability%" STRING_EQUAL "*"
+      BEGIN
+        empty_row=row
+        row=lu_data
+      END
+    END
+
+    // if there isn't one, add one
+    PATCH_IF empty_row<0
+    BEGIN
+      SPRINT line "%lu_data%"
+      FOR (col=1;col<colcount;++col)
+      BEGIN
+        SPRINT line "%line% *"
+      END
+      insert_point=BUFFER_LENGTH
+      INSERT_BYTES insert_point (STRING_LENGTH "%line%")
+      WRITE_ASCIIE insert_point "%line%"
+      empty_row=lu_data
+    END
+
+    // add the new power
+    TO_UPPER resref
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 1 "%prefix%_%arguments%"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 2 "*"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 3 "*"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 4 "%min_level%"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 5 "%max_level%"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 6 "%num_allowed%"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 7 "%prerequisite%"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 8 "%excluded_by%"
+    SET_2DA_ENTRY_LATER lu_data_new empty_row 9 "%alignment_restrict%"
+    SET_2DA_ENTRIES_NOW lu_data_new colcount
+
+    // tidy up
+    PRETTY_PRINT_2DA
+    BUT_ONLY
+END	// kit_grant_apply_hla
+
+
+DEFINE_DIMORPHIC_FUNCTION kit_grant_hla
+  INT_VAR
+  num_allowed		= 20
+  min_level		= 1
+  max_level		= 99
+  STR_VAR
+  arguments		= ""
+  struct		= ""
+  prerequisite		= "*"
+  excluded_by		= "*"
+  alignment_restrict	= "*"
+  RET_ARRAY
+  struct
+BEGIN
+  LAUNCH_ACTION_FUNCTION kit_grant_apply_hla
+    INT_VAR
+    num_allowed
+    min_level
+    max_level
+    STR_VAR
+    prefix		= "GA"
+    arguments
+    struct
+    prerequisite
+    excluded_by
+    alignment_restrict
+  END
+END
+
+
+DEFINE_DIMORPHIC_FUNCTION kit_apply_hla
+  INT_VAR
+  num_allowed		= 20
+  min_level		= 1
+  max_level		= 99
+  STR_VAR
+  arguments		= ""
+  struct		= ""
+  prerequisite		= "*"
+  excluded_by		= "*"
+  alignment_restrict	= "*"
+  RET_ARRAY
+  struct
+BEGIN
+  LAUNCH_ACTION_FUNCTION kit_grant_apply_hla
+    INT_VAR
+    num_allowed
+    min_level
+    max_level
+    STR_VAR
+    prefix	= "AP"
+    arguments
+    struct
+    prerequisite
+    excluded_by
+    alignment_restrict
+  END
+END
+
+

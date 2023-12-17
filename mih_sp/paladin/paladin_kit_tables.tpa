@@ -7,10 +7,8 @@ BEGIN
     k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
     k.kit_apply_powers{mh#palim 1,mh#divcl 5 1 8}
     k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_EVIL% 1,%PALADIN_CURE_DISEASE% 2 4 6,%PALADIN_DIVINE_FAVOR% 3 7 20,%PALADIN_LAY_ON_HANDS% 7 7 30}
-    //k.kit_grant_hlas{%PALADIN_SMITE_EVIL%}
-    //k.kit_grant_hlas{"%PALADIN_LAY_ON_HANDS%}
-    //k.kit_restrict_hlas{%PALADIN_SMITE_EVIL% num_allowed=>3} 
-    //k.kit_restrict_hlas{%PALADIN_LAY_ON_HANDS% num_allowed=>3}
+    k.kit_grant_hla{%PALADIN_SMITE_EVIL%|num_allowed:i=3}
+    k.kit_grant_hla{%PALADIN_LAY_ON_HANDS%|num_allowed:i=3}
     k_longsword=3
     k_bastardsword=3
     k_twohandedsword=3
@@ -28,8 +26,7 @@ BEGIN
     k.kit_remove_powers{%PALADIN_DETECT_EVIL%,%PALADIN_PROTECTION_FROM_EVIL%}
     k.kit_apply_powers{mh#divcl 5 1 8}
     k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_EVIL% 1,%PALADIN_DIVINE_FAVOR% 3 7 20}
-    //k.kit_grant_hlas{%PALADIN_SMITE_EVIL%}
-    //k.kit_restrict_hlas~hla{%PALADIN_SMITE_EVIL% num_allowed=>3}
+    k.kit_grant_hla{%PALADIN_SMITE_EVIL% 3}
     k_longsword=3
     k_bastardsword=3
     k_twohandedsword=3
@@ -47,8 +44,7 @@ BEGIN
     k.kit_remove_powers{%PALADIN_DETECT_EVIL%,%PALADIN_PROTECTION_FROM_EVIL%}
     k.kit_apply_powers{mh#palim 1,mh#divcl 5 1 8}
     k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_UNDEAD% 1,%PALADIN_DIVINE_FAVOR% 3 7 20}
-    //grant_hla'1{%PALADIN_SMITE_UNDEAD%}
-    //restrict_hla'1~hla=>{%PALADIN_SMITE_UNDEAD% num_allowed=>3}
+    k.kit_grant_hla{%PALADIN_SMITE_UNDEAD%|num_allowed:i=3}
     k_longsword=3
     k_bastardsword=3
     k_twohandedsword=3
@@ -67,8 +63,7 @@ BEGIN
     [
       k.kit_apply_powers{mh#divcl 5 1 8}
       k.kit_grant_powers{%BLACKGUARD_SMITE_GOOD% 1}
-      //k.kit_grant_hlas{%BLACKGUARD_SMITE_GOOD%}
-      //k.kit_restrict_hlas{hla=>"%BLACKGUARD_SMITE_GOOD%" num_allowed=>3}
+      k.kit_grant_hla{%BLACKGUARD_SMITE_GOOD%|num_allowed:i=3}
       k_longsword=3
       k_bastardsword=3
       k_twohandedsword=3
