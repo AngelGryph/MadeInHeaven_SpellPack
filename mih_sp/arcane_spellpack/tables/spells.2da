@@ -1,36 +1,36 @@
-idsname					level	name	desc	type	idsnum	scroll	projectile	seq
-WIZARD_FROST_FINGERS			1	60	61	wizard	*	y	mh#frost	y
-WIZARD_BARRIER				1	22	23	wizard	*	y	*		y
-WIZARD_SPARK_SHOWER			1	0	1	wizard	*	y	*		y
-WIZARD_SEEKING				2	2	3	wizard	*	y	*		y
-WIZARD_SUMMON_CATS			2	67	68	wizard	*	y	*		y
-WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	wizard	*	y	*		y
-WIZARD_HEROISM				3	6	7	wizard	*	y	*		y
-WIZARD_BLINK				3	8	9	wizard	*	y	*		y
-WIZARD_SCINTILLATING_SPHERE		3	10	11	wizard	*	y	mh#scnt1	y
-WIZARD_MINOR_MALISON			3	12	13	wizard	*	y	*		y
-WIZARD_GUST_OF_WIND			3	76	77	wizard	*	y	mh#gustw	y
-WIZARD_ALACRITY				3	54	55	wizard	*	y	*		y
-WIZARD_IRON_MAIDEN			4	14	15	wizard	*	y	*		y
-WIZARD_SLUMBER				4	16	17	wizard	*	y	*		y
-WIZARD_RARYS_MNEMONIC_ENHANCER		4	18	19	wizard	*	y	*		n
-WIZARD_EVARDS_BLACK_TENTACLES		4	20	21	wizard	*	y	mh#evblt	y
-WIZARD_SUPERHEROISM			5	24	25	wizard	*	y	*		y
-WIZARD_SPELL_MATRIX			5	26	27	wizard	*	y	*		n
-WIZARD_RAMAZITHS_SLIME_SUMMONS		5	45	46	wizard	*	y	*		y
-WIZARD_SNILLOCS_MAJOR_MISSILE		5	52	53	wizard	*	y	mh#mjmis	y
-WIZARD_MORDENKAINENS_LUCUBRATION	6	28	29	wizard	*	y	*		n
-WIZARD_MIRAGE_ARCANA			6	78	79	wizard	*	y	*		y
-WIZARD_FAERIE_SWORD			7	32	33	wizard	*	y	*		y
-WIZARD_DOOM_LEGION			7	88	89	wizard	*	y	*		y
-WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY	8	38	39	wizard	*	y	*		y
-WIZARD_POLAR_RAY			8	40	41	wizard	*	y	*		y
-WIZARD_SUNBURST				8	56	57	wizard	*	y	*		y
-WIZARD_MASS_CHARM			8	30	31	wizard	*	y	*		y
-WIZARD_SHOOTING_STARS			8	65	66	wizard	*	y	*		y
-WIZARD_DEVASTATE			8	86	87	wizard	*	y	*		y
-WIZARD_WEB_OF_LIGHTNING			8	90	91	wizard	*	y	*		y
-WIZARD_WEIRD				9	58	59	wizard	*	y	*		y
-WIZARD_FORESIGHT			9	63	64	wizard	*	y	*		y
+idsname					level	name	desc	type	idsnum	scroll	projectile
+WIZARD_FROST_FINGERS			1	60	61	wizard	*	y	mh#frost
+WIZARD_BARRIER				1	22	23	wizard	*	y	*
+WIZARD_SPARK_SHOWER			1	0	1	wizard	*	y	*
+WIZARD_SEEKING				2	2	3	wizard	*	y	*
+WIZARD_SUMMON_CATS			2	67	68	wizard	*	y	*
+WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	wizard	*	y	*
+WIZARD_HEROISM				3	6	7	wizard	*	y	*
+WIZARD_BLINK				3	8	9	wizard	*	y	*
+WIZARD_SCINTILLATING_SPHERE		3	10	11	wizard	*	y	mh#scnt1
+WIZARD_MINOR_MALISON			3	12	13	wizard	*	y	*
+WIZARD_GUST_OF_WIND			3	76	77	wizard	*	y	mh#gustw
+WIZARD_ALACRITY				3	54	55	wizard	*	y	*
+WIZARD_IRON_MAIDEN			4	14	15	wizard	*	y	*
+WIZARD_SLUMBER				4	16	17	wizard	*	y	*
+WIZARD_RARYS_MNEMONIC_ENHANCER		4	18	19	wizard	*	y	*
+WIZARD_EVARDS_BLACK_TENTACLES		4	20	21	wizard	*	y	mh#evblt
+WIZARD_SUPERHEROISM			5	24	25	wizard	*	y	*
+WIZARD_SPELL_MATRIX			5	26	27	wizard	*	y	*
+WIZARD_RAMAZITHS_SLIME_SUMMONS		5	45	46	wizard	*	y	*
+WIZARD_SNILLOCS_MAJOR_MISSILE		5	52	53	wizard	*	y	mh#mjmis
+WIZARD_MORDENKAINENS_LUCUBRATION	6	28	29	wizard	*	y	*
+WIZARD_MIRAGE_ARCANA			6	78	79	wizard	*	y	*
+WIZARD_FAERIE_SWORD			7	32	33	wizard	*	y	*
+WIZARD_DOOM_LEGION			7	88	89	wizard	*	y	*
+WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY	8	38	39	wizard	*	y	*
+WIZARD_POLAR_RAY			8	40	41	wizard	*	y	*
+WIZARD_SUNBURST				8	56	57	wizard	*	y	*
+WIZARD_MASS_CHARM			8	30	31	wizard	*	y	*
+WIZARD_SHOOTING_STARS			8	65	66	wizard	*	y	*
+WIZARD_DEVASTATE			8	86	87	wizard	*	y	*
+WIZARD_WEB_OF_LIGHTNING			8	90	91	wizard	*	y	*
+WIZARD_WEIRD				9	58	59	wizard	*	y	*
+WIZARD_FORESIGHT			9	63	64	wizard	*	y	*
 
 

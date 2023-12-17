@@ -342,7 +342,7 @@ DEFINE_ACTION_FUNCTION __handle_simple_effects
   parameter3	= ~~
   parameter4	= ~~
   dicenum	= ~~
-  dicesize	= ~~
+  dicesz	= ~~
   resource	= ~~
   vvc		= ~~
 BEGIN

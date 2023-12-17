@@ -1,2 +1,2 @@
-idsname					level	name	desc	type	idsnum	scroll		half	projectile
-CONJURER_BANISHMENT			6	*	*	class	*	*		n	*
+idsname					level	name	desc	type	idsnum	scroll		projectile
+CONJURER_BANISHMENT			6	*	*	class	*	*		*

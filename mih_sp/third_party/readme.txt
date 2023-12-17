@@ -9,6 +9,7 @@ From Sword Coast Stratagems v35.4, updated December 16th 2023:
 
 iwdspells/	- Icewind Dale spells library, by DavidW.
 sfo2e/		- SFO 2e function library, by DavidW.
+                  Fixed bug with spl_copy and spl_make ignoring create_scroll.
 lua/		- LUA GUI editing functions, by DavidW.
 
 
