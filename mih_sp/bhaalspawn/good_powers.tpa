@@ -2,57 +2,53 @@ DEFINE_ACTION_FUNCTION good_powers
 BEGIN
   // Cure Light Wounds => Healing Touch
 
-  MAKE_PATCH
-    say_name=>0
-    icon=>"rr#bp1g"
-    delete_ability=>"ability_min_level > 1"
-    patch_ability_inline=>~ability_icon=>"rr#bp1g"~
-    clone_ability_inline=>~number_to_add=>19 ability_min_level=>"entry_index + 1"~
-    patch_effect_inline=>~match=>"opcode = 17" parameter1=>0 dicenum=>ability_true_level dicesize=>4~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "BHAALSPAWN_CURE_LIGHT_WOUNDS"
-    edits	= "patch_data"
-  END
+  spl.edit[%BHAALSPAWN_CURE_LIGHT_WOUNDS%]
+  [
+    m_name:=@0
+    m_icon:="rr#bp1g"
+    m.ab.delete{s_level > 1}
+    m.ab.alter{s_icon:="rr#bp1g"}
+    m.ab.clone{s_level=(entry_index + 2)|number:i=19}
+    m.ab_fx.alter{s_parameter1=0 s_dicenumber=p_level s_dicesize=4|match="s_opcode = 17"}
+  ]
 
 
   // Slow Poison => Purifying Touch
 
-  MAKE_PATCH
-    say_name=>1
-    icon=>"rr#bp2g"
-    delete_ability=>"ability_min_level > 1"
-    patch_ability_inline=>~ability_icon=>"rr#bp2g"~
-    clone_ability_inline=>~number_to_add=>4 ability_min_level=>"5 + entry_index * 5"~
-    add_effect_inline'1=>~match=>"ability_min_level > 4" number_to_add=>2 opcode=>"entry_index from [75 81]" target=>2 timing=>1 power=>2~
-    add_effect_inline'2=>~match=>"ability_min_level > 9" number_to_add=>2 opcode=>"entry_index from [77 79]" target=>2 timing=>1 power=>2~
-    add_effect_inline'3=>~match=>"ability_min_level > 14" opcode=>43 target=>2 timing=>1 power=>2~
-    add_effect_inline'4=>~match=>"ability_min_level > 19" opcode=>224 target=>2 timing=>1 power=>2~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "BHAALSPAWN_SLOW_POISON"
-    edits	= "patch_data"
-  END
+  spl.edit[%BHAALSPAWN_SLOW_POISON%]
+  [
+    m_name:=@1
+    m_icon:="rr#bp2g"
+    m.ab.delete{s_level > 1}
+    m.ab.alter{s_icon:="rr#bp2g"}
+    m.ab.clone{s_level=(entry_index * 5 + 5)|number:i=4}
+    PATCH_IF FILE_EXISTS_IN_GAME "#curepsn.spl"
+    BEGIN
+      m.ab_fx.clone{s_resource:="#curebld"|match=~"%s_resource%" == "#curepsn" AND p_level > 4~}
+      m.ab_fx.clone{s_resource:="#curedef"|match=~"%s_resource%" == "#curepsn" AND p_level > 4~}
+      m.ab_fx.clone{s_resource:="#curedis"|match=~"%s_resource%" == "#curepsn" AND p_level > 9~}
+      m.ab_fx.clone{s_resource:="#curefbm"|match=~"%s_resource%" == "#curepsn" AND p_level > 9~}
+      m.ab_fx.clone{s_resource:="#curestn"|match=~"%s_resource%" == "#curepsn" AND p_level > 14~}
+      m.ab_fx.clone{s_resource:="#cureldr"|match=~"%s_resource%" == "#curepsn" AND p_level > 19~}
+    END
+    ELSE
+    BEGIN
+      m.ab_fx.add{s_opcode=(entry_index = 0 ? 75 : 81) s_target=2 s_timing=1 s_power=2|number:i=2 match_parent="s_level > 4"}
+      m.ab_fx.add{s_opcode=(entry_index = 0 ? 77 : 79) s_target=2 s_timing=1 s_power=2|number:i=2 match_parent="s_level > 9"}
+      m.ab_fx.add{s_opcode=43 s_target=2 s_timing=1 s_power=2|match_parent="s_level > 14"}
+      m.ab_fx.add{s_opcode=224 s_target=2 s_timing=1 s_power=2|match_parent="s_level > 19"}
+    END
+  ]
 
 
   // Draw Upon Holy Might => Divine Might
 
-  MAKE_PATCH
-    say_name=>2
-    icon=>"rr#bp3g"
-    patch_ability_inline=>~ability_icon=>"rr#bp3g"~
-    clone_effect_inline=>~match=>"opcode = 132" number_to_add=>6 opcode=>"entry_index from [0 33 34 35 36 37]"~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "BHAALSPAWN_DRAW_UPON_HOLY_MIGHT"
-    edits	= "patch_data"
-  END
+  spl.edit[%BHAALSPAWN_DRAW_UPON_HOLY_MIGHT%]
+  [
+    m_name:=2
+    m_icon:="rr#bp3g"
+    m.ab.alter{s_icon:="rr#bp3g"}
+  ]
 END	// good_powers
 
 

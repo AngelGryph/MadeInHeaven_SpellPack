@@ -1,11 +1,6 @@
 DEFINE_ACTION_FUNCTION setup_bhaalspawn_powers
 BEGIN
-  LAUNCH_ACTION_FUNCTION install
-    STR_VAR
-    file	= "all"
-    postfix	= "bam"
-    location	= "graphics"
-  END
+  COPY_LARGE "%MOD_FOLDER%/%component_loc%/graphics" "override"
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR
