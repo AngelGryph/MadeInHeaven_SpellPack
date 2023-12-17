@@ -2,84 +2,89 @@ DEFINE_ACTION_FUNCTION specialist_preproc
 BEGIN
   // Ensure existing and unique clab- and lua tables
 
-  LAUNCH_ACTION_FUNCTION make_clabs_unique END
-  LAUNCH_ACTION_FUNCTION make_luas_unique END
+  LAUNCH_ACTION_FUNCTION kit_clab_initialize END
+  LAUNCH_ACTION_FUNCTION kit_baseline_lua END
 
 
   // Create Diviner version of Find Traps
 
-  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
     level		= 2
-    type		= 4
     STR_VAR
-    idsname		= "DIVINER_FIND_TRAPS"
+    ids			= "DIVINER_FIND_TRAPS"
+    type		= "class"
     RET
-    diviner_find_traps	= newname
+    resref
   END
 
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "sppr205=>%diviner_find_traps%"
-    editstring	= ~spell_type=>"wizard" patch_ability_inline=>"ability_icon_loc=>4"~
-  END
+  spl.copy[sppr205=>%resref%]
+  [
+    m_type:="wizard"
+    m.spl_enforce_school{divination}
+    m.ab.alter{s_location:="innate"}
+  ]
 
 
   // Create Enchanter version of Free Action
 
-  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
     level		= 4
-    type		= 4
     STR_VAR
-    idsname		= "ENCHANTER_FREE_ACTION"
+    ids			= "ENCHANTER_FREE_ACTION"
+    type		= "class"
     RET
-    enchanter_free_action	= newname
+    resref
   END
 
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "sppr403=>%enchanter_free_action%"
-    editstring	= ~spell_type=>"wizard" school=>"enchantment" patch_ability_inline=>"ability_icon_loc=>4" casting_time=>1~
-  END
+  spl.copy[sppr403=>%resref%]
+  [
+    m_type:="wizard"
+    m.spl_enforce_school{enchantment}
+    m.ab.alter{s_location:="innate"}
+  ]
 
 
   // Create Illusionist version of Detect Illusion
 
-  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
     level		= 3
-    type		= 4
     STR_VAR
-    idsname		= "ILLUSIONIST_DETECT_ILLUSION"
+    ids			= "ILLUSIONIST_DETECT_ILLUSION"
+    type		= "class"
     RET
-    illusionist_detect_illusion	= newname
+    resref
   END
 
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "spwi322=>%illusionist_detect_illusion%"
-    editstring	= ~school=>"illusion" patch_ability_inline=>"ability_icon_loc=>4"~
-  END
+  spl.copy[spwi322=>%resref%]
+  [
+    m_type:="wizard"
+    m.spl_enforce_school{illusion}
+    m.ab.alter{s_location:="innate"}
+  ]
 
 
   // Create Necromancer version of Negative Plane Protection
 
-  LAUNCH_ACTION_FUNCTION add_spell_to_ids
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
     level		= 4
-    type		= 4
     STR_VAR
-    idsname		= "NECROMANCER_NEGATIVE_PLANE_PROTECTION"
+    ids			= "NECROMANCER_NEGATIVE_PLANE_PROTECTION"
+    type		= "class"
     RET
-    necromancer_negative_plane_protection	= newname
+    resref
   END
 
-  LAUNCH_ACTION_FUNCTION clone_spell
-    STR_VAR
-    spell	= "sppr413=>%necromancer_negative_plane_protection%"
-    editstring	= ~school=>"necromancy" patch_ability_inline=>"ability_icon_loc=>4 ability_target=>5" patch_effect_inline=>"target=>1"~
-  END
+  spl.copy[sppr413=>%resref%]
+  [
+    m_type:="wizard"
+    m.spl_enforce_school{necromancy}
+    m.ab.alter{s_location:="innate" s_target:="caster"}
+    m.ab_fx.alter{s_target:="self"}
+  ]
 END	// specialist_preproc
 
 

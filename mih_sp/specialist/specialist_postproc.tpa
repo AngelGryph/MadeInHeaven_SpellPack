@@ -6,21 +6,18 @@ BEGIN
 
   ACTION_IF enhanced_edition
   BEGIN
-    MAKE_PATCH
-      add_effect_inline=>~number_to_add=>4 opcode=>332 target=>1 timing=>9 parameter1=>10 parameter2=>"entry_index + 1"~
-    END
+    spl.edit[mh#invem]
+    [
+      m.ab_fx.add{s_opcode=332 s_target:="self" s_timing=9 s_parameter1=10 s_parameter2=(%entry_index% + 1)|number:i=4}
+    ]
   END
   ELSE
   BEGIN
-    MAKE_PATCH
-      add_effect_inline=>~number_to_add=>4 opcode=>318 target=>1 timing=>9 parameter1=>10 parameter2=>"entry_index from [387 388 390 391]"~
-    END
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "mh#invem"
-    edits	= "patch_data"
+    spl.edit[mh#invem]
+    [
+      m.ab_fx.add{s_opcode=318 s_target:="self" s_timing=9 s_parameter1=10 s_parameter2=(%entry_index% + 387)|number:i=2}
+      m.ab_fx.add{s_opcode=318 s_target:="self" s_timing=9 s_parameter1=10 s_parameter2=(%entry_index% + 390)|number:i=2}
+    ]
   END
 END	// specialist_postproc
 

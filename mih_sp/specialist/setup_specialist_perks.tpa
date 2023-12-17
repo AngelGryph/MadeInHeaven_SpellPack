@@ -6,14 +6,15 @@ BEGIN
     tra		= "specialist_perks"
   END
 
+
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
     copy_files	= ""
     tra		= "specialist_perks"
   END
 
-  OUTER_SET macro_spellcodes_read=0
-  LAUNCH_ACTION_MACRO read_in_spellcodes
+  LAUNCH_ACTION_MACRO data_spell_resrefs
+
 
   LAUNCH_ACTION_FUNCTION run
     STR_VAR

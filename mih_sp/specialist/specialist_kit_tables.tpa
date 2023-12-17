@@ -2,21 +2,14 @@ DEFINE_ACTION_FUNCTION specialist_kit_tables
 BEGIN
   // Abjurer
   //
-  // 8th level	=> +1 saves vs. poison/paralyze/death
-  // 11th level	=> +1 AC
+  // 8th level	=> +1 AC and saves vs. death
+  // 11th level	=> +1 AC and saves vs. death
   // 14th level	=> Permanent Hold Immunity
 
-  MAKE_PATCH
-    apply_power'1=>"mh#abjsd 8"
-    apply_power'2=>"mh#abjac 11"
-    apply_power'3=>"mh#abjim 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "abjurer"
-    edits	= "patch_data"
-  END
+  kit.edit[ABJURER]
+  [
+    k.kit_apply_powers{mh#abjas 8 3 11,mh#abjim 14}
+  ]
 
 
   // Conjurer
@@ -24,15 +17,10 @@ BEGIN
   // 11th level	=> Banishment (1/day)
   // 14th level	=> Banishment (2/day)
 
-  MAKE_PATCH
-    grant_power=>"%CONJURER_BANISHMENT% 11 3 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "conjurer"
-    edits	= "patch_data"
-  END
+  kit.edit[CONJURER]
+  [
+    k.kit_grant_powers{%CONJURER_BANISHMENT% 11 3 14}
+  ]
 
 
   // Diviner
@@ -40,18 +28,11 @@ BEGIN
   // 11th level => Find Traps (3/day)
   // 14th level	=> Permanent Non-Detection
 
-  MAKE_PATCH
-    grant_power'1=>"%DIVINER_FIND_TRAPS% 11"
-    grant_power'2=>"%DIVINER_FIND_TRAPS% 11"
-    grant_power'3=>"%DIVINER_FIND_TRAPS% 11"
-    apply_power=>"mh#divim 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "diviner"
-    edits	= "patch_data"
-  END
+  kit.edit[DIVINER]
+  [
+    m.kit_grant_powers{%DIVINER_FIND_TRAPS%(3) 11}
+    m.kit_apply_powers{mh#divim 14}
+  ]
 
 
   // Enchanter
@@ -59,16 +40,11 @@ BEGIN
   // 11th level => Free Action (1/day)
   // 14th level	=> Permanent Charm Immunity
 
-  MAKE_PATCH
-    grant_power=>"%ENCHANTER_FREE_ACTION% 11"
-    apply_power=>"mh#encim 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "enchanter"
-    edits	= "patch_data"
-  END
+  kit.edit[ENCHANTER]
+  [
+    k.kit_grant_powers{%ENCHANTER_FREE_ACTION% 11}
+    k.kit_apply_powers{mh#encim 14}
+  ]
 
 
   // Illusionist
@@ -77,16 +53,10 @@ BEGIN
   // 11th level => Detect Illusion (1/day)
   // 14th level	=> Detect Illusion (2/day)
 
-  MAKE_PATCH
-    grant_power'1=>"%QUAYLE_INVISIBILITY% 8"
-    grant_power'2=>"%ILLUSIONIST_DETECT_ILLUSION% 11 3 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "illusionist"
-    edits	= "patch_data"
-  END
+  kit.edit[ILLUSIONIST]
+  [
+    k.kit_grant_powers{%QUAYLE_INVISIBILITY% 8,%ILLUSIONIST_DETECT_ILLUSION% 11 3 14}
+  ]
 
 
   // Invoker
@@ -95,15 +65,10 @@ BEGIN
   // 11th level	=> Elemental Mastery (+10% elemental resistance)
   // 14th level	=> Elemental Mastery (+10% elemental resistance)
 
-  MAKE_PATCH
-    apply_power=>"mh#invem 8 3 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "invoker"
-    edits	= "patch_data"
-  END
+  kit.edit[INVOKER]
+  [
+    k.kit_apply_powers{mh#invem 8 3 14}
+  ]
 
 
   // Necromancer
@@ -111,16 +76,10 @@ BEGIN
   // 11th level => Summon Ghast
   // 14th level => Negative Plane Protection
 
-  MAKE_PATCH
-    grant_power'1=>"%TIAX_SUMMON_GHAST% 11"
-    grant_power'2=>"%NECROMANCER_NEGATIVE_PLANE_PROTECTION% 14"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_kit
-    STR_VAR
-    kit		= "necromancer"
-    edits	= "patch_data"
-  END
+  kit.edit[NECROMANCER]
+  [
+    k.kit_grant_powers{%TIAX_SUMMON_GHAST% 11, %NECROMANCER_NEGATIVE_PLANE_PROTECTION% 14}
+  ]
 END	// specialist_kit_tables
 
 
