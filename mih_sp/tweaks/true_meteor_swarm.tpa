@@ -1,49 +1,28 @@
 DEFINE_ACTION_FUNCTION true_meteor_swarm
 BEGIN
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "WIZARD_METEOR_SWARM"
-    editstring	= "say_name=>10 say_description=>11"
-  END
+  spl.edit[%WIZARD_METEOR_SWARM%]
+  [
+    m_name:=@10
+    m_description:=@11
+  ]
 
-  LAUNCH_ACTION_FUNCTION edit_item
-    STR_VAR
-    item	= "scrl9t"
-    editstring	= "say_name=>10 say_description=>11"
-  END
+  itm.edit[scrl9t]
+  [
+    m_identified_name:=@10
+    m_identified_description:=@11
+  ]
 
-  LAUNCH_ACTION_FUNCTION install_spell
-    STR_VAR
-    spell	= "meteorsd"
-    location	= "spells"
-  END
+  COPY "%MOD_FOLDER%/%component_loc%/spells/meteorsd.spl" "override"
 
-  LAUNCH_ACTION_FUNCTION install_spell
-    STR_VAR
-    spell	= "meteors"
-    idsname	= "WIZARD_TRUE_METEOR_SWARM"
-    location	= "spells"
-    editstring	= "say_description=>12"
-    RET
-    newname
-  END
+  WIZARD_TRUE_METEOR_SWARM,WIZARD_TRUE_METEOR_SWARM_SCROLL=spl.copy[meteors=>WIZARD_TRUE_METEOR_SWARM|source_location="spells"]
+  [
+     m_description:=@12
+  ]
 
-  LAUNCH_ACTION_FUNCTION make_scroll_of_spell
-    STR_VAR
-    resref	= "%newname%"
-    scrollname	= "mh#metsw"
-    scrollicon	= "spwi911a"
-  END
-
-  MAKE_PATCH
-    literal=>~ADD_STORE_ITEM "mh#metsw" AFTER "scrl9t" #1 #1 #0 "identified" #2~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_store
-    STR_VAR
-    store	= "25spell"
-    edits	= "patch_data"
-  END
+  sto.edit[25spell]
+  [
+    m.item.clone{s_resref:="%WIZARD_TRUE_METEOR_SWARM_SCROLL%"|match=~"%s_resref%" == "scrl9t"~}
+  ]
 END
 
 

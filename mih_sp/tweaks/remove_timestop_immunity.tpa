@@ -1,19 +1,14 @@
 DEFINE_ACTION_FUNCTION remove_timestop_immunity
 BEGIN
-  LAUNCH_ACTION_FUNCTION edit_all_items
-    STR_VAR
-    editstring	=~delete_opcodes=>"310"~
-  END
+  PRINT "This may take a while, please be patient..."
 
-  LAUNCH_ACTION_FUNCTION edit_all_spells
-    STR_VAR
-    editstring	=~delete_opcodes=>"310"~
-  END
+  COPY_EXISTING_REGEXP "^.*\.\(itm\|spl\|cre\)$" "override"
+    LAUNCH_PATCH_FUNCTION DELETE_EFFECT
+      INT_VAR
+      match_opcode	= 310
+    END
 
-  LAUNCH_ACTION_FUNCTION edit_all_creatures
-    STR_VAR
-    editstring	=~delete_opcodes=>"310"~
-  END
+    BUT_ONLY_IF_IT_CHANGES
 END	// remove_timestop_immunity
 
 

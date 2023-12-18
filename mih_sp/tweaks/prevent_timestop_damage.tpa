@@ -1,37 +1,31 @@
 DEFINE_ACTION_FUNCTION prevent_timestop_damage
 BEGIN
-  MAKE_PATCH
-    clone_effect_inline'01=>~match=>"opcode=231" opcode=>33 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
-    clone_effect_inline'02=>~match=>"opcode=231" opcode=>34 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
-    clone_effect_inline'03=>~match=>"opcode=231" opcode=>35 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
-    clone_effect_inline'04=>~match=>"opcode=231" opcode=>36 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
-    clone_effect_inline'05=>~match=>"opcode=231" opcode=>37 duration=>duration/2 target=>8 parameter1=>20 parameter2=>0~
-    clone_effect_inline'06=>~match=>"opcode=231" opcode=>27 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'07=>~match=>"opcode=231" opcode=>27 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'08=>~match=>"opcode=231" opcode=>28 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'09=>~match=>"opcode=231" opcode=>29 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'10=>~match=>"opcode=231" opcode=>30 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'11=>~match=>"opcode=231" opcode=>31 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'12=>~match=>"opcode=231" opcode=>84 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'13=>~match=>"opcode=231" opcode=>85 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'14=>~match=>"opcode=231" opcode=>86 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'15=>~match=>"opcode=231" opcode=>87 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'16=>~match=>"opcode=231" opcode=>88 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'17=>~match=>"opcode=231" opcode=>89 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'18=>~match=>"opcode=231" opcode=>166 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'19=>~match=>"opcode=231" opcode=>173 duration=>duration/2 target=>8 parameter1=>100 parameter2=>1~
-    clone_effect_inline'20=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>13~
-    clone_effect_inline'21=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>55~
-    clone_effect_inline'22=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>134~
-    clone_effect_inline'23=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>209~
-    clone_effect_inline'24=>~match=>"opcode=231" opcode=>101 duration=>duration/2 target=>8 parameter1=>0 parameter2=>238~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell		= "spwi909 spwish17"
-    edits		= "patch_data"
-  END
+  spl.edit[spwi909 spwish17]
+  [
+    m.ab_fx.alter{s_opcode=33 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=34 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=35 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=36 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=37 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=27 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=28 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=29 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=30 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=31 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=84 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=85 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=86 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=87 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=88 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=89 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=166 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=173 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=13|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=55|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=134|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=209|match="s_opcode=231"}
+    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=238|match="s_opcode=231"}
+  ]
 END	// prevent_timestop_damage
 
 
