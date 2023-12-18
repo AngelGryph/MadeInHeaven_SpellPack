@@ -2,13 +2,22 @@ DEFINE_ACTION_FUNCTION divine_hla_tables
 BEGIN
   // Single- and multiclass clerics
 
-  kit.edit[CLERIC LATHANDER HELM TALOS CLERIC_MAGE CLERIC_THIEF CLERIC_RANGER FIGHTER_CLERIC FIGHTER_MAGE_CLERIC OHTYR OHTEMPUS|allow_missing:i=1]
+  kit.edit[CLERIC LATHANDER HELM TALOS CLERIC_MAGE CLERIC_THIEF CLERIC_RANGER FIGHTER_CLERIC FIGHTER_MAGE_CLERIC]
   [
     k.kit_apply_hla{%HLA_CLERIC_DIVINE_INSIGHT%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_CLERIC_INTERDICTION%|num_allowed:i=3}
     k.kit_grant_hla{%HLA_CLERIC_HEALTH_BLESSING%"|num_allowed:i=1}
   ]
 
+  ACTION_IF enhanced_edition
+  BEGIN
+    kit.edit[OHTYR OHTEMPUS]
+    [
+      k.kit_apply_hla{%HLA_CLERIC_DIVINE_INSIGHT%|num_allowed:i=1}
+      k.kit_grant_hla{%HLA_CLERIC_INTERDICTION%|num_allowed:i=3}
+      k.kit_grant_hla{%HLA_CLERIC_HEALTH_BLESSING%"|num_allowed:i=1}
+    ]
+  END
 
   // Single- and multiclass druids
 

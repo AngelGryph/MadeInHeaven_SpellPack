@@ -33,10 +33,10 @@ BEGIN
     END
     ELSE
     BEGIN
-      m.ab_fx.add{s_opcode=(entry_index = 0 ? 75 : 81) s_target=2 s_timing=1 s_power=2|number:i=2 match_parent="s_level > 4"}
-      m.ab_fx.add{s_opcode=(entry_index = 0 ? 77 : 79) s_target=2 s_timing=1 s_power=2|number:i=2 match_parent="s_level > 9"}
-      m.ab_fx.add{s_opcode=43 s_target=2 s_timing=1 s_power=2|match_parent="s_level > 14"}
-      m.ab_fx.add{s_opcode=224 s_target=2 s_timing=1 s_power=2|match_parent="s_level > 19"}
+      m.ab_fx.add{s_opcode=(entry_index = 0 ? 75 : 81) s_target=2 s_timing=1 s_power=2|number:i=2 match_parent="p_level > 4"}
+      m.ab_fx.add{s_opcode=(entry_index = 0 ? 77 : 79) s_target=2 s_timing=1 s_power=2|number:i=2 match_parent="p_level > 9"}
+      m.ab_fx.add{s_opcode=43 s_target=2 s_timing=1 s_power=2|match_parent="p_level > 14"}
+      m.ab_fx.add{s_opcode=224 s_target=2 s_timing=1 s_power=2|match_parent="p_level > 19"}
     END
   ]
 

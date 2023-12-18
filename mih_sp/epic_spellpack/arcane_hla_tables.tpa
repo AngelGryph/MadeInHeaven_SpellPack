@@ -2,18 +2,18 @@ DEFINE_ACTION_FUNCTION arcane_hla_tables
 BEGIN
   // Single-class mages only
 
-  kit.edit[MAGE ABJURER CONJURER DIVINER ENCHANTER ILLUSIONIST INVOKER NECROMANCER TRANSMUTER SORCERER WILDMAGE DRAGON_DISCIPLE|allow_missing:i=1]
+  kit.edit[MAGE ABJURER CONJURER DIVINER ENCHANTER ILLUSIONIST INVOKER NECROMANCER TRANSMUTER WILDMAGE]
   [
     k.kit_apply_powers{mh#chmys 24}
     k.kit_apply_hla{%HLA_WIZARD_ARCANE_INSIGHT%|num_allowed:i=3}
     k.kit_apply_hla{%HLA_WIZARD_CHOSEN_OF_MYSTRA%|prerequisite=AP_MH#CHMYS num_allowed:i=1}
-    k.kit_apply_hla{%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%|prerequisite=AP_SPCL930 num_allowed:i=1}
+    k.kit_apply_hla{%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%|prerequisite="AP_SPCL930" num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_EFFULGENT_EPURATION%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_IOULAUMS_LONGEVITY%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_MAGIC_MISSILE_STORM%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_NAZZERS_NULLIFICATION%|num_allowed:i=1}
-    k.kit_grant_hla{%HLA_WIZARD_SILVER_FIRE%|num_allowed:i=1}
+    k.kit_grant_hla{%HLA_WIZARD_SILVER_FIRE%|num_allowed:i=1 prerequisite="AP_%HLA_WIZARD_CHOSEN_OF_MYSTRA%"}
     k.kit_grant_hla{%HLA_WIZARD_TOLODINES_KILLING_WIND%|num_allowed:i=1}
   ]
 
@@ -23,15 +23,43 @@ BEGIN
   kit.edit[FIGHTER_MAGE MAGE_THIEF FIGHTER_MAGE_THIEF CLERIC_MAGE FIGHTER_MAGE_CLERIC]
   [
     k.kit_apply_hla{%HLA_WIZARD_ARCANE_INSIGHT%|num_allowed:i=3}
-    k.kit_apply_hla{%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%|prerequisite=AP_SPCL930 num_allowed:i=1}
+    k.kit_apply_hla{%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%|prerequisite="AP_SPCL930" num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_EFFULGENT_EPURATION%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_IOULAUMS_LONGEVITY%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_MAGIC_MISSILE_STORM%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_NAZZERS_NULLIFICATION%|num_allowed:i=1}
-    k.kit_grant_hla{%HLA_WIZARD_SILVER_FIRE%|num_allowed:i=1}
     k.kit_grant_hla{%HLA_WIZARD_TOLODINES_KILLING_WIND%|num_allowed:i=1}
   ]
+
+
+  // Sorcerer & Dragon Disciple
+
+  kit.edit[SORCERER]
+  [
+    k.kit_apply_hla{%HLA_WIZARD_ARCANE_INSIGHT%|num_allowed:i=3}
+    k.kit_apply_hla{%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%|prerequisite="AP_SPCL930" num_allowed:i=1}
+    k.kit_grant_hla{%HLA_WIZARD_EFFULGENT_EPURATION%|num_allowed:i=1}
+    k.kit_grant_hla{%HLA_WIZARD_IOULAUMS_LONGEVITY%|num_allowed:i=1}
+    k.kit_grant_hla{%HLA_WIZARD_MAGIC_MISSILE_STORM%|num_allowed:i=1}
+    k.kit_grant_hla{%HLA_WIZARD_NAZZERS_NULLIFICATION%|num_allowed:i=1}
+    k.kit_grant_hla{%HLA_WIZARD_TOLODINES_KILLING_WIND%|num_allowed:i=1}
+  ]
+
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    kit.edit[DRAGON_DISCIPLE]
+    [
+      k.kit_apply_hla{%HLA_WIZARD_ARCANE_INSIGHT%|num_allowed:i=3}
+      k.kit_apply_hla{%HLA_WIZARD_EXTRA_9TH_LEVEL_SPELL%|prerequisite="AP_SPCL930" num_allowed:i=1}
+      k.kit_grant_hla{%HLA_WIZARD_EFFULGENT_EPURATION%|num_allowed:i=1}
+      k.kit_grant_hla{%HLA_WIZARD_IOULAUMS_LONGEVITY%|num_allowed:i=1}
+      k.kit_grant_hla{%HLA_WIZARD_MAGIC_MISSILE_STORM%|num_allowed:i=1}
+      k.kit_grant_hla{%HLA_WIZARD_NAZZERS_NULLIFICATION%|num_allowed:i=1}
+      k.kit_grant_hla{%HLA_WIZARD_TOLODINES_KILLING_WIND%|num_allowed:i=1}
+    ]
+  END
 END	// arcane_hla_tables
 
 
