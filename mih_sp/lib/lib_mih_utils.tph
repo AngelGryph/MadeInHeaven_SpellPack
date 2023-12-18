@@ -147,3 +147,20 @@ DEFINE_PATCH_MACRO cd_immunity_magic_missile_arrays BEGIN
 END
 
 
+DEFINE_ACTION_FUNCTION copy_soundset
+  INT_VAR
+  overwrite	= 2
+  STR_VAR
+  src	= ""
+  dst   = ""
+BEGIN
+  OUTER_TEXT_SPRINT soundset "sounds"
+  OUTER_TEXT_SPRINT npc "%src%.cre"
+
+  LAUNCH_ACTION_MACRO READ_SOUNDSET
+
+  OUTER_TEXT_SPRINT npc "%dst%.cre"
+  LAUNCH_ACTION_MACRO WRITE_SOUNDSET
+END
+
+

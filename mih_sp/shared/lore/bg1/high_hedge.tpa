@@ -1,65 +1,61 @@
 DEFINE_ACTION_FUNCTION high_hedge
 BEGIN
+  // High Hedge
+  //
+  //
+  // Described in Volo's Guide to the Sword Coast.
+  //
+  // Thalantyr is both canocially and in-game a conjurer, yet his shop
+  // lacks the appropriate spell scrolls.  I add a bunch of scrolls from
+  // the conjuration school.
+  //
+  // Canonically, Thalantyr possesses a Staff of Power, but such an item is
+  // overpowered for BG1 so I add it and his Robe of the Good Archmagi only
+  // visually; he won't drop them if killed.
+  //
+  // Thalantyr is neutral good, so it's unlikely he goes around digging
+  // up grave sites to construct flesh golems.  Volo reports the tower is
+  // protected by some sort of invisible creature, so I change them to
+  // invisible stalkers.
+
+
   // Appropriate scrolls in shop
 
-  MAKE_PATCH
-    //remove_items=>"scrl75 scrl76 scrl87"
-    literal'1=>~ADD_STORE_ITEM "scrl95" AFTER "scrl94" #1 #0 #0 "identified" #3~
-    literal'2=>~ADD_STORE_ITEM "scrla3" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3~
-    literal'3=>~ADD_STORE_ITEM "scrl6e" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3~
-    literal'4=>~ADD_STORE_ITEM "scrl1l" AFTER "scrl1i" #1 #0 #0 "identified" #3~
-    literal'5=>~ADD_STORE_ITEM "scrl1t" AFTER "scrl1q" #1 #0 #0 "identified" #3~
-    literal'6=>~ADD_STORE_ITEM "scrl2a" BEFORE "wand08" #1 #0 #0 "identified" #1~
-    literal'7=>~ADD_STORE_ITEM "scrl6r" BEFORE "wand08" #1 #0 #0 "identified" #1~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_store
-    STR_VAR
-    store		= "highhedg"
-    edits		= "patch_data"
-  END
+  sto.edit[highhedg]
+  [
+    ADD_STORE_ITEM "scrl95" AFTER "scrl94" #1 #0 #0 "identified" #3
+    ADD_STORE_ITEM "scrla3" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3
+    ADD_STORE_ITEM "scrl6e" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3
+    ADD_STORE_ITEM "scrl1l" AFTER "scrl1i" #1 #0 #0 "identified" #3
+    ADD_STORE_ITEM "scrl1t" AFTER "scrl1q" #1 #0 #0 "identified" #3
+    ADD_STORE_ITEM "scrl2a" BEFORE "wand08" #1 #0 #0 "identified" #1
+    ADD_STORE_ITEM "scrl6r" BEFORE "wand08" #1 #0 #0 "identified" #1
+  ]
 
 
   // Cosmetic items on Thalantyr
 
   ACTION_IF NOT FILE_EXISTS_IN_GAME "staf12.itm"
   BEGIN
-    LAUNCH_ACTION_FUNCTION install_item
-      STR_VAR
-      item	= "staf12"
-      location	= "items"
-      locbase
-    END
+    COPY "%MOD_FOLDER%/shared/lore/items/staf12.itm" "override"
   END
 
-  MAKE_PATCH
-    add_items=>"staf12(weapon1) clck15(armor)"
-    remove_items=>"staf01 clck14"
-    patch_item_inline=>~match=>"item_resource is_in [staf12 clck15]" unstealable=>1 undroppable=>1~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_creature
-    STR_VAR
-    creature	= "%tutu_var%thalan"
-    edits	= "patch_data"
-  END
+  cre.edit[thalan]
+  [
+    m.cre_add_items{staf12(weapon1,unstealable,undropable) clck15(armor,unstealable,undropable)|replace:i=1}
+  ]
 
 
   // Replace Flesh Golems with Invisible Stalkers
 
-  MAKE_PATCH
-    script_override=>"none"
-    script_class=>"fgolem"
-    script_race=>"shout"
-    script_general=>"none"
-    script_default=>"wdasight"
-  END
-
-  LAUNCH_ACTION_FUNCTION clone_creature
-    STR_VAR
-    creature	= "%tutu_scriptbg%stalke=>%tutu_var%fgolem"
-    edits	= "patch_data"
-  END
+  cre.copy[%tutu_scriptbg%stalke=>fgolem]
+  [
+    m_script_override:="none"
+    m_script_class:="fgolem"
+    m_script_race:="shout"
+    m_script_general:="none"
+    m_script_default:="wdasight"
+  ]
 END	// high_hedge
 
 
