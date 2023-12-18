@@ -1,0 +1,62 @@
+DEFINE_ACTION_FUNCTION bg1_arcane_scrolls
+BEGIN
+  ACTION_IF is_bg1
+  BEGIN
+    // Barrier
+    // Slumber
+    //
+    // These are rare Old Empire spells, not easily understood by most
+    // wizards.  So these go in a place where one might find such rare
+    // spells; the vault of Candlekeep.
+
+    are.edit[%Candlekeep_Catacombs_L1Antechamber%]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BARRIER_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 1"~}
+      m.container_item.add{s_resref:="%WIZARD_SLUMBER_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 2"~}
+    ]
+
+
+    // Seeking
+    // Heroism
+    // Superheroism
+    //
+    // Rare spells jealously guarded by the elves.  Only way to get them
+    // is to get them from elves or find them in dungeons.
+
+    cre.edit[ogrema02]
+    [
+      m.cre_add_items{"%WIZARD_SEEKING_SCROLL%"}
+    ]
+
+    are.edit[%UlcasterRuins%]
+    [
+      m.container_item.add{s_resref:="%WIZARD_HEROISM_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Pile of Bodies"~}
+    ]
+
+    are.edit[%IsleofBalduranNDradeelsHouse%]
+    [
+      m.container_item.add{s_resref:="%WIZARD_SUPERHEROISM_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 2"~}
+    ]
+
+
+    // Iron Maiden
+    //
+    // This spell is exclusive to Harpers.  So let's put it into Gorion's
+    // room in Candlekeep.
+
+    are.edit[%Candlekeep_Library_L5%]
+    [
+      m.container_item.add{s_resref:="%WIZARD_IRON_MAIDEN_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 5"~}
+    ]
+
+
+    // Ramazith's Slime Summons
+    //
+    // This spell belongs to Ramazith, so it is found in his study.
+
+    are.edit[%NBaldursGate_RamazithsTower_L6%]
+    [
+      m.container_item.add{s_resref:="%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 9"~}
+    ]
+  END	// is_bg1
+END	// bg1_arcane_scrolls

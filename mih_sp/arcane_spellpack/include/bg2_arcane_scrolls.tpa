@@ -1,0 +1,103 @@
+DEFINE_ACTION_FUNCTION bg2_arcane_scrolls
+BEGIN
+  ACTION_IF is_bg2
+  BEGIN
+    // Barrier
+    // Slumber
+    // Devastate
+    //
+    // These are rare Old Empire spells, not easily understood by most
+    // wizards.  Let's put them in Spellhold.
+
+    are.edit[ar1515]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BARRIER_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Desk 1"~}
+      m.container_item.add{s_resref:="%WIZARD_SLUMBER_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Desk 1"~}
+      m.container_item.add{s_resref:="%WIZARD_DEVASTATE_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Desk 1"~}
+    ]
+
+
+    // Seeking
+    // Heroism
+    // Superheroism
+    // Faerie Sword
+    //
+    // Rare spells jealously guarded by the elves.  Only way to get them
+    // is to get them from elves, so let's give the low level ones to the
+    // temple in Suldanessenar and put a high level scroll in one of the
+    // houses..
+
+    sto.edit[suelf10]
+    [
+      ADD_STORE_ITEM "%WIZARD_SEEKING_SCROLL%" AFTER "scrl98" #1 #1 #0 "identified" #3
+      ADD_STORE_ITEM "%WIZARD_HEROISM_SCROLL%" AFTER "scrl1h" #1 #1 #0 "identified" #3
+      ADD_STORE_ITEM "%WIZARD_SUPERHEROISM_SCROLL%" AFTER "scrl2b" #1 #1 #0 "identified" #3
+    ]
+
+    are.edit[ar2810]
+    [
+      m.container_item.add{s_resref:="%WIZARD_FAERIE_SWORD_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Shelf 3"~}
+    ]
+
+
+    // Iron Maiden
+    //
+    // This spell is exclusive to Harpers, so let's put it in the
+    // stronghold at the Docks district.
+
+    are.edit[ar0309]
+    [
+      m.container_item.add{s_resref:="%WIZARD_IRON_MAIDEN_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Table 2"~}
+    ]
+
+
+    // Summon Cats
+    // Improved Magic Missile
+    // Ramazith's Slime Summons
+    //
+    // Rare spells from an unusual source.  Let's give them to
+    // the Pen & Parchment at the Adventurer's Market.
+
+    sto.edit[scrolls]
+    [
+      ADD_STORE_ITEM "%WIZARD_SUMMON_CATS_SCROLL%" AFTER "scrl98" #1 #1 #0 "identified" #3
+      ADD_STORE_ITEM "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%" AFTER "scrl1i" #1 #1 #0 "identified" #3
+      ADD_STORE_ITEM "%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%" AFTER "scrl6t" #1 #1 #0 "identified" #2
+    ]
+
+
+    // Web of Lightning
+    //
+    // This spell is often used in deadly wards and traps,
+    // like those on a lich's abode.  So let's give it to
+    // to the drow lich Deirex.
+
+    are.edit[ar2207]
+    [
+      m.container_item.add{s_resref:="%WIZARD_WEB_OF_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Shelf 2"~}
+    ]
+
+
+    // Arcana Archives
+    //
+    // This guy has every other spell scroll in the game, so let's
+    // give him all of mine too, just in case the player missed any
+    // or wants a ToB-only game.
+
+    sto.edit[25spell]
+    [
+      ADD_STORE_ITEM "%WIZARD_BARRIER_SCROLL%" AFTER "scrl67" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_SEEKING_SCROLL%" AFTER "scrl1b" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_SUMMON_CATS_SCROLL%" AFTER "scrl98" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_HEROISM_SCROLL%" AFTER "scrl1h" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%" AFTER "scrl6l" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_IRON_MAIDEN_SCROLL%" AFTER "scrlaq" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_SLUMBER_SCROLL%" AFTER "scrl6o" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%" AFTER "scrl6z" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_SUPERHEROISM_SCROLL%" AFTER "scrl2b" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_FAERIE_SWORD_SCROLL%" AFTER "scrl8n" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_DEVASTATE_SCROLL%" AFTER "scrlb1" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_WEB_OF_LIGHTNING_SCROLL%" AFTER "scrlap" #1 #1 #0 "identified" #2
+    ]
+  END	// is_bg2
+END	// bg2_arcane_scrolls

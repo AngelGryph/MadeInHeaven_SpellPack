@@ -345,18 +345,8 @@ Saving Throw: None
 The use of an Alacrity spell allows the wizard to speed up the casting of fifth level spells and lower.  All spells cast within the duration of the Alacrity spell are sped by 2 (so a spell with a casting time of 5 would have a casting time of 3 instead), lessening the change for the wizard to be interrupted and have <PRO_HISHER> spell ruined.
 
 Alacrity cannot be used to speed up spells of sixth level and higher, and attempting to cast such a spell will end the Alacrity spell immediately.~
-@56   = ~Sunburst~
-@57   = ~Sunburst
-(Evocation)
-
-Level: 8
-Range: Caster
-Duration: Instant
-Casting Time: 4
-Area of Effect: 15' radius
-Saving Throw: Special
-
-The Sunburst spell causes the caster to briefly glow as bright as the midday sun.  All enemies within the area of effect must save versus spell or be blinded for three rounds.  All undead enemies additionally take 16d6 points of fire damage unless they save versus spell, in which case the damage will be halved.  The caster and <PRO_HISHER> allies are unaffected.~
+//@56   = ~~
+//@57   = ~~
 @58   = ~Weird~
 @59   = ~Weird
 (Illusion)

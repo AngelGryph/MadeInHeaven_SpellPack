@@ -1,0 +1,17 @@
+DEFINE_ACTION_FUNCTION sod_arcane_scrolls
+BEGIN
+  ACTION_IF is_sod
+  BEGIN
+    // Summon Cats
+    // Improved Magic Missile
+    //
+    // Spells from other worlds (Greyhawk and Mystara), sounds like
+    // something for Nazramu to me...
+
+    sto.edit[bdnazram]
+    [
+      ADD_STORE_ITEM "%WIZARD_SUMMON_CATS_SCROLL%" LAST #1 #1 #0 "identified" #1
+      ADD_STORE_ITEM "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%" LAST #1 #1 #0 "identified" #1
+    ]
+  END	// is_sod
+END	// sod_arcane_scrolls
