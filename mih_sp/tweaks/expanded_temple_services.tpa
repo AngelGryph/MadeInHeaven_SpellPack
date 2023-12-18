@@ -5,64 +5,65 @@ BEGIN
   
   ACTION_IF is_bg1 AND enhanced_edition AND NOT is_eet
   BEGIN
-    MAKE_PATCH
-      name2_string=>26226
-      description2_string=>26227
-      icon=>"sppr417a"
-      patch_ability_inline=>~ability_icon=>"sppr417a"~
-      patch_effect_inline=>~match=>"opcode=146" resource=>"sppr417"~
-    END
-
-    LAUNCH_ACTION_FUNCTION edit_item
-      STR_VAR
-      item	= "restore"
-      edits	= "patch_data"
-    END
+    itm.edit[restore]
+    [
+      m_identified_name:=#26226
+      m_identified_description:=#26227
+      m_icon:="sppr417a"
+      m.ab.alter{s_icon:="sppr417a"}
+      m.ab_fx.alter{s_resource:="sppr417"|match="s_opcode=146"}
+    ]
   END
   
 
   // Add more cures
 
-  OUTER_SET cure_disease_desc = RESOLVE_STR_REF(@0)
-  APPEND "speldesc.2da" "sppr317	%cure_disease_desc%" UNLESS "sppr317"
+  ACTION_CLEAR_ARRAY cures_list
+  ACTION_CLEAR_ARRAY temples_list
 
-  OUTER_SET restoration_desc = RESOLVE_STR_REF(@1)
-  APPEND "speldesc.2da" "sppr417	%restoration_desc%" UNLESS "sppr417"
+  OUTER_SET string = RESOLVE_STR_REF(@0)
+  APPEND "speldesc.2da" "sppr317	%string%" UNLESS "sppr317"
+  OUTER_SPRINT $cures_list("sppr303") "sppr317"
 
-  OUTER_TEXT_SPRINT old_cures "sppr303 sppr307"
-  OUTER_TEXT_SPRINT new_cures "sppr303->sppr317 sppr307->sppr417"
+  OUTER_SET string = RESOLVE_STR_REF(@1)
+  APPEND "speldesc.2da" "sppr417	%string%" UNLESS "sppr417"
+  OUTER_SPRINT $cures_list("sppr307") "sppr417"
 
-  // Add Cure Blindness/Deafness if available
   ACTION_IF VARIABLE_IS_SET CLERIC_CURE_BLIND_DEAF
         AND FILE_EXISTS_IN_GAME "%CLERIC_CURE_BLIND_DEAF%.spl"
   BEGIN
-    OUTER_SET cure_bd_desc = RESOLVE_STR_REF(@2)
-    APPEND "speldesc.2da" "%CLERIC_CURE_BLIND_DEAF%	%cure_bd_desc%"
-
-    OUTER_TEXT_SPRINT old_cures "sppr212 %old_cures%"
-    OUTER_TEXT_SPRINT new_cures "sppr212->%CLERIC_CURE_BLIND_DEAF% %new_cures%"
+    OUTER_SET string = RESOLVE_STR_REF(@2)
+    APPEND "speldesc.2da" "%CLERIC_CURE_BLIND_DEAF%	%string%"
+    OUTER_SPRINT $cures_list("sppr212") "%CLERIC_CURE_BLIND_DEAF%"
   END
 
-  // Add Break Enchantment if available
   ACTION_IF VARIABLE_IS_SET CLERIC_BREAK_ENCHANTMENT
         AND FILE_EXISTS_IN_GAME "%CLERIC_BREAK_ENCHANTMENT%.spl"
   BEGIN
-    OUTER_SET break_enchantment_desc = RESOLVE_STR_REF(@3)
-    APPEND "speldesc.2da" "%CLERIC_BREAK_ENCHANTMENT%	%break_enchantment_desc%"
-
-    OUTER_TEXT_SPRINT old_cures "%old_cures% sppr504"
-    OUTER_TEXT_SPRINT new_cures "%new_cures% sppr504->%CLERIC_BREAK_ENCHANTMENT%"
+    OUTER_SET string = RESOLVE_STR_REF(@3)
+    APPEND "speldesc.2da" "%CLERIC_BREAK_ENCHANTMENT%	%string%"
+    OUTER_SPRINT $cures_list("sppr504") "%CLERIC_BREAK_ENCHANTMENT%"
   END
 
-  MAKE_PATCH
-    match=>"store_type = temple"
-    delete_cure=>"cure_resource is_in [sppr317 sppr417]" // Prevent dups
-    clone_cure_inline=>~match=>"cure_resource is_in [%old_cures%]" cure_resource=>"cure_resource in [%new_cures%]"~
-  END
+  COPY_EXISTING_REGEXP - "^.+\.sto$" "nowhere"
+    LPF struct_get STR_VAR arguments="type" RET type=value END
+    PATCH_IF type = 3
+    BEGIN
+      SPRINT $temple_list("%SOURCE_RES%") "god=here"
+    END
 
-  LAUNCH_ACTION_FUNCTION edit_all_stores
-    STR_VAR
-    edits	= "patch_data"
+  ACTION_PHP_EACH temple_list AS temple=>discard
+  BEGIN
+    sto.edit[%temple%]
+    [
+      PHP_EACH cures_list AS old=>new
+      BEGIN
+        PATCH_IF INDEX_BUFFER(CASE_INSENSITIVE EXACT_MATCH "%new%") == "-1"
+	BEGIN
+          m.cure.clone{s_resref:="%new%"|match=~"%s_resref%" == "%old%"~}
+	END
+      END
+    ]
   END
 END	// expanded_temple_services
 

@@ -1,18 +1,43 @@
 DEFINE_ACTION_FUNCTION level_6_spells_sod
 BEGIN
-  MAKE_PATCH
-    literal'601=>~ADD_STORE_ITEM "scrl7e" BEFORE "scrl7n wand03 restore" #1 #0 #0 "identified" #1~
-    literal'602=>~ADD_STORE_ITEM "scrl7f" BEFORE "scrl7n wand03 restore" #1 #0 #0 "identified" #1~
-    literal'603=>~ADD_STORE_ITEM "scrl7g" BEFORE "scrl7n wand03 restore" #1 #0 #0 "identified" #1~
-    literal'604=>~ADD_STORE_ITEM "scrl7h" BEFORE "scrl7n wand03 restore" #1 #0 #0 "identified" #1~
-    literal'605=>~ADD_STORE_ITEM "scrl7i" BEFORE "scrl7n wand03 restore" #1 #0 #0 "identified" #1~
-  END
+  // scrl7e - Invisible Stalker
 
-  LAUNCH_ACTION_FUNCTION edit_store
-    STR_VAR
-    store	= "bdsorcsc bdbeleg3"
-    edits	= "patch_data"
-  END
+  cre.edit[bdstrunk bdstrun2]
+  [
+    m.cre_add_items{scrl7e(1,1)}
+  ]
+
+
+  // scrl7f - Globe of Invulnerability
+
+  are.edit[bd1200]
+  [
+    m.container_item.add{s_resref:="scrl7f";;s_charges_1=1;;s_charges_2=1|match_parent=~"%p_name%" == "Remains_mage"~}
+  ]
+
+
+  // scrl7g - Tenser's Transformation
+
+  are.edit[bd4300]
+  [
+    m.container_item.add{s_resref:="scrl7g";;s_charges_1=1;;s_charges_2=1|match_parent=~"%p_name%" == "Hehp_chest2"~}
+  ]
+
+
+  // scrl7h - Flesh to Stone
+
+  cre.edit[bdteleri]
+  [
+    m.cre_add_items{scrl7h(1,1)}
+  ]
+
+
+  // scrl7i - Death Spell
+
+  cre.edit[bdkherr]
+  [
+    m.cre_add_items{scrl7i(1,1)}
+  ]
 END	// level_6_spells_sod
 
 

@@ -1,18 +1,12 @@
 DEFINE_ACTION_FUNCTION spell_learning_xp
 BEGIN
-  ACTION_DEFINE_ARRAY spell_learning_xp
-    BEGIN 50 100 200 500 1000 2000 3000 4000 5000 END
+  ACTION_DEFINE_ARRAY xp_LEARN_SPELL
+    BEGIN 0 50 100 200 500 1000 2000 5000 10000 20000 END
 
-  ACTION_PHP_EACH spell_learning_xp AS i => xp
-  BEGIN
-    LAUNCH_ACTION_FUNCTION write_table_entry
-      INT_VAR
-      colnum	= i + 1
-      STR_VAR
-      file	= "xpbonus"
-      row	= "LEARN_SPELL"
-      arguments	= "%xp%"
-    END
+  LAUNCH_ACTION_FUNCTION 2daq_inject
+    STR_VAR
+    array	= "xp"
+    resref	= "xpbonus"
   END
 END	// spell_learning_xp
 

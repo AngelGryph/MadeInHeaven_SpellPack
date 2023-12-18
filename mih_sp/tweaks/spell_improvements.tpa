@@ -4,169 +4,119 @@ BEGIN
   // Protection from Normal Missiles
   // ===============================
 
-  MAKE_PATCH
-    clone_effect_inline=>~match=>"opcode = 142" opcode=>89 parameter1=>0 parameter2=>50~
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "WIZARD_PROTECTION_FROM_NORMAL_MISSILES spra303"
-    edits	= "patch_data"
-  END
+  spl.edit[%WIZARD_PROTECTION_FROM_NORMAL_MISSILES% spra303]
+  [
+    m.ab_fx.clone{s_opcode=89 s_parameter1=0 s_parameter2=50|match="s_opcode = 142"}
+  ]
 
 
   // ===========
   // Wyvern Call
   // ===========
 
-  MAKE_PATCH
-    ac=>0
-    strength=>20
-    dexterity=>18
-    constitution=>17
-    resist_magic=>35
-    level=>11
-    enforce_hp=>at_worst
-    enforce_thac0=>at_worst
-    enforce_saves=>at_worst
-  END
+  cre.copy[wyvernsu=>mh#wyvsu]
+  [
+    m_ac="-5"
+    m_str_base=25
+    m_resist_magic=35
+    m_resist_missile=80
+    m_level1=11
+    m_hp=94
+    m_thac0=9
+    m_morale_break=4
+    m_morale_recovery=30
+    m_saves:="4,6,5,6,5"
+  ]
 
-  LAUNCH_ACTION_FUNCTION clone_creature
-    STR_VAR
-    creature	= "wyvernsu=>mh#wyvsu"
-    edits	= "patch_data"
-  END
 
-  LAUNCH_ACTION_FUNCTION clone_effect
-    STR_VAR
-    effect	= "wyvernsu=>mh#wyvsu"
-    editstring	= ~resource=>"mh#wyvsu"~
-  END
+  eff.copy[wyvernsu=>mh#wyvsu]
+  [
+    m_resource:="mh#wyvsu"
+  ]
 
-  MAKE_PATCH
-    level_based_blocks=>"if this = 30 then -1 else this + 1"
-    patch_effect_inline=>~duration=>"ability_min_level * 6" resource=>"mh#wyvsu"~
-    clone_effect_inline=>~match=>"ability_min_level > 17" number_to_add=>"(ability_min_level - 12) / 6"~
-    say_description=>1
-  END
 
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "WIZARD_WYVERN_CALL"
-    edits	= "patch_data"
-  END
+  spl.edit[%WIZARD_WYVERN_CALL%]
+  [
+    m_description:=@1
+    m.ab.delete{s_level > 1}
+    m.ab.clone{s_level=(13 + entry_index)|number:i=17}
+    m.ab_fx.alter{s_duration=(p_level = 1 ? 72 : p_level * 6) s_resource:="mh#wyvsu"|match="s_opcode = 177"}
+    m.ab_fx.clone{|match="s_opcode = 177 AND p_level > 17"}
+    m.ab_fx.clone{|match="s_opcode = 177 AND p_level > 23"}
+    m.ab_fx.clone{|match="s_opcode = 177 AND p_level > 29"}
+  ]
 
-  LAUNCH_ACTION_FUNCTION edit_item
-    STR_VAR
-    item	= "scrl7w"
-    editstring	= "say_description=>1"
-  END
+
+  itm.edit[scrl7w]
+  [
+    m_identified_description:=@1
+  ]
 
 
   // ==========
   // Shillelagh
   // ==========
 
-  MAKE_PATCH
-    magical=>1
-    enchantment=>1
-    proficiency=>PROFICIENCYCLUB
-    add_effect_global_inline=>"opcode=>233 target=>1 timing=>2 parameter1=>1 parameter2=>115"
-    patch_ability_inline=>"to_hit=>1 damage_bonus=>1"
-  END
+  itm.edit[shille]
+  [
+    m_magical=1
+    m_enchantment=1
+    m_proficiency=115
+    m.fx.add{s_opcode=233 s_target=1 s_timing=2 s_parameter1=1 s_parameter2=115}
+    m.ab.alter{s_attack_bonus=1 s_damage_bonus=1}
+  ]
 
-  LAUNCH_ACTION_FUNCTION edit_item
-    STR_VAR
-    item	= "shille"
-    edits	= "patch_data"
-  END
 
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "CLERIC_SHILLELAGH"
-    editstring	= "say_description=>2"
-  END
+  spl.edit[%CLERIC_SHILLELAGH%]
+  [
+    m_description:=@2
+  ]
 
 
   // ========
   // Barkskin
   // ========
 
-  MAKE_PATCH
-    patch_effect_inline=>~match=>"opcode = 0" parameter1=>"6 - parameter1" parameter2=>0~
-    clone_effect_inline=>~match=>"opcode = 0" parameter1=>6 parameter2=>1~
-    say_description=>7
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "CLERIC_BARKSKIN"
-    edits	= "patch_data"
-  END
+  spl.edit[%CLERIC_BARKSKIN%]
+  [
+    m_description:=@7
+    m.ab_fx.alter{s_parameter1=(6 - s_parameter1) s_parameter2=0|match="s_opcode = 0"}
+    m.ab_fx.clone{s_parameter1=6 s_parameter2=1|match="s_opcode = 0"}
+  ]
 
 
   // ===========
   // Flame Blade
   // ===========
 
-  OUTER_FOR (SET i = 1; i <= 10; ++i)
+  OUTER_FOR (SET flame = 1; flame <= 10; ++flame)
   BEGIN
-    MAKE_PATCH
-      magical=>1
-      enchantment=>6
-      silver=>1
-      cold_iron=>1
-      add_effect_global_inline=>~opcode=>233 target=>1 timing=>2 parameter1=>1 parameter2=>0x5f~
-      patch_ability_inline=>~to_hit=>4 ability_dicesize=>0 ability_numdice=>0 damage_bonus=>0 damage_type=>0 strength_bonus=>0~
-      patch_effect_inline=>~match=>opcode=12 parameter1=>%i% dicenum=>1 dicesize=>8~
-    END
-
-    LAUNCH_ACTION_FUNCTION clone_item
-      STR_VAR
-      item	= "fblade=>mh#flm%i%"
-      edits	= "patch_data"
-    END
+    itm.copy[fblade=>mh#flm%flame%]
+    [
+      m_magical=1
+      m_enchantment=6
+      m_silver=1
+      m_cold_iron=1
+      m.fx.add{s_opcode=233 s_target=1 s_timing=2 s_parameter1=1 s_parameter2=0x5f}
+      m.ab.alter{s_attack_bonus=4 s_dicesize=0 s_dicenumber=0 s_damage_bonus=0 s_damage_type=0 s_add_strength_bonus=0}
+      m.ab_fx.alter{s_parameter1=%flame% s_dicenumber=1 s_dicesize=8|match="s_opcode = 12"}
+    ]
   END
 
-  MAKE_PATCH
-    patch_effect_inline'1=>~match=>"opcode=111 and ability_min_level<20" resource=>"ability_min_level from [mh#flm1 mh#flm1 mh#flm1 mh#flm2 mh#flm2 mh#flm3 mh#flm3 mh#flm4 mh#flm4 mh#flm5 mh#flm5 mh#flm6 mh#flm6 mh#flm7 mh#flm7 mh#flm8 mh#flm8 mh#flm9 mh#flm9]"~
-    patch_effect_inline'2=>~match=>"opcode=111 and ability_min_level>19" resource=>"mh#flm10"~
-    say_description=>8
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "CLERIC_FLAME_BLADE"
-    edits	= "patch_data"
-  END
-
-
-  // =============
-  // Bolt of Glory
-  // =============
-
-  MAKE_PATCH
-    target=>2
-    dicenum=>10
-    dicesize=>"object_index from [10 6 4 8]"
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_effect
-    STR_VAR
-    effect	= "boltdem boltelem boltprim boltund"
-    edits	= "patch_data"
-  END
-
-  MAKE_PATCH
-    casting_time=>4
-    say_description=>9
-  END
-
-  LAUNCH_ACTION_FUNCTION edit_spell
-    STR_VAR
-    spell	= "CLERIC_BOLT_OF_GLORY"
-    edits	= "patch_data"
-  END
+  spl.edit[%CLERIC_FLAME_BLADE%]
+  [
+    m_description:=@8
+    m.ab_fx.alter{s_resource:="mh#flm1"|match="s_opcode = 111 AND p_level < 4"}
+    m.ab_fx.alter{s_resource:="mh#flm2"|match="s_opcode = 111 AND (p_level / 2) = 2"}
+    m.ab_fx.alter{s_resource:="mh#flm3"|match="s_opcode = 111 AND (p_level / 2) = 3"}
+    m.ab_fx.alter{s_resource:="mh#flm4"|match="s_opcode = 111 AND (p_level / 2) = 4"}
+    m.ab_fx.alter{s_resource:="mh#flm5"|match="s_opcode = 111 AND (p_level / 2) = 5"}
+    m.ab_fx.alter{s_resource:="mh#flm6"|match="s_opcode = 111 AND (p_level / 2) = 6"}
+    m.ab_fx.alter{s_resource:="mh#flm7"|match="s_opcode = 111 AND (p_level / 2) = 7"}
+    m.ab_fx.alter{s_resource:="mh#flm8"|match="s_opcode = 111 AND (p_level / 2) = 8"}
+    m.ab_fx.alter{s_resource:="mh#flm9"|match="s_opcode = 111 AND (p_level / 2) = 9"}
+    m.ab_fx.alter{s_resource:="mh#flm10"|match="s_opcode = 111 AND (p_level / 2) > 9"}
+  ]
 END	// spell_improvements
 
 
