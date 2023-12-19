@@ -1,0 +1,68 @@
+@0    = ~Ball Lightning~
+@1    = ~Ball Lightning
+(Invocation/Evocation)
+
+Level: 3
+Range: 50 yds.
+Duration: Instant
+Casting Time: 3
+Area of Effect: 1-4 creatures
+Saving Throw: 1/2
+
+This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20.  Each orb can be targetted at a different creature.  Upon contact with the target, it deals 4d12 points of electrical damage and disappears.~
+@2    = ~Stygian Ice Storm~
+@3    = ~Stygian Ice Storm
+(Invocation/Evocation)
+
+Level: 7
+Range: Visual range of the caster
+Duration: Special
+Casting Time: 7
+Area of Effect: 30' radius
+Saving Throw: Special
+
+Few know the true terror of Baator, let alone the gruesome Fifth Layer. This devastating spell summons the harshest cold and bitter ice of the Fifth Layer of Baator, Stygia, to annihilate all enemies within range. As the River Styx flows through the Stygian Ice, so it does in this spell as well. Perhaps if the victims are strong enough to survive this devastation they may live to tell others about the true terror... but the River Styx has a tendency to make people forget.
+
+Ice from Stygia is summoned to crush all creatures within sight for 8d8 points of cold damage, with no saving throw.  Finally, all creatures must save vs. spell or suffer confusion for five rounds due to the immediate contact with the frozen, forgetful waters of the River Styx.~
+@4    = ~Deathbolt~
+@5    = ~Deathbolt
+(necromancy)
+
+Level: 8
+Range: 100 feet
+Duration: Instant
+Casting Time: 8
+Area of Effect: 1 creature
+Saving Throw: Special
+
+Death comes in many forms, but none so painful as this. For even if you evade Death's Touch, it will always leave a mark.
+
+This spell calls forth a magical bolt of death energy that kills a specified target, unless it makes a successful saving throw vs. spell. Even on a successful saving throw, the victim suffers 10d6 points of electrical damage.~
+@6    = ~Mechanus' Cannon~
+@7    = ~Mechanus' Cannon
+(Conjuration/Summoning)
+
+Level: 8
+Range: 50 ft.
+Duration: Instant
+Speed: 8
+Area of Effect: 1 creature
+Saving Throw: None
+
+The true, logical justice of Primus shall be delivered unto the illogical, as pure energy descends from Mechanus.
+
+This spell summons the ultimate form of 'equalization' from Primus: A huge energy blast that comes from the very heart of Mechanus and fires toward the target specified by the caster, via a portal. A temporary portal will appear 10 ft. from the target and Mechanus' Logical Justice will be handed down, inflicting 20d4+10 points of magical damage, with no saving throw.~
+@8    = ~Rune of Torment~
+@9    = ~Rune of Torment
+(Invocation/Evocation)
+
+Level: 9
+Range: 0
+Duration: Instant
+Casting Time: 9
+Area of Effect: 50' radius
+Saving Throw: None
+
+Pain, Agony, Suffering, Torment. When the Rune is invoked, even the earth shall resonate its anguish. Torment of the mind. Torment of the body. Torment of the soul. All will be made clear when the Circle is drawn.
+
+After the Ultimate Circle is inscribed on the ground, and the Rune explodes, all creatures in a 50' radius around the caster that are hostile take 14d6+16 points of damage. There is no Saving Throw.~

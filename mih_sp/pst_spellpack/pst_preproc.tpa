@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION pst_preproc
+BEGIN
+  // Install movies
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    COPY_LARGE "%MOD_FOLDER%/%component_loc%/movies/ee" "movies"
+  END
+  ELSE
+  BEGIN
+    MAKE_BIFF "mh#spell"
+    BEGIN
+      "%MOD_FOLDER%/%component_loc%/movies/old" ".*\.mve"
+    END
+  END
+END	// pst_preproc
+
+

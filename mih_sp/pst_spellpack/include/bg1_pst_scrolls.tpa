@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION bg1_pst_scrolls
+BEGIN
+  ACTION_IF is_bg1
+  BEGIN
+    are.edit[%DurlagsTower_D1%]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BALL_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 11"~}
+    ]
+  END
+END	// bg1_pst_scrolls
+
+

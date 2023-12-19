@@ -1,0 +1,12 @@
+DEFINE_ACTION_FUNCTION sod_pst_scrolls
+BEGIN
+  ACTION_IF is_sod
+  BEGIN
+    are.edit[bd1200]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BALL_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Table02"~}
+    ]
+  END
+END	// sod_pst_scrolls
+
+

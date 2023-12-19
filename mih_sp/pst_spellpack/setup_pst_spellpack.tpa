@@ -1,0 +1,40 @@
+DEFINE_ACTION_FUNCTION setup_pst_spellpack
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "pst_preproc"
+    tra		= "pst_spellpack"
+  END
+
+
+  LAUNCH_ACTION_FUNCTION grand_unified_installer
+    STR_VAR
+    tra		= "pst_spellpack"
+  END
+
+  LAM data_spell_resrefs
+  LAM data_scroll_resrefs
+
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "pst_postproc"
+    tra		= "pst_spellpack"
+  END
+
+
+  ACTION_BASH_FOR "%MOD_FOLDER%/%component_loc%/include" "^.*\.tpa$"
+  BEGIN
+    OUTER_TEXT_SPRINT file "%BASH_FOR_RES%"
+    ACTION_TO_LOWER file
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file
+      location	= "include"
+      tra	= "pst_spellpack"
+    END
+  END
+END	// setup_pst_spellpack
+
+

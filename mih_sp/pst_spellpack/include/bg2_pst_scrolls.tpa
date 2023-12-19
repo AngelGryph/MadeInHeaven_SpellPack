@@ -1,0 +1,58 @@
+DEFINE_ACTION_FUNCTION bg2_pst_scrolls
+BEGIN
+  ACTION_IF is_bg2
+  BEGIN
+    // Ball Lightning scrolls
+
+    are.edit[ar0411]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BALL_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Knight Table"~}
+    ]
+
+    are.edit[ar0601]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BALL_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 1"~}
+    ]
+
+    are.edit[ar3016]
+    [
+      m.container_item.add{s_resref:="%WIZARD_BALL_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Table 6"~}
+    ]
+
+
+    // Deathbolt scrolls
+    //
+    // Deathbolt does canonically exist in the FR as an Old Empires
+    // spell not generally known to modern mages.  So add it to some
+    // high-level dungeons.
+
+    cre.edit[fsdragon]
+    [
+      m.cre_add_items{"%WIZARD_DEATHBOLT_SCROLL%(1,1)"}
+    ]
+
+    are.edit[ar6003]
+    [
+      m.container_item.add{s_resref:="%WIZARD_DEATHBOLT_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Table 1"~}
+    ]
+
+    are.edit[ar6110]
+    [
+      m.container_item.add{s_resref:="%WIZARD_DEATHBOLT_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 3"~}
+    ]
+
+
+    // New option for Limited Wish
+    //
+    // This adds a one-time wish that will grant the Stygian Ice Storm,
+    // Mechanus' Cannon and Rune of Torment scrolls.
+
+    LAUNCH_ACTION_FUNCTION install
+      STR_VAR
+      file	= "limited_wish.d"
+      location	= "dialog"
+    END
+  END
+END	// bg2_pst_scrolls
+
+

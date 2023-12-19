@@ -68,6 +68,17 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Planescape Torment: Spellpack
+
+BEGIN @18
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_pst_spellpack"
+  location	= "pst_spellpack"
+END
+
+
 // Made in Heaven: Paladin Powers Pack
 
 BEGIN @3 
