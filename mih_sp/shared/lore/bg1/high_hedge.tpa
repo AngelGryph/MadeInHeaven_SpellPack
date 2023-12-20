@@ -35,9 +35,13 @@ BEGIN
 
   // Cosmetic items on Thalantyr
 
-  ACTION_IF NOT FILE_EXISTS_IN_GAME "staf12.itm"
-  BEGIN
-    COPY "%MOD_FOLDER%/shared/lore/items/staf12.itm" "override"
+  LAUNCH_ACTION_FUNCTION install
+    INT_VAR
+    overwrite	= 0
+    STR_VAR
+    file	= "staf12.itm"
+    location	= "items"
+    locbase
   END
 
   cre.edit[thalan]

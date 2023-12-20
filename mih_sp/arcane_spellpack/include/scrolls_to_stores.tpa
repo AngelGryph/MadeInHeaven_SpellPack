@@ -1,0 +1,36 @@
+DEFINE_ACTION_FUNCTION scrolls_to_stores
+BEGIN
+  // Regular scrolls get added to stores with similar scrolls.
+
+  ACTION_CLEAR_ARRAY spell_shadow
+  ACTION_CLEAR_ARRAY scroll_shadow
+
+  LAUNCH_ACTION_FUNCTION array_read
+    INT_VAR
+    firstrow		= 1
+    STR_VAR
+    file		= "spell_map.2da"
+    location		= "tables"
+    RET_ARRAY
+    spell_shadow	= array
+  END
+
+  ACTION_PHP_EACH spell_shadow AS spell=>shadow
+  BEGIN
+    OUTER_TEXT_SPRINT spell_scroll EVAL "%%spell%_SCROLL%"
+    OUTER_TEXT_SPRINT shadow_scroll EVAL "%%shadow%_SCROLL%"
+
+    ACTION_IF FILE_EXISTS_IN_GAME "%spell_scroll%.itm"
+          AND FILE_EXISTS_IN_GAME "%shadow_scroll%.itm"
+    BEGIN
+      OUTER_TEXT_SPRINT $scroll_shadow("%spell_scroll%") "%shadow_scroll%"
+    END
+  END
+
+  LAUNCH_ACTION_FUNCTION map_items_into_stores
+    STR_VAR
+    shadow_map	= "scroll_shadow"
+  END
+END	// scrolls_to_stores
+
+

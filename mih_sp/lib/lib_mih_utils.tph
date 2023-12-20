@@ -147,6 +147,11 @@ DEFINE_PATCH_MACRO cd_immunity_magic_missile_arrays BEGIN
 END
 
 
+// copy_soundset
+//
+// Copies all sounds from one creature to another, using WeiDU's
+// built-in macros.
+
 DEFINE_ACTION_FUNCTION copy_soundset
   INT_VAR
   overwrite	= 2
@@ -161,6 +166,57 @@ BEGIN
 
   OUTER_TEXT_SPRINT npc "%dst%.cre"
   LAUNCH_ACTION_MACRO WRITE_SOUNDSET
+END
+
+
+// edit_itemexcl
+//
+// Add or update an item in itemexcl.
+
+DEFINE_ACTION_FUNCTION edit_itemexcl
+  INT_VAR
+  mask		= 0
+  enable	= 1
+  STR_VAR
+  item		= ""
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "update_itemexcl_2da"
+    RET
+    update_itemexcl_2da	= value
+  END
+
+  ACTION_IF NOT VARIABLE_IS_SET update_itemexcl_2da
+  BEGIN
+    OUTER_SET update_itemexcl_2da = 3
+  END
+
+  ACTION_IF (update_itemexcl_2da & mask) > 0
+  BEGIN
+    OUTER_SET found = 0
+    COPY_EXISTING "itemexcl.2da" "override"
+      COUNT_2DA_COLS cols
+      COUNT_2DA_ROWS cols rows
+
+      FOR (SET i = 1; i < rows; ++i)
+      BEGIN
+        READ_2DA_ENTRY i 0 cols resref
+	PATCH_IF NOT found AND "%resref%" STRING_EQUAL_CASE "%item%"
+	BEGIN
+	  SET found = 1
+	  SET_2DA_ENTRY i 1 cols "%enable%"
+	END
+      END
+
+      BUT_ONLY_IF_IT_CHANGES
+
+
+    ACTION_IF NOT found
+    BEGIN
+      APPEND "itemexcl.2da" "%item%   %enable%"
+    END
+  END
 END
 
 

@@ -15,13 +15,22 @@ BEGIN
 
     ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.bam"
     BEGIN
-      COPY "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.bam" "override"
+      LAUNCH_ACTION_FUNCTION install
+      STR_VAR
+        file		= "%projectile%.bam"
+	location	= "%graphics_loc%"
+	locbase
+      END
     END
 
     ACTION_IF FILE_EXISTS "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.vvc"
     BEGIN
-      COPY "%MOD_FOLDER%/%component_loc%/%graphics_loc%/%projectile%.bam" "overr
-ide"
+      LAUNCH_ACTION_FUNCTION install
+      STR_VAR
+        file		= "%projectile%.vvc"
+	location	= "%graphics_loc%"
+	locbase
+      END
     END
   END
 END	// __handle_projectile
@@ -39,102 +48,38 @@ DEFINE_ACTION_FUNCTION __handle_main_items
 BEGIN
   OUTER_TEXT_SPRINT edits ""
 
-
-  LAUNCH_ACTION_FUNCTION check_ini
-    STR_VAR
-    ini		= "max_stack_ammo"
-    RET
-    max_stack_ammo	= value
-  END
-
-  ACTION_IF (max_stack_ammo == 0)
-  BEGIN
-    OUTER_SET max_stack_ammo = enhanced_edition ? 80 : 40
-  END
-
-  LAUNCH_ACTION_FUNCTION check_ini
-    STR_VAR
-    ini		= "max_stack_thrown"
-    RET
-    max_stack_thrown	= value
-  END
-
-  ACTION_IF (max_stack_thrown == 0)
-  BEGIN
-    OUTER_SET max_stack_thrown = enhanced_edition ? 40 : 10
-  END
-
-  LAUNCH_ACTION_FUNCTION check_ini
-    STR_VAR
-    ini		= "max_stack_potions"
-    RET
-    max_stack_potions	= value
-  END
-
-  ACTION_IF (max_stack_potions == 0)
-  BEGIN
-    OUTER_SET max_stack_potions = enhanced_edition ? 24 : 5
-  END
-
-  LAUNCH_ACTION_FUNCTION check_ini
-    STR_VAR
-    ini		= "max_stack_jewels"
-    RET
-    max_stack_jewels	= value
-  END
-
-  ACTION_IF (max_stack_jewels == 0)
-  BEGIN
-    OUTER_SET max_stack_jewels = 20	// Not changed between old and EE.
-  END
-
-
-  ACTION_CLEAR_ARRAY object_data
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
-  BEGIN
-    max_in_stack=>~if max_in_stack > 1 and category = 9 then %max_stack_potions% else if max_in_stack > 1 and category is_in [5 14 24 31] then %max_stack_ammo% else if max_in_stack > 1 and category is_in [16 25] then %max_stack_thrown% else if max_in_stack > 1 and category is_in [1 10 34] then %max_stack_jewels% else no_change~
-  END
-
   ACTION_IF IS_AN_INT "%name%"
   BEGIN
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
-    BEGIN
-      say_name=>"%name%"
-    END
+    OUTER_TEXT_SPRINT edits ~%edits%%WNL%
+      m_identified_name:=@%name%~
   END
 
-  ACTION_IF IS_AN_INT "%DESC%"
+  ACTION_IF IS_AN_INT "%desc%"
   BEGIN
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
-    BEGIN
-      say_description=>"%DESC%"
-    END
+    OUTER_TEXT_SPRINT edits ~%edits%%WNL%
+      m_identified_description:=@%desc%~
   END
 
-  ACTION_IF IS_AN_INT "%UNname%"
+  ACTION_IF IS_AN_INT "%unname%"
   BEGIN
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
-    BEGIN
-      say_unidentified_name=>"%UNname%"
-    END
+    OUTER_TEXT_SPRINT edits ~%edits%%WNL%
+      m_unidentified_name:=@%unname%~
   END
 
-  ACTION_IF IS_AN_INT "%UNDESC%"
+  ACTION_IF IS_AN_INT "%undesc%"
   BEGIN
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY object_data
-    BEGIN
-      say_unidentified_description=>"%UNDESC%"
-    END
+    OUTER_TEXT_SPRINT edits ~%edits%%WNL%
+      m_unidentified_description:=@%undesc%~
   END
 
 
   // Check/handle item exclude
 
-  ACTION_IF IS_AN_INT EXCL AND EXCL > 0
+  ACTION_IF IS_AN_INT exclude AND exclude > 0
   BEGIN
     LAUNCH_ACTION_FUNCTION edit_itemexcl
       INT_VAR
-      mask	= EXCL
+      mask	= exclude
       STR_VAR
       item	= "%resref%"
     END
@@ -152,7 +97,7 @@ BEGIN
     STR_VAR
     itm			= "%resref%"
     source_location	= "%items_loc%"
-    edits		= "object_data"
+    edits
     locbase
   END
 END	// __handle_main_items
