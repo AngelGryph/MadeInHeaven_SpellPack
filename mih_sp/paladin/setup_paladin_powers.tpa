@@ -16,7 +16,6 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION grand_unified_installer
     STR_VAR
-    copy_files	= ""
     tra		= "paladin_powers"
   END
 
