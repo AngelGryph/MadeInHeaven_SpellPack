@@ -8,15 +8,15 @@ BEGIN
 
   // Create smite damage effects
 
-  OUTER_FOR (SET i = 1; i <= 11; ++i)
+  OUTER_FOR (SET dicenum = 1; dicenum <= 11; ++dicenum)
   BEGIN
-    eff.make[mh#m%i%d6]
+    eff.make[mh#m%dicenum%d6]
     [
       m_opcode=12
       m_target=2
       m_timing=1
       m_parameter2=0x00400000
-      m_dicenumber=%i%
+      m_dicenumber=%dicenum%
       m_dicesize=6
     ]
   END
