@@ -11,8 +11,21 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 By touching the recipient's weapon, the priest bestows a combat blessing which increases melee damage dealt by +4.  It has no effect on ranged attacks or spells.~
-//@2    = ~~
-//@3    = ~~
+@2    = ~Magical Vestment~
+@3    = ~Magical Vestment
+(Enchantment/Charm)
+
+Level: 3
+Sphere: Protection
+Range: 0
+Duration: 5 rounds/level
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+This spell enchants the caster's vestment, providing protection at least the equivalent of chain mail (AC 5).  The vestment gains +1 enchantment for each three levels of the priest beyond 5th level, to a maximum of AC 0 at 20th level.
+
+If the vestment is worn with other armors, only the best Armor Class is used; this protection is not cumulative with armors or bracers of defense, although it can be used together with a shield and a ring- or cloak of protection.~
 @4    = ~Seeking~
 @5    = ~Seeking
 (Enchantment/Charm)

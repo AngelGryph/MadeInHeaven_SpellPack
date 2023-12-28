@@ -1,6 +1,7 @@
 idsname					level	name	desc	type	idsnum	scroll	projectile
 CLERIC_STRIKING				1	0	1	priest	*	n	*
 CLERIC_SEEKING				2	4	5	priest	*	n	*
+CLERIC_MAGIC_VESTMENT			3	2	3	priest  *	n	*
 CLERIC_PROTECTION_FROM_COLD		3	39	40	priest	*	n	*
 CLERIC_STICKS_TO_SNAKES			4	6	7	priest	*	n	*
 CLERIC_HEROISM				4	9	10	priest	*	n	*
