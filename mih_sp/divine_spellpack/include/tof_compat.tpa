@@ -1,0 +1,30 @@
+DEFINE_ACTION_FUNCTION tof_compat
+BEGIN
+  // Tell DavidW's Talents of Faerun what spheres our
+  // newly added clerical spells belong to.
+
+<<<<<<<< .../stratagems-inline/%MOD_FOLDER%.ini
+[spheres]
+CLERIC_AURA_OF_VITALITY=necromantic
+CLERIC_BREAK_ENCHANTMENT=divine
+CLERIC_CELESTIAL_PROTECTION=good
+CLERIC_HALLOW=good
+CLERIC_HEROISM=combat
+CLERIC_HOLLY_DART=plant
+CLERIC_ICE_STORM=water
+CLERIC_INFERNO=fire
+CLERIC_LIGHTNING_STORM=air
+CLERIC_MAGIC_VESTMENT=protection
+CLERIC_MASS_NEGATIVE_PLANE_PROTECTION=protection
+CLERIC_MURDEROUS_MIST=air
+CLERIC_PROTECTION_FROM_COLD=protection
+CLERIC_REPEL_INSECTS=animal
+CLERIC_SEEKING=combat
+CLERIC_STICKS_TO_SNAKES=animal
+CLERIC_STRIKING=combat
+CLERIC_SUPERHEROISM=combat
+CLERIC_UNHALLOW=evil
+>>>>>>>>
+
+  COPY ".../stratagems-inline/%MOD_FOLDER%.ini" "%data_loc_shared%"
+END

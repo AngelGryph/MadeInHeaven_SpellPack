@@ -20,6 +20,20 @@ BEGIN
     file	= "divine_postproc divine_compat"
     tra		= "divine_spellpack"
   END
+
+
+  ACTION_BASH_FOR "%MOD_FOLDER%/%component_loc%/include" "^.*\.tpa$"
+  BEGIN
+    OUTER_TEXT_SPRINT file "%BASH_FOR_RES%"
+    ACTION_TO_LOWER file
+
+    LAUNCH_ACTION_FUNCTION run
+      STR_VAR
+      file
+      location	= "include"
+      tra	= "divine_spellpack"
+    END
+  END
 END	// setup_divine_spellpack
 
 
