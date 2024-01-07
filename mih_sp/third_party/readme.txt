@@ -5,12 +5,11 @@ other than a bug fix or two which I reported back to the original authors.
 Currently included here are:
 
 
-From Sword Coast Stratagems v35.4, updated December 16th 2023:
+From Sword Coast Stratagems v35.5, updated January 7th 2024:
 
 iwdspells/	- Icewind Dale spells library, by DavidW.
 sfo2e/		- SFO 2e function library, by DavidW.
-                  Fixed bug with spl_copy and spl_make ignoring create_scroll.
-lua/		- LUA GUI editing functions, by DavidW.
+                  Fixed reference to undefined variable in struct_get.
 
 
 From G3 BG2 Fixpack v13, updated December 16th 2023:
