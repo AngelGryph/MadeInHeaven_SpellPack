@@ -110,20 +110,11 @@ DEFINE_ACTION_FUNCTION __handle_main_spells
   name		= ~~
   desc		= ~~
   type		= ~~
-  idsnum	= ~~
+  force		= ~~
   scroll	= ~~
   projectile	= ~~
 BEGIN
   OUTER_TEXT_SPRINT edits "m_level=%level%"
-
-
-  // Attempt to claim a fixed IDS number if it is still free.
-
-  ACTION_IF IS_AN_INT idsnum
-  BEGIN
-    APPEND "spell.ids" "%idsnum% %idsname%" UNLESS "^%idsnum%"
-    CLEAR_IDS_MAP
-  END
 
 
   // Add name/description strings if we have them.
@@ -148,48 +139,28 @@ BEGIN
 
   // Install and patch the actual spell file.
 
-  ACTION_MATCH "%type%"
-  WITH
-  "class" "innate"
+  ACTION_IF "%type%" STRING_EQUAL_CASE "class"
   BEGIN
-    LAUNCH_ACTION_FUNCTION spl_resolve_ids
-      INT_VAR
-      level
-      STR_VAR
-      ids	= "%idsname%"
-      type
-      RET
-      resref
-    END
+    OUTER_SET force_class	= 1
+  END
+  ELSE
+  BEGIN
+    OUTER_SET force_class	= 0
+  END
 
-    LAUNCH_ACTION_FUNCTION spl_copy
+  LAUNCH_ACTION_FUNCTION spl_copy
     INT_VAR
-      is_ids		= 0
-      create_scroll	= 0
+    is_ids		= 1
+    create_scroll	= "%scroll%" STRING_EQUAL_CASE "y"
+    overwrite		= "%force%" STRING_EQUAL_CASE "y"
+    force_class
     STR_VAR
-      spl		= "%idsname%=>%resref%"
-      source_location	= "%spells_loc%"
-      icon_location	= "%graphics_loc%"
-      locbase
-      edits
-    END
+    spl			= "%idsname%"
+    source_location	= "%spells_loc%"
+    icon_location	= "%graphics_loc%"
+    locbase
+    edits
   END
-  "wizard" "priest"
-  BEGIN
-    LAUNCH_ACTION_FUNCTION spl_copy
-    INT_VAR
-      is_ids		= 1
-      create_scroll	= "%scroll%" STRING_EQUAL "y"
-    STR_VAR
-      spl		= "%idsname%"
-      source_location	= "%spells_loc%"
-      icon_location	= "%graphics_loc%"
-      locbase
-      edits
-    END
-  END
-  DEFAULT
-  END	// MATCH
 END	// __handle_main_spells
 
 

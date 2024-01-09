@@ -57,35 +57,6 @@ BEGIN
   ]
 
 
-  // =============
-  // Magical Stone
-  // =============
-
-  ACTION_FOR_EACH stone IN 1 4 7
-  BEGIN
-    eff.make[mh#mstn%stone%]
-    [
-      m_opcode		= 12
-      m_target		= 2
-      m_timing		= 1
-      m_parameter2	= 0x00400000
-      m_dicenumber	= (stone - 1) / 3 + 1
-      m_dicesize	= 4
-      m_power		= 1
-    ]
-  END
-
-
-  spl.edit[%CLERIC_MAGIC_STONE%|edit_strrefs_in_place:i=1]
-  [
-    m_description := @9
-    m.ab.delete{s_level > 1}
-    m.ab.clone{s_level = entry_index * 3 + 4|number:i=2}
-    m.ab_fx.alter{s_dicenumber = (p_level - 1) / 3 + 1|match="s_opcode = 12"}
-    m.ab_fx.add{s_opcode = 177;;s_target = 2;;s_timing = 1;;s_parameter1 = 4;;s_parameter2 = 3;;s_power = 1;;s_resource := "mh#mstn%p_level%"}
-  ]
-
-
   // ==========
   // Shillelagh
   // ==========

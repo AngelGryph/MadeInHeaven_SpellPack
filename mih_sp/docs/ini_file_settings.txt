@@ -6,20 +6,6 @@ Don't touch these.  Seriously, just don't.
 
 ===
 
-hitpoint_percentage=100
-
-Affects how many HP per HD creatures get when their HD are adjusted.
-
-===
-
-infinity_animations=0
-
-Whether to use Infinity Animations on oBG games.  Requires Infinity Animations
-to be installed with at least all the Icewind Dale animations or your game
-will crash.  Support for this is and probably will remain experimental.
-
-===
-
 implement_lore_changes=1
 
 Whether or not to implement lore-friendly changes when installing certain

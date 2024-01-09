@@ -10,8 +10,8 @@ BEGIN
 
     spl.edit[%WIZARD_SCINTILLATING_SPHERE% %WIZARD_SPARK_SHOWER% mh#wblit]
     [
-      m.adfx.alter{s_dicenumber/=2|match="s_opcode=12"}
-      m.adfx.clone{s_dicenumber+=(p_level MODULO 2) s_save_vs_spell=0 s_save_vs_breath=0 s_save_vs_poison=0 s_save_vs_wand=0 s_save_vs_polymorph=0|match="s_opcode=12"}
+      m.ab_fx.alter{s_dicenumber/=2|match="s_opcode=12"}
+      m.ab_fx.clone{s_dicenumber+=(p_level MODULO 2) s_save_vs_spell=0 s_save_vs_breath=0 s_save_vs_poison=0 s_save_vs_wand=0 s_save_vs_polymorph=0|match="s_opcode=12"}
     ]
   END
 END	// arcane_compat

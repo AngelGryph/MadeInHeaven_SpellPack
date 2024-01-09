@@ -244,45 +244,12 @@ Area of Effect: 15-ft. radius
 Saving Throw: None 
 
 The druid must be outdoors to cast Ice Storm, or it will not work and the spell is wasted.  Upon casting, great hail stones pound down for four rounds in a 30-ft. diameter area and inflict 2d8 points of cold damage to any creatures within the area of effect. Also, anyone that remains within the area of effect takes 2d8 cold damage each round for 4 rounds.~
-@42   = ~Bull's Strength~
-@43   = ~Bull's Strength
-(Alteration)
-
-Level: 2
-Sphere: Combat
-Range: 20 ft.
-Duration: 1 turn/level
-Casting Time: 9
-Area of Effect: 1 creature
-Saving Throw: None
-
-The Bull's Strength spell raises the recipient's Strength score by four points, granting <PRO_HIMHER> all benefits of a higher strength, such as increased changes to hit and damage with melee weapons.~
-@44   = ~Cat's Grace~
-@45   = ~Cat's Grace
-(Alteration)
-
-Level: 2
-Sphere: Combat
-Range: 20 ft.
-Duration: 1 turn/level
-Casting Time: 9
-Area of Effect: 1 creature
-Saving Throw: None
-
-The Cat's Grace spell raises the recipient's Dexterity score by four points, granting <PRO_HIMHER> all benefits of a higher dexterity, such as increased changes to hit with missile weapons and an improved Armor Class.~
-@46   = ~Bear's Endurance~
-@47   = ~Bear's Endurance
-(Alteration)
-
-Level: 2
-Sphere: Combat
-Range: 20 ft.
-Duration: 1 turn/level
-Casting Time: 9
-Area of Effect: 1 creature
-Saving Throw: None
-
-The Bear's Endurance spell raises the recipient's Constitution score by four points, granting <PRO_HIMHER> all benefits of a higher constitution, such as extra hit points.  Note however that these extra hit points will disappear when the spell ends, possibly killing the recipient if <PRO_HESHE> took a lot of damage.~
+//@42   = ~~
+//@43   = ~~
+//@44   = ~~
+//@45   = ~~
+//@46   = ~~
+//@47   = ~~
 @48   = ~Holly Dart~
 @49   = ~Holly Dart
 (Evocation, Alteration)

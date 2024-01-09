@@ -1,8 +1,8 @@
-idsname					level	name	desc	type	idsnum	scroll	projectile
-WIZARD_BALL_LIGHTNING			3	0	1	wizard	*	y	mh#blght
-WIZARD_STYGIAN_ICE_STORM		7	2	3	wizard	*	y	mh#stygi
-WIZARD_MECHANUS_CANNON			8	4	5	wizard	*	y	*
-WIZARD_DEATHBOLT			8	6	7	wizard	*	y	mh#dbolt
-WIZARD_RUNE_OF_TORMENT			9	8	9	wizard	*	y	mh#runet
+idsname					level	name	desc	type	force	scroll	projectile
+WIZARD_BALL_LIGHTNING			3	0	1	wizard	n	y	mh#blght
+WIZARD_STYGIAN_ICE_STORM		7	2	3	wizard	n	y	mh#stygi
+WIZARD_MECHANUS_CANNON			8	4	5	wizard	n	y	*
+WIZARD_DEATHBOLT			8	6	7	wizard	n	y	mh#dbolt
+WIZARD_RUNE_OF_TORMENT			9	8	9	wizard	n	y	mh#runet
 
 
