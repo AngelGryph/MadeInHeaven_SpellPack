@@ -950,8 +950,8 @@ BEGIN
 
 	LAF array_read STR_VAR file path location locbase RET_ARRAY array END
 	ACTION_PHP_EACH array AS spell_name=>discard BEGIN
-	    LAF RES_NUM_OF_SPELL_NAME INT_VAR silent=1 STR_VAR spell_name RET resref=spell_res success END
-		ACTION_IF success BEGIN
+	    LAF RES_NUM_OF_SPELL_NAME INT_VAR silent=1 STR_VAR spell_name RET resref=spell_res success=spell_num END
+		ACTION_IF success > 0 BEGIN
 			ACTION_FOR_EACH letter IN A B C BEGIN
 				ACTION_IF FILE_EXISTS "%resource_loc%/bam/%spell_name%_ANIMATION_%letter%.bam" BEGIN
 					COPY "%resource_loc%/bam/%spell_name%_ANIMATION_%letter%.bam" "override/%resref%%letter%.bam"

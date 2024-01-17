@@ -4,10 +4,13 @@ other than a bug fix or two which I reported back to the original authors.
 
 Currently included here are:
 
+From IWDSpells master, updated January 17th 2024:
+
+iwdspells/	- Icewind Dale spells library, by CamDawg & DavidW.
+
 
 From Sword Coast Stratagems v35.5, updated January 7th 2024:
 
-iwdspells/	- Icewind Dale spells library, by DavidW.
 sfo2e/		- SFO 2e function library, by DavidW.
                   Fixed reference to undefined variable in struct_get.
 
