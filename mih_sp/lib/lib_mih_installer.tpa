@@ -139,23 +139,14 @@ BEGIN
 
   // Install and patch the actual spell file.
 
-  ACTION_IF "%type%" STRING_EQUAL_CASE "class"
-  BEGIN
-    OUTER_SET force_class	= 1
-  END
-  ELSE
-  BEGIN
-    OUTER_SET force_class	= 0
-  END
-
   LAUNCH_ACTION_FUNCTION spl_copy
     INT_VAR
     is_ids		= 1
     create_scroll	= "%scroll%" STRING_EQUAL_CASE "y"
     overwrite		= "%force%" STRING_EQUAL_CASE "y"
-    force_class
     STR_VAR
     spl			= "%idsname%"
+    type
     source_location	= "%spells_loc%"
     icon_location	= "%graphics_loc%"
     locbase

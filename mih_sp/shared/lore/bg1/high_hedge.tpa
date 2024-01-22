@@ -52,7 +52,7 @@ BEGIN
 
   // Replace Flesh Golems with Invisible Stalkers
 
-  cre.copy[%tutu_scriptbg%stalke=>fgolem]
+  cre.copy[stalke=>fgolem]
   [
     m_script_override:="none"
     m_script_class:="fgolem"
