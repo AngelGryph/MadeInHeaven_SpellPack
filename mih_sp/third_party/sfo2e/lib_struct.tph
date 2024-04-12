@@ -872,7 +872,7 @@ END
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-DEFINE_PATCH_FUNCTION struct_read_vartypes
+DEFINE_PATCH_FUNCTION struct_read_vartypes//internal
 	STR_VAR strtype=""
 			type="" 
 			data=""
@@ -1170,7 +1170,12 @@ BEGIN
 					id id2 id4 id4b BEGIN
 						PATCH_IF !IS_AN_INT value BEGIN
 							SPRINT id $"SFO_%strtype%_ids"("%label%")
-							value=IDS_OF_SYMBOL ("%id%" "%value%")
+							PATCH_IF IDS_OF_SYMBOL ("%id%" "%value%")>=0 BEGIN
+								value=IDS_OF_SYMBOL ("%id%" "%value%")
+							END ELSE BEGIN
+								LPF warning STR_VAR warning="lib_struct can't find IDS entry %value% in ids file %id% (probably used by %SOURCE_RES%)" END
+								value="-1"
+							END
 						END
 						PATCH_MATCH "%type%" WITH
 						id id1 BEGIN
@@ -1496,7 +1501,7 @@ END
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-DEFINE_PATCH_FUNCTION struct_write_all_vartypes
+DEFINE_PATCH_FUNCTION struct_write_all_vartypes//internal
 BEGIN
 	// get the total length of the tables
 	count=0
@@ -2988,7 +2993,7 @@ nonexistent keys.}
 */
 //////////////////////////////////////////////////////////////////////////////////
 
-DEFINE_DIMORPHIC_FUNCTION struct_debug
+DEFINE_DIMORPHIC_FUNCTION struct_debug//internal
 	STR_VAR function=""
 			strtype=""
 			struct=""
@@ -3011,7 +3016,7 @@ END
 document{struct_apply_regexp} 
 {Quickly apply the function 'function' to every header of the specified type where the
 file matches 'regexp'. Return an array of all entries where the fn returns 'value' for 
-at least one entry.}
+at least one entry. (Note that this does not use the struct system: the file is edited directly, not opened into a data structure.}
 
 */
 //////////////////////////////////////////////////////////////////////////////////
@@ -3667,7 +3672,7 @@ Returns the game-default strtype for a given extension.
 
 
 
-DEFINE_DIMORPHIC_FUNCTION struct_get_default_version
+DEFINE_DIMORPHIC_FUNCTION struct_get_default_version//internal
 	STR_VAR ext="" 
 	RET strtype version
 BEGIN
@@ -4114,7 +4119,7 @@ BEGIN
 
 END
 
-DEFINE_PATCH_MACRO struct_read_fx_hardcode 
+DEFINE_PATCH_MACRO struct_read_fx_hardcode//internal 
 BEGIN
 										SET $s(opcode)=SHORT_AT 0x0
 										SET $s(target)=BYTE_AT 0x2

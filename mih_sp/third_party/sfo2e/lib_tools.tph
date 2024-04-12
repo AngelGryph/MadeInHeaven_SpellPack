@@ -15,12 +15,13 @@ ignore-dependencies{sfo_path}
 document{data_lines}
 {
 Given either 'data' (a string) or a path to a file, return either the string or the file separated into an array of lines, separated by line-breaks.
+If 'data' and 'file' are both blank, use the contents of the current file (if in patch context) as input (override this by setting the default_to_current_file INT_VAR to 0)
 }
 */
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-DEFINE_DIMORPHIC_FUNCTION data_lines
+DEFINE_ACTION_FUNCTION data_lines
 	STR_VAR data="" path="" file=""
 	RET_ARRAY lines
 BEGIN
@@ -41,6 +42,19 @@ BEGIN
 			++count
 		END	
 		""
+	END
+END
+
+DEFINE_PATCH_FUNCTION data_lines
+	INT_VAR default_to_current_file=1
+	STR_VAR data="" path="" file=""
+	RET_ARRAY lines
+BEGIN
+	PATCH_IF "%data%" STR_EQ "" && "%file%" STR_EQ "" && default_to_current_file BEGIN
+		READ_ASCII 0x0 data (BUFFER_LENGTH)
+	END
+	INNER_ACTION BEGIN
+		LAF data_lines STR_VAR data path file RET_ARRAY lines END
 	END
 END
 
