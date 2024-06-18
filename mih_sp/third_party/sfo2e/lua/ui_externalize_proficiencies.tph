@@ -207,6 +207,7 @@ DEFINE_ACTION_FUNCTION externalize_weapprof BEGIN
 dwClassProf={
 %class_data%
 }
+dwClassProf[19]=dwClassProf[1] --- sorcerers are hardcoded to match mages
 
 dwKitProf={
 %kit_data%
@@ -444,8 +445,12 @@ function plusButtonClickable(row) -- overwrite the baseline one in util
 end
 
 function minusButtonClickable(row) -- overwrite the baseline one in util
-	local prof=chargen.proficiency[dwProficiencyLookup[row]]
-	return (prof.value > prof.min)
+	if dwDefaultProficiencyGuard and not dwDefaultProficiencyGuard(row) then
+		return false
+	else
+		local prof=chargen.proficiency[dwProficiencyLookup[row]]
+		return (prof.value > prof.min)
+	end
 end
 
 function dwStartingProfAllowed(prof) 
