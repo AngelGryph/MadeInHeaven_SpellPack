@@ -241,6 +241,7 @@ REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "level_6_spells_sod"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
@@ -253,5 +254,8 @@ GROUP @15
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "level_4_animate_dead"
+  tra		= "spell_tweaks"
   location	= "tweaks"
 END
+
+
