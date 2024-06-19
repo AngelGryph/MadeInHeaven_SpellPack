@@ -28,6 +28,8 @@ LANGUAGE "English"
 
 BEGIN @1 
 
+LABEL MH#-MiH_SP-Arcane_Spellpack
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_arcane_spellpack"
@@ -38,6 +40,8 @@ END
 // Icewind Dale: Arcane Spellpack
 
 BEGIN @20
+
+LABEL MH#-MiH_SP-IWD_Arcane_Spells
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -50,6 +54,8 @@ END
 
 BEGIN @2 
 
+LABEL MH#-MiH_SP-Divine_Spellpack
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_divine_spellpack"
@@ -60,6 +66,8 @@ END
 // Icewind Dale: Divine Spellpack
 
 BEGIN @21
+
+LABEL MH#-MiH_SP-IWD_Divine_Spells
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -72,6 +80,8 @@ END
 
 BEGIN @18
 
+LABEL MH#-MiH_SP-PST_Spells
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_pst_spellpack"
@@ -82,6 +92,8 @@ END
 // Made in Heaven: Paladin Powers Pack
 
 BEGIN @3 
+
+LABEL MH#-MiH_SP-Paladin_Powers
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -94,6 +106,8 @@ END
 
 BEGIN @19 
 
+LABEL MH#-MiH_SP-Ranger_Powers
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_ranger_powers"
@@ -104,6 +118,8 @@ END
 // Made in Heaven: Bard Powers Pack
 
 BEGIN @16 
+
+LABEL MH#-MiH_SP-Bard_Powers
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -116,6 +132,8 @@ END
 
 BEGIN @17 
 
+LABEL MH#-MiH_SP-Bhaalspawn_Powers
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "setup_bhaalspawn_powers"
@@ -126,6 +144,8 @@ END
 // Made in Heaven: Specialist Perks
 
 BEGIN @4 
+
+LABEL MH#-MiH_SP-Specialist_Perks
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -141,6 +161,8 @@ END
 
 BEGIN @7
 
+LABEL MH#-MiH_SP-Epic_Spellpack
+
 REQUIRE_PREDICATE GAME_INCLUDES "tob" @10
 
 LAUNCH_ACTION_FUNCTION run
@@ -154,6 +176,8 @@ END
 
 BEGIN @26
 GROUP @5
+
+LABEL MH#-MiH_SP-True_Meteor_Swarm
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 
@@ -170,6 +194,8 @@ END
 BEGIN @9
 GROUP @5
 
+LABEL MH#-MiH_SP-No_Damage_Timestop
+
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 
 LAUNCH_ACTION_FUNCTION run
@@ -183,6 +209,8 @@ END
 
 BEGIN @11
 GROUP @5
+
+LABEL MH#-MiH_SP-No_Timestop_Immunity
 
 REQUIRE_PREDICATE GAME_INCLUDES "bg2" @10
 
@@ -198,6 +226,8 @@ END
 BEGIN @13
 GROUP @5
 
+LABEL MH#-MiH_SP-Spell_Improvements
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "spell_improvements"
@@ -211,6 +241,8 @@ END
 BEGIN @8
 GROUP @15
 
+LABEL MH#-MiH_SP-Revised_Spell_Learning_XP
+
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "spell_learning_xp"
@@ -222,6 +254,8 @@ END
 
 BEGIN @14
 GROUP @15
+
+LABEL MH#-MiH_SP-Expanded_Temple_Services
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -235,6 +269,8 @@ END
 
 BEGIN @23
 GROUP @15
+
+LABEL MH#-MiH_SP-SoD_6th_Level_Spells
 
 REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
 
@@ -250,6 +286,8 @@ END
 
 BEGIN @12
 GROUP @15
+
+LABEL MH#-MiH_SP-4th_Level_Animate_Dead
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
