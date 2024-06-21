@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION level_4_animate_dead
+BEGIN
+  WIZARD_ANIMATE_DEAD_4TH,WIZARD_ANIMATE_DEAD_4TH_SCROLL=spl.copy[%WIZARD_ANIMATE_DEAD%=>WIZARD_ANIMATE_DEAD_4TH]
+  [
+    m_level=4
+    m.ab_fx.alter{s_power=4}
+  ]
+END	// level_4_animate_dead
+
+

@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION setup_animate_dead
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "level_4_animate_dead level_5_ghoul_call animate_dead_scrolls"
+    tra		= "animate_dead"
+  END
+END	// setup_animate_dead
+
+

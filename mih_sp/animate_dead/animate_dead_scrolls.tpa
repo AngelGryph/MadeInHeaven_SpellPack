@@ -1,0 +1,22 @@
+DEFINE_ACTION_FUNCTION animate_dead_scrolls
+BEGIN
+  COPY_EXISTING_REGEXP "^.+\.sto$" "override"
+    PATCH_IF INDEX_BUFFER (CASE_INSENSITIVE "scrl2d")
+    BEGIN
+      LAUNCH_PATCH_FUNCTION struct_read RET_ARRAY m = struct END
+      LAUNCH_PATCH_FUNCTION struct_clone
+        STR_VAR
+        type	= item
+        struct	= m
+        match	= ~s_resref=="scrl2d"~
+        patch	= ~s_resref:="%WIZARD_ANIMATE_DEAD_4TH_SCROLL%"~
+        RET_ARRAY
+	m	= struct
+      END
+      LAUNCH_PATCH_FUNCTION struct_write STR_VAR struct = m END
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
+END	// animate_dead_scrolls
+
+

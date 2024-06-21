@@ -277,7 +277,6 @@ REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
   file		= "level_6_spells_sod"
-  tra		= "spell_tweaks"
   location	= "tweaks"
 END
 
@@ -291,9 +290,8 @@ LABEL MH#-MiH_SP-4th_Level_Animate_Dead
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "level_4_animate_dead"
-  tra		= "spell_tweaks"
-  location	= "tweaks"
+  file		= "setup_animate_dead"
+  location	= "animate_dead"
 END
 
 
