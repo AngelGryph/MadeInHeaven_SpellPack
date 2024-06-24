@@ -250,18 +250,17 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Expanded Temple Services
+// Expanded Temples
 
 BEGIN @14
 GROUP @15
 
-LABEL MH#-MiH_SP-Expanded_Temple_Services
+LABEL MH#-MiH_SP-Expanded_Temples
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "expanded_temple_services"
-  tra		= "expanded_temple_services"
-  location	= "tweaks"
+  file		= "setup_expanded_temples"
+  location	= "expanded_temples"
 END
 
 

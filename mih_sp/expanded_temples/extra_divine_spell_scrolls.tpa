@@ -1,0 +1,89 @@
+DEFINE_ACTION_FUNCTION extra_divine_spell_scrolls
+BEGIN
+  // Change restore.itm to Lesser Restoration in BGEE
+  // (is Greater Restoration in BGEE for some reason)
+  
+  ACTION_IF is_bg1 AND enhanced_edition AND NOT is_eet
+  BEGIN
+    itm.edit[restore]
+    [
+      m_identified_name-string = 26226
+      m_identified_description-string = 26227
+      m_icon := "sppr417a"
+      m.ab.alter{s_icon := "sppr417a"}
+      m.ab_fx.alter{s_resource := "sppr417"|match="s_opcode=146"}
+    ]
+  END
+  
+
+  // Create some new priest scrolls
+
+  LAUNCH_ACTION_FUNCTION spl_make_scroll
+    STR_VAR
+    spell_resref	= "%CLERIC_MASS_CURE%"
+    RET
+    CLERIC_MASS_CURE_SCROLL	= scroll_resref
+  END
+
+  LAUNCH_ACTION_FUNCTION spl_make_scroll
+    STR_VAR
+    spell_resref	= "%CLERIC_HEAL%"
+    RET
+    CLERIC_HEAL_SCROLL	= scroll_resref
+  END
+
+  LAUNCH_ACTION_FUNCTION spl_make_scroll
+    STR_VAR
+    spell_resref	= "%CLERIC_RESTORATION%"
+    RET
+    CLERIC_RESTORATION_SCROLL	= scroll_resref
+  END
+
+
+  LAUNCH_ACTION_FUNCTION spl_make_scroll
+    STR_VAR
+    spell_resref	= "%CLERIC_RESURRECTION%"
+    RET
+    CLERIC_RESURRECTION_SCROLL	= scroll_resref
+  END
+
+
+  // Put the new scrolls in a few select temples
+
+  ACTION_IF is_bg1
+  BEGIN
+    // Lady's Hall (Baldur's Gate)
+    sto.edit["tem0132"]
+    [
+      ADD_STORE_ITEM "%CLERIC_RESTORATION_SCROLL%" AFTER "scrl63 scrlpet" #1 #0 #0 "identified" #1
+    ]
+
+    // Temple of Wisdom (Friendly Arm Inn)
+    sto.edit["tem2304"]
+    [
+      ADD_STORE_ITEM "%CLERIC_MASS_CURE_SCROLL%" AFTER "scrl63 scrlpet" #1 #0 #0 "identified" #1
+    ]
+
+    // Song of the Morning (Beregost)
+    sto.edit["tem3402"]
+    [
+      ADD_STORE_ITEM "%CLERIC_RESURRECTION_SCROLL%" AFTER "scrl63 scrlpet" #1 #0 #0 "identified" #1
+    ]
+
+    // Alvanhendar's Healing and Sundries (Gullykin)
+    sto.edit["tem4003"]
+    [
+      ADD_STORE_ITEM "%CLERIC_HEAL_SCROLL%" AFTER "scrl63 scrlpet" #1 #0 #0 "identified" #1
+    ]
+  END
+
+  ACTION_IF is_sod
+  BEGIN
+  END
+
+  ACTION_IF is_bg2
+  BEGIN
+  END
+END	// extra_divine_spell_scrolls
+
+

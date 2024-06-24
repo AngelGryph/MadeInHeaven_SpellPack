@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION setup_expanded_temples
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "expanded_temple_services extra_divine_spell_scrolls"
+    tra		= "expanded_temples"
+  END
+END	// setup_expanded_temples
+
+
