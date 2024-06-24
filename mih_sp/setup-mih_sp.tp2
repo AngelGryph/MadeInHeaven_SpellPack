@@ -172,6 +172,21 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Nerf Sleep Spells
+
+BEGIN @22
+GROUP @5
+
+LABEL mh#-MiH_SP-Nerf_Sleep_Spells
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "nerf_sleep_spells"
+  tra		= "spell_tweaks"
+  location	= "tweaks"
+END
+
+
 // True Meteor Swarm
 
 BEGIN @26

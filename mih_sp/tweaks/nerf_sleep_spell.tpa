@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION nerf_sleep_spell
+BEGIN
+  spl.edit[%WIZARD_SLEEP%]
+  [
+    m_description := @9
+    m.ab.delete{s_level > 1}
+  ]
+END	// nerf_sleep_spell
+
+

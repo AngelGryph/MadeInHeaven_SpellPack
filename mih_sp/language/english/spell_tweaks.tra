@@ -57,7 +57,17 @@ Area of Effect: Special
 Saving Throw: None
 
 With this spell, the caster causes a blazing ray of red-hot fire to spring forth from <PRO_HISHER> hand. This blade-like ray is wielded as if it were a scimitar, although there is no penalty if the caster does not know how to use a scimitar.  The blade is insubstantial and only deals damage by its flame, therefor strength has no effect on either its chance to hit or the damage it deals.  However, because only a touch is required the wielder gets a +4 bonus to their roll to hit.  The flame blade inflicts 1d8 points of fire damage, +1 for every two levels of the caster (max. +10).  It can damage anything that is vulnerable to fire, regardless of weapon immunities.~
-//@9    = ~~
+@9    = ~Sleep
+(Enchantment/Charm)
+
+Level: 1
+Range: 60 ft.
+Duration: 5 rounds
+Casting Time: 1 
+Area of Effect: 15-ft. radius
+Saving Throw: Neg.
+
+When a wizard casts a Sleep spell, <PRO_HESHE> causes a comatose slumber to come upon one or more enemies (other than undead and certain other creatures specifically excluded from the spell's effects). All creatures to be affected by the Sleep spell must be within a 15-ft. radius. Creatures in the area of effect must make a Saving Throw vs. Death with a -3 penalty or fall asleep. Monsters with 5 Hit Dice or more are unaffected. Attacks against sleeping opponents never miss.~
 @10   = ~Rain of Destruction~
 @11   = ~Rain of Destruction
 (Evocation)
