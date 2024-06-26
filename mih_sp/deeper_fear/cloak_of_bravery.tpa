@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION cloak_of_bravery
+BEGIN
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#clbra.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#clbrb.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#clbrc.bam" "override"
+
+  CLERIC_CLOAK_OF_BRAVERY=spl.copy[%CLERIC_REMOVE_FEAR%=>CLERIC_CLOAK_OF_BRAVERY]
+  [
+    m_name := @0
+    m_description := @1
+    m_level = 4
+    m_icon := "mh#clbrc"
+    m.ab.alter{s_icon := "mh#clbrb";;s_target = 5;;s_range = 1;;s_casting_time=6}
+    m.ab_fx.alter{s_power = 4}
+  ]
+END	// cloak_of_bravery
+
+

@@ -1,0 +1,26 @@
+@0    = ~Cloak of Bravery~
+@1    = ~Cloak of Bravery
+(Abjuration)
+
+Level: 4
+Range: 0
+Duration: 1 hour
+Casting Time: 6
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+Cloak of Bravery empowers the caster to radiate a personal aura of courage out to a 15-ft. radius. Party members in the area including the priest <PRO_HIMHER>self are instilled with courage, raising their morale to its highest. The recipients' morale will gradually reset to normal as the duration runs out. If any party members are affected by magical fear, they will regain their composure.~
+@2    = ~Remove Fear
+(Abjuration)
+
+Level: 1
+Sphere: Charm 
+Range: 30 ft. 
+Duration: Instant
+Casting Time: 1 
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+With this spell, the priest can negate magical fear, restoring composure to those affected by fear.  Recipients are not protected from panicking again, which may happen if the source of their fear is still in the vicinity.~
+
+

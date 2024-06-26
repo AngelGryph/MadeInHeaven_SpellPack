@@ -172,18 +172,32 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
-// Nerf Sleep Spells
+// Nerf Sleep Spell
 
 BEGIN @22
 GROUP @5
 
-LABEL mh#-MiH_SP-Nerf_Sleep_Spells
+LABEL mh#-MiH_SP-Nerf_Sleep_Spell
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
-  file		= "nerf_sleep_spells"
+  file		= "nerf_sleep_spell"
   tra		= "spell_tweaks"
   location	= "tweaks"
+END
+
+
+// Deeper Fear
+
+BEGIN @24
+GROUP @5
+
+LABEL mh#-MiH_SP-Deeper_Fear
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_deeper_fear"
+  location	= "deeper_fear"
 END
 
 

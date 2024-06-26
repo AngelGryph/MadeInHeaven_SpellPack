@@ -1,0 +1,16 @@
+DEFINE_ACTION_FUNCTION nerf_remove_fear
+BEGIN
+  spl.edit[%CLERIC_REMOVE_FEAR% %CAVALIER_REMOVE_FEAR%]
+  [
+    m_description := @2
+    m.ab_fx.delete{s_duration > 5}
+  ]
+
+  kit.edit[CAVALIER]
+  [
+    k.kit_remove_powers{%CAVALIER_REMOVE_FEAR%}
+    k.kit_grant_powers{%CAVALIER_REMOVE_FEAR% 1 3 10}
+  ]
+END	// nerf_remove_fear
+
+

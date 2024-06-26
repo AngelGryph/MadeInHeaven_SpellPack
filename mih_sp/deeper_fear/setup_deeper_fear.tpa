@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION setup_deeper_fear
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "cloak_of_bravery nerf_remove_fear"
+    tra		= "deeper_fear"
+  END
+END	// setup_deeper_fear
+
+
