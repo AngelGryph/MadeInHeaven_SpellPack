@@ -13,6 +13,12 @@ BEGIN
     m.ab.alter{s_icon := "mh#clbrb";;s_target = 5;;s_range = 1;;s_casting_time=6}
     m.ab_fx.alter{s_power = 4}
   ]
+
+  LAUNCH_ACTION_FUNCTION tof_spell_sphere
+    STR_VAR
+    spell	= "CLERIC_CLOAK_OF_BRAVERY"
+    sphere	= "charm"
+  END
 END	// cloak_of_bravery
 
 

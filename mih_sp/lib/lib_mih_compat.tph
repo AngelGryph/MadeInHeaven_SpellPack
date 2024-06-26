@@ -1,0 +1,65 @@
+// erase_journal_entries_on_bg2_transition
+//
+// This function goes through a (compiled) dialog file, extracts the string
+// references of all JOURNAL, SOLVED_JOURNAL and UNSOLVED_JOURNAL entries,
+// and makes sure they get deleted from the journal during the transfer into
+// BG2.  If called on a non-BGT game (including EET), it does nothing at all.
+
+DEFINE_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
+  STR_VAR
+  dialog    = "dummy"
+BEGIN
+  ACTION_IF GAME_IS "bgt" AND FILE_EXISTS_IN_GAME "aram00.bcs"
+  BEGIN
+    COPY_EXISTING - "%dialog%.dlg" "%mod_name%/work"
+      GET_OFFSET_ARRAY trans_array 0x0014 4 0x0010 4 0 0 0x0020
+      PHP_EACH trans_array AS int => trans_offset
+      BEGIN
+        PATCH_IF (LONG_AT (trans_offset) & BIT4)
+    BEGIN
+      READ_SLONG (trans_offset + 0x0008) strref
+      PATCH_IF strref > 0
+      BEGIN
+        DEFINE_ASSOCIATIVE_ARRAY journal_entries
+        BEGIN
+          "%strref%" => "1"
+        END
+      END
+    END
+      END
+
+    COPY_EXISTING "aram00.bcs" "override"
+    DECOMPILE_AND_PATCH
+    BEGIN
+      PHP_EACH journal_entries AS strref => int
+      BEGIN
+        REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH
+	 ~SetGlobal("A6StartARAM00","ARAM00",10)~
+	 ~SetGlobal("A6StartARAM00","ARAM00",10)
+	  EraseJournalEntry(%strref%)~
+      END
+    END
+  END
+END
+
+
+// Talents of Faerun priest sphere system compatibility
+
+DEFINE_ACTION_FUNCTION tof_spell_sphere
+  STR_VAR
+  spell		= ~dummy~
+  sphere	= ~dummy~
+BEGIN
+<<<<<<<< .../stratagems-inline/%MOD_FOLDER%.ini
+[spheres]
+>>>>>>>>
+
+  ACTION_IF NOT FILE_EXISTS "%data_loc_shared%/%MOD_FOLDER%.ini"
+  BEGIN
+    COPY ".../stratagems-inline/%MOD_FOLDER%.ini" "%data_loc_shared%"
+  END
+
+  APPEND_OUTER "%data_loc_shared%/%MOD_FOLDER%.ini" "%spell%=%sphere%" UNLESS "^%spell%"
+END
+
+
