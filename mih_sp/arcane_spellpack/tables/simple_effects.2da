@@ -2,10 +2,11 @@ resref		opcode	parameter1	parameter2	parameter3	parameter4	dicenum	dicesz	resour
 catjagsu	67	5		0		0		0		0	0	catjagsu	spanisum
 catliosu	67	5		0		0		0		0	0	catliosu	spanisum
 jellmusu	67	5		0		0		0		0	0	jellmusu	trblobb
-mh#blink	222	128		0		0		0		0	0	no_change	no_change
-mh#gusta	39	0		0		0		0		0	0	no_change	no_change
-mh#gustb	235	10		2		0		0		0	0	no_change	no_change
-mh#gustc	165	0		0		0		0		0	0	no_change	no_change
-mh#sunbu	12	0		0x00080000	0		0		8	6	no_change	no_change
+mh#blink	222	128		0		0		0		0	0	NONE		NONE
+mh#gusta	39	0		0		0		0		0	0	NONE		NONE
+mh#gustb	235	10		2		0		0		0	0	NONE		NONE
+mh#gustc	165	0		0		0		0		0	0	NONE		NONE
+mh#sunbu	12	0		0x00080000	0		0		8	6	NONE		NONE
+mh#avflm	12	0		0x00080000	0		0		2	8	NONE		NONE
 
 

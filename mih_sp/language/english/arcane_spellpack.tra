@@ -299,8 +299,18 @@ Saving Throw: None
 The use of an Alacrity spell allows the wizard to speed up the casting of fifth level spells and lower.  All spells cast within the duration of the Alacrity spell are sped by 2 (so a spell with a casting time of 5 would have a casting time of 3 instead), lessening the change for the wizard to be interrupted and have <PRO_HISHER> spell ruined.
 
 Alacrity cannot be used to speed up spells of sixth level and higher, and attempting to cast such a spell will end the Alacrity spell immediately.~
-//@56   = ~~
-//@57   = ~~
+@56   = ~Avissar's Flaming Weapon~
+@57   = ~Avissar's Flaming Weapon
+(Alteration)
+
+Level: 8
+Range: Touch
+Duration: 5 rounds/level
+Casting Time: 9
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell allows the wizard to temporarily imbue an ally's weapons with the power of elemental fire.  Each melee strike with an affected weapon will inflict 2d8 points of fire damage in addition to its normal damage and effects.~
 @58   = ~Weird~
 @59   = ~Weird
 (Illusion)

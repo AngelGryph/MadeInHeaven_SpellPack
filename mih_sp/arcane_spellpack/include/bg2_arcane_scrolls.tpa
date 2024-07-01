@@ -78,6 +78,17 @@ BEGIN
     ]
 
 
+    // Avissar's Flaming Weapon
+    //
+    // Rare spell developed by an obscure evil archmage.
+    // Let's put it in the Planar Sphere.
+
+    are.edit[ar0412]
+    [
+      m.container_item.add{s_resref:="%WIZARD_AVISSARS_FLAMING_WEAPON_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Container 2"~}
+    ]
+
+
     // Arcana Archives
     //
     // This guy has every other spell scroll in the game, so let's
@@ -98,6 +109,7 @@ BEGIN
       ADD_STORE_ITEM "%WIZARD_FAERIE_SWORD_SCROLL%" AFTER "scrl8n" #1 #1 #0 "identified" #2
       ADD_STORE_ITEM "%WIZARD_DEVASTATE_SCROLL%" AFTER "scrlb1" #1 #1 #0 "identified" #2
       ADD_STORE_ITEM "%WIZARD_WEB_OF_LIGHTNING_SCROLL%" AFTER "scrlap" #1 #1 #0 "identified" #2
+      ADD_STORE_ITEM "%WIZARD_AVISSARS_FLAMING_WEAPON_SCROLL%" AFTER "scrl9p" #1 #1 #0 "identified" #2
     ]
   END	// is_bg2
 END	// bg2_arcane_scrolls
