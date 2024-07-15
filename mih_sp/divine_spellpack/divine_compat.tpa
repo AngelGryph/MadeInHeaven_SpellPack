@@ -1,8 +1,19 @@
 DEFINE_ACTION_FUNCTION divine_compat
 BEGIN
-  // Compatibility with non-EE editions
+  ACTION_IF enhanced_edition
+  BEGIN
+    // Protection from Cold
+    // Striking
+    //
+    // EE has a better way of dealing with self-stacking.
 
-  ACTION_IF NOT enhanced_edition
+    spl.edit[%CLERIC_PROTECTION_FROM_COLD% %CLERIC_STRIKING%]
+    [
+      m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "PresetTarget";;s_resource := "DW-THIS"|insert_point:i=0}
+      m.ab_fx.delete{s_opcode = 206}
+    ]
+  END
+  ELSE	// NOT enhanced_edition
   BEGIN
     // Repel Insects
     //
