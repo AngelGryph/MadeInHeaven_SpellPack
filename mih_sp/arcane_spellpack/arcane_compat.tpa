@@ -12,13 +12,13 @@ BEGIN
 
     spl.edit[%WIZARD_ALACRITY% %WIZARD_BARRIER% %WIZARD_FORESIGHT%]
     [
-      m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "self";;s_resource := "DW-THIS"|insert_point:i=0}
+      m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "self";;s_resource := "%sfo_filename%"|insert_point:i=0}
       m.ab_fx.delete{s_opcode = 206}
     ]
 
     spl.edit[%WIZARD_DEVASTATE% %WIZARD_SEEKING%]
     [
-      m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "PresetTarget";;s_resource := "DW-THIS"|insert_point:i=0}
+      m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "PresetTarget";;s_resource := "%sfo_filename%"|insert_point:i=0}
       m.ab_fx.delete{s_opcode = 206}
     ]
   END

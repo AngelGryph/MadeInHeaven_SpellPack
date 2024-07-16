@@ -1,3 +1,11 @@
+// WeiDU doesn't properly clear variables between automatic
+// reinstalls leading to components failing on a reinstall.
+//
+// Until that is fixed, let's put this here.
+
+CLEAR_EVERYTHING
+
+
 // Set up SSL if we have it.
 
 ACTION_IF FILE_EXISTS "%MOD_FOLDER%/ssl/library.slb"
