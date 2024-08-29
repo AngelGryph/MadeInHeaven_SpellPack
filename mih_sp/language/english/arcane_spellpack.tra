@@ -211,8 +211,11 @@ This spell creates a slender, shimmering sword in the caster's hands.  The caste
 - turned to stone (allows save vs. petrification)
 - mazed
 - disintegrated (allows save vs. death)~
-//@34   = ~~
-//@35   = ~~
+@34   = ~Threestones~
+@35   = ~Threestones
+(Alteration)
+
+This spell transforms three ordinary stones into deadly magical projectiles which can be thrown at targets up to 270 feet away and are treated as missiles with a +3 bonus to the attack rolls.  Each stone inflicts 2d4 points of damage on impact.~
 //@36   = ~~
 //@37   = ~~
 @38   = ~Major Globe of Invulnerability~
@@ -411,12 +414,22 @@ Casting Time: 3
 Area of Effect: 15' radius
 
 When a Mirage Arcana spell is invoked, the caster causes from 2 to 8 exact duplicates of themselves to come into being around the members of <PRO_HISHER> entire party. These images do exactly what the party members do. Since the spell causes a blurring and slight distortion when cast, it is impossible for opponents to be certain which are the illusions and which is the actual party member. When an image is struck by a melee or missile attack -magical or otherwise- it disappears, but any other existing images remain intact until they are struck. However, it is important to note that this will not protect the caster against every attack, as it is possible for an enemy to choose the real person amongst all the images.~
-@80   = ~~
-@81   = ~~
-@82   = ~~
-@83   = ~~
-@84   = ~~
-@85   = ~~
+@80   = ~Khelben's Dweomerdoom~
+@81   = ~Khelben's Dweomerdoom
+(Abjuration)
+
+Level: 9
+Range: 80 ft.
+Duration: Instant
+Casting Time: 2
+Area of Effect: 1 creature
+Saving Throw: None
+
+This spell allows archmages to drain magic directly from other wizards by eliminating the memory of certain spells.  The spell drains one wizard spell of any level from the target for every nine levels of the caster.  Neither a saving throw nor magic resistance can stop this assault, although spell trap, spell deflection and similar defenses can.  This spell has no effect at all on a target that isn't an arcane caster.~
+@82   = ~two arcane spells drained~
+@83   = ~three arcane spells drained~
+@84   = ~four arcane spells drained~
+@85   = ~five arcane spells drained~
 @86   = ~Devastate~
 @87   = ~Devastate
 (Alteration)

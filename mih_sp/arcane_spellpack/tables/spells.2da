@@ -4,6 +4,7 @@ WIZARD_BARRIER				1	22	23	wizard	n	y	*
 WIZARD_SPARK_SHOWER			2	0	1	wizard	n	y	*
 WIZARD_SEEKING				2	2	3	wizard	n	y	*
 WIZARD_SUMMON_CATS			2	67	68	wizard	n	y	*
+WIZARD_THREESTONES			2	34	35	wizard	n	y	*
 WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	wizard	n	y	*
 WIZARD_HEROISM				3	6	7	wizard	n	y	*
 WIZARD_BLINK				3	8	9	wizard	n	y	*
@@ -32,5 +33,6 @@ WIZARD_WEB_OF_LIGHTNING			8	90	91	wizard	n	y	*
 WIZARD_AVISSARS_FLAMING_WEAPON		8	56	57	wizard	n	y	*
 WIZARD_WEIRD				9	58	59	wizard	n	y	*
 WIZARD_FORESIGHT			9	63	64	wizard	n	y	*
+WIZARD_KHELBENS_DWEOMERDOOM		9	80	81	wizard	n	y	*
 
 

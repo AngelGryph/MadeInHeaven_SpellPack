@@ -131,6 +131,14 @@ BEGIN
     m_sectype=%mhHeroism%
     m.ab_fx.add{s_opcode=221 s_target=2 s_timing=1 s_parameter1=10 s_parameter2=%mhHeroism%|insert_point:i=0}
   ]
+
+
+  // Add strings to Khelben's Dweomerdoom
+
+  spl.edit[%WIZARD_KHELBENS_DWEOMERDOOM%]
+  [
+    m.ab_fx.clone{s_opcode = 139;;s_timing := "InstantPermanent";;tra_line = s_parameter1 + 80;;s_parameter1 = RESOLVE_STR_REF ( ( AT tra_line ) )|match="s_opcode = 244"}
+  ]
 END	// arcane_postproc
 
 
