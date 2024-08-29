@@ -79,10 +79,44 @@ BEGIN
 
   ACTION_IF is_sod
   BEGIN
+    // Dosia (final coalition camp)
+    sto.edit["bddosia"]
+    [
+      ADD_STORE_ITEM "%CLERIC_MASS_CURE_SCROLL%" AFTER "scrl63" #1 #0 #0 "identified" #2
+    ]
+
+    // Crusader priest Polvi (Dragonspear basement)
+    sto.edit["bdpolvi"]
+    [
+      ADD_STORE_ITEM "%CLERIC_RESURRECTION_SCROLL%" AFTER "scrl61" #1 #0 #0 "identified" #1
+    ]
+
+    // Onoroth's Supplies (Trollbark forest)
+    sto.edit[bdonoro]
+    [
+      ADD_STORE_ITEM "%CLERIC_HEAL_SCROLL%" AFTER "scrl58" #1 #0 #0 "identified" #1
+    ]
   END
 
   ACTION_IF is_bg2
   BEGIN
+    // Temple of Helm (temple district)
+    sto.edit["temhelm"]
+    [
+      ADD_STORE_ITEM "%CLERIC_HEAL_SCROLL%" AFTER "restore" #1 #0 #0 "identified" #2
+    ]
+
+    // Temple of Lathander (temple district)
+    sto.edit["temlath"]
+    [
+      ADD_STORE_ITEM "%CLERIC_RESURRECTION_SCROLL%" AFTER "scrl63" #1 #0 #0 "identified" #2
+    ]
+
+    // Temple of Waukeen (Trademeet)
+    sto.edit["temsup"]
+    [
+      ADD_STORE_ITEM "%CLERIC_MASS_CURE_SCROLL%" AFTER "scrl63" #1 #0 #0 "identified" #3
+    ]
   END
 END	// extra_divine_spell_scrolls
 
