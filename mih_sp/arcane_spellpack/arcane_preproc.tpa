@@ -1,0 +1,20 @@
+DEFINE_ACTION_FUNCTION arcane_preproc
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "force_remap_level_9_wizard_spells"
+    RET
+    force_remap_level_9_wizard_spells	= value
+  END
+
+
+  // We force this for oBG2 because extended spells doesn't work there
+  // and we'll run out of level 9 spell space without it.
+
+  ACTION_IF force_remap_level_9_wizard_spells OR !enhanced_edition
+  BEGIN
+    LAUNCH_ACTION_FUNCTION spl_remap_level_9_wizard_spells END
+  END
+END	// arcane_preproc
+
+

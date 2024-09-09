@@ -33,8 +33,8 @@ BEGIN
 
     spl.edit[%CLERIC_LIGHTNING_STORM%]
     [
-      m.adfx.alter{s_dicenumber/=2|match="opcode=12"}
-      m.adfx.clone{s_dicenumber+=(p_level MODULO 2) s_save_vs_spell=0 s_save_vs_breath=0 s_save_vs_poison=0 s_save_vs_wand=0 s_save_vs_polymorph=0|match="s_opcode=12"}
+      m.ab_fx.alter{s_dicenumber /= 2|match="s_opcode = 12"}
+      m.ab_fx.clone{s_dicenumber += (p_level MODULO 2);;s_save_vs_spell = 0;;s_save_vs_breath = 0;;s_save_vs_poison = 0;;s_save_vs_wand = 0;;s_save_vs_polymorph = 0|match="s_opcode = 12"}
     ]
 
 
@@ -46,8 +46,8 @@ BEGIN
 
     eff.edit[mh#turn4]
     [
-      m_opcode=191
-      m_parameter2=1
+      m_opcode = 191
+      m_parameter2 = 1
     ]
   END
 
@@ -62,7 +62,7 @@ BEGIN
 
     spl.edit[%CLERIC_PROTECTION_FROM_COLD%]
     [
-      m.ab_fx.alter{s_parameter1=26434|match="s_opcode = 139"}
+      m.ab_fx.alter{s_parameter1 = 26434|match="s_opcode = 139"}
     ]
   END
 END	// divine_compat
