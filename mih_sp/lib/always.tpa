@@ -24,6 +24,8 @@ OUTER_TEXT_SPRINT lua_loc "third_party/sfo2e/lua"
 
 INCLUDE "%MOD_FOLDER%/%sfo_library_path%/sfo_init.tpc"
 
+LAUNCH_ACTION_MACRO data_saving_throws
+
 
 // Load additional library files.
 

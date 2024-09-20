@@ -69,7 +69,7 @@ Casting Time: 3
 Area of Effect: 30' radius
 Saving Throw: 1/2
 
-This spell creates a burst of electricity, shocking anyone unfortunate enough to be in the area for 1d6 damage per level of the caster (up to a maximum of 10d6).  A grape-sized sphere appears near the caster and travels to the designated point at a high velocity, where it bursts into the scintillating sphere.  Creatures failing their Saves vs. Spell take full damage from the shock.  Those who roll succesful Saving Throws have managed to partially evade the blast and receive half damage.~
+This spell creates a burst of electricity, shocking anyone unfortunate enough to be in the area for 1d6 damage per level of the caster (up to a maximum of 10d6).  A grape-sized sphere appears near the caster and travels to the designated point at a high velocity, where it bursts into the scintillating sphere.  Creatures failing their Saves vs. Spell take full damage from the shock.  Those who roll successful Saving Throws have managed to partially evade the blast and receive half damage.~
 @12   = ~Minor Malison~
 @13   = ~Minor Malison
 (Enchantment/Charm)
@@ -129,7 +129,7 @@ Casting Time: 4
 Area of Effect: 40' radius
 Saving Throw: Neg.
 
-By means of this spell, the wizard calls forth a mass of writhing tentacles that grab on to any creature in the area, holding them in place and dealing 1d6+4 crushing damage per round.  A succesful save versus spell allows a victim to escape, but as long as they remain in the area they may be grabbed again.~
+By means of this spell, the wizard calls forth a mass of writhing tentacles that grab on to any creature in the area, holding them in place and dealing 1d6+4 crushing damage per round.  A successful save versus spell allows a victim to escape, but as long as they remain in the area they may be grabbed again.~
 @22   = ~Barrier~
 @23   = ~Barrier
 (Abjuration)
@@ -242,20 +242,8 @@ Area of Effect: 2-ft. by 15-ft. jet
 Saving Throw: None
 
 Upon casting this spell, the mage projects a ray of intense cold that freezes everything in its path.  Everyone and everything crossing the ray will take 1d6 points of cold damage per caster level (max. 25d6).~
-@42   = ~Mechanus' Cannon~
-@43   = ~Mechanus' Cannon
-(Conjuration/Summoning)
-
-Level: 8
-Range: 50 ft.
-Duration: Instant
-Speed: 8
-Area of Effect: 1 creature
-Saving Throw: None
-
-The true, logical justice of Primus shall be delivered unto the illogical, as pure energy descends from Mechanus.
-
-This spell summons the ultimate form of 'equalization' from Primus: A huge energy blast that comes from the very heart of Mechanus and fires toward the target specified by the caster, via a portal. A temporary portal will appear 10 ft. from the target and Mechanus' Logical Justice will be handed down, inflicting 20d4+10 points of magical damage, with no saving throw.~
+//@42   = ~~
+//@43   = ~~
 //@44   = ~~
 @45   = ~Ramazith's Slime Summons~
 @46   = ~Ramazith's Slime Summons
@@ -327,7 +315,7 @@ Saving Throw: Special
 
 When casting the Weird spell, the mage informs <PRO_HISHER> enemies that their final fate, indeed their doom is now upon them.  The spell then creates 1-4 weirds, quasi-real creatures made from shadow stuff.  While they appear only as blurry shadows to everyone else, their victims see the weird as whatever enemy they fear the most.  Although weirds are illusionary they cannot be disbelieved or dispelled by True Seeing and similar magic; the phantasm exists in the minds of the victims and is completely real to them for all purposes.  The only way to get rid of a weird before the spell ends is to defeat it in combat.
 
-Weirds attack twice per round and deal 2d8+4 damage on a succesful attack.  In addition, with every hit the victim must save versus death at -4 or either flee in panic or be paralyzed with fear (50% chance of either),  There is also a 20% chance per hit that the victim dies instantly from pure fright.~
+Weirds attack twice per round and deal 2d8+4 damage on a successful attack.  In addition, with every hit the victim must save versus death at -4 or either flee in panic or be paralyzed with fear (50% chance of either),  There is also a 20% chance per hit that the victim dies instantly from pure fright.~
 @60   = ~Frost Fingers~
 @61   = ~Frost Fingers
 (Alteration)
@@ -339,7 +327,7 @@ Casting Time: 1
 Area of Effect: 1 creature
 Saving Throw: 1/2
 
-When the wizard casts this spell, a spray of numbing cold and ice crystals shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fanlike sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The frost fingers send out ice sprays of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of cold damage. A creature that successfully saves vs. Spell receives half damage.~
+When the wizard casts this spell, a spray of numbing cold and ice crystals shoots from <PRO_HISHER> fingertips. The wizard's hands must be held so as to send forth a fan-like sheet of flames: <PRO_HISHER> thumbs must touch each other and the fingers must be spread. The frost fingers send out ice sprays of 5 ft. length in a horizontal arc of about 120 degrees in front of the wizard. The target suffers 1d3 points of damage, +2 points for each level of the caster, to a maximum of 1d3+20 points of cold damage. A creature that successfully saves vs. Spell receives half damage.~
 @62   = ~Add spells to your matrix~
 @63   = ~Foresight~
 @64   = ~Foresight
@@ -413,7 +401,7 @@ Duration: 3 rounds + 1 round/level
 Casting Time: 3
 Area of Effect: 15' radius
 
-When a Mirage Arcana spell is invoked, the caster causes from 2 to 8 exact duplicates of themselves to come into being around the members of <PRO_HISHER> entire party. These images do exactly what the party members do. Since the spell causes a blurring and slight distortion when cast, it is impossible for opponents to be certain which are the illusions and which is the actual party member. When an image is struck by a melee or missile attack -magical or otherwise- it disappears, but any other existing images remain intact until they are struck. However, it is important to note that this will not protect the caster against every attack, as it is possible for an enemy to choose the real person amongst all the images.~
+When a Mirage Arcana spell is invoked, the caster causes from 2 to 8 exact duplicates of themselves to come into being around the members of <PRO_HISHER> entire party. These images do exactly what the party members do. Since the spell causes a blurring and slight distortion when cast, it is impossible for opponents to be certain which are the illusions and which is the actual party member. When an image is struck by a melee or missile attack -magical or otherwise- it disappears, but any other existing images remain intact until they are struck. However, it is important to note that this will not protect the caster against every attack, as it is possible for an enemy to choose the real person among all the images.~
 @80   = ~Khelben's Dweomerdoom~
 @81   = ~Khelben's Dweomerdoom
 (Abjuration)
