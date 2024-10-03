@@ -1,0 +1,22 @@
+DEFINE_ACTION_FUNCTION rain_of_fire
+BEGIN
+  spl.edit[spwi911]
+  [
+    m_name:=@0
+    m_description:=@1
+  ]
+
+  itm.edit[scrl9t]
+  [
+    m_identified_name:=@0
+    m_identified_description:=@1
+  ]
+
+
+  sto.edit[25spell]
+  [
+    m.item.clone{s_resref:="%WIZARD_TRUE_METEOR_SWARM_SCROLL%"|match=~"%s_resref%" == "scrl9t"~}
+  ]
+END	// rain_of_fire
+
+

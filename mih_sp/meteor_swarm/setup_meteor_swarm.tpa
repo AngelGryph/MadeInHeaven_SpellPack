@@ -1,0 +1,10 @@
+DEFINE_ACTION_FUNCTION setup_meteor_swarm
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "true_meteor_swarm rain_of_fire"
+    tra		= "meteor_swarm"
+  END
+END	// setup_meteor_swarm
+
+

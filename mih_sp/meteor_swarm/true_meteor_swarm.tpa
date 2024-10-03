@@ -1,0 +1,15 @@
+DEFINE_ACTION_FUNCTION true_meteor_swarm
+BEGIN
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#tmswa.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#tmswb.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#tmswc.bam" "override"
+
+  COPY "%MOD_FOLDER%/%component_loc%/spells/meteorsd.spl" "override"
+
+  WIZARD_TRUE_METEOR_SWARM,WIZARD_TRUE_METEOR_SWARM_SCROLL=spl.copy[meteors=>WIZARD_TRUE_METEOR_SWARM|source_location="spells"]
+  [
+     m_description:=@2
+  ]
+END	// true_meteor_swarm
+
+
