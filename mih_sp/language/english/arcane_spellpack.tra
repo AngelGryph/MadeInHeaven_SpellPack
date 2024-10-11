@@ -216,8 +216,18 @@ This spell creates a slender, shimmering sword in the caster's hands.  The caste
 (Alteration)
 
 This spell transforms three ordinary stones into deadly magical projectiles which can be thrown at targets up to 270 feet away and are treated as missiles with a +3 bonus to the attack rolls.  Each stone inflicts 2d4 points of damage on impact.~
-//@36   = ~~
-//@37   = ~~
+@36   = ~Summon Dao~
+@37   = ~Summon Dao
+(Conjuration/Summoning)
+
+Level: 7
+Range: 120 ft.
+Duration: 1 round/level
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+With this spell, the wizard can cajole a dao -a massive genie with powerful abilities- to leave the Elemental Plane of Earth and enter the Prime Material. The dao will serve the caster for the duration of the spell, attacking <PRO_HISHER> enemies~
 @38   = ~Major Globe of Invulnerability~
 @39   = ~Major Globe of Invulnerability
 (Abjuration)
@@ -242,9 +252,19 @@ Area of Effect: 2-ft. by 15-ft. jet
 Saving Throw: None
 
 Upon casting this spell, the mage projects a ray of intense cold that freezes everything in its path.  Everyone and everything crossing the ray will take 1d6 points of cold damage per caster level (max. 25d6).~
-//@42   = ~~
-//@43   = ~~
-//@44   = ~~
+@42   = ~Summon Marid~
+@43   = ~Summon Marid
+(Conjuration/Summoning)
+
+Level: 7
+Range: 120 ft.
+Duration: 1 round/level
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+With this spell, the wizard can cajole a marid -a massive genie with powerful abilities- to leave the Elemental Plane of Earth and enter the Prime Material. The marid will serve the caster for the duration of the spell, attacking <PRO_HISHER> enemies~
+@44   = ~Marith~
 @45   = ~Ramazith's Slime Summons~
 @46   = ~Ramazith's Slime Summons
 (Conjuration/Summoning)
@@ -260,8 +280,8 @@ This spell was developed by the evil mage Ramazith of Baldur's Gate.  The mage c
 9th : gray ooze
 12th : ochre jelly
 15th+ : mustard jelly~
-//@47   = ~~
-//@48   = ~~
+@47   = ~Mordenkainen's Magnificent Mansion~
+@48   = ~Mordenkainen's Magnificent Mansion~
 //@49   = ~~
 //@50   = ~~
 //@51   = ~~

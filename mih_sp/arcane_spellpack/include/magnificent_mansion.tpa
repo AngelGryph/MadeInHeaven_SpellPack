@@ -1,0 +1,18 @@
+DEFINE_ACTION_FUNCTION magnificent_mansion
+BEGIN
+  // Incomplete, block it from usage.
+
+  LAUNCH_ACTION_FUNCTION spl_hide_spells
+    STR_VAR
+    spells	= "WIZARD_MAGNIFICENT_MANSION"
+  END
+
+
+  // Test scroll usable by protagonist
+
+  itm.copy[%WIZARD_MAGNIFICENT_MANSION_SCROLL%=>mansion]
+  [
+    m_unusable_paladin = 0
+    m_unusable_cavalier = 0
+  ]
+END	// magnificent_mansion
