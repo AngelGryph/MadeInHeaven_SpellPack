@@ -8,11 +8,52 @@ BEGIN
   END
 
 
-  // Test scroll usable by protagonist
+  // Load Amulet of Pax with spells
 
-  itm.copy[%WIZARD_MAGNIFICENT_MANSION_SCROLL%=>mansion]
+  ACTION_CLEAR_ARRAY spells
+  ACTION_DEFINE_ARRAY spells
+  BEGIN
+    "%WIZARD_MORDENKAINENS_LUCUBRATION%"
+    "%WIZARD_MAGNIFICENT_MANSION%"
+    "%WIZARD_MORDENKAINENS_SWORD%"
+  END
+
+  itm.edit[mh#amulp]
   [
+    m.ab.add{s_icon := EVAL "%spells_%entry_index%%B";;s_type := "Magical";;s_location := "Item";;s_target := "Caster";;s_range = 1;;s_number_charges = 1;;s_when_drained := "Recharges";;s_usable_after_id = 1;;s_recharge_after_resting = 1;;s_projectile = 1|number:i=3}
+    PHP_EACH spells AS index=>spell
+    BEGIN
+      m.ab_fx.add{s_opcode = 146;;s_target := "Self";;s_timing := "InstantPermanent";;s_parameter1 = 20;;s_resource := "%spell%"|match_parent=~"%p_icon%" == "%spell%B"~}
+    END
+
+    // Temporary for testing
+    m_lore_to_identify = 0
     m_unusable_paladin = 0
     m_unusable_cavalier = 0
+  ]
+
+
+  // Set up cutscene script.
+
+<<<<<<<< .../inlined/cutscene.baf
+IF
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveViewObject(Myself,INSTANT)
+    DisplayStringHead(Myself, ~Cutscene triggered by a spell effect.~)
+    Wait(4)
+    EndCutSceneMode()
+END
+>>>>>>>>
+
+  LAF EXTEND_CUT250
+    STR_VAR baf_file = ".../inlined/cutscene.baf"  
+    RET guard = value  // can be used later to set the required global variable
+  END
+
+  spl.edit[%WIZARD_MAGNIFICENT_MANSION%]
+  [
+    m.ab_fx.add{s_opcode = 265;;s_target := "Self";;s_timing := "InstantPermanent";;s_parameter1 = guard;;s_resource := "CUT250"|insert_point:i=0}
   ]
 END	// magnificent_mansion

@@ -281,9 +281,33 @@ This spell was developed by the evil mage Ramazith of Baldur's Gate.  The mage c
 12th : ochre jelly
 15th+ : mustard jelly~
 @47   = ~Mordenkainen's Magnificent Mansion~
-@48   = ~Mordenkainen's Magnificent Mansion~
-//@49   = ~~
-//@50   = ~~
+@48   = ~Mordenkainen's Magnificent Mansion
+(Alteration)
+
+Level: 7
+Range: 0
+Duration: Instant
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+Upon casting this spell, the caster and <PRO_HISHER> party are instantly transported to an extradimensional mansion where they may rest, heal and do anything else one can do in a mansion.  Upon exiting the mansion, the party reappears at exactly the same spot from where they entered the mansion.
+
+This spell only works if the caster is currently on the prime material plane and will fail if used on any other plane of existence such as an elemental plane or outer plane.~
+@49   = ~Medallion of Pax~
+@50   = ~Pax was one of the apprentices of the archmage Mordenkainen of Oerth.  A methodical man with an analytical mind, he could never help poking at and meddling with every spell he learned.  This amulet was one of his triumphs, allowing the wearer to cast three of his master's most iconic spells, once per day each.
+
+STATISTICS:
+
+Charged Abilities:
+- Mordenkainen's Lucubration (1/day)
+  Caster regains one 5th, one 4th and one 3rd level spell previously cast.
+- Mordenkainen's Magnificent Mansion (1/day)
+  Transports the party to an extradimensional mansion for resting.
+- Mordenkainen's Sword (1/day)
+  Creates an animated sword to attack the caster's enemies.
+
+Weight: 3~
 //@51   = ~~
 @52   = ~Snilloc's Major Missile~
 @53   = ~Snilloc's Major Missile
@@ -452,6 +476,7 @@ Saving Throw: None
 This powerful spell weakens enemy defenses so that subsequent spells strike with devastating effect.  Opponents under the influence of this spell make all saving throws at a -5 penalty and have their resistances to elemental- and magical damage reduced by 30%.~
 @88    = ~Doom Legion~
 @89    = ~Doom Legion
+(Necromancy)
 
 Level: 7
 Range: 10 yards 
@@ -462,6 +487,16 @@ Saving Throw: None
 
 Through this powerful necromantic ritual the necromancer animates the skeletal remains of soldiers slain in battle as a small squad of powerful skeleton warriors.  The spell animates two skeleton warriors at level 14, four at level 21 and finally six at level 28.~
 @90    = ~Web of Lightning~
-@91    = ~Web of Lightning~
+@91    = ~Web of Lightning
+(Evocation)
+
+Level: 8
+Range: 120 ft. + 30ft./level
+Duration: Instant
+Casting Time: 8
+Area of Effect: Special
+Saving Throw: 1/2
+
+Casting this powerful and destructive spell enables the caster to throw six 7d6 lightning bolts simultaneously at up to six different targets.  The bolts behave identical to the third level spell Lightning Bolt.~
 
 

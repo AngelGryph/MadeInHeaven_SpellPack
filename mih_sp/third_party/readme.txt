@@ -19,6 +19,11 @@ From G3 BG2 Fixpack v13, updated December 16th 2023:
 lib/bg2fp_effect_batches	- Effect batches by CamDawg.
 
 
+From G3 forum, retrieved October 17th 2024:
+
+lib/a7-cutscene_customization	- Opcode 298 / cut205a library, by Argent77.
+
+
 My sincere thanks to my fellow modders for all their help and hard work.
 
 
