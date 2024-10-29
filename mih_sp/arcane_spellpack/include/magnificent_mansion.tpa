@@ -8,6 +8,55 @@ BEGIN
   END
 
 
+  // Install area files
+
+  LAUNCH_ACTION_FUNCTION install
+    STR_VAR
+    file	= "mhmans.are mhmans.wed mhmans.mos mhmansht.bmp mhmanslm.bmp mhmanssr.bmp"
+    location	= "areas"
+  END
+
+  LAUNCH_ACTION_FUNCTION HANDLE_TILESETS
+    STR_VAR
+    tiz_path		= "%MOD_FOLDER%/%component_loc%/areas"
+    tisunpack_path	= "%MOD_FOLDER%/bin"
+  END
+
+
+  // Set up cutscene script.
+
+<<<<<<<< .../inlined/cutscene.baf
+IF
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    ClearAllActions()
+    FadeToColor([30.0],0)
+    Wait(2)
+    LeaveAreaLUAPanic("mhmans", "", [560.460], SE)
+    LeaveAreaLUA("mhmans", "", [560.460], SE)
+    ActionOverride(Player2, LeaveAreaLUA("mhmans", "", [520.490], SE))
+    ActionOverride(Player3, LeaveAreaLUA("mhmans", "", [610.430], SE))
+    ActionOverride(Player4, LeaveAreaLUA("mhmans", "", [470.530], SE))
+    ActionOverride(Player5, LeaveAreaLUA("mhmans", "", [660.400], SE))
+    ActionOverride(Player6, LeaveAreaLUA("mhmans", "", [450.570], SE))
+    Wait(2)
+    MultiPlayerSync()
+    EndCutSceneMode()
+END
+>>>>>>>>
+
+  LAF EXTEND_CUT250
+    STR_VAR baf_file = ".../inlined/cutscene.baf"  
+    RET guard = value  // can be used later to set the required global variable
+  END
+
+  spl.edit[%WIZARD_MAGNIFICENT_MANSION%]
+  [
+    m.ab_fx.add{s_opcode = 265;;s_target := "Self";;s_timing := "InstantPermanent";;s_parameter1 = guard;;s_resource := "CUT250"|insert_point:i=0}
+  ]
+
+
   // Load Amulet of Pax with spells
 
   ACTION_CLEAR_ARRAY spells
@@ -30,30 +79,5 @@ BEGIN
     m_lore_to_identify = 0
     m_unusable_paladin = 0
     m_unusable_cavalier = 0
-  ]
-
-
-  // Set up cutscene script.
-
-<<<<<<<< .../inlined/cutscene.baf
-IF
-THEN
-  RESPONSE #100
-    CutSceneId(Player1)
-    MoveViewObject(Myself,INSTANT)
-    DisplayStringHead(Myself, ~Cutscene triggered by a spell effect.~)
-    Wait(4)
-    EndCutSceneMode()
-END
->>>>>>>>
-
-  LAF EXTEND_CUT250
-    STR_VAR baf_file = ".../inlined/cutscene.baf"  
-    RET guard = value  // can be used later to set the required global variable
-  END
-
-  spl.edit[%WIZARD_MAGNIFICENT_MANSION%]
-  [
-    m.ab_fx.add{s_opcode = 265;;s_target := "Self";;s_timing := "InstantPermanent";;s_parameter1 = guard;;s_resource := "CUT250"|insert_point:i=0}
   ]
 END	// magnificent_mansion
