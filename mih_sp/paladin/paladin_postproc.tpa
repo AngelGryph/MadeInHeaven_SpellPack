@@ -18,8 +18,8 @@ BEGIN
 
   spl.copy[%PALADIN_DETECT_EVIL%]
   [
-    m.ab_fx.add{s_opcode=172 s_target=1 s_timing=1 s_resource:="%PALADIN_DETECT_EVIL%"}
-    m.ab_fx.add{s_opcode=171 s_target=1 s_timing=1 s_resource:="%PALADIN_DETECT_EVIL%"}
+    m.fx.add{s_opcode=172 s_target=1 s_timing=1 s_resource:="%PALADIN_DETECT_EVIL%"}
+    m.fx.add{s_opcode=171 s_target=1 s_timing=1 s_resource:="%PALADIN_DETECT_EVIL%"}
   ]
 
 

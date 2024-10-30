@@ -215,6 +215,13 @@ This spell creates a slender, shimmering sword in the caster's hands.  The caste
 @35   = ~Threestones
 (Alteration)
 
+Level: 2
+Range: 0
+Duration: Special
+Casting Time: 2
+Area of Effect: The caster
+Saving Throw: None
+
 This spell transforms three ordinary stones into deadly magical projectiles which can be thrown at targets up to 270 feet away and are treated as missiles with a +3 bonus to the attack rolls.  Each stone inflicts 2d4 points of damage on impact.~
 @36   = ~Summon Dao~
 @37   = ~Summon Dao

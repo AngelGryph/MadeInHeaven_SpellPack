@@ -54,12 +54,13 @@ BEGIN
 [spheres]
 >>>>>>>>
 
-  ACTION_IF NOT FILE_EXISTS "%data_loc_shared%/%MOD_FOLDER%.ini"
+  ACTION_IF NOT FILE_EXISTS "%data_loc_shared%/dw_talents_3p/%MOD_FOLDER%.ini"
   BEGIN
-    COPY ".../stratagems-inline/%MOD_FOLDER%.ini" "%data_loc_shared%"
+    MKDIR "%data_loc_shared%/dw_talents_3p"
+    COPY ".../stratagems-inline/%MOD_FOLDER%.ini" "%data_loc_shared%/dw_talents_3p"
   END
 
-  APPEND_OUTER "%data_loc_shared%/%MOD_FOLDER%.ini" "%spell%=%sphere%" UNLESS "^%spell%"
+  APPEND_OUTER "%data_loc_shared%/dw_talents_3p/%MOD_FOLDER%.ini" "%spell%=%sphere%" UNLESS "^%spell%"
 END
 
 
