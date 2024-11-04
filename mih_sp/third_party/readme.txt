@@ -4,12 +4,12 @@ other than a bug fix or two which I reported back to the original authors.
 
 Currently included here are:
 
-From IWDSpells master, updated February 9th 2024:
+From IWDSpells master, updated November 4th 2024:
 
 iwdspells/	- Icewind Dale spells library, by CamDawg & DavidW.
 
 
-From Sword Coast Stratagems v35.19, updated August 29th 2024:
+From Sword Coast Stratagems v35.20, updated November 4th 2024:
 
 sfo2e/		- SFO 2e function library, by DavidW.
 
