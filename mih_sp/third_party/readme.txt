@@ -9,7 +9,7 @@ From IWDSpells master, updated November 4th 2024:
 iwdspells/	- Icewind Dale spells library, by CamDawg & DavidW.
 
 
-From Sword Coast Stratagems v35.20, updated November 4th 2024:
+From Sword Coast Stratagems v35.21, updated November 21th 2024:
 
 sfo2e/		- SFO 2e function library, by DavidW.
 
