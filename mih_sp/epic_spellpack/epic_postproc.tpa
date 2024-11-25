@@ -38,6 +38,11 @@ BEGIN
   END
 
 
+  // Append Algarth's Embattlement to contingx
+
+  LAF add_spell_to_contingx STR_VAR ids = "HLA_WIZARD_ALGARTHS_EMBATTLEMENT" END
+
+
   // Set correct string for Elminster's Effulgent Epuration
 
   spl.edit[%HLA_WIZARD_EFFULGENT_EPURATION%]
@@ -54,21 +59,17 @@ BEGIN
   ]
 
 
-  // Apply CamDawg's patches to certain spells
+  // Apply immunity effects to certain spells
 
-  COPY_EXISTING "%HLA_WIZARD_CHOSEN_OF_MYSTRA%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_disease_arrays" END
+  spl.edit[%HLA_WIZARD_CHOSEN_OF_MYSTRA%]
+  [
+    m.immunity_effect{diseased}
+  ]
 
-  COPY_EXISTING "%HLA_CLERIC_HEALTH_BLESSING%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_poison_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_disease_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_poison_resistance_arrays" END
-    BUT_ONLY_IF_IT_CHANGES
-
-
-  // Append Algarth's Embattlement to contingx
-
-  LAF add_spell_to_contingx STR_VAR ids = "HLA_WIZARD_ALGARTHS_EMBATTLEMENT" END
+  spl.edit[%HLA_CLERIC_HEALTH_BLESSING%]
+  [
+    m.immunity_effect{poison diseased|permanent:i=0}
+  ]
 END
 
 

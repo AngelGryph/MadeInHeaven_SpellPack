@@ -21,6 +21,17 @@ BEGIN
       m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "PresetTarget";;s_resource := "%sfo_filename%"|insert_point:i=0}
       m.ab_fx.delete{s_opcode = 206}
     ]
+
+
+    // Slumber
+    // Mass Charm
+    //
+    // Elf- and half-elf charm/sleep resistance, EE-style
+
+    spl.edit[%WIZARD_SLUMBER% %WIZARD_MASS_CHARM%]
+    [
+      m.ab_fx.add{s_opcode = 324;;s_target := "PresetTarget";;s_parameter1 = 0;;s_parameter2 = entry_index = 0 ? 15 : 19;;s_probability1 = entry_index = 0 ? 89 : 29;;s_resource := "%sfo_filename%"|number:i=2 insert_point:i=0}
+    ]
   END
   ELSE	// NOT enhanced_edition
   BEGIN

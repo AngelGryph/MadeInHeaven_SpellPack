@@ -1,21 +1,21 @@
 DEFINE_ACTION_FUNCTION divine_postproc
 BEGIN
-  // Apply CamDawg's patches to certain spells
+  // Apply immunity effects to certain spells
 
-  COPY_EXISTING "%CLERIC_SUPERHEROISM%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_fear_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_level_drain_arrays" END
-    BUT_ONLY_IF_IT_CHANGES
+  spl.edit[%CLERIC_SUPERHEROISM%]
+  [
+    m.immunity_effect{fear energy_drain|permanent:i=0}
+  ]
 
-  COPY_EXISTING "%CLERIC_MASS_NEGATIVE_PLANE_PROTECTION%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_level_drain_arrays" END
-    BUT_ONLY_IF_IT_CHANGES
+  spl.edit[%CLERIC_CELESTIAL_PROTECTION%]
+  [
+    m.immunity_effect{poison diseased|permanent:i=0}
+  ]
 
-  COPY_EXISTING "%CLERIC_CELESTIAL_PROTECTION%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_poison_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_disease_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_poison_resistance_arrays" END
-    BUT_ONLY_IF_IT_CHANGES
+  spl.edit[%CLERIC_MASS_NEGATIVE_PLANE_PROTECTION%]
+  [
+    m.immunity_effect{energy_drain|permanent:i=0}
+  ]
 
 
   // Prevent stacking of Heroism-type spells

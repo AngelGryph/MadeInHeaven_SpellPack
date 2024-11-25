@@ -1929,8 +1929,6 @@ SET $SFO_cre_v1_offsets(~name_short~)=~12~
 SET $SFO_cre_v1_offsets(~name_short-strref~)=~12~
 SET $SFO_cre_v1_offsets(~both_names~)=~-1~
 SET $SFO_cre_v1_offsets(~both_names-strref~)=~-1~
-SET $SFO_cre_v1_offsets(~hp~)=~-1~
-SET $SFO_cre_v1_offsets(~level_all~)=~-1~
 SET $SFO_cre_v1_offsets(~ac~)=~-1~
 SET $SFO_cre_v1_offsets(~show_longname~)=~16~
 SET $SFO_cre_v1_offsets(~no_corpse~)=~16~
@@ -1963,6 +1961,7 @@ SET $SFO_cre_v1_offsets(~alignment_tracking~)=~19~
 SET $SFO_cre_v1_offsets(~xp_value~)=~20~
 SET $SFO_cre_v1_offsets(~xp~)=~24~
 SET $SFO_cre_v1_offsets(~power~)=~24~
+SET $SFO_cre_v1_offsets(~gold~)=~28~
 SET $SFO_cre_v1_offsets(~status_sleeping~)=~32~
 SET $SFO_cre_v1_offsets(~status_berserk~)=~32~
 SET $SFO_cre_v1_offsets(~status_panic~)=~32~
@@ -1997,6 +1996,7 @@ SET $SFO_cre_v1_offsets(~status_mirrorimage~)=~35~
 SET $SFO_cre_v1_offsets(~status_confused~)=~35~
 SET $SFO_cre_v1_offsets(~hp_current~)=~36~
 SET $SFO_cre_v1_offsets(~hp_max~)=~38~
+SET $SFO_cre_v1_offsets(~hp~)=~-1~
 SET $SFO_cre_v1_offsets(~animation~)=~40~
 SET $SFO_cre_v1_offsets(~color_metal~)=~44~
 SET $SFO_cre_v1_offsets(~color_minor~)=~45~
@@ -2250,6 +2250,7 @@ SET $SFO_cre_v1_offsets(~soundset~)=~164~
 SET $SFO_cre_v1_offsets(~level1~)=~564~
 SET $SFO_cre_v1_offsets(~level2~)=~565~
 SET $SFO_cre_v1_offsets(~level3~)=~566~
+SET $SFO_cre_v1_offsets(~level_all~)=~-1~
 SET $SFO_cre_v1_offsets(~sex~)=~567~
 SET $SFO_cre_v1_offsets(~str_base~)=~568~
 SET $SFO_cre_v1_offsets(~str_ex~)=~569~
@@ -2288,8 +2289,6 @@ SPRINT $SFO_cre_v1_types(~name_short~) ~strref~
 SPRINT $SFO_cre_v1_types(~name_short-strref~) ~long~
 SPRINT $SFO_cre_v1_types(~both_names~) ~multiple~
 SPRINT $SFO_cre_v1_types(~both_names-strref~) ~multiple~
-SPRINT $SFO_cre_v1_types(~hp~) ~multiple~
-SPRINT $SFO_cre_v1_types(~level_all~) ~multiple~
 SPRINT $SFO_cre_v1_types(~ac~) ~multiple~
 SPRINT $SFO_cre_v1_types(~show_longname~) ~flag~
 SPRINT $SFO_cre_v1_types(~no_corpse~) ~flag~
@@ -2322,6 +2321,7 @@ SPRINT $SFO_cre_v1_types(~alignment_tracking~) ~flag~
 SPRINT $SFO_cre_v1_types(~xp_value~) ~long~
 SPRINT $SFO_cre_v1_types(~xp~) ~long~
 SPRINT $SFO_cre_v1_types(~power~) ~long~
+SPRINT $SFO_cre_v1_types(~gold~) ~long~
 SPRINT $SFO_cre_v1_types(~status_sleeping~) ~flag~
 SPRINT $SFO_cre_v1_types(~status_berserk~) ~flag~
 SPRINT $SFO_cre_v1_types(~status_panic~) ~flag~
@@ -2356,6 +2356,7 @@ SPRINT $SFO_cre_v1_types(~status_mirrorimage~) ~flag~
 SPRINT $SFO_cre_v1_types(~status_confused~) ~flag~
 SPRINT $SFO_cre_v1_types(~hp_current~) ~short~
 SPRINT $SFO_cre_v1_types(~hp_max~) ~short~
+SPRINT $SFO_cre_v1_types(~hp~) ~multiple~
 SPRINT $SFO_cre_v1_types(~animation~) ~id4~
 SPRINT $SFO_cre_v1_types(~color_metal~) ~byte~
 SPRINT $SFO_cre_v1_types(~color_minor~) ~byte~
@@ -2609,6 +2610,7 @@ SPRINT $SFO_cre_v1_types(~soundset~) ~ascii~
 SPRINT $SFO_cre_v1_types(~level1~) ~byte~
 SPRINT $SFO_cre_v1_types(~level2~) ~byte~
 SPRINT $SFO_cre_v1_types(~level3~) ~byte~
+SPRINT $SFO_cre_v1_types(~level_all~) ~multiple~
 SPRINT $SFO_cre_v1_types(~sex~) ~id~
 SPRINT $SFO_cre_v1_types(~str_base~) ~byte~
 SPRINT $SFO_cre_v1_types(~str_ex~) ~byte~
@@ -2727,9 +2729,9 @@ SPRINT $SFO_cre_v1_commalists(~saves~) ~save_vs_death,save_vs_wands,save_vs_poly
 SPRINT $SFO_cre_v1_commalists(~abils~) ~str,int,wis,dex,con,cha~
 SPRINT $SFO_cre_v1_multiples(~both_names~) ~name_long,name_short~
 SPRINT $SFO_cre_v1_multiples(~both_names-strref~) ~name_long-strref,name_short-strref~
+SPRINT $SFO_cre_v1_multiples(~ac~) ~ac_natural,ac_effective~
 SPRINT $SFO_cre_v1_multiples(~hp~) ~hp_current,hp_max~
 SPRINT $SFO_cre_v1_multiples(~level_all~) ~level1,level2,level3~
-SPRINT $SFO_cre_v1_multiples(~ac~) ~ac_natural,ac_effective~
 SPRINT $SFO_cre_v1_resrefs(~portrait_small~) ~bmp~
 SPRINT $SFO_cre_v1_resrefs(~portrait_large~) ~bmp~
 SPRINT $SFO_cre_v1_resrefs(~script_override~) ~bcs~

@@ -47,25 +47,12 @@ BEGIN
   ]
     
 
-  // Apply CamDawg's patches to certain spells
+  // Apply immunity effects to certain spells
 
-  COPY_EXISTING "%WIZARD_SLUMBER%.spl" "override"
-                "%WIZARD_MASS_CHARM%.spl" "override"
-    LAUNCH_PATCH_FUNCTION cd_elven_sleep_charm_resistance END
-    BUT_ONLY_IF_IT_CHANGES
-
-  COPY_EXISTING "%WIZARD_SUPERHEROISM%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_fear_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_level_drain_arrays" END
-    BUT_ONLY_IF_IT_CHANGES
-
-  COPY_EXISTING "%WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY%.spl" "override"
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_1_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_2_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_3_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_4_arrays" END
-    LPF cd_apply_batch STR_VAR array_name = "cd_immunity_spell_level_5_arrays" END
-    BUT_ONLY_IF_IT_CHANGES
+  spl.edit[%WIZARD_SUPERHEROISM%]
+  [
+    m.immunity_effect{fear energy_drain|permanent:i=0}
+  ]
 
 
   // Append some spells to contingx
@@ -96,10 +83,29 @@ BEGIN
   // - Make casting a 6th level or higher spell dispel Alacrity.
 
   COPY_EXISTING_REGEXP "^.+\.\(cre\|itm\|spl\)$" "override"
-    LAUNCH_PATCH_FUNCTION cd_apply_batch
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      multi_match	= 1
+      silent		= 1
+      match_opcode	= 206
       STR_VAR
-      array_name	= "cd_immunity_magic_missile_arrays"
+      insert		= "below"
+      match_resource	= "%WIZARD_MAGIC_MISSILE%"
+      resource		= "%WIZARD_SNILLOCS_MAJOR_MISSILE%"
     END
+
+    
+    LAUNCH_PATCH_FUNCTION CLONE_EFFECT
+      INT_VAR
+      multi_match	= 1
+      silent		= 1
+      match_opcode	= 206
+      STR_VAR
+      insert		= "below"
+      match_resource	= "%WIZARD_MAGIC_MISSILE%"
+      resource		= "%WIZARD_IMPROVED_MAGIC_MISSILE%"
+    END
+
     
     PATCH_IF "%SOURCE_EXT%" STRING_EQUAL_CASE "spl"
          AND LONG_AT (0x0034) > 5 // spell level
