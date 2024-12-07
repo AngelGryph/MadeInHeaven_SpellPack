@@ -3,6 +3,7 @@ CLERIC_STRIKING				1	0	1	priest	n	n	*
 CLERIC_SEEKING				2	4	5	priest	n	n	*
 CLERIC_MAGIC_VESTMENT			3	2	3	priest  n	n	*
 CLERIC_PROTECTION_FROM_COLD		3	39	40	priest	n	n	*
+CLERIC_OXEN_STRENGTH			3	21	22	priest	n	n	*
 CLERIC_STICKS_TO_SNAKES			4	6	7	priest	n	n	*
 CLERIC_HEROISM				4	9	10	priest	n	n	*
 CLERIC_REPEL_INSECTS			4	25	26	priest	n	n	*

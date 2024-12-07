@@ -17,6 +17,7 @@ BEGIN
     "CLERIC_MAGIC_VESTMENT" => "protection"
     "CLERIC_MASS_NEGATIVE_PLANE_PROTECTION" => "protection"
     "CLERIC_MURDEROUS_MIST" => "air"
+    "CLERIC_OXEN_STRENGTH" => "animal"
     "CLERIC_PROTECTION_FROM_COLD" => "protection"
     "CLERIC_REPEL_INSECTS" => "animal"
     "CLERIC_SEEKING" => "combat"

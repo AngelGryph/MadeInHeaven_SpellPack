@@ -142,8 +142,19 @@ Area of Effect: 30-ft. radius
 Saving Throw: None
 
 This spell affords the caster's entire party partial protection from undead monsters with Negative Energy Plane connections (such as vampires), and certain weapons and spells that drain energy levels. The Negative Plane Protection spell opens a channel to the Positive Energy Plane, possibly offsetting the effects of the negative energy attack. A protected creature struck by a negative energy attack is protected against any form of level draining for the duration of the spell. The protected creature suffers only normal Hit Point damage from the attack and does not suffer any drain of experience. This spell cannot be cast on the Negative Energy Plane.~
-//@21   = ~~
-//@22   = ~~
+@21   = ~Oxen Strength~
+@22   = ~Oxen Strength
+(Alteration)
+
+Level: 3
+Sphere: Animal
+Range: 0
+Duration: 1 turn
+Casting Time: 6
+Area of Effect: The caster
+Saving Throw: None
+
+This spell gives the caster the strength of an ox or buffalo, and inner toughness to prevent muscle strain or injury from exertion which also improves natural armor class.  Strength and AC gained is two points at level 5, three points at level 9, four points at level 13, five points at level 17 and finally six points at level 21.~
 @23   = ~Break Enchantment~
 @24   = ~Break Enchantment
 (Abjuration)
