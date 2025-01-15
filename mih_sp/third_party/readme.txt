@@ -4,7 +4,7 @@ other than a bug fix or two which I reported back to the original authors.
 
 Currently included here are:
 
-From IWDSpells master, updated November 4th 2024:
+From IWDSpells master, updated January 15th 2025:
 
 iwdspells/	- Icewind Dale spells library, by CamDawg & DavidW.
 
