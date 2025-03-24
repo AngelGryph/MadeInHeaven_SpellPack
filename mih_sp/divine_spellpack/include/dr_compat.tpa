@@ -1,46 +1,49 @@
-/////                                                  \\\\\
-///// checking for DR's spheres                        \\\\\
-/////                                                  \\\\\
-
-ACTION_IF ((MOD_IS_INSTALLED ~divine_remix.tp2~ ~1000~)
-      AND (FILE_EXISTS ~divine_remix/lib/modder_tools.tpa~))
+DEFINE_ACTION_FUNCTION dr_compat
 BEGIN
-  INCLUDE ~divine_remix/lib/modder_tools.tpa~
-
   /////                                                  \\\\\
-  ///// adding spells to the spheres                     \\\\\
+  ///// checking for DR's spheres                        \\\\\
   /////                                                  \\\\\
 
-  ACTION_CLEAR_ARRAY cd_add_spells_to_dr_spheres 
-
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_add_spells_to_dr_spheres
+  ACTION_IF ((MOD_IS_INSTALLED ~divine_remix.tp2~ ~1000~)
+        AND (FILE_EXISTS ~divine_remix/lib/modder_tools.tpa~))
   BEGIN
-    //CLERIC_GREASE,          ~al~, ~~,   ~~ => 0 // adding grease as an 'All' sphere spell, no other spheres
-    //CLERIC_CHAIN_LIGHTNING, ~we~, ~ea~, ~~ => 0 // adding chain lightning as a 'weather' and 'elemental air' sphere spell
+    INCLUDE ~divine_remix/lib/modder_tools.tpa~
 
-    CLERIC_STRIKING,				~co~, ~~, ~~		=> 0
-    CLERIC_SEEKING,				~co~, ~nu~, ~~		=> 0
-    CLERIC_MAGIC_VESTMENT,			~pr~, ~~, ~~		=> 0
-    CLERIC_PROTECTION_FROM_COLD,		~pr~, ~ea~, ~ew~	=> 0
-    CLERIC_OXEN_STRENGTH			~an~, ~co~, ~~		=> 0
-    CLERIC_STICKS_TO_SNAKES			~an~, ~pl~, ~su~	=> 0
-    CLERIC_HEROISM				~co~, ~~, ~~		=> 0
-    CLERIC_REPEL_INSECTS			~an~, ~pr~, ~wd~	=> 0
-    CLERIC_ICE_STORM				~ea~, ~ew~, ~~		=> 0
-    CLERIC_LIGHTNING_STORM			~ea~, ~~, ~~		=> 0
-    CLERIC_INFERNO				~ef~, ~~, ~~		=> 0
-    CLERIC_BREAK_ENCHANTMENT			~al~, ~~, ~~		=> 0
-    CLERIC_HALLOW				~co~, ~wa~, ~~		=> 0
-    CLERIC_UNHALLOW				~co~, ~wa~, ~~		=> 0
-    CLERIC_MURDEROUS_MIST			~ea~, ~su~, ~~		=> 0
-    CLERIC_SUPERHEROISM				~co~, ~~, ~~		=> 0
-    CLERIC_CELESTIAL_PROTECTION			~co~, ~gu~, ~pr~	=> 0
-    CLERIC_MASS_NEGATIVE_PLANE_PROTECTION	~nr~, ~pr~, ~wa~	=> 0
-    CLERIC_AURA_OF_VITALITY			~he~, ~~, ~~		=> 0
-    CLERIC_HOLLY_DART				~pl~, ~~, ~~		=> 0
-  END
+    /////                                                  \\\\\
+    ///// adding spells to the spheres                     \\\\\
+    /////                                                  \\\\\
 
-  LAM cd_add_spells_to_dr_spheres
-END // just the last bit to close the MOD_IS_INSTALLED check
+    ACTION_CLEAR_ARRAY cd_add_spells_to_dr_spheres 
+
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_add_spells_to_dr_spheres
+    BEGIN
+      //CLERIC_GREASE,          ~al~, ~~,   ~~ => 0 // adding grease as an 'All' sphere spell, no other spheres
+      //CLERIC_CHAIN_LIGHTNING, ~we~, ~ea~, ~~ => 0 // adding chain lightning as a 'weather' and 'elemental air' sphere spell
+
+      CLERIC_STRIKING,				~co~, ~~, ~~		=> 0
+      CLERIC_SEEKING,				~co~, ~nu~, ~~		=> 0
+      CLERIC_MAGIC_VESTMENT,			~pr~, ~~, ~~		=> 0
+      CLERIC_PROTECTION_FROM_COLD,		~pr~, ~ea~, ~ew~	=> 0
+      CLERIC_OXEN_STRENGTH,			~an~, ~co~, ~~		=> 0
+      CLERIC_STICKS_TO_SNAKES,			~an~, ~pl~, ~su~	=> 0
+      CLERIC_HEROISM,				~co~, ~~, ~~		=> 0
+      CLERIC_REPEL_INSECTS,			~an~, ~pr~, ~wd~	=> 0
+      CLERIC_ICE_STORM,				~ea~, ~ew~, ~we~	=> 0
+      CLERIC_LIGHTNING_STORM,			~ea~, ~we~, ~~		=> 0
+      CLERIC_INFERNO,				~ef~, ~~, ~~		=> 0
+      CLERIC_BREAK_ENCHANTMENT,			~al~, ~~, ~~		=> 0
+      CLERIC_HALLOW,				~co~, ~wa~, ~~		=> 0
+      CLERIC_UNHALLOW,				~co~, ~wa~, ~~		=> 0
+      CLERIC_MURDEROUS_MIST,			~ea~, ~su~, ~~		=> 0
+      CLERIC_SUPERHEROISM,			~co~, ~~, ~~		=> 0
+      CLERIC_CELESTIAL_PROTECTION,		~co~, ~gu~, ~pr~	=> 0
+      CLERIC_MASS_NEGATIVE_PLANE_PROTECTION,	~nr~, ~pr~, ~wa~	=> 0
+      CLERIC_AURA_OF_VITALITY,			~he~, ~~, ~~		=> 0
+      CLERIC_HOLLY_DART,				~pl~, ~~, ~~		=> 0
+    END
+
+    LAM cd_add_spells_to_dr_spheres
+  END // just the last bit to close the MOD_IS_INSTALLED check
+END	// dr_compat
 
 
