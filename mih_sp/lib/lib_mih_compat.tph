@@ -1,9 +1,59 @@
+// locate_mod_tra_dir
+//
+// This function takes a mod name and tries to locate the correct
+// directory for its translation files.  Useful for making cross-mod
+// content that use STATE_WHICH_SAYS or similar to append to other
+// mod's dialog files.
+
+DEFINE_ACTION_FUNCTION locate_mod_tra_dir
+  STR_VAR
+  mod_name	= "dummy"
+  RET
+  tra_dir
+  tra_dir_ext
+  tra_dir_int
+BEGIN
+  ACTION_FOR_EACH dir IN "weidu_external/%modname%/language" "weidu_external/modname/tra" "weidu_external/lang/%mod_name%"
+  BEGIN
+    ACTION_IF DIRECTORY_EXISTS "%dir%"
+    BEGIN
+      OUTER_TEXT_SPRINT tra_dir_ext "%dir%"
+    END
+  END
+
+  ACTION_FOR_EACH dir IN "%modname%/language" "%mod_name%/lang" "%mod_name%/tra"
+  BEGIN
+    ACTION_IF DIRECTORY_EXISTS "%dir%"
+    BEGIN
+      OUTER_TEXT_SPRINT tra_dir_int "%dir%"
+    END
+  END
+
+  ACTION_IF NOT VARIABLE_IS_SET tra_dir_int
+  BEGIN
+    WARN ~locate_mod_tra_dir: No translation files found for mod "mod_name"!~
+  END
+
+  ACTION_IF VARIABLE_IS_SET tra_dir_ext
+  BEGIN
+    OUTER_TEXT_SPRINT tra_dir "%tra_dir_ext%"
+  END
+  ELSE
+  BEGIN
+    OUTER_TEXT_SPRINT tra_dir "%tra_dir_int%"
+  END
+END
+
+
 // erase_journal_entries_on_bg2_transition
 //
-// This function goes through a (compiled) dialog file, extracts the string
-// references of all JOURNAL, SOLVED_JOURNAL and UNSOLVED_JOURNAL entries,
-// and makes sure they get deleted from the journal during the transfer into
-// BG2.  If called on a non-BGT game (including EET), it does nothing at all.
+// If called on any game that is not BGT (including EET), this function does
+// nothing at all.
+//
+// On BGT, this function takes a dialog file (minus the .dlg extention),
+// decompiles it and extracts the string references of all JOURNAL,
+// SOLVED_JOURNAL and // UNSOLVED_JOURNAL entries, then edits an area
+// script of Chateau Irenicus to erase all these strings from the journal.
 
 DEFINE_ACTION_FUNCTION erase_journal_entries_on_bg2_transition
   STR_VAR
@@ -43,7 +93,11 @@ BEGIN
 END
 
 
-// Talents of Faerun priest sphere system compatibility
+// tof_spell_sphere
+//
+// This function takes a spell file (minus the .spl extention) and a
+// list of sphere names, and informs Talents of Faerun about the spheres
+// this spell belongs to.
 
 DEFINE_ACTION_FUNCTION tof_spell_sphere
   STR_VAR
