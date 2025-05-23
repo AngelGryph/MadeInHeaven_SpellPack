@@ -1,4 +1,4 @@
-DEFINE_ACTION_FUNCTION level_5_ghoul_call
+DEFINE_ACTION_FUNCTION level_5_danse_macabre
 BEGIN
   ACTION_IF NOT FILE_EXISTS_IN_GAME "ghoulsu.eff"
   BEGIN
@@ -14,17 +14,17 @@ BEGIN
     ]
   END
 
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#gcala.bam" "override"
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#gcalb.bam" "override"
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#gcalc.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#dmaca.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#dmacb.bam" "override"
+  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#dmacc.bam" "override"
 
   spl.edit[%WIZARD_ANIMATE_DEAD%]
   [
     m_name:=@0
     m_description:=@1
-    m_icon:="mh#gcalc"
+    m_icon:="mh#dmacc"
     m.ab.delete{(s_level MODULO 2)=0}
-    m.ab.alter{s_icon:="mh#gcalb"}
+    m.ab.alter{s_icon:="mh#dmacb"}
     m.ab_fx.delete{s_opcode=177}
     m.ab_fx.add{s_opcode=177 s_target=1 s_duration=2400 s_parameter2=2 s_power=5 s_resource:=ghoulsu|number:i=3}
   ]
@@ -33,9 +33,9 @@ BEGIN
   [
     m_identified_name:=@0
     m_identified_description:=@1
-    m_icon:="mh#gcala"
-    m.ab.alter{s_icon:="mh#gcala"}
+    m_icon:="mh#dmaca"
+    m.ab.alter{s_icon:="mh#dmaca"}
   ]
-END	// level_5_ghoul_call
+END	// level_5_danse_macabre
 
 
