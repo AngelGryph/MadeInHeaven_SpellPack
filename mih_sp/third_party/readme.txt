@@ -9,9 +9,10 @@ From IWDSpells master, updated July 9th 2025:
 iwdspells/	- Icewind Dale spells library, by CamDawg & DavidW.
 
 
-From Sword Coast Stratagems v35.21, updated November 21th 2024:
+From Sword Coast Stratagems v35.21, updated July 24th 2025:
 
 sfo2e/		- SFO 2e function library, by DavidW.
+                  Implemented scroll table hotfix.
 
 
 From G3 forum, retrieved October 17th 2024:

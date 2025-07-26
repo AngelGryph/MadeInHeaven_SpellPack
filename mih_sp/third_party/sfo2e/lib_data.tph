@@ -279,6 +279,8 @@ BEGIN
 	ACTION_IF !VARIABLE_IS_SET SFO_internal_spells_read BEGIN
 		FAIL "data_scroll_resrefs requires data_spell_resrefs to have been run"
 	END
+	// hardcode Identify, which the game hardcodes and so doesn't have a 'cast' block
+	OUTER_SPRINT $internal_scroll_map("%WIZARD_IDENTIFY%") "scrl75"
     // go through the item files
     COPY_EXISTING_REGEXP ".*\.itm" override
         // handle TUTU file conventions, we want "_SCRL" prioritised over "SCRL"
@@ -289,37 +291,50 @@ BEGIN
         END
         TO_LOWER filename
         PATCH_MATCH "%filename%" WITH
-        TTSCRL01 TTSCRL02 BEGIN END // tutorial scrolls - skip them
+        //	BEGIN END // use this space to explicitly blacklist spells, if ever needed (I don't think it is needed in the base game atm)
         DEFAULT
 			INNER_ACTION BEGIN
 				// the core spell edit
 				COPY_EXISTING - ~%filename%.itm~ nowhere
 					PATCH_IF SHORT_AT 0x1c=11 BEGIN // scroll
 						PATCH_IF (INDEX_BUFFER (CASE_INSENSITIVE SPWI)>=0 || INDEX_BUFFER (CASE_INSENSITIVE SPPR)>=0) BEGIN // probably a spell scroll, go through carefully
-							found=0
+							found_cast=0
 							found_learn=0
 							multiple=0
+							other_effect=0
 							GET_OFFSET_ARRAY ab_arr ITM_V10_HEADERS
 							PHP_EACH ab_arr AS ab_ind=>ab_off BEGIN
 								GET_OFFSET_ARRAY2 fx_arr ab_off ITM_V10_HEAD_EFFECTS
 								PHP_EACH fx_arr AS fx_ind=>fx_off BEGIN
 									READ_SHORT fx_off opcode
-									PATCH_IF (opcode=146 || opcode=147 || opcode=148) BEGIN
-										found=1
-										PATCH_IF opcode=147 BEGIN
-											PATCH_IF found_learn BEGIN
-												multiple=1
-											END ELSE BEGIN
-												found_learn=1
-											END
+									PATCH_MATCH opcode WITH
+									146 148 BEGIN
+										PATCH_IF found_cast=1 BEGIN
+											multiple=1
+										END ELSE BEGIN
+											found_cast=1
+											READ_ASCII (0x14+fx_off) resref_cast
+											TO_UPPER resref_cast
 										END
-										READ_ASCII (0x14 + fx_off) resref
-										TO_UPPER resref
+									END
+									147 BEGIN
+										PATCH_IF found_learn=1 BEGIN
+											multiple=1
+										END ELSE BEGIN
+											found_learn=1
+											READ_ASCII (0x14+fx_off) resref_learn
+											TO_UPPER resref_learn
+										END									
+									END
+									DEFAULT
+										other_effect=1
 									END
 								END
 							END
-							PATCH_IF found && !multiple BEGIN
-								SPRINT $internal_scroll_map("%resref%") "%filename%"
+							PATCH_IF (found_cast && !multiple && !other_effect) BEGIN // scrolls contain exactly one 146/148, at most one 147, and nothing else
+								PATCH_IF (!found_learn || "%resref_cast%" STR_EQ "%resref_learn%") BEGIN // if scrolls contain cast and learn, spells must match
+									SPRINT $internal_scroll_map("%resref_cast%") "%filename%"
+								END									
 							END
 						END
 					END
