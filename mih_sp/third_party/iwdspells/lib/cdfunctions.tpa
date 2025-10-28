@@ -527,6 +527,12 @@ INCLUDE ~%MOD_FOLDER%/%component_loc%/lib/cd_extend-o-matic.tpa~
 INCLUDE ~%MOD_FOLDER%/%component_loc%/lib/alter_area-creature_item.tpa~
 
 /////                                                  \\\\\
+///// reindex_clab                                     \\\\\
+/////                                                  \\\\\
+
+INCLUDE ~%MOD_FOLDER%/%component_loc%/lib/clab_reindex.tpa~
+
+/////                                                  \\\\\
 ///// spell sub, from divine remix                     \\\\\
 /////                                                  \\\\\
 
