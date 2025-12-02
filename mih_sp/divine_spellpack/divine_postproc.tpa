@@ -2,6 +2,13 @@ DEFINE_ACTION_FUNCTION divine_postproc
 BEGIN
   // Apply immunity effects to certain spells
 
+/* Doesn't work for non-permanent effects.
+  spl.edit[%CLERIC_REPEL_INSECTS%]
+  [
+    m.immunity_effect{insects|permanent:i=0}
+  ]
+*/
+
   spl.edit[%CLERIC_SUPERHEROISM%]
   [
     m.immunity_effect{fear energy_drain|permanent:i=0}
