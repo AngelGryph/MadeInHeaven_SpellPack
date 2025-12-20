@@ -2,9 +2,15 @@ DEFINE_ACTION_FUNCTION ranger_kit_tables
 BEGIN
   // Edits for all ranger kits
 
+  COPY_EXISTING "hpwar.2da" "override/mh#hprng.2da"
+    SET_2DA_ENTRY 0 1 4 8
+    SET_2DA_ENTRY 0 2 4 2
+
+
   kit.edit_all[RANGER]
   [
     k.kit_apply_powers{mh#divcl 5 1 8}
+    k_hp_table:="mh#hprng"
   ]
 
 
