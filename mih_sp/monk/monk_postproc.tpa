@@ -1,5 +1,30 @@
 DEFINE_ACTION_FUNCTION monk_postproc
 BEGIN
+  ACTION_IF enhanced_edition
+  BEGIN
+    // Sun Soulray damage/scaling buff
+
+    spl.edit[%SUN_SOUL_SUN_SOULRAY%]
+    [
+      m.ab.clone{s_level = 12 + 2 * entry_index|match="s_level=10" number:i=5}
+      m.ab_fx.alter{s_dicenumber = p_level > 1 ? p_level / 2 : 1|match="s_opcode=12"}
+    ]
+
+    eff.edit[%SUN_SOUL_SUN_SOULRAY%]
+    [
+      m_parameter1	= 0
+      m_dicenumber	= 2
+      m_dicesize	= 8
+    ]
+
+
+    // Sun Soulbeam party safe
+
+    pro.edit[%SUN_SOUL_SUN_SOULBEAM%]
+    [
+      m_affect_only_enemies	= 1
+    ]
+  END	// enhanced_edition
 END	// monk_postproc
 
 

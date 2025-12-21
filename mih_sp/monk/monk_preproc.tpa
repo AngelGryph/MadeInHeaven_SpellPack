@@ -4,6 +4,13 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION kit_clab_initialize END
   LAUNCH_ACTION_FUNCTION kit_baseline_lua END
+
+
+  // Set monk HP at level 1 to 2d6
+
+  COPY_EXISTING "hpmonk.2da" "override"
+    SET_2DA_ENTRY 0 1 4 6
+    SET_2DA_ENTRY 0 2 4 2
 END	// monk_preproc
 
 
