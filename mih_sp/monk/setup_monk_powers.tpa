@@ -1,0 +1,32 @@
+DEFINE_ACTION_FUNCTION setup_monk_powers
+BEGIN
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "monk_preproc"
+    tra		= "monk_powers"
+  END
+
+/*
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "class_kit_commons"
+    locbase	= "shared/spells"
+  END
+
+  LAUNCH_ACTION_FUNCTION grand_unified_installer
+    STR_VAR
+    copy_files	= ""
+    tra		= "monk_powers"
+  END
+
+  LAM data_spell_resrefs
+*/
+
+  LAUNCH_ACTION_FUNCTION run
+    STR_VAR
+    file	= "monk_kit_tables monk_postproc"
+    tra		= "monk_powers"
+  END
+END	// setup_monk_powers
+
+

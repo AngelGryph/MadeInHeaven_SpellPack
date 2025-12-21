@@ -1,0 +1,9 @@
+DEFINE_ACTION_FUNCTION monk_preproc
+BEGIN
+  // Ensure existing and unique clab- and lua tables
+
+  LAUNCH_ACTION_FUNCTION kit_clab_initialize END
+  LAUNCH_ACTION_FUNCTION kit_baseline_lua END
+END	// monk_preproc
+
+

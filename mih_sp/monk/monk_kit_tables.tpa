@@ -1,0 +1,17 @@
+DEFINE_ACTION_FUNCTION monk_kit_tables
+BEGIN
+  // Edits for all monk kits
+
+  COPY_EXISTING "hpmonk.2da" "override"
+    SET_2DA_ENTRY 0 1 4 6
+    SET_2DA_ENTRY 0 2 4 2
+
+
+/*
+  kit.edit_all[MONK]
+  [
+  ]
+*/
+END	// monk_kit_tables
+
+

@@ -115,6 +115,19 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Made in Heaven: Monk Powers Pack
+
+BEGIN @25 
+
+LABEL MH#-MiH_SP-Monk_Powers
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_monk_powers"
+  location	= "monk"
+END
+
+
 // Made in Heaven: Bard Powers Pack
 
 BEGIN @16 
