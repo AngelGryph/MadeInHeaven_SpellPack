@@ -4,6 +4,13 @@ BEGIN
 
   LAUNCH_ACTION_FUNCTION kit_clab_initialize END
   LAUNCH_ACTION_FUNCTION kit_baseline_lua END
+
+
+  // Create separate HP table for rangers, set level 1 to 2d8
+
+  COPY_EXISTING "hpwar.2da" "override/mh#hprng.2da"
+    SET_2DA_ENTRY 0 1 4 8
+    SET_2DA_ENTRY 0 2 4 2
 END	// ranger_preproc
 
 
