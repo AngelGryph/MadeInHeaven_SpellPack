@@ -4,9 +4,32 @@ A spell pack for Baldur's Gate 1 and Baldur's Gate 2.
 
 ## Introduction
 
-This mod installs various new spells into the game, most are straight from
-the Player's Handbook or official Forgotten Realms sources, with a few more
-original creations.
+This mod installs various new spells and other class abilities into the game,
+most are straight from the Player's Handbook or official Forgotten Realms
+sources, with a few more original creations.
+
+## Component list
+
+- Arcane Spellpack  - Original wizard/sorcerer/bard spells by me.
+- IWD Arcane Spells - Arcane spells from Icewind Dale, by CamDawg and DavidW.
+- Divine Spellpack  - Original cleric/druid/shaman spells by me.
+- IWD Divine Spells - Divine spells from Icewind Dale, by CamDawg and DavidW.
+- PST Spellpack     - Introduces a handful of spells from Planescape Torment.
+
+- Revised Paladin Powers - New powers and revised existing powers for paladins.
+- Revised Ranger Powers  - New powers and revised existing powers for rangers.
+- Revised Monk Powers    - New powers and revised existing powers for monks.
+- Revised Bard Powers    - New powers and revised existing powers for bards.
+- Revised Bhaalspawn Powers - New powers and revised powers for Charname.
+- Specialist Perks       - Gives specialist wizards more than just spell slots.
+
+- Reduce Sleep duration to five rounds
+- Deeper Fear   - Makes magical fear a little tougher to deal with.
+- Spell Improvement - A collection of small tweaks to existing spells.
+- Revised Spell Learning XP - A revival of a classic tweak from BGT Tweaks.
+- Expanded Temple Services  - Makes more cures and stuff available.
+- Sixth level spell scrolls in SoD
+- Fourth level Animate Dead for wizards
 
 For detailed descriptions, please check the docs directory.
 
