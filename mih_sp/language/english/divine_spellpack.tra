@@ -11,8 +11,8 @@ Area of Effect: 1 creature
 Saving Throw: None
 
 By touching the recipient's weapon, the priest bestows a combat blessing which increases melee damage dealt by +4.  It has no effect on ranged attacks or spells.~
-@2    = ~Magical Vestment~
-@3    = ~Magical Vestment
+@2    = ~Magic Vestment~
+@3    = ~Magic Vestment
 (Enchantment/Charm)
 
 Level: 3
@@ -274,9 +274,9 @@ Area of Effect: 1 creature
 Saving Throw: Special
 
 This spell transforms a sprig of holly into a deadly missile, which can be thrown like a dart with a +6 bonus to the attack roll and no penalty for non-proficiency.  If struck, the target must save versus death at a -6 penalty or die instantly.  On a successful save, the target still takes 2d8+1 points of damage.~
-@50   = ~Lesser Air Elemental~
-@51   = ~Air Elemental~
-@52   = ~Greater Air Elemental~
+//@50   = ~~
+//@51   = ~~
+//@52   = ~~
 @53   = ~Murderous Mist~
 @54   = ~Murderous Mist
 (Conjuration/Summoning) 
