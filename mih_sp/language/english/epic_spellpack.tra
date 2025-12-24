@@ -45,7 +45,17 @@ This vastly improved version of the basic Magic Missile spell shreds the target 
 @10   = ~Extra Level 9 Spell~
 @11   = ~Choosing this ability allows the wizard to cast one additional Level 9 spell.~
 @12   = ~Ioulaum's Longevity~
-@13   = ~Ioulaum's Longevity~
+@13   = ~Ioulaum's Longevity
+(Necromancy)
+
+Level: Epic
+Range: 0
+Duration: Instantaneous
+Casting Time: 9
+Area of Effect:  15-ft. radius
+Saving Throw: 1/2
+
+By casting this horrid spell, the caster drains foes around <PRO_HIMHER>self of 10d6+20 points of life.  These hit points are added to the caster's current total, with any hit points over their normal maximum treated as temporary additional hit points.  Any temporary hit points last for one hour.~
 @14   = ~Interdiction~
 @15   = ~Interdiction
 (Conjuration)
@@ -60,8 +70,19 @@ Saving Throw: None
 
 By means of this powerful prayer, the cleric brings good fortune upon <PRO_HISHER> allies and doom to <PRO_HISHER> enemies.  After completing the spell all those friendly to the priest gain a +1 bonus to AC, hit rolls and damage rolls and a +2 to all saves, while <PRO_HISHER> enemies get penalties.  This spell is not cumulative with itself but can be combined with similar spells like Chant, Prayer and Recitation for an even greater effect.~
 @16   = ~Wolf Spirits~
-@17   = ~Wolf Spirits~
-@18   = ~Wolf Spirit~
+@17   = ~Wolf Spirits
+(Conjuration/Summoning)
+
+Level: Quest
+Sphere: Animal
+Range: 20 feet
+Duration: 4 turns
+Casting Time: 1 round
+Area of Effect: Special
+Saving Throw: None
+
+By casting this spell the druid conjures up a pack of spirit wolves to attack <PRO_HISHER> enemies.  Six spirit wolves appear and fight for the caster until slain or the duration ends.  These spirits cannot be harmed by weapons less than a +2 enchantment and are immune to many effects including charm and hold.~
+@18   = ~Spirit Wolf~
 @19   = ~Arcane Insight~
 @20   = ~Your continued studies of the arcane arts gains you new insights in the true nature of the multiverse.
 
@@ -103,7 +124,17 @@ Saving Throw: None
 
 Casting this spell blesses the priest's party with good health.  Poison and disease will be cured and for the duration of the spell the party will be immune to all poisons and diseases.  They will also regenerate 2 hp per round and gain a +4 bonus on all saving throws versus poison and death.  Finally, each party member can cure hit points by laying hands like a paladin once per casting of this spell.~
 @28   = ~Algarth's Embattlement~
-@29   = ~Algarth's Embattlement~
-@30   = ~Add spells to your embattlement~
+@29   = ~Algarth's Embattlement
+(Invocation/Evocation)
+
+Level: Epic
+Range: 0
+Duration:
+Casting Time: 9
+Area of Effect: The caster
+Saving Throw: None
+
+Also known as the Box of Spells, this spell allows a wizard to store spells in a magical ability (accessed via the Special Ability button) that is created by the spell. This item, the spell box, can store six spells to be released simultaneously, all of which must be of 4th level or lower. A wizard can only possess one spell box at a time, and the spell box may not be given to other characters. Once the spell box is used, the icon will disappear from the Special Ability button.~
+@30   = ~Add spells to your spell box~
 
 
