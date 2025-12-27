@@ -36,7 +36,19 @@ For detailed descriptions, please check the docs directory.
 
 ## Version History
 
-Version 7 - ???
+Version 7 - December 27 2025
+
+- Added fourth level Animate Dead for Wizards availability tweak.
+- All spells now have proper icons thanks to Zenblack.
+- Added new Ranger Powers component.
+- Added new Monk Powers component.
+- Added IWD Arcane/Divine spell components.
+- Split off PST spells into their own component.
+- Lots of code changes under the hood to upgrad to new SFO v2.
+- Renamed/removed some spells and tweaks that clash with SCS or ToF.
+- Removed forced spell renaming from lore changes.
+- Removed experimental components that just weren't working out.
+- Massive updates to the readme.
 
 Version 6 - December 18 2022
 - Fixed many bugs and added some new spells to play around with.
