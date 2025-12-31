@@ -23,13 +23,25 @@ BEGIN
 
   sto.edit[highhedg]
   [
-    ADD_STORE_ITEM "scrl95" AFTER "scrl94" #1 #0 #0 "identified" #3
-    ADD_STORE_ITEM "scrla3" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3
-    ADD_STORE_ITEM "scrl6e" AFTER "scrla2 scrl1q" #1 #0 #0 "identified" #3
-    ADD_STORE_ITEM "scrl1l" AFTER "scrl1i" #1 #0 #0 "identified" #3
-    ADD_STORE_ITEM "scrl1t" AFTER "scrl1q" #1 #0 #0 "identified" #3
-    ADD_STORE_ITEM "scrl2a" BEFORE "wand08" #1 #0 #0 "identified" #1
-    ADD_STORE_ITEM "scrl6r" BEFORE "wand08" #1 #0 #0 "identified" #1
+    PATCH_IF NOT enhanced_edition
+    BEGIN
+      // Add missing scrolls so we have the same base.
+      m.item.clone{s_resref := "scrla2";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl98"~}
+      m.item.clone{s_resref := "scrlai";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrla2"~}
+      m.item.clone{s_resref := "scrl6e";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrlai"~}
+      m.item.clone{s_resref := "scrla6";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl6e"~}
+      m.item.clone{s_resref := "scrl6l";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl1q"~}
+      m.item.clone{s_resref := "scrl6i";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl6l"~}
+      m.item.clone{s_resref := "scrl6h";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl6i"~}
+      m.item.clone{s_resref := "scrl6g";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl6h"~}
+    END
+    m.item.clone{s_resref := "scrl95";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl94"~}
+    m.item.clone{s_resref := "scrla3";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrla2"~}
+    m.item.clone{s_resref := "scrl6e";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrla3"~}
+    m.item.clone{s_resref := "scrl1l";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl1i"~}
+    m.item.clone{s_resref := "scrl1t";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl1q"~}
+    m.item.clone{s_resref := "scrl2a";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 1|match=~"%s_resref%"=="scrl6g"~}
+    m.item.clone{s_resref := "scrl6r";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 1|match=~"%s_resref%"=="scrl2a"~}
   ]
 
 

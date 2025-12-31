@@ -10,8 +10,8 @@ BEGIN
 
     sto.edit[bdnazram]
     [
-      ADD_STORE_ITEM "%WIZARD_SUMMON_CATS_SCROLL%" LAST #1 #1 #0 "identified" #1
-      ADD_STORE_ITEM "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%" LAST #1 #1 #0 "identified" #1
+      m.item.add{s_resref := "%WIZARD_SUMMON_CATS_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_identified = 1;;s_number_in_stock = 1}
+      m.item.add{s_resref := "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_identified = 1;;s_number_in_stock = 1}
     ]
   END	// is_sod
 END	// sod_arcane_scrolls

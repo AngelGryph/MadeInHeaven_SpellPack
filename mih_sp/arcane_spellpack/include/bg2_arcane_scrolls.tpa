@@ -29,9 +29,9 @@ BEGIN
 
     sto.edit[suelf10]
     [
-      ADD_STORE_ITEM "%WIZARD_SEEKING_SCROLL%" AFTER "scrl98" #1 #1 #0 "identified" #3
-      ADD_STORE_ITEM "%WIZARD_HEROISM_SCROLL%" AFTER "scrl1h" #1 #1 #0 "identified" #3
-      ADD_STORE_ITEM "%WIZARD_SUPERHEROISM_SCROLL%" AFTER "scrl2b" #1 #1 #0 "identified" #3
+      m.item.clone{s_resref := "%WIZARD_SEEKING_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl98"~}
+      m.item.clone{s_resref := "%WIZARD_HEROISM_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl1h"~}
+      m.item.clone{s_resref := "%WIZARD_SUPERHEROISM_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl2b"~}
     ]
 
     are.edit[ar2810]
@@ -60,9 +60,9 @@ BEGIN
 
     sto.edit[scrolls]
     [
-      ADD_STORE_ITEM "%WIZARD_SUMMON_CATS_SCROLL%" AFTER "scrl98" #1 #1 #0 "identified" #3
-      ADD_STORE_ITEM "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%" AFTER "scrl1i" #1 #1 #0 "identified" #3
-      ADD_STORE_ITEM "%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%" AFTER "scrl6t" #1 #1 #0 "identified" #2
+      m.item.clone{s_resref := "%WIZARD_SUMMON_CATS_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl98"~}
+      m.item.clone{s_resref := "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl1i"~}
+      m.item.clone{s_resref := "%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl6t"~}
     ]
 
 
@@ -97,19 +97,19 @@ BEGIN
 
     sto.edit[25spell]
     [
-      ADD_STORE_ITEM "%WIZARD_BARRIER_SCROLL%" AFTER "scrl67" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_SEEKING_SCROLL%" AFTER "scrl1b" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_SUMMON_CATS_SCROLL%" AFTER "scrl98" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_HEROISM_SCROLL%" AFTER "scrl1h" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%" AFTER "scrl6l" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_IRON_MAIDEN_SCROLL%" AFTER "scrlaq" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_SLUMBER_SCROLL%" AFTER "scrl6o" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%" AFTER "scrl6z" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_SUPERHEROISM_SCROLL%" AFTER "scrl2b" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_FAERIE_SWORD_SCROLL%" AFTER "scrl8n" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_DEVASTATE_SCROLL%" AFTER "scrlb1" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_WEB_OF_LIGHTNING_SCROLL%" AFTER "scrlap" #1 #1 #0 "identified" #2
-      ADD_STORE_ITEM "%WIZARD_AVISSARS_FLAMING_WEAPON_SCROLL%" AFTER "scrl9p" #1 #1 #0 "identified" #2
+      m.item.clone{s_resref := "%WIZARD_BARRIER_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl67"~}
+      m.item.clone{s_resref := "%WIZARD_SEEKING_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl1b"~}
+      m.item.clone{s_resref := "%WIZARD_SUMMON_CATS_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl98"~}
+      m.item.clone{s_resref := "%WIZARD_HEROISM_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl1h"~}
+      m.item.clone{s_resref := "%WIZARD_IMPROVED_MAGIC_MISSILE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl6l"~}
+      m.item.clone{s_resref := "%WIZARD_IRON_MAIDEN_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrlaq"~}
+      m.item.clone{s_resref := "%WIZARD_SLUMBER_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl6o"~}
+      m.item.clone{s_resref := "%WIZARD_RAMAZITHS_SLIME_SUMMONS_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl6z"~}
+      m.item.clone{s_resref := "%WIZARD_SUPERHEROISM_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl2b"~}
+      m.item.clone{s_resref := "%WIZARD_FAERIE_SWORD_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl8n"~}
+      m.item.clone{s_resref := "%WIZARD_DEVASTATE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrlb1"~}
+      m.item.clone{s_resref := "%WIZARD_WEB_OF_LIGHTNING_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrlap"~}
+      m.item.clone{s_resref := "%WIZARD_AVISSARS_FLAMING_WEAPON_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl9p"~}
     ]
   END	// is_bg2
 END	// bg2_arcane_scrolls

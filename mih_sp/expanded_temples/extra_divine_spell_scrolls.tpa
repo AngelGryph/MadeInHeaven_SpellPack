@@ -55,13 +55,13 @@ BEGIN
     // Lady's Hall (Baldur's Gate)
     sto.edit["tem0132"]
     [
-      ADD_STORE_ITEM "%CLERIC_RESTORATION_SCROLL%" AFTER "scrl63 scrlpet" #1 #0 #0 "identified" #1
+      m.item.clone{s_resref := "%CLERIC_RESTORATION_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 1|match=~"%s_resref%"=="scrlpet"~}
     ]
 
     // Temple of Wisdom (Friendly Arm Inn)
     sto.edit["tem2304"]
     [
-      ADD_STORE_ITEM "%CLERIC_MASS_CURE_SCROLL%" AFTER "scrl63 scrlpet" #1 #0 #0 "identified" #1
+      m.item.clone{s_resref := "%CLERIC_MASS_CURE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 1|match=~"%s_resref%"=="scrlpet"~}
     ]
 
     // Song of the Morning (Beregost)
@@ -82,19 +82,19 @@ BEGIN
     // Dosia (final coalition camp)
     sto.edit["bddosia"]
     [
-      ADD_STORE_ITEM "%CLERIC_MASS_CURE_SCROLL%" AFTER "scrl63" #1 #0 #0 "identified" #2
+      m.item.clone{s_resref := "%CLERIC_MASS_CURE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl63"~}
     ]
 
     // Crusader priest Polvi (Dragonspear basement)
     sto.edit["bdpolvi"]
     [
-      ADD_STORE_ITEM "%CLERIC_RESURRECTION_SCROLL%" AFTER "scrl61" #1 #0 #0 "identified" #1
+      m.item.clone{s_resref := "%CLERIC_RESURRECTION_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 1|match=~"%s_resref%"=="scrl61"~}
     ]
 
     // Onoroth's Supplies (Trollbark forest)
     sto.edit[bdonoro]
     [
-      ADD_STORE_ITEM "%CLERIC_HEAL_SCROLL%" AFTER "scrl58" #1 #0 #0 "identified" #1
+      m.item.clone{s_resref := "%CLERIC_HEAL_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 1|match=~"%s_resref%"=="scrl58"~}
     ]
   END
 
@@ -103,19 +103,19 @@ BEGIN
     // Temple of Helm (temple district)
     sto.edit["temhelm"]
     [
-      ADD_STORE_ITEM "%CLERIC_HEAL_SCROLL%" AFTER "restore" #1 #0 #0 "identified" #2
+      m.item.clone{s_resref := "%CLERIC_HEAL_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="restore"~}
     ]
 
     // Temple of Lathander (temple district)
     sto.edit["temlath"]
     [
-      ADD_STORE_ITEM "%CLERIC_RESURRECTION_SCROLL%" AFTER "scrl63" #1 #0 #0 "identified" #2
+      m.item.clone{s_resref := "%CLERIC_RESURRECTION_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl63"~}
     ]
 
     // Temple of Waukeen (Trademeet)
     sto.edit["temsup"]
     [
-      ADD_STORE_ITEM "%CLERIC_MASS_CURE_SCROLL%" AFTER "scrl63" #1 #0 #0 "identified" #3
+      m.item.clone{s_resref := "%CLERIC_MASS_CURE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 0;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 3|match=~"%s_resref%"=="scrl63"~}
     ]
   END
 END	// extra_divine_spell_scrolls
