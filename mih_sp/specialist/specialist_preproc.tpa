@@ -20,7 +20,7 @@ BEGIN
 
   spl.copy[sppr205=>%resref%]
   [
-    m_type:="wizard"
+    m_type:="innate"
     m.spl_enforce_school{divination}
     m.ab.alter{s_location:="innate"}
   ]
@@ -40,7 +40,7 @@ BEGIN
 
   spl.copy[sppr403=>%resref%]
   [
-    m_type:="wizard"
+    m_type:="innate"
     m.spl_enforce_school{enchantment}
     m.ab.alter{s_location:="innate"}
   ]
@@ -60,7 +60,7 @@ BEGIN
 
   spl.copy[spwi322=>%resref%]
   [
-    m_type:="wizard"
+    m_type:="innate"
     m.spl_enforce_school{illusion}
     m.ab.alter{s_location:="innate"}
   ]
@@ -80,7 +80,7 @@ BEGIN
 
   spl.copy[sppr413=>%resref%]
   [
-    m_type:="wizard"
+    m_type:="innate"
     m.spl_enforce_school{necromancy}
     m.ab.alter{s_location:="innate" s_target:="caster"}
     m.ab_fx.alter{s_target:="self"}
