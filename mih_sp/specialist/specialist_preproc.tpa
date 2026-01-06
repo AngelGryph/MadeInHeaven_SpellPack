@@ -85,6 +85,19 @@ BEGIN
     m.ab.alter{s_location:="innate" s_target:="caster"}
     m.ab_fx.alter{s_target:="self"}
   ]
+
+
+  // Fix ghast summon on non-BG1 installs
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "ghasts.cre"
+  BEGIN
+    cre.copy[ghasts|source_location=actors]
+
+    spl.edit[%TIAX_SUMMON_GHAST%]
+    [
+      m.ab_fx.alter{s_resource := "ghasts"|match="s_opcode = 67"}
+    ]
+  END
 END	// specialist_preproc
 
 
