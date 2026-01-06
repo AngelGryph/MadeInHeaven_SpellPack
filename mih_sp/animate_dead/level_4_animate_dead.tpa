@@ -5,6 +5,10 @@ BEGIN
     m_level=4
     m.ab_fx.alter{s_power=4}
   ]
+
+  COPY_EXISTING "%WIZARD_ANIMATE_DEAD%a.bam" "override/%WIZARD_ANIMATE_DEAD_4TH%a.bam"
+                "%WIZARD_ANIMATE_DEAD%b.bam" "override/%WIZARD_ANIMATE_DEAD_4TH%b.bam"
+                "%WIZARD_ANIMATE_DEAD%c.bam" "override/%WIZARD_ANIMATE_DEAD_4TH%c.bam"
 END	// level_4_animate_dead
 
 
