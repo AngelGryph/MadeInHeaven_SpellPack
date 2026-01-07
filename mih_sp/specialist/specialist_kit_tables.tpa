@@ -30,8 +30,8 @@ BEGIN
 
   kit.edit[DIVINER]
   [
-    m.kit_grant_powers{%DIVINER_FIND_TRAPS%(3) 11}
-    m.kit_apply_powers{mh#divim 14}
+    k.kit_grant_powers{%DIVINER_FIND_TRAPS%(3) 11}
+    k.kit_apply_powers{mh#divim 14}
   ]
 
 

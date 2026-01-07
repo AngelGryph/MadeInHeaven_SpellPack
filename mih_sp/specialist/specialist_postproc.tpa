@@ -1,5 +1,18 @@
 DEFINE_ACTION_FUNCTION specialist_postproc
 BEGIN
+  // Apply immunity effects to certain spells
+
+  spl.edit[mh#encim]
+  [
+    m.immunity_effect{charm}
+  ]
+
+  spl.edit[mh#abjim]
+  [
+    m.immunity_effect{hold}
+  ]
+
+
   // Add elemental damage increment to Elemental Mastery
   //
   // Has to be done dynamically because it differs between ToBEx and EE.
