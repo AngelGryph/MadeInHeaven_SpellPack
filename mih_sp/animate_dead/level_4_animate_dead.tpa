@@ -2,8 +2,9 @@ DEFINE_ACTION_FUNCTION level_4_animate_dead
 BEGIN
   WIZARD_ANIMATE_DEAD_4TH,WIZARD_ANIMATE_DEAD_4TH_SCROLL=spl.copy[%WIZARD_ANIMATE_DEAD%=>WIZARD_ANIMATE_DEAD_4TH]
   [
-    m_level=4
-    m.ab_fx.alter{s_power=4}
+    m_level = 4
+    m.ab_fx.alter{s_power = 4|match="s_power > 0"}
+    m_description = m_description.patch{REPLACE_TEXTUALLY EXACT_MATCH ": 5" ": 4"}
   ]
 
   COPY_EXISTING "%WIZARD_ANIMATE_DEAD%a.bam" "override/%WIZARD_ANIMATE_DEAD_4TH%a.bam"
