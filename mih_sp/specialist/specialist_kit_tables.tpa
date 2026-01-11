@@ -80,6 +80,18 @@ BEGIN
   [
     k.kit_grant_powers{%TIAX_SUMMON_GHAST% 11, %NECROMANCER_NEGATIVE_PLANE_PROTECTION% 14}
   ]
+
+
+  // Transmuter
+  //
+  // 8th level	=> +1 saves vs. petrify/polymorph
+  // 11th level	=> +1 saves vs. petrify/polymorph
+  // 14th level	=> +1 saves vs. petrify/polymorph
+
+  kit.edit[TRANSMUTER]
+  [
+    k.kit_apply_powers{mh#trasp 8 3 14}
+  ]
 END	// specialist_kit_tables
 
 
