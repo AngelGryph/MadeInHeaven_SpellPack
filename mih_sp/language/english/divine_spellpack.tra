@@ -274,9 +274,22 @@ Area of Effect: 1 creature
 Saving Throw: Special
 
 This spell transforms a sprig of holly into a deadly missile, which can be thrown like a dart with a +6 bonus to the attack roll and no penalty for non-proficiency.  If struck, the target must save versus death at a -6 penalty or die instantly.  On a successful save, the target still takes 2d8+1 points of damage.~
-//@50   = ~~
-//@51   = ~~
-//@52   = ~~
+@50   = ~Exalted Triad~
+@51   = ~Exalted Triad
+(Invocation/Evocation)
+
+Level: 7
+Sphere: All
+Range: 0
+Duration: Permanent
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: None
+
+This spell allows a priest to store three spells and activate them both at the same time from <PRO_HISHER> Special Ability button. All three spells must be of 4th level or lower. To create a exalted triad, a Priest must memorize not only Exalted Triad but also the spells <PRO_HESHE> intends to store in it. After casting Exalted Triad, the player will be prompted to choose the sequenced spells from those <PRO_HESHE> has memorized.
+
+An exalted triad lasts until activated and, once used, releases its spells immediately (no casting time). The Special Ability icon also disappears until the next time a exalted triad is formed. A priest can possess only one Exalted Triad at a time, and it may not be given to other characters.~
+@52   = ~Add spells to your exalted triad~
 @53   = ~Murderous Mist~
 @54   = ~Murderous Mist
 (Conjuration/Summoning) 

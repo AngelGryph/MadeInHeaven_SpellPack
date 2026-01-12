@@ -8,6 +8,7 @@ BEGIN
     "CLERIC_AURA_OF_VITALITY" => "necromantic"
     "CLERIC_BREAK_ENCHANTMENT" => "divine"
     "CLERIC_CELESTIAL_PROTECTION" => "good"
+    "CLERIC_EXALTED_TRIAD" => "divine"
     "CLERIC_HALLOW" => "good"
     "CLERIC_HEROISM" => "combat"
     "CLERIC_HOLLY_DART" => "plant"

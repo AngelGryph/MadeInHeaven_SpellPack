@@ -1,5 +1,43 @@
 DEFINE_ACTION_FUNCTION divine_postproc
 BEGIN
+  // Create Exalted Triad innates
+
+  spl.copy[spwi420d=>%CLERIC_EXALTED_TRIAD%d]
+  [
+    m_name:=@50
+    m_icon:="%CLERIC_EXALTED_TRIAD%c"
+    m.ab.alter{s_icon:="%CLERIC_EXALTED_TRIAD%b"}
+    m.ab_fx.alter{s_resource:="%CLERIC_EXALTED_TRIAD%"|match="s_opcode=258"}
+    m.ab_fx.alter{s_resource:="%CLERIC_EXALTED_TRIAD%d"|match="s_opcode=172"}
+  ]
+
+  ACTION_IF enhanced_edition
+  BEGIN
+    spl.copy[spwi420p=>%CLERIC_EXALTED_TRIAD%p]
+    [
+      m_name:=@50
+      m_icon:="%CLERIC_EXALTED_TRIAD%c"
+      m.ab.alter{s_icon:="%CLERIC_EXALTED_TRIAD%b"}
+      m.ab_fx.alter{s_resource:="%CLERIC_EXALTED_TRIAD%"|match="s_opcode=260"}
+      m.ab_fx.alter{s_resource:="%CLERIC_EXALTED_TRIAD%p"|match="s_opcode=172"}
+    ]
+
+    OUTER_SPRINT exalted_triad_title @50
+    OUTER_SPRINT add_exalted_triad_label @52
+    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
+
+    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~uiStrings = {~
+        ~uiStrings = {%WNL%%TAB%EXALTED_TRIAD_TITLE = "%exalted_triad_title%",%WNL%%TAB%ADD_SPELLS_TRIAD_LABEL = "%add_exalted_triad_label%",~
+
+    COPY_EXISTING "bgee.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~mageBookStrings = {~
+        ~mageBookStrings = {%WNL%%TAB%%CLERIC_EXALTED_TRIAD% = {tip = %sequencer_tip_strref%, title = 'EXALTED_TRIAD_TITLE', action = "ADD_SPELLS_TRIAD_LABEL"},~
+  END
+
+
   // Apply immunity effects to certain spells
 
 /* Doesn't work for non-permanent effects.
@@ -23,6 +61,11 @@ BEGIN
   [
     m.immunity_effect{energy_drain|permanent:i=0}
   ]
+
+
+  // Append some spells to contingx
+
+  LAF add_spell_to_contingx STR_VAR ids = "CLERIC_EXALTED_TRIAD" END
 
 
   // Prevent stacking of Heroism-type spells

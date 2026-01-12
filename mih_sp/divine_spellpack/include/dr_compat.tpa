@@ -32,14 +32,15 @@ BEGIN
       CLERIC_LIGHTNING_STORM,			~ea~, ~we~, ~~		=> 0
       CLERIC_INFERNO,				~ef~, ~~, ~~		=> 0
       CLERIC_BREAK_ENCHANTMENT,			~al~, ~~, ~~		=> 0
-      CLERIC_HALLOW,				~co~, ~wa~, ~~		=> 0
-      CLERIC_UNHALLOW,				~co~, ~wa~, ~~		=> 0
+      CLERIC_HALLOW,				~al~, ~~, ~~		=> 0
+      CLERIC_UNHALLOW,				~al~, ~~, ~~		=> 0
       CLERIC_MURDEROUS_MIST,			~ea~, ~su~, ~~		=> 0
       CLERIC_SUPERHEROISM,			~co~, ~~, ~~		=> 0
       CLERIC_CELESTIAL_PROTECTION,		~co~, ~gu~, ~pr~	=> 0
       CLERIC_MASS_NEGATIVE_PLANE_PROTECTION,	~nr~, ~pr~, ~wa~	=> 0
       CLERIC_AURA_OF_VITALITY,			~he~, ~~, ~~		=> 0
-      CLERIC_HOLLY_DART,				~pl~, ~~, ~~		=> 0
+      CLERIC_HOLLY_DART,			~pl~, ~~, ~~		=> 0
+      CLERIC_EXALTED_TRIAD,			~al~, ~~, ~~		=> 0
     END
 
     LAM cd_add_spells_to_dr_spheres
