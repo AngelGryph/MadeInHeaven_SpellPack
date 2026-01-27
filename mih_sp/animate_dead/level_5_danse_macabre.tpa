@@ -14,28 +14,28 @@ BEGIN
     ]
   END
 
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#dmaca.bam" "override"
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#dmacb.bam" "override"
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#dmacc.bam" "override"
-
   spl.edit[%WIZARD_ANIMATE_DEAD%]
   [
     m_name:=@0
     m_description:=@1
-    m_icon:="mh#dmacc"
     m.ab.delete{(s_level MODULO 2)=0}
-    m.ab.alter{s_icon:="mh#dmacb"}
     m.ab_fx.delete{s_opcode=177}
     m.ab_fx.add{s_opcode=177 s_target=1 s_duration=2400 s_parameter2=2 s_power=5 s_resource:=ghoulsu|number:i=3}
   ]
 
-  itm.edit[scrl2d]
+  itm.edit[%WIZARD_ANIMATE_DEAD_SCROLL%]
   [
     m_identified_name:=@0
     m_identified_description:=@1
-    m_icon:="mh#dmaca"
-    m.ab.alter{s_icon:="mh#dmaca"}
   ]
+
+  COPY_LARGE
+   "%MOD_FOLDER%/%component_loc%/graphics/wizard_dance_macabrea.bam"
+     "override/%WIZARD_ANIMATE_DEAD%a.bam"
+   "%MOD_FOLDER%/%component_loc%/graphics/wizard_dance_macabreb.bam"
+     "override/%WIZARD_ANIMATE_DEAD%b.bam"
+   "%MOD_FOLDER%/%component_loc%/graphics/wizard_dance_macabrec.bam"
+     "override/%WIZARD_ANIMATE_DEAD%c.bam"
 END	// level_5_danse_macabre
 
 

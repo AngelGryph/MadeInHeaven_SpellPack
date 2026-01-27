@@ -12,8 +12,8 @@ BEGIN
     tra		= "pst_spellpack"
   END
 
-  LAM data_spell_resrefs
-  LAM data_scroll_resrefs
+  LAUNCH_ACTION_MACRO data_spell_resrefs
+  LAUNCH_ACTION_MACRO data_scroll_resrefs
 
 
   LAUNCH_ACTION_FUNCTION run

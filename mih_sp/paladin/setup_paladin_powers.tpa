@@ -20,7 +20,7 @@ BEGIN
     tra		= "paladin_powers"
   END
 
-  LAM data_spell_resrefs
+  LAUNCH_ACTION_MACRO data_spell_resrefs
 
 
   LAUNCH_ACTION_FUNCTION run

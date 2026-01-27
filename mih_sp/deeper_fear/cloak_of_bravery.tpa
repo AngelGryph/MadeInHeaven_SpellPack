@@ -1,9 +1,5 @@
 DEFINE_ACTION_FUNCTION cloak_of_bravery
 BEGIN
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#clbra.bam" "override"
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#clbrb.bam" "override"
-  COPY "%MOD_FOLDER%/%component_loc%/graphics/mh#clbrc.bam" "override"
-
   CLERIC_CLOAK_OF_BRAVERY=spl.copy[%CLERIC_REMOVE_FEAR%=>CLERIC_CLOAK_OF_BRAVERY]
   [
     m_name := @0
@@ -13,6 +9,14 @@ BEGIN
     m.ab.alter{s_icon := "mh#clbrb";;s_target = 5;;s_range = 1;;s_casting_time=6}
     m.ab_fx.alter{s_power = 4}
   ]
+
+  COPY_LARGE
+    "%MOD_FOLDER%/%component_loc%/graphics/cleric_cloak_of_braverya.bam"
+      "override/%CLERIC_CLOAK_OF_BRAVERY%a.bam"
+    "%MOD_FOLDER%/%component_loc%/graphics/cleric_cloak_of_braveryb.bam"
+      "override/%CLERIC_CLOAK_OF_BRAVERY%b.bam"
+    "%MOD_FOLDER%/%component_loc%/graphics/cleric_cloak_of_braveryc.bam"
+      "override/%CLERIC_CLOAK_OF_BRAVERY%c.bam"
 
   LAUNCH_ACTION_FUNCTION tof_spell_sphere
     STR_VAR
