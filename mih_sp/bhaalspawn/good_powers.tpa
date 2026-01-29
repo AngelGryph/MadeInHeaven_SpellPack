@@ -4,12 +4,12 @@ BEGIN
 
   spl.edit[%BHAALSPAWN_CURE_LIGHT_WOUNDS%]
   [
-    m_name:=@0
-    m_icon:="rr#bp1g"
+    m_name := @0
+    m_icon := "rr#bp1g"
     m.ab.delete{s_level > 1}
-    m.ab.alter{s_icon:="rr#bp1g"}
-    m.ab.clone{s_level=(entry_index + 2)|number:i=19}
-    m.ab_fx.alter{s_parameter1=0 s_dicenumber=p_level s_dicesize=4|match="s_opcode = 17"}
+    m.ab.alter{s_icon := "rr#bp1g"}
+    m.ab.clone{s_level = (entry_index + 2)|number:i=19}
+    m.ab_fx.alter{s_parameter1 = 0 s_dicenumber=p_level s_dicesize=4|match="s_opcode = 17"}
   ]
 
 
@@ -17,19 +17,19 @@ BEGIN
 
   spl.edit[%BHAALSPAWN_SLOW_POISON%]
   [
-    m_name:=@1
-    m_icon:="rr#bp2g"
+    m_name := @1
+    m_icon := "rr#bp2g"
     m.ab.delete{s_level > 1}
-    m.ab.alter{s_icon:="rr#bp2g"}
-    m.ab.clone{s_level=(entry_index * 5 + 5)|number:i=4}
+    m.ab.alter{s_icon := "rr#bp2g"}
+    m.ab.clone{s_level = (entry_index * 5 + 5)|number:i=4}
     PATCH_IF FILE_EXISTS_IN_GAME "#curepsn.spl"
     BEGIN
-      m.ab_fx.clone{s_resource:="#curebld"|match=~"%s_resource%" == "#curepsn" AND p_level > 4~}
-      m.ab_fx.clone{s_resource:="#curedef"|match=~"%s_resource%" == "#curepsn" AND p_level > 4~}
-      m.ab_fx.clone{s_resource:="#curedis"|match=~"%s_resource%" == "#curepsn" AND p_level > 9~}
-      m.ab_fx.clone{s_resource:="#curefbm"|match=~"%s_resource%" == "#curepsn" AND p_level > 9~}
-      m.ab_fx.clone{s_resource:="#curestn"|match=~"%s_resource%" == "#curepsn" AND p_level > 14~}
-      m.ab_fx.clone{s_resource:="#cureldr"|match=~"%s_resource%" == "#curepsn" AND p_level > 19~}
+      m.ab_fx.clone{s_resource := "#curebld"|match=~"%s_resource%" == "#curepsn" AND p_level > 4~}
+      m.ab_fx.clone{s_resource := "#curedef"|match=~"%s_resource%" == "#curepsn" AND p_level > 4~}
+      m.ab_fx.clone{s_resource := "#curedis"|match=~"%s_resource%" == "#curepsn" AND p_level > 9~}
+      m.ab_fx.clone{s_resource := "#curefbm"|match=~"%s_resource%" == "#curepsn" AND p_level > 9~}
+      m.ab_fx.clone{s_resource := "#curestn"|match=~"%s_resource%" == "#curepsn" AND p_level > 14~}
+      m.ab_fx.clone{s_resource := "#cureldr"|match=~"%s_resource%" == "#curepsn" AND p_level > 19~}
     END
     ELSE
     BEGIN
@@ -45,9 +45,9 @@ BEGIN
 
   spl.edit[%BHAALSPAWN_DRAW_UPON_HOLY_MIGHT%]
   [
-    m_name:=2
-    m_icon:="rr#bp3g"
-    m.ab.alter{s_icon:="rr#bp3g"}
+    m_name := @2
+    m_icon := "rr#bp3g"
+    m.ab.alter{s_icon := "rr#bp3g"}
   ]
 END	// good_powers
 
