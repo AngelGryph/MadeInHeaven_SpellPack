@@ -4144,7 +4144,7 @@ BEGIN
 										SET $s(duration)=LONG_AT 0xe
 										SET $s(probability1)=BYTE_AT 0x12
 										SET $s(probability2)=BYTE_AT 0x13
-										READ_ASCII 0x14 temp (8)
+										READ_ASCII 0x14 temp (8) NULL
 										SPRINT $s(resource) "%temp%"
 										READ_LONG 0x1c $s(dicenumber)
 										READ_LONG 0x20 $s(dicesize)

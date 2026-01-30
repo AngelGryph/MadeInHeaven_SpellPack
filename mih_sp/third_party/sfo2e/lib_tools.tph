@@ -84,7 +84,7 @@ BEGIN
 		READ_BYTE offset value
 	END
 	DEFAULT
-		PATCH_WARN "length %length% is not recognised by write_whatever"
+		PATCH_WARN "length %length% is not recognised by read_whatever"
 	END
 END
 
