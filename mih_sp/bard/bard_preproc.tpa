@@ -18,10 +18,15 @@ BEGIN
     resref
   END
 
-  spl.copy[spwi107=>%resref%]
+  spl.edit[%WIZARD_FRIENDS%]
   [
-    m_type:="innate"
-    m.ab.alter{s_location:="innate" s_casting_time=1}
+    m.ab_fx.clone{s_resource := "%resref%"|match=~"%s_resource%" == "%WIZARD_FRIENDS%"~}
+  ]
+
+  spl.copy[%WIZARD_FRIENDS%=>%resref%]
+  [
+    m_type := "innate"
+    m.ab.alter{s_location := "innate";;s_casting_time=1}
   ]
 END	// bard_preproc
 

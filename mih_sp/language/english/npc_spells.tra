@@ -1,0 +1,36 @@
+@0    = ~Shock~
+@1    = ~Shock
+(Evocation)
+
+Level: 4
+Range: 0
+Duration: Instant
+Casting Time: 4
+Area of Effect: 760-ft. radius
+Saving Throw: 1/2
+
+This secret spell of the witches of Rasheman shocks foes surrounding the witch for 4d8 points of electrical damage, +1d8 for every three levels above 7th (max. 8d8).  Foes can attempt a saving throw versus spell for half damage.~
+@2    = ~Witch's Glamor~
+@3    = ~Witch's Glamor
+(Enchantment/Charm)
+
+Level: 2
+Range: Touch
+Duration: 4 rounds + 1 round/level
+Casting Time: 2
+Area of Effect: Creature touched
+Saving Throw: None
+
+This secret spell of the witches of Rasheman works much like the better known Friends spell, except that the witch doesn't need to cast it on herself only.  Other than that the effects are the same; the recipient temporarily gains 6 points of Charisma, making a very positive impression on whomever witnesses it and possibly influencing their reactions to the recipient.~
+@4    = ~Rashemaar Witch~
+@5    = ~RASHEMAAR WITCH: The witches of Rasheman are a secretive group of female mages from Rasheman, acting as that country's de facto leaders and defenders against the constant invasion attempts by the Red Wizards of Thay.  Attuned to nature in ways not unlike the druid, they wield strange and potent magic not seen anywhere else, even in Thay or Halrua.
+
+Advantages:
+- The witch automatically adds the following new spells to her spellbook at appropriate levels: Witch's Glamor(2), Shock(4).  These spells are not available anywhere else.
+- Likewise, the witch can memorize and cast a small selection of healing spells: Cure Light Wounds(1), Slow Poison(2), Cure Disease(3), Cure Serious Wounds(4), Neutralize Poison(4), Cure Critical Wounds(5) and Mass Cure(5).
+- The witch way cast Horror three times per day, as the second level spell, without having to memorize or even know it.
+
+Disadvantages:
+- This kit is only open to females born in Rasheman, the witches do not teach their secrets to outsiders under any circumstances.~
+
+

@@ -1,0 +1,60 @@
+DEFINE_ACTION_FUNCTION npc_spells_preproc
+BEGIN
+  // Create innate version of Horror
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level	= 2
+    STR_VAR
+    ids		= "DYNAHEIR_HORROR"
+    type	= "class"
+    RET
+    resref
+  END
+
+  spl.copy[%WIZARD_HORROR%=>%resref%]
+  [
+    m_type := "innate"
+    m.ab.alter{s_location := "innate";;s_casting_time=1}
+  ]
+
+
+  // Clone Dynaheir's Witch's Glamor directly from Friends,
+  // this ensures compatibility with the bard component
+  // regardless of install order.
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level	= 2
+    STR_VAR
+    ids		= "DYNAHEIR_WITCHS_GLAMOR"
+    type	= "class"
+    RET
+    resref
+  END
+
+  spl.edit[%WIZARD_FRIENDS%]
+  [
+    m.ab_fx.clone{s_resource := "%resref%"|match=~"%s_resource%" == "%WIZARD_FRIENDS%"~}
+  ]
+
+  ACTION_IF VARIABLE_IS_SET BARD_FRIENDS
+  BEGIN
+    spl.edit[%BARD_FRIENDS%]
+    [
+      m.ab_fx.clone{s_resource := "%resref%"|match=~"%s_resource%" == "%BARD_FRIENDS%"~}
+    ]
+  END
+
+  spl.copy[%WIZARD_FRIENDS%=>%resref%]
+  [
+    m_name := @2
+    m_description := @3
+    m_level = 2
+    m.ab.delete{s_level > 1 && s_level < 4}
+    m.ab.alter{s_target := "LivingActor";;s_casting_time=2}
+    m.ab_fx.alter{s_target := "PresetTarget";;s_power = 2}
+  ]
+END	// npc_spells_preproc
+
+

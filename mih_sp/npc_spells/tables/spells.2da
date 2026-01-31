@@ -1,0 +1,15 @@
+idsname				level	name	desc	type	force	scroll	projectile
+
+DYNAHEIR_SHOCK			4	0	1	4	n	n	*
+
+EDWIN_RED_WIZARD_CHANT		3	*	*	4	n	n	*
+
+VICONIA_ARMOR_OF_DARKNESS	3	*	*	4	n	n	*
+VICONIA_SUMMON_SPIDERS		5	*	*	4	n	n	*
+
+YESLICK_SILVERBEARD		1	*	*	4	n	n	*
+YESLICK_ROCKBURST		2	*	*	4	n	n	*
+YESLICK_AXE_STORM		4	*	*	4	n	n	*
+YESLICK_STONE_SKIN		4	*	*	4	n	n	*
+YESLICK_CIRCLE_OF_STONE		5	*	*	4	n	n	*
+

@@ -1,0 +1,29 @@
+DEFINE_ACTION_FUNCTION npc_spells_postproc
+BEGIN
+  kit.copy[INVOKER=>MH#Rashemaar_Witch|clab_only:i=1]
+  [
+    k_name := @4
+    k_desc := @5
+    k_any_race = 0	// Not selectable by player.
+    k.kit_grant_powers{%DYNAHEIR_HORROR%(3) 1, %DYNAHEIR_WITCH_GLAMOR% 3, %DYNAHEIR_SHOCK% 7}
+    k.kit_grant_powers{%ARCANE_CURE_LIGHT_WOUNDS% 1, %ARCANE_SLOW_POISON% 3, %ARCANE_CURE_DISEASE% 5, %ARCANE_CURE_SERIOUS_WOUNDS% 7, %ARCANE_NEUTRALIZE_POISON% 7, %ARCANE_CURE_CRITICAL_WOUNDS% 9, %ARCANE_MASS_CURE% 9}
+  ]
+
+  ACTION_CLEAR_ARRAY npc_kit
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY npc_kit
+  BEGIN
+    "dynaheir"	=> "MH#Rashemaar_Witch"
+  END
+
+  // Patch all NPC cre files, done non-SFO for speed.
+  COPY_EXISTING_REGEXP "^.*\.cre$" "override"
+    READ_ASCII 0x0280 dv ELSE "None" (32) NULL
+    TO_LOWER dv
+    PATCH_IF STRING_LENGTH "%dv%" > 0 AND VARIABLE_IS_SET $npc_kit("%dv%")
+    BEGIN
+      LPF cre_set_kit STR_VAR kit = $npc_kit("%dv%") END
+    END
+    BUT_ONLY_IF_IT_CHANGES
+END	// npc_spells_postproc
+
+

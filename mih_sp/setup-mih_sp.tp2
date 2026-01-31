@@ -167,6 +167,22 @@ LAUNCH_ACTION_FUNCTION run
 END
 
 
+// Made in Heaven: Exclusive NPC Spells
+//
+// Moved here to let cloned NPC kits profit from
+// specialist perks.
+
+BEGIN @27
+
+LABEL MH#-MiH_SP-NPC_Spells
+
+LAUNCH_ACTION_FUNCTION run
+  STR_VAR
+  file		= "setup_npc_spells"
+  location	= "npc_spells"
+END
+
+
 // Made in Heaven: Epic Spellpack
 //
 // NB: Moved here to have a better chance of having consistent

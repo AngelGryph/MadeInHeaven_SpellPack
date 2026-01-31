@@ -15,6 +15,7 @@ sources, with a few more original creations.
 - Divine Spellpack  - Original cleric/druid/shaman spells by me.
 - IWD Divine Spells - Divine spells from Icewind Dale, by CamDawg and DavidW.
 - PST Spellpack     - Introduces a handful of spells from Planescape Torment.
+- NPC-Exclusive Spells   - Gives certain party members unique spells.
 
 - Revised Paladin Powers - New powers and revised existing powers for paladins.
 - Revised Ranger Powers  - New powers and revised existing powers for rangers.
