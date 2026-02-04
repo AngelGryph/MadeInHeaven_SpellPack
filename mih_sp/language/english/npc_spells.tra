@@ -32,5 +32,67 @@ Advantages:
 
 Disadvantages:
 - This kit is only open to females born in Rasheman, the witches do not teach their secrets to outsiders under any circumstances.~
+@6    = ~Silverbeard~
+@7    = ~This specialty spell is only available to alaghor.  By means of this spell, the alaghar temporarily transforms his beard into refined silver.  This stunning display adds 2 points to the alaghar's charisma.  If the alaghar is unarmored, this spell grants a base armor class of 9.  On top of that, the spell grants an armor class bonus of +1 for every five levels of the alaghar if they are already wearing armor.~
+@8    = ~Rockburst~
+@9    = ~Rockburst
+(Alteration)
+
+Level: 2
+Sphere: Combat
+Range: 60 ft.
+Duration: Instant
+Casting Time: 5
+Area of Effect: 12-ft. radius
+Saving Throw: 1/2
+
+This specialty spell is only available to alaghor.  This spell causes a rock to violently explode, dealing 1d4+1 points of blunt damage per alaghar level.  Victims can attempt a saving throw versus spell for half damage.~
+@10   = ~Axe Storm of Clangeddin~
+@11   = ~Axe Storm of Clangeddin
+(Alteration)
+
+Level: 4
+Sphere: Combat
+Range: 0
+Duration: 3 rounds
+Casting Time: 7
+
+This specialty spell is only available to alaghor.  For three rounds after casting this spell, the alaghar and all his allies can attack three times per round.~
+@12   = ~Circle of Stone~
+@13   = ~Circle of Stone
+(Evocation)
+
+Level: 5
+Sphere: Protection
+Range: 0
+Duration: 1 round/level
+Casting Time: 9
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+This specialty spell is only available to clerics of the dwarven pantheon.  Upon casting this spell, every ally of the priest gains substantial combat benefits.  They gain a +4 bonus to all saving throws, a +3 to hit and any weapon they wield counts as a +3 weapon for purposes of what it can hit.~
+@14   = ~Stoneskin
+(Alteration)
+
+Level: 4
+Sphere: Elemental (Earth)
+Range: 0
+Duration: 12 hours
+Casting Time: 1
+Area of Effect: The caster
+Saving Throw: None 
+
+This is a clerical version of the well-known wizard spell, granted by dwarven deities.  Like the wizard version, it makes a magical skin of stone rise from the ground and cover the priest, shielding him from physical attacks, blocking one attack for every two levels of the priest.  The skins will remain on the wizard until <PRO_HESHE> is affected by a Dispel Magic, all of the skins are removed due to physical attacks, or the spell duration expires. It is important to note that this will not protect the priest from any magical attacks, such as Fireball.~
+@15   = ~Alaghar~
+@16   = ~ALAGHAR: The alaghor (plural of alaghar) are specialty priests of the swarven god Clangeddin Silverbeard, the Father of Battle.  These priests combine piety with martial training and are always willing to battle for a good cause.
+
+Advantages:
+- The alaghar adds the following unique spells to his spellbook at appropriate levels: Silverbeard (1), Rockburst (2), Axe Storm of Clangeddin (4), Stoneskin (4) and Circle of Stone (5).
+- At third level, the alaghar can cast Spiritual Hammer once per day.
+- At fifth level, the alaghar can cast Strength on himself once per day.
+- The alaghar may freely multiclass as a fighter.
+
+Disadvantages:
+- This kit is only available to non-evil dwarves.~
 
 

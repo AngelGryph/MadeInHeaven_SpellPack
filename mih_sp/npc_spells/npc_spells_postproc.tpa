@@ -1,5 +1,15 @@
 DEFINE_ACTION_FUNCTION npc_spells_postproc
 BEGIN
+  // Klutz for lib_kit to work on oBG2.
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME "clastext.2da"
+  BEGIN
+    LAF install STR_VAR file = "clastext.2da" location = "tables" END
+  END
+
+
+  // Dynaheir's Rashemaar Witch kit.
+
   kit.copy[INVOKER=>MH#Rashemaar_Witch|clab_only:i=1]
   [
     k_name := @4
@@ -9,13 +19,29 @@ BEGIN
     k.kit_grant_powers{%ARCANE_CURE_LIGHT_WOUNDS% 1, %ARCANE_SLOW_POISON% 3, %ARCANE_CURE_DISEASE% 5, %ARCANE_CURE_SERIOUS_WOUNDS% 7, %ARCANE_NEUTRALIZE_POISON% 7, %ARCANE_CURE_CRITICAL_WOUNDS% 9, %ARCANE_MASS_CURE% 9}
   ]
 
+
+  // Yeslick's Alaghar kit.
+
+  kit.copy[CLERIC=>MH#Alaghar|clab_only:i=1]
+  [
+    k_name := @15
+    k_desc := @16
+    k_any_race = 0	// Not selectable by player.
+    k.kit_grant_powers{%YESLICK_SILVERBEARD% 1, %YESLICK_ROCKBURST% 3, %YESLICK_AXE_STORM% 7, %YESLICK_STONE_SKIN% 7, %YESLICK_CIRCLE_OF_STONE% 9}
+    k.kit_grant_powers{%BRANWEN_SPIRITUAL_HAMMER% 3}
+    k.kit_grant_powers{%MAZZY_STRENGTH% 5}
+  ]
+
+
+  // Patch all NPC cre files, done non-SFO for speed.
+
   ACTION_CLEAR_ARRAY npc_kit
   ACTION_DEFINE_ASSOCIATIVE_ARRAY npc_kit
   BEGIN
     "dynaheir"	=> "MH#Rashemaar_Witch"
+    "yeslick"	=> "MH#Alaghar"
   END
 
-  // Patch all NPC cre files, done non-SFO for speed.
   COPY_EXISTING_REGEXP "^.*\.cre$" "override"
     READ_ASCII 0x0280 dv ELSE "None" (32) NULL
     TO_LOWER dv

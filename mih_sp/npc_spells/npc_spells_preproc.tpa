@@ -55,6 +55,25 @@ BEGIN
     m.ab.alter{s_target := "LivingActor";;s_casting_time=2}
     m.ab_fx.alter{s_target := "PresetTarget";;s_power = 2}
   ]
+
+
+  // Clone Yeslick's Stoneskin directly from the arcane version.
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level	= 4
+    STR_VAR
+    ids		= "YESLICK_STONE_SKIN"
+    type	= "class"
+    RET
+    resref
+  END
+
+  spl.copy[%WIZARD_STONE_SKIN%=>%resref%]
+  [
+    m_type := "Priest"
+    m_description := @14
+  ]
 END	// npc_spells_preproc
 
 
