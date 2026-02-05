@@ -23,6 +23,14 @@ BEGIN
     m.ab_fx.clone{s_resource := "%resref%"|match=~"%s_resource%" == "%WIZARD_FRIENDS%"~}
   ]
 
+  ACTION_IF VARIABLE_IS_SET DYNAHEIR_WITCHS_GLAMOR
+  BEGIN
+    spl.edit[%DYNAHEIR_WITCHS_GLAMOR%]
+    [
+      m.ab_fx.clone{s_resource := "%resref%"|match=~"%s_resource%" == "%DYNAHEIR_WITCHS_GLAMOR%"~}
+    ]
+  END
+
   spl.copy[%WIZARD_FRIENDS%=>%resref%]
   [
     m_type := "innate"
