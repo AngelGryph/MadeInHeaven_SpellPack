@@ -15,19 +15,17 @@ BEGIN
     k_name := @4
     k_desc := @5
     k_any_race = 0	// Not selectable by player.
-    k.kit_grant_powers{%DYNAHEIR_HORROR%(3) 1, %DYNAHEIR_WITCHS_GLAMOR% 3, %DYNAHEIR_SHOCK% 7}
+    k.kit_grant_powers{%DYNAHEIR_HORROR%(3) 1, %DYNAHEIR_MAGIC_DISK% 1, %DYNAHEIR_WITCHS_GLAMOR% 3, %DYNAHEIR_SHOCK% 7}
     k.kit_grant_powers{%ARCANE_CURE_LIGHT_WOUNDS% 1, %ARCANE_SLOW_POISON% 3, %ARCANE_CURE_DISEASE% 5, %ARCANE_CURE_SERIOUS_WOUNDS% 7, %ARCANE_NEUTRALIZE_POISON% 7, %ARCANE_CURE_CRITICAL_WOUNDS% 9, %ARCANE_MASS_CURE% 9}
   ]
 
 
-/*
   // Edwin's Red Wizard of Thay kit
 
   kit.copy[CONJURER=>MH#Red_Wizard|clab_only:i=1]
   [
-    k.kit_grant_powers{%EDWIN_CHANT% 5}
+    k.kit_grant_powers{%EDWIN_CHANT% 5, %EDWIN_ASSIST% 5}
   ]
-*/
 
 
   // Yeslick's Alaghar kit.
@@ -49,7 +47,7 @@ BEGIN
   ACTION_DEFINE_ASSOCIATIVE_ARRAY npc_kit
   BEGIN
     "dynaheir"	=> "MH#Rashemaar_Witch"
-//    "edwin"	=> "MH#Red_Wizard"
+    "edwin"	=> "MH#Red_Wizard"
     "yeslick"	=> "MH#Alaghar"
   END
 

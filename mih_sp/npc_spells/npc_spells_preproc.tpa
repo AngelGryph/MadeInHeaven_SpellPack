@@ -1,6 +1,6 @@
 DEFINE_ACTION_FUNCTION npc_spells_preproc
 BEGIN
-  // Create innate version of Horror
+  // Create Dynaheir's innate version of Horror
 
   LAUNCH_ACTION_FUNCTION spl_resolve_ids
     INT_VAR
@@ -51,9 +51,63 @@ BEGIN
     m_name := @2
     m_description := @3
     m_level = 2
-    m.ab.delete{s_level > 1 && s_level < 4}
+    m.ab.delete{s_level < 3}
+    m.ab.alter{s_level = 1|match="s_level = 3"}
     m.ab.alter{s_target := "LivingActor";;s_casting_time=2}
     m.ab_fx.alter{s_target := "PresetTarget";;s_power = 2}
+  ]
+
+
+  // Clone Edwin's Chant of the Red Wizards from the divine version.
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level	= 3
+    STR_VAR
+    ids		= "EDWIN_CHANT"
+    type	= "class"
+    RET
+    resref
+  END
+
+  spl.copy[%CLERIC_CHANT%d=>%resref%d %CLERIC_CHANT%e=>%resref%e]
+  [
+    m_level = 3
+    m_type := "Wizard"
+    m.ab_fx.alter{s_power = 3;;INNER_PATCH_SAVE s_resource "%s_resource%" BEGIN REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%CLERIC_CHANT%" "%resref%" END}
+  ]
+
+  spl.copy[%CLERIC_CHANT%=>%resref%]
+  [
+    m_level = 3
+    m_type := "Wizard"
+    m_casting_sound := "CAS_M03"
+    m_name := @17
+    m_description := @18
+    m.ab_fx.alter{INNER_PATCH_SAVE s_resource "%s_resource%" BEGIN REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%CLERIC_CHANT%" "%resref%" END}
+  ]
+
+
+  // Clone Edwin's Assist from the divine Aid.
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level	= 3
+    STR_VAR
+    ids		= "EDWIN_ASSIST"
+    type	= "class"
+    RET
+    resref
+  END
+
+  spl.copy[%CLERIC_AID%=>%resref%]
+  [
+    m_level = 3
+    m_type := "Wizard"
+    m_casting_sound := "CAS_M03"
+    m_name := @19
+    m_description := @20
+    //m.ab_fx.alter{INNER_PATCH_SAVE s_resource "%s_resource%" BEGIN REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH "%CLERIC_CHANT%" "%resref%" END}
   ]
 
 
@@ -72,6 +126,7 @@ BEGIN
   spl.copy[%WIZARD_STONE_SKIN%=>%resref%]
   [
     m_type := "Priest"
+    m_casting_sound := "CAS_P08"
     m_description := @14
   ]
 END	// npc_spells_preproc

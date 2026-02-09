@@ -87,12 +87,30 @@ This is a clerical version of the well-known wizard spell, granted by dwarven de
 @16   = ~ALAGHAR: The alaghor (plural of alaghar) are specialty priests of the swarven god Clangeddin Silverbeard, the Father of Battle.  These priests combine piety with martial training and are always willing to battle for a good cause.
 
 Advantages:
-- The alaghar adds the following unique spells to his spellbook at appropriate levels: Silverbeard (1), Rockburst (2), Axe Storm of Clangeddin (4), Stoneskin (4) and Circle of Stone (5).
+- The alaghar adds the following unique spells to his spellbook at appropriate levels: Silverbeard (1), Rockburst (2), Axe Storm of Clangeddin (4), Stoneskin (4) and Circle of Stone (5).  These spells are not available anywhere else.
 - At third level, the alaghar can cast Spiritual Hammer once per day.
 - At fifth level, the alaghar can cast Strength on himself once per day.
 - The alaghar may freely multiclass as a fighter.
 
 Disadvantages:
 - This kit is only available to non-evil dwarves.~
+@17   = ~Chant of the Red Wizards~
+@18   = ~~	// TODO: Chant o/t RW desc
+@19   = ~Assist~
+@20   = ~~	// TODO: Assist desc
+@21   = ~Magic Disk~
+@22   = ~Magic Disk
+(Evocation)
+
+Level: 1
+Range: 0
+Duration: Special
+Casting Time: 1
+Area of Effect: The caster
+Saving Throw: None
+
+This secret spell of the witches of Rasheman is a more modern refinement of an ancient Magic Boomerang spell and works much like the more widely known Melf's Minute Meteors spell.
+
+The spell creates glowings disks of force which the witch can then throw at her opponents with a +3 to hit.  The razor edge deals 1d6 points of slashing damage, +1 per level of the witch (max. +10).  The witch gets one disk at level 1 and an additional one at levels 4, 7 and 10.~
 
 
