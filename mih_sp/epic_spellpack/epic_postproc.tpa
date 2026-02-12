@@ -22,14 +22,19 @@ BEGIN
       m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"|match="s_opcode = 172"}
     ]
 
-    OUTER_SPRINT algarths_embattlement_title @28
-    OUTER_SPRINT add_algarths_embattlement_label @30
-    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
+    ACTION_CLEAR_ARRAY lua_lang_entries
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY lua_lang_entries
+    BEGIN
+      ALGARTHS_EMBATTLEMENT_TITLE	=> 28
+      ADD_ALGARTHS_EMBATTLEMENT_LABEL	=> 30
+    END
+      
+    LAUNCH_ACTION_FUNCTION add_to_lua_lang
+      STR_VAR
+      array	= "lua_lang_entries"
+    END
 
-    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-        ~uiStrings = {~
-        ~uiStrings = {%WNL%%TAB%ALGARTHS_EMBATTLEMENT_TITLE = "%algarths_embattlement_title%",%WNL%%TAB%ADD_SPELLS_MATRIX_LABEL = "%add_algarths_embattlement_label%",~
+    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
 
     COPY_EXISTING "bgee.lua" "override"
       REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
