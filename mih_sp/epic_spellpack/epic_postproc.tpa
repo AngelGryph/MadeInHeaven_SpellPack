@@ -2,50 +2,12 @@ DEFINE_ACTION_FUNCTION epic_postproc
 BEGIN
   // Create Algarth's Embattlement innates
 
-  spl.copy[spwi420d=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d]
-  [
-    m_name:=@28
-    m_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
-    m.ab.alter{s_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"}
-    m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"|match="s_opcode = 258"}
-    m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"|match="s_opcode = 172"}
-  ]
-
-  ACTION_IF enhanced_edition
-  BEGIN
-    spl.copy[spwi420d=>%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%p]
-    [
-      m_name:=@28
-      m_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%c"
-      m.ab.alter{s_icon:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%b"}
-      m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%"|match="s_opcode = 260"}
-      m.ab_fx.alter{s_resource:="%HLA_WIZARD_ALGARTHS_EMBATTLEMENT%d"|match="s_opcode = 172"}
-    ]
-
-    ACTION_CLEAR_ARRAY lua_lang_entries
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY lua_lang_entries
-    BEGIN
-      ALGARTHS_EMBATTLEMENT_TITLE	=> 28
-      ADD_ALGARTHS_EMBATTLEMENT_LABEL	=> 30
-    END
-      
-    LAUNCH_ACTION_FUNCTION add_to_lua_lang
-      STR_VAR
-      array	= "lua_lang_entries"
-    END
-
-    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
-
-    COPY_EXISTING "bgee.lua" "override"
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-        ~mageBookStrings = {~
-        ~mageBookStrings = {%WNL%%TAB%%HLA_WIZARD_ALGARTHS_EMBATTLEMENT% = {tip = %sequencer_tip_strref%, title = 'ALGARTHS_EMBATTLEMENT_TITLE', action = "ADD_SPELLS_MATRIX_LABEL"},~
-  END
+  LAF create_sequencer_innates STR_VAR spell_name = "HLA_WIZARD_ALGARTHS_EMBATTLEMENT" END
 
 
   // Append Algarth's Embattlement to contingx
 
-  LAF add_spell_to_contingx STR_VAR ids = "HLA_WIZARD_ALGARTHS_EMBATTLEMENT" END
+  LAF add_spell_to_contingx STR_VAR spell_name = "HLA_WIZARD_ALGARTHS_EMBATTLEMENT" END
 
 
   // Set correct string for Elminster's Effulgent Epuration

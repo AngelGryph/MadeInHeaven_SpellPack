@@ -12,28 +12,28 @@
 
 DEFINE_ACTION_FUNCTION add_spell_to_contingx
   STR_VAR
-  spl	= ""
-  ids	= ""
+  spell_name	= ""
+  spell_res	= ""
 BEGIN
-  ACTION_IF "%ids%" STRING_COMPARE ""
+  ACTION_IF "%spell_name%" STRING_COMPARE ""
   BEGIN
     LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
       STR_VAR
-      spell_name	= "%ids%"
+      spell_name
       RET
-      spl		= spell_res
+      spell_res
     END
   END
 
-  ACTION_IF "%spl%" STRING_EQUAL ""
+  ACTION_IF "%spell_res%" STRING_EQUAL ""
   BEGIN
-    FAIL ~Function add_spell_to_contingx called without either spl or ids set!~
+    FAIL ~Function add_spell_to_contingx called without either spell_name or spell_res set!~
   END
 
-  COPY_EXISTING - "%spl%.spl" "%work_dir%"
+  COPY_EXISTING - "%spell_res%.spl" "%weidu_external/workspace%"
     READ_LONG 0x0034 level
 
-  TO_UPPER spl
+  TO_UPPER spell_res
 
   COPY_EXISTING "contingx.2da" "override"
     COUNT_2DA_COLS cols
@@ -46,7 +46,7 @@ BEGIN
       PATCH_IF NOT found AND "%entry%" STRING_EQUAL "****"
       BEGIN
         SET found = 1
-        SET_2DA_ENTRY i level cols "%spl%"
+        SET_2DA_ENTRY i level cols "%spell_res%"
       END
     END
 
@@ -55,8 +55,7 @@ BEGIN
 
   ACTION_IF NOT found
   BEGIN
-    OUTER_TEXT_SPRINT new_row "%rows%       ****    ****    ****    ****    ****    ****    ****    ****    ****"
-    OUTER_PATCH_SAVE new_row "%new_row%"
+    OUTER_PATCH_SAVE new_row "%rows%       ****    ****    ****    ****    ****    ****    ****    ****    ****"
     BEGIN
       SET_2DA_ENTRY 0 level cols "%spl%"
     END
@@ -134,6 +133,82 @@ BEGIN
     BEGIN
       APPEND "itemexcl.2da" "%item%   %enable%"
     END
+  END
+END
+
+
+// create_sequencer_innates
+//
+// Create the innate abilities for sequencer-type spells,
+// and on EE-style games also the required lua entries.
+
+DEFINE_ACTION_FUNCTION create_sequencer_innates
+  STR_VAR
+  spell_name	= ""
+  spell_res	= ""
+BEGIN
+  ACTION_IF "%spell_name%" STRING_EQUAL ""
+        AND "%spell_res%" STRING_EQUAL "" 
+  BEGIN
+    FAIL "Create_sequencer_innates called without setting spell_name or spell_res!"
+  END
+
+  ACTION_IF "%spell_name%" STRING_COMPARE ""	// True if NOT empty string
+  BEGIN
+    LAUNCH_ACTION_FUNCTION RES_NUM_OF_SPELL_NAME
+      STR_VAR
+      spell_name
+      RET
+      spell_res
+    END
+  END
+  ELSE
+  BEGIN
+    LAUNCH_ACTION_FUNCTION NAME_NUM_OF_SPELL_RES
+      STR_VAR
+      spell_res
+      RET
+      spell_name
+    END
+  END
+
+  COPY_EXISTING - "%spell_res%.spl" "weidu_external/workspace"
+    READ_LONG NAME1 name_strref
+    READ_STRREF NAME1 name_string
+
+  COPY_EXISTING "spwi420d.spl" "override/%spell_res%d.spl"
+    WRITE_LONG NAME1 name_strref
+    WRITE_ASCII 0x003a "%spell_res%c"
+    LPF ALTER_SPELL_HEADER STR_VAR icon = "%spell_res%b" END
+    LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 258 STR_VAR resource = "%spell_res%" END
+    LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = "%spell_res%d" END
+    
+  ACTION_IF FILE_EXISTS_IN_GAME "spwi420p.spl"
+  BEGIN
+    COPY_EXISTING "spwi420p.spl" "override/%spell_res%p.spl"
+      WRITE_LONG NAME1 name_strref
+      WRITE_ASCII 0x003a "%spell_res%c"
+      LPF ALTER_SPELL_HEADER STR_VAR icon = "%spell_res%b" END
+      LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 260 STR_VAR resource = "%spell_res%" END
+      LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = "%spell_res%p" END
+  END
+
+  ACTION_IF FILE_EXISTS_IN_GAME "bgee.lua"
+  BEGIN
+    ACTION_TO_UPPER spell_name
+    ACTION_TO_UPPER spell_res
+
+    OUTER_SET sequencer_tip_strref = GAME_INCLUDES "bg2" ? 60420 : 24616
+
+    COPY_EXISTING "l_%EE_LANGUAGE%.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~uiStrings = {~
+        ~uiStrings = {%WNL%%TAB%%spell_name%_TITLE = "%name_string%",~
+
+    COPY_EXISTING "bgee.lua" "override"
+      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+        ~mageBookStrings = {~
+        ~mageBookStrings = {%WNL%%TAB%%spell_res% = {tip = %sequencer_tip_strref%, title = '%spell_name%_TITLE', action = "ADD_SPELLS_SEQUENCER_LABEL"},~
   END
 END
 

@@ -2,45 +2,14 @@ DEFINE_ACTION_FUNCTION arcane_postproc
 BEGIN
   // Create Spell Matrix innates
 
-  spl.copy[spwi420d=>%WIZARD_SPELL_MATRIX%d]
-  [
-    m_name:=@26
-    m_icon:="%WIZARD_SPELL_MATRIX%c"
-    m.ab.alter{s_icon:="%WIZARD_SPELL_MATRIX%b"}
-    m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%"|match="s_opcode=258"}
-    m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%d"|match="s_opcode=172"}
-  ]
+  LAF create_sequencer_innates STR_VAR spell_name = "WIZARD_SPELL_MATRIX" END
 
-  ACTION_IF enhanced_edition
-  BEGIN
-    spl.copy[spwi420p=>%WIZARD_SPELL_MATRIX%p]
-    [
-      m_name:=@26
-      m_icon:="%WIZARD_SPELL_MATRIX%c"
-      m.ab.alter{s_icon:="%WIZARD_SPELL_MATRIX%b"}
-      m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%"|match="s_opcode=260"}
-      m.ab_fx.alter{s_resource:="%WIZARD_SPELL_MATRIX%p"|match="s_opcode=172"}
-    ]
 
-    ACTION_CLEAR_ARRAY lua_lang_entries
-    ACTION_DEFINE_ASSOCIATIVE_ARRAY lua_lang_entries
-    BEGIN
-      SPELL_MATRIX_TITLE	=> 26
-      ADD_SPELL_MATRIX_LABEL	=> 62
-    END
-      
-    LAUNCH_ACTION_FUNCTION add_to_lua_lang
-      STR_VAR
-      array	= "lua_lang_entries"
-    END
+  // Append some spells to contingx
 
-    OUTER_SET sequencer_tip_strref = is_bg2 ? 60420 : 24616
-
-    COPY_EXISTING "bgee.lua" "override"
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-        ~mageBookStrings = {~
-        ~mageBookStrings = {%WNL%%TAB%%WIZARD_SPELL_MATRIX% = {tip = %sequencer_tip_strref%, title = 'SPELL_MATRIX_TITLE', action = "ADD_SPELLS_MATRIX_LABEL"},~
-  END
+  LAF add_spell_to_contingx STR_VAR spell_name = "WIZARD_RARYS_MNEMONIC_ENHANCER" END
+  LAF add_spell_to_contingx STR_VAR spell_name = "WIZARD_SPELL_MATRIX" END
+  LAF add_spell_to_contingx STR_VAR spell_name = "WIZARD_MORDENKAINENS_LUCUBRATION" END
 
 
   // Add save vs. breath to Gust of Wind effects
@@ -58,13 +27,6 @@ BEGIN
   [
     m.immunity_effect{fear energy_drain|permanent:i=0}
   ]
-
-
-  // Append some spells to contingx
-
-  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_RARYS_MNEMONIC_ENHANCER" END
-  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_SPELL_MATRIX" END
-  LAF add_spell_to_contingx STR_VAR ids = "WIZARD_MORDENKAINENS_LUCUBRATION" END
 
 
   // Make new msectype for Alacrity
