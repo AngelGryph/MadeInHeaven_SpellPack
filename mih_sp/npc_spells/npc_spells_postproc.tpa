@@ -24,6 +24,9 @@ BEGIN
 
   kit.copy[CONJURER=>MH#Red_Wizard|clab_only:i=1]
   [
+    k_name := @23
+    k_desc := @24
+    k_any_race = 0	// Not selectable by player.
     k.kit_grant_powers{%EDWIN_CHANT% 5, %EDWIN_ASSIST% 5}
   ]
 
