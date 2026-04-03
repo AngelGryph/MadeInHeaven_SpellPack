@@ -43,10 +43,10 @@ end
 
 <<<<<<<<.../stratagems-inline/global_add.baf
 IF
-	!Global("dw_inn_roomtype","LOCALS",0)
+	!Global("dw_inn_roomtype","GLOBAL",0)
 THEN
 	RESPONSE #100
-		SetGlobal("dw_inn_roomtype","LOCALS",0) 
+		SetGlobal("dw_inn_roomtype","GLOBAL",0) 
 		Continue()
 END
 >>>>>>>>

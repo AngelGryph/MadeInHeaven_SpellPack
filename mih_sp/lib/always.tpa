@@ -1,9 +1,17 @@
 // WeiDU doesn't properly clear variables between automatic
 // reinstalls leading to components failing on a reinstall.
 //
-// Until that is fixed, let's put this here.
+// Until that is fixed, let's run CLEAR_EVERYTHING if we're
+// not certain we're working with a clean environment.
 
-CLEAR_EVERYTHING
+ACTION_IF NOT VARIABLE_IS_SET CLEAN_ENVIRONMENT
+      OR "%CLEAN_ENVIRONMENT%" STRING_COMPARE_CASE "%MOD_FOLDER%"
+BEGIN
+  PRINT "Potentially unclean environment detected, running CLEAR_EVERYTHING."
+  CLEAR_EVERYTHING
+END
+
+OUTER_TEXT_SPRINT CLEAN_ENVIRONMENT "%MOD_FOLDER%"
 
 
 // Set up SSL if we have it.
