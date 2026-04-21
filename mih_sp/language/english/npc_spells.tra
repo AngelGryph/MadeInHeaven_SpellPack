@@ -27,13 +27,24 @@ This secret spell of the witches of Rasheman works much like the better known Fr
 
 Advantages:
 - The witch automatically adds the following new spells to her spellbook at appropriate levels: Witch's Glamor(2), Shock(4).  These spells are not available anywhere else.
-- Likewise, the witch can memorize and cast a small selection of healing spells: Cure Light Wounds(1), Slow Poison(2), Cure Disease(3), Cure Serious Wounds(4), Neutralize Poison(4), Cure Critical Wounds(5) and Mass Cure(5).
-- The witch way cast Horror three times per day, as the second level spell, without having to memorize or even know it.
+- Likewise, the witch can memorize and cast a small selection of healing spells at appropriate levels: Cure Light Wounds(1), Slow Poison(2), Cure Disease(3), Cure Serious Wounds(4), Neutralize Poison(4), Cure Critical Wounds(5) and Mass Cure(5).
+- The witch may cast Horror once per day at level 1, as the second level spell, without having to memorize or even know it.  She gains an additional use at level 4 and level 7.
 
 Disadvantages:
 - This kit is only open to females born in Rasheman, the witches do not teach their secrets to outsiders under any circumstances.~
 @6    = ~Silverbeard~
-@7    = ~This specialty spell is only available to alaghor.  By means of this spell, the alaghar temporarily transforms his beard into refined silver.  This stunning display adds 2 points to the alaghar's charisma.  If the alaghar is unarmored, this spell grants a base armor class of 9.  On top of that, the spell grants an armor class bonus of +1 for every five levels of the alaghar if they are already wearing armor.~
+@7    = ~Silverbeard
+(Alteration)
+
+Level: 1
+Sphere: Combat
+Range: 0
+Duration: 1 turn + 1 round/level
+Casting Time: 4
+Area of Effect: The caster
+Saving Throw: None
+
+This specialty spell is only available to alaghor.  By means of this spell, the alaghar temporarily transforms his beard into refined silver.  This stunning display adds 2 points to the alaghar's charisma.  If the alaghar is unarmored, this spell grants a base armor class of 9.  On top of that, the spell grants an armor class bonus of +1 for every five levels of the alaghar.~
 @8    = ~Rockburst~
 @9    = ~Rockburst
 (Alteration)
