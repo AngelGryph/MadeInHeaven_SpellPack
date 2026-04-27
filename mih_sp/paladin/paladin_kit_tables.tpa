@@ -15,13 +15,25 @@ BEGIN
   ]
 
 
-  // True Paladin & Cavalier
+  // True Paladin
 
-  kit.edit[PALADIN CAVALIER]
+  kit.edit[PALADIN]
   [
     k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL%}
     k.kit_apply_powers{mh#palim 1}
     k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_EVIL% 1,%PALADIN_CURE_DISEASE% 2 4 6,%PALADIN_DIVINE_FAVOR% 3 7 20,%PALADIN_LAY_ON_HANDS% 7 7 30}
+    k.kit_grant_hla{%PALADIN_SMITE_EVIL%|num_allowed:i=3}
+    k.kit_grant_hla{%PALADIN_LAY_ON_HANDS%|num_allowed:i=3}
+  ]
+
+
+  // Cavalier
+
+  kit.edit[CAVALIER]
+  [
+    k.kit_remove_powers{%PALADIN_DETECT_EVIL% %PALADIN_PROTECTION_FROM_EVIL% %CAVALIER_REMOVE_FEAR%}
+    k.kit_apply_powers{mh#palim 1}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_EVIL% 1,%PALADIN_CURE_DISEASE% 2 4 6,%PALADIN_DIVINE_FAVOR% 3 7 20,%PALADIN_LAY_ON_HANDS% 7 7 30,%CAVALIER_REMOVE_FEAR% 1 3 7}
     k.kit_grant_hla{%PALADIN_SMITE_EVIL%|num_allowed:i=3}
     k.kit_grant_hla{%PALADIN_LAY_ON_HANDS%|num_allowed:i=3}
   ]
@@ -43,7 +55,7 @@ BEGIN
   [
     k.kit_remove_powers{%PALADIN_DETECT_EVIL%,%PALADIN_PROTECTION_FROM_EVIL%}
     k.kit_apply_powers{mh#palim 1}
-    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%PALADIN_SMITE_UNDEAD% 1,%PALADIN_DIVINE_FAVOR% 3 7 20}
+    k.kit_grant_powers{%PALADIN_DETECT_EVIL% 1,%PALADIN_PROTECTION_FROM_EVIL% 1,%UNDEAD_HUNTER_SMITE_UNDEAD% 1,%PALADIN_DIVINE_FAVOR% 3 7 20,%UNDEAD_HUNTER_REMOVE_PARALYSIS% 1 3 7}
     k.kit_grant_hla{%PALADIN_SMITE_UNDEAD%|num_allowed:i=3}
   ]
 

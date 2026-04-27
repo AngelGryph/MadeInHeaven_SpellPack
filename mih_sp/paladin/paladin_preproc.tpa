@@ -34,7 +34,26 @@ BEGIN
     resref
   END
 
-  spl.copy[sppr317=>%resref%]
+  spl.copy[%CLERIC_CURE_DISEASE%=>%resref%]
+  [
+    m_type:="innate"
+    m.ab.alter{s_location:="innate" s_casting_time=1}
+  ]
+
+
+  // Create innate version of Remove Paralysis
+
+  LAUNCH_ACTION_FUNCTION spl_resolve_ids
+    INT_VAR
+    level	= 3
+    STR_VAR
+    ids		= "UNDEAD_HUNTER_REMOVE_PARALYSIS"
+    type	= "class"
+    RET
+    resref
+  END
+
+  spl.copy[%CLERIC_REMOVE_PARALYSIS%=>%resref%]
   [
     m_type:="innate"
     m.ab.alter{s_location:="innate" s_casting_time=1}
