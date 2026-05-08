@@ -255,8 +255,21 @@ Area of Effect: 15-ft. radius
 Saving Throw: None 
 
 The druid must be outdoors to cast Ice Storm, or it will not work and the spell is wasted.  Upon casting, great hail stones pound down for four rounds in a 30-ft. diameter area and inflict 2d8 points of cold damage to any creatures within the area of effect. Also, anyone that remains within the area of effect takes 2d8 cold damage each round for 4 rounds.~
-//@42   = ~~
-//@43   = ~~
+@42   = ~Animal Growth~
+@43   = ~Animal Growth
+(Alteration)
+
+Level: 5
+Sphere: Animal
+Range: 40 ft.
+Duration: 2 rounds/level
+Casting Time: 8
+Area of Effect: 15-ft. radius
+Saving Throw: None
+
+When this spell is released, animals in the area of effect that are allied to the caster grow larger, stronger and more ferocious.  The affected animals gain a +4 bonus to strength, constitution and all saving throws, +2 to armor class and +20% resistance to physical damage.
+
+This spell is especially effective when combined with spells or items that conjure animals, such as the various Animal Summoning spells or a Bag of Tricks.~
 //@44   = ~~
 //@45   = ~~
 //@46   = ~~

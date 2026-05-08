@@ -5,6 +5,7 @@ BEGIN
 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY spell_spheres
   BEGIN
+    "CLERIC_ANIMAL_GROWTH" => "animal"
     "CLERIC_AURA_OF_VITALITY" => "necromantic"
     "CLERIC_BREAK_ENCHANTMENT" => "divine"
     "CLERIC_CELESTIAL_PROTECTION" => "good"

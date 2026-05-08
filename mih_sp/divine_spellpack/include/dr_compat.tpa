@@ -35,6 +35,7 @@ BEGIN
       CLERIC_HALLOW,				~al~, ~~, ~~		=> 0
       CLERIC_UNHALLOW,				~al~, ~~, ~~		=> 0
       CLERIC_MURDEROUS_MIST,			~ea~, ~su~, ~~		=> 0
+      CLERIC_ANIMAL_GROWTH,			~an~, ~~, ~~		=> 0
       CLERIC_SUPERHEROISM,			~co~, ~~, ~~		=> 0
       CLERIC_CELESTIAL_PROTECTION,		~co~, ~gu~, ~pr~	=> 0
       CLERIC_MASS_NEGATIVE_PLANE_PROTECTION,	~nr~, ~pr~, ~wa~	=> 0
