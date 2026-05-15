@@ -118,3 +118,34 @@ BEGIN
 END
 
 
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY bgee_strref_fixes
+BEGIN
+  7523	=> 26711	// Katana name
+  35963	=> 26713	// Katana desc
+  8181	=> 30682	// Ioun Stone name
+  5770	=> 30683	// Ioun Stone desc
+  64935	=> 30736	// Bag name
+  66400	=> 30737	// Bag desc
+END
+
+DEFINE_PATCH_MACRO fix_bgee_strrefs
+BEGIN
+  PATCH_IF GAME_IS "bgee"
+  BEGIN
+    READ_LONG NAME1 __name_strref
+    READ_LONG UNIDENTIFIED_DESC __desc_strref
+
+    PATCH_IF VARIABLE_IS_SET $bgee_strref_fixes("%__name_strref%")
+    BEGIN
+      WRITE_LONG NAME1 $bgee_strref_fixes("%__name_strref%")
+    END
+
+    PATCH_IF VARIABLE_IS_SET $bgee_strref_fixes("%__desc_strref%")
+    BEGIN
+      WRITE_LONG UNIDENTIFIED_DESC $bgee_strref_fixes("%__desc_strref%")
+    END
+  END
+END
+
+

@@ -95,7 +95,12 @@ BEGIN
 				REPLACE_TEXTUALLY EXACT_MATCH "\" "/"
 			END
 			AT_NOW ~chmod 755 %ssl_loc%/ssl.pl~
-			AT_NOW ~/usr/bin/perl %ssl_loc%/ssl.pl %scsargs% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %data_loc%/autolib %booleanstring%~ EXACT	  
+			LAF check_ini STR_VAR ini=Use_Perl_Natively RET value END
+			ACTION_IF value BEGIN
+				AT_NOW ~perl %ssl_loc%/ssl.pl %scsargs% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %data_loc%/autolib %booleanstring%~ EXACT
+			END ELSE BEGIN
+				AT_NOW ~/usr/bin/perl %ssl_loc%/ssl.pl %scsargs% "%sslvariables%" -o %workspace%/ssl_out -l %ssllibrary% %data_loc%/autolib %booleanstring%~ EXACT
+			END
 		END
 	END
 END
