@@ -505,5 +505,17 @@ Area of Effect: Special
 Saving Throw: 1/2
 
 Casting this powerful and destructive spell enables the caster to throw six 7d6 lightning bolts simultaneously at up to six different targets.  The bolts behave identical to the third level spell Lightning Bolt.~
+@92    = ~Presper's Moonbow~
+@93    = ~Presper's Moonbow
+(Evocation)
+
+Level: 5
+Range: 0
+Duration: Special
+Casting Time: 5
+Area of Efect: The caster
+Saving Throw: None
+
+This spell creates several glowing motes of moonlight which the caster can throw at <PRO_HISHER> enemies with a +3 bonus to hit.  Upon impact, each mote deals 4d6 points of electrical damage with no saving throw allowed.  The caster gets one mote at level 9, and an additional mote for every 3 levels after that.  Up to two motes can be thrown per round.~
 
 
