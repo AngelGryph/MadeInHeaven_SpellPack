@@ -11,6 +11,28 @@ BEGIN
   COPY_EXISTING "hpwar.2da" "override/mh#hprng.2da"
     SET_2DA_ENTRY 0 1 4 8
     SET_2DA_ENTRY 0 2 4 2
+
+
+  // Give existing rangers bonus HP to simulate higher dice
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "existing_ranger_bonus_hp"
+    RET
+    existing_ranger_bonus_hp	= value
+  END
+
+  COPY_EXISTING_REGEXP "^.+\.cre$" "override"
+    READ_BYTE 0x0273 class
+
+    PATCH_IF class = 12	// single-class ranger
+          OR class = 18	// cleric/ranger
+    BEGIN
+      WRITE_SHORT 0x0024 (THIS + existing_ranger_bonus_hp)
+      WRITE_SHORT 0x0026 (THIS + existing_ranger_bonus_hp)
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
 END	// ranger_preproc
 
 

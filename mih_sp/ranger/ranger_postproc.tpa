@@ -1,6 +1,6 @@
 DEFINE_ACTION_FUNCTION ranger_postproc
 BEGIN
-  // 3.5e-stype spell table
+  // 3.5e-type spell table
 
   COPY "%MOD_FOLDER%/%component_loc%/tables/mxsplran.2da" "override"
 

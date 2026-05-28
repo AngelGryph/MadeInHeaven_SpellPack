@@ -11,6 +11,27 @@ BEGIN
   COPY_EXISTING "hpmonk.2da" "override"
     SET_2DA_ENTRY 0 1 4 6
     SET_2DA_ENTRY 0 2 4 2
+
+
+  // Give existing monks bonus HP to simulate higher dice
+
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "existing_monk_bonus_hp"
+    RET
+    existing_monk_bonus_hp	= value
+  END
+
+  COPY_EXISTING_REGEXP "^.+\.cre$" "override"
+    READ_BYTE 0x0273 class
+
+    PATCH_IF class = 20	// single-class monk
+    BEGIN
+      WRITE_SHORT 0x0024 (THIS + existing_monk_bonus_hp)
+      WRITE_SHORT 0x0026 (THIS + existing_monk_bonus_hp)
+    END
+
+    BUT_ONLY_IF_IT_CHANGES
 END	// monk_preproc
 
 
