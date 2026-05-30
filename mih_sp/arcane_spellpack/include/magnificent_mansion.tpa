@@ -67,7 +67,7 @@ END
     "%WIZARD_MORDENKAINENS_SWORD%"
   END
 
-  itm.edit[mh#amulp]
+  itm.edit[mh#ampax]
   [
     m.ab.add{s_icon := EVAL "%spells_%entry_index%%B";;s_type := "Magical";;s_location := "Item";;s_target := "Caster";;s_range = 1;;s_number_charges = 1;;s_when_drained := "Recharges";;s_usable_after_id = 1;;s_recharge_after_resting = 1;;s_projectile = 1|number:i=3}
     PHP_EACH spells AS index=>spell
