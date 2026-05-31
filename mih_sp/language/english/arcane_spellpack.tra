@@ -255,10 +255,10 @@ Level: 8
 Range: 15 ft.
 Duration: 1 round
 Casting Time: 8
-Area of Effect: 2-ft. by 15-ft. jet
+Area of Effect: 1 creature
 Saving Throw: None
 
-Upon casting this spell, the mage projects a ray of intense cold that freezes everything in its path.  Everyone and everything crossing the ray will take 1d6 points of cold damage per caster level (max. 25d6).~
+Upon casting this spell, the mage projects a ray of intense cold onto <PRO_HISHER> target, instantly freezing it solid and dealing 1d6 points of cold damage per caster level (max. 25d6).  There is no saving throw against this spell, but resistence to cold or magic resistance work normally.~
 @42   = ~Summon Marid~
 @43   = ~Summon Marid
 (Conjuration/Summoning)
@@ -493,18 +493,18 @@ Area of Effect: Special
 Saving Throw: None 
 
 Through this powerful necromantic ritual the necromancer animates the skeletal remains of soldiers slain in battle as a small squad of powerful skeleton warriors.  The spell animates two skeleton warriors at level 14, four at level 21 and finally six at level 28.~
-@90    = ~Web of Lightning~
-@91    = ~Web of Lightning
+@90    = ~Lightning Ring~
+@91    = ~Lightning Ring
 (Evocation)
 
 Level: 8
-Range: 120 ft. + 30ft./level
-Duration: Instant
+Range: 0
+Duration: 1 turn
 Casting Time: 8
-Area of Effect: Special
-Saving Throw: 1/2
+Area of Effect: The caster
+Saving Throw: None
 
-Casting this powerful and destructive spell enables the caster to throw six 7d6 lightning bolts simultaneously at up to six different targets.  The bolts behave identical to the third level spell Lightning Bolt.~
+This spell surrounds the caster with a bright white, cracking ring of lightning.  This shield not only makes the caster immune to all attacks by lightning, but also protects the caster from attacks made within a 5-ft. radius around the caster.  An opponent that hits the caster with any weapons or spells within this radius suffers 4d6 electrical damage.~
 @92    = ~Presper's Moonbow~
 @93    = ~Presper's Moonbow
 (Evocation)

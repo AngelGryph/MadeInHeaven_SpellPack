@@ -66,15 +66,13 @@ BEGIN
     ]
 
 
-    // Web of Lightning
+    // Lightning Ring
     //
-    // This spell is often used in deadly wards and traps,
-    // like those on a lich's abode.  So let's give it to
-    // to the drow lich Deirex.
+    // Rare defensive spell, let's give it to Deirdre the lich.
 
     are.edit[ar2207]
     [
-      m.container_item.add{s_resref:="%WIZARD_WEB_OF_LIGHTNING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Shelf 2"~}
+      m.container_item.add{s_resref:="%WIZARD_LIGHTNING_RING_SCROLL%" s_charges_1=1 s_charges_2=1|match_parent=~"%p_name%" == "Shelf 2"~}
     ]
 
 
@@ -108,7 +106,7 @@ BEGIN
       m.item.clone{s_resref := "%WIZARD_SUPERHEROISM_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl2b"~}
       m.item.clone{s_resref := "%WIZARD_FAERIE_SWORD_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl8n"~}
       m.item.clone{s_resref := "%WIZARD_DEVASTATE_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrlb1"~}
-      m.item.clone{s_resref := "%WIZARD_WEB_OF_LIGHTNING_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrlap"~}
+      m.item.clone{s_resref := "%WIZARD_LIGHTNING_RING_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrlap"~}
       m.item.clone{s_resref := "%WIZARD_AVISSARS_FLAMING_WEAPON_SCROLL%";;s_charges_1 = 1;;s_charges_2 = 1;;s_charges_3 = 0;;s_identified = 1;;s_number_in_stock = 2|match=~"%s_resref%"=="scrl9p"~}
     ]
   END	// is_bg2

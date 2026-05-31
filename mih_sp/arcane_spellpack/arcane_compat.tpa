@@ -6,11 +6,12 @@ BEGIN
     // Barrier
     // Devastate
     // Foresight
+    // Lightning Ring
     // Seeking
     //
     // EE has a better way of dealing with self-stacking.
 
-    spl.edit[%WIZARD_ALACRITY% %WIZARD_BARRIER% %WIZARD_FORESIGHT%]
+    spl.edit[%WIZARD_ALACRITY% %WIZARD_BARRIER% %WIZARD_FORESIGHT% %WIZARD_LIGHTNING_RING%]
     [
       m.ab_fx.add{s_opcode = 321;;s_timing := "InstantPermanent";;s_target := "self";;s_resource := "%sfo_filename%"|insert_point:i=0}
       m.ab_fx.delete{s_opcode = 206}
@@ -50,11 +51,10 @@ BEGIN
   BEGIN
     // Scintillating Sphere
     // Spark Shower
-    // Web of Lightning
     //
     // oBG2 did not have a save for half damage flag
 
-    spl.edit[%WIZARD_SCINTILLATING_SPHERE% %WIZARD_SPARK_SHOWER% mh#wblit]
+    spl.edit[%WIZARD_SCINTILLATING_SPHERE% %WIZARD_SPARK_SHOWER%]
     [
       m.ab_fx.alter{s_dicenumber /= 2|match="s_opcode = 12"}
       m.ab_fx.clone{s_dicenumber += (p_level MODULO 2);;s_save_vs_spell = 0;;s_save_vs_breath = 0;;s_save_vs_poison = 0;;s_save_vs_wand = 0;;s_save_vs_polymorph = 0|match="s_opcode = 12"}
