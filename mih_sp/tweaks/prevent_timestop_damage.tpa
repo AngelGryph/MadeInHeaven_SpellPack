@@ -2,29 +2,29 @@ DEFINE_ACTION_FUNCTION prevent_timestop_damage
 BEGIN
   spl.edit[spwi909 spwish17]
   [
-    m.ab_fx.alter{s_opcode=33 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=34 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=35 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=36 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=37 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=27 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=28 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=29 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=30 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=31 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=84 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=85 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=86 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=87 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=88 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=89 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=166 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=173 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=13|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=55|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=134|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=209|match="s_opcode=231"}
-    m.ab_fx.alter{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=238|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=33 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=34 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=35 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=36 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=37 s_duration=s_duration/2 s_target=8 s_parameter1=20 s_parameter2=0|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=27 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=28 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=29 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=30 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=31 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=84 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=85 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=86 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=87 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=88 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=89 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=166 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=173 s_duration=s_duration/2 s_target=8 s_parameter1=100 s_parameter2=1|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=13|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=55|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=134|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=209|match="s_opcode=231"}
+    m.ab_fx.clone{s_opcode=101 s_duration=s_duration/2 s_target=8 s_parameter1=0 s_parameter2=238|match="s_opcode=231"}
   ]
 END	// prevent_timestop_damage
 
