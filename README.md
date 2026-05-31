@@ -37,8 +37,14 @@ For detailed descriptions, please check the docs directory.
 
 ## Version History
 
-Version 7 - December 27 2025
+Version 8 - May 31 2026
+- Bug fix release, thanks to testing by Lumorus and others on G3.
+- Marked Time Stop tweaks as a work in progress.
+- Replaced Web of Lightning with Lightning Ring.
+- Updated several icons, thanks to Zenblack.
+- Added Animal Growth for druids.
 
+Version 7 - December 27 2025
 - Added fourth level Animate Dead for Wizards availability tweak.
 - All spells now have proper icons thanks to Zenblack.
 - Added new Ranger Powers component.
