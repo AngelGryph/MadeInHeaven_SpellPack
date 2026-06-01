@@ -5,6 +5,7 @@ WIZARD_SPARK_SHOWER			2	0	1	wizard	n	y	*
 WIZARD_SEEKING				2	2	3	wizard	n	y	*
 WIZARD_SUMMON_CATS			2	67	68	wizard	n	y	*
 WIZARD_THREESTONES			2	34	35	wizard	n	y	*
+WIZARD_FOOLS_GOLD			2	94	95	wizard	n	y	*
 WIZARD_IMPROVED_MAGIC_MISSILE		3	4	5	wizard	n	y	*
 WIZARD_HEROISM				3	6	7	wizard	n	y	*
 WIZARD_BLINK				3	8	9	wizard	n	y	*

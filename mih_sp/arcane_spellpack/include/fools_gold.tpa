@@ -1,0 +1,28 @@
+DEFINE_ACTION_FUNCTION fools_gold
+BEGIN
+  LAUNCH_ACTION_FUNCTION check_ini
+    STR_VAR
+    ini		= "fools_gold_detection_chance"
+    RET
+    fools_gold_detection_chance	= value
+  END
+
+  OUTER_SET fools_gold_detection_chance_complement = 100 - fools_gold_detection_chance
+
+  LAUNCH_ACTION_FUNCTION extend_worldscripts
+    STR_VAR
+    location	= "scripts"
+    bottom	= "fools_gold"
+  END
+
+
+  // For testing
+
+  itm.edit[%WIZARD_FOOLS_GOLD_SCROLL%]
+  [
+    m_unusable_paladin = 0
+    m_unusable_cavalier = 0
+  ]
+END	// fools_gold
+
+

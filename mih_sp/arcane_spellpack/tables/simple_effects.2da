@@ -10,5 +10,6 @@ mh#gustc	165	0		0		0		0		0	0	NONE		NONE
 mh#sunbu	12	0		0x00080000	0		0		8	6	NONE		NONE
 mh#avflm	12	0		0x00080000	0		0		2	8	NONE		NONE
 mh#ltrng	232	1		0		0		0		0	0	mh#ltrng	NONE
+mh#flgld	265	1		1		0		0		0	0	MH#FOOLS	_GOLD
 
 

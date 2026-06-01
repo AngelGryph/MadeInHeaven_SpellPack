@@ -1,0 +1,27 @@
+IF
+  GlobalGT("mh#fools_gold", "GLOBAL", 0)
+  Global("mh#fools_gold_detected", "GLOBAL", 0)
+THEN
+  RESPONSE #%fools_gold_detection_chance%
+    SetInterrupt(FALSE)
+    SetGlobal("mh#fools_gold", "GLOBAL", 0)
+    SetGlobal("mh#fools_gold_detected", "GLOBAL", 1)
+    SetGlobalTimer("mh#fools_gold_timer", "GLOBAL", ONE_DAY)
+    SetInterrupt(TRUE)
+  RESPONSE #%fools_gold_detection_chance_complement%
+    IncrementGlobal("mh#fools_gold", "GLOBAL", -1)
+END
+
+IF
+  GlobalGT("mh#fools_gold_detected", "GLOBAL", 0)
+  GlobalTimerExpired("mh#fools_gold_timer", "GLOBAL")
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("mh#fools_gold_detected", "GLOBAL", 0)
+    DisplayStringHead(Player1, @96)
+    ReputationInc(-2)
+    SetInterrupt(TRUE)
+END
+
+

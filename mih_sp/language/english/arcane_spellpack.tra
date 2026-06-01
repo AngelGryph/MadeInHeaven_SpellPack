@@ -517,5 +517,18 @@ Area of Efect: The caster
 Saving Throw: None
 
 This spell creates several glowing motes of moonlight which the caster can throw at <PRO_HISHER> enemies with a +3 bonus to hit.  Upon impact, each mote deals 4d6 points of electrical damage with no saving throw allowed.  The caster gets one mote at level 9, and an additional mote for every 3 levels after that.  Up to two motes can be thrown per round.~
+@94    = ~Fool's Gold~
+@95    = ~Fool's Gold
+(Illusion)
+
+Level: 2
+Range: Touch
+Duration: Special
+Casting Time: 9
+Area of Effect: Special
+Saving Throw: Special
+
+This illusionary spell makes worthless junk look like valuable gold pieces, but close up scrutiny or just plain bad luck can reveal the ruse.  Frequent use of this spell is very risky and can get the caster in trouble with law enforcement or irrate shopkeeps who don't appreciate being swindled!~
+@96    = ~Your use of Fool's Gold has caught up with you!~
 
 
