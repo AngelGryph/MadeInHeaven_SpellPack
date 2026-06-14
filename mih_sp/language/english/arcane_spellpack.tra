@@ -1,6 +1,6 @@
 @0    = ~Spark Shower~
 @1    = ~Spark Shower
-(Invocation/Evocation)
+(Evocation)
 
 Level: 2
 Range: Visual range of the caster
@@ -24,7 +24,7 @@ Saving Throw: None
 This spell slightly twists the normal laws of momentum and gravity in the recipient's favor, making <PRO_HISHER> arrows, bolts or other projectiles veer towards their intended target, even dodging around obstacles if needed.  For the duration, the recipient has a +4 bonus on all to-hit rolls with ranged weapons.~
 @4    = ~Improved Magic Missile~
 @5    = ~Improved Magic Missile
-(Invocation/Evocation)
+(Evocation)
 
 Level: 3
 Range: Visual range of the caster
@@ -60,7 +60,7 @@ Saving Throw: None
 Upon casting this spell, the caster starts rapidly winking in- and out of existence, making it difficult to engage <PRO_HIMHER> in melee.  However, the caster has no control over where and when <PRO_HESHE> winks into existence, making it more difficult to strike opponents and possibly placing <PRO_HIMHER> in a dangerous situation.~
 @10   = ~Scintillating Sphere~
 @11   = ~Scintillating Sphere
-(Invocation/Evocation)
+(Evocation)
 
 Level: 3
 Range: 40 ft.
@@ -84,7 +84,7 @@ Saving Throw: None
 The spell allows the caster to adversely affect all the Saving Throws of <PRO_HISHER> enemies. The effect is applied to all hostile creatures within the area of effect. Opponents under the influence of this spell make all Saving Throws at a penalty of -2.~
 @14   = ~Iron Maiden~
 @15   = ~Iron Maiden
-(Invocation/Evocation)
+(Evocation)
 
 Level: 4
 Range: Visual range of the caster
@@ -156,7 +156,7 @@ Saving Throw: None
 This spell causes the recipient's life energy to surge, making <PRO_HIMHER> perform at a higher level than <PRO_HESHE> actually is.  Base THAC0 is improved by 20%, and the recipient's hit points are raised by 20%, this may cause the recipient to have more hit points than <PRO_HISHER> current maximum.  Any damage taken reduces these magically gained hit points first, if any remain after the spell expires these will be lost, but the recipient will not take any additional damage.  In addition to this, the spike of positive energy will render the recipient immune to fear and energy drain for the duration of the spell.~
 @26   = ~Simbul's Spell Matrix~
 @27   = ~Simbul's Spell Matrix
-(Invocation/Evocation)
+(Evocation)
 
 Level: 5
 Range: 0
@@ -196,7 +196,7 @@ If two or more charm effects simultaneously affect a creature, the most recent c
 Also note that you cannot have a charmed creature leave the area where <PRO_HESHE> was charmed.~
 @32   = ~Faerie Sword~
 @33   = ~Faerie Sword
-(Invocation/Evocation)
+(Evocation)
 
 Level: 7
 Range: 0
@@ -249,7 +249,7 @@ Saving Throw: None
 This spell creates an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd-, 4th-, or 5th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the Major Globe of Invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. 6th- and higher level spells are not affected by the globe, and magical attacks of 6th-level or higher, such as Spellstrike and Pierce Magic, can bring it down.~
 @40   = ~Polar Ray~
 @41   = ~Polar Ray
-(Invocation/Evocation)
+(Evocation)
 
 Level: 8
 Range: 15 ft.
@@ -394,7 +394,7 @@ Saving Throw: None
 Casting this spell grants the caster a powerful sixth sense for danger.  While the spell is active, <PRO_HESHE> will instinctively know when an attack is coming and what action to take (jumping, ducking to the side, closing one's eyes etc) to best avoid the attack.  Therefor, <PRO_HESHE> cannot be backstabbed and gains a +4 bonus to armor class and saving throws versus wand, -spell and -breath for the duration of the spell.~
 @65   = ~Shooting Stars~
 @66   = ~Shooting Stars
-(Invocation/Evocation)
+(Evocation)
 
 Level: 8
 Range: 70 yds
@@ -530,5 +530,20 @@ Saving Throw: Special
 
 This illusionary spell makes worthless junk look like valuable gold pieces, but close up scrutiny or just plain bad luck can reveal the ruse.  Frequent use of this spell is very risky and can get the caster in trouble with law enforcement or irrate shopkeeps who don't appreciate being swindled!~
 @96    = ~Your use of Fool's Gold has caught up with you!~
+//@97    = ~~
+//@98    = ~~
+//@99    = ~~
+@100   = ~Absolute Zero~
+@101   = ~Absolute Zero
+(Evocation)
+
+Level: 9
+Range: 0
+Duration: Instant
+Casting Time: 6
+Area of Effect: 18-ft. radius
+Saving Throw: None
+
+Upon casting this spell, a wave of intense cold emanates from the caster outwards, freezing <PRO_HISHER> enemies for 1d8+2 damage per two caster levels and slowing them for three rounds with no saving throw.  The caster and <PRO_HISHER> allies are never harmed by this spell.~
 
 
