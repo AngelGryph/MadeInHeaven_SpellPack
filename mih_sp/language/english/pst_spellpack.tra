@@ -1,6 +1,6 @@
 @0    = ~Ball Lightning~
 @1    = ~Ball Lightning
-(Invocation/Evocation)
+(Evocation)
 
 Level: 3
 Range: 50 yds.
@@ -12,7 +12,7 @@ Saving Throw: 1/2
 This spell creates glowing, floating orbs of electrical energy that unerringly seek out targets designated by the caster.  The caster gains one orb for every five levels up to four at level 20.  Each orb can be targeted at a different creature.  Upon contact with the target, it deals 4d12 points of electrical damage and disappears.~
 @2    = ~Stygian Ice Storm~
 @3    = ~Stygian Ice Storm
-(Invocation/Evocation)
+(Evocation)
 
 Level: 7
 Range: Visual range of the caster
@@ -54,7 +54,7 @@ The true, logical justice of Primus shall be delivered unto the illogical, as pu
 This spell summons the ultimate form of 'equalization' from Primus: A huge energy blast that comes from the very heart of Mechanus and fires toward the target specified by the caster, via a portal. A temporary portal will appear 10 ft. from the target and Mechanus' Logical Justice will be handed down, inflicting 20d4+10 points of magical damage, with no saving throw.~
 @8    = ~Rune of Torment~
 @9    = ~Rune of Torment
-(Invocation/Evocation)
+(Evocation)
 
 Level: 9
 Range: 0
