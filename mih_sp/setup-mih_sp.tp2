@@ -30,7 +30,7 @@ BEGIN @1
 
 LABEL MH#-MiH_SP-Arcane_Spellpack
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -45,7 +45,7 @@ BEGIN @20
 
 LABEL MH#-MiH_SP-IWD_Arcane_Spells
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -60,7 +60,7 @@ BEGIN @2
 
 LABEL MH#-MiH_SP-Divine_Spellpack
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -75,7 +75,7 @@ BEGIN @21
 
 LABEL MH#-MiH_SP-IWD_Divine_Spells
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -90,7 +90,7 @@ BEGIN @18
 
 LABEL MH#-MiH_SP-PST_Spells
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -105,7 +105,7 @@ BEGIN @3
 
 LABEL MH#-MiH_SP-Paladin_Powers
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -120,7 +120,7 @@ BEGIN @19
 
 LABEL MH#-MiH_SP-Ranger_Powers
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -135,7 +135,7 @@ BEGIN @25
 
 LABEL MH#-MiH_SP-Monk_Powers
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -150,7 +150,7 @@ BEGIN @16
 
 LABEL MH#-MiH_SP-Bard_Powers
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -165,7 +165,7 @@ BEGIN @17
 
 LABEL MH#-MiH_SP-Bhaalspawn_Powers
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -180,7 +180,7 @@ BEGIN @4
 
 LABEL MH#-MiH_SP-Specialist_Perks
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -198,7 +198,7 @@ BEGIN @27
 
 LABEL MH#-MiH_SP-NPC_Spells
 
-REQUIRE_PREDICATE GAME_IS "bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -216,7 +216,7 @@ BEGIN @7
 
 LABEL MH#-MiH_SP-Epic_Spellpack
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -232,7 +232,7 @@ GROUP @5
 
 LABEL mh#-MiH_SP-Nerf_Sleep_Spell
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -249,7 +249,7 @@ GROUP @5
 
 LABEL mh#-MiH_SP-Deeper_Fear
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -265,7 +265,7 @@ GROUP @5
 
 LABEL MH#-MiH_SP-True_Meteor_Swarm
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -281,7 +281,7 @@ GROUP @5
 
 LABEL MH#-MiH_SP-No_Damage_Timestop
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -297,7 +297,7 @@ GROUP @5
 
 LABEL MH#-MiH_SP-No_Timestop_Immunity
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -313,7 +313,7 @@ GROUP @5
 
 LABEL MH#-MiH_SP-Spell_Improvements
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -330,7 +330,7 @@ GROUP @15
 
 LABEL MH#-MiH_SP-Revised_Spell_Learning_XP
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -346,7 +346,7 @@ GROUP @15
 
 LABEL MH#-MiH_SP-Expanded_Temples
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -362,7 +362,7 @@ GROUP @15
 
 LABEL MH#-MiH_SP-SoD_6th_Level_Spells
 
-REQUIRE_PREDICATE GAME_IS "sod" @10
+REQUIRE_PREDICATE GAME_INCLUDES "sod" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
@@ -378,7 +378,7 @@ GROUP @15
 
 LABEL MH#-MiH_SP-4th_Level_Animate_Dead
 
-REQUIRE_PREDICATE GAME_IS "bg2 bgt bgee bg2ee" @10
+REQUIRE_PREDICATE GAME_IS "tob bgt bgee bg2ee eet" @10
 
 LAUNCH_ACTION_FUNCTION run
   STR_VAR
